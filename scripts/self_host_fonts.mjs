@@ -8,7 +8,7 @@ const remoteCssPath = path.join(fontsDir, 'liora-fonts.remote.css');
 const localCssPath = path.join(fontsDir, 'liora-fonts.css');
 
 const pages = [
-  'Liora_Living_COLOR_SKETCH_HOME.html',
+  'nueva-living-home.html',
   'liora-about.html',
   'liora-access.html',
   'liora-advisory.html',
@@ -41,7 +41,7 @@ for (const url of urls) {
   css = css.replaceAll(url, `./${filename}`);
 }
 
-css = `/* Self-hosted Liora Living font package.
+css = `/* Self-hosted Nueva Living font package.
    Source families: Cinzel, Cormorant Garamond, Montserrat.
    Regenerate with scripts/self_host_fonts.mjs after refreshing liora-fonts.remote.css. */
 

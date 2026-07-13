@@ -1,14 +1,14 @@
 (() => {
   const site = {
     whatsappNumber: '34600000000',
-    brand: 'Liora Living',
-    crmWebhookUrl: window.LIORA_CRM_WEBHOOK_URL || '/.netlify/functions/liora-lead'
+    brand: 'Nueva Living',
+    crmWebhookUrl: window.NUEVA_CRM_WEBHOOK_URL || '/.netlify/functions/liora-lead'
   };
 
   const params = new URLSearchParams(window.location.search);
-  const pageTitle = document.title.replace(/\s*\|\s*Liora Living\s*$/i, '').trim();
+  const pageTitle = document.title.replace(/\s*\|\s*Nueva Living\s*$/i, '').trim();
   const pagePath = window.location.pathname || '/';
-  const pageContext = document.body?.dataset?.projectName || params.get('project') || pageTitle || 'Liora Living enquiry';
+  const pageContext = document.body?.dataset?.projectName || params.get('project') || pageTitle || 'Nueva Living enquiry';
   const intentFromUrl = params.get('intent') || '';
 
   window.dataLayer = window.dataLayer || [];
@@ -64,7 +64,7 @@
       ...payload
     };
     window.dataLayer.push(detail);
-    window.dispatchEvent(new CustomEvent('liora:track', { detail }));
+    window.dispatchEvent(new CustomEvent('nueva:track', { detail }));
   }
 
   function whatsappUrl(message) {
@@ -73,7 +73,7 @@
 
   function advisorMessage(context = pageContext, intent = 'speak with an advisor') {
     const subject = clean(context) || site.brand;
-    return `Hello Liora Living, I would like to ${intent} about ${subject}.`;
+    return `Hello Nueva Living, I would like to ${intent} about ${subject}.`;
   }
 
   function ensureHidden(form, name, value) {
@@ -99,7 +99,7 @@
     const message = readField(form, 'textarea[name="message"], textarea, [name="message"]');
 
     return {
-      source: 'liora-living',
+      source: 'nueva-living',
       brand: site.brand,
       form_name: formName,
       lead_context: clean(requestContext),

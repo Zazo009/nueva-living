@@ -5,7 +5,7 @@ import path from 'node:path';
 const root = process.cwd();
 
 const pages = [
-  'Liora_Living_COLOR_SKETCH_HOME.html',
+  'nueva-living-home.html',
   'liora-about.html',
   'liora-access.html',
   'liora-advisory.html',
@@ -18,7 +18,7 @@ const pages = [
   'property-altos-de-marbella.html',
 ];
 
-const homepage = path.join(root, 'Liora_Living_COLOR_SKETCH_HOME.html');
+const homepage = path.join(root, 'nueva-living-home.html');
 let homeHtml = fs.readFileSync(homepage, 'utf8');
 
 const replacements = new Map([

@@ -1,4 +1,4 @@
-# Liora Property Page Builder
+# Nueva Property Page Builder
 
 Create one folder per project:
 
@@ -17,7 +17,7 @@ Then run:
 node scripts/build_property_pages.mjs
 ```
 
-The builder writes `property-*.html` pages and refreshes the managed project cards in `liora-developments.html` using the existing Liora shared CSS and JS:
+The builder writes `property-*.html` pages and refreshes the managed project cards in `liora-developments.html` using the existing Nueva shared CSS and JS:
 
 - `assets/liora/liora-pages.css`
 - `assets/liora/liora-property.css`

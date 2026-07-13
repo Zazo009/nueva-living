@@ -1,6 +1,6 @@
 const DEFAULT_ALLOWED_ORIGINS = [
-  'https://liora-living.com',
-  'https://www.liora-living.com',
+  'https://nueva-living.com',
+  'https://www.nueva-living.com',
 ];
 
 function response(statusCode, body, origin = '') {
@@ -61,7 +61,7 @@ exports.handler = async (event) => {
 
   const enrichedLead = {
     ...lead,
-    source: lead.source || 'liora-living',
+    source: lead.source || 'nueva-living',
     received_at: new Date().toISOString(),
     metadata: {
       ...(lead.metadata || {}),
@@ -77,7 +77,7 @@ exports.handler = async (event) => {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${webhookSecret}`,
-        'X-Liora-Webhook-Secret': webhookSecret,
+        'X-Nueva-Webhook-Secret': webhookSecret,
       },
       body: JSON.stringify(enrichedLead),
     });

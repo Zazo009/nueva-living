@@ -4,9 +4,9 @@ import path from 'node:path';
 const projectsDir = path.resolve('content/liora-projects');
 const conventionalImageDir = 'assets/liora/projects';
 const developmentsPage = path.resolve('liora-developments.html');
-const generatedProjectsStart = '<!-- LIORA GENERATED PROJECTS START -->';
-const generatedProjectsEnd = '<!-- LIORA GENERATED PROJECTS END -->';
-const siteUrl = 'https://liora-living.com';
+const generatedProjectsStart = '<!-- NUEVA GENERATED PROJECTS START -->';
+const generatedProjectsEnd = '<!-- NUEVA GENERATED PROJECTS END -->';
+const siteUrl = 'https://nueva-living.com';
 
 function esc(value = '') {
   return String(value)
@@ -173,7 +173,7 @@ function locationMap(project) {
 function whatsappHref(project) {
   const rawNumber = project.contact?.whatsappNumber || '34600000000';
   const number = String(rawNumber).replace(/[^\d]/g, '');
-  const message = project.contact?.whatsappMessage || `Hello Liora Living, I would like to speak with an advisor about ${project.name}.`;
+  const message = project.contact?.whatsappMessage || `Hello Nueva Living, I would like to speak with an advisor about ${project.name}.`;
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
 
@@ -228,8 +228,8 @@ function renderTimelineItems(items = []) {
 
 function nav() {
   return `<nav class="site-nav">
-    <a class="nav-logo" href="index.html" aria-label="Liora Living home">
-      <img src="assets/liora/brand/liora-living-modern-clean-reverse-transparent.svg" alt="Liora Living" width="960" height="220">
+    <a class="nav-logo" href="index.html" aria-label="Nueva Living home">
+      <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
     <div class="nav-links">
       <a href="liora-approach.html">Approach</a>
@@ -258,7 +258,7 @@ function footer(project) {
   return `<footer>
     <div class="footer-grid">
       <div>
-        <img class="footer-logo" src="assets/liora/brand/liora-living-modern-primary-reverse-transparent.svg?v=3" alt="Liora Living" width="1040" height="300" loading="lazy" decoding="async">
+        <img class="footer-logo" src="assets/liora/brand/nueva-living-lockup-espresso-transparent.png?v=7" alt="Nueva Living" width="700" height="340" loading="lazy" decoding="async">
         <p class="footer-about">A specialist advisory firm focused exclusively on new-build and off-plan property across the Costa del Sol. Serving international buyers with clarity and confidence.</p>
       </div>
       <div class="footer-col">
@@ -285,7 +285,7 @@ function footer(project) {
       <div class="footer-col">
         <div class="footer-col-title">Contact</div>
         <ul>
-          <li><a href="mailto:contact@liora-living.com">contact@liora-living.com</a></li>
+          <li><a href="mailto:contact@nueva-living.com">contact@nueva-living.com</a></li>
           <li><a href="liora-areas.html#marbella">Marbella, Spain</a></li>
         </ul>
         <div class="footer-col-title" style="margin-top:24px;">Legal</div>
@@ -298,7 +298,7 @@ function footer(project) {
     </div>
     <div class="footer-bottom">
       <p>Information presented on this website is for general marketing purposes only and does not constitute legal, financial or investment advice. Development details, prices, availability and delivery dates are subject to change without notice.</p>
-      <span>&copy; 2026 Liora Living</span>
+      <span>&copy; 2026 Nueva Living</span>
     </div>
   </footer>`;
 }
@@ -338,14 +338,14 @@ function renderProject(project) {
     headlineHtml: 'Indicative buyer <em>sequence</em>',
     items: []
   };
-  const schemaUrl = project.canonical || `https://liora-living.com/${project.output}`;
+  const schemaUrl = project.canonical || `https://nueva-living.com/${project.output}`;
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: project.name,
     description: project.description,
     category: project.schema?.category || 'New development residences',
-    brand: { '@type': 'Brand', name: 'Liora Living' },
+    brand: { '@type': 'Brand', name: 'Nueva Living' },
     offers: {
       '@type': 'Offer',
       priceCurrency: project.schema?.priceCurrency || 'EUR',
@@ -358,9 +358,9 @@ function renderProject(project) {
   const agentSchema = {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
-    name: 'Liora Living',
+    name: 'Nueva Living',
     url: `${siteUrl}/`,
-    email: 'contact@liora-living.com',
+    email: 'contact@nueva-living.com',
     areaServed: 'Costa del Sol'
   };
 
@@ -369,21 +369,21 @@ function renderProject(project) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(project.name)} | Liora Living</title>
+  <title>${esc(project.name)} | Nueva Living</title>
   <meta name="description" content="${esc(project.seoDescription || project.description)}">
   <link rel="canonical" href="${esc(project.canonical || '')}">
-  <meta property="og:title" content="${esc(project.name)} | Liora Living">
+  <meta property="og:title" content="${esc(project.name)} | Nueva Living">
   <meta property="og:description" content="${esc(project.description)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${esc(project.canonical || '')}">
   <meta property="og:image" content="${esc(assetUrl(heroImage.src))}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${esc(project.name)} | Liora Living">
+  <meta name="twitter:title" content="${esc(project.name)} | Nueva Living">
   <meta name="twitter:description" content="${esc(project.twitterDescription || project.description)}">
   <meta name="twitter:image" content="${esc(assetUrl(heroImage.src))}">
-  <link rel="icon" href="assets/liora/liora-favicon-512.png?v=2" type="image/png" sizes="512x512">
-  <link rel="icon" href="assets/liora/favicon-32.png?v=2" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=2" sizes="180x180">
+  <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
+  <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css">
   <link rel="stylesheet" href="assets/liora/liora-property.css">
@@ -683,7 +683,7 @@ ${JSON.stringify(agentSchema, null, 2)}
             </div>
             <label class="consent-row field full" for="f-consent">
               <input id="f-consent" name="consent" type="checkbox" required>
-              <span>I consent to Liora Living contacting me about this project request. Information is handled with discretion.</span>
+              <span>I consent to Nueva Living contacting me about this project request. Information is handled with discretion.</span>
             </label>
           </div>
           <div class="form-submit" style="margin-top:26px;">
@@ -778,7 +778,7 @@ function updateDevelopmentsPage(projects) {
   const end = html.indexOf(generatedProjectsEnd);
 
   if (start === -1 || end === -1 || end < start) {
-    throw new Error('liora-developments.html is missing LIORA GENERATED PROJECTS markers.');
+    throw new Error('liora-developments.html is missing NUEVA GENERATED PROJECTS markers.');
   }
 
   const lineStart = html.lastIndexOf('\n', start) + 1;

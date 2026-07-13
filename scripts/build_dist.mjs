@@ -19,26 +19,26 @@ const htmlFiles = [
   'thank-you.html',
 ];
 
-const siteUrl = 'https://liora-living.com';
+const siteUrl = 'https://nueva-living.com';
 const socialImage = `${siteUrl}/assets/liora/viewing/scene-08.jpg`;
 const pageMeta = {
   'index.html': {
-    title: 'Liora Living | Curated Costa del Sol New Developments',
+    title: 'Nueva Living | Curated Costa del Sol New Developments',
     description: 'Private new-development advisory for design-led residences across Marbella, Estepona, Benahavis and the wider Costa del Sol.',
     path: '/',
     type: 'website',
     schema: {
       '@context': 'https://schema.org',
       '@type': 'RealEstateAgent',
-      name: 'Liora Living',
+      name: 'Nueva Living',
       url: siteUrl,
-      email: 'contact@liora-living.com',
+      email: 'contact@nueva-living.com',
       areaServed: ['Marbella', 'Estepona', 'Benahavis', 'Costa del Sol'],
       knowsAbout: ['New developments', 'Off-plan property', 'Luxury real estate advisory']
     }
   },
   'liora-developments.html': {
-    title: 'Costa del Sol New Developments | Liora Living',
+    title: 'Costa del Sol New Developments | Nueva Living',
     description: 'Explore curated Costa del Sol new developments selected for architecture, lifestyle, location logic and long-term value.',
     path: '/liora-developments.html',
     type: 'website',
@@ -57,66 +57,66 @@ const pageMeta = {
     type: 'website'
   },
   'liora-areas.html': {
-    title: 'Costa del Sol Area Guide | Liora Living',
+    title: 'Costa del Sol Area Guide | Nueva Living',
     description: 'A refined Costa del Sol area guide for new-development buyers comparing Marbella, Estepona, Benahavis, Nueva Andalucia and surrounding areas.',
     path: '/liora-areas.html',
     type: 'article'
   },
   'liora-approach.html': {
-    title: 'New Development Advisory Approach | Liora Living',
-    description: 'How Liora Living structures a clearer, more selective advisory process for Costa del Sol new-development buyers.',
+    title: 'New Development Advisory Approach | Nueva Living',
+    description: 'How Nueva Living structures a clearer, more selective advisory process for Costa del Sol new-development buyers.',
     path: '/liora-approach.html',
     type: 'article'
   },
   'liora-advisory.html': {
-    title: 'Costa del Sol Buyer Advisory | Liora Living',
+    title: 'Costa del Sol Buyer Advisory | Nueva Living',
     description: 'Buyer-focused advisory for evaluating Costa del Sol new developments, developer context, reservation strategy and long-term lifestyle logic.',
     path: '/liora-advisory.html',
     type: 'article'
   },
   'liora-about.html': {
-    title: 'About Liora Living | Costa del Sol New Development Advisory',
-    description: 'Liora Living is a Costa del Sol new-development advisory brand focused on curated access, discretion and clear buyer guidance.',
+    title: 'About Nueva Living | Costa del Sol New Development Advisory',
+    description: 'Nueva Living is a Costa del Sol new-development advisory brand focused on curated access, discretion and clear buyer guidance.',
     path: '/liora-about.html',
     type: 'website'
   },
   'liora-access.html': {
-    title: 'Request Private Access | Liora Living',
+    title: 'Request Private Access | Nueva Living',
     description: 'Request a private shortlist of curated Costa del Sol new-development opportunities matched to your brief, area preferences and ownership goals.',
     path: '/liora-access.html',
     type: 'website'
   },
   'liora-privacy-policy.html': {
-    title: 'Privacy Policy | Liora Living',
-    description: 'Privacy policy information for Liora Living enquiries, buyer communication and website contact forms.',
+    title: 'Privacy Policy | Nueva Living',
+    description: 'Privacy policy information for Nueva Living enquiries, buyer communication and website contact forms.',
     path: '/liora-privacy-policy.html',
     robots: 'noindex,follow',
     type: 'website'
   },
   'liora-legal-notice.html': {
-    title: 'Legal Notice | Liora Living',
-    description: 'Legal notice and website-use information for Liora Living.',
+    title: 'Legal Notice | Nueva Living',
+    description: 'Legal notice and website-use information for Nueva Living.',
     path: '/liora-legal-notice.html',
     robots: 'noindex,follow',
     type: 'website'
   },
   'liora-cookie-policy.html': {
-    title: 'Cookie Policy | Liora Living',
-    description: 'Cookie policy information for the Liora Living website.',
+    title: 'Cookie Policy | Nueva Living',
+    description: 'Cookie policy information for the Nueva Living website.',
     path: '/liora-cookie-policy.html',
     robots: 'noindex,follow',
     type: 'website'
   },
   'thank-you.html': {
-    title: 'Request Received | Liora Living',
-    description: 'Thank you for contacting Liora Living. Your private new-development request has been received.',
+    title: 'Request Received | Nueva Living',
+    description: 'Thank you for contacting Nueva Living. Your private new-development request has been received.',
     path: '/thank-you.html',
     robots: 'noindex,follow',
     type: 'website'
   },
   '404.html': {
-    title: 'Page Not Found | Liora Living',
-    description: 'The requested Liora Living page could not be found.',
+    title: 'Page Not Found | Nueva Living',
+    description: 'The requested Nueva Living page could not be found.',
     path: '/404.html',
     robots: 'noindex,follow',
     type: 'website'
@@ -131,13 +131,17 @@ const assetFiles = [
   'assets/liora/liora-discovery.js',
   'assets/liora/liora-conversion.js',
   'assets/liora/liora-favicon-512.png',
-  'assets/liora/liora-monogram.svg',
   'assets/liora/liora-pages.css',
   'assets/liora/liora-property.css',
   'assets/liora/liora-property.js',
-  'assets/liora/brand/liora-living-modern-clean-reverse-transparent.svg',
-  'assets/liora/brand/liora-living-modern-primary-reverse-transparent.svg',
-  'assets/liora/brand/liora-living-modern-primary.svg',
+  'assets/liora/brand/nueva-living-hero-logo.png',
+  'assets/liora/brand/nueva-living-hero-logo-sand.png',
+  'assets/liora/brand/nueva-living-lockup-espresso.png',
+  'assets/liora/brand/nueva-living-lockup-sand.png',
+  'assets/liora/brand/nueva-living-hero-logo-transparent.png',
+  'assets/liora/brand/nueva-living-hero-logo-sand-transparent.png',
+  'assets/liora/brand/nueva-living-lockup-espresso-transparent.png',
+  'assets/liora/brand/nueva-living-lockup-sand-transparent.png',
   'assets/vendor/gsap/gsap.min.js',
   'assets/vendor/gsap/ScrollTrigger.min.js',
 ];
@@ -175,7 +179,7 @@ function seoBlock(file) {
   const lines = [
     `<link rel="canonical" href="${escapeHtml(url)}">`,
     meta.robots ? `<meta name="robots" content="${escapeHtml(meta.robots)}">` : '',
-    `<meta property="og:site_name" content="Liora Living">`,
+    `<meta property="og:site_name" content="Nueva Living">`,
     `<meta property="og:locale" content="en_US">`,
     `<meta property="og:type" content="${escapeHtml(meta.type || 'website')}">`,
     `<meta property="og:title" content="${escapeHtml(meta.title)}">`,
@@ -208,7 +212,7 @@ function injectSeo(html, file) {
   let next = stripSeo(html)
     .replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeHtml(meta.title)}</title>`)
     .replace(/<meta name="description" content="[^"]*"\s*\/?>/i, `<meta name="description" content="${escapeHtml(meta.description)}">`)
-    .replace(/Liora_Living_COLOR_SKETCH_HOME\.html/g, 'index.html');
+    .replace(/nueva-living-home\.html/g, 'index.html');
 
   if (!next.includes('assets/fonts/google/liora-fonts.css')) {
     next = next.replace(
@@ -265,7 +269,7 @@ for (const file of htmlFiles) {
 }
 
 writeHtml(
-  path.join(root, 'Liora_Living_COLOR_SKETCH_HOME.html'),
+  path.join(root, 'nueva-living-home.html'),
   path.join(dist, 'index.html'),
   'index.html',
 );
@@ -278,7 +282,13 @@ for (const directory of assetDirectories) {
   copyDirectory(path.join(root, directory), path.join(dist, directory));
 }
 
-const metadata = `# Liora Living deploy package
+for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
+  if (/\s[23](?:\..*)?$/.test(entry.name)) {
+    fs.rmSync(path.join(dist, entry.name), { recursive: true, force: true });
+  }
+}
+
+const metadata = `# Nueva Living deploy package
 
 Generated: ${new Date().toISOString()}
 
@@ -317,7 +327,7 @@ fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="
 
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
 
-fs.writeFileSync(path.join(dist, '_redirects'), `/Liora_Living_COLOR_SKETCH_HOME.html /index.html 301\n/* /404.html 404\n`);
+fs.writeFileSync(path.join(dist, '_redirects'), `/* /404.html 404\n`);
 
 fs.writeFileSync(path.join(dist, '_headers'), `/*.html
   Cache-Control: public, max-age=0, must-revalidate
