@@ -8,8 +8,7 @@ const generatedProjectsStart = '<!-- NUEVA GENERATED PROJECTS START -->';
 const generatedProjectsEnd = '<!-- NUEVA GENERATED PROJECTS END -->';
 const siteUrl = 'https://nueva-living.com';
 const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>`;
+  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>`;
 
 function esc(value = '') {
   return String(value)
@@ -46,6 +45,18 @@ function image(project, key, fallback = {}) {
 
 function imageTag(img, className = '', loading = 'lazy') {
   return `<img${className ? ` class="${className}"` : ''} src="${esc(img.src)}" alt="${esc(img.alt || '')}"${attr('width', img.width)}${attr('height', img.height)}${loading ? attr('loading', loading) : ''} decoding="async">`;
+}
+
+function responsiveCardImageTag(img) {
+  const match = String(img.src || '').match(/^(.*)\.(?:jpe?g)$/i);
+  if (!match || !match[1].includes('/cards/')) return imageTag(img);
+  const base = match[1];
+  const sizes = '(max-width: 760px) calc(100vw - 50px), (max-width: 1100px) 50vw, 33vw';
+  return `<picture class="project-card-picture">
+              <source type="image/avif" srcset="${esc(base)}-640.avif 640w, ${esc(base)}-900.avif 900w" sizes="${sizes}">
+              <source type="image/webp" srcset="${esc(base)}-640.webp 640w, ${esc(base)}-900.webp 900w" sizes="${sizes}">
+              ${imageTag(img)}
+            </picture>`;
 }
 
 function assetUrl(src = '') {
@@ -761,7 +772,7 @@ function renderProjectCard(project) {
   const cardTags = discovery.cardTags || allTags.slice(0, 4);
 
   return `          <article class="project-card" id="${esc(project.slug)}" data-project-card${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}>
-            ${imageTag(img)}
+            ${responsiveCardImageTag(img)}
             <div class="project-body">
               <span class="label">${esc(project.card?.label || project.hero?.location || 'Curated Project')}</span>
               <h3>${esc(project.name)}</h3>

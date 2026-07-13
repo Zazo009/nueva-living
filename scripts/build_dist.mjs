@@ -4,6 +4,7 @@ import path from 'node:path';
 const root = process.cwd();
 const dist = path.join(root, 'dist');
 const projectsDir = path.join(root, 'content/liora-projects');
+const fontCss = fs.readFileSync(path.join(root, 'assets/fonts/google/liora-fonts.css'), 'utf8');
 
 const baseHtmlFiles = [
   '404.html',
@@ -23,8 +24,7 @@ const siteUrl = 'https://nueva-living.com';
 const socialImage = `${siteUrl}/assets/liora/viewing/scene-08.jpg`;
 const fontPreloadBlock = [
   '  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>',
-  '  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>',
-  '  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>'
+  '  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>'
 ].join('\n');
 const basePageMeta = {
   'index.html': {
@@ -246,6 +246,72 @@ function injectFontPreloads(html) {
   );
 }
 
+function inlineFontStyles(html) {
+  if (!html.includes('assets/fonts/google/liora-fonts.css')) return html;
+  const inlined = fontCss.replace(/url\(\.\//g, 'url(assets/fonts/google/');
+  return html.replace(
+    /<link rel="stylesheet" href="assets\/fonts\/google\/liora-fonts\.css">/i,
+    `<style data-nueva-fonts>${inlined}</style>`
+  );
+}
+
+function minifyCss(css) {
+  let output = '';
+  let quote = '';
+
+  for (let index = 0; index < css.length; index += 1) {
+    const char = css[index];
+    const next = css[index + 1];
+
+    if (quote) {
+      output += char;
+      if (char === '\\') {
+        output += next || '';
+        index += 1;
+      } else if (char === quote) {
+        quote = '';
+      }
+      continue;
+    }
+
+    if (char === '"' || char === "'") {
+      quote = char;
+      output += char;
+      continue;
+    }
+
+    if (char === '/' && next === '*') {
+      const end = css.indexOf('*/', index + 2);
+      index = end === -1 ? css.length : end + 1;
+      continue;
+    }
+
+    if (/\s/.test(char)) {
+      let cursor = index + 1;
+      while (cursor < css.length && /\s/.test(css[cursor])) cursor += 1;
+      const before = output.at(-1) || '';
+      const after = css[cursor] || '';
+      if (before && after && !/[{}:;,]/.test(before) && !/[{}:;,]/.test(after)) output += ' ';
+      index = cursor - 1;
+      continue;
+    }
+
+    output += char;
+  }
+
+  return output.replace(/;}/g, '}').trim();
+}
+
+function minifyInlineStyles(html) {
+  return html.replace(/<style([^>]*)>([\s\S]*?)<\/style>/gi, (_, attributes, css) => (
+    `<style${attributes}>${minifyCss(css)}</style>`
+  ));
+}
+
+function optimizeHtml(html) {
+  return minifyInlineStyles(inlineFontStyles(html));
+}
+
 function injectSeo(html, file) {
   const meta = pageMeta[file];
   if (!meta) return html;
@@ -281,7 +347,7 @@ function injectConversion(html) {
 function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
-  fs.writeFileSync(target, injectConversion(injectSeo(html, publicName)));
+  fs.writeFileSync(target, optimizeHtml(injectConversion(injectSeo(html, publicName))));
 }
 
 function copyDirectory(source, target) {

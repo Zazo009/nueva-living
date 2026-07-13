@@ -11,10 +11,9 @@
   <meta name="description" content="Private new-development advisory for design-led residences across Marbella, Estepona, Benahavís and the wider Costa del Sol." />
   <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
-  <link rel="preload" as="image" href="assets/liora/hero/hero-poster-mobile.jpg" media="(max-width: 768px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/liora/hero/hero-poster-desktop.jpg" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/liora/hero/hero-poster-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/liora/hero/hero-poster-desktop.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
   <script>
     (() => {
       try {
@@ -461,6 +460,11 @@
       position: relative;
       height: 310px;
       overflow: hidden;
+    }
+    .dev-img-wrap picture {
+      display: block;
+      width: 100%;
+      height: 100%;
     }
     .dev-img-wrap img {
       width: 100%; height: 100%;
@@ -1238,11 +1242,12 @@
     #vox {
       position: fixed; inset: 0; z-index: 50010;
       background: #08090a;
-      opacity: 0; pointer-events: none;
-      transition: opacity 1s cubic-bezier(0.4,0,0.2,1);
+      opacity: 0; pointer-events: none; visibility: hidden;
+      transition: opacity 1s cubic-bezier(0.4,0,0.2,1), visibility 0s linear 1s;
       overflow: hidden;
     }
-    #vox.on { opacity: 1; pointer-events: auto; }
+    /* Hidden viewing UI does not consume layout/font work until the experience opens. */
+    #vox.on { opacity: 1; pointer-events: auto; visibility: visible; transition-delay: 0s; }
     body.v-active { overflow: hidden; }
 
     /* ── Thin gold progress ─────────────────────────────────── */
@@ -3312,6 +3317,11 @@
       filter: none;
     }
 
+    /* Keep the LCP poster on the fast compositing path; the overlay supplies the brand toning. */
+    .hero-media .hero-poster {
+      filter: none;
+    }
+
     #hero,
     .hero-media video {
       background: #2F2417;
@@ -3460,6 +3470,14 @@
       .footer-brand-logo {
         width: min(188px, 52vw);
       }
+
+      /* Mobile content is immediately paintable; desktop retains the editorial reveal motion. */
+      .reveal,
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
     }
   </style>
 </head>
@@ -3547,21 +3565,18 @@
 	  <section id="hero">
 	    <div class="hero-media">
 	      <picture>
-	        <source
-	          media="(max-width: 768px)"
-	          srcset="assets/liora/hero/hero-poster-mobile.jpg"
-	          width="899"
-	          height="1600"
-	        >
+	        <source media="(min-width: 769px)" type="image/webp" srcset="assets/liora/hero/hero-poster-desktop.webp">
+	        <source media="(min-width: 769px)" type="image/avif" srcset="assets/liora/hero/hero-poster-desktop.avif">
+	        <source media="(min-width: 769px)" srcset="assets/liora/hero/hero-poster-desktop.jpg">
 	        <img
 	          class="hero-visual hero-poster"
-	          src="assets/liora/hero/hero-poster-desktop.jpg"
+	          src="assets/liora/hero/hero-poster-mobile.webp"
 	          alt="Luxury villa with infinity pool, Costa del Sol"
 	          loading="eager"
 	          fetchpriority="high"
-	          decoding="async"
-	          width="1800"
-	          height="1012"
+	          decoding="sync"
+	          width="720"
+	          height="1281"
 	        />
 	      </picture>
 	      <video
@@ -3570,7 +3585,6 @@
 	        loop
 	        playsinline
 	        preload="none"
-	        poster="assets/liora/hero/hero-poster-desktop.jpg"
 	        data-desktop-src="assets/liora/video/hero-desktop.mp4"
 	        data-mobile-src="assets/liora/video/hero-mobile.mp4"
 	        aria-label="Luxury Costa del Sol residence atmosphere"
@@ -3608,7 +3622,11 @@
       <div class="dev-card reveal featured-walkthrough-card solenne-featured-card" data-card-url="property-solenne-benahavis.html">
         <div class="dev-img-wrap">
           <span class="dev-badge">Benahavís Preview</span>
-          <img src="assets/liora/cards/card-solenne-benahavis.jpg" alt="Solenne Benahavís new development exterior arrival" loading="lazy" decoding="async" width="900" height="450" />
+          <picture>
+            <source type="image/avif" srcset="assets/liora/cards/card-solenne-benahavis-640.avif 640w, assets/liora/cards/card-solenne-benahavis-900.avif 900w" sizes="(max-width: 900px) calc(100vw - 50px), 66vw">
+            <source type="image/webp" srcset="assets/liora/cards/card-solenne-benahavis-640.webp 640w, assets/liora/cards/card-solenne-benahavis-900.webp 900w" sizes="(max-width: 900px) calc(100vw - 50px), 66vw">
+            <img src="assets/liora/cards/card-solenne-benahavis.jpg" alt="Solenne Benahavís new development exterior arrival" loading="lazy" decoding="async" width="900" height="450" />
+          </picture>
           <div class="dev-img-overlay"></div>
           <div class="dev-price-overlay">Check prices &amp; availability</div>
         </div>
@@ -3633,7 +3651,11 @@
       <div class="dev-card reveal" style="transition-delay:0.1s" data-card-url="property-golden-coast-residences.html">
         <div class="dev-img-wrap">
           <span class="dev-badge">Now Selling</span>
-          <img src="assets/liora/cards/card-golden-coast-residences.jpg" alt="Golden Coast Residences" loading="lazy" decoding="async" width="900" height="450" />
+          <picture>
+            <source type="image/avif" srcset="assets/liora/cards/card-golden-coast-residences-640.avif 640w, assets/liora/cards/card-golden-coast-residences-900.avif 900w" sizes="(max-width: 900px) calc(100vw - 50px), 33vw">
+            <source type="image/webp" srcset="assets/liora/cards/card-golden-coast-residences-640.webp 640w, assets/liora/cards/card-golden-coast-residences-900.webp 900w" sizes="(max-width: 900px) calc(100vw - 50px), 33vw">
+            <img src="assets/liora/cards/card-golden-coast-residences.jpg" alt="Golden Coast Residences" loading="lazy" decoding="async" width="900" height="450" />
+          </picture>
           <div class="dev-img-overlay"></div>
         </div>
         <div class="dev-body">
@@ -3651,7 +3673,11 @@
       <div class="dev-card reveal" style="transition-delay:0.05s" data-card-url="property-benahavis-view-villas.html">
         <div class="dev-img-wrap">
           <span class="dev-badge">Off-Plan</span>
-          <img src="assets/liora/cards/card-benahavis-view-villas.jpg" alt="Benahavís View Villas" loading="lazy" decoding="async" width="900" height="506" />
+          <picture>
+            <source type="image/avif" srcset="assets/liora/cards/card-benahavis-view-villas-640.avif 640w, assets/liora/cards/card-benahavis-view-villas-900.avif 900w" sizes="(max-width: 900px) calc(100vw - 50px), 33vw">
+            <source type="image/webp" srcset="assets/liora/cards/card-benahavis-view-villas-640.webp 640w, assets/liora/cards/card-benahavis-view-villas-900.webp 900w" sizes="(max-width: 900px) calc(100vw - 50px), 33vw">
+            <img src="assets/liora/cards/card-benahavis-view-villas.jpg" alt="Benahavís View Villas" loading="lazy" decoding="async" width="900" height="506" />
+          </picture>
           <div class="dev-img-overlay"></div>
         </div>
         <div class="dev-body">
@@ -3669,7 +3695,11 @@
       <div class="dev-card reveal" style="transition-delay:0.15s" data-card-url="property-nueva-andalucia-suites.html">
         <div class="dev-img-wrap">
           <span class="dev-badge">Limited Units</span>
-          <img src="assets/liora/cards/card-nueva-andalucia-suites.jpg" alt="Nueva Andalucía Suites" loading="lazy" decoding="async" width="900" height="400" />
+          <picture>
+            <source type="image/avif" srcset="assets/liora/cards/card-nueva-andalucia-suites-640.avif 640w, assets/liora/cards/card-nueva-andalucia-suites-900.avif 900w" sizes="(max-width: 900px) calc(100vw - 50px), 33vw">
+            <source type="image/webp" srcset="assets/liora/cards/card-nueva-andalucia-suites-640.webp 640w, assets/liora/cards/card-nueva-andalucia-suites-900.webp 900w" sizes="(max-width: 900px) calc(100vw - 50px), 33vw">
+            <img src="assets/liora/cards/card-nueva-andalucia-suites.jpg" alt="Nueva Andalucía Suites" loading="lazy" decoding="async" width="900" height="400" />
+          </picture>
           <div class="dev-img-overlay"></div>
         </div>
         <div class="dev-body">
@@ -3688,7 +3718,11 @@
       <div class="dev-card reveal" style="transition-delay:0.2s" data-card-url="property-altos-de-marbella.html">
         <div class="dev-img-wrap">
           <span class="dev-badge">Sea View Collection</span>
-          <img src="assets/liora/cards/card-altos-de-marbella.jpg" alt="Altos de Marbella Residences elevated terrace preview" loading="lazy" decoding="async" width="900" height="450" />
+          <picture>
+            <source type="image/avif" srcset="assets/liora/cards/card-altos-de-marbella-640.avif 640w, assets/liora/cards/card-altos-de-marbella-900.avif 900w" sizes="(max-width: 900px) calc(100vw - 50px), 33vw">
+            <source type="image/webp" srcset="assets/liora/cards/card-altos-de-marbella-640.webp 640w, assets/liora/cards/card-altos-de-marbella-900.webp 900w" sizes="(max-width: 900px) calc(100vw - 50px), 33vw">
+            <img src="assets/liora/cards/card-altos-de-marbella.jpg" alt="Altos de Marbella Residences elevated terrace preview" loading="lazy" decoding="async" width="900" height="450" />
+          </picture>
           <div class="dev-img-overlay"></div>
           <div class="dev-price-overlay">From €1,250,000</div>
         </div>
@@ -4193,9 +4227,10 @@
 
   </div><!-- /vox -->
 
-  <script src="assets/vendor/gsap/gsap.min.js"></script>
-  <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/gsap/gsap.min.js" defer></script>
+  <script src="assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
   <script>
+  document.addEventListener('DOMContentLoaded', () => {
   /* ═════════════════════════════════════════════════════════════
      GSAP + MAIN SITE SETUP
   ═════════════════════════════════════════════════════════════ */
@@ -4798,7 +4833,7 @@
     });
   }
 
-  vPrepareSceneAssets(0);
+  // Private Viewing assets are primed only when the user enters the experience.
 
   /* ─────────────────────────────────────────────────────────────
      DOM REFS
@@ -5965,6 +6000,9 @@
       if (submit) submit.textContent = 'Request Noted';
     });
   }
+
+  Object.assign(window, { requestSolenneMaterial, vAccess, vClose });
+  });
 
 </script>
 </body>
