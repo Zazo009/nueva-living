@@ -6,15 +6,15 @@ const root = process.cwd();
 
 const pages = [
   'nueva-living-home.html',
-  'liora-about.html',
-  'liora-access.html',
-  'liora-advisory.html',
-  'liora-approach.html',
-  'liora-areas.html',
-  'liora-cookie-policy.html',
-  'liora-developments.html',
-  'liora-legal-notice.html',
-  'liora-privacy-policy.html',
+  'about.html',
+  'contact.html',
+  'advisory.html',
+  'approach.html',
+  'areas.html',
+  'cookie-policy.html',
+  'developments.html',
+  'legal-notice.html',
+  'privacy-policy.html',
   'property-altos-de-marbella.html',
 ];
 

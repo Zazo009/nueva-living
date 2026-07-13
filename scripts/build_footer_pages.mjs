@@ -1,34 +1,37 @@
 import { writeFileSync } from 'node:fs';
 
 const home = 'index.html';
+const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>`;
 
 const navLinks = [
-  ['Approach', 'liora-approach.html'],
-  ['Developments', 'liora-developments.html'],
-  ['Areas', 'liora-areas.html'],
-  ['Advisory', 'liora-advisory.html'],
-  ['About', 'liora-about.html'],
+  ['Approach', 'approach.html'],
+  ['Developments', 'developments.html'],
+  ['Areas', 'areas.html'],
+  ['Advisory', 'advisory.html'],
+  ['Contact Us', 'contact.html'],
 ];
 
 const footerLinks = {
   company: [
-    ['Our Approach', 'liora-approach.html'],
-    ['About', 'liora-about.html'],
-    ['Advisory', 'liora-advisory.html'],
-    ['Request Access', 'liora-access.html'],
+    ['Our Approach', 'approach.html'],
+    ['About', 'about.html'],
+    ['Advisory', 'advisory.html'],
+    ['Request Access', 'contact.html'],
   ],
   projects: [
-    ['All Developments', 'liora-developments.html'],
-    ['Areas Overview', 'liora-areas.html'],
-    ['Marbella', 'liora-areas.html#marbella'],
-    ['Estepona', 'liora-areas.html#estepona'],
-    ['Benahav&iacute;s', 'liora-areas.html#benahavis'],
-    ['Nueva Andaluc&iacute;a', 'liora-areas.html#nueva-andalucia'],
+    ['All Developments', 'developments.html'],
+    ['Areas Overview', 'areas.html'],
+    ['Marbella', 'areas.html#marbella'],
+    ['Estepona', 'areas.html#estepona'],
+    ['Benahav&iacute;s', 'areas.html#benahavis'],
+    ['Nueva Andaluc&iacute;a', 'areas.html#nueva-andalucia'],
   ],
   legal: [
-    ['Privacy Policy', 'liora-privacy-policy.html'],
-    ['Legal Notice', 'liora-legal-notice.html'],
-    ['Cookie Policy', 'liora-cookie-policy.html'],
+    ['Privacy Policy', 'privacy-policy.html'],
+    ['Legal Notice', 'legal-notice.html'],
+    ['Cookie Policy', 'cookie-policy.html'],
   ],
 };
 
@@ -39,7 +42,6 @@ function nav() {
     </a>
     <div class="nav-links">
       ${navLinks.map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
-      <a class="nav-cta" href="liora-access.html">Request Access</a>
     </div>
     <button class="nav-burger" type="button" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -47,7 +49,6 @@ function nav() {
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     ${navLinks.map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
-    <a href="liora-access.html">Request Access</a>
   </div>`;
 }
 
@@ -76,7 +77,7 @@ function footer() {
         <ul>
           <li><a href="mailto:contact@nueva-living.com">contact@nueva-living.com</a></li>
           <li><a href="tel:+34600000000">+34 600 000 000</a></li>
-          <li><a href="liora-areas.html#marbella">Marbella, Spain</a></li>
+          <li><a href="areas.html#marbella">Marbella, Spain</a></li>
         </ul>
         <div class="footer-col-title" style="margin-top:24px;">Legal</div>
         <ul>
@@ -102,6 +103,7 @@ function page({ title, description, heroImage, heroKicker, heroTitle, heroLead, 
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
+${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css">
 </head>
@@ -146,7 +148,7 @@ function page({ title, description, heroImage, heroKicker, heroTitle, heroLead, 
 
 const pages = [
   {
-    file: 'liora-approach.html',
+    file: 'approach.html',
     title: 'Our Approach',
     description: 'A considered advisory approach to Costa del Sol new developments.',
     heroImage: 'assets/liora/viewing/scene-02.jpg',
@@ -193,10 +195,10 @@ const pages = [
         </div>
       </div>
     </section>
-    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Start with a private brief, not a property feed.</h2><a class="btn" href="liora-access.html">Request Access</a></div></section>`,
+    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Start with a private brief, not a property feed.</h2><a class="btn" href="contact.html">Request Access</a></div></section>`,
   },
   {
-    file: 'liora-areas.html',
+    file: 'areas.html',
     title: 'Areas',
     description: 'Costa del Sol area guide for new development buyers.',
     heroImage: 'assets/liora/viewing/scene-01.jpg',
@@ -210,10 +212,10 @@ const pages = [
       <article class="area-row" id="nueva-andalucia"><img src="assets/liora/areas/nueva-andalucia.jpg" alt="Puerto Banus marina and La Concha near Nueva Andalucia" width="1920" height="1280"><div class="area-copy"><span class="label">Nueva Andalucia</span><h3>Golf Valley lifestyle</h3><p>Close to Puerto Banus and surrounded by golf, Nueva Andalucia suits buyers who want amenities, established demand and a more active year-round setting.</p></div></article>
       <article class="area-row" id="mijas-fuengirola"><img src="assets/liora/areas/fuengirola.jpg" alt="Fuengirola seafront sign with palms and Mediterranean water" width="1920" height="2560"><div class="area-copy"><span class="label">Mijas &amp; Fuengirola</span><h3>Connectivity and value</h3><p>A diverse coastal corridor offering newer developments, strong services and convenient access to Malaga, often with more accessible entry pricing.</p></div></article>
     </div></div></section>
-    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Not sure which area fits? Start with a private area brief.</h2><a class="btn" href="liora-access.html">Request Area Advice</a></div></section>`,
+    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Not sure which area fits? Start with a private area brief.</h2><a class="btn" href="contact.html">Request Area Advice</a></div></section>`,
   },
   {
-    file: 'liora-advisory.html',
+    file: 'advisory.html',
     title: 'Advisory',
     description: 'Buyer-focused advisory for Costa del Sol new development purchases.',
     heroImage: 'assets/liora/advisory-property.jpg',
@@ -223,10 +225,10 @@ const pages = [
     body: `<section class="section"><div class="section-inner split"><div><span class="label">Independent View</span><div class="rule"></div><h2 class="section-title">A buyer-focused <em>filter</em></h2><p class="body-copy">Developer brochures are designed to sell. Our advisory work sits beside that material and helps buyers understand what is strong, what is ordinary, and what deserves further diligence.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Interior detail"></div></div></section>
     <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">Advisory Scope</span><div class="rule"></div><h2 class="section-title">What we help you <em>evaluate</em></h2></div><div class="cards"><article class="card"><h3>Project Comparison</h3><p>Side-by-side assessment of pricing, orientation, amenities, delivery timing and surrounding supply.</p></article><article class="card"><h3>Purchase Strategy</h3><p>Guidance around primary use, holiday use, rental strategy, financing readiness and exit expectations.</p></article><article class="card"><h3>Reservation Path</h3><p>Coordination of project material, viewing sequence, independent legal counsel and reservation steps.</p></article></div></div></section>
     <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Principles</span><div class="rule"></div><h2 class="section-title">Quiet guidance, <em>clear judgement</em></h2></div><div class="cards two"><article class="card"><h3>No inflated shortlist</h3><p>We would rather show three suitable projects than thirty generic options.</p></article><article class="card"><h3>No pressure theatre</h3><p>Urgency only matters when it is real: availability, price movement or reservation deadlines.</p></article></div></div></section>
-    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Bring the decision into focus before you reserve.</h2><a class="btn" href="liora-access.html">Speak Privately</a></div></section>`,
+    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Bring the decision into focus before you reserve.</h2><a class="btn" href="contact.html">Speak Privately</a></div></section>`,
   },
   {
-    file: 'liora-about.html',
+    file: 'about.html',
     title: 'About',
     description: 'About Nueva Living, a Costa del Sol new development advisory firm.',
     heroImage: 'assets/liora/viewing/scene-19.jpg',
@@ -236,10 +238,10 @@ const pages = [
     body: `<section class="section"><div class="section-inner split"><div class="image-panel logo-panel"><img src="assets/liora/brand/nueva-living-lockup-sand-transparent.png?v=7" alt="Nueva Living logo" width="700" height="340"></div><div><span class="label">The Firm</span><div class="rule"></div><h2 class="section-title">Specialist by <em>design</em></h2><p class="body-copy">By focusing exclusively on new developments and off-plan opportunities, we can provide sharper context, stronger developer relationships and a more precise advisory experience than a generalist agency.</p><p class="body-copy">Our work is built around clarity: what is available, what is credible, what fits, and what should be left alone.</p></div></div></section>
     <section class="section quiet-band"><div class="section-inner"><div class="cards"><article class="card"><div class="card-number">40+</div><h3>Developer Relationships</h3><p>Direct conversations and project access across key Costa del Sol micro-markets.</p></article><article class="card"><div class="card-number">7</div><h3>Key Areas Covered</h3><p>From Marbella and Benahavis to Estepona, Nueva Andalucia, Mijas and Fuengirola.</p></article><article class="card"><div class="card-number">100%</div><h3>New-Build Focus</h3><p>A clear specialism that keeps advice concentrated and relevant.</p></article></div></div></section>
     <section class="section"><div class="section-inner"><div class="section-head"><span class="label">What We Stand For</span><div class="rule"></div><h2 class="section-title">Access, discretion and <em>clarity</em></h2></div><div class="cards"><article class="card"><h3>Discretion</h3><p>Private requirements are handled carefully, with no broad sharing of buyer details.</p></article><article class="card"><h3>Selectivity</h3><p>We prioritise fewer, stronger opportunities over a noisy catalogue.</p></article><article class="card"><h3>Context</h3><p>Every recommendation is framed by area, developer, timing and long-term logic.</p></article></div></div></section>
-    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Tell us what you are looking for, and we will curate the next step.</h2><a class="btn" href="liora-access.html">Request Access</a></div></section>`,
+    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Tell us what you are looking for, and we will curate the next step.</h2><a class="btn" href="contact.html">Request Access</a></div></section>`,
   },
   {
-    file: 'liora-access.html',
+    file: 'contact.html',
     title: 'Request Access',
     description: 'Request private access to curated Costa del Sol new development opportunities.',
     heroImage: 'assets/liora/viewing/scene-08.jpg',
@@ -249,7 +251,7 @@ const pages = [
     body: `<section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Your Brief</span><div class="rule"></div><h2 class="section-title">Start with the right <em>conversation</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Share a short brief and we will respond with relevant project material, current availability and a recommended next step.</p></div><form class="form-panel" name="liora-access-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html"><input type="hidden" name="form-name" value="liora-access-request"><p style="display:none"><label>Do not fill this out <input name="bot-field"></label></p><input type="hidden" id="request-context" name="request_context" value="General private access request"><div class="form-grid"><div class="field"><label for="name">Full Name</label><input id="name" name="name" autocomplete="name" placeholder="Your name" required></div><div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div><div class="field"><label for="area">Preferred Area</label><select id="area" name="preferred_area"><option value="">Select area...</option><option>Marbella</option><option>Estepona</option><option>Benahavis</option><option>Nueva Andalucia</option><option>Open to all areas</option></select></div><div class="field"><label for="property-type">Property Type Interest</label><select id="property-type" name="property_type_interest"><option value="">Select type...</option><option>Apartments</option><option>Penthouses</option><option>Villas</option><option>Townhouses</option><option>Mixed / Open</option></select></div><div class="field"><label for="budget">Budget Range</label><select id="budget" name="budget_range"><option value="">Select budget...</option><option>&euro;300,000 - &euro;500,000</option><option>&euro;500,000 - &euro;900,000</option><option>&euro;900,000 - &euro;1,500,000</option><option>&euro;1,500,000+</option></select></div><div class="field"><label for="purpose">Purchase Purpose</label><select id="purpose" name="purchase_purpose"><option value="">Select purpose...</option><option>Primary Residence</option><option>Holiday Home</option><option>Investment / Rental</option><option>Combination</option></select></div><div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us about your requirements..."></textarea></div></div><div style="margin-top:34px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;"><button class="btn" type="submit">Submit Request</button><span class="form-response" style="color:var(--muted);font-size:12px;"></span></div></form></div></section>`,
   },
   {
-    file: 'liora-privacy-policy.html',
+    file: 'privacy-policy.html',
     title: 'Privacy Policy',
     description: 'Privacy policy draft for Nueva Living.',
     heroImage: 'assets/liora/viewing/scene-11.jpg',
@@ -265,7 +267,7 @@ const pages = [
     ]),
   },
   {
-    file: 'liora-legal-notice.html',
+    file: 'legal-notice.html',
     title: 'Legal Notice',
     description: 'Legal notice draft for Nueva Living.',
     heroImage: 'assets/liora/viewing/scene-15.jpg',
@@ -281,7 +283,7 @@ const pages = [
     ]),
   },
   {
-    file: 'liora-cookie-policy.html',
+    file: 'cookie-policy.html',
     title: 'Cookie Policy',
     description: 'Cookie policy draft for Nueva Living.',
     heroImage: 'assets/liora/viewing/scene-10.jpg',
@@ -299,7 +301,7 @@ const pages = [
 ];
 
 function legalBody(title, sections) {
-  return `<section class="section"><div class="section-inner legal-layout"><aside class="legal-nav">${sections.map(([heading]) => `<a href="#${slug(heading)}">${heading}</a>`).join('')}</aside><div class="legal-stack"><div class="section-head"><span class="label">Draft Notice</span><div class="rule"></div><h2 class="section-title">${title}</h2><p class="body-copy">This is polished website draft copy and should be reviewed by qualified legal counsel before publication.</p></div>${sections.map(([heading, text]) => `<article class="legal-card" id="${slug(heading)}"><h3>${heading}</h3><p>${text}</p></article>`).join('')}</div></div></section><section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Need project-specific clarification?</h2><a class="btn" href="liora-access.html">Contact Nueva</a></div></section>`;
+  return `<section class="section"><div class="section-inner legal-layout"><aside class="legal-nav">${sections.map(([heading]) => `<a href="#${slug(heading)}">${heading}</a>`).join('')}</aside><div class="legal-stack"><div class="section-head"><span class="label">Draft Notice</span><div class="rule"></div><h2 class="section-title">${title}</h2><p class="body-copy">This is polished website draft copy and should be reviewed by qualified legal counsel before publication.</p></div>${sections.map(([heading, text]) => `<article class="legal-card" id="${slug(heading)}"><h3>${heading}</h3><p>${text}</p></article>`).join('')}</div></div></section><section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Need project-specific clarification?</h2><a class="btn" href="contact.html">Contact Nueva</a></div></section>`;
 }
 
 function slug(value) {

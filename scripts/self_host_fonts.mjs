@@ -9,15 +9,15 @@ const localCssPath = path.join(fontsDir, 'liora-fonts.css');
 
 const pages = [
   'nueva-living-home.html',
-  'liora-about.html',
-  'liora-access.html',
-  'liora-advisory.html',
-  'liora-approach.html',
-  'liora-areas.html',
-  'liora-cookie-policy.html',
-  'liora-developments.html',
-  'liora-legal-notice.html',
-  'liora-privacy-policy.html',
+  'about.html',
+  'contact.html',
+  'advisory.html',
+  'approach.html',
+  'areas.html',
+  'cookie-policy.html',
+  'developments.html',
+  'legal-notice.html',
+  'privacy-policy.html',
   'property-altos-de-marbella.html',
 ];
 
@@ -45,12 +45,12 @@ css = `/* Self-hosted Nueva Living font package.
    Source families: Cinzel, Cormorant Garamond, Montserrat.
    Regenerate with scripts/self_host_fonts.mjs after refreshing liora-fonts.remote.css. */
 
-${css}`;
+${css.replace(/font-display:\s*swap;/g, 'font-display: block;')}`;
 
 fs.writeFileSync(localCssPath, css);
 
 const googleFontsBlock = /\n\s*<link rel="preconnect" href="https:\/\/fonts\.googleapis\.com"\s*\/?>\n\s*<link rel="preconnect" href="https:\/\/fonts\.gstatic\.com" crossorigin\s*\/?>\n\s*<link href="https:\/\/fonts\.googleapis\.com\/css2\?family=Cinzel:wght@400;500;600&family=Cormorant\+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"\s*\/?>/g;
-const localFontsLink = '\n  <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">';
+const localFontsLink = '\n  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>\n  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>\n  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>\n  <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">';
 
 for (const page of pages) {
   const filePath = path.join(root, page);

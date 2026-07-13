@@ -9,7 +9,12 @@
   <link rel="icon" href="assets/liora/favicon-16.png?v=6" type="image/png" sizes="16x16">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
   <meta name="description" content="Private new-development advisory for design-led residences across Marbella, Estepona, Benahavís and the wider Costa del Sol." />
+  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
+  <link rel="preload" as="image" href="assets/liora/hero/hero-poster-mobile.jpg" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/liora/hero/hero-poster-desktop.jpg" media="(min-width: 769px)" fetchpriority="high">
   <script>
     (() => {
       try {
@@ -20,9 +25,6 @@
       } catch (error) {}
     })();
   </script>
-  <!-- GSAP + ScrollTrigger -->
-  <script src="assets/vendor/gsap/gsap.min.js"></script>
-  <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
   <style>
     /* ─── RESET & BASE ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -273,11 +275,27 @@
     }
     .hero-media {
       position: absolute; inset: 0;
+      overflow: hidden;
+      background: #2F2417;
     }
+    .hero-media picture,
+    .hero-media video,
     .hero-media img {
+      position: absolute; inset: 0;
       width: 100%; height: 100%;
+      display: block;
+    }
+    .hero-media img,
+    .hero-media video {
       object-fit: cover;
       object-position: center 30%;
+    }
+    .hero-media .hero-video {
+      opacity: 0;
+      transition: opacity 900ms ease;
+    }
+    .hero-media .hero-video.is-ready {
+      opacity: 1;
     }
     .hero-overlay {
       position: absolute; inset: 0;
@@ -3096,6 +3114,7 @@
       pointer-events: none;
     }
 
+    .hero-media picture,
     .hero-media video,
     .hero-media img {
       width: 100%;
@@ -3122,6 +3141,7 @@
         padding-bottom: clamp(42px, 8.5vh, 76px);
       }
 
+      .hero-media picture,
       .hero-media video,
       .hero-media img {
         object-position: center center;
@@ -3451,24 +3471,22 @@
       <img class="nav-wordmark" src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" decoding="async" width="420" height="100" />
     </a>
     <ul class="nav-links">
-      <li><a href="liora-approach.html">Approach</a></li>
-      <li><a href="liora-developments.html">Developments</a></li>
-      <li><a href="liora-areas.html">Areas</a></li>
-      <li><a href="liora-advisory.html">Advisory</a></li>
-      <li><a href="liora-about.html">About</a></li>
-      <li><a href="liora-access.html">Request Access</a></li>
+      <li><a href="approach.html">Approach</a></li>
+      <li><a href="developments.html">Developments</a></li>
+      <li><a href="areas.html">Areas</a></li>
+      <li><a href="advisory.html">Advisory</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <button class="nav-burger" id="burgerBtn" type="button" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="liora-approach.html" onclick="closeMobile()">Approach</a>
-    <a href="liora-developments.html" onclick="closeMobile()">Developments</a>
-    <a href="liora-areas.html" onclick="closeMobile()">Areas</a>
-    <a href="liora-advisory.html" onclick="closeMobile()">Advisory</a>
-    <a href="liora-about.html" onclick="closeMobile()">About</a>
-    <a href="liora-access.html" onclick="closeMobile()">Request Access</a>
+    <a href="approach.html" onclick="closeMobile()">Approach</a>
+    <a href="developments.html" onclick="closeMobile()">Developments</a>
+    <a href="areas.html" onclick="closeMobile()">Areas</a>
+    <a href="advisory.html" onclick="closeMobile()">Advisory</a>
+    <a href="contact.html" onclick="closeMobile()">Contact Us</a>
   </div>
 
   <script>
@@ -3528,28 +3546,36 @@
   <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
 	  <section id="hero">
 	    <div class="hero-media">
-	      <video
-	        class="hero-visual"
-	        autoplay
-	        muted
-	        loop
-	        playsinline
-	        preload="auto"
-	        poster="assets/liora/viewing/scene-06.jpg"
-	        data-desktop-src="assets/liora/video/hero-desktop.mp4"
-	        data-mobile-src="assets/liora/video/hero-mobile.mp4"
-	        aria-label="Luxury Costa del Sol residence atmosphere"
-	      >
+	      <picture>
+	        <source
+	          media="(max-width: 768px)"
+	          srcset="assets/liora/hero/hero-poster-mobile.jpg"
+	          width="899"
+	          height="1600"
+	        >
 	        <img
-	          class="hero-visual"
-	          src="assets/liora/viewing/scene-06.jpg"
+	          class="hero-visual hero-poster"
+	          src="assets/liora/hero/hero-poster-desktop.jpg"
 	          alt="Luxury villa with infinity pool, Costa del Sol"
 	          loading="eager"
 	          fetchpriority="high"
-	          width="2048"
-	          height="1024"
+	          decoding="async"
+	          width="1800"
+	          height="1012"
 	        />
-	      </video>
+	      </picture>
+	      <video
+	        class="hero-visual hero-video"
+	        muted
+	        loop
+	        playsinline
+	        preload="none"
+	        poster="assets/liora/hero/hero-poster-desktop.jpg"
+	        data-desktop-src="assets/liora/video/hero-desktop.mp4"
+	        data-mobile-src="assets/liora/video/hero-mobile.mp4"
+	        aria-label="Luxury Costa del Sol residence atmosphere"
+	        hidden
+	      ></video>
 	    </div>
 	    <div class="hero-overlay"></div>
 	    <div class="hero-content">
@@ -3575,14 +3601,14 @@
         <div class="gold-rule"></div>
         <h2 class="section-title">Selected New<br><em>Residences</em></h2>
       </div>
-      <a href="liora-developments.html" class="btn btn-ghost-dark reveal" style="transition-delay:0.1s">Explore All Residences</a>
+      <a href="developments.html" class="btn btn-ghost-dark reveal" style="transition-delay:0.1s">Explore All Residences</a>
     </div>
     <div class="dev-grid">
 
-      <div class="dev-card reveal featured-walkthrough-card solenne-featured-card" data-card-url="liora-developments.html#solenne-benahavis">
+      <div class="dev-card reveal featured-walkthrough-card solenne-featured-card" data-card-url="property-solenne-benahavis.html">
         <div class="dev-img-wrap">
           <span class="dev-badge">Benahavís Preview</span>
-          <img src="assets/liora/viewing/scene-03.jpg" alt="Solenne Benahavís new development exterior arrival" loading="lazy" decoding="async" width="2048" height="1024" />
+          <img src="assets/liora/cards/card-solenne-benahavis.jpg" alt="Solenne Benahavís new development exterior arrival" loading="lazy" decoding="async" width="900" height="450" />
           <div class="dev-img-overlay"></div>
           <div class="dev-price-overlay">Check prices &amp; availability</div>
         </div>
@@ -3604,10 +3630,10 @@
         </div>
       </div>
 
-      <div class="dev-card reveal" style="transition-delay:0.1s" data-card-url="liora-developments.html#golden-coast-residences">
+      <div class="dev-card reveal" style="transition-delay:0.1s" data-card-url="property-golden-coast-residences.html">
         <div class="dev-img-wrap">
           <span class="dev-badge">Now Selling</span>
-          <img src="assets/liora/viewing/scene-06.jpg" alt="Golden Coast Residences" loading="lazy" width="2048" height="1024" />
+          <img src="assets/liora/cards/card-golden-coast-residences.jpg" alt="Golden Coast Residences" loading="lazy" decoding="async" width="900" height="450" />
           <div class="dev-img-overlay"></div>
         </div>
         <div class="dev-body">
@@ -3618,14 +3644,14 @@
             <div class="dev-meta-item"><span class="lbl">Type</span><span class="val">Apartments & Duplexes</span></div>
             <div class="dev-meta-item"><span class="lbl">Delivery</span><span class="val">Q2 2026</span></div>
           </div>
-          <div class="dev-footer"><a class="dev-cta-link" href="liora-developments.html#golden-coast-residences">Discover Project</a></div>
+          <div class="dev-footer"><a class="dev-cta-link" href="property-golden-coast-residences.html">Discover Project</a></div>
         </div>
       </div>
 
-      <div class="dev-card reveal" style="transition-delay:0.05s" data-card-url="liora-developments.html#benahavis-view-villas">
+      <div class="dev-card reveal" style="transition-delay:0.05s" data-card-url="property-benahavis-view-villas.html">
         <div class="dev-img-wrap">
           <span class="dev-badge">Off-Plan</span>
-          <img src="assets/liora/viewing/scene-01.jpg" alt="Benahavís View Villas" loading="lazy" width="2047" height="1151" />
+          <img src="assets/liora/cards/card-benahavis-view-villas.jpg" alt="Benahavís View Villas" loading="lazy" decoding="async" width="900" height="506" />
           <div class="dev-img-overlay"></div>
         </div>
         <div class="dev-body">
@@ -3636,14 +3662,14 @@
             <div class="dev-meta-item"><span class="lbl">Type</span><span class="val">Luxury Villas</span></div>
             <div class="dev-meta-item"><span class="lbl">Delivery</span><span class="val">Q1 2027</span></div>
           </div>
-          <div class="dev-footer"><a class="dev-cta-link" href="liora-developments.html#benahavis-view-villas">Discover Project</a></div>
+          <div class="dev-footer"><a class="dev-cta-link" href="property-benahavis-view-villas.html">Discover Project</a></div>
         </div>
       </div>
 
-      <div class="dev-card reveal" style="transition-delay:0.15s" data-card-url="liora-developments.html#nueva-andalucia-suites">
+      <div class="dev-card reveal" style="transition-delay:0.15s" data-card-url="property-nueva-andalucia-suites.html">
         <div class="dev-img-wrap">
           <span class="dev-badge">Limited Units</span>
-          <img src="assets/liora/viewing/scene-04.jpg" alt="Nueva Andalucía Suites" loading="lazy" width="2048" height="910" />
+          <img src="assets/liora/cards/card-nueva-andalucia-suites.jpg" alt="Nueva Andalucía Suites" loading="lazy" decoding="async" width="900" height="400" />
           <div class="dev-img-overlay"></div>
         </div>
         <div class="dev-body">
@@ -3654,7 +3680,7 @@
             <div class="dev-meta-item"><span class="lbl">Type</span><span class="val">Suites & Townhouses</span></div>
             <div class="dev-meta-item"><span class="lbl">Delivery</span><span class="val">Q3 2026</span></div>
           </div>
-          <div class="dev-footer"><a class="dev-cta-link" href="liora-developments.html#nueva-andalucia-suites">Discover Project</a></div>
+          <div class="dev-footer"><a class="dev-cta-link" href="property-nueva-andalucia-suites.html">Discover Project</a></div>
         </div>
       </div>
 
@@ -3662,7 +3688,7 @@
       <div class="dev-card reveal" style="transition-delay:0.2s" data-card-url="property-altos-de-marbella.html">
         <div class="dev-img-wrap">
           <span class="dev-badge">Sea View Collection</span>
-          <img src="assets/liora/viewing/scene-08.jpg" alt="Altos de Marbella Residences elevated terrace preview" loading="lazy" decoding="async" width="900" height="450" />
+          <img src="assets/liora/cards/card-altos-de-marbella.jpg" alt="Altos de Marbella Residences elevated terrace preview" loading="lazy" decoding="async" width="900" height="450" />
           <div class="dev-img-overlay"></div>
           <div class="dev-price-overlay">From €1,250,000</div>
         </div>
@@ -3982,21 +4008,21 @@
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
         <ul>
-          <li><a href="liora-approach.html">Our Approach</a></li>
-          <li><a href="liora-about.html">About</a></li>
-          <li><a href="liora-advisory.html">Advisory</a></li>
-          <li><a href="liora-access.html">Request Access</a></li>
+          <li><a href="approach.html">Our Approach</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="advisory.html">Advisory</a></li>
+          <li><a href="contact.html">Request Access</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Projects</div>
         <ul>
-          <li><a href="liora-developments.html">All Developments</a></li>
-          <li><a href="liora-areas.html">Areas Overview</a></li>
-          <li><a href="liora-areas.html#marbella">Marbella</a></li>
-          <li><a href="liora-areas.html#estepona">Estepona</a></li>
-          <li><a href="liora-areas.html#benahavis">Benahavís</a></li>
-          <li><a href="liora-areas.html#nueva-andalucia">Nueva Andalucía</a></li>
+          <li><a href="developments.html">All Developments</a></li>
+          <li><a href="areas.html">Areas Overview</a></li>
+          <li><a href="areas.html#marbella">Marbella</a></li>
+          <li><a href="areas.html#estepona">Estepona</a></li>
+          <li><a href="areas.html#benahavis">Benahavís</a></li>
+          <li><a href="areas.html#nueva-andalucia">Nueva Andalucía</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -4004,13 +4030,13 @@
         <ul>
           <li><a href="mailto:contact@nueva-living.com">contact@nueva-living.com</a></li>
           <li><a href="tel:+34600000000">+34 600 000 000</a></li>
-          <li><a href="liora-areas.html#marbella">Marbella, Spain</a></li>
+          <li><a href="areas.html#marbella">Marbella, Spain</a></li>
         </ul>
         <div class="footer-col-title" style="margin-top:22px;">Legal</div>
         <ul>
-          <li><a href="liora-privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="liora-legal-notice.html">Legal Notice</a></li>
-          <li><a href="liora-cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="legal-notice.html">Legal Notice</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
         </ul>
       </div>
     </div>
@@ -4167,6 +4193,8 @@
 
   </div><!-- /vox -->
 
+  <script src="assets/vendor/gsap/gsap.min.js"></script>
+  <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
   <script>
   /* ═════════════════════════════════════════════════════════════
      GSAP + MAIN SITE SETUP
@@ -4178,22 +4206,63 @@
   const heroSection = document.getElementById('hero');
   const heroVideoSourceQuery = window.matchMedia('(max-width: 768px)');
   const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const networkConnection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   let heroVideoInView = true;
+  let heroVideoLoaded = false;
+  let heroVideoLoadScheduled = false;
 
-  function setHeroVideoSource() {
+  function shouldUseHeroVideo() {
+    return Boolean(
+      heroVideo &&
+      !heroVideoSourceQuery.matches &&
+      !reducedMotionQuery.matches &&
+      !networkConnection?.saveData
+    );
+  }
+
+  function unloadHeroVideo() {
     if (!heroVideo) return;
-    const nextSrc = heroVideoSourceQuery.matches ? heroVideo.dataset.mobileSrc : heroVideo.dataset.desktopSrc;
-    if (!nextSrc || heroVideo.getAttribute('src') === nextSrc) return;
     heroVideo.pause();
-    heroVideo.setAttribute('src', nextSrc);
-    heroVideo.preload = heroVideoSourceQuery.matches ? 'metadata' : 'auto';
+    heroVideo.classList.remove('is-ready');
+    heroVideo.setAttribute('hidden', '');
+    heroVideo.removeAttribute('src');
     heroVideo.load();
-    syncHeroVideoMotion();
+    heroVideoLoaded = false;
+    heroVideoLoadScheduled = false;
+  }
+
+  function loadHeroVideo() {
+    if (!shouldUseHeroVideo() || heroVideoLoaded) return;
+    const nextSrc = heroVideo.dataset.desktopSrc;
+    if (!nextSrc) return;
+    heroVideoLoaded = true;
+    heroVideo.preload = 'metadata';
+    heroVideo.setAttribute('src', nextSrc);
+    heroVideo.removeAttribute('hidden');
+    heroVideo.addEventListener('canplay', () => {
+      heroVideo.classList.add('is-ready');
+      syncHeroVideoMotion();
+    }, { once: true });
+    heroVideo.load();
+  }
+
+  function scheduleHeroVideoLoad() {
+    if (!shouldUseHeroVideo() || heroVideoLoaded || heroVideoLoadScheduled) return;
+    heroVideoLoadScheduled = true;
+    const run = () => {
+      heroVideoLoadScheduled = false;
+      loadHeroVideo();
+    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(run, { timeout: 2400 });
+    } else {
+      window.addEventListener('load', () => setTimeout(run, 900), { once: true });
+    }
   }
 
   function syncHeroVideoMotion() {
-    if (!heroVideo) return;
-    if (reducedMotionQuery.matches || !heroVideoInView || document.hidden) {
+    if (!heroVideo || !heroVideoLoaded) return;
+    if (!shouldUseHeroVideo() || !heroVideoInView || document.hidden) {
       heroVideo.pause();
       heroVideo.removeAttribute('autoplay');
       return;
@@ -4201,10 +4270,15 @@
     heroVideo.play().catch(() => {});
   }
 
-  setHeroVideoSource();
-  syncHeroVideoMotion();
-  heroVideoSourceQuery.addEventListener?.('change', setHeroVideoSource);
-  reducedMotionQuery.addEventListener?.('change', syncHeroVideoMotion);
+  scheduleHeroVideoLoad();
+  heroVideoSourceQuery.addEventListener?.('change', () => {
+    if (!shouldUseHeroVideo()) unloadHeroVideo();
+    else scheduleHeroVideoLoad();
+  });
+  reducedMotionQuery.addEventListener?.('change', () => {
+    if (!shouldUseHeroVideo()) unloadHeroVideo();
+    else scheduleHeroVideoLoad();
+  });
   document.addEventListener('visibilitychange', syncHeroVideoMotion);
 
   if (heroVideo && heroSection && 'IntersectionObserver' in window) {
@@ -4215,23 +4289,26 @@
   }
 
   // Main site GSAP animations
-  const heroStartScale = window.matchMedia('(max-width: 768px)').matches ? 1.055 : 1.025;
-  gsap.fromTo('.hero-media .hero-visual', { scale:heroStartScale },
-    { scale:1, ease:'none', scrollTrigger:{ trigger:'#hero', start:'top top', end:'bottom top', scrub:0.8 } }
-  );
-  gsap.to('.hero-content', { y:-60, opacity:0.6, ease:'none',
-    scrollTrigger:{ trigger:'#hero', start:'top top', end:'60% top', scrub:true }
-          });
-  document.querySelectorAll('.reveal').forEach(el => {
-    if (el.matches('.why-item, .area-card')) return;
-    gsap.from(el, { opacity:0, y:18, duration:0.9, ease:'power2.out', immediateRender:false,
-      delay: el.style.transitionDelay ? parseFloat(el.style.transitionDelay) : 0,
-      scrollTrigger:{ trigger:el, start:'top 88%', once:true } });
-  });
-  gsap.from('.why-item',  { y:14, duration:0.65, stagger:0.04, ease:'power2.out', immediateRender:false, clearProps:'transform', scrollTrigger:{ trigger:'.why-grid',  start:'top 84%', once:true } });
-  gsap.from('.area-card', { y:14, duration:0.65, stagger:0.04, ease:'power2.out', immediateRender:false, clearProps:'transform', scrollTrigger:{ trigger:'.areas-grid', start:'top 84%', once:true } });
-  gsap.from('.dev-card',  { opacity:0, y:22, duration:0.85, stagger:0.08, ease:'power2.out', immediateRender:false, scrollTrigger:{ trigger:'.dev-grid',   start:'top 80%', once:true } });
-  gsap.from('.pillar-num',{ opacity:0, y:14, duration:0.75, ease:'power2.out', immediateRender:false, scrollTrigger:{ trigger:'.pillars', start:'top 82%', once:true } });
+  const useScrollAnimations = !heroVideoSourceQuery.matches && !reducedMotionQuery.matches;
+  if (useScrollAnimations) {
+    const heroStartScale = 1.025;
+    gsap.fromTo('.hero-media .hero-visual', { scale:heroStartScale },
+      { scale:1, ease:'none', scrollTrigger:{ trigger:'#hero', start:'top top', end:'bottom top', scrub:0.8 } }
+    );
+    gsap.to('.hero-content', { y:-60, opacity:0.6, ease:'none',
+      scrollTrigger:{ trigger:'#hero', start:'top top', end:'60% top', scrub:true }
+            });
+    document.querySelectorAll('.reveal').forEach(el => {
+      if (el.matches('.why-item, .area-card')) return;
+      gsap.from(el, { opacity:0, y:18, duration:0.9, ease:'power2.out', immediateRender:false,
+        delay: el.style.transitionDelay ? parseFloat(el.style.transitionDelay) : 0,
+        scrollTrigger:{ trigger:el, start:'top 88%', once:true } });
+    });
+    gsap.from('.why-item',  { y:14, duration:0.65, stagger:0.04, ease:'power2.out', immediateRender:false, clearProps:'transform', scrollTrigger:{ trigger:'.why-grid',  start:'top 84%', once:true } });
+    gsap.from('.area-card', { y:14, duration:0.65, stagger:0.04, ease:'power2.out', immediateRender:false, clearProps:'transform', scrollTrigger:{ trigger:'.areas-grid', start:'top 84%', once:true } });
+    gsap.from('.dev-card',  { opacity:0, y:22, duration:0.85, stagger:0.08, ease:'power2.out', immediateRender:false, scrollTrigger:{ trigger:'.dev-grid',   start:'top 80%', once:true } });
+    gsap.from('.pillar-num',{ opacity:0, y:14, duration:0.75, ease:'power2.out', immediateRender:false, scrollTrigger:{ trigger:'.pillars', start:'top 82%', once:true } });
+  }
 
   /* ─────────────────────────────────────────────────────────────
      VIEWING SCENES — image URLs driven from JS (not CSS)

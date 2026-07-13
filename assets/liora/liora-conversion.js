@@ -2,7 +2,7 @@
   const site = {
     whatsappNumber: '34600000000',
     brand: 'Nueva Living',
-    crmWebhookUrl: window.NUEVA_CRM_WEBHOOK_URL || '/.netlify/functions/liora-lead'
+    crmWebhookUrl: window.NUEVA_CRM_WEBHOOK_URL || '/.netlify/functions/nueva-lead'
   };
 
   const params = new URLSearchParams(window.location.search);

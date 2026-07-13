@@ -3,10 +3,13 @@ import path from 'node:path';
 
 const projectsDir = path.resolve('content/liora-projects');
 const conventionalImageDir = 'assets/liora/projects';
-const developmentsPage = path.resolve('liora-developments.html');
+const developmentsPage = path.resolve('developments.html');
 const generatedProjectsStart = '<!-- NUEVA GENERATED PROJECTS START -->';
 const generatedProjectsEnd = '<!-- NUEVA GENERATED PROJECTS END -->';
 const siteUrl = 'https://nueva-living.com';
+const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>`;
 
 function esc(value = '') {
   return String(value)
@@ -232,12 +235,11 @@ function nav() {
       <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
     <div class="nav-links">
-      <a href="liora-approach.html">Approach</a>
-      <a href="liora-developments.html">Developments</a>
-      <a href="liora-areas.html">Areas</a>
-      <a href="liora-advisory.html">Advisory</a>
-      <a href="liora-about.html">About</a>
-      <a class="nav-cta" href="liora-access.html">Request Access</a>
+      <a href="approach.html">Approach</a>
+      <a href="developments.html">Developments</a>
+      <a href="areas.html">Areas</a>
+      <a href="advisory.html">Advisory</a>
+      <a href="contact.html">Contact Us</a>
     </div>
     <button class="nav-burger" type="button" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -245,12 +247,11 @@ function nav() {
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="liora-approach.html">Approach</a>
-    <a href="liora-developments.html">Developments</a>
-    <a href="liora-areas.html">Areas</a>
-    <a href="liora-advisory.html">Advisory</a>
-    <a href="liora-about.html">About</a>
-    <a href="liora-access.html">Request Access</a>
+    <a href="approach.html">Approach</a>
+    <a href="developments.html">Developments</a>
+    <a href="areas.html">Areas</a>
+    <a href="advisory.html">Advisory</a>
+    <a href="contact.html">Contact Us</a>
   </div>`;
 }
 
@@ -264,35 +265,35 @@ function footer(project) {
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
         <ul>
-          <li><a href="liora-approach.html">Our Approach</a></li>
-          <li><a href="liora-about.html">About</a></li>
-          <li><a href="liora-advisory.html">Advisory</a></li>
-          <li><a href="liora-access.html">Request Access</a></li>
+          <li><a href="approach.html">Our Approach</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="advisory.html">Advisory</a></li>
+          <li><a href="contact.html">Request Access</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Projects</div>
         <ul>
-          <li><a href="liora-developments.html">All Developments</a></li>
+          <li><a href="developments.html">All Developments</a></li>
           <li><a href="${esc(project.output)}">${esc(project.shortName || project.name)}</a></li>
-          <li><a href="liora-areas.html">Areas Overview</a></li>
-          <li><a href="liora-areas.html#marbella">Marbella</a></li>
-          <li><a href="liora-areas.html#estepona">Estepona</a></li>
-          <li><a href="liora-areas.html#benahavis">Benahavís</a></li>
-          <li><a href="liora-areas.html#nueva-andalucia">Nueva Andalucía</a></li>
+          <li><a href="areas.html">Areas Overview</a></li>
+          <li><a href="areas.html#marbella">Marbella</a></li>
+          <li><a href="areas.html#estepona">Estepona</a></li>
+          <li><a href="areas.html#benahavis">Benahavís</a></li>
+          <li><a href="areas.html#nueva-andalucia">Nueva Andalucía</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Contact</div>
         <ul>
           <li><a href="mailto:contact@nueva-living.com">contact@nueva-living.com</a></li>
-          <li><a href="liora-areas.html#marbella">Marbella, Spain</a></li>
+          <li><a href="areas.html#marbella">Marbella, Spain</a></li>
         </ul>
         <div class="footer-col-title" style="margin-top:24px;">Legal</div>
         <ul>
-          <li><a href="liora-privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="liora-legal-notice.html">Legal Notice</a></li>
-          <li><a href="liora-cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="legal-notice.html">Legal Notice</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
         </ul>
       </div>
     </div>
@@ -308,6 +309,8 @@ function renderProject(project) {
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
   const privateHref = project.privateViewing?.href || 'index.html?private-viewing=1';
+  const privateHeroCta = project.privateViewing?.heroCta || 'Book Private Viewing';
+  const privateCta = project.privateViewing?.ctaLabel || 'Enter Private Viewing';
   const facts = [
     ['Location', project.hero.location],
     ['Starting Price', project.hero.startingPrice],
@@ -384,6 +387,7 @@ function renderProject(project) {
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
+${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css">
   <link rel="stylesheet" href="assets/liora/liora-property.css">
@@ -412,7 +416,7 @@ ${JSON.stringify(agentSchema, null, 2)}
           <p class="hero-positioning">${esc(project.description)}</p>
           <div class="hero-actions">
             ${actionLink('Request Availability')}
-            ${ghostAction('Book Private Viewing', privateHref)}
+            ${ghostAction(privateHeroCta, privateHref)}
           </div>
         </div>
         <aside class="hero-facts reveal-soft" aria-label="Project key facts">
@@ -552,7 +556,7 @@ ${JSON.stringify(agentSchema, null, 2)}
               ${(project.privateViewing.insights || []).map(([title, body]) => `<div><span>${esc(title)}</span><p>${esc(body)}</p></div>`).join('\n              ')}
             </div>
             <div class="cinema-actions">
-              ${actionLink('Enter Private Viewing', privateHref)}
+              ${actionLink(privateCta, privateHref)}
               ${ghostAction('Request Project Material')}
             </div>
           </div>
@@ -756,7 +760,7 @@ function renderProjectCard(project) {
   ];
   const cardTags = discovery.cardTags || allTags.slice(0, 4);
 
-  return `          <article class="project-card" data-project-card${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}>
+  return `          <article class="project-card" id="${esc(project.slug)}" data-project-card${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}>
             ${imageTag(img)}
             <div class="project-body">
               <span class="label">${esc(project.card?.label || project.hero?.location || 'Curated Project')}</span>
@@ -774,17 +778,26 @@ function updateDevelopmentsPage(projects) {
   if (!existsSync(developmentsPage)) return false;
 
   const html = readFileSync(developmentsPage, 'utf8');
+  const gridOpen = '<div class="project-grid" data-project-grid>';
+  const gridStart = html.indexOf(gridOpen);
   const start = html.indexOf(generatedProjectsStart);
   const end = html.indexOf(generatedProjectsEnd);
 
-  if (start === -1 || end === -1 || end < start) {
-    throw new Error('liora-developments.html is missing NUEVA GENERATED PROJECTS markers.');
+  if (gridStart === -1) {
+    throw new Error('developments.html is missing the project grid container.');
   }
 
-  const lineStart = html.lastIndexOf('\n', start) + 1;
-  const indent = html.slice(lineStart, start);
+  if (start === -1 || end === -1 || end < start) {
+    throw new Error('developments.html is missing NUEVA GENERATED PROJECTS markers.');
+  }
+
+  const gridContentStart = gridStart + gridOpen.length;
+  const lineStart = html.lastIndexOf('\n', gridStart) + 1;
+  const gridIndent = html.slice(lineStart, gridStart);
+  const cardIndent = `${gridIndent}  `;
   const cards = projects.map(renderProjectCard).join('\n');
-  const next = `${html.slice(0, start + generatedProjectsStart.length)}\n${cards}\n${indent}${html.slice(end)}`;
+  const generatedBlock = `\n${cardIndent}${generatedProjectsStart}\n${cards}\n${cardIndent}${generatedProjectsEnd}`;
+  const next = `${html.slice(0, gridContentStart)}${generatedBlock}${html.slice(end + generatedProjectsEnd.length)}`;
   writeFileSync(developmentsPage, next);
   return true;
 }

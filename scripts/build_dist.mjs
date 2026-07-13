@@ -3,25 +3,30 @@ import path from 'node:path';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
+const projectsDir = path.join(root, 'content/liora-projects');
 
-const htmlFiles = [
+const baseHtmlFiles = [
   '404.html',
-  'liora-about.html',
-  'liora-access.html',
-  'liora-advisory.html',
-  'liora-approach.html',
-  'liora-areas.html',
-  'liora-cookie-policy.html',
-  'liora-developments.html',
-  'liora-legal-notice.html',
-  'liora-privacy-policy.html',
-  'property-altos-de-marbella.html',
+  'about.html',
+  'contact.html',
+  'advisory.html',
+  'approach.html',
+  'areas.html',
+  'cookie-policy.html',
+  'developments.html',
+  'legal-notice.html',
+  'privacy-policy.html',
   'thank-you.html',
 ];
 
 const siteUrl = 'https://nueva-living.com';
 const socialImage = `${siteUrl}/assets/liora/viewing/scene-08.jpg`;
-const pageMeta = {
+const fontPreloadBlock = [
+  '  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>',
+  '  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>',
+  '  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>'
+].join('\n');
+const basePageMeta = {
   'index.html': {
     title: 'Nueva Living | Curated Costa del Sol New Developments',
     description: 'Private new-development advisory for design-led residences across Marbella, Estepona, Benahavis and the wider Costa del Sol.',
@@ -37,73 +42,67 @@ const pageMeta = {
       knowsAbout: ['New developments', 'Off-plan property', 'Luxury real estate advisory']
     }
   },
-  'liora-developments.html': {
+  'developments.html': {
     title: 'Costa del Sol New Developments | Nueva Living',
     description: 'Explore curated Costa del Sol new developments selected for architecture, lifestyle, location logic and long-term value.',
-    path: '/liora-developments.html',
+    path: '/developments.html',
     type: 'website',
     schema: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
       name: 'Costa del Sol New Developments',
-      url: `${siteUrl}/liora-developments.html`,
+      url: `${siteUrl}/developments.html`,
       description: 'Curated new-development projects across the Costa del Sol.'
     }
   },
-  'property-altos-de-marbella.html': {
-    title: 'Altos de Marbella Residences | Marbella East New Development',
-    description: 'Altos de Marbella Residences is a curated Marbella East new-development preview with elevated sea-facing homes from EUR 1,250,000.',
-    path: '/property-altos-de-marbella.html',
-    type: 'website'
-  },
-  'liora-areas.html': {
+  'areas.html': {
     title: 'Costa del Sol Area Guide | Nueva Living',
     description: 'A refined Costa del Sol area guide for new-development buyers comparing Marbella, Estepona, Benahavis, Nueva Andalucia and surrounding areas.',
-    path: '/liora-areas.html',
+    path: '/areas.html',
     type: 'article'
   },
-  'liora-approach.html': {
+  'approach.html': {
     title: 'New Development Advisory Approach | Nueva Living',
     description: 'How Nueva Living structures a clearer, more selective advisory process for Costa del Sol new-development buyers.',
-    path: '/liora-approach.html',
+    path: '/approach.html',
     type: 'article'
   },
-  'liora-advisory.html': {
+  'advisory.html': {
     title: 'Costa del Sol Buyer Advisory | Nueva Living',
     description: 'Buyer-focused advisory for evaluating Costa del Sol new developments, developer context, reservation strategy and long-term lifestyle logic.',
-    path: '/liora-advisory.html',
+    path: '/advisory.html',
     type: 'article'
   },
-  'liora-about.html': {
+  'about.html': {
     title: 'About Nueva Living | Costa del Sol New Development Advisory',
     description: 'Nueva Living is a Costa del Sol new-development advisory brand focused on curated access, discretion and clear buyer guidance.',
-    path: '/liora-about.html',
+    path: '/about.html',
     type: 'website'
   },
-  'liora-access.html': {
+  'contact.html': {
     title: 'Request Private Access | Nueva Living',
     description: 'Request a private shortlist of curated Costa del Sol new-development opportunities matched to your brief, area preferences and ownership goals.',
-    path: '/liora-access.html',
+    path: '/contact.html',
     type: 'website'
   },
-  'liora-privacy-policy.html': {
+  'privacy-policy.html': {
     title: 'Privacy Policy | Nueva Living',
     description: 'Privacy policy information for Nueva Living enquiries, buyer communication and website contact forms.',
-    path: '/liora-privacy-policy.html',
+    path: '/privacy-policy.html',
     robots: 'noindex,follow',
     type: 'website'
   },
-  'liora-legal-notice.html': {
+  'legal-notice.html': {
     title: 'Legal Notice | Nueva Living',
     description: 'Legal notice and website-use information for Nueva Living.',
-    path: '/liora-legal-notice.html',
+    path: '/legal-notice.html',
     robots: 'noindex,follow',
     type: 'website'
   },
-  'liora-cookie-policy.html': {
+  'cookie-policy.html': {
     title: 'Cookie Policy | Nueva Living',
     description: 'Cookie policy information for the Nueva Living website.',
-    path: '/liora-cookie-policy.html',
+    path: '/cookie-policy.html',
     robots: 'noindex,follow',
     type: 'website'
   },
@@ -121,6 +120,37 @@ const pageMeta = {
     robots: 'noindex,follow',
     type: 'website'
   }
+};
+
+function loadProjectPages() {
+  if (!fs.existsSync(projectsDir)) return [];
+
+  return fs.readdirSync(projectsDir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => path.join(projectsDir, entry.name, 'project.json'))
+    .filter((file) => fs.existsSync(file))
+    .map((file) => JSON.parse(fs.readFileSync(file, 'utf8')))
+    .filter((project) => project.output && fs.existsSync(path.join(root, project.output)))
+    .sort((a, b) => (a.card?.order ?? 999) - (b.card?.order ?? 999));
+}
+
+const projectPages = loadProjectPages();
+const htmlFiles = [
+  ...baseHtmlFiles,
+  ...projectPages.map((project) => project.output)
+];
+
+const pageMeta = {
+  ...basePageMeta,
+  ...Object.fromEntries(projectPages.map((project) => [
+    project.output,
+    {
+      title: `${project.name} | Nueva Living`,
+      description: project.seoDescription || project.description || `${project.name} new development preview by Nueva Living.`,
+      path: `/${project.output}`,
+      type: 'website'
+    }
+  ]))
 };
 
 const assetFiles = [
@@ -149,6 +179,8 @@ const assetFiles = [
 const assetDirectories = [
   'assets/fonts/google',
   'assets/liora/areas',
+  'assets/liora/cards',
+  'assets/liora/hero',
   'assets/liora/video',
   'assets/liora/viewing',
   'content',
@@ -156,7 +188,7 @@ const assetDirectories = [
 
 function copyFile(source, target) {
   fs.mkdirSync(path.dirname(target), { recursive: true });
-  fs.copyFileSync(source, target);
+  fs.writeFileSync(target, fs.readFileSync(source));
 }
 
 function escapeHtml(value) {
@@ -205,6 +237,15 @@ function stripSeo(html) {
     .replace(/\n\s*<link href="https:\/\/fonts\.googleapis\.com[^>]*>/gi, '');
 }
 
+function injectFontPreloads(html) {
+  if (!html.includes('assets/fonts/google/liora-fonts.css')) return html;
+  if (html.includes('co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2')) return html;
+  return html.replace(
+    /\n\s*<link rel="stylesheet" href="assets\/fonts\/google\/liora-fonts\.css">/i,
+    `\n${fontPreloadBlock}\n  <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">`
+  );
+}
+
 function injectSeo(html, file) {
   const meta = pageMeta[file];
   if (!meta) return html;
@@ -217,9 +258,10 @@ function injectSeo(html, file) {
   if (!next.includes('assets/fonts/google/liora-fonts.css')) {
     next = next.replace(
       /(\n\s*<link rel="stylesheet" href="assets\/liora\/liora-pages\.css">)/,
-      '\n  <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">$1'
+      `\n${fontPreloadBlock}\n  <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">$1`
     );
   }
+  next = injectFontPreloads(next);
 
   const block = seoBlock(file);
   if (block) {
@@ -264,6 +306,7 @@ function copyDirectory(source, target) {
 fs.rmSync(dist, { recursive: true, force: true });
 fs.mkdirSync(dist, { recursive: true });
 
+console.log('Building HTML pages...');
 for (const file of htmlFiles) {
   writeHtml(path.join(root, file), path.join(dist, file), file);
 }
@@ -274,20 +317,26 @@ writeHtml(
   'index.html',
 );
 
+console.log('Copying core assets...');
 for (const file of assetFiles) {
+  console.log(`- ${file}`);
   copyFile(path.join(root, file), path.join(dist, file));
 }
 
+console.log('Copying asset directories...');
 for (const directory of assetDirectories) {
+  console.log(`- ${directory}`);
   copyDirectory(path.join(root, directory), path.join(dist, directory));
 }
 
+console.log('Cleaning duplicate artifacts...');
 for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
   if (/\s[23](?:\..*)?$/.test(entry.name)) {
     fs.rmSync(path.join(dist, entry.name), { recursive: true, force: true });
   }
 }
 
+console.log('Writing deploy metadata...');
 const metadata = `# Nueva Living deploy package
 
 Generated: ${new Date().toISOString()}
@@ -295,7 +344,7 @@ Generated: ${new Date().toISOString()}
 For a simple static preview, deploy the contents of this dist folder.
 
 For production lead capture with Marbella CRM, deploy the repository with netlify.toml so Netlify also deploys:
-- netlify/functions/liora-lead.js
+- netlify/functions/nueva-lead.js
 
 Entry point:
 - index.html
@@ -318,16 +367,43 @@ fs.writeFileSync(path.join(dist, 'README.md'), metadata);
 const sitemapEntries = Object.entries(pageMeta)
   .filter(([, meta]) => meta.robots !== 'noindex,follow')
   .map(([file, meta]) => {
-    const priority = file === 'index.html' ? '1.0' : file === 'liora-developments.html' ? '0.9' : file.startsWith('property-') ? '0.85' : '0.7';
-    return `  <url><loc>${siteUrl}${meta.path}</loc><changefreq>weekly</changefreq><priority>${priority}</priority></url>`;
+    const priority = file === 'index.html' ? '1.0' : file === 'developments.html' ? '0.9' : file.startsWith('property-') ? '0.85' : '0.7';
+    return [
+      '  <url>',
+      `<loc>${siteUrl}${meta.path}</loc>`,
+      '<changefreq>weekly</changefreq>',
+      `<priority>${priority}</priority>`,
+      '</url>'
+    ].join('');
   })
   .join('\n');
 
-fs.writeFileSync(path.join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapEntries}\n</urlset>\n`);
+fs.writeFileSync(
+  path.join(dist, 'sitemap.xml'),
+  [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    sitemapEntries,
+    '</urlset>',
+    ''
+  ].join('\n')
+);
 
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
 
-fs.writeFileSync(path.join(dist, '_redirects'), `/* /404.html 404\n`);
+const legacyRedirects = [
+  '/liora-approach.html /approach.html 301',
+  '/liora-developments.html /developments.html 301',
+  '/liora-areas.html /areas.html 301',
+  '/liora-advisory.html /advisory.html 301',
+  '/liora-about.html /about.html 301',
+  '/liora-access.html /contact.html 301',
+  '/liora-privacy-policy.html /privacy-policy.html 301',
+  '/liora-legal-notice.html /legal-notice.html 301',
+  '/liora-cookie-policy.html /cookie-policy.html 301',
+];
+
+fs.writeFileSync(path.join(dist, '_redirects'), `${legacyRedirects.join('\n')}\n/* /404.html 404\n`);
 
 fs.writeFileSync(path.join(dist, '_headers'), `/*.html
   Cache-Control: public, max-age=0, must-revalidate
