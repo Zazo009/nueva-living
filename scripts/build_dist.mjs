@@ -23,8 +23,8 @@ const baseHtmlFiles = [
 const siteUrl = 'https://nueva-living.com';
 const socialImage = `${siteUrl}/assets/liora/viewing/scene-08.jpg`;
 const fontPreloadBlock = [
-  '  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>',
-  '  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>'
+  '  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>',
+  '  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>'
 ].join('\n');
 const basePageMeta = {
   'index.html': {
@@ -239,8 +239,11 @@ function stripSeo(html) {
 
 function injectFontPreloads(html) {
   if (!html.includes('assets/fonts/google/liora-fonts.css')) return html;
-  if (html.includes('co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2')) return html;
-  return html.replace(
+  const withoutLegacyPreloads = html.replace(
+    /\n\s*<link rel="preload" href="assets\/fonts\/google\/(?:co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g|8vIJ7ww63mVu7gt79mT7PkRXMw|JTUSjIg1_i6t8kCHKm459WlhyyTh89Y)\.woff2" as="font" type="font\/woff2" crossorigin>/gi,
+    ''
+  );
+  return withoutLegacyPreloads.replace(
     /\n\s*<link rel="stylesheet" href="assets\/fonts\/google\/liora-fonts\.css">/i,
     `\n${fontPreloadBlock}\n  <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">`
   );
@@ -309,7 +312,9 @@ function minifyInlineStyles(html) {
 }
 
 function optimizeHtml(html) {
-  return minifyInlineStyles(inlineFontStyles(html));
+  return minifyInlineStyles(inlineFontStyles(html))
+    .replace(/assets\/liora\/liora-pages\.css(?:\?v=\d+)?/g, 'assets/liora/liora-pages.css?v=9')
+    .replace(/assets\/liora\/liora-property\.css(?:\?v=\d+)?/g, 'assets/liora/liora-property.css?v=9');
 }
 
 function injectSeo(html, file) {

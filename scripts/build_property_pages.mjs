@@ -7,8 +7,8 @@ const developmentsPage = path.resolve('developments.html');
 const generatedProjectsStart = '<!-- NUEVA GENERATED PROJECTS START -->';
 const generatedProjectsEnd = '<!-- NUEVA GENERATED PROJECTS END -->';
 const siteUrl = 'https://nueva-living.com';
-const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>`;
+const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>`;
 
 function esc(value = '') {
   return String(value)
@@ -400,8 +400,8 @@ function renderProject(project) {
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
 ${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
-  <link rel="stylesheet" href="assets/liora/liora-pages.css?v=8">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8">
+  <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
+  <link rel="stylesheet" href="assets/liora/liora-property.css?v=9">
   <script src="assets/liora/liora-property.js" defer></script>
   <script type="application/ld+json">
 ${JSON.stringify(productSchema, null, 2)}
