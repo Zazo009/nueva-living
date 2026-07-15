@@ -3127,13 +3127,17 @@
 
     @media (max-width: 768px) {
       #hero {
-        height: 84svh;
-        min-height: 560px;
-        max-height: 760px;
+        height: auto;
+        min-height: 100svh;
+        min-height: 100dvh;
+        max-height: none;
+        align-items: flex-start;
+        padding-top: 66px;
       }
 
       .hero-content {
-        padding-bottom: clamp(42px, 8.5vh, 76px);
+        width: 100%;
+        padding: clamp(38px, 7svh, 70px) 20px clamp(34px, 6svh, 58px);
       }
 
       .hero-media picture,
@@ -3158,8 +3162,8 @@
 
     @media (max-width: 420px) {
       #hero {
-        height: 82svh;
-        min-height: 540px;
+        min-height: 100svh;
+        min-height: 100dvh;
       }
 
       .hero-eyebrow {
