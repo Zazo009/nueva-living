@@ -54,6 +54,15 @@ function nav() {
   </div>`;
 }
 
+function breadcrumb(currentLabel) {
+  return `<nav class="breadcrumb-bar" aria-label="Breadcrumb">
+    <ol class="breadcrumb-list">
+      <li><a href="${home}">Home</a></li>
+      <li><span aria-current="page">${currentLabel}</span></li>
+    </ol>
+  </nav>`;
+}
+
 function footer() {
   const list = (items) => items.map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join('\n          ');
   return `<footer>
@@ -94,7 +103,7 @@ function footer() {
   </footer>`;
 }
 
-function page({ title, description, heroImage, heroKicker, heroTitle, heroLead, body }) {
+function page({ title, breadcrumbTitle, description, heroImage, heroKicker, heroTitle, heroLead, body }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -111,6 +120,7 @@ ${fontPreloadBlock}
 </head>
 <body>
   ${nav()}
+  ${breadcrumb(breadcrumbTitle || title)}
   <main>
     <section class="page-hero">
       <img src="${heroImage}" alt="">
@@ -245,6 +255,7 @@ const pages = [
   {
     file: 'contact.html',
     title: 'Request Access',
+    breadcrumbTitle: 'Contact Us',
     description: 'Request private access to curated Costa del Sol new development opportunities.',
     heroImage: 'assets/liora/viewing/scene-08.jpg',
     heroKicker: 'Private Access',

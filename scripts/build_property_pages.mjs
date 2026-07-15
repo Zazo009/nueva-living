@@ -268,6 +268,37 @@ function nav() {
   </div>`;
 }
 
+function projectArea(project) {
+  const location = `${project.hero?.location || ''} ${project.schema?.areaServed || ''}`.toLowerCase();
+  if (location.includes('nueva andaluc') || location.includes('nueva andalucía')) {
+    return { label: 'Nueva Andalucía', href: 'areas.html#nueva-andalucia' };
+  }
+  if (location.includes('benahav')) {
+    return { label: 'Benahavís', href: 'areas.html#benahavis' };
+  }
+  if (location.includes('estepona') || location.includes('new golden mile')) {
+    return { label: 'Estepona', href: 'areas.html#estepona' };
+  }
+  if (location.includes('mijas') || location.includes('fuengirola')) {
+    return { label: 'Mijas & Fuengirola', href: 'areas.html#mijas-fuengirola' };
+  }
+  if (location.includes('marbella east')) {
+    return { label: 'Marbella East', href: 'areas.html#marbella' };
+  }
+  return { label: 'Marbella', href: 'areas.html#marbella' };
+}
+
+function breadcrumb(project) {
+  const area = projectArea(project);
+  return `<nav class="breadcrumb-bar" aria-label="Breadcrumb">
+    <ol class="breadcrumb-list">
+      <li><a href="developments.html">Developments</a></li>
+      <li><a href="${area.href}">${area.label}</a></li>
+      <li><span aria-current="page">${esc(project.shortName || project.name)}</span></li>
+    </ol>
+  </nav>`;
+}
+
 function footer(project) {
   return `<footer>
     <div class="footer-grid">
@@ -418,6 +449,7 @@ ${JSON.stringify(agentSchema, null, 2)}
   data-project-sent-message="${esc(project.enquiry.sentMessage)}"
 >
   ${nav()}
+  ${breadcrumb(project)}
 
   <main>
     <section class="project-hero" id="top">
