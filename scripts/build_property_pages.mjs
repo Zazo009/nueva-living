@@ -242,12 +242,14 @@ function renderTimelineItems(items = []) {
 
 function nav() {
   return `<nav class="site-nav">
+    <div class="nav-links nav-links-left">
+      <a href="approach.html">Approach</a>
+      <a href="developments.html">Developments</a>
+    </div>
     <a class="nav-logo" href="index.html" aria-label="Nueva Living home">
       <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
-    <div class="nav-links">
-      <a href="approach.html">Approach</a>
-      <a href="developments.html">Developments</a>
+    <div class="nav-links nav-links-right">
       <a href="areas.html">Areas</a>
       <a href="advisory.html">Advisory</a>
       <a href="contact.html">Contact Us</a>

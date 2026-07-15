@@ -36,11 +36,14 @@ const footerLinks = {
 
 function nav() {
   return `<nav class="site-nav">
+    <div class="nav-links nav-links-left">
+      ${navLinks.slice(0, 2).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+    </div>
     <a class="nav-logo" href="${home}" aria-label="Nueva Living home">
       <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
-    <div class="nav-links">
-      ${navLinks.map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+    <div class="nav-links nav-links-right">
+      ${navLinks.slice(2).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
     </div>
     <button class="nav-burger" type="button" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>

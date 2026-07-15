@@ -3454,7 +3454,7 @@
 
     @media (max-width: 768px) {
       .nav-wordmark {
-        width: clamp(194px, 52vw, 252px);
+        width: clamp(230px, 62vw, 258px);
       }
 
       .footer-brand-logo {
@@ -3516,18 +3516,74 @@
         font-size: 16px;
       }
     }
+
+    /* Desktop header mirrors the editorial balance of the reference: the
+       wordmark owns the true center while navigation is split evenly around it. */
+    @media (min-width: 1121px) {
+      #nav {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        column-gap: clamp(28px, 3.5vw, 72px);
+      }
+
+      #nav .nav-logo {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: center;
+      }
+
+      #nav .nav-wordmark {
+        width: clamp(280px, 18vw, 320px);
+      }
+
+      #nav .nav-links {
+        grid-row: 1;
+        width: 100%;
+        gap: clamp(24px, 2.5vw, 52px);
+      }
+
+      #nav .nav-links-left {
+        grid-column: 1;
+        justify-content: flex-start;
+      }
+
+      #nav .nav-links-right {
+        grid-column: 3;
+        justify-content: flex-end;
+      }
+
+      #nav .nav-links a {
+        color: rgba(244, 234, 217, 0.94);
+        font-size: clamp(12px, 0.9vw, 13px);
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        white-space: nowrap;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1120px) {
+      #nav .nav-links {
+        display: none;
+      }
+
+      #nav .nav-burger {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
   <nav id="nav">
+    <ul class="nav-links nav-links-left">
+      <li><a href="approach.html">Approach</a></li>
+      <li><a href="developments.html">Developments</a></li>
+    </ul>
     <a href="index.html" class="nav-logo" aria-label="Nueva Living — Home">
       <img class="nav-wordmark" src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" decoding="async" width="420" height="100" />
     </a>
-    <ul class="nav-links">
-      <li><a href="approach.html">Approach</a></li>
-      <li><a href="developments.html">Developments</a></li>
+    <ul class="nav-links nav-links-right">
       <li><a href="areas.html">Areas</a></li>
       <li><a href="advisory.html">Advisory</a></li>
       <li><a href="contact.html">Contact Us</a></li>

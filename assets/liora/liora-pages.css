@@ -1651,7 +1651,7 @@ li,
   }
 
   .nav-logo {
-    width: clamp(194px, 52vw, 252px);
+    width: clamp(230px, 62vw, 258px);
   }
 
   .lead,
@@ -1712,5 +1712,56 @@ li,
   .form-panel select,
   .form-panel textarea {
     font-size: 16px;
+  }
+}
+
+/* Balanced editorial desktop navigation: equal side columns keep the wordmark
+   optically centered regardless of the different link counts on either side. */
+@media (min-width: 1121px) {
+  .site-nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    column-gap: clamp(28px, 3.5vw, 72px);
+  }
+
+  .site-nav .nav-logo {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    width: clamp(280px, 18vw, 320px);
+  }
+
+  .site-nav .nav-links {
+    grid-row: 1;
+    width: 100%;
+    gap: clamp(24px, 2.5vw, 52px);
+  }
+
+  .site-nav .nav-links-left {
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+
+  .site-nav .nav-links-right {
+    grid-column: 3;
+    justify-content: flex-end;
+  }
+
+  .site-nav .nav-links a {
+    color: rgba(244, 234, 217, 0.94);
+    font-size: clamp(12px, 0.9vw, 13px);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1120px) {
+  .site-nav .nav-links {
+    display: none;
+  }
+
+  .site-nav .nav-burger {
+    display: flex;
   }
 }
