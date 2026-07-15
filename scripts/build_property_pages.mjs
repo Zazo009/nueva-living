@@ -330,7 +330,7 @@ function footer(project) {
       <div class="footer-col">
         <div class="footer-col-title">Contact</div>
         <ul>
-          <li><a href="mailto:contact@nueva-living.com">contact@nueva-living.com</a></li>
+          <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
           <li><a href="areas.html#marbella">Marbella, Spain</a></li>
         </ul>
         <div class="footer-col-title" style="margin-top:24px;">Legal</div>
@@ -407,7 +407,7 @@ function renderProject(project) {
     '@type': 'RealEstateAgent',
     name: 'Nueva Living',
     url: `${siteUrl}/`,
-    email: 'contact@nueva-living.com',
+    email: 'contact@nuevaliving.com',
     areaServed: 'Costa del Sol'
   };
 
@@ -708,6 +708,7 @@ ${JSON.stringify(agentSchema, null, 2)}
         </div>
         <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
           <input type="hidden" name="form-name" value="project-material-request">
+          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - ${esc(project.name)}">
           <p style="display:none"><label>Do not fill this out <input name="bot-field"></label></p>
           <input type="hidden" id="f-project" name="project" value="${esc(project.name)}">
           <input type="hidden" name="preferred_area" value="${esc(project.hero?.location || '')}">

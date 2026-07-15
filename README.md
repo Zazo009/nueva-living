@@ -30,6 +30,8 @@ WEBHOOK_SECRET=change-me
 ALLOWED_ORIGINS=https://nueva-living.com,https://www.nueva-living.com
 ```
 
+Form email notifications are configured in the Netlify dashboard rather than in HTML or `netlify.toml`. Under **Project configuration -> Notifications -> Emails and webhooks -> Form submission notifications**, add an email notification for all verified forms with `contact@nuevaliving.com` as the recipient.
+
 ## Local Preview
 
 ```bash

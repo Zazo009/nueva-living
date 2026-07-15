@@ -37,7 +37,7 @@ const basePageMeta = {
       '@type': 'RealEstateAgent',
       name: 'Nueva Living',
       url: siteUrl,
-      email: 'contact@nueva-living.com',
+      email: 'contact@nuevaliving.com',
       areaServed: ['Marbella', 'Estepona', 'Benahavis', 'Costa del Sol'],
       knowsAbout: ['New developments', 'Off-plan property', 'Luxury real estate advisory']
     }
