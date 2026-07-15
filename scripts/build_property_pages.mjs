@@ -122,16 +122,16 @@ function locationMap(project) {
               <desc id="${esc(descId)}">Indicative map showing ${esc(project.name)} in ${esc(project.hero?.location || project.location?.mapLabelHtml || 'Costa del Sol')}, close to the coast, Marbella Centre, Puerto Banús, golf and Málaga Airport.</desc>
               <defs>
                 <linearGradient id="mapSeaGradient" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0" stop-color="#dfe9e3"/>
-                  <stop offset="1" stop-color="#cbd8d2"/>
+                  <stop offset="0" stop-color="#F4EAD9"/>
+                  <stop offset="1" stop-color="#E0CFB3"/>
                 </linearGradient>
                 <radialGradient id="mapProjectGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0" stop-color="#b89564" stop-opacity="0.34"/>
-                  <stop offset="0.58" stop-color="#b89564" stop-opacity="0.12"/>
-                  <stop offset="1" stop-color="#b89564" stop-opacity="0"/>
+                  <stop offset="0" stop-color="#A8834A" stop-opacity="0.34"/>
+                  <stop offset="0.58" stop-color="#A8834A" stop-opacity="0.12"/>
+                  <stop offset="1" stop-color="#A8834A" stop-opacity="0"/>
                 </radialGradient>
                 <filter id="mapSoftShadow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2b271f" flood-opacity="0.14"/>
+                  <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2F2417" flood-opacity="0.14"/>
                 </filter>
               </defs>
               <rect class="map-paper" x="1" y="1" width="758" height="518"/>
@@ -400,8 +400,8 @@ function renderProject(project) {
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
 ${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
-  <link rel="stylesheet" href="assets/liora/liora-pages.css">
-  <link rel="stylesheet" href="assets/liora/liora-property.css">
+  <link rel="stylesheet" href="assets/liora/liora-pages.css?v=8">
+  <link rel="stylesheet" href="assets/liora/liora-property.css?v=8">
   <script src="assets/liora/liora-property.js" defer></script>
   <script type="application/ld+json">
 ${JSON.stringify(productSchema, null, 2)}
