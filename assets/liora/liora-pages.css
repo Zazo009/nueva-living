@@ -807,7 +807,13 @@ img {
 
 .project-card[data-project-card] {
   position: relative;
+  cursor: pointer;
   transition: opacity 0.28s ease, transform 0.28s ease, border-color 0.28s ease;
+}
+
+.project-card[data-project-card]:focus-within {
+  outline: 1px solid var(--bronze);
+  outline-offset: 4px;
 }
 
 .project-card[data-project-card].is-filtered-out {
@@ -850,6 +856,18 @@ img {
   content: "→";
   font-size: 11px;
   transition: transform 0.24s ease;
+}
+
+/* The existing semantic project link owns the full card hit area without nesting interactive elements. */
+.project-card[data-project-card] .project-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.project-card[data-project-card] .project-link:focus-visible {
+  outline: none;
 }
 
 .project-link:hover::after {

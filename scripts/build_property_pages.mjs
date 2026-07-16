@@ -6,7 +6,7 @@ const conventionalImageDir = 'assets/liora/projects';
 const developmentsPage = path.resolve('developments.html');
 const generatedProjectsStart = '<!-- NUEVA GENERATED PROJECTS START -->';
 const generatedProjectsEnd = '<!-- NUEVA GENERATED PROJECTS END -->';
-const siteUrl = 'https://nueva-living.com';
+const siteUrl = 'https://nuevaliving.com';
 const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>`;
 
@@ -185,7 +185,7 @@ function locationMap(project) {
 }
 
 function whatsappHref(project) {
-  const rawNumber = project.contact?.whatsappNumber || '34600000000';
+  const rawNumber = project.contact?.whatsappNumber || '46707576709';
   const number = String(rawNumber).replace(/[^\d]/g, '');
   const message = project.contact?.whatsappMessage || `Hello Nueva Living, I would like to speak with an advisor about ${project.name}.`;
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
@@ -385,7 +385,7 @@ function renderProject(project) {
     headlineHtml: 'Indicative buyer <em>sequence</em>',
     items: []
   };
-  const schemaUrl = project.canonical || `https://nueva-living.com/${project.output}`;
+  const schemaUrl = project.canonical || `https://nuevaliving.com/${project.output}`;
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -716,14 +716,18 @@ ${JSON.stringify(agentSchema, null, 2)}
           <input type="hidden" name="budget_range" value="${esc(project.hero?.startingPrice || '')}">
           <div class="form-grid">
             <div class="field">
-              <label for="f-name">Name</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+              <label for="f-first-name">First Name</label>
+              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="First name" required>
+            </div>
+            <div class="field">
+              <label for="f-last-name">Last Name</label>
+              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Last name" required>
             </div>
             <div class="field">
               <label for="f-email">Email</label>
               <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
             </div>
-            <div class="field full">
+            <div class="field">
               <label for="f-phone">Phone / WhatsApp</label>
               <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international">
             </div>

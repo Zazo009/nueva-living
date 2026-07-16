@@ -27,7 +27,7 @@ Required production environment variables for lead forwarding:
 ```text
 CRM_WEBHOOK_URL=https://marbella-crm.vercel.app/api/webhook/liora
 WEBHOOK_SECRET=change-me
-ALLOWED_ORIGINS=https://nueva-living.com,https://www.nueva-living.com
+ALLOWED_ORIGINS=https://nuevaliving.com,https://www.nuevaliving.com
 ```
 
 Form email notifications are configured in the Netlify dashboard rather than in HTML or `netlify.toml`. Under **Project configuration -> Notifications -> Emails and webhooks -> Form submission notifications**, add an email notification for all verified forms with `contact@nuevaliving.com` as the recipient.

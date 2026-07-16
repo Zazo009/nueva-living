@@ -20,7 +20,7 @@ const baseHtmlFiles = [
   'thank-you.html',
 ];
 
-const siteUrl = 'https://nueva-living.com';
+const siteUrl = 'https://nuevaliving.com';
 const socialImage = `${siteUrl}/assets/liora/viewing/scene-08.jpg`;
 const fontPreloadBlock = [
   '  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>',
@@ -172,6 +172,8 @@ const assetFiles = [
   'assets/liora/brand/nueva-living-hero-logo-sand-transparent.png',
   'assets/liora/brand/nueva-living-lockup-espresso-transparent.png',
   'assets/liora/brand/nueva-living-lockup-sand-transparent.png',
+  'assets/liora/video/hero-desktop-v2.mp4',
+  'assets/liora/video/hero-mobile-v2.mp4',
   'assets/vendor/gsap/gsap.min.js',
   'assets/vendor/gsap/ScrollTrigger.min.js',
 ];
@@ -181,14 +183,29 @@ const assetDirectories = [
   'assets/liora/areas',
   'assets/liora/cards',
   'assets/liora/hero',
-  'assets/liora/video',
   'assets/liora/viewing',
   'content',
 ];
 
 function copyFile(source, target) {
   fs.mkdirSync(path.dirname(target), { recursive: true });
-  fs.writeFileSync(target, fs.readFileSync(source));
+  const expectedSize = fs.statSync(source).size;
+  let lastError = null;
+
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      fs.copyFileSync(source, target);
+      if (fs.statSync(target).size === expectedSize) return;
+      lastError = new Error(`Incomplete asset copy: ${source}`);
+    } catch (error) {
+      lastError = error;
+    }
+
+    // APFS/iCloud-backed folders can briefly cancel large synchronous copies.
+    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 60 * (attempt + 1));
+  }
+
+  throw lastError || new Error(`Unable to copy asset: ${source}`);
 }
 
 function escapeHtml(value) {
@@ -349,10 +366,31 @@ function injectConversion(html) {
   );
 }
 
+function externalizeHomepageController(html, publicName) {
+  if (publicName !== 'index.html') return html;
+
+  const controllerPattern = /<script>\s*(document\.addEventListener\('DOMContentLoaded',[\s\S]*?)\s*<\/script>/;
+  const match = html.match(controllerPattern);
+  if (!match) throw new Error('Homepage controller script was not found');
+
+  const target = path.join(dist, 'assets/liora/nueva-homepage.js');
+  fs.mkdirSync(path.dirname(target), { recursive: true });
+  fs.writeFileSync(target, `${match[1].trim()}\n`);
+
+  return html.replace(
+    controllerPattern,
+    '<script src="assets/liora/nueva-homepage.js" defer></script>'
+  );
+}
+
 function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
-  fs.writeFileSync(target, optimizeHtml(injectConversion(injectSeo(html, publicName))));
+  const productionHtml = externalizeHomepageController(
+    injectConversion(injectSeo(html, publicName)),
+    publicName
+  );
+  fs.writeFileSync(target, optimizeHtml(productionHtml));
 }
 
 function copyDirectory(source, target) {

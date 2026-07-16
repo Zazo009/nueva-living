@@ -1,7 +1,10 @@
+const DEFAULT_CRM_WEBHOOK_URL = 'https://marbella-crm.vercel.app/api/webhook/liora';
 const DEFAULT_ALLOWED_ORIGINS = [
-  'https://nueva-living.com',
-  'https://www.nueva-living.com',
+  'https://nuevaliving.com',
+  'https://www.nuevaliving.com',
 ];
+const ALLOWED_AREAS = new Set(['marbella', 'estepona', 'benahavis', 'other']);
+const ALLOWED_PROPERTY_TYPES = new Set(['villa', 'apartment', 'penthouse', 'townhouse', 'duplex']);
 
 function response(statusCode, body, origin = '') {
   const allowedOrigins = (process.env.ALLOWED_ORIGINS || DEFAULT_ALLOWED_ORIGINS.join(','))
@@ -17,7 +20,7 @@ function response(statusCode, body, origin = '') {
       'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Content-Type': 'application/json',
-      'Vary': 'Origin',
+      Vary: 'Origin',
     },
     body: JSON.stringify(body),
   };
@@ -31,6 +34,48 @@ function safeJson(value) {
   }
 }
 
+function cleanString(value) {
+  return typeof value === 'string' ? value.replace(/\s+/g, ' ').trim() : '';
+}
+
+function optionalNumber(value) {
+  if (value === '' || value === null || value === undefined) return undefined;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : undefined;
+}
+
+function allowedValues(value, allowed) {
+  if (!Array.isArray(value)) return [];
+  return [...new Set(value.map(cleanString).filter((item) => allowed.has(item)))];
+}
+
+function compactPayload(payload) {
+  return Object.fromEntries(Object.entries(payload).filter(([, value]) => {
+    if (value === '' || value === undefined || value === null) return false;
+    return !Array.isArray(value) || value.length > 0;
+  }));
+}
+
+function crmPayload(lead) {
+  return compactPayload({
+    first_name: cleanString(lead.first_name),
+    last_name: cleanString(lead.last_name),
+    email: cleanString(lead.email),
+    phone: cleanString(lead.phone),
+    budget_min: optionalNumber(lead.budget_min),
+    budget_max: optionalNumber(lead.budget_max),
+    preferred_areas: allowedValues(lead.preferred_areas, ALLOWED_AREAS),
+    property_types: allowedValues(lead.property_types, ALLOWED_PROPERTY_TYPES),
+    bedrooms_min: optionalNumber(lead.bedrooms_min),
+    bedrooms_max: optionalNumber(lead.bedrooms_max),
+    nationality: cleanString(lead.nationality),
+    message: cleanString(lead.message),
+    source_page: cleanString(lead.source_page),
+    utm_source: cleanString(lead.utm_source),
+    utm_campaign: cleanString(lead.utm_campaign),
+  });
+}
+
 exports.handler = async (event) => {
   const origin = event.headers.origin || event.headers.Origin || '';
 
@@ -42,10 +87,9 @@ exports.handler = async (event) => {
     return response(405, { ok: false, error: 'Method not allowed' }, origin);
   }
 
-  const crmWebhookUrl = process.env.CRM_WEBHOOK_URL;
   const webhookSecret = process.env.WEBHOOK_SECRET;
-
-  if (!crmWebhookUrl || !webhookSecret) {
+  const crmWebhookUrl = process.env.CRM_WEBHOOK_URL || DEFAULT_CRM_WEBHOOK_URL;
+  if (!webhookSecret) {
     return response(500, { ok: false, error: 'Lead webhook is not configured' }, origin);
   }
 
@@ -54,44 +98,29 @@ exports.handler = async (event) => {
     return response(400, { ok: false, error: 'Invalid JSON payload' }, origin);
   }
 
-  const hasContact = Boolean(lead.email || lead.phone);
-  if (!hasContact) {
-    return response(422, { ok: false, error: 'Lead requires email or phone' }, origin);
+  const payload = crmPayload(lead);
+  if (!payload.first_name || !payload.last_name || !payload.email) {
+    return response(422, { ok: false, error: 'First name, last name and email are required' }, origin);
   }
-
-  const enrichedLead = {
-    ...lead,
-    source: lead.source || 'nueva-living',
-    received_at: new Date().toISOString(),
-    metadata: {
-      ...(lead.metadata || {}),
-      ip: event.headers['x-nf-client-connection-ip'] || event.headers['client-ip'] || '',
-      user_agent: event.headers['user-agent'] || '',
-      origin,
-    },
-  };
 
   try {
     const crmResponse = await fetch(crmWebhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${webhookSecret}`,
-        'X-Nueva-Webhook-Secret': webhookSecret,
+        'x-webhook-secret': webhookSecret,
       },
-      body: JSON.stringify(enrichedLead),
+      body: JSON.stringify(payload),
     });
 
     if (!crmResponse.ok) {
-      return response(
-        502,
-        { ok: false, error: 'CRM webhook rejected the lead', status: crmResponse.status },
-        origin,
-      );
+      console.error('CRM webhook rejected lead', { status: crmResponse.status });
+      return response(502, { ok: false, error: 'CRM webhook rejected the lead' }, origin);
     }
 
     return response(200, { ok: true }, origin);
   } catch (error) {
-    return response(502, { ok: false, error: error.message || 'CRM webhook request failed' }, origin);
+    console.error('CRM webhook request failed', { message: error.message || 'Unknown error' });
+    return response(502, { ok: false, error: 'CRM webhook request failed' }, origin);
   }
 };

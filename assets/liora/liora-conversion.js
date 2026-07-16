@@ -1,6 +1,6 @@
 (() => {
   const site = {
-    whatsappNumber: '34600000000',
+    whatsappNumber: '46707576709',
     brand: 'Nueva Living',
     crmWebhookUrl: window.NUEVA_CRM_WEBHOOK_URL || '/.netlify/functions/nueva-lead'
   };
@@ -35,6 +35,62 @@
     };
   }
 
+  const validAreas = ['marbella', 'estepona', 'benahavis', 'other'];
+  const validPropertyTypes = ['villa', 'apartment', 'penthouse', 'townhouse', 'duplex'];
+
+  function normalizedText(value) {
+    return clean(value)
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+  }
+
+  function unique(values) {
+    return [...new Set(values.filter(Boolean))];
+  }
+
+  function normalizeAreas(value) {
+    const text = normalizedText(value);
+    if (!text) return [];
+    if (/open to all|all areas|mixed/.test(text)) return [...validAreas];
+
+    const areas = [];
+    if (text.includes('marbella')) areas.push('marbella');
+    if (text.includes('estepona') || text.includes('new golden mile')) areas.push('estepona');
+    if (text.includes('benahavis')) areas.push('benahavis');
+    if (!areas.length || /nueva andalucia|mijas|fuengirola|costa del sol|other/.test(text)) areas.push('other');
+    return unique(areas);
+  }
+
+  function normalizePropertyTypes(value) {
+    const text = normalizedText(value);
+    if (!text) return [];
+    if (/mixed|open/.test(text)) return [...validPropertyTypes];
+
+    const types = [];
+    if (text.includes('villa')) types.push('villa');
+    if (/apartment|suite|garden residence/.test(text)) types.push('apartment');
+    if (text.includes('penthouse')) types.push('penthouse');
+    if (text.includes('townhouse')) types.push('townhouse');
+    if (text.includes('duplex')) types.push('duplex');
+    return unique(types);
+  }
+
+  function parseNumberRange(value) {
+    const numbers = clean(value).match(/\d+/g)?.map(Number).filter(Number.isFinite) || [];
+    return {
+      min: numbers[0] || '',
+      max: numbers[1] || numbers[0] || ''
+    };
+  }
+
+  function compactPayload(payload) {
+    return Object.fromEntries(Object.entries(payload).filter(([, value]) => {
+      if (value === '' || value === undefined || value === null) return false;
+      return !Array.isArray(value) || value.length > 0;
+    }));
+  }
+
   function parseBudgetRange(value) {
     const text = clean(value);
     const numbers = [...text.matchAll(/[\d,.]+/g)]
@@ -44,15 +100,6 @@
     if (!numbers.length) return { min: '', max: '' };
     if (/\+/.test(text) || numbers.length === 1) return { min: numbers[0], max: '' };
     return { min: numbers[0], max: numbers[1] || '' };
-  }
-
-  function utmPayload() {
-    return ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term']
-      .reduce((acc, key) => {
-        const value = clean(params.get(key));
-        if (value) acc[key] = value;
-        return acc;
-      }, {});
   }
 
   function track(eventName, payload = {}) {
@@ -84,59 +131,50 @@
       field.name = name;
       form.appendChild(field);
     }
-    field.value = value;
+    field.value = value ?? '';
   }
 
   function buildLeadPayload(form, requestContext) {
-    const formName = form.getAttribute('name') || form.querySelector('[name="form-name"]')?.value || 'liora-form';
     const fullName = readField(form, '[name="name"], [name="full_name"], [name="fullname"]');
-    const { firstName, lastName } = splitName(fullName);
+    const split = splitName(fullName);
+    const firstName = readField(form, '[name="first_name"]') || split.firstName;
+    const lastName = readField(form, '[name="last_name"]') || split.lastName;
     const budgetRange = readField(form, '[name="budget_range"], [name="budget"], [name="price_range"]');
     const budget = parseBudgetRange(budgetRange);
     const project = readField(form, '[name="project"]') || (document.body?.dataset?.projectName || '');
     const preferredArea = readField(form, '[name="preferred_area"], [name="area"], [name="area_context"]') || clean(params.get('area'));
     const propertyType = readField(form, '[name="property_type_interest"], [name="property_type"], [name="type"]');
+    const bedrooms = parseNumberRange(readField(form, '[name="bedrooms"], [name="bedroom_range"]'));
     const message = readField(form, 'textarea[name="message"], textarea, [name="message"]');
+    const contextualMessage = project && !message.toLowerCase().includes(project.toLowerCase())
+      ? `${message ? `${message}\n\n` : ''}Project: ${project}`
+      : message;
 
-    return {
-      source: 'nueva-living',
-      brand: site.brand,
-      form_name: formName,
-      lead_context: clean(requestContext),
-      intent: clean(intentFromUrl || form.querySelector('[name="intent"]')?.value),
-      project,
+    return compactPayload({
       first_name: firstName,
       last_name: lastName,
-      full_name: fullName,
       email: readField(form, '[name="email"]'),
       phone: readField(form, '[name="phone"], [name="telephone"], [name="whatsapp"]'),
-      budget_range: budgetRange,
       budget_min: budget.min,
       budget_max: budget.max,
-      preferred_area: preferredArea,
-      property_type_interest: propertyType,
-      purchase_purpose: readField(form, '[name="purchase_purpose"], [name="purpose"], [name="motivation"]'),
-      message,
-      page_url: window.location.href,
-      page_path: pagePath,
-      source_page: document.title,
-      submitted_at: new Date().toISOString(),
-      metadata: {
-        referrer: document.referrer || '',
-        ...utmPayload()
-      },
-      ...utmPayload()
-    };
+      preferred_areas: normalizeAreas(preferredArea),
+      property_types: normalizePropertyTypes(propertyType),
+      bedrooms_min: Number(readField(form, '[name="bedrooms_min"]')) || bedrooms.min,
+      bedrooms_max: Number(readField(form, '[name="bedrooms_max"]')) || bedrooms.max,
+      nationality: readField(form, '[name="nationality"]'),
+      message: contextualMessage,
+      source_page: pagePath,
+      utm_source: clean(params.get('utm_source')),
+      utm_campaign: clean(params.get('utm_campaign'))
+    });
   }
 
-  function syncLeadToCrm(payload) {
+  function syncLeadToCrm(payload, trackingContext = {}) {
     if (!site.crmWebhookUrl) return;
 
     const body = JSON.stringify(payload);
     track('crm_lead_webhook_queued', {
-      form_name: payload.form_name,
-      lead_context: payload.lead_context,
-      project: payload.project || undefined
+      ...trackingContext
     });
 
     fetch(site.crmWebhookUrl, {
@@ -148,15 +186,13 @@
     })
       .then((response) => {
         track(response.ok ? 'crm_lead_webhook_sent' : 'crm_lead_webhook_rejected', {
-          form_name: payload.form_name,
           status: response.status,
-          lead_context: payload.lead_context
+          ...trackingContext
         });
       })
       .catch((error) => {
         track('crm_lead_webhook_error', {
-          form_name: payload.form_name,
-          lead_context: payload.lead_context,
+          ...trackingContext,
           error: clean(error?.message)
         });
       });
@@ -174,7 +210,7 @@
 
     ensureHidden(form, 'page_url', window.location.href);
     ensureHidden(form, 'page_path', pagePath);
-    ensureHidden(form, 'source_page', document.title);
+    ensureHidden(form, 'source_page', pagePath);
     ensureHidden(form, 'lead_context', requestContext);
     ensureHidden(form, 'submitted_at', new Date().toISOString());
     if (intentFromUrl) ensureHidden(form, 'intent', intentFromUrl);
@@ -188,7 +224,6 @@
     ensureHidden(form, 'last_name', payload.last_name);
     ensureHidden(form, 'budget_min', payload.budget_min);
     ensureHidden(form, 'budget_max', payload.budget_max);
-    ensureHidden(form, 'crm_source', payload.source);
     ensureHidden(form, 'crm_payload', JSON.stringify(payload));
 
     track('form_submit_intent', {
@@ -197,15 +232,22 @@
     });
 
     // CRM sync is intentionally non-blocking so the native form/Netlify fallback still captures every lead.
-    syncLeadToCrm(payload);
+    // The CRM request is deliberately fire-and-forget; Netlify form capture remains the lead fallback.
+    syncLeadToCrm(payload, {
+      form_name: formName,
+      lead_context: requestContext,
+      project: projectField?.value || undefined
+    });
   }
 
   window.lioraTrack = track;
   window.lioraWhatsappUrl = whatsappUrl;
   window.lioraBuildLeadPayload = buildLeadPayload;
 
-  document.querySelectorAll('form').forEach((form) => {
-    form.addEventListener('submit', () => enrichForm(form), { capture: true });
+  document.querySelectorAll('form[data-netlify="true"], form[data-crm-lead]').forEach((form) => {
+    form.addEventListener('submit', () => {
+      if (form.checkValidity()) enrichForm(form);
+    }, { capture: true });
   });
 
   document.querySelectorAll('a[data-whatsapp-advisor]').forEach((link) => {

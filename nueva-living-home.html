@@ -253,6 +253,10 @@
       flex-direction: column;
       gap: 20px;
     }
+    .mobile-menu.top-scrolled {
+      top: 64px;
+      max-height: calc(100svh - 64px);
+    }
     .mobile-menu a {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
@@ -597,7 +601,7 @@
     }
     .why-item:hover { background: var(--olive); }
     .why-rule { width: 28px; height: 1px; background: var(--gold); margin-bottom: 26px; }
-    .why-item h4 {
+    .why-item h3 {
       font-family: 'Cinzel', serif;
       font-size: 15px;
       font-style: normal;
@@ -963,7 +967,10 @@
       .nl-living { font-size: 6px; padding: 0 7px; }
       .mobile-menu { top: 68px; }
       #nav.scrolled + .mobile-menu,
-      .mobile-menu.top-scrolled { top: 56px; }
+      .mobile-menu.top-scrolled {
+        top: 56px;
+        max-height: calc(100svh - 56px);
+      }
       .mobile-menu { max-height: calc(100svh - 68px); }
 
       /* Hero */
@@ -1016,7 +1023,7 @@
       .why-grid { grid-template-columns: repeat(2, 1fr); }
       .why-header { margin-bottom: 44px; }
       .why-item { padding: 28px 20px; }
-      .why-item h4 { font-size: 13px; }
+      .why-item h3 { font-size: 13px; }
       .why-item p { font-size: 11.5px; }
 
       /* Areas */
@@ -1217,9 +1224,15 @@
     ═══════════════════════════════════════════════════════════ */
     #vgrain {
       position: fixed; inset: 0; z-index: 50020; pointer-events: none;
-      opacity: 0.032;
+      opacity: 0;
+      visibility: hidden;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
       background-size: 120px 120px;
+      animation: none;
+    }
+    body.v-active #vgrain {
+      opacity: 0.032;
+      visibility: visible;
       animation: gShift 0.07s steps(1) infinite;
     }
     @keyframes gShift {
@@ -2237,6 +2250,95 @@
       transform: translateY(-4px);
     }
 
+    #developments .dev-grid {
+      align-items: stretch;
+      grid-auto-flow: row;
+      row-gap: 14px;
+      column-gap: 14px;
+    }
+
+    #developments .dev-card {
+      height: 100%;
+      transform: none !important;
+    }
+
+    #developments .dev-card:not(.featured-walkthrough-card) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #developments .dev-card:not(.featured-walkthrough-card) .dev-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    #developments .dev-card:not(.featured-walkthrough-card) .dev-tagline {
+      display: -webkit-box;
+      min-height: calc(1.6em * 3);
+      overflow: hidden;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+
+    #developments .dev-card:not(.featured-walkthrough-card) .dev-meta {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: auto;
+    }
+
+    #developments .dev-card:not(.featured-walkthrough-card) .dev-meta-item {
+      min-width: 0;
+    }
+
+    #developments .dev-card:not(.featured-walkthrough-card) .dev-meta-item .val {
+      overflow-wrap: anywhere;
+    }
+
+    #developments .dev-card:not(.featured-walkthrough-card) .dev-footer {
+      min-height: 36px;
+      margin-top: 0;
+    }
+
+    #developments .dev-card:hover {
+      transform: none !important;
+    }
+
+    @media (min-width: 1181px) {
+      #developments .dev-card:not(.featured-walkthrough-card) {
+        height: 680px;
+        min-height: 0;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1180px) {
+      #developments .dev-card:not(.featured-walkthrough-card) {
+        height: 640px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #developments .dev-grid {
+        row-gap: 12px;
+      }
+
+      #developments .dev-card:not(.featured-walkthrough-card) {
+        height: 600px;
+      }
+
+      #developments .dev-card:not(.featured-walkthrough-card) .dev-footer {
+        align-items: center;
+        flex-direction: row;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #developments .dev-card:not(.featured-walkthrough-card) {
+        height: 590px;
+      }
+    }
+
     .dev-img-wrap {
       height: clamp(260px, 29vw, 360px);
       background: var(--sand-light);
@@ -2954,7 +3056,7 @@
     }
 
     .area-name,
-    .why-item h4,
+    .why-item h3,
     .step-title {
       font-size: 15px;
       line-height: 1.35;
@@ -3327,6 +3429,14 @@
         linear-gradient(0deg, rgba(47, 36, 23, 0.68) 0%, rgba(47, 36, 23, 0.10) 56%, rgba(47, 36, 23, 0.18) 100%);
     }
 
+    @media (min-width: 769px) {
+      .hero-overlay {
+        background:
+          linear-gradient(90deg, rgba(47, 36, 23, 0.58) 0%, rgba(74, 59, 40, 0.24) 52%, rgba(168, 131, 74, 0.03) 100%),
+          linear-gradient(0deg, rgba(47, 36, 23, 0.38) 0%, rgba(47, 36, 23, 0.04) 56%, rgba(47, 36, 23, 0.08) 100%);
+      }
+    }
+
     #why,
     #advisory {
       background: #2F2417;
@@ -3502,10 +3612,29 @@
         letter-spacing: 0.17em;
       }
 
-      .mobile-menu a,
       .footer-col a {
         font-size: 12px;
         letter-spacing: 0.16em;
+      }
+
+      .mobile-menu a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        color: rgba(244, 234, 217, 0.96);
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+      }
+
+      .nav-burger {
+        border-color: rgba(168, 131, 74, 0.62);
+        background: rgba(244, 234, 217, 0.05);
+      }
+
+      .nav-burger span {
+        width: 24px;
+        height: 1.5px;
       }
 
       .dev-meta-item .val,
@@ -3557,11 +3686,22 @@
       }
 
       #nav .nav-links a {
-        color: rgba(244, 234, 217, 0.94);
-        font-size: clamp(12px, 0.9vw, 13px);
-        font-weight: 500;
-        letter-spacing: 0.12em;
+        padding: 12px 0;
+        color: #f4ead9;
+        font-size: clamp(13px, 0.95vw, 14px);
+        font-weight: 600;
+        letter-spacing: 0.10em;
         white-space: nowrap;
+      }
+
+      #nav .nav-links a:hover,
+      #nav .nav-links a:focus-visible {
+        color: #fffaf3;
+      }
+
+      #nav .nav-links a:focus-visible {
+        outline: 1px solid rgba(168, 131, 74, 0.72);
+        outline-offset: 5px;
       }
     }
 
@@ -3573,6 +3713,367 @@
       #nav .nav-burger {
         display: flex;
       }
+    }
+
+    /* Homepage CRO layer: clearer proof, lower form friction and a discreet
+       mobile next step without changing the established visual system. */
+    .home-contact-actions {
+      position: sticky;
+      top: 62px;
+      z-index: 29980;
+      padding: 9px var(--page-pad, 6vw);
+      background: rgba(250, 246, 238, 0.94);
+      border-bottom: 1px solid rgba(168, 131, 74, 0.18);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+    }
+
+    .home-contact-actions-inner {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .home-contact-action {
+      min-height: 48px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold);
+      border: 1px solid rgba(74, 59, 40, 0.24);
+      color: var(--forest);
+      font-family: var(--ui-font);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.19em;
+      line-height: 1.2;
+      text-align: center;
+      text-transform: uppercase;
+      transition: background-color 220ms ease, color 220ms ease;
+    }
+
+    .home-contact-action:hover,
+    .home-contact-action:focus-visible {
+      background: var(--gold-light);
+      color: var(--forest);
+    }
+
+    .home-contact-action:focus-visible {
+      outline: 1px solid var(--forest);
+      outline-offset: -5px;
+    }
+
+    .home-credibility {
+      background: var(--sand-light);
+      border-bottom: 1px solid rgba(168, 131, 74, 0.18);
+    }
+
+    .home-credibility-inner {
+      width: min(88%, 1280px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .home-credibility-item {
+      min-height: 116px;
+      padding: 26px 30px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1px solid rgba(168, 131, 74, 0.18);
+    }
+
+    .home-credibility-item:last-child {
+      border-right: 1px solid rgba(168, 131, 74, 0.18);
+    }
+
+    .home-credibility-value {
+      font-family: 'Cinzel', serif;
+      font-size: 21px;
+      line-height: 1.15;
+      letter-spacing: 0.05em;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .home-credibility-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      line-height: 1.55;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .form-preferences {
+      grid-column: 1 / -1;
+      margin-top: 8px;
+      border-top: 1px solid rgba(168, 131, 74, 0.22);
+      border-bottom: 1px solid rgba(168, 131, 74, 0.22);
+    }
+
+    .form-preferences summary {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      cursor: pointer;
+      list-style: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+    }
+
+    .form-preferences summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .form-preferences summary::after {
+      content: '+';
+      flex: 0 0 auto;
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--gold);
+      transition: transform 220ms ease;
+    }
+
+    .form-preferences[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .form-preferences-summary-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .form-preferences-summary-copy small {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      line-height: 1.5;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .form-preferences .form-grid {
+      padding: 12px 0 22px;
+    }
+
+    .form-direct {
+      margin-top: 22px;
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+
+    .form-direct a {
+      color: var(--charcoal);
+      border-bottom: 1px solid rgba(168, 131, 74, 0.48);
+    }
+
+    .mobile-conversion-bar {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .home-contact-actions {
+        top: 56px;
+        padding: 6px 10px;
+      }
+
+      .home-contact-actions-inner {
+        gap: 8px;
+      }
+
+      .home-contact-action {
+        min-height: 44px;
+        padding: 9px 8px;
+        font-size: 10px;
+        letter-spacing: 0.15em;
+      }
+
+      .home-credibility-inner {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .home-credibility-item {
+        min-height: 98px;
+        padding: 20px 18px;
+        border-bottom: 1px solid rgba(168, 131, 74, 0.18);
+      }
+
+      .home-credibility-item:nth-child(odd) {
+        border-left: 0;
+      }
+
+      .home-credibility-item:last-child {
+        border-right: 0;
+      }
+
+      .home-credibility-value {
+        font-size: 18px;
+      }
+
+      .home-credibility-label {
+        font-size: 8.5px;
+        letter-spacing: 0.14em;
+      }
+
+      .form-preferences summary {
+        min-height: 76px;
+        font-size: 10px;
+        letter-spacing: 0.14em;
+      }
+
+      .form-submit {
+        align-items: stretch;
+      }
+
+      .form-submit .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .mobile-conversion-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 22000;
+        display: grid;
+        grid-template-columns: 0.86fr 1.14fr;
+        gap: 8px;
+        padding: 9px 14px max(9px, env(safe-area-inset-bottom));
+        background: rgba(47, 36, 23, 0.94);
+        border-top: 1px solid rgba(168, 131, 74, 0.34);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(110%);
+        transition: opacity 220ms ease, transform 260ms ease, visibility 220ms ease;
+      }
+
+      .mobile-conversion-bar.is-visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .mobile-conversion-bar .btn {
+        min-height: 46px;
+        padding: 13px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 8.5px;
+        letter-spacing: 0.14em;
+        text-align: center;
+      }
+
+      body.menu-open .mobile-conversion-bar,
+      body.v-active .mobile-conversion-bar,
+      body.v-transitioning .mobile-conversion-bar {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(110%);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .home-contact-actions {
+        top: 56px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mobile-conversion-bar,
+      .form-preferences summary::after {
+        transition: none;
+      }
+    }
+
+    /* Gold remains unchanged for fills and dark surfaces. Small text on light
+       surfaces uses a deeper companion tone to meet WCAG contrast. */
+    .btn-gold,
+    .home-contact-action {
+      color: #20170e;
+    }
+
+    .label,
+    .dev-loc,
+    .dev-cta-link,
+    .btn-ghost-dark,
+    .section-title:not(.title-dark) em {
+      color: #76562f;
+    }
+
+    .btn-ghost-dark {
+      border-color: rgba(118, 86, 47, 0.72);
+    }
+
+    #hero h1 em,
+    .title-dark em,
+    .footer-brand-name em {
+      color: #c9a877;
+    }
+
+    .pillar-num {
+      color: #76562f;
+    }
+
+    #why .label,
+    footer [style*="color:var(--gold)"] {
+      color: #c9a877 !important;
+    }
+
+    .why-item p {
+      color: #c4bbb0;
+    }
+
+    footer [style*="rgba(244,234,217,0.38)"] {
+      color: #aaa094 !important;
+    }
+
+    /* Keep the first render focused on the hero. Off-screen sections are
+       laid out as they approach the viewport, with stable reserved space. */
+    #intro,
+    #developments,
+    #areas,
+    #journey,
+    #about {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 900px;
+    }
+
+    #vox:not(.on) {
+      content-visibility: hidden;
+    }
+
+    #vox.on,
+    html.private-viewing-boot #vox {
+      content-visibility: visible;
+    }
+
+    #nav {
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
+    .hero-media img {
+      filter: none;
     }
   </style>
 </head>
@@ -3626,9 +4127,9 @@
 
       function updateNavScroll() {
         if (!navEl) return;
-        navEl.classList.toggle('scrolled', window.scrollY > 60);
-        mobileMenu.style.top = navEl.offsetHeight + 'px';
-        mobileMenu.style.maxHeight = `calc(100svh - ${navEl.offsetHeight}px)`;
+        const isScrolled = window.scrollY > 60;
+        navEl.classList.toggle('scrolled', isScrolled);
+        mobileMenu.classList.toggle('top-scrolled', isScrolled);
       }
 
       burger.dataset.navReady = 'true';
@@ -3658,6 +4159,7 @@
     })();
   </script>
 
+	<main id="main-content">
   <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
 	  <section id="hero">
 	    <div class="hero-media">
@@ -3682,8 +4184,8 @@
 	        loop
 	        playsinline
 	        preload="none"
-	        data-desktop-src="assets/liora/video/hero-desktop.mp4"
-	        data-mobile-src="assets/liora/video/hero-mobile.mp4"
+	        data-desktop-src="assets/liora/video/hero-desktop-v2.mp4"
+	        data-mobile-src="assets/liora/video/hero-mobile-v2.mp4"
 	        aria-label="Luxury Costa del Sol residence atmosphere"
 	        hidden
 	      ></video>
@@ -3692,10 +4194,10 @@
 	    <div class="hero-content">
 	      <div class="hero-eyebrow">Costa del Sol · New Development Specialist</div>
 	      <h1>Curated New Development<br>Opportunities on the <em>Costa del Sol</em></h1>
-      <p class="hero-sub">We help international buyers access selected off-plan and newly built properties across Marbella, Estepona, Benahavís and the wider Costa del Sol.</p>
+      <p class="hero-sub">Buyer-focused advice, direct project access and a carefully selected shortlist of new developments across Marbella, Estepona, Benahavís and the wider Costa del Sol.</p>
       <div class="hero-btns">
-        <a href="#developments" class="btn btn-gold">Access Curated Residences</a>
-        <a href="#contact" class="btn btn-ghost-light">Request Private Access</a>
+        <a href="#developments" class="btn btn-gold">Explore Developments</a>
+        <a href="#contact" class="btn btn-ghost-light">Request a Curated Shortlist</a>
       </div>
     </div>
     <div class="hero-scroll">
@@ -3703,6 +4205,42 @@
       <span>Scroll</span>
     </div>
   </section>
+
+  <nav class="home-contact-actions" aria-label="Contact Nueva Living">
+    <div class="home-contact-actions-inner">
+      <a
+        class="home-contact-action"
+        href="https://wa.me/46707576709?text=Hello%20Nueva%20Living%2C%20I%20would%20like%20to%20speak%20with%20an%20advisor."
+        target="_blank"
+        rel="noopener"
+        data-whatsapp-advisor
+        data-context="Nueva Living private buyer enquiry"
+        data-intent="speak with an advisor"
+      >Call Us</a>
+      <a class="home-contact-action" href="contact.html#contact-form">Contact Us</a>
+    </div>
+  </nav>
+
+  <aside class="home-credibility" aria-label="Nueva Living credentials">
+    <div class="home-credibility-inner">
+      <div class="home-credibility-item">
+        <span class="home-credibility-value">40+</span>
+        <span class="home-credibility-label">Developer Relationships</span>
+      </div>
+      <div class="home-credibility-item">
+        <span class="home-credibility-value">7</span>
+        <span class="home-credibility-label">Key Areas Covered</span>
+      </div>
+      <div class="home-credibility-item">
+        <span class="home-credibility-value">100%</span>
+        <span class="home-credibility-label">New Development Focus</span>
+      </div>
+      <div class="home-credibility-item">
+        <span class="home-credibility-value">1:1</span>
+        <span class="home-credibility-label">Private Buyer Advisory</span>
+      </div>
+    </div>
+  </aside>
 
   <!-- ═══════════════════════════════ DEVELOPMENTS ═══════════════════════════════ -->
   <section id="developments">
@@ -3884,27 +4422,27 @@
     <div class="why-grid">
       <div class="why-item reveal">
         <div class="why-rule"></div>
-        <h4>Modern Design &amp; Energy Efficiency</h4>
+        <h3>Modern Design &amp; Energy Efficiency</h3>
         <p>Contemporary architecture with the latest energy ratings, smart home systems and premium materials built to exacting European standards.</p>
       </div>
       <div class="why-item reveal" style="transition-delay:0.08s">
         <div class="why-rule"></div>
-        <h4>Flexible Payment Structures</h4>
+        <h3>Flexible Payment Structures</h3>
         <p>Stage payments spread across construction phases reduce upfront capital requirements and allow buyers greater financial flexibility.</p>
       </div>
       <div class="why-item reveal" style="transition-delay:0.16s">
         <div class="why-rule"></div>
-        <h4>Developer Warranties</h4>
+        <h3>Developer Warranties</h3>
         <p>Structural guarantees, building warranties and new appliance cover provide the reassurance unavailable in the resale market.</p>
       </div>
       <div class="why-item reveal" style="transition-delay:0.24s">
         <div class="why-rule"></div>
-        <h4>Rental &amp; Resale Potential</h4>
+        <h3>Rental &amp; Resale Potential</h3>
         <p>New builds consistently command premium rental yields and resale premiums throughout the Costa del Sol luxury market.</p>
       </div>
       <div class="why-item reveal" style="transition-delay:0.32s">
         <div class="why-rule"></div>
-        <h4>Early-Phase Pricing</h4>
+        <h3>Early-Phase Pricing</h3>
         <p>Early reservation can secure the best units at launch pricing, with meaningful capital appreciation before completion.</p>
       </div>
     </div>
@@ -4025,20 +4563,6 @@
         <h2 class="section-title reveal" style="transition-delay:0.1s">Focused Exclusively on<br><em>New Development</em></h2>
         <p class="body-copy reveal" style="transition-delay:0.16s;margin-bottom:18px;">Nueva Living was created to serve buyers who want clarity, access and professional guidance in the new-build market of Costa del Sol.</p>
         <p class="body-copy reveal" style="transition-delay:0.2s;">By focusing only on new developments, we provide a more specialised and curated experience — with deeper knowledge, stronger developer relationships and a more precise service than any generalist agency can offer.</p>
-        <div class="stat-row reveal" style="transition-delay:0.26s">
-          <div>
-            <div class="stat-num">40+</div>
-            <div class="stat-lbl">Developer Relationships</div>
-          </div>
-          <div>
-            <div class="stat-num">7</div>
-            <div class="stat-lbl">Key Areas Covered</div>
-          </div>
-          <div>
-            <div class="stat-num">100%</div>
-            <div class="stat-lbl">New Development Focus</div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -4047,20 +4571,24 @@
   <section id="contact">
     <div class="contact-inner">
       <div class="contact-header reveal">
-        <span class="label" style="display:block;text-align:center;">Request Private Access</span>
+        <span class="label" style="display:block;text-align:center;">Private Buyer Enquiry</span>
         <div class="gold-rule" style="margin:0 auto 28px;"></div>
-        <h2 class="section-title">Receive Curated New<br><em>Development Opportunities</em></h2>
-        <p class="body-copy" style="text-align:center;margin:16px auto 0;">Share your details and we will be in touch to discuss current and upcoming projects that match your requirements.</p>
+        <h2 class="section-title">Request Your Curated<br><em>Development Shortlist</em></h2>
+        <p class="body-copy" style="text-align:center;margin:16px auto 0;">Start with your contact details. Add preferences only if you would like us to refine the first conversation around a specific brief.</p>
       </div>
       <form name="liora-private-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
         <input type="hidden" name="form-name" value="liora-private-access">
         <input type="hidden" name="subject" data-remove-prefix value="New Nueva Living homepage enquiry">
         <p style="display:none"><label>Do not fill this out <input name="bot-field"></label></p>
         <input id="f-context" type="hidden" name="request_context" value="Homepage private access request">
-        <div class="form-grid">
+        <div class="form-grid form-primary">
           <div class="form-row reveal">
-            <label for="f-name">Full Name</label>
-            <input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
+            <label for="f-first-name">First Name</label>
+            <input id="f-first-name" name="first_name" type="text" placeholder="First name" autocomplete="given-name" required />
+          </div>
+          <div class="form-row reveal" style="transition-delay:0.03s">
+            <label for="f-last-name">Last Name</label>
+            <input id="f-last-name" name="last_name" type="text" placeholder="Last name" autocomplete="family-name" required />
           </div>
           <div class="form-row reveal" style="transition-delay:0.06s">
             <label for="f-email">Email Address</label>
@@ -4070,7 +4598,16 @@
             <label for="f-phone">Phone Number</label>
             <input id="f-phone" name="phone" type="tel" placeholder="+34 or international" autocomplete="tel" />
           </div>
-          <div class="form-row reveal" style="transition-delay:0.14s">
+        </div>
+        <details class="form-preferences reveal" style="transition-delay:0.14s">
+          <summary>
+            <span class="form-preferences-summary-copy">
+              <span>Add Property Preferences</span>
+              <small>Optional - helps us refine your shortlist</small>
+            </span>
+          </summary>
+          <div class="form-grid">
+          <div class="form-row reveal">
             <label for="f-area">Preferred Area</label>
             <select id="f-area" name="preferred_area">
               <option value="">Select area…</option>
@@ -4082,7 +4619,7 @@
               <option>Open to all areas</option>
             </select>
           </div>
-          <div class="form-row reveal" style="transition-delay:0.18s">
+          <div class="form-row reveal">
             <label for="f-property-type">Property Type Interest</label>
             <select id="f-property-type" name="property_type_interest">
               <option value="">Select type…</option>
@@ -4093,7 +4630,7 @@
               <option>Mixed / Open</option>
             </select>
           </div>
-          <div class="form-row reveal" style="transition-delay:0.22s">
+          <div class="form-row reveal">
             <label for="f-budget">Budget Range</label>
             <select id="f-budget" name="budget_range">
               <option value="">Select budget…</option>
@@ -4104,7 +4641,7 @@
               <option>€3,000,000+</option>
             </select>
           </div>
-          <div class="form-row reveal" style="transition-delay:0.26s">
+          <div class="form-row reveal">
             <label for="f-purpose">Purchase Purpose</label>
             <select id="f-purpose" name="purchase_purpose">
               <option value="">Select purpose…</option>
@@ -4114,18 +4651,21 @@
               <option>Combination</option>
             </select>
           </div>
-          <div class="form-row full reveal" style="transition-delay:0.3s">
+          <div class="form-row full reveal">
             <label for="f-msg">Message (optional)</label>
             <textarea id="f-msg" name="message" placeholder="Tell us about your requirements…"></textarea>
           </div>
-        </div>
+          </div>
+        </details>
         <div class="form-submit reveal" style="transition-delay:0.34s">
-          <button type="submit" class="btn btn-gold">Submit Request</button>
-          <span class="form-note">Your enquiry is handled with complete discretion.</span>
+          <button type="submit" class="btn btn-gold">Request My Shortlist</button>
+          <span class="form-note">Your enquiry is reviewed privately by Nueva Living.</span>
         </div>
+        <p class="form-direct">Prefer email? <a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></p>
       </form>
     </div>
   </section>
+	</main>
 
   <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
   <footer>
@@ -4160,7 +4700,7 @@
         <div class="footer-col-title">Contact Us</div>
         <ul>
           <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
-          <li><a href="tel:+34600000000">+34 600 000 000</a></li>
+          <li><a href="https://wa.me/46707576709" target="_blank" rel="noopener" data-whatsapp-advisor data-context="Nueva Living" data-intent="speak with an advisor">+46 707 57 67 09 · WhatsApp</a></li>
           <li><a href="areas.html#marbella">Marbella, Spain</a></li>
         </ul>
         <div class="footer-col-title" style="margin-top:22px;">Legal</div>
@@ -4177,7 +4717,7 @@
         <div style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.12em;color:rgba(244,234,217,0.88);margin-bottom:4px;">CURATED LIVING.</div>
         <div style="font-family:'Cinzel',serif;font-size:13px;letter-spacing:0.12em;color:var(--gold);">TIMELESS VALUE.</div>
       </div>
-      <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(244,234,217,0.38);">NUEVA-LIVING.COM</div>
+      <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(244,234,217,0.38);">NUEVALIVING.COM</div>
     </div>
     <div class="footer-bottom">
       <p class="footer-disclaimer">Information presented on this website is for general marketing purposes only and does not constitute legal, financial or investment advice. All development details, prices and delivery dates are subject to change without notice. Buyers should seek independent legal and financial counsel before making any property purchase decision. Nueva Living acts as an advisory intermediary and does not provide regulated financial advice.</p>
@@ -4323,17 +4863,48 @@
 
   </div><!-- /vox -->
 
-  <script src="assets/vendor/gsap/gsap.min.js" defer></script>
-  <script src="assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
   <script>
   document.addEventListener('DOMContentLoaded', () => {
   /* ═════════════════════════════════════════════════════════════
-     GSAP + MAIN SITE SETUP
+     MAIN SITE SETUP + ON-DEMAND PRIVATE VIEWING MOTION
   ═════════════════════════════════════════════════════════════ */
-  gsap.registerPlugin(ScrollTrigger);
-  window.addEventListener('load', () => ScrollTrigger.refresh());
+  let motionLibrariesPromise = null;
+
+  function loadMotionScript(src) {
+    return new Promise((resolve, reject) => {
+      const existing = document.querySelector(`script[src="${src}"]`);
+      if (existing?.dataset.loaded === 'true') {
+        resolve();
+        return;
+      }
+
+      const script = existing || document.createElement('script');
+      script.src = src;
+      script.async = true;
+      script.addEventListener('load', () => {
+        script.dataset.loaded = 'true';
+        resolve();
+      }, { once: true });
+      script.addEventListener('error', reject, { once: true });
+      if (!existing) document.head.appendChild(script);
+    });
+  }
+
+  function ensureViewingMotion() {
+    if (window.gsap && window.ScrollTrigger) {
+      window.gsap.registerPlugin(window.ScrollTrigger);
+      return Promise.resolve();
+    }
+    if (!motionLibrariesPromise) {
+      motionLibrariesPromise = loadMotionScript('assets/vendor/gsap/gsap.min.js')
+        .then(() => loadMotionScript('assets/vendor/gsap/ScrollTrigger.min.js'))
+        .then(() => window.gsap.registerPlugin(window.ScrollTrigger));
+    }
+    return motionLibrariesPromise;
+  }
 
   const heroVideo = document.querySelector('.hero-media video');
+  const heroPoster = document.querySelector('.hero-media .hero-poster');
   const heroSection = document.getElementById('hero');
   const heroVideoSourceQuery = window.matchMedia('(max-width: 768px)');
   const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -4345,10 +4916,16 @@
   function shouldUseHeroVideo() {
     return Boolean(
       heroVideo &&
-      !heroVideoSourceQuery.matches &&
       !reducedMotionQuery.matches &&
       !networkConnection?.saveData
     );
+  }
+
+  function getHeroVideoSource() {
+    if (!heroVideo) return '';
+    return heroVideoSourceQuery.matches
+      ? heroVideo.dataset.mobileSrc
+      : heroVideo.dataset.desktopSrc;
   }
 
   function unloadHeroVideo() {
@@ -4364,7 +4941,7 @@
 
   function loadHeroVideo() {
     if (!shouldUseHeroVideo() || heroVideoLoaded) return;
-    const nextSrc = heroVideo.dataset.desktopSrc;
+    const nextSrc = getHeroVideoSource();
     if (!nextSrc) return;
     heroVideoLoaded = true;
     heroVideo.preload = 'metadata';
@@ -4380,15 +4957,38 @@
   function scheduleHeroVideoLoad() {
     if (!shouldUseHeroVideo() || heroVideoLoaded || heroVideoLoadScheduled) return;
     heroVideoLoadScheduled = true;
+
     const run = () => {
       heroVideoLoadScheduled = false;
       loadHeroVideo();
     };
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(run, { timeout: 2400 });
-    } else {
-      window.addEventListener('load', () => setTimeout(run, 900), { once: true });
-    }
+
+    const queueAfterPoster = () => {
+      // Keep the mobile poster stable through first paint before progressively
+      // enhancing the hero with video; desktop can transition much sooner.
+      const minimumPosterTime = heroVideoSourceQuery.matches ? 12000 : 1000;
+      setTimeout(() => {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(run, { timeout: heroVideoSourceQuery.matches ? 1800 : 1000 });
+        } else {
+          run();
+        }
+      }, minimumPosterTime);
+    };
+
+    const waitForPoster = () => {
+      if (!heroPoster || (heroPoster.complete && heroPoster.naturalWidth > 0)) {
+        queueAfterPoster();
+        return;
+      }
+      heroPoster.addEventListener('load', queueAfterPoster, { once: true });
+      heroPoster.addEventListener('error', queueAfterPoster, { once: true });
+    };
+
+    // Keep the poster as the LCP resource. Video is requested only after the
+    // initial page load, poster readiness and a browser idle window.
+    if (document.readyState === 'complete') waitForPoster();
+    else window.addEventListener('load', waitForPoster, { once: true });
   }
 
   function syncHeroVideoMotion() {
@@ -4403,8 +5003,8 @@
 
   scheduleHeroVideoLoad();
   heroVideoSourceQuery.addEventListener?.('change', () => {
-    if (!shouldUseHeroVideo()) unloadHeroVideo();
-    else scheduleHeroVideoLoad();
+    unloadHeroVideo();
+    if (shouldUseHeroVideo()) scheduleHeroVideoLoad();
   });
   reducedMotionQuery.addEventListener?.('change', () => {
     if (!shouldUseHeroVideo()) unloadHeroVideo();
@@ -4419,26 +5019,20 @@
     }, { threshold: 0.12 }).observe(heroSection);
   }
 
-  // Main site GSAP animations
-  const useScrollAnimations = !heroVideoSourceQuery.matches && !reducedMotionQuery.matches;
-  if (useScrollAnimations) {
-    const heroStartScale = 1.025;
-    gsap.fromTo('.hero-media .hero-visual', { scale:heroStartScale },
-      { scale:1, ease:'none', scrollTrigger:{ trigger:'#hero', start:'top top', end:'bottom top', scrub:0.8 } }
-    );
-    gsap.to('.hero-content', { y:-60, opacity:0.6, ease:'none',
-      scrollTrigger:{ trigger:'#hero', start:'top top', end:'60% top', scrub:true }
-            });
-    document.querySelectorAll('.reveal').forEach(el => {
-      if (el.matches('.why-item, .area-card')) return;
-      gsap.from(el, { opacity:0, y:18, duration:0.9, ease:'power2.out', immediateRender:false,
-        delay: el.style.transitionDelay ? parseFloat(el.style.transitionDelay) : 0,
-        scrollTrigger:{ trigger:el, start:'top 88%', once:true } });
-    });
-    gsap.from('.why-item',  { y:14, duration:0.65, stagger:0.04, ease:'power2.out', immediateRender:false, clearProps:'transform', scrollTrigger:{ trigger:'.why-grid',  start:'top 84%', once:true } });
-    gsap.from('.area-card', { y:14, duration:0.65, stagger:0.04, ease:'power2.out', immediateRender:false, clearProps:'transform', scrollTrigger:{ trigger:'.areas-grid', start:'top 84%', once:true } });
-    gsap.from('.dev-card',  { opacity:0, y:22, duration:0.85, stagger:0.08, ease:'power2.out', immediateRender:false, scrollTrigger:{ trigger:'.dev-grid',   start:'top 80%', once:true } });
-    gsap.from('.pillar-num',{ opacity:0, y:14, duration:0.75, ease:'power2.out', immediateRender:false, scrollTrigger:{ trigger:'.pillars', start:'top 82%', once:true } });
+  // Native reveal motion keeps the homepage light; GSAP is reserved for the
+  // Private Viewing experience and is loaded only when that experience opens.
+  const revealElements = document.querySelectorAll('.reveal');
+  if (reducedMotionQuery.matches || !('IntersectionObserver' in window)) {
+    revealElements.forEach(element => element.classList.add('visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.04 });
+    revealElements.forEach(element => revealObserver.observe(element));
   }
 
   /* ─────────────────────────────────────────────────────────────
@@ -5392,7 +5986,7 @@
     document.body.classList.add('v-transitioning');
     vveil.classList.add('on');
 
-    setTimeout(() => {
+    ensureViewingMotion().then(() => setTimeout(() => {
         // Reset scroller to top
         vfilm.scrollTop = 0;
         vSetGuidedUI(true, 'Guided');
@@ -5423,7 +6017,13 @@
           if (vGuidedOn) vStartGuided(false);
         });
       }, veilLiftDelay);
-    }, entryDelay);
+    }, entryDelay)).catch(error => {
+      console.error('Private Viewing motion failed to load', error);
+      document.body.style.overflow = '';
+      document.body.classList.remove('v-active', 'v-transitioning');
+      document.documentElement.classList.remove('private-viewing-boot');
+      vveil.classList.remove('on');
+    });
   }
 
   function vClose() {
