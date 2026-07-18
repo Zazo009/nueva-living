@@ -708,10 +708,10 @@ ${JSON.stringify(agentSchema, null, 2)}
           <h2 class="section-title">${project.enquiry.headlineHtml}</h2>
           <p class="body-copy">${esc(project.enquiry.copy)}</p>
         </div>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/.netlify/functions/nueva-lead">
-          <input type="hidden" name="form-name" value="project-material-request">
+        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead">
+          
           <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - ${esc(project.name)}">
-          <p style="display:none"><label>Do not fill this out <input name="bot-field"></label></p>
+          
           <input type="hidden" id="f-project" name="project" value="${esc(project.name)}">
           <input type="hidden" name="preferred_area" value="${esc(project.hero?.location || '')}">
           <input type="hidden" name="property_type_interest" value="${esc(project.hero?.type || '')}">

@@ -223,22 +223,6 @@
       });
   }
 
-  function submitNetlifyCopy(form) {
-    const netlifyFormName = form.querySelector('[name="form-name"]')?.value || form.getAttribute('name');
-    if (!netlifyFormName) return Promise.resolve(false);
-    const body = new URLSearchParams();
-    new FormData(form).forEach((value, key) => {
-      if (typeof value === 'string') body.append(key, value);
-    });
-
-    return fetch('/', {
-      method: 'POST',
-      keepalive: true,
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body.toString()
-    }).then((response) => response.ok);
-  }
-
   function formStatusElement(form) {
     const existing = form.querySelector('.form-response, .form-note');
     if (existing) return existing;
@@ -327,22 +311,14 @@
 
     try {
       await syncLeadToCrm(payload, trackingContext);
-      // Keep Netlify Forms as a secondary email/dashboard record without delaying confirmation.
-      submitNetlifyCopy(form).catch(() => false);
       setFormState(form, 'success', 'Thank you. Your enquiry has been received and we will contact you shortly.');
       track('form_submit_success', trackingContext);
     } catch (error) {
-      const fallbackCaptured = await submitNetlifyCopy(form).catch(() => false);
-      if (fallbackCaptured) {
-        setFormState(form, 'success', 'Thank you. Your enquiry has been received and we will contact you shortly.');
-        track('form_submit_fallback_success', trackingContext);
-      } else {
-        setFormState(form, 'error', 'We could not send your request. Please email contact@nuevaliving.com.');
-        track('form_submit_error', {
-          ...trackingContext,
-          error: clean(error?.message)
-        });
-      }
+      setFormState(form, 'error', 'We could not send your request. Please email contact@nuevaliving.com.');
+      track('form_submit_error', {
+        ...trackingContext,
+        error: clean(error?.message)
+      });
     } finally {
       delete form.dataset.submitting;
     }
@@ -353,9 +329,7 @@
   window.lioraBuildLeadPayload = buildLeadPayload;
 
   document.querySelectorAll('form').forEach((form) => {
-    // Netlify removes data-netlify after registering a deployed form, but keeps form-name.
-    const isLeadForm = form.matches('[data-crm-lead], [data-netlify="true"]') ||
-      Boolean(form.querySelector('[name="form-name"]'));
+    const isLeadForm = form.matches('[data-crm-lead], [action="/.netlify/functions/nueva-lead"]');
     if (isLeadForm) form.addEventListener('submit', handleLeadSubmit);
   });
 

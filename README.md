@@ -34,10 +34,10 @@ The browser submits to `/.netlify/functions/nueva-lead`. The function adds the
 webhook secret server-side before forwarding the lead to the CRM; never expose
 `CRM_WEBHOOK_SECRET` in HTML or client-side JavaScript.
 
-Successful CRM submissions show an inline confirmation. Netlify Forms remains
-enabled as a secondary capture and email-notification record.
-
-Form email notifications are configured in the Netlify dashboard rather than in HTML or `netlify.toml`. Under **Project configuration -> Notifications -> Emails and webhooks -> Form submission notifications**, add an email notification for all verified forms with `contact@nuevaliving.com` as the recipient.
+Successful CRM submissions show an inline confirmation. If client-side JavaScript
+is unavailable, the HTML form posts to the same Netlify Function and redirects to
+the thank-you page only after the CRM accepts the lead. CRM acceptance is the
+authoritative success signal; the browser never receives the webhook secret.
 
 ## Local Preview
 
