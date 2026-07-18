@@ -38,6 +38,17 @@ function cleanString(value) {
   return typeof value === 'string' ? value.replace(/\s+/g, ' ').trim() : '';
 }
 
+function cleanEnvironmentValue(value) {
+  const cleaned = cleanString(value);
+  if (cleaned.length < 2) return cleaned;
+
+  const first = cleaned[0];
+  const last = cleaned[cleaned.length - 1];
+  return (first === last && (first === '"' || first === "'"))
+    ? cleaned.slice(1, -1).trim()
+    : cleaned;
+}
+
 function optionalNumber(value) {
   if (value === '' || value === null || value === undefined) return undefined;
   const number = Number(value);
@@ -97,8 +108,10 @@ exports.handler = async (event) => {
     return response(405, { ok: false, error: 'Method not allowed' }, origin);
   }
 
-  const webhookSecret = process.env.WEBHOOK_SECRET;
-  const crmWebhookUrl = process.env.CRM_WEBHOOK_URL || DEFAULT_CRM_WEBHOOK_URL;
+  // Netlify values are normalized server-side so pasted whitespace or quotes
+  // cannot silently invalidate the CRM authentication header.
+  const webhookSecret = cleanEnvironmentValue(process.env.WEBHOOK_SECRET);
+  const crmWebhookUrl = cleanEnvironmentValue(process.env.CRM_WEBHOOK_URL) || DEFAULT_CRM_WEBHOOK_URL;
   if (!webhookSecret) {
     return response(500, { ok: false, error: 'Lead webhook is not configured' }, origin);
   }
@@ -124,7 +137,11 @@ exports.handler = async (event) => {
     });
 
     if (!crmResponse.ok) {
-      console.error('CRM webhook rejected lead', { status: crmResponse.status });
+      const upstreamMessage = cleanString(await crmResponse.text()).slice(0, 300);
+      console.error('CRM webhook rejected lead', {
+        status: crmResponse.status,
+        response: upstreamMessage || 'No response body',
+      });
       return response(502, { ok: false, error: 'CRM webhook rejected the lead' }, origin);
     }
 
