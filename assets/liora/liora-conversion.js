@@ -224,7 +224,8 @@
   }
 
   function submitNetlifyCopy(form) {
-    if (!form.matches('[data-netlify="true"]')) return Promise.resolve(false);
+    const netlifyFormName = form.querySelector('[name="form-name"]')?.value || form.getAttribute('name');
+    if (!netlifyFormName) return Promise.resolve(false);
     const body = new URLSearchParams();
     new FormData(form).forEach((value, key) => {
       if (typeof value === 'string') body.append(key, value);
@@ -351,8 +352,11 @@
   window.lioraWhatsappUrl = whatsappUrl;
   window.lioraBuildLeadPayload = buildLeadPayload;
 
-  document.querySelectorAll('form[data-netlify="true"], form[data-crm-lead]').forEach((form) => {
-    form.addEventListener('submit', handleLeadSubmit);
+  document.querySelectorAll('form').forEach((form) => {
+    // Netlify removes data-netlify after registering a deployed form, but keeps form-name.
+    const isLeadForm = form.matches('[data-crm-lead], [data-netlify="true"]') ||
+      Boolean(form.querySelector('[name="form-name"]'));
+    if (isLeadForm) form.addEventListener('submit', handleLeadSubmit);
   });
 
   document.querySelectorAll('a[data-whatsapp-advisor]').forEach((link) => {
