@@ -295,10 +295,16 @@
     }
     .hero-media .hero-video {
       opacity: 0;
-      transition: opacity 900ms ease;
+      visibility: hidden;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      will-change: opacity;
+      transition: opacity 900ms ease, visibility 0s linear 900ms;
     }
     .hero-media .hero-video.is-ready {
       opacity: 1;
+      visibility: visible;
+      transition-delay: 0s;
     }
     .hero-overlay {
       position: absolute; inset: 0;
@@ -841,6 +847,31 @@
       color: var(--muted);
       font-weight: 300;
     }
+    .form-consent-group {
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .form-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--muted);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.55;
+      cursor: pointer;
+    }
+    .form-consent input {
+      flex: 0 0 auto;
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      accent-color: var(--gold);
+    }
+    .form-note.is-error { color: #8c3f32; }
+    .form-submit button:disabled { cursor: wait; opacity: 0.72; }
 
     /* ═══════════════════════════════════════════════════════════
        FOOTER
@@ -3231,7 +3262,6 @@
       #hero {
         height: auto;
         min-height: 100svh;
-        min-height: 100dvh;
         max-height: none;
         align-items: flex-start;
         padding-top: 66px;
@@ -3265,7 +3295,6 @@
     @media (max-width: 420px) {
       #hero {
         min-height: 100svh;
-        min-height: 100dvh;
       }
 
       .hero-eyebrow {
@@ -4189,7 +4218,7 @@
 	        data-desktop-src="assets/liora/video/hero-desktop-v2.mp4"
 	        data-mobile-src="assets/liora/video/hero-mobile-v2.mp4"
 	        aria-label="Luxury Costa del Sol residence atmosphere"
-	        hidden
+	        aria-hidden="true"
 	      ></video>
 	    </div>
 	    <div class="hero-overlay"></div>
@@ -4659,6 +4688,16 @@
           </div>
           </div>
         </details>
+        <div class="form-consent-group reveal" style="transition-delay:0.28s">
+          <label class="form-consent" for="f-consent">
+            <input id="f-consent" name="consent" type="checkbox" required />
+            <span>I agree to be contacted and for my data to be stored.</span>
+          </label>
+          <label class="form-consent" for="f-marketing-opt-in">
+            <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox" />
+            <span>I would also like to receive occasional project updates from Nueva Living.</span>
+          </label>
+        </div>
         <div class="form-submit reveal" style="transition-delay:0.34s">
           <button type="submit" class="btn btn-gold">Request My Shortlist</button>
           <span class="form-note">Your enquiry is reviewed privately by Nueva Living.</span>
@@ -4723,7 +4762,7 @@
     </div>
     <div class="footer-bottom">
       <p class="footer-disclaimer">Information presented on this website is for general marketing purposes only and does not constitute legal, financial or investment advice. All development details, prices and delivery dates are subject to change without notice. Buyers should seek independent legal and financial counsel before making any property purchase decision. Nueva Living acts as an advisory intermediary and does not provide regulated financial advice.</p>
-      <span class="footer-copy">© 2026 Nueva Living</span>
+      <span class="footer-copy">© 2026 Nueva Living · LIORA LIVING SL. · NIF B88827472</span>
     </div>
   </footer>
 
@@ -4934,7 +4973,7 @@
     if (!heroVideo) return;
     heroVideo.pause();
     heroVideo.classList.remove('is-ready');
-    heroVideo.setAttribute('hidden', '');
+    heroVideo.setAttribute('aria-hidden', 'true');
     heroVideo.removeAttribute('src');
     heroVideo.load();
     heroVideoLoaded = false;
@@ -4942,15 +4981,13 @@
   }
 
   function loadHeroVideo() {
-    if (!shouldUseHeroVideo() || heroVideoLoaded) return;
+    if (!shouldUseHeroVideo() || heroVideoLoaded || !heroVideoInView) return;
     const nextSrc = getHeroVideoSource();
     if (!nextSrc) return;
     heroVideoLoaded = true;
-    heroVideo.preload = 'metadata';
+    heroVideo.preload = 'auto';
     heroVideo.setAttribute('src', nextSrc);
-    heroVideo.removeAttribute('hidden');
-    heroVideo.addEventListener('canplay', () => {
-      heroVideo.classList.add('is-ready');
+    heroVideo.addEventListener('loadeddata', () => {
       syncHeroVideoMotion();
     }, { once: true });
     heroVideo.load();
@@ -5000,7 +5037,16 @@
       heroVideo.removeAttribute('autoplay');
       return;
     }
-    heroVideo.play().catch(() => {});
+    heroVideo.play().then(() => {
+      // iOS may report loaded data before the first frame is composited. Keep
+      // the poster visible until two paint frames confirm inline playback.
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        if (!heroVideo.paused && heroVideoInView && heroVideo.readyState >= 2) {
+          heroVideo.classList.add('is-ready');
+          heroVideo.setAttribute('aria-hidden', 'false');
+        }
+      }));
+    }).catch(() => {});
   }
 
   scheduleHeroVideoLoad();
@@ -5017,6 +5063,9 @@
   if (heroVideo && heroSection && 'IntersectionObserver' in window) {
     new IntersectionObserver((entries) => {
       heroVideoInView = entries[0]?.isIntersecting ?? true;
+      if (heroVideoInView && !heroVideoLoaded && !heroVideoLoadScheduled) {
+        scheduleHeroVideoLoad();
+      }
       syncHeroVideoMotion();
     }, { threshold: 0.12 }).observe(heroSection);
   }
@@ -6680,24 +6729,6 @@
       document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
     });
   });
-
-  const contactForm = document.querySelector('#contact form');
-  function isLocalFormPreview() {
-    return window.location.protocol === 'file:' || ['127.0.0.1', 'localhost'].includes(window.location.hostname);
-  }
-  if (contactForm) {
-    contactForm.addEventListener('submit', event => {
-      if (!isLocalFormPreview()) return;
-      event.preventDefault();
-      const note = contactForm.querySelector('.form-note');
-      const submit = contactForm.querySelector('button[type="submit"]');
-      if (note) {
-        note.textContent = 'Thank you. Your request has been noted for a private follow-up.';
-        note.classList.add('is-sent');
-      }
-      if (submit) submit.textContent = 'Request Noted';
-    });
-  }
 
   Object.assign(window, { requestSolenneMaterial, vAccess, vClose });
   });

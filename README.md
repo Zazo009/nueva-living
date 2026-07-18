@@ -30,6 +30,13 @@ WEBHOOK_SECRET=change-me
 ALLOWED_ORIGINS=https://nuevaliving.com,https://www.nuevaliving.com
 ```
 
+The browser submits to `/.netlify/functions/nueva-lead`. The function adds the
+webhook secret server-side before forwarding the lead to the CRM; never expose
+`WEBHOOK_SECRET` in HTML or client-side JavaScript.
+
+Successful CRM submissions show an inline confirmation. Netlify Forms remains
+enabled as a secondary capture and email-notification record.
+
 Form email notifications are configured in the Netlify dashboard rather than in HTML or `netlify.toml`. Under **Project configuration -> Notifications -> Emails and webhooks -> Form submission notifications**, add an email notification for all verified forms with `contact@nuevaliving.com` as the recipient.
 
 ## Local Preview

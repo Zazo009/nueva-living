@@ -44,6 +44,13 @@ function optionalNumber(value) {
   return Number.isFinite(number) ? number : undefined;
 }
 
+function optionalBoolean(value) {
+  if (value === '' || value === null || value === undefined) return undefined;
+  if (typeof value === 'boolean') return value;
+  if (typeof value === 'string') return ['true', '1', 'yes', 'on'].includes(value.toLowerCase());
+  return Boolean(value);
+}
+
 function allowedValues(value, allowed) {
   if (!Array.isArray(value)) return [];
   return [...new Set(value.map(cleanString).filter((item) => allowed.has(item)))];
@@ -70,6 +77,9 @@ function crmPayload(lead) {
     bedrooms_max: optionalNumber(lead.bedrooms_max),
     nationality: cleanString(lead.nationality),
     message: cleanString(lead.message),
+    consent: optionalBoolean(lead.consent),
+    consent_text: cleanString(lead.consent_text),
+    marketing_opt_in: optionalBoolean(lead.marketing_opt_in),
     source_page: cleanString(lead.source_page),
     utm_source: cleanString(lead.utm_source),
     utm_campaign: cleanString(lead.utm_campaign),
@@ -118,7 +128,18 @@ exports.handler = async (event) => {
       return response(502, { ok: false, error: 'CRM webhook rejected the lead' }, origin);
     }
 
-    return response(200, { ok: true }, origin);
+    let crmResult = {};
+    try {
+      crmResult = await crmResponse.json();
+    } catch {
+      // A successful CRM response may not include a JSON body.
+    }
+
+    return response(200, {
+      ok: true,
+      success: true,
+      lead_id: cleanString(crmResult.lead_id),
+    }, origin);
   } catch (error) {
     console.error('CRM webhook request failed', { message: error.message || 'Unknown error' });
     return response(502, { ok: false, error: 'CRM webhook request failed' }, origin);

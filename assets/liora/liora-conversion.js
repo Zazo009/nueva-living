@@ -25,6 +25,14 @@
     return clean(field?.value);
   }
 
+  function readChecked(form, selectors) {
+    const field = selectors
+      .split(',')
+      .map((selector) => form.querySelector(selector.trim()))
+      .find(Boolean);
+    return Boolean(field?.checked);
+  }
+
   function splitName(fullName) {
     const parts = clean(fullName).split(' ').filter(Boolean);
     if (!parts.length) return { firstName: '', lastName: '' };
@@ -163,6 +171,11 @@
       bedrooms_max: Number(readField(form, '[name="bedrooms_max"]')) || bedrooms.max,
       nationality: readField(form, '[name="nationality"]'),
       message: contextualMessage,
+      consent: readChecked(form, '[name="consent"]'),
+      consent_text: readChecked(form, '[name="consent"]')
+        ? 'I agree to be contacted and for my data to be stored'
+        : '',
+      marketing_opt_in: readChecked(form, '[name="marketing_opt_in"]'),
       source_page: pagePath,
       utm_source: clean(params.get('utm_source')),
       utm_campaign: clean(params.get('utm_campaign'))
@@ -170,32 +183,89 @@
   }
 
   function syncLeadToCrm(payload, trackingContext = {}) {
-    if (!site.crmWebhookUrl) return;
+    if (!site.crmWebhookUrl) return Promise.reject(new Error('CRM endpoint is not configured'));
 
     const body = JSON.stringify(payload);
     track('crm_lead_webhook_queued', {
       ...trackingContext
     });
 
-    fetch(site.crmWebhookUrl, {
+    return fetch(site.crmWebhookUrl, {
       method: 'POST',
       mode: 'cors',
       keepalive: true,
       headers: { 'Content-Type': 'application/json' },
       body
     })
-      .then((response) => {
-        track(response.ok ? 'crm_lead_webhook_sent' : 'crm_lead_webhook_rejected', {
+      .then(async (response) => {
+        let result = {};
+        try {
+          result = await response.json();
+        } catch {
+          // The status code remains authoritative if the proxy has no body.
+        }
+
+        const accepted = response.ok && (result.success === true || result.ok === true);
+        track(accepted ? 'crm_lead_webhook_sent' : 'crm_lead_webhook_rejected', {
           status: response.status,
           ...trackingContext
         });
+
+        if (!accepted) throw new Error(`CRM lead request failed with status ${response.status}`);
+        return result;
       })
       .catch((error) => {
         track('crm_lead_webhook_error', {
           ...trackingContext,
           error: clean(error?.message)
         });
+        throw error;
       });
+  }
+
+  function submitNetlifyCopy(form) {
+    if (!form.matches('[data-netlify="true"]')) return Promise.resolve(false);
+    const body = new URLSearchParams();
+    new FormData(form).forEach((value, key) => {
+      if (typeof value === 'string') body.append(key, value);
+    });
+
+    return fetch('/', {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    }).then((response) => response.ok);
+  }
+
+  function formStatusElement(form) {
+    const existing = form.querySelector('.form-response, .form-note');
+    if (existing) return existing;
+    const status = document.createElement('span');
+    status.className = 'form-response';
+    form.appendChild(status);
+    return status;
+  }
+
+  function setFormState(form, state, message) {
+    const submit = form.querySelector('button[type="submit"], input[type="submit"]');
+    const status = formStatusElement(form);
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.textContent = message;
+    status.classList.toggle('is-sent', state === 'success');
+    status.classList.toggle('is-error', state === 'error');
+
+    if (!submit) return;
+    submit.dataset.originalLabel ||= submit.value || submit.textContent;
+    submit.disabled = state === 'submitting' || state === 'success';
+    const label = state === 'submitting'
+      ? 'Sending...'
+      : state === 'success'
+        ? 'Request Sent'
+        : submit.dataset.originalLabel;
+    if (submit.tagName === 'INPUT') submit.value = label;
+    else submit.textContent = label;
   }
 
   function enrichForm(form) {
@@ -231,13 +301,50 @@
       lead_context: requestContext
     });
 
-    // CRM sync is intentionally non-blocking so the native form/Netlify fallback still captures every lead.
-    // The CRM request is deliberately fire-and-forget; Netlify form capture remains the lead fallback.
-    syncLeadToCrm(payload, {
-      form_name: formName,
-      lead_context: requestContext,
-      project: projectField?.value || undefined
-    });
+    return {
+      payload,
+      trackingContext: {
+        form_name: formName,
+        lead_context: requestContext,
+        project: projectField?.value || undefined
+      }
+    };
+  }
+
+  async function handleLeadSubmit(event) {
+    const form = event.currentTarget;
+    event.preventDefault();
+    if (form.dataset.submitting === 'true') return;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const { payload, trackingContext } = enrichForm(form);
+    form.dataset.submitting = 'true';
+    setFormState(form, 'submitting', 'Sending your private enquiry...');
+
+    try {
+      await syncLeadToCrm(payload, trackingContext);
+      // Keep Netlify Forms as a secondary email/dashboard record without delaying confirmation.
+      submitNetlifyCopy(form).catch(() => false);
+      setFormState(form, 'success', 'Thank you. Your enquiry has been received and we will contact you shortly.');
+      track('form_submit_success', trackingContext);
+    } catch (error) {
+      const fallbackCaptured = await submitNetlifyCopy(form).catch(() => false);
+      if (fallbackCaptured) {
+        setFormState(form, 'success', 'Thank you. Your enquiry has been received and we will contact you shortly.');
+        track('form_submit_fallback_success', trackingContext);
+      } else {
+        setFormState(form, 'error', 'We could not send your request. Please email contact@nuevaliving.com.');
+        track('form_submit_error', {
+          ...trackingContext,
+          error: clean(error?.message)
+        });
+      }
+    } finally {
+      delete form.dataset.submitting;
+    }
   }
 
   window.lioraTrack = track;
@@ -245,9 +352,7 @@
   window.lioraBuildLeadPayload = buildLeadPayload;
 
   document.querySelectorAll('form[data-netlify="true"], form[data-crm-lead]').forEach((form) => {
-    form.addEventListener('submit', () => {
-      if (form.checkValidity()) enrichForm(form);
-    }, { capture: true });
+    form.addEventListener('submit', handleLeadSubmit);
   });
 
   document.querySelectorAll('a[data-whatsapp-advisor]').forEach((link) => {

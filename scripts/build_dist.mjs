@@ -36,6 +36,8 @@ const basePageMeta = {
       '@context': 'https://schema.org',
       '@type': 'RealEstateAgent',
       name: 'Nueva Living',
+      legalName: 'LIORA LIVING SL.',
+      taxID: 'B88827472',
       url: siteUrl,
       email: 'contact@nuevaliving.com',
       areaServed: ['Marbella', 'Estepona', 'Benahavis', 'Costa del Sol'],

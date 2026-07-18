@@ -343,7 +343,7 @@ function footer(project) {
     </div>
     <div class="footer-bottom">
       <p>Information presented on this website is for general marketing purposes only and does not constitute legal, financial or investment advice. Development details, prices, availability and delivery dates are subject to change without notice.</p>
-      <span>&copy; 2026 Nueva Living</span>
+      <span>&copy; 2026 Nueva Living &middot; LIORA LIVING SL. &middot; NIF B88827472</span>
     </div>
   </footer>`;
 }
@@ -406,6 +406,8 @@ function renderProject(project) {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
     name: 'Nueva Living',
+    legalName: 'LIORA LIVING SL.',
+    taxID: 'B88827472',
     url: `${siteUrl}/`,
     email: 'contact@nuevaliving.com',
     areaServed: 'Costa del Sol'
@@ -737,7 +739,11 @@ ${JSON.stringify(agentSchema, null, 2)}
             </div>
             <label class="consent-row field full" for="f-consent">
               <input id="f-consent" name="consent" type="checkbox" required>
-              <span>I consent to Nueva Living contacting me about this project request. Information is handled with discretion.</span>
+              <span>I agree to be contacted and for my data to be stored.</span>
+            </label>
+            <label class="consent-row field full" for="f-marketing-opt-in">
+              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
+              <span>I would also like to receive occasional project updates from Nueva Living.</span>
             </label>
           </div>
           <div class="form-submit" style="margin-top:26px;">
