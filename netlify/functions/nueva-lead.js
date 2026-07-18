@@ -110,7 +110,7 @@ exports.handler = async (event) => {
 
   // Netlify values are normalized server-side so pasted whitespace or quotes
   // cannot silently invalidate the CRM authentication header.
-  const webhookSecret = cleanEnvironmentValue(process.env.WEBHOOK_SECRET);
+  const webhookSecret = cleanEnvironmentValue(process.env.CRM_WEBHOOK_SECRET);
   const crmWebhookUrl = cleanEnvironmentValue(process.env.CRM_WEBHOOK_URL) || DEFAULT_CRM_WEBHOOK_URL;
   if (!webhookSecret) {
     return response(500, { ok: false, error: 'Lead webhook is not configured' }, origin);

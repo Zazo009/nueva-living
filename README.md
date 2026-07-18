@@ -26,13 +26,13 @@ Required production environment variables for lead forwarding:
 
 ```text
 CRM_WEBHOOK_URL=https://marbella-crm.vercel.app/api/webhook/liora
-WEBHOOK_SECRET=change-me
+CRM_WEBHOOK_SECRET=change-me
 ALLOWED_ORIGINS=https://nuevaliving.com,https://www.nuevaliving.com
 ```
 
 The browser submits to `/.netlify/functions/nueva-lead`. The function adds the
 webhook secret server-side before forwarding the lead to the CRM; never expose
-`WEBHOOK_SECRET` in HTML or client-side JavaScript.
+`CRM_WEBHOOK_SECRET` in HTML or client-side JavaScript.
 
 Successful CRM submissions show an inline confirmation. Netlify Forms remains
 enabled as a secondary capture and email-notification record.
