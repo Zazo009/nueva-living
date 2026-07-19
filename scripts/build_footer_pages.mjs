@@ -325,27 +325,27 @@ const pages = [
   {
     file: 'why-nueva.html',
     title: 'Why Choose Nueva Living',
-    description: 'Why international buyers choose Nueva Living for clear, buyer-focused new-development advice on the Costa del Sol.',
+    description: 'Why international buyers choose Nueva Living for local insight, honest advice and a smoother Costa del Sol property search.',
     heroImage: 'assets/liora/advisory-property.jpg',
     heroAlt: 'Contemporary Costa del Sol home surrounded by Mediterranean planting',
     heroKicker: 'Why Nueva Living',
-    heroTitle: 'A clearer way to find <em>the right new home</em>',
-    heroLead: 'We combine local project knowledge with a focused, buyer-first process, from the first shortlist through to handover.',
-    body: `<section class="section"><div class="section-inner split"><div><span class="label">What Sets Us Apart</span><div class="rule"></div><h2 class="section-title">Fewer options, better information and <em>no unnecessary pressure</em></h2><p class="body-copy">Buying from abroad can make every project look equally convincing. We help you compare the details that matter, explain the trade-offs and keep the search focused on homes that fit your plans.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Refined interior detail in a Costa del Sol residence" width="2048" height="1365" loading="lazy" decoding="async"></div></div></section>
-    <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">Why Buyers Choose Us</span><div class="rule"></div><h2 class="section-title">Practical support at <em>every stage</em></h2></div><div class="cards why-cards">
-      <article class="card"><div class="card-number">01</div><h3>Local Expertise</h3><p>Years of hands-on experience with Costa del Sol areas, developers, new releases and the differences between nearby projects.</p></article>
-      <article class="card"><div class="card-number">02</div><h3>Private Access</h3><p>Access to selected private releases and off-market availability when developers make it available.</p></article>
-      <article class="card"><div class="card-number">03</div><h3>End-to-End Support</h3><p>Search, comparisons, viewings and negotiation, plus coordination with an independent lawyer for legal checks.</p></article>
-      <article class="card"><div class="card-number">04</div><h3>Multilingual Guidance</h3><p>Clear communication in English, Spanish and Swedish throughout the buying process.</p></article>
-      <article class="card"><div class="card-number">05</div><h3>Buyer-First Advice</h3><p>We explain strengths and trade-offs honestly, so the decision serves the buyer rather than simply completing a sale.</p></article>
-      <article class="card"><div class="card-number">06</div><h3>Aftercare</h3><p>We stay available through handover and help connect you with relevant local services after completion.</p></article>
+    heroTitle: 'Finding a home should feel <em>exciting, not exhausting</em>',
+    heroLead: 'We know the coast, ask the questions that glossy brochures leave out and stay close from the first conversation to the day you get the keys.',
+    body: `<section class="section"><div class="section-inner split"><div><span class="label">What Sets Us Apart</span><div class="rule"></div><h2 class="section-title">Beautiful brochures are easy. <em>Good decisions take more.</em></h2><p class="body-copy">A sea-view render can make almost any development look perfect. We look past the presentation: the exact setting, the developer, the payment terms, the compromises and whether the property will still suit you years from now.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Refined interior detail in a Costa del Sol residence" width="2048" height="1365" loading="lazy" decoding="async"></div></div></section>
+    <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">Why Buyers Choose Us</span><div class="rule"></div><h2 class="section-title">Useful at the moments <em>that matter</em></h2></div><div class="cards why-cards">
+      <article class="card"><div class="card-number">01</div><h3>Local, Down to Street Level</h3><p>Years on the Costa del Sol mean we understand how neighbouring communities can differ in access, atmosphere and long-term appeal.</p></article>
+      <article class="card"><div class="card-number">02</div><h3>Beyond the Public Listings</h3><p>When private releases or off-market availability open up, we can bring the relevant opportunities into your search.</p></article>
+      <article class="card"><div class="card-number">03</div><h3>One Thread, Start to Finish</h3><p>From your brief and viewings to negotiation and handover, we keep the moving parts together and coordinate with your independent lawyer.</p></article>
+      <article class="card"><div class="card-number">04</div><h3>Three Languages, One Conversation</h3><p>Speak with us in English, Spanish or Swedish. The details stay clear, whichever language feels most natural.</p></article>
+      <article class="card"><div class="card-number">05</div><h3>Honest About the Trade-offs</h3><p>If a location is noisy, a terrace is overlooked or the price feels ambitious, we say so. A good decision matters more than a quick one.</p></article>
+      <article class="card"><div class="card-number">06</div><h3>Still Here After the Keys</h3><p>Handover is not the end of the relationship. We remain available and connect you with trusted local services when needed.</p></article>
     </div></div></section>
-    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Client Perspective</span><div class="rule"></div><h2 class="section-title">The experience we aim <em>to deliver</em></h2><p class="body-copy testimonial-disclaimer">Sample wording for layout only. These must be replaced with verified client feedback before being promoted as testimonials.</p></div><div class="cards testimonial-grid">
-      <blockquote class="card testimonial-card"><p>“Nueva Living helped us reduce a long list to three options that genuinely matched how we wanted to live.”</p><footer>Sample testimonial · Marbella buyer</footer></blockquote>
-      <blockquote class="card testimonial-card"><p>“The project comparison made the differences in location, payment terms and timing much easier to understand.”</p><footer>Sample testimonial · Estepona buyer</footer></blockquote>
-      <blockquote class="card testimonial-card"><p>“Having one point of contact from the first viewing through to handover made buying from abroad feel manageable.”</p><footer>Sample testimonial · International buyer</footer></blockquote>
+    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Client Perspective</span><div class="rule"></div><h2 class="section-title">How the experience <em>should feel</em></h2><p class="body-copy testimonial-disclaimer">Preview text only. Replace with verified client feedback before public promotion.</p></div><div class="cards testimonial-grid">
+      <blockquote class="card testimonial-card"><p>“We arrived with twenty tabs open and left with three homes worth seeing.”</p><footer>Sample testimonial · Marbella buyer</footer></blockquote>
+      <blockquote class="card testimonial-card"><p>“They told us what they liked, what they questioned and what they would walk away from.”</p><footer>Sample testimonial · Estepona buyer</footer></blockquote>
+      <blockquote class="card testimonial-card"><p>“The handover felt like part of the service, not the point where it ended.”</p><footer>Sample testimonial · International buyer</footer></blockquote>
     </div></div></section>
-    <section class="cta-band"><div class="cta-inner"><div><span class="label">Your Search</span><h2 class="cta-title">Tell us what matters to you. We will help narrow it down.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>`,
+    <section class="cta-band"><div class="cta-inner"><div><span class="label">Ready When You Are</span><h2 class="cta-title">Bring us your wish list. We will bring back the options worth your time.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>`,
   },
   {
     file: 'areas.html',

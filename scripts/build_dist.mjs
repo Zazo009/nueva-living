@@ -88,7 +88,7 @@ const basePageMeta = {
   },
   'why-nueva.html': {
     title: 'Why Choose Nueva Living | Costa del Sol Buyer Support',
-    description: 'Local knowledge, private project access and buyer-focused support from the first shortlist through to handover.',
+    description: 'Local Costa del Sol insight, honest advice and hands-on help from the first conversation through to handover.',
     path: '/why-nueva.html',
     type: 'website',
     schema: {
