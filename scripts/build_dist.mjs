@@ -42,8 +42,8 @@ const fontPreloadBlock = [
 ].join('\n');
 const basePageMeta = {
   'index.html': {
-    title: 'Nueva Living | Curated Costa del Sol New Developments',
-    description: 'Private new-development advisory for design-led residences across Marbella, Estepona, Benahavis and the wider Costa del Sol.',
+    title: 'Nueva Living | Costa del Sol New Developments',
+    description: 'Find and compare new-build homes across Marbella, Estepona, Benahavis and the wider Costa del Sol with personal buyer support.',
     path: '/',
     type: 'website',
     schema: {
@@ -60,7 +60,7 @@ const basePageMeta = {
   },
   'developments.html': {
     title: 'Costa del Sol New Developments | Nueva Living',
-    description: 'Explore curated Costa del Sol new developments selected for architecture, lifestyle, location logic and long-term value.',
+    description: 'Explore new developments across the Costa del Sol, chosen for their design, location and everyday appeal.',
     path: '/developments.html',
     type: 'website',
     schema: {
@@ -68,36 +68,36 @@ const basePageMeta = {
       '@type': 'CollectionPage',
       name: 'Costa del Sol New Developments',
       url: `${siteUrl}/developments.html`,
-      description: 'Curated new-development projects across the Costa del Sol.'
+      description: 'New-development projects across the Costa del Sol.'
     }
   },
   'areas.html': {
     title: 'Costa del Sol Area Guide | Nueva Living',
-    description: 'A refined Costa del Sol area guide for new-development buyers comparing Marbella, Estepona, Benahavis, Nueva Andalucia and surrounding areas.',
+    description: 'Compare Marbella, Estepona, Benahavis, Nueva Andalucia and nearby Costa del Sol areas before choosing a new-build home.',
     path: '/areas.html',
     type: 'article'
   },
   'approach.html': {
     title: 'New Development Advisory Approach | Nueva Living',
-    description: 'How Nueva Living structures a clearer, more selective advisory process for Costa del Sol new-development buyers.',
+    description: 'See how Nueva Living helps buyers compare new developments and make a clear, informed choice on the Costa del Sol.',
     path: '/approach.html',
     type: 'article'
   },
   'advisory.html': {
     title: 'Costa del Sol Buyer Advisory | Nueva Living',
-    description: 'Buyer-focused advisory for evaluating Costa del Sol new developments, developer context, reservation strategy and long-term lifestyle logic.',
+    description: 'Practical buyer support for comparing Costa del Sol new developments, developers, purchase steps and long-term suitability.',
     path: '/advisory.html',
     type: 'article'
   },
   'about.html': {
     title: 'About Nueva Living | Costa del Sol New Development Advisory',
-    description: 'Nueva Living is a Costa del Sol new-development advisory brand focused on curated access, discretion and clear buyer guidance.',
+    description: 'Nueva Living helps international buyers find, compare and understand new developments across the Costa del Sol.',
     path: '/about.html',
     type: 'website'
   },
   'contact.html': {
-    title: 'Request Private Access | Nueva Living',
-    description: 'Request a private shortlist of curated Costa del Sol new-development opportunities matched to your brief, area preferences and ownership goals.',
+    title: 'Contact Nueva Living | Costa del Sol New Developments',
+    description: 'Tell us what you are looking for and receive a personal shortlist of Costa del Sol new developments that match your needs.',
     path: '/contact.html',
     type: 'website'
   },

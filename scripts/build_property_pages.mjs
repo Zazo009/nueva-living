@@ -304,7 +304,7 @@ function footer(project) {
     <div class="footer-grid">
       <div>
         <img class="footer-logo" src="assets/liora/brand/nueva-living-lockup-espresso-transparent.png?v=7" alt="Nueva Living" width="700" height="340" loading="lazy" decoding="async">
-        <p class="footer-about">A specialist advisory firm focused exclusively on new-build and off-plan property across the Costa del Sol. Serving international buyers with clarity and confidence.</p>
+        <p class="footer-about">We help international buyers find and compare new-build and off-plan homes across the Costa del Sol.</p>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
@@ -312,7 +312,7 @@ function footer(project) {
           <li><a href="approach.html">Our Approach</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="advisory.html">Advisory</a></li>
-          <li><a href="contact.html">Request Access</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -369,7 +369,7 @@ function renderProject(project) {
   };
   const projectFile = project.projectFile || {
     headlineHtml: 'Request the private <em>project file</em>',
-    copy: 'Current project material is available by private request.',
+    copy: 'Ask us for the latest project information and availability.',
     documents: [
       ['Project brochure', 'Project overview and lifestyle positioning', 'Request Brochure'],
       ['Floorplans', 'Current layouts by residence type', 'Request Floorplans'],
@@ -377,12 +377,12 @@ function renderProject(project) {
     ]
   };
   const trustDossier = project.trustDossier || {
-    headlineHtml: 'Private project <em>dossier</em>',
-    copy: 'Project clarity is reviewed privately before a viewing or reservation.',
+    headlineHtml: 'What to know <em>before you view</em>',
+    copy: 'We check the important project details before a viewing or reservation.',
     cards: []
   };
   const timeline = project.timeline || {
-    headlineHtml: 'Indicative buyer <em>sequence</em>',
+    headlineHtml: 'What happens <em>next</em>',
     items: []
   };
   const schemaUrl = project.canonical || `https://nuevaliving.com/${project.output}`;
@@ -478,12 +478,12 @@ ${JSON.stringify(agentSchema, null, 2)}
         <a href="#why-this-project">Why</a>
         <a href="#architecture">Architecture</a>
         <a href="#residences">Residences</a>
-        <a href="#project-file">Project File</a>
+        <a href="#project-file">Project Info</a>
         <a href="#private-viewing">Private Viewing</a>
         <a href="#lifestyle">Lifestyle</a>
         <a href="#location">Location</a>
         <a href="#investment">Investment</a>
-        <a href="#project-dossier">Clarity</a>
+        <a href="#project-dossier">What to Know</a>
         <a href="#availability">Availability</a>
         <a href="#enquire">Enquire</a>
       </div>
@@ -579,7 +579,7 @@ ${JSON.stringify(agentSchema, null, 2)}
     <section class="project-section project-file-section" id="project-file">
       <div class="project-inner">
         <div class="section-head reveal-soft">
-          <span class="section-kicker">Project File</span>
+          <span class="section-kicker">Project Information</span>
           <div class="rule"></div>
           <h2 class="section-headline">${projectFile.headlineHtml}</h2>
           <p class="project-lead">${esc(projectFile.copy)}</p>
@@ -659,7 +659,7 @@ ${JSON.stringify(agentSchema, null, 2)}
     <section class="project-section dossier-section" id="project-dossier">
       <div class="project-inner dossier-layout">
         <div class="reveal-soft">
-          <span class="section-kicker">Project Clarity</span>
+          <span class="section-kicker">Before You View</span>
           <div class="rule"></div>
           <h2 class="section-headline">${trustDossier.headlineHtml}</h2>
           <p class="project-lead">${esc(trustDossier.copy)}</p>
@@ -673,7 +673,7 @@ ${JSON.stringify(agentSchema, null, 2)}
     <section class="project-section timeline-section" id="timeline">
       <div class="project-inner">
         <div class="section-head center reveal-soft">
-          <span class="section-kicker">Buyer Sequence</span>
+          <span class="section-kicker">Next Steps</span>
           <div class="rule"></div>
           <h2 class="section-headline">${timeline.headlineHtml}</h2>
         </div>
@@ -819,7 +819,7 @@ function renderProjectCard(project) {
   return `          <article class="project-card" id="${esc(project.slug)}" data-project-card${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}>
             ${responsiveCardImageTag(img)}
             <div class="project-body">
-              <span class="label">${esc(project.card?.label || project.hero?.location || 'Curated Project')}</span>
+              <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
               <h3>${esc(project.name)}</h3>
               <p>${esc(project.card?.description || project.description)}</p>
               ${discovery.advisoryBadge ? `<div class="advisory-badge">${esc(discovery.advisoryBadge)}</div>` : ''}

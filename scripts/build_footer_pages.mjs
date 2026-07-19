@@ -17,7 +17,7 @@ const footerLinks = {
     ['Our Approach', 'approach.html'],
     ['About', 'about.html'],
     ['Advisory', 'advisory.html'],
-    ['Request Access', 'contact.html'],
+    ['Contact Us', 'contact.html'],
   ],
   projects: [
     ['All Developments', 'developments.html'],
@@ -69,7 +69,7 @@ function footer() {
     <div class="footer-grid">
       <div>
         <img class="footer-logo" src="assets/liora/brand/nueva-living-lockup-espresso-transparent.png?v=7" alt="Nueva Living" width="700" height="340">
-        <p class="footer-about">A specialist advisory firm focused exclusively on new-build and off-plan property across the Costa del Sol. Serving international buyers with clarity and confidence.</p>
+        <p class="footer-about">We help international buyers find and compare new-build and off-plan homes across the Costa del Sol.</p>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
@@ -162,18 +162,18 @@ const pages = [
   {
     file: 'approach.html',
     title: 'Our Approach',
-    description: 'A considered advisory approach to Costa del Sol new developments.',
+    description: 'How Nueva Living helps buyers find and compare Costa del Sol new developments.',
     heroImage: 'assets/liora/viewing/scene-02.jpg',
     heroKicker: 'Our Approach',
-    heroTitle: 'A clearer way into <em>new development</em>',
-    heroLead: 'We reduce the market to the projects that deserve attention, then guide each buyer through comparison, reservation and completion with calm precision.',
+    heroTitle: 'A simpler way to buy <em>a new home</em>',
+    heroLead: 'We narrow down the market, compare the right projects and help you from the first shortlist through to completion.',
     body: `<section class="section">
       <div class="section-inner split">
         <div>
-          <span class="label">Buyer Led</span>
+          <span class="label">Built Around You</span>
           <div class="rule"></div>
-          <h2 class="section-title">Clarity before <em>choice</em></h2>
-          <p class="body-copy">The Costa del Sol new-build market is active, fragmented and often noisy. Our role is to make the landscape legible: which developers are credible, which locations hold value, which payment structures make sense, and which opportunities align with the way you actually want to live or invest.</p>
+          <h2 class="section-title">Understand the options before <em>you choose</em></h2>
+          <p class="body-copy">There are a lot of new projects on the Costa del Sol, and they are not all equally good. We help you understand the developer, location, payment plan and whether the home actually fits the way you want to live.</p>
         </div>
         <div class="image-panel"><img src="assets/liora/advisory-property.jpg" alt="Costa del Sol property advisory setting"></div>
       </div>
@@ -183,12 +183,12 @@ const pages = [
         <div class="section-head">
           <span class="label">How We Work</span>
           <div class="rule"></div>
-          <h2 class="section-title">A structured search with <em>human judgement</em></h2>
+          <h2 class="section-title">A focused search with <em>real guidance</em></h2>
         </div>
         <div class="cards">
-          <article class="card"><div class="card-number">01</div><h3>Curated Shortlist</h3><p>We filter projects by location, developer record, specification, delivery phase, pricing and long-term market relevance.</p></article>
-          <article class="card"><div class="card-number">02</div><h3>Project Diligence</h3><p>We review the information buyers often receive too late: master plans, payment structures, reservation terms and comparable supply.</p></article>
-          <article class="card"><div class="card-number">03</div><h3>Decision Support</h3><p>You receive a clear comparison of strengths, compromises and next steps before committing to a viewing or reservation.</p></article>
+          <article class="card"><div class="card-number">01</div><h3>Your Shortlist</h3><p>We filter projects by location, developer, quality, completion date and price.</p></article>
+          <article class="card"><div class="card-number">02</div><h3>The Important Details</h3><p>We check master plans, payment schedules, reservation terms and nearby alternatives before you decide.</p></article>
+          <article class="card"><div class="card-number">03</div><h3>A Clear Comparison</h3><p>You see the strengths, trade-offs and next steps before booking a viewing or making a reservation.</p></article>
         </div>
       </div>
     </section>
@@ -198,16 +198,16 @@ const pages = [
           <span class="label">Process</span>
           <div class="rule"></div>
           <h2 class="section-title">From first enquiry to <em>reservation</em></h2>
-          <p class="body-copy" style="margin-left:auto;margin-right:auto;">A quiet, sequenced process keeps decisions moving without pressure.</p>
+          <p class="body-copy" style="margin-left:auto;margin-right:auto;">A simple step-by-step process, with no pressure.</p>
         </div>
         <div class="cards">
-          <article class="card"><div class="card-number">1</div><h3>Requirement Call</h3><p>We define budget, timing, area, lifestyle, rental expectations and non-negotiables.</p></article>
-          <article class="card"><div class="card-number">2</div><h3>Private Selection</h3><p>You receive a focused shortlist with context, availability and current pricing.</p></article>
-          <article class="card"><div class="card-number">3</div><h3>Viewing &amp; Next Step</h3><p>We coordinate viewings, project material, reservation terms and independent legal introduction.</p></article>
+          <article class="card"><div class="card-number">1</div><h3>Tell Us What You Need</h3><p>We talk through your budget, timing, preferred areas and must-haves.</p></article>
+          <article class="card"><div class="card-number">2</div><h3>Receive Your Shortlist</h3><p>You get a focused selection with current prices and availability.</p></article>
+          <article class="card"><div class="card-number">3</div><h3>View and Decide</h3><p>We arrange viewings, share the project documents and explain the reservation process.</p></article>
         </div>
       </div>
     </section>
-    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Start with a private brief, not a property feed.</h2><a class="btn" href="contact.html">Request Access</a></div></section>`,
+    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Tell us what you are looking for and we will narrow it down.</h2><a class="btn" href="contact.html">Talk to Us</a></div></section>`,
   },
   {
     file: 'areas.html',
@@ -216,15 +216,15 @@ const pages = [
     heroImage: 'assets/liora/viewing/scene-01.jpg',
     heroKicker: 'Locations',
     heroTitle: 'The Costa del Sol, <em>area by area</em>',
-    heroLead: 'Each area has a different rhythm, buyer profile and long-term value story. The right choice depends on lifestyle, access, view, rental plan and exit depth.',
-    body: `<section class="section"><div class="section-inner"><div class="section-head"><span class="label">Area Guide</span><div class="rule"></div><h2 class="section-title">Where new development <em>makes sense</em></h2><p class="body-copy">We assess locations through demand, infrastructure, scarcity, price depth and the everyday experience of living there.</p></div><div class="area-stack">
-      <article class="area-row" id="marbella"><img src="assets/liora/areas/marbella.jpg" alt="Marbella coastline at sunrise with La Concha mountain" width="1920" height="2880"><div class="area-copy"><span class="label">Marbella</span><h3>The established reference point</h3><p>Marbella remains the strongest luxury address on the coast, with enduring demand from the Golden Mile to Sierra Blanca and a deep international buyer pool.</p></div></article>
-      <article class="area-row" id="estepona"><img src="assets/liora/areas/estepona.jpg" alt="Estepona old town street with white houses and flower pots" width="1920" height="1278"><div class="area-copy"><span class="label">Estepona</span><h3>Infrastructure-led momentum</h3><p>Estepona has become one of the most active new-build markets, supported by town improvements, coastal access and a strong development pipeline.</p></div></article>
-      <article class="area-row" id="benahavis"><img src="assets/liora/areas/benahavis.jpg" alt="Benahavis mountain village and elevated hillside landscape" width="1920" height="1280"><div class="area-copy"><span class="label">Benahavis</span><h3>Privacy, elevation and views</h3><p>An elevated enclave above Marbella, Benahavis is known for gated communities, villas, panoramic views and a quieter form of luxury living.</p></div></article>
-      <article class="area-row" id="nueva-andalucia"><img src="assets/liora/areas/nueva-andalucia.jpg" alt="Puerto Banus marina and La Concha near Nueva Andalucia" width="1920" height="1280"><div class="area-copy"><span class="label">Nueva Andalucia</span><h3>Golf Valley lifestyle</h3><p>Close to Puerto Banus and surrounded by golf, Nueva Andalucia suits buyers who want amenities, established demand and a more active year-round setting.</p></div></article>
-      <article class="area-row" id="mijas-fuengirola"><img src="assets/liora/areas/fuengirola.jpg" alt="Fuengirola seafront sign with palms and Mediterranean water" width="1920" height="2560"><div class="area-copy"><span class="label">Mijas &amp; Fuengirola</span><h3>Connectivity and value</h3><p>A diverse coastal corridor offering newer developments, strong services and convenient access to Malaga, often with more accessible entry pricing.</p></div></article>
+    heroLead: 'Every area feels different. We help you compare daily life, travel times, views, prices and future resale demand.',
+    body: `<section class="section"><div class="section-inner"><div class="section-head"><span class="label">Area Guide</span><div class="rule"></div><h2 class="section-title">Find the area that <em>fits you</em></h2><p class="body-copy">We look at what it is actually like to live there, how easy it is to get around and what supports long-term demand.</p></div><div class="area-stack">
+      <article class="area-row" id="marbella"><img src="assets/liora/areas/marbella.jpg" alt="Marbella coastline at sunrise with La Concha mountain" width="1920" height="2880"><div class="area-copy"><span class="label">Marbella</span><h3>The coast's best-known address</h3><p>Marbella combines beaches, restaurants, international schools and established neighbourhoods, from the Golden Mile to Sierra Blanca.</p></div></article>
+      <article class="area-row" id="estepona"><img src="assets/liora/areas/estepona.jpg" alt="Estepona old town street with white houses and flower pots" width="1920" height="1278"><div class="area-copy"><span class="label">Estepona</span><h3>A growing coastal town</h3><p>Estepona has seen major improvements in recent years, with a lively old town, good beach access and plenty of new projects.</p></div></article>
+      <article class="area-row" id="benahavis"><img src="assets/liora/areas/benahavis.jpg" alt="Benahavis mountain village and elevated hillside landscape" width="1920" height="1280"><div class="area-copy"><span class="label">Benahavis</span><h3>Privacy, hills and open views</h3><p>Set above Marbella, Benahavis is known for gated communities, golf, villas and a quieter pace of life.</p></div></article>
+      <article class="area-row" id="nueva-andalucia"><img src="assets/liora/areas/nueva-andalucia.jpg" alt="Puerto Banus marina and La Concha near Nueva Andalucia" width="1920" height="1280"><div class="area-copy"><span class="label">Nueva Andalucia</span><h3>Golf Valley living</h3><p>Close to Puerto Banus and surrounded by golf courses, Nueva Andalucia works well for buyers who want restaurants, services and year-round activity nearby.</p></div></article>
+      <article class="area-row" id="mijas-fuengirola"><img src="assets/liora/areas/fuengirola.jpg" alt="Fuengirola seafront sign with palms and Mediterranean water" width="1920" height="2560"><div class="area-copy"><span class="label">Mijas &amp; Fuengirola</span><h3>Easy access and more choice</h3><p>This part of the coast offers good services, easy links to Malaga and a wider range of prices.</p></div></article>
     </div></div></section>
-    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Not sure which area fits? Start with a private area brief.</h2><a class="btn" href="contact.html">Request Area Advice</a></div></section>`,
+    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Not sure where to start? Tell us what matters to you.</h2><a class="btn" href="contact.html">Ask About Areas</a></div></section>`,
   },
   {
     file: 'advisory.html',
@@ -232,12 +232,12 @@ const pages = [
     description: 'Buyer-focused advisory for Costa del Sol new development purchases.',
     heroImage: 'assets/liora/advisory-property.jpg',
     heroKicker: 'Advisory',
-    heroTitle: 'Advice before <em>appetite</em>',
-    heroLead: 'We help buyers understand the market before falling in love with a unit: location, developer credibility, specification, payment plan and resale depth.',
-    body: `<section class="section"><div class="section-inner split"><div><span class="label">Independent View</span><div class="rule"></div><h2 class="section-title">A buyer-focused <em>filter</em></h2><p class="body-copy">Developer brochures are designed to sell. Our advisory work sits beside that material and helps buyers understand what is strong, what is ordinary, and what deserves further diligence.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Interior detail"></div></div></section>
-    <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">Advisory Scope</span><div class="rule"></div><h2 class="section-title">What we help you <em>evaluate</em></h2></div><div class="cards"><article class="card"><h3>Project Comparison</h3><p>Side-by-side assessment of pricing, orientation, amenities, delivery timing and surrounding supply.</p></article><article class="card"><h3>Purchase Strategy</h3><p>Guidance around primary use, holiday use, rental strategy, financing readiness and exit expectations.</p></article><article class="card"><h3>Reservation Path</h3><p>Coordination of project material, viewing sequence, independent legal counsel and reservation steps.</p></article></div></div></section>
-    <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Principles</span><div class="rule"></div><h2 class="section-title">Quiet guidance, <em>clear judgement</em></h2></div><div class="cards two"><article class="card"><h3>No inflated shortlist</h3><p>We would rather show three suitable projects than thirty generic options.</p></article><article class="card"><h3>No pressure theatre</h3><p>Urgency only matters when it is real: availability, price movement or reservation deadlines.</p></article></div></div></section>
-    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Bring the decision into focus before you reserve.</h2><a class="btn" href="contact.html">Speak Privately</a></div></section>`,
+    heroTitle: 'Know what you are buying <em>before you decide</em>',
+    heroLead: 'We help you check the location, developer, finishes, payment plan and future resale appeal before you choose a home.',
+    body: `<section class="section"><div class="section-inner split"><div><span class="label">An Independent View</span><div class="rule"></div><h2 class="section-title">Clear advice for <em>the buyer</em></h2><p class="body-copy">A developer brochure shows the project at its best. We help you look beyond it and understand what is genuinely strong, what is fairly standard and what needs a closer check.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Interior detail"></div></div></section>
+    <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">How We Help</span><div class="rule"></div><h2 class="section-title">The details we help you <em>compare</em></h2></div><div class="cards"><article class="card"><h3>Compare Projects</h3><p>We compare prices, orientation, amenities, completion dates and nearby alternatives side by side.</p></article><article class="card"><h3>Plan the Purchase</h3><p>We talk through how you will use the home, rental plans, financing and what you may want later.</p></article><article class="card"><h3>Reserve with Clarity</h3><p>We organise project documents, viewings, reservation details and an introduction to an independent lawyer.</p></article></div></div></section>
+    <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Our Promise</span><div class="rule"></div><h2 class="section-title">Straight answers, <em>no pressure</em></h2></div><div class="cards two"><article class="card"><h3>A Shorter, Better List</h3><p>We would rather show you three suitable projects than thirty generic options.</p></article><article class="card"><h3>Real Urgency Only</h3><p>We only flag urgency when availability, pricing or a reservation deadline genuinely changes.</p></article></div></div></section>
+    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Talk through the options before you reserve.</h2><a class="btn" href="contact.html">Talk to an Advisor</a></div></section>`,
   },
   {
     file: 'about.html',
@@ -245,23 +245,23 @@ const pages = [
     description: 'About Nueva Living, a Costa del Sol new development advisory firm.',
     heroImage: 'assets/liora/viewing/scene-19.jpg',
     heroKicker: 'About Nueva Living',
-    heroTitle: 'Focused only on <em>new development</em>',
-    heroLead: 'Nueva Living was created for buyers who want a calmer, more informed way into the Costa del Sol new-build market.',
-    body: `<section class="section"><div class="section-inner split"><div class="image-panel logo-panel"><img src="assets/liora/brand/nueva-living-lockup-sand-transparent.png?v=7" alt="Nueva Living logo" width="700" height="340"></div><div><span class="label">The Firm</span><div class="rule"></div><h2 class="section-title">Specialist by <em>design</em></h2><p class="body-copy">By focusing exclusively on new developments and off-plan opportunities, we can provide sharper context, stronger developer relationships and a more precise advisory experience than a generalist agency.</p><p class="body-copy">Our work is built around clarity: what is available, what is credible, what fits, and what should be left alone.</p></div></div></section>
-    <section class="section quiet-band"><div class="section-inner"><div class="cards"><article class="card"><div class="card-number">40+</div><h3>Developer Relationships</h3><p>Direct conversations and project access across key Costa del Sol micro-markets.</p></article><article class="card"><div class="card-number">7</div><h3>Key Areas Covered</h3><p>From Marbella and Benahavis to Estepona, Nueva Andalucia, Mijas and Fuengirola.</p></article><article class="card"><div class="card-number">100%</div><h3>New-Build Focus</h3><p>A clear specialism that keeps advice concentrated and relevant.</p></article></div></div></section>
-    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">What We Stand For</span><div class="rule"></div><h2 class="section-title">Access, discretion and <em>clarity</em></h2></div><div class="cards"><article class="card"><h3>Discretion</h3><p>Private requirements are handled carefully, with no broad sharing of buyer details.</p></article><article class="card"><h3>Selectivity</h3><p>We prioritise fewer, stronger opportunities over a noisy catalogue.</p></article><article class="card"><h3>Context</h3><p>Every recommendation is framed by area, developer, timing and long-term logic.</p></article></div></div></section>
-    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Tell us what you are looking for, and we will curate the next step.</h2><a class="btn" href="contact.html">Request Access</a></div></section>`,
+    heroTitle: 'We focus on <em>new developments</em>',
+    heroLead: 'Nueva Living was created for buyers who want straightforward help in the Costa del Sol new-build market.',
+    body: `<section class="section"><div class="section-inner split"><div class="image-panel logo-panel"><img src="assets/liora/brand/nueva-living-lockup-sand-transparent.png?v=7" alt="Nueva Living logo" width="700" height="340"></div><div><span class="label">About Nueva Living</span><div class="rule"></div><h2 class="section-title">New builds are <em>what we know</em></h2><p class="body-copy">Because we only work with new and off-plan homes, we know the developers, the projects and the questions buyers should ask.</p><p class="body-copy">Our job is simple: show you what is available, explain what is good and help you leave the wrong options behind.</p></div></div></section>
+    <section class="section quiet-band"><div class="section-inner"><div class="cards"><article class="card"><div class="card-number">40+</div><h3>Developers We Work With</h3><p>Direct conversations and project access across the main Costa del Sol areas.</p></article><article class="card"><div class="card-number">7</div><h3>Areas We Cover</h3><p>From Marbella and Benahavis to Estepona, Nueva Andalucia, Mijas and Fuengirola.</p></article><article class="card"><div class="card-number">100%</div><h3>Focused on New Builds</h3><p>One clear focus keeps our advice useful and up to date.</p></article></div></div></section>
+    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">What Matters to Us</span><div class="rule"></div><h2 class="section-title">Access, privacy and <em>clear advice</em></h2></div><div class="cards"><article class="card"><h3>Privacy</h3><p>We handle your requirements carefully and only share details when needed for your request.</p></article><article class="card"><h3>Fewer, Better Options</h3><p>We focus on the projects worth considering rather than sending you a long catalogue.</p></article><article class="card"><h3>The Full Picture</h3><p>Every recommendation includes the area, developer, timing and what may support future value.</p></article></div></div></section>
+    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Tell us what you are looking for and we will help with the next step.</h2><a class="btn" href="contact.html">Contact Us</a></div></section>`,
   },
   {
     file: 'contact.html',
-    title: 'Request Access',
+    title: 'Contact Us',
     breadcrumbTitle: 'Contact Us',
-    description: 'Request private access to curated Costa del Sol new development opportunities.',
+    description: 'Tell Nueva Living what kind of new home you are looking for on the Costa del Sol.',
     heroImage: 'assets/liora/viewing/scene-08.jpg',
-    heroKicker: 'Private Access',
-    heroTitle: 'Receive a curated <em>private shortlist</em>',
-    heroLead: 'Share your requirements and we will respond with relevant new development opportunities, project material and a recommended next step.',
-    body: `<section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Your Brief</span><div class="rule"></div><h2 class="section-title">Start with the right <em>conversation</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Share a short brief and we will respond with relevant project material, current availability and a recommended next step.</p></div><form class="form-panel" name="liora-access-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living contact enquiry"><input type="hidden" id="request-context" name="request_context" value="General private access request"><div class="form-grid"><div class="field"><label for="first-name">First Name</label><input id="first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div><div class="field"><label for="last-name">Last Name</label><input id="last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div><div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div><div class="field"><label for="area">Preferred Area</label><select id="area" name="preferred_area"><option value="">Select area...</option><option>Marbella</option><option>Estepona</option><option>Benahavis</option><option>Nueva Andalucia</option><option>Open to all areas</option></select></div><div class="field"><label for="property-type">Property Type Interest</label><select id="property-type" name="property_type_interest"><option value="">Select type...</option><option>Apartments</option><option>Penthouses</option><option>Villas</option><option>Townhouses</option><option>Mixed / Open</option></select></div><div class="field"><label for="budget">Budget Range</label><select id="budget" name="budget_range"><option value="">Select budget...</option><option>&euro;300,000 - &euro;500,000</option><option>&euro;500,000 - &euro;900,000</option><option>&euro;900,000 - &euro;1,500,000</option><option>&euro;1,500,000+</option></select></div><div class="field"><label for="purpose">Purchase Purpose</label><select id="purpose" name="purchase_purpose"><option value="">Select purpose...</option><option>Primary Residence</option><option>Holiday Home</option><option>Investment / Rental</option><option>Combination</option></select></div><div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us about your requirements..."></textarea></div><label class="consent-row field full" for="consent"><input id="consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored.</span></label><label class="consent-row field full" for="marketing-opt-in"><input id="marketing-opt-in" name="marketing_opt_in" type="checkbox"><span>I would also like to receive occasional project updates from Nueva Living.</span></label></div><div class="form-actions"><button class="btn" type="submit">Submit Request</button><span class="form-response"></span></div></form></div></section>`,
+    heroKicker: 'Contact Nueva Living',
+    heroTitle: 'Tell us what you are <em>looking for</em>',
+    heroLead: 'Share a few details and we will come back with relevant projects, current availability and a clear next step.',
+    body: `<section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Your Search</span><div class="rule"></div><h2 class="section-title">Let us help you <em>narrow it down</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Tell us what matters to you. We will reply with the projects and information that best fit your search.</p></div><form class="form-panel" name="liora-access-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living contact enquiry"><input type="hidden" id="request-context" name="request_context" value="General contact request"><div class="form-grid"><div class="field"><label for="first-name">First Name</label><input id="first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div><div class="field"><label for="last-name">Last Name</label><input id="last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div><div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div><div class="field"><label for="area">Preferred Area</label><select id="area" name="preferred_area"><option value="">Select area...</option><option>Marbella</option><option>Estepona</option><option>Benahavis</option><option>Nueva Andalucia</option><option>Open to all areas</option></select></div><div class="field"><label for="property-type">Property Type</label><select id="property-type" name="property_type_interest"><option value="">Select type...</option><option>Apartments</option><option>Penthouses</option><option>Villas</option><option>Townhouses</option><option>Mixed / Open</option></select></div><div class="field"><label for="budget">Budget Range</label><select id="budget" name="budget_range"><option value="">Select budget...</option><option>&euro;300,000 - &euro;500,000</option><option>&euro;500,000 - &euro;900,000</option><option>&euro;900,000 - &euro;1,500,000</option><option>&euro;1,500,000+</option></select></div><div class="field"><label for="purpose">How Will You Use It?</label><select id="purpose" name="purchase_purpose"><option value="">Select purpose...</option><option>Primary Residence</option><option>Holiday Home</option><option>Investment / Rental</option><option>Combination</option></select></div><div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us what you are looking for..."></textarea></div><label class="consent-row field full" for="consent"><input id="consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored.</span></label><label class="consent-row field full" for="marketing-opt-in"><input id="marketing-opt-in" name="marketing_opt_in" type="checkbox"><span>I would also like to receive occasional project updates from Nueva Living.</span></label></div><div class="form-actions"><button class="btn" type="submit">Send Enquiry</button><span class="form-response"></span></div></form></div></section>`,
   },
   {
     file: 'privacy-policy.html',
@@ -270,7 +270,7 @@ const pages = [
     heroImage: 'assets/liora/viewing/scene-11.jpg',
     heroKicker: 'Legal',
     heroTitle: 'Privacy <em>Policy</em>',
-    heroLead: 'How Nueva Living handles personal information submitted through enquiries and direct communication.',
+    heroLead: 'How we collect, use and protect the information you share with us.',
     body: legalBody('Privacy Policy', [
       ['Overview', 'LIORA LIVING SL. (NIF B88827472), operating under the Nueva Living brand, is responsible for personal information submitted through enquiry forms, email or direct communication.'],
       ['Information We May Collect', 'Name, contact details, preferred area, budget range, purchase purpose and any details voluntarily included in a message. We may also receive basic technical information from website hosting or analytics tools if added later.'],
@@ -286,7 +286,7 @@ const pages = [
     heroImage: 'assets/liora/viewing/scene-15.jpg',
     heroKicker: 'Legal',
     heroTitle: 'Legal <em>Notice</em>',
-    heroLead: 'Company and website information for the Nueva Living advisory platform.',
+    heroLead: 'Who operates this website, what the information is for and the terms that apply.',
     body: legalBody('Legal Notice', [
       ['Website Owner', 'This website is presented under the Nueva Living brand and operated by LIORA LIVING SL., Tax ID (NIF) B88827472.'],
       ['Purpose Of The Website', 'The site provides general marketing information about new-build and off-plan property opportunities across the Costa del Sol. Content is indicative and subject to change.'],
@@ -302,9 +302,9 @@ const pages = [
     heroImage: 'assets/liora/viewing/scene-10.jpg',
     heroKicker: 'Legal',
     heroTitle: 'Cookie <em>Policy</em>',
-    heroLead: 'A calm, readable cookie notice for the preview site. Final wording should be matched to the tools used at launch.',
+    heroLead: 'What cookies and third-party tools may be used on this website.',
     body: legalBody('Cookie Policy', [
-      ['Current Preview', 'This static preview is designed without a marketing cookie banner or tracking setup. If analytics, advertising pixels or CRM tracking are added later, this policy should be updated.'],
+      ['Current Setup', 'This website currently runs without advertising cookies. If analytics, advertising pixels or additional tracking are added later, this policy will need to be updated.'],
       ['Essential Cookies', 'Essential cookies may be used to support basic website function, security, form handling or preference storage where required.'],
       ['Analytics Cookies', 'If analytics tools are added, they may help understand page visits, device type and general website performance. Non-essential analytics should be disclosed and controlled appropriately.'],
       ['Third-Party Services', 'The site may load fonts, images, maps, video embeds or form tools from third-party providers. These providers may process technical data according to their own policies.'],
@@ -314,7 +314,7 @@ const pages = [
 ];
 
 function legalBody(title, sections) {
-  return `<section class="section"><div class="section-inner legal-layout"><aside class="legal-nav">${sections.map(([heading]) => `<a href="#${slug(heading)}">${heading}</a>`).join('')}</aside><div class="legal-stack"><div class="section-head"><span class="label">Draft Notice</span><div class="rule"></div><h2 class="section-title">${title}</h2><p class="body-copy">This is polished website draft copy and should be reviewed by qualified legal counsel before publication.</p></div>${sections.map(([heading, text]) => `<article class="legal-card" id="${slug(heading)}"><h3>${heading}</h3><p>${text}</p></article>`).join('')}</div></div></section><section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Need project-specific clarification?</h2><a class="btn" href="contact.html">Contact Nueva</a></div></section>`;
+  return `<section class="section"><div class="section-inner legal-layout"><aside class="legal-nav">${sections.map(([heading]) => `<a href="#${slug(heading)}">${heading}</a>`).join('')}</aside><div class="legal-stack"><div class="section-head"><span class="label">Important Information</span><div class="rule"></div><h2 class="section-title">${title}</h2><p class="body-copy">This page explains the main terms in plain language. It should be reviewed by qualified legal counsel before any future material change.</p></div>${sections.map(([heading, text]) => `<article class="legal-card" id="${slug(heading)}"><h3>${heading}</h3><p>${text}</p></article>`).join('')}</div></div></section><section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Have a question about a project?</h2><a class="btn" href="contact.html">Contact Us</a></div></section>`;
 }
 
 function slug(value) {
