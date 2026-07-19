@@ -7,7 +7,7 @@ Static luxury real estate website for Nueva Living, a new-development advisory b
 Build command:
 
 ```bash
-node scripts/build_property_pages.mjs && node scripts/build_dist.mjs
+node scripts/build_footer_pages.mjs && node scripts/build_property_pages.mjs && node scripts/build_dist.mjs
 ```
 
 Publish directory:
@@ -42,6 +42,7 @@ authoritative success signal; the browser never receives the webhook secret.
 ## Local Preview
 
 ```bash
+node scripts/build_footer_pages.mjs
 node scripts/build_property_pages.mjs
 node scripts/build_dist.mjs
 python3 -m http.server 4199 --bind 127.0.0.1

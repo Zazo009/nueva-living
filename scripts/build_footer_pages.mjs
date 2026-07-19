@@ -1,4 +1,12 @@
-import { writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+const areas = JSON.parse(readFileSync('content/nueva-areas.json', 'utf8'));
+const projects = readdirSync('content/liora-projects', { withFileTypes: true })
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => join('content/liora-projects', entry.name, 'project.json'))
+  .filter((file) => existsSync(file))
+  .map((file) => JSON.parse(readFileSync(file, 'utf8')));
 
 const home = 'index.html';
 const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
@@ -22,10 +30,11 @@ const footerLinks = {
   projects: [
     ['All Developments', 'developments.html'],
     ['Areas Overview', 'areas.html'],
-    ['Marbella', 'areas.html#marbella'],
-    ['Estepona', 'areas.html#estepona'],
-    ['Benahav&iacute;s', 'areas.html#benahavis'],
-    ['Nueva Andaluc&iacute;a', 'areas.html#nueva-andalucia'],
+    ['Marbella', 'area-marbella.html'],
+    ['Estepona', 'area-estepona.html'],
+    ['Benahav&iacute;s', 'area-benahavis.html'],
+    ['Nueva Andaluc&iacute;a', 'area-nueva-andalucia.html'],
+    ['Mijas &amp; Fuengirola', 'area-mijas-fuengirola.html'],
   ],
   legal: [
     ['Privacy Policy', 'privacy-policy.html'],
@@ -54,11 +63,13 @@ function nav() {
   </div>`;
 }
 
-function breadcrumb(currentLabel) {
+function breadcrumb(currentLabel, parents = []) {
+  const parentItems = parents.map(([label, href]) => `<li><a href="${esc(href)}">${esc(label)}</a></li>`).join('\n      ');
   return `<nav class="breadcrumb-bar" aria-label="Breadcrumb">
     <ol class="breadcrumb-list">
-      <li><a href="${home}">Home</a></li>
-      <li><span aria-current="page">${currentLabel}</span></li>
+      <li><a href="${home}">Home</a></li>${parentItems ? `
+      ${parentItems}` : ''}
+      <li><span aria-current="page">${esc(currentLabel)}</span></li>
     </ol>
   </nav>`;
 }
@@ -88,7 +99,7 @@ function footer() {
         <ul>
           <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
           <li><a href="https://wa.me/46707576709" target="_blank" rel="noopener" data-whatsapp-advisor data-context="Nueva Living" data-intent="speak with an advisor" aria-label="Contact Nueva Living on WhatsApp">+46 707 57 67 09 · WhatsApp</a></li>
-          <li><a href="areas.html#marbella">Marbella, Spain</a></li>
+          <li><a href="area-marbella.html">Marbella, Spain</a></li>
         </ul>
         <div class="footer-col-title" style="margin-top:24px;">Legal</div>
         <ul>
@@ -103,14 +114,14 @@ function footer() {
   </footer>`;
 }
 
-function page({ title, breadcrumbTitle, description, heroImage, heroKicker, heroTitle, heroLead, body }) {
+function page({ title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, heroTitle, heroLead, body, bodyClass = '' }) {
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${title} | Nueva Living</title>
-  <meta name="description" content="${description}">
+  <title>${esc(title)} | Nueva Living</title>
+  <meta name="description" content="${esc(description)}">
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
@@ -118,16 +129,16 @@ ${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css">
 </head>
-<body>
+<body${bodyClass ? ` class="${bodyClass}"` : ''}>
   ${nav()}
-  ${breadcrumb(breadcrumbTitle || title)}
+  ${breadcrumb(breadcrumbTitle || title, breadcrumbs)}
   <main>
     <section class="page-hero">
-      <img src="${heroImage}" alt="">
+      <img src="${esc(heroImage)}" alt="${esc(heroAlt)}"${heroWidth ? ` width="${heroWidth}"` : ''}${heroHeight ? ` height="${heroHeight}"` : ''}${heroPosition ? ` style="object-position:${esc(heroPosition)}"` : ''} loading="eager" fetchpriority="high" decoding="async">
       <div class="hero-inner">
-        <span class="kicker">${heroKicker}</span>
+        <span class="kicker">${esc(heroKicker)}</span>
         <h1 class="display-title">${heroTitle}</h1>
-        <p class="lead">${heroLead}</p>
+        <p class="lead">${esc(heroLead)}</p>
       </div>
     </section>
     ${body}
@@ -156,6 +167,106 @@ ${fontPreloadBlock}
   </script>
 </body>
 </html>`;
+}
+
+function esc(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function areaProjectCard(project) {
+  const image = project.images?.hero || {};
+  const meta = project.card?.meta || [];
+  const projectType = project.hero?.type || project.quickFacts?.find(([label]) => label === 'Property type')?.[1] || 'New development';
+  return `<article class="project-card area-project-card" data-project-card>
+    <img src="${esc(image.src)}" alt="${esc(image.alt || project.name)}" width="${image.width || 1600}" height="${image.height || 900}" loading="lazy" decoding="async">
+    <div class="project-body">
+      <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
+      <h3>${esc(project.name)}</h3>
+      <p>${esc(project.card?.description || project.description)}</p>
+      <div class="meta">${meta.slice(0, 3).map(([label, value]) => `<div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('')}</div>
+      <div class="project-tags"><span>${esc(projectType)}</span><span>Current Availability</span></div>
+      <a class="project-link" href="${esc(project.output)}">Explore Project</a>
+    </div>
+  </article>`;
+}
+
+function areaProjects(area) {
+  const selected = area.featuredProjects
+    .map((projectSlug) => projects.find((project) => project.slug === projectSlug))
+    .filter(Boolean);
+
+  if (selected.length) return selected.map(areaProjectCard).join('\n');
+
+  return `<article class="area-project-empty">
+    <span class="label">Private Selection</span>
+    <h3>Current opportunities available by request</h3>
+    <p>We do not publish a project here until its information is ready to compare. Tell us what you need and we will check the current Mijas and Fuengirola releases directly.</p>
+    <a class="project-link" href="#area-enquiry">Request a Shortlist</a>
+  </article>`;
+}
+
+function areaPriceSources(area) {
+  const sources = area.priceSources || [{ label: 'View market reference', url: area.priceSource }];
+  return sources
+    .filter((source) => source.url)
+    .map((source) => `<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.label)}</a>`)
+    .join('');
+}
+
+function areaForm(area) {
+  const areaOptions = areas.map((option) => (
+    `<option value="${esc(option.formArea)}"${option.slug === area.slug ? ' selected' : ''}>${esc(option.name)}</option>`
+  )).join('');
+
+  return `<form class="form-panel area-form" name="nueva-${esc(area.slug)}-enquiry" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead">
+    <input type="hidden" name="subject" data-remove-prefix value="New Nueva Living ${esc(area.name)} enquiry">
+    <input type="hidden" name="request_context" value="${esc(area.name)} area enquiry">
+    <div class="form-grid">
+      <div class="field"><label for="${esc(area.slug)}-first-name">First Name</label><input id="${esc(area.slug)}-first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div>
+      <div class="field"><label for="${esc(area.slug)}-last-name">Last Name</label><input id="${esc(area.slug)}-last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div>
+      <div class="field"><label for="${esc(area.slug)}-email">Email Address</label><input id="${esc(area.slug)}-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div>
+      <div class="field"><label for="${esc(area.slug)}-phone">Phone Number</label><input id="${esc(area.slug)}-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div>
+      <div class="field"><label for="${esc(area.slug)}-area">Preferred Area</label><select id="${esc(area.slug)}-area" name="preferred_area">${areaOptions}<option value="Open to all areas">Open to all areas</option></select></div>
+      <div class="field"><label for="${esc(area.slug)}-property-type">Property Type</label><select id="${esc(area.slug)}-property-type" name="property_type_interest"><option value="">Select type...</option><option>Apartments</option><option>Penthouses</option><option>Villas</option><option>Townhouses</option><option>Mixed / Open</option></select></div>
+      <div class="field"><label for="${esc(area.slug)}-budget">Budget Range</label><select id="${esc(area.slug)}-budget" name="budget_range"><option value="">Select budget...</option><option>&euro;300,000 - &euro;500,000</option><option>&euro;500,000 - &euro;900,000</option><option>&euro;900,000 - &euro;1,500,000</option><option>&euro;1,500,000+</option></select></div>
+      <div class="field"><label for="${esc(area.slug)}-bedrooms">Minimum Bedrooms</label><select id="${esc(area.slug)}-bedrooms" name="bedrooms_min"><option value="">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></div>
+      <div class="field full"><label for="${esc(area.slug)}-message">Message</label><textarea id="${esc(area.slug)}-message" name="message">${esc(area.formMessage)}</textarea></div>
+      <label class="consent-row field full" for="${esc(area.slug)}-consent"><input id="${esc(area.slug)}-consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored.</span></label>
+      <label class="consent-row field full" for="${esc(area.slug)}-marketing"><input id="${esc(area.slug)}-marketing" name="marketing_opt_in" type="checkbox"><span>I would also like to receive occasional project updates from Nueva Living.</span></label>
+    </div>
+    <div class="form-actions"><button class="btn" type="submit">Send Enquiry</button><span class="form-response"></span></div>
+  </form>`;
+}
+
+function areaDetailPage(area) {
+  const priceItems = area.prices.map((price) => `<div class="area-price-item"><span>${esc(price.label)}</span><strong>${esc(price.value)}</strong></div>`).join('');
+  const highlights = area.highlights.map(([title, copy], index) => `<article class="area-highlight"><span>${String(index + 1).padStart(2, '0')}</span><h3>${esc(title)}</h3><p>${esc(copy)}</p></article>`).join('');
+  const paragraphs = area.intro.paragraphs.map((paragraph) => `<p class="body-copy">${esc(paragraph)}</p>`).join('');
+
+  return {
+    file: area.output,
+    title: `${area.name} Area Guide`,
+    breadcrumbTitle: area.name,
+    breadcrumbs: [['Areas', 'areas.html']],
+    description: area.seo.description,
+    heroImage: area.hero.image,
+    heroAlt: area.hero.alt,
+    heroWidth: area.hero.width,
+    heroHeight: area.hero.height,
+    heroPosition: area.hero.position,
+    heroKicker: area.hero.kicker,
+    heroTitle: area.hero.titleHtml,
+    heroLead: area.hero.lead,
+    bodyClass: 'area-detail-page',
+    body: `<section class="section area-introduction"><div class="section-inner area-intro-layout"><div><span class="label">Living in ${esc(area.name)}</span><div class="rule"></div><h2 class="section-title">${area.intro.headlineHtml}</h2>${paragraphs}</div><div class="area-highlights">${highlights}</div></div></section>
+    <section class="section quiet-band area-market"><div class="section-inner area-market-layout"><div><span class="label">Market Guide</span><div class="rule"></div><h2 class="section-title">A useful price reference, <em>not the whole story</em></h2><p class="body-copy">Price per square metre helps with orientation, but condition, exact location, views, outdoor space and build quality can move an individual home well above or below an area average.</p></div><div class="area-price-panel">${priceItems}<p>${esc(area.priceNote)}</p><div class="area-price-sources">${areaPriceSources(area)}</div></div></div></section>
+    <section class="section area-developments"><div class="section-inner"><div class="section-head"><span class="label">Featured Developments</span><div class="rule"></div><h2 class="section-title">Selected projects in <em>${esc(area.name)}</em></h2><p class="body-copy">A focused selection from our current project collection. Prices and availability are confirmed before any viewing.</p></div><div class="project-grid area-project-grid">${areaProjects(area)}</div></div></section>
+    <section class="section area-enquiry-section" id="area-enquiry"><div class="section-inner"><div class="section-head center"><span class="label">Ask About ${esc(area.name)}</span><div class="rule"></div><h2 class="section-title">Receive a shortlist for <em>your search</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Tell us what you need and we will reply with relevant projects, current prices and the next sensible step.</p></div>${areaForm(area)}</div></section>`,
+  };
 }
 
 const pages = [
@@ -218,11 +329,11 @@ const pages = [
     heroTitle: 'The Costa del Sol, <em>area by area</em>',
     heroLead: 'Every area feels different. We help you compare daily life, travel times, views, prices and future resale demand.',
     body: `<section class="section"><div class="section-inner"><div class="section-head"><span class="label">Area Guide</span><div class="rule"></div><h2 class="section-title">Find the area that <em>fits you</em></h2><p class="body-copy">We look at what it is actually like to live there, how easy it is to get around and what supports long-term demand.</p></div><div class="area-stack">
-      <article class="area-row" id="marbella"><img src="assets/liora/areas/marbella.jpg" alt="Marbella coastline at sunrise with La Concha mountain" width="1920" height="2880"><div class="area-copy"><span class="label">Marbella</span><h3>The coast's best-known address</h3><p>Marbella combines beaches, restaurants, international schools and established neighbourhoods, from the Golden Mile to Sierra Blanca.</p></div></article>
-      <article class="area-row" id="estepona"><img src="assets/liora/areas/estepona.jpg" alt="Estepona old town street with white houses and flower pots" width="1920" height="1278"><div class="area-copy"><span class="label">Estepona</span><h3>A growing coastal town</h3><p>Estepona has seen major improvements in recent years, with a lively old town, good beach access and plenty of new projects.</p></div></article>
-      <article class="area-row" id="benahavis"><img src="assets/liora/areas/benahavis.jpg" alt="Benahavis mountain village and elevated hillside landscape" width="1920" height="1280"><div class="area-copy"><span class="label">Benahavis</span><h3>Privacy, hills and open views</h3><p>Set above Marbella, Benahavis is known for gated communities, golf, villas and a quieter pace of life.</p></div></article>
-      <article class="area-row" id="nueva-andalucia"><img src="assets/liora/areas/nueva-andalucia.jpg" alt="Puerto Banus marina and La Concha near Nueva Andalucia" width="1920" height="1280"><div class="area-copy"><span class="label">Nueva Andalucia</span><h3>Golf Valley living</h3><p>Close to Puerto Banus and surrounded by golf courses, Nueva Andalucia works well for buyers who want restaurants, services and year-round activity nearby.</p></div></article>
-      <article class="area-row" id="mijas-fuengirola"><img src="assets/liora/areas/fuengirola.jpg" alt="Fuengirola seafront sign with palms and Mediterranean water" width="1920" height="2560"><div class="area-copy"><span class="label">Mijas &amp; Fuengirola</span><h3>Easy access and more choice</h3><p>This part of the coast offers good services, easy links to Malaga and a wider range of prices.</p></div></article>
+      <a class="area-row" id="marbella" href="area-marbella.html" aria-label="Explore the Marbella area guide"><img src="assets/liora/areas/marbella.jpg" alt="Marbella coastline at sunrise with La Concha mountain" width="1920" height="2880" loading="lazy" decoding="async"><div class="area-copy"><span class="label">Marbella</span><h3>The coast's best-known address</h3><p>Marbella combines beaches, restaurants, international schools and established neighbourhoods, from the Golden Mile to Sierra Blanca.</p><span class="area-explore">Explore Marbella</span></div></a>
+      <a class="area-row" id="estepona" href="area-estepona.html" aria-label="Explore the Estepona area guide"><img src="assets/liora/areas/estepona.jpg" alt="Estepona old town street with white houses and flower pots" width="1920" height="1278" loading="lazy" decoding="async"><div class="area-copy"><span class="label">Estepona</span><h3>A growing coastal town</h3><p>Estepona has seen major improvements in recent years, with a lively old town, good beach access and plenty of new projects.</p><span class="area-explore">Explore Estepona</span></div></a>
+      <a class="area-row" id="benahavis" href="area-benahavis.html" aria-label="Explore the Benahavis area guide"><img src="assets/liora/areas/benahavis.jpg" alt="Benahavis mountain village and elevated hillside landscape" width="1920" height="1280" loading="lazy" decoding="async"><div class="area-copy"><span class="label">Benahavis</span><h3>Privacy, hills and open views</h3><p>Set above Marbella, Benahavis is known for gated communities, golf, villas and a quieter pace of life.</p><span class="area-explore">Explore Benahavis</span></div></a>
+      <a class="area-row" id="nueva-andalucia" href="area-nueva-andalucia.html" aria-label="Explore the Nueva Andalucia area guide"><img src="assets/liora/areas/nueva-andalucia.jpg" alt="Puerto Banus marina and La Concha near Nueva Andalucia" width="1920" height="1280" loading="lazy" decoding="async"><div class="area-copy"><span class="label">Nueva Andalucia</span><h3>Golf Valley living</h3><p>Close to Puerto Banus and surrounded by golf courses, Nueva Andalucia works well for buyers who want restaurants, services and year-round activity nearby.</p><span class="area-explore">Explore Nueva Andalucia</span></div></a>
+      <a class="area-row" id="mijas-fuengirola" href="area-mijas-fuengirola.html" aria-label="Explore the Mijas and Fuengirola area guide"><img src="assets/liora/areas/fuengirola.jpg" alt="Fuengirola seafront sign with palms and Mediterranean water" width="1920" height="2560" loading="lazy" decoding="async"><div class="area-copy"><span class="label">Mijas &amp; Fuengirola</span><h3>Easy access and more choice</h3><p>This part of the coast offers good services, easy links to Malaga and a wider range of prices.</p><span class="area-explore">Explore Mijas &amp; Fuengirola</span></div></a>
     </div></div></section>
     <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Not sure where to start? Tell us what matters to you.</h2><a class="btn" href="contact.html">Ask About Areas</a></div></section>`,
   },
@@ -312,6 +423,8 @@ const pages = [
     ]),
   },
 ];
+
+pages.push(...areas.map(areaDetailPage));
 
 function legalBody(title, sections) {
   return `<section class="section"><div class="section-inner legal-layout"><aside class="legal-nav">${sections.map(([heading]) => `<a href="#${slug(heading)}">${heading}</a>`).join('')}</aside><div class="legal-stack"><div class="section-head"><span class="label">Important Information</span><div class="rule"></div><h2 class="section-title">${title}</h2><p class="body-copy">This page explains the main terms in plain language. It should be reviewed by qualified legal counsel before any future material change.</p></div>${sections.map(([heading, text]) => `<article class="legal-card" id="${slug(heading)}"><h3>${heading}</h3><p>${text}</p></article>`).join('')}</div></div></section><section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Have a question about a project?</h2><a class="btn" href="contact.html">Contact Us</a></div></section>`;

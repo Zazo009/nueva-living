@@ -952,6 +952,196 @@ img {
   padding: clamp(30px, 4vw, 54px);
 }
 
+.area-row {
+  color: inherit;
+  transition: border-color 220ms ease, transform 220ms ease;
+}
+
+.area-row:hover,
+.area-row:focus-visible {
+  border-color: rgba(168, 131, 74, 0.46);
+  transform: translateY(-2px);
+}
+
+.area-row:focus-visible {
+  outline: 1px solid var(--bronze);
+  outline-offset: 4px;
+}
+
+.area-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  color: var(--bronze);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.area-explore::after {
+  content: "→";
+  font-size: 11px;
+  transition: transform 220ms ease;
+}
+
+.area-row:hover .area-explore::after {
+  transform: translateX(4px);
+}
+
+.area-intro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(44px, 7vw, 104px);
+  align-items: start;
+}
+
+.area-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.area-highlight {
+  min-height: 184px;
+  padding: clamp(24px, 3vw, 34px);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.area-highlight > span {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--bronze);
+  font-size: 8px;
+  letter-spacing: 0.22em;
+}
+
+.area-highlight h3,
+.area-project-empty h3 {
+  margin: 0 0 12px;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.045em;
+  line-height: 1.35;
+}
+
+.area-highlight p,
+.area-project-empty p {
+  margin: 0;
+  color: rgba(44, 42, 35, 0.72);
+  font-size: 12.5px;
+  line-height: 1.82;
+}
+
+.area-market-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1fr);
+  gap: clamp(42px, 7vw, 110px);
+  align-items: center;
+}
+
+.area-price-panel {
+  border-top: 1px solid var(--line-dark);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.area-price-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.area-price-item span {
+  color: rgba(251, 247, 239, 0.58);
+  font-size: 9px;
+  letter-spacing: 0.20em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.area-price-item strong {
+  color: var(--ivory);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(24px, 3.2vw, 38px);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.area-price-panel > p {
+  margin: 24px 0 0;
+  color: rgba(251, 247, 239, 0.58);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.area-price-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+  margin: 20px 0 24px;
+}
+
+.area-price-sources a {
+  color: var(--bronze-light);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+}
+
+.area-price-sources a::after {
+  content: " ↗";
+}
+
+.area-project-grid {
+  align-items: stretch;
+}
+
+.area-project-card {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.area-project-card .project-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.area-project-card .project-link {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.area-project-empty {
+  grid-column: 1 / -1;
+  padding: clamp(34px, 5vw, 62px);
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.72);
+}
+
+.area-project-empty p {
+  max-width: 720px;
+}
+
+.area-enquiry-section {
+  background: linear-gradient(180deg, rgba(232, 223, 205, 0.44), rgba(247, 241, 231, 0.82));
+}
+
+.area-form {
+  background: var(--ivory);
+}
+
 .quiet-band {
   background:
     linear-gradient(135deg, rgba(47, 36, 23, 0.98), rgba(58, 43, 27, 0.98));
@@ -1285,6 +1475,8 @@ footer {
 
   .split,
   .area-row,
+  .area-intro-layout,
+  .area-market-layout,
   .legal-layout,
   .development-intro {
     grid-template-columns: 1fr;
@@ -1319,6 +1511,10 @@ footer {
   .cards.two,
   .project-grid {
     grid-template-columns: 1fr;
+  }
+
+  .area-highlights {
+    margin-top: 8px;
   }
 
   .developments-hero {
@@ -1569,6 +1765,33 @@ footer {
 
   .project-card img {
     height: 260px;
+  }
+
+  .area-row img {
+    min-height: 260px;
+    max-height: 340px;
+  }
+
+  .area-row:hover {
+    transform: none;
+  }
+
+  .area-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .area-highlight {
+    min-height: 0;
+  }
+
+  .area-price-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .area-price-item strong {
+    white-space: normal;
   }
 
   .form-grid,

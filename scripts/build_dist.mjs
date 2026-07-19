@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 const root = process.cwd();
 const dist = path.join(root, 'dist');
 const projectsDir = path.join(root, 'content/liora-projects');
+const areas = JSON.parse(fs.readFileSync(path.join(root, 'content/nueva-areas.json'), 'utf8'));
 const fontCss = fs.readFileSync(path.join(root, 'assets/fonts/google/liora-fonts.css'), 'utf8');
 function contentVersion(relativePath) {
   return createHash('sha256')
@@ -27,6 +28,7 @@ const baseHtmlFiles = [
   'advisory.html',
   'approach.html',
   'areas.html',
+  ...areas.map((area) => area.output),
   'cookie-policy.html',
   'developments.html',
   'legal-notice.html',
@@ -138,6 +140,31 @@ const basePageMeta = {
   }
 };
 
+for (const area of areas) {
+  basePageMeta[area.output] = {
+    title: area.seo.title,
+    description: area.seo.description,
+    path: `/${area.output}`,
+    type: 'article',
+    image: `${siteUrl}/${area.hero.image}`,
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: area.seo.title.replace(/ \| Nueva Living$/, ''),
+      url: `${siteUrl}/${area.output}`,
+      description: area.seo.description,
+      about: {
+        '@type': 'Place',
+        name: area.name,
+        containedInPlace: {
+          '@type': 'AdministrativeArea',
+          name: 'Costa del Sol, Malaga, Spain'
+        }
+      }
+    }
+  };
+}
+
 function loadProjectPages() {
   if (!fs.existsSync(projectsDir)) return [];
 
@@ -241,6 +268,7 @@ function seoBlock(file) {
   const meta = pageMeta[file];
   if (!meta) return '';
   const url = absoluteUrl(file);
+  const shareImage = meta.image || socialImage;
   const lines = [
     `<link rel="canonical" href="${escapeHtml(url)}">`,
     meta.robots ? `<meta name="robots" content="${escapeHtml(meta.robots)}">` : '',
@@ -250,11 +278,11 @@ function seoBlock(file) {
     `<meta property="og:title" content="${escapeHtml(meta.title)}">`,
     `<meta property="og:description" content="${escapeHtml(meta.description)}">`,
     `<meta property="og:url" content="${escapeHtml(url)}">`,
-    `<meta property="og:image" content="${escapeHtml(socialImage)}">`,
+    `<meta property="og:image" content="${escapeHtml(shareImage)}">`,
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:title" content="${escapeHtml(meta.title)}">`,
     `<meta name="twitter:description" content="${escapeHtml(meta.description)}">`,
-    `<meta name="twitter:image" content="${escapeHtml(socialImage)}">`,
+    `<meta name="twitter:image" content="${escapeHtml(shareImage)}">`,
     meta.schema ? `<script type="application/ld+json">\n${JSON.stringify(meta.schema, null, 2)}\n  </script>` : ''
   ].filter(Boolean);
   return lines.map((line) => `  ${line}`).join('\n');

@@ -271,21 +271,21 @@ function nav() {
 function projectArea(project) {
   const location = `${project.hero?.location || ''} ${project.schema?.areaServed || ''}`.toLowerCase();
   if (location.includes('nueva andaluc') || location.includes('nueva andalucía')) {
-    return { label: 'Nueva Andalucía', href: 'areas.html#nueva-andalucia' };
+    return { label: 'Nueva Andalucía', href: 'area-nueva-andalucia.html' };
   }
   if (location.includes('benahav')) {
-    return { label: 'Benahavís', href: 'areas.html#benahavis' };
+    return { label: 'Benahavís', href: 'area-benahavis.html' };
   }
   if (location.includes('estepona') || location.includes('new golden mile')) {
-    return { label: 'Estepona', href: 'areas.html#estepona' };
+    return { label: 'Estepona', href: 'area-estepona.html' };
   }
   if (location.includes('mijas') || location.includes('fuengirola')) {
-    return { label: 'Mijas & Fuengirola', href: 'areas.html#mijas-fuengirola' };
+    return { label: 'Mijas & Fuengirola', href: 'area-mijas-fuengirola.html' };
   }
   if (location.includes('marbella east')) {
-    return { label: 'Marbella East', href: 'areas.html#marbella' };
+    return { label: 'Marbella East', href: 'area-marbella.html' };
   }
-  return { label: 'Marbella', href: 'areas.html#marbella' };
+  return { label: 'Marbella', href: 'area-marbella.html' };
 }
 
 function breadcrumb(project) {
@@ -321,17 +321,18 @@ function footer(project) {
           <li><a href="developments.html">All Developments</a></li>
           <li><a href="${esc(project.output)}">${esc(project.shortName || project.name)}</a></li>
           <li><a href="areas.html">Areas Overview</a></li>
-          <li><a href="areas.html#marbella">Marbella</a></li>
-          <li><a href="areas.html#estepona">Estepona</a></li>
-          <li><a href="areas.html#benahavis">Benahavís</a></li>
-          <li><a href="areas.html#nueva-andalucia">Nueva Andalucía</a></li>
+          <li><a href="area-marbella.html">Marbella</a></li>
+          <li><a href="area-estepona.html">Estepona</a></li>
+          <li><a href="area-benahavis.html">Benahavís</a></li>
+          <li><a href="area-nueva-andalucia.html">Nueva Andalucía</a></li>
+          <li><a href="area-mijas-fuengirola.html">Mijas &amp; Fuengirola</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Contact</div>
         <ul>
           <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
-          <li><a href="areas.html#marbella">Marbella, Spain</a></li>
+          <li><a href="area-marbella.html">Marbella, Spain</a></li>
         </ul>
         <div class="footer-col-title" style="margin-top:24px;">Legal</div>
         <ul>
