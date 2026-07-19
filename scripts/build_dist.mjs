@@ -27,6 +27,7 @@ const baseHtmlFiles = [
   'contact.html',
   'advisory.html',
   'approach.html',
+  'why-nueva.html',
   'areas.html',
   ...areas.map((area) => area.output),
   'cookie-policy.html',
@@ -84,6 +85,19 @@ const basePageMeta = {
     description: 'See how Nueva Living helps buyers compare new developments and make a clear, informed choice on the Costa del Sol.',
     path: '/approach.html',
     type: 'article'
+  },
+  'why-nueva.html': {
+    title: 'Why Choose Nueva Living | Costa del Sol Buyer Support',
+    description: 'Local knowledge, private project access and buyer-focused support from the first shortlist through to handover.',
+    path: '/why-nueva.html',
+    type: 'website',
+    schema: {
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      name: 'Why Choose Nueva Living',
+      url: `${siteUrl}/why-nueva.html`,
+      description: 'How Nueva Living supports international buyers comparing new developments on the Costa del Sol.'
+    }
   },
   'advisory.html': {
     title: 'Costa del Sol Buyer Advisory | Nueva Living',

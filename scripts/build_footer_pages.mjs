@@ -14,6 +14,7 @@ const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX
 
 const navLinks = [
   ['Approach', 'approach.html'],
+  ['Why Nueva', 'why-nueva.html'],
   ['Developments', 'developments.html'],
   ['Areas', 'areas.html'],
   ['Advisory', 'advisory.html'],
@@ -23,6 +24,7 @@ const navLinks = [
 const footerLinks = {
   company: [
     ['Our Approach', 'approach.html'],
+    ['Why Nueva Living', 'why-nueva.html'],
     ['About', 'about.html'],
     ['Advisory', 'advisory.html'],
     ['Contact Us', 'contact.html'],
@@ -46,13 +48,13 @@ const footerLinks = {
 function nav() {
   return `<nav class="site-nav">
     <div class="nav-links nav-links-left">
-      ${navLinks.slice(0, 2).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${navLinks.slice(0, 3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
     </div>
     <a class="nav-logo" href="${home}" aria-label="Nueva Living home">
       <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
     <div class="nav-links nav-links-right">
-      ${navLinks.slice(2).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${navLinks.slice(3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
     </div>
     <button class="nav-burger" type="button" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -321,6 +323,31 @@ const pages = [
     <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Tell us what you are looking for and we will narrow it down.</h2><a class="btn" href="contact.html">Talk to Us</a></div></section>`,
   },
   {
+    file: 'why-nueva.html',
+    title: 'Why Choose Nueva Living',
+    description: 'Why international buyers choose Nueva Living for clear, buyer-focused new-development advice on the Costa del Sol.',
+    heroImage: 'assets/liora/advisory-property.jpg',
+    heroAlt: 'Contemporary Costa del Sol home surrounded by Mediterranean planting',
+    heroKicker: 'Why Nueva Living',
+    heroTitle: 'A clearer way to find <em>the right new home</em>',
+    heroLead: 'We combine local project knowledge with a focused, buyer-first process, from the first shortlist through to handover.',
+    body: `<section class="section"><div class="section-inner split"><div><span class="label">What Sets Us Apart</span><div class="rule"></div><h2 class="section-title">Fewer options, better information and <em>no unnecessary pressure</em></h2><p class="body-copy">Buying from abroad can make every project look equally convincing. We help you compare the details that matter, explain the trade-offs and keep the search focused on homes that fit your plans.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Refined interior detail in a Costa del Sol residence" width="2048" height="1365" loading="lazy" decoding="async"></div></div></section>
+    <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">Why Buyers Choose Us</span><div class="rule"></div><h2 class="section-title">Practical support at <em>every stage</em></h2></div><div class="cards why-cards">
+      <article class="card"><div class="card-number">01</div><h3>Local Expertise</h3><p>Years of hands-on experience with Costa del Sol areas, developers, new releases and the differences between nearby projects.</p></article>
+      <article class="card"><div class="card-number">02</div><h3>Private Access</h3><p>Access to selected private releases and off-market availability when developers make it available.</p></article>
+      <article class="card"><div class="card-number">03</div><h3>End-to-End Support</h3><p>Search, comparisons, viewings and negotiation, plus coordination with an independent lawyer for legal checks.</p></article>
+      <article class="card"><div class="card-number">04</div><h3>Multilingual Guidance</h3><p>Clear communication in English, Spanish and Swedish throughout the buying process.</p></article>
+      <article class="card"><div class="card-number">05</div><h3>Buyer-First Advice</h3><p>We explain strengths and trade-offs honestly, so the decision serves the buyer rather than simply completing a sale.</p></article>
+      <article class="card"><div class="card-number">06</div><h3>Aftercare</h3><p>We stay available through handover and help connect you with relevant local services after completion.</p></article>
+    </div></div></section>
+    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Client Perspective</span><div class="rule"></div><h2 class="section-title">The experience we aim <em>to deliver</em></h2><p class="body-copy testimonial-disclaimer">Sample wording for layout only. These must be replaced with verified client feedback before being promoted as testimonials.</p></div><div class="cards testimonial-grid">
+      <blockquote class="card testimonial-card"><p>“Nueva Living helped us reduce a long list to three options that genuinely matched how we wanted to live.”</p><footer>Sample testimonial · Marbella buyer</footer></blockquote>
+      <blockquote class="card testimonial-card"><p>“The project comparison made the differences in location, payment terms and timing much easier to understand.”</p><footer>Sample testimonial · Estepona buyer</footer></blockquote>
+      <blockquote class="card testimonial-card"><p>“Having one point of contact from the first viewing through to handover made buying from abroad feel manageable.”</p><footer>Sample testimonial · International buyer</footer></blockquote>
+    </div></div></section>
+    <section class="cta-band"><div class="cta-inner"><div><span class="label">Your Search</span><h2 class="cta-title">Tell us what matters to you. We will help narrow it down.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>`,
+  },
+  {
     file: 'areas.html',
     title: 'Areas',
     description: 'Costa del Sol area guide for new development buyers.',
@@ -372,7 +399,7 @@ const pages = [
     heroKicker: 'Contact Nueva Living',
     heroTitle: 'Tell us what you are <em>looking for</em>',
     heroLead: 'Share a few details and we will come back with relevant projects, current availability and a clear next step.',
-    body: `<section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Your Search</span><div class="rule"></div><h2 class="section-title">Let us help you <em>narrow it down</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Tell us what matters to you. We will reply with the projects and information that best fit your search.</p></div><form class="form-panel" name="liora-access-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living contact enquiry"><input type="hidden" id="request-context" name="request_context" value="General contact request"><div class="form-grid"><div class="field"><label for="first-name">First Name</label><input id="first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div><div class="field"><label for="last-name">Last Name</label><input id="last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div><div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div><div class="field"><label for="area">Preferred Area</label><select id="area" name="preferred_area"><option value="">Select area...</option><option>Marbella</option><option>Estepona</option><option>Benahavis</option><option>Nueva Andalucia</option><option>Open to all areas</option></select></div><div class="field"><label for="property-type">Property Type</label><select id="property-type" name="property_type_interest"><option value="">Select type...</option><option>Apartments</option><option>Penthouses</option><option>Villas</option><option>Townhouses</option><option>Mixed / Open</option></select></div><div class="field"><label for="budget">Budget Range</label><select id="budget" name="budget_range"><option value="">Select budget...</option><option>&euro;300,000 - &euro;500,000</option><option>&euro;500,000 - &euro;900,000</option><option>&euro;900,000 - &euro;1,500,000</option><option>&euro;1,500,000+</option></select></div><div class="field"><label for="purpose">How Will You Use It?</label><select id="purpose" name="purchase_purpose"><option value="">Select purpose...</option><option>Primary Residence</option><option>Holiday Home</option><option>Investment / Rental</option><option>Combination</option></select></div><div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us what you are looking for..."></textarea></div><label class="consent-row field full" for="consent"><input id="consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored.</span></label><label class="consent-row field full" for="marketing-opt-in"><input id="marketing-opt-in" name="marketing_opt_in" type="checkbox"><span>I would also like to receive occasional project updates from Nueva Living.</span></label></div><div class="form-actions"><button class="btn" type="submit">Send Enquiry</button><span class="form-response"></span></div></form></div></section>`,
+    body: `<section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Your Search</span><div class="rule"></div><h2 class="section-title">Let us help you <em>narrow it down</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Tell us what matters to you. We will reply with the projects and information that best fit your search.</p></div><form class="form-panel" id="contact-form" name="liora-access-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living contact enquiry"><input type="hidden" id="request-context" name="request_context" value="General contact request"><div class="form-grid"><div class="field"><label for="first-name">First Name</label><input id="first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div><div class="field"><label for="last-name">Last Name</label><input id="last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div><div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div><div class="field"><label for="area">Preferred Area</label><select id="area" name="preferred_area"><option value="">Select area...</option><option>Marbella</option><option>Estepona</option><option>Benahavis</option><option>Nueva Andalucia</option><option>Open to all areas</option></select></div><div class="field"><label for="property-type">Property Type</label><select id="property-type" name="property_type_interest"><option value="">Select type...</option><option>Apartments</option><option>Penthouses</option><option>Villas</option><option>Townhouses</option><option>Mixed / Open</option></select></div><div class="field"><label for="budget">Budget Range</label><select id="budget" name="budget_range"><option value="">Select budget...</option><option>&euro;300,000 - &euro;500,000</option><option>&euro;500,000 - &euro;900,000</option><option>&euro;900,000 - &euro;1,500,000</option><option>&euro;1,500,000+</option></select></div><div class="field"><label for="purpose">How Will You Use It?</label><select id="purpose" name="purchase_purpose"><option value="">Select purpose...</option><option>Primary Residence</option><option>Holiday Home</option><option>Investment / Rental</option><option>Combination</option></select></div><div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell us what you are looking for..."></textarea></div><label class="consent-row field full" for="consent"><input id="consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored.</span></label><label class="consent-row field full" for="marketing-opt-in"><input id="marketing-opt-in" name="marketing_opt_in" type="checkbox"><span>I would also like to receive occasional project updates from Nueva Living.</span></label></div><div class="form-actions"><button class="btn" type="submit">Send Enquiry</button><span class="form-response"></span></div></form></div></section>`,
   },
   {
     file: 'privacy-policy.html',
