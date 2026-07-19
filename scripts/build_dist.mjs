@@ -6,11 +6,19 @@ const root = process.cwd();
 const dist = path.join(root, 'dist');
 const projectsDir = path.join(root, 'content/liora-projects');
 const fontCss = fs.readFileSync(path.join(root, 'assets/fonts/google/liora-fonts.css'), 'utf8');
+function contentVersion(relativePath) {
+  return createHash('sha256')
+    .update(fs.readFileSync(path.join(root, relativePath)))
+    .digest('hex')
+    .slice(0, 12);
+}
+
 const conversionScriptPath = 'assets/liora/liora-conversion.js';
-const conversionScriptVersion = createHash('sha256')
-  .update(fs.readFileSync(path.join(root, conversionScriptPath)))
-  .digest('hex')
-  .slice(0, 12);
+const pagesStylesheetPath = 'assets/liora/liora-pages.css';
+const propertyStylesheetPath = 'assets/liora/liora-property.css';
+const conversionScriptVersion = contentVersion(conversionScriptPath);
+const pagesStylesheetVersion = contentVersion(pagesStylesheetPath);
+const propertyStylesheetVersion = contentVersion(propertyStylesheetPath);
 
 const baseHtmlFiles = [
   '404.html',
@@ -338,10 +346,16 @@ function minifyInlineStyles(html) {
 
 function optimizeHtml(html) {
   return minifyInlineStyles(inlineFontStyles(html))
-    .replace(/assets\/liora\/liora-pages\.css(?:\?v=\d+)?/g, 'assets/liora/liora-pages.css?v=9')
-    .replace(/assets\/liora\/liora-property\.css(?:\?v=\d+)?/g, 'assets/liora/liora-property.css?v=9')
-    // The asset directory is immutable in production, so the content hash is
-    // required to prevent a previous form handler from surviving a deploy.
+    // Assets are immutable in production, so content hashes ensure every CSS
+    // and form-handler revision reaches both new and returning visitors.
+    .replace(
+      /assets\/liora\/liora-pages\.css(?:\?v=[a-z0-9]+)?/gi,
+      `${pagesStylesheetPath}?v=${pagesStylesheetVersion}`
+    )
+    .replace(
+      /assets\/liora\/liora-property\.css(?:\?v=[a-z0-9]+)?/gi,
+      `${propertyStylesheetPath}?v=${propertyStylesheetVersion}`
+    )
     .replace(
       /assets\/liora\/liora-conversion\.js(?:\?v=[a-z0-9]+)?/gi,
       `${conversionScriptPath}?v=${conversionScriptVersion}`
