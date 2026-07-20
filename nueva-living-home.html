@@ -1477,17 +1477,11 @@
     }
 
     /* Plans and masterplans are documents, not cinematic crops. Keep the full
-       drawing visible and remove the film treatment while those scenes show. */
+       drawing visible. Film treatment is blended in JS so transitions between
+       plans and photography cannot flash at the scene boundary. */
     .vlayer.is-document {
       background-size: contain;
       background-color: #E8DFCD;
-    }
-    #vox.document-scene #voverlay-gradient,
-    #vox.document-scene #vscene-ov,
-    #vox.document-scene #vdepth-frame,
-    #vox.document-scene #vlight-sweep,
-    #vox.document-scene #vvig {
-      opacity: 0 !important;
     }
 
     /* ── Cinematic camera depth layers — creates the illusion of moving
@@ -5745,7 +5739,7 @@
       name: 'Marbella West Garden Residences',
       location: 'Marbella West · Near San Pedro',
       area: 'Marbella',
-      price: 'On request',
+      price: 'From €595,200',
       bedrooms: '1–4 bedrooms',
       builtSize: 'Residence-specific',
       terraceSize: 'Residence-specific',
@@ -5767,7 +5761,7 @@
       availability: [
         { label: 'Status', value: 'Under construction' },
         { label: 'Material', value: 'Brochure, plans and specifications' },
-        { label: 'Availability', value: 'Current release confirmed by request' }
+        { label: 'Availability', value: '24 homes shown as available' }
       ],
       ctaLabel: 'Get Current Project Information',
       ctaMessage: 'I would like the latest information for Marbella West Garden Residences, including current availability, prices, floorplans, payment terms and viewing options.'
@@ -5808,30 +5802,59 @@
      Image preparation — keep only nearby scenes active in the compositor
   ───────────────────────────────────────────────────────────── */
   const vSceneAssetsPrimed = new Array(TOTAL).fill(false);
+  const vSceneAssetsReady = new Array(TOTAL).fill(false);
+  const vSceneAssetPromises = new Array(TOTAL).fill(null);
   const vSceneImageCache = new Array(TOTAL).fill(null);
   const vLayerHidden = new Array(TOTAL).fill(true);
 
   function vPrimeSceneAsset(index) {
     const sc = VIEWING_SCENES[index];
     const el = document.getElementById('vl' + (index + 1));
-    if (!sc || !el) return;
+    if (!sc || !el) return Promise.resolve(false);
 
     el.style.backgroundPosition = sc.pos || 'center center';
     el.classList.toggle('is-document', sc.fit === 'contain');
-    if (vSceneAssetsPrimed[index]) return;
+    if (vSceneAssetsPrimed[index]) return vSceneAssetPromises[index] || Promise.resolve(vSceneAssetsReady[index]);
 
     const img = new Image();
     img.decoding = 'async';
-    img.src = sc.img;
     vSceneImageCache[index] = img;
     vSceneAssetsPrimed[index] = true;
+    // Set the URL immediately so the browser can paint from cache while the
+    // readiness promise prevents transitions into a not-yet-decoded layer.
     el.style.backgroundImage = `url("${sc.img}")`;
+    vSceneAssetPromises[index] = new Promise(resolve => {
+      let settled = false;
+      const markReady = async () => {
+        if (settled) return;
+        settled = true;
+        try {
+          if (img.decode) await img.decode();
+        } catch (error) {
+          // A completed image can still be painted when decode() is unsupported.
+        }
+        el.style.backgroundImage = `url("${sc.img}")`;
+        vSceneAssetsReady[index] = true;
+        resolve(true);
+      };
+      img.addEventListener('load', markReady, { once: true });
+      img.addEventListener('error', () => {
+        if (settled) return;
+        settled = true;
+        resolve(false);
+      }, { once: true });
+      img.src = sc.img;
+      if (img.complete && img.naturalWidth) markReady();
+    });
+    return vSceneAssetPromises[index];
   }
 
   function vPrepareSceneAssets(sceneIdx) {
     const start = Math.max(0, sceneIdx - 1);
     const end = Math.min(TOTAL - 1, sceneIdx + 3);
-    for (let i = start; i <= end; i++) vPrimeSceneAsset(i);
+    const preparations = [];
+    for (let i = start; i <= end; i++) preparations.push(vPrimeSceneAsset(i));
+    return Promise.all(preparations);
   }
 
   function vHideLayer(layer, index) {
@@ -5868,6 +5891,8 @@
   const v7mark   = document.getElementById('v7mark');
   const v7row    = document.getElementById('v7row');
   const vsceov   = document.getElementById('vscene-ov');
+  const voverlayGradient = document.getElementById('voverlay-gradient');
+  const vVignette = document.getElementById('vvig');
   const vdepth   = document.getElementById('vdepth-frame');
   const vlight   = document.getElementById('vlight-sweep');
   const vdfLeft  = document.querySelector('.vdf-left');
@@ -6079,22 +6104,24 @@
 
   function vPad(n) { return String(n + 1).padStart(2, '0'); }
 
-  /* Smooth scene navigation — still crossfades through the continuous film strip */
-    function vGoto(n, userInitiated = false, duration = VIEWING_MANUAL_SECONDS) {
-      if (n < 0 || n >= TOTAL) return;
-      if (userInitiated) vStopGuided('Manual');
-      vPrepareSceneAssets(n);
-      const targetScroll = vSceneTarget(n);
+  /* Smooth scene navigation — wait for the requested image before moving.
+     This prevents a fast mobile tap from dissolving into an unpainted layer. */
+  function vGoto(n, userInitiated = false, duration = VIEWING_MANUAL_SECONDS) {
+    if (n < 0 || n >= TOTAL) return;
+    if (userInitiated) vStopGuided('Manual');
+    const targetScroll = vSceneTarget(n);
+    vPrepareSceneAssets(n).then(() => {
       if (vGuidedTween) vGuidedTween.kill();
-    vProgrammaticScroll = true;
-    vGuidedTween = gsap.to(vfilm, {
-      scrollTop: targetScroll,
-      duration,
-      ease: 'power2.inOut',
-      onComplete: () => {
-        vGuidedTween = null;
-        vProgrammaticScroll = false;
-      }
+      vProgrammaticScroll = true;
+      vGuidedTween = gsap.to(vfilm, {
+        scrollTop: targetScroll,
+        duration,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          vGuidedTween = null;
+          vProgrammaticScroll = false;
+        }
+      });
     });
   }
 
@@ -6154,7 +6181,6 @@
     if (s.txt === 'centre')  vtxtbox.classList.add('centre');
     if (s.txt === 'closing') vtxtbox.classList.add('closing');
     if (s.txt === 'document' || s.fit === 'contain') vtxtbox.classList.add('document');
-    if (voxEl) voxEl.classList.toggle('document-scene', s.fit === 'contain');
 
     // Show / hide scene-7 CTA elements
     const isClosing = s.txt === 'closing';
@@ -6230,7 +6256,26 @@
         // ── Image crossfade + centred zoom-out camera ─────────
         // Keep every image anchored in the centre. Lateral panning can expose the
         // stage edge during dissolves, so transitions now breathe by scale only.
-        const fade = sceneIdx === TOTAL - 1 ? 0 : vSmoothstep(0.64, 0.995, sceneProg);
+        const nextScene = sceneIdx < TOTAL - 1 ? VIEWING_SCENES[sceneIdx + 1] : null;
+        const nextReady = !nextScene || vSceneAssetsReady[sceneIdx + 1];
+        // Never dissolve towards a layer that the browser has not decoded yet.
+        const fade = sceneIdx === TOTAL - 1 || !nextReady ? 0 : vSmoothstep(0.64, 0.995, sceneProg);
+        const currentIsDocument = VIEWING_SCENES[sceneIdx]?.fit === 'contain';
+        const nextIsDocument = nextScene?.fit === 'contain';
+        const filmTreatment = currentIsDocument
+          ? (nextScene && !nextIsDocument ? fade : 0)
+          : (nextIsDocument ? 1 - fade : 1);
+
+        // Blend film treatment with the image dissolve. The previous binary
+        // document mode produced a visible flash after the masterplan scene.
+        if (currentIsDocument && nextScene && !nextIsDocument && vsceov) {
+          vsceov.style.background = nextScene.ov || 'none';
+        } else if (vsceov) {
+          vsceov.style.background = VIEWING_SCENES[sceneIdx]?.ov || 'none';
+        }
+        if (voverlayGradient) gsap.set(voverlayGradient, { opacity: filmTreatment });
+        if (vsceov) gsap.set(vsceov, { opacity: filmTreatment });
+        if (vVignette) gsap.set(vVignette, { opacity: filmTreatment });
 
         layers.forEach((l, i) => {
           if (!l) return;
@@ -6344,10 +6389,13 @@
       // Lift veil and init GSAP (only once)
       setTimeout(() => {
         vveil.classList.remove('on');
-        requestAnimationFrame(() => {
+        vPrepareSceneAssets(0).then(() => requestAnimationFrame(() => {
           initViewing();
           if (vGuidedOn) vStartGuided(false);
-        });
+        })).catch(() => requestAnimationFrame(() => {
+          initViewing();
+          if (vGuidedOn) vStartGuided(false);
+        }));
       }, veilLiftDelay);
     }, entryDelay)).catch(error => {
       console.error('Private Viewing motion failed to load', error);
