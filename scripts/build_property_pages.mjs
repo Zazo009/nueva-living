@@ -86,6 +86,69 @@ function featureList(items = []) {
   return `<ul class="feature-list">\n${items.map((item) => `            <li>${esc(item)}</li>`).join('\n')}\n          </ul>`;
 }
 
+function renderProjectMedia(project) {
+  const media = project.media;
+  if (!media?.items?.length) return { section: '', dialog: '' };
+
+  const categories = [...new Set(media.items.map((item) => item.category).filter(Boolean))];
+  const initialCount = Math.max(1, Number(media.initialCount) || 8);
+  const layoutClasses = ['wide', 'standard', 'standard', 'portrait', 'standard', 'wide'];
+  const filters = ['All', ...categories].map((category, index) => {
+    const count = category === 'All'
+      ? media.items.length
+      : media.items.filter((item) => item.category === category).length;
+    return `<button type="button" class="media-filter${index === 0 ? ' is-active' : ''}" data-media-filter="${esc(category)}" aria-pressed="${index === 0 ? 'true' : 'false'}">${esc(category)} <span>${count}</span></button>`;
+  }).join('\n            ');
+
+  const cards = media.items.map((item, index) => {
+    const hidden = index >= initialCount ? ' hidden data-media-collapsed' : '';
+    const layout = layoutClasses[index % layoutClasses.length];
+    return `<button type="button" class="project-media-card project-media-card--${layout}" data-media-index="${index}" data-media-category="${esc(item.category || 'Media')}" aria-label="Open ${esc(item.caption || item.alt || `image ${index + 1}`)}"${hidden}>
+              ${imageTag(item, '', 'lazy')}
+              <span class="project-media-caption"><small>${esc(item.category || 'Media')}</small><strong>${esc(item.caption || '')}</strong></span>
+            </button>`;
+  }).join('\n            ');
+
+  const facts = (media.facts || []).map(([value, label]) => `<div class="media-fact"><strong>${esc(value)}</strong><span>${esc(label)}</span></div>`).join('\n          ');
+
+  return {
+    section: `<section class="project-section project-media-section" id="media">
+      <div class="project-inner">
+        <div class="project-media-intro reveal-soft">
+          <div>
+            <span class="section-kicker">Media</span>
+            <div class="rule"></div>
+            <h2 class="section-headline">${media.headlineHtml}</h2>
+          </div>
+          <p class="project-lead">${esc(media.copy)}</p>
+        </div>
+        ${facts ? `<div class="media-facts reveal-soft">${facts}</div>` : ''}
+        <div class="media-toolbar" role="toolbar" aria-label="Filter project media">
+          ${filters}
+        </div>
+        <div class="project-media-grid" data-media-grid>
+          ${cards}
+        </div>
+        <div class="media-gallery-footer">
+          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all aria-expanded="false">View all ${media.items.length} images</button>
+          <p class="media-note">${esc(media.note || '')}</p>
+        </div>
+      </div>
+    </section>`,
+    dialog: `<dialog class="project-media-dialog" id="projectMediaDialog" aria-label="${esc(project.name)} media viewer">
+      <div class="project-media-dialog-shell">
+        <button type="button" class="media-dialog-close" data-media-close aria-label="Close media viewer">Close</button>
+        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Previous image">&#8592;</button>
+        <figure class="media-dialog-figure">
+          <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
+          <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
+        </figure>
+        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Next image">&#8594;</button>
+      </div>
+    </dialog>`
+  };
+}
+
 function quickFacts(project) {
   return project.quickFacts || [
     ['Starting price', project.hero?.startingPrice || 'On request'],
@@ -359,6 +422,7 @@ function renderProject(project) {
   const privateHref = project.privateViewing?.href || 'index.html?private-viewing=1';
   const privateHeroCta = project.privateViewing?.heroCta || 'Book Private Viewing';
   const privateCta = project.privateViewing?.ctaLabel || 'Enter Private Viewing';
+  const projectMedia = renderProjectMedia(project);
   const facts = [
     ['Location', project.hero.location],
     ['Starting Price', project.hero.startingPrice],
@@ -484,7 +548,7 @@ ${JSON.stringify(agentSchema, null, 2)}
         <a href="#overview">Overview</a>
         <a href="#why-this-project">Why</a>
         <a href="#architecture">Architecture</a>
-        <a href="#residences">Residences</a>
+${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}        <a href="#residences">Residences</a>
         <a href="#project-file">Project Info</a>
         <a href="#private-viewing">Private Viewing</a>
         <a href="#lifestyle">Lifestyle</a>
@@ -552,7 +616,7 @@ ${JSON.stringify(agentSchema, null, 2)}
       </div>
     </section>
 
-    <section class="project-section" id="residences">
+${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section class="project-section" id="residences">
       <div class="project-inner">
         <div class="reveal-soft">
           <span class="section-kicker">Residences</span>
@@ -766,7 +830,7 @@ ${JSON.stringify(agentSchema, null, 2)}
     </section>
   </main>
 
-  <div class="sticky-mobile-cta" aria-label="Project request actions">
+${projectMedia.dialog ? `  ${projectMedia.dialog}\n\n` : ''}  <div class="sticky-mobile-cta" aria-label="Project request actions">
     <a href="#enquire" data-prefill>Request Availability</a>
     <a href="${esc(whatsappHref(project))}" target="_blank" rel="noopener" data-whatsapp-advisor data-project="${esc(project.name)}" data-intent="speak with an advisor">Speak With Advisor</a>
   </div>
