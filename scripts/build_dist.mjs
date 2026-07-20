@@ -443,13 +443,18 @@ function externalizeHomepageController(html, publicName) {
   const match = html.match(controllerPattern);
   if (!match) throw new Error('Homepage controller script was not found');
 
+  const controller = `${match[1].trim()}\n`;
+  const controllerVersion = createHash('sha256')
+    .update(controller)
+    .digest('hex')
+    .slice(0, 12);
   const target = path.join(dist, 'assets/liora/nueva-homepage.js');
   fs.mkdirSync(path.dirname(target), { recursive: true });
-  fs.writeFileSync(target, `${match[1].trim()}\n`);
+  fs.writeFileSync(target, controller);
 
   return html.replace(
     controllerPattern,
-    '<script src="assets/liora/nueva-homepage.js" defer></script>'
+    `<script src="assets/liora/nueva-homepage.js?v=${controllerVersion}" defer></script>`
   );
 }
 
