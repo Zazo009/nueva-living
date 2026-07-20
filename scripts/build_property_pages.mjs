@@ -167,6 +167,45 @@ function ghostAction(label, href = '#enquire') {
   return actionLink(label, href, 'ghost');
 }
 
+function renderAvailabilityRelease(project) {
+  const availability = project.availability || {};
+  const units = availability.units || [];
+  if (!units.length) return '';
+
+  const rows = units.map((unit) => `<tr>
+                <td data-label="Reference"><strong>${esc(unit.reference)}</strong></td>
+                <td data-label="Floor">${esc(unit.floor)}</td>
+                <td data-label="Bedrooms">${esc(unit.bedrooms)}</td>
+                <td data-label="Price"><strong>${esc(unit.price)}</strong></td>
+                <td data-label="Status"><span class="availability-status">Available</span></td>
+              </tr>`).join('\n              ');
+
+  return `<div class="availability-release reveal-soft">
+          <div class="availability-release-stats" aria-label="Current release summary">
+            <div><span>Available homes</span><strong>${units.length}</strong></div>
+            <div><span>Starting price</span><strong>${esc(availability.startingPrice || project.hero?.startingPrice || '')}</strong></div>
+            <div><span>Price range</span><strong>${esc(availability.priceRange || '')}</strong></div>
+            <div><span>Checked</span><strong>${esc(availability.checkedDate || '')}</strong></div>
+          </div>
+          <details class="availability-disclosure">
+            <summary>
+              <span>View all ${units.length} available homes</span>
+              <span class="availability-summary-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="availability-table-wrap">
+              <table class="availability-table">
+                <caption class="sr-only">Available homes at ${esc(project.name)}</caption>
+                <thead><tr><th scope="col">Reference</th><th scope="col">Floor</th><th scope="col">Bedrooms</th><th scope="col">Price</th><th scope="col">Status</th></tr></thead>
+                <tbody>
+              ${rows}
+                </tbody>
+              </table>
+            </div>
+          </details>
+          <p class="availability-source-note">${esc(availability.sourceNote || '')}</p>
+        </div>`;
+}
+
 function mapLabelLines(html = 'Project<br>Area') {
   return String(html)
     .split(/<br\s*\/?>/i)
@@ -423,6 +462,7 @@ function renderProject(project) {
   const privateHeroCta = project.privateViewing?.heroCta || 'Book Private Viewing';
   const privateCta = project.privateViewing?.ctaLabel || 'Enter Private Viewing';
   const projectMedia = renderProjectMedia(project);
+  const availabilityRelease = renderAvailabilityRelease(project);
   const facts = [
     ['Location', project.hero.location],
     ['Starting Price', project.hero.startingPrice],
@@ -772,7 +812,7 @@ ${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section cla
             ${advisorAction(project)}
           </div>
         </div>
-      </div>
+${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
     </section>
 
     <section class="project-section" id="enquire">
