@@ -240,6 +240,7 @@ const assetDirectories = [
   'assets/liora/areas',
   'assets/liora/cards',
   'assets/liora/hero',
+  'assets/liora/projects',
   'assets/liora/viewing',
   'content',
 ];

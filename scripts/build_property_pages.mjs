@@ -390,6 +390,7 @@ function renderProject(project) {
     items: []
   };
   const schemaUrl = project.canonical || `https://nuevaliving.com/${project.output}`;
+  const schemaPrice = project.schema?.price;
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -397,13 +398,15 @@ function renderProject(project) {
     description: project.description,
     category: project.schema?.category || 'New development residences',
     brand: { '@type': 'Brand', name: 'Nueva Living' },
-    offers: {
-      '@type': 'Offer',
-      priceCurrency: project.schema?.priceCurrency || 'EUR',
-      price: project.schema?.price || '',
-      availability: 'https://schema.org/InStock',
-      url: schemaUrl
-    },
+    ...(schemaPrice ? {
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: project.schema?.priceCurrency || 'EUR',
+        price: schemaPrice,
+        availability: 'https://schema.org/InStock',
+        url: schemaUrl
+      }
+    } : {}),
     areaServed: { '@type': 'Place', name: project.schema?.areaServed || project.hero.location }
   };
   const agentSchema = {
@@ -587,7 +590,11 @@ ${JSON.stringify(agentSchema, null, 2)}
           <div class="rule"></div>
           <h2 class="section-headline">${projectFile.headlineHtml}</h2>
           <p class="project-lead">${esc(projectFile.copy)}</p>
-        </div>
+        </div>${projectFile.image ? `
+        <figure class="project-plan reveal-soft">
+          ${imageTag(projectFile.image)}
+          ${projectFile.image.caption ? `<figcaption>${esc(projectFile.image.caption)}</figcaption>` : ''}
+        </figure>` : ''}
         <div class="document-center">
           ${renderDocumentRows(projectFile.documents)}
         </div>
@@ -713,9 +720,9 @@ ${JSON.stringify(agentSchema, null, 2)}
           <p class="body-copy">${esc(project.enquiry.copy)}</p>
         </div>
         <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead">
-          
+
           <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - ${esc(project.name)}">
-          
+
           <input type="hidden" id="f-project" name="project" value="${esc(project.name)}">
           <input type="hidden" name="preferred_area" value="${esc(project.hero?.location || '')}">
           <input type="hidden" name="property_type_interest" value="${esc(project.hero?.type || '')}">
