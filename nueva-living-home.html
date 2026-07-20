@@ -1476,6 +1476,20 @@
       contain: paint;
     }
 
+    /* Plans and masterplans are documents, not cinematic crops. Keep the full
+       drawing visible and remove the film treatment while those scenes show. */
+    .vlayer.is-document {
+      background-size: contain;
+      background-color: #E8DFCD;
+    }
+    #vox.document-scene #voverlay-gradient,
+    #vox.document-scene #vscene-ov,
+    #vox.document-scene #vdepth-frame,
+    #vox.document-scene #vlight-sweep,
+    #vox.document-scene #vvig {
+      opacity: 0 !important;
+    }
+
     /* ── Cinematic camera depth layers — creates the illusion of moving
        through doors, glass and architectural edges, instead of viewing slides. */
     #vdepth-frame, #vlight-sweep {
@@ -1576,6 +1590,23 @@
     #vtxtbox.centre .vt-label::before { display: none; }
     #vtxtbox.centre .vt-headline { font-size: clamp(40px, 5.8vw, 80px); }
     #vtxtbox.centre .vt-sub { max-width: none; text-align: center; margin: 18px auto 0; }
+
+    /* Editorial caption for plans: readable without covering the drawing. */
+    #vtxtbox.document { align-items: flex-end; justify-content: flex-end; }
+    #vtxtbox.document #vtxtinner {
+      margin: 0 4vw 5vh auto;
+      max-width: 390px;
+      padding: 20px 24px;
+    }
+    #vtxtbox.document #vtxtinner::before {
+      background: rgba(250, 246, 238, 0.94);
+      border: 1px solid rgba(74, 59, 40, 0.16);
+      box-shadow: 0 22px 70px rgba(47, 36, 23, 0.14);
+      backdrop-filter: blur(8px);
+    }
+    #vtxtbox.document .vt-headline { color: #2F2417; font-size: clamp(24px, 2.8vw, 38px); }
+    #vtxtbox.document .vt-sub { color: rgba(47, 36, 23, 0.78); font-size: 11px; }
+    #vtxtbox.document .vt-label { color: #8E6C3A; }
 
     /* Closing scene — centre */
     #vtxtbox.closing { align-items: center; justify-content: center; }
@@ -1907,6 +1938,19 @@
       #vtxtinner { padding: 20px 22px; margin: 0 6vw 8vh; max-width: none; }
       #vtxtbox.centre #vtxtinner,
       #vtxtbox.closing #vtxtinner { padding: 22px 22px; margin: 0 6vw; }
+      #vtxtbox.document {
+        align-items: flex-end;
+        justify-content: stretch;
+      }
+      #vtxtbox.document #vtxtinner {
+        width: auto;
+        max-width: none;
+        margin: 0 14px max(18px, env(safe-area-inset-bottom));
+        padding: 14px 16px;
+      }
+      #vtxtbox.document .vt-label { margin-bottom: 8px; }
+      #vtxtbox.document .vt-headline { font-size: clamp(19px, 5.4vw, 25px); line-height: 1.18; }
+      #vtxtbox.document .vt-sub { font-size: 10px; line-height: 1.55; margin-top: 8px; }
       .v7logo { width: min(270px, 74vw); }
       .vt-headline { letter-spacing: 0.04em; }
       #vinfoScrim {
@@ -5443,6 +5487,194 @@
     }
   ].forEach((override, index) => Object.assign(PROJECT_VIEWING_SCENES[index], override));
 
+  const MARBELLA_WEST_GARDEN_VIEWING_SCENES = [
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/exterior-2.jpg',
+      pos: 'center 52%',
+      label: '01 — Marbella West',
+      hl: 'A new residential address<br>between coast and city.',
+      sub: 'The opening view introduces the curved, planted architecture of this 139-home community near San Pedro and Puerto Banus.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.52), rgba(31,24,16,0.18), rgba(31,24,16,0.06))',
+      txt: 'exterior'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/exterior-1.jpg',
+      pos: 'center 50%',
+      label: '02 — Architecture',
+      hl: 'Rounded terraces,<br>softened by planting.',
+      sub: 'Huete Arquitectos combines broad glazing, layered terraces and integrated greenery in a warm Mediterranean material palette.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.48), rgba(31,24,16,0.16), rgba(31,24,16,0.05))',
+      txt: 'exterior'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/exterior-3.jpg',
+      pos: 'center 50%',
+      label: '03 — Garden Courtyard',
+      hl: 'The community turns<br>towards its gardens.',
+      sub: 'Landscaped courtyards, water and private outdoor areas sit at the centre of the residential plan.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.46), rgba(31,24,16,0.14), rgba(31,24,16,0.04))',
+      txt: 'exterior'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/terrace-2.jpg',
+      pos: 'center 50%',
+      label: '04 — Terrace Living',
+      hl: 'Outdoor space made<br>for everyday use.',
+      sub: 'Generous terraces extend the living areas with room for dining, shade and evening time outdoors.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.46), rgba(31,24,16,0.14), rgba(31,24,16,0.04))',
+      txt: 'terrace'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/living.jpg',
+      pos: 'center 50%',
+      label: '05 — Indoor–Outdoor Flow',
+      hl: 'Living space opens<br>directly to the terrace.',
+      sub: 'Wide glazed openings make the exterior feel like a continuation of the main room rather than a separate balcony.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.50), rgba(31,24,16,0.16), rgba(31,24,16,0.04))',
+      txt: 'interior'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/living-2.jpg',
+      pos: 'center 52%',
+      label: '06 — Signature Residences',
+      hl: 'Efficient homes<br>with a calm social core.',
+      sub: 'The Signature collection includes one-, two- and three-bedroom homes with open living areas and generous terraces.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.48), rgba(31,24,16,0.15), rgba(31,24,16,0.04))',
+      txt: 'interior'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/plans/signature-residence.jpg',
+      pos: 'center center',
+      fit: 'contain',
+      label: '07 — Signature Plan',
+      hl: 'A supplied two-bedroom<br>layout example.',
+      sub: 'The drawing shows the open living–kitchen area, two bedrooms and a covered terrace. Exact areas and orientation vary by home.',
+      ov: 'none',
+      txt: 'document'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/terrace-1.jpg',
+      pos: 'center 50%',
+      label: '08 — Iconic Residences',
+      hl: 'Corner homes with<br>larger private exteriors.',
+      sub: 'Iconic Residences are single-level corner homes with extra-large terraces and an integrated private pool.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.46), rgba(31,24,16,0.13), rgba(31,24,16,0.04))',
+      txt: 'terrace'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/plans/iconic-residence.jpg',
+      pos: 'center center',
+      fit: 'contain',
+      label: '09 — Iconic Plan',
+      hl: 'An illustrative corner home<br>with its own pool.',
+      sub: 'The supplied plan shows two bedrooms, an open living–kitchen area and a wraparound terrace. Unit-specific details must be confirmed.',
+      ov: 'none',
+      txt: 'document'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/terrace-5.jpg',
+      pos: 'center 48%',
+      label: '10 — Sky Villas',
+      hl: 'Duplex penthouses<br>with private rooftops.',
+      sub: 'Sky Villas add expansive terraces, a solarium and a private pool, with open outlooks towards the Mediterranean and La Concha.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.44), rgba(31,24,16,0.12), rgba(31,24,16,0.03))',
+      txt: 'terrace'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/plans/sky-villa.jpg',
+      pos: 'center center',
+      fit: 'contain',
+      label: '11 — Sky Villa Plan',
+      hl: 'Two levels,<br>four bedrooms and a pool.',
+      sub: 'This supplied example places the bedrooms on the lower level and the living space, terraces and pool above. Exact layouts vary.',
+      ov: 'none',
+      txt: 'document'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/masterplan.jpg',
+      pos: 'center center',
+      fit: 'contain',
+      label: '12 — Masterplan',
+      hl: 'Shared life arranged<br>across the community.',
+      sub: 'The supplied masterplan locates the courtyard pool, rooftop sky pool and yoga area, gym and spa, and ground-floor business hub.',
+      ov: 'none',
+      txt: 'document'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/exterior-4.jpg',
+      pos: 'center 50%',
+      label: '13 — Outdoor Pool',
+      hl: 'A landscaped pool<br>at the heart of the site.',
+      sub: 'The central pool sits inside the planted courtyard, creating a protected shared space between the residences.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.44), rgba(31,24,16,0.11), rgba(31,24,16,0.03))',
+      txt: 'terrace'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/amenities-3.jpg',
+      pos: 'center 50%',
+      label: '14 — Rooftop Lounge',
+      hl: 'An adults-only rooftop<br>above the gardens.',
+      sub: 'The rooftop layer includes an infinity pool and lounge area, designed around long coastal views.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.42), rgba(31,24,16,0.10), rgba(31,24,16,0.03))',
+      txt: 'terrace'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/amenities-1.jpg',
+      pos: 'center 50%',
+      label: '15 — Rooftop Yoga',
+      hl: 'Morning movement<br>with La Concha beyond.',
+      sub: 'A dedicated rooftop yoga deck adds a quieter wellness space above the wider amenity programme.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.44), rgba(31,24,16,0.12), rgba(31,24,16,0.03))',
+      txt: 'amenity'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/amenities-7.jpg',
+      pos: 'center 50%',
+      label: '16 — Indoor Lap Pool',
+      hl: 'Training and recovery<br>throughout the year.',
+      sub: 'The indoor lap pool forms part of a broader wellness hub rather than a single-purpose gym area.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.48), rgba(31,24,16,0.15), rgba(31,24,16,0.04))',
+      txt: 'amenity'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/amenities-6.jpg',
+      pos: 'center 50%',
+      label: '17 — Wellness Hub',
+      hl: 'Heat, water and<br>purposeful recovery.',
+      sub: 'The supplied programme includes sauna, steam bath, hydromassage, contrast pool and red-light therapy alongside fitness facilities.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.50), rgba(31,24,16,0.17), rgba(31,24,16,0.04))',
+      txt: 'amenity'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/amenities-9.jpg',
+      pos: 'center 50%',
+      label: '18 — Business Hub',
+      hl: 'A practical layer<br>for longer stays.',
+      sub: 'Dedicated work space supports buyers using the property as a primary home or for extended periods on the coast.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.52), rgba(31,24,16,0.18), rgba(31,24,16,0.05))',
+      txt: 'interior'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/amenities-8.jpg',
+      pos: 'center 50%',
+      label: '19 — Social Life',
+      hl: 'Shared rooms for<br>family and downtime.',
+      sub: 'The project adds social areas, a cinema, sports corner and children’s room to the residential and wellness spaces.',
+      ov: 'linear-gradient(to right, rgba(31,24,16,0.54), rgba(31,24,16,0.19), rgba(31,24,16,0.05))',
+      txt: 'interior'
+    },
+    {
+      img: 'assets/liora/projects/marbella-west-garden-residences/media/exterior-5.jpg',
+      pos: 'center 52%',
+      label: '20 — Current Release',
+      hl: 'Marbella West Gardens,<br>details available by request.',
+      sub: 'Ask for the latest price list, unit availability, floorplans, payment terms and a private presentation before choosing a residence.',
+      gold: true,
+      ov: 'radial-gradient(ellipse at 45% 55%, rgba(31,24,16,0.42) 0%, rgba(31,24,16,0.76) 100%)',
+      txt: 'closing'
+    }
+  ];
+
   const VIEWING_PROJECTS = {
     'solenne-benahavis': {
       id: 'solenne-benahavis',
@@ -5507,6 +5739,38 @@
       ],
       ctaLabel: 'Get Project Information',
       ctaMessage: 'I would like to receive the latest information for Altos de Marbella Residences, including current availability, prices, floorplans and viewing options.'
+    },
+    'marbella-west-garden-residences': {
+      id: 'marbella-west-garden-residences',
+      name: 'Marbella West Garden Residences',
+      location: 'Marbella West · Near San Pedro',
+      area: 'Marbella',
+      price: 'On request',
+      bedrooms: '1–4 bedrooms',
+      builtSize: 'Residence-specific',
+      terraceSize: 'Residence-specific',
+      completion: 'Estimated Q2 2029',
+      status: 'Under construction',
+      lifestyle: 'An amenity-rich residential community close to San Pedro, the beach and Puerto Banus, designed for longer stays as well as second-home use.',
+      overview: 'Marbella West Garden Residences brings together 139 homes, planted courtyards, four saltwater pools and an unusually broad wellness, work and social programme.',
+      highlights: [
+        'Architecture by Huete Arquitectos with rounded terraces and integrated Mediterranean planting.',
+        'Signature Residences, private-pool Iconic corner homes and duplex Sky Villas.',
+        'Rooftop lounge and yoga, indoor lap pool, gym, wellness hub and business facilities.',
+        'High-performance glazing, aerothermal hot water and an A–A energy rating.'
+      ],
+      investmentNotes: [
+        'The location combines walkable beach access with quick connections to San Pedro and Puerto Banus.',
+        'The strongest choice depends on orientation, floor, terrace quality, privacy and current release status.',
+        'Availability, prices, payment terms and the bank guarantee should be reconfirmed before reservation.'
+      ],
+      availability: [
+        { label: 'Status', value: 'Under construction' },
+        { label: 'Material', value: 'Brochure, plans and specifications' },
+        { label: 'Availability', value: 'Current release confirmed by request' }
+      ],
+      ctaLabel: 'Get Current Project Information',
+      ctaMessage: 'I would like the latest information for Marbella West Garden Residences, including current availability, prices, floorplans, payment terms and viewing options.'
     }
   };
 
@@ -5524,7 +5788,9 @@
   const VIEWING_PROJECT = VIEWING_PROJECTS[VIEWING_PROJECT_ID] || VIEWING_PROJECTS['solenne-benahavis'];
   const VIEWING_SCENES = VIEWING_PROJECT_ID === 'altos-de-marbella'
     ? PROJECT_VIEWING_SCENES
-    : DEFAULT_VIEWING_SCENES;
+    : VIEWING_PROJECT_ID === 'marbella-west-garden-residences'
+      ? MARBELLA_WEST_GARDEN_VIEWING_SCENES
+      : DEFAULT_VIEWING_SCENES;
 
   const TOTAL = VIEWING_SCENES.length;
   const VIEWING_SCENE_SCROLL_VH = 124;
@@ -5551,6 +5817,7 @@
     if (!sc || !el) return;
 
     el.style.backgroundPosition = sc.pos || 'center center';
+    el.classList.toggle('is-document', sc.fit === 'contain');
     if (vSceneAssetsPrimed[index]) return;
 
     const img = new Image();
@@ -5570,9 +5837,10 @@
   function vHideLayer(layer, index) {
     if (!layer || vLayerHidden[index]) return;
     vLayerHidden[index] = true;
+    const isDocument = VIEWING_SCENES[index]?.fit === 'contain';
     gsap.set(layer, {
       opacity: 0,
-      scale: VIEWING_ZOOM_OUT,
+      scale: isDocument ? 1 : VIEWING_ZOOM_OUT,
       xPercent: 0,
       yPercent: 0,
       rotationZ: 0,
@@ -5885,6 +6153,8 @@
     vtxtbox.className = '';
     if (s.txt === 'centre')  vtxtbox.classList.add('centre');
     if (s.txt === 'closing') vtxtbox.classList.add('closing');
+    if (s.txt === 'document' || s.fit === 'contain') vtxtbox.classList.add('document');
+    if (voxEl) voxEl.classList.toggle('document-scene', s.fit === 'contain');
 
     // Show / hide scene-7 CTA elements
     const isClosing = s.txt === 'closing';
@@ -5920,9 +6190,11 @@
     // Set initial layer states
     layers.forEach((l, i) => {
       if (!l) return;
+      const isDocument = VIEWING_SCENES[i]?.fit === 'contain';
       vLayerHidden[i] = i !== 0;
       gsap.set(l, {
-        scale: i === 0 ? VIEWING_ZOOM_IN : VIEWING_ZOOM_OUT,
+        // Plans and masterplans must remain fully visible and dimensionally stable.
+        scale: isDocument ? 1 : (i === 0 ? VIEWING_ZOOM_IN : VIEWING_ZOOM_OUT),
         xPercent: 0,
         yPercent: 0,
         rotationZ: 0,
@@ -5968,18 +6240,21 @@
           }
 
           const isCurrent = i === sceneIdx;
+          const isDocument = VIEWING_SCENES[i]?.fit === 'contain';
           const localP = vClamp(isCurrent ? sceneProg : fade);
           const sceneOpacity = isCurrent ? (1 - fade) : fade;
           if (!isCurrent && sceneOpacity <= 0.001) {
             vHideLayer(l, i);
             return;
           }
-          const zoom = VIEWING_ZOOM_IN - (VIEWING_ZOOM_IN - VIEWING_ZOOM_OUT) * localP;
+          const zoom = isDocument
+            ? 1
+            : VIEWING_ZOOM_IN - (VIEWING_ZOOM_IN - VIEWING_ZOOM_OUT) * localP;
           vLayerHidden[i] = false;
 
           gsap.set(l, {
             opacity: sceneOpacity,
-            scale: zoom + (isCurrent ? 0 : 0.006 * (1 - fade)),
+            scale: isDocument ? 1 : zoom + (isCurrent ? 0 : 0.006 * (1 - fade)),
             xPercent: 0,
             yPercent: 0,
             rotationZ: 0,
