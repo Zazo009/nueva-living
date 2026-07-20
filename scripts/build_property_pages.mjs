@@ -593,16 +593,16 @@ ${JSON.stringify(agentSchema, null, 2)}
     <nav class="project-nav" aria-label="Project sections">
       <div class="project-nav-inner">
         <a href="#overview">Overview</a>
+        <a href="#residences">Residences</a>
+        <a href="#availability">Availability</a>
+${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}        <a href="#location">Location</a>
         <a href="#why-this-project">Why</a>
         <a href="#architecture">Architecture</a>
-${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}        <a href="#residences">Residences</a>
         <a href="#project-file">Project Info</a>
         <a href="#private-viewing">Private Viewing</a>
         <a href="#lifestyle">Lifestyle</a>
-        <a href="#location">Location</a>
         <a href="#investment">Investment</a>
         <a href="#project-dossier">What to Know</a>
-        <a href="#availability">Availability</a>
         <a href="#enquire">Enquire</a>
       </div>
     </nav>
@@ -633,37 +633,7 @@ ${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}   
       </div>
     </section>
 
-    <section class="project-section project-why" id="why-this-project">
-      <div class="project-inner why-grid">
-        <div class="reveal-soft">
-          <span class="section-kicker">Why This Project</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">${why.headlineHtml}</h2>
-          <p class="project-lead">${esc(why.copy)}</p>
-        </div>
-        <div class="why-point-grid">
-          ${(why.points || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n          ')}
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section dark" id="architecture">
-      <div class="project-inner editorial-layout">
-        <figure class="editorial-image reveal-soft">
-          ${imageTag(architectureImage)}
-          <figcaption class="image-caption">${esc(architectureImage.caption || 'Architecture preview')}</figcaption>
-        </figure>
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">${project.architecture.headlineHtml}</h2>
-          ${paragraphs(project.architecture.copy)}
-          ${featureList(project.architecture.highlights)}
-        </div>
-      </div>
-    </section>
-
-${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section class="project-section" id="residences">
+    <section class="project-section" id="residences">
       <div class="project-inner">
         <div class="reveal-soft">
           <span class="section-kicker">Residences</span>
@@ -690,6 +660,71 @@ ${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section cla
             ${actionLink('Request Availability')}
             ${ghostAction('View Floorplans')}
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section" id="availability">
+      <div class="project-inner">
+        <div class="availability-panel reveal-soft">
+          <div>
+            <span class="section-kicker">Availability</span>
+            <div class="rule"></div>
+            <h2 class="section-headline">${project.availability.headlineHtml}</h2>
+            <p>${esc(project.availability.copy)}</p>
+          </div>
+          <div class="availability-actions">
+            ${actionLink('Request Availability')}
+            ${advisorAction(project)}
+          </div>
+        </div>
+${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
+    </section>
+
+${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}
+    <section class="project-section" id="location">
+      <div class="project-inner location-layout">
+        <div class="reveal-soft">
+          <span class="section-kicker">Location</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">${project.location.headlineHtml}</h2>
+          <p class="project-lead">${esc(project.location.copy)}</p>
+          <div class="distance-grid" style="margin-top:32px;">
+            ${pairs(project.location.distances, 'distance')}
+          </div>
+        </div>
+        <div class="map-panel reveal-soft" aria-label="Indicative location map for ${esc(project.name)}">
+          ${locationMap(project)}
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section project-why" id="why-this-project">
+      <div class="project-inner why-grid">
+        <div class="reveal-soft">
+          <span class="section-kicker">Why This Project</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">${why.headlineHtml}</h2>
+          <p class="project-lead">${esc(why.copy)}</p>
+        </div>
+        <div class="why-point-grid">
+          ${(why.points || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n          ')}
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section dark" id="architecture">
+      <div class="project-inner editorial-layout">
+        <figure class="editorial-image reveal-soft">
+          ${imageTag(architectureImage)}
+          <figcaption class="image-caption">${esc(architectureImage.caption || 'Architecture preview')}</figcaption>
+        </figure>
+        <div class="editorial-copy reveal-soft">
+          <span class="section-kicker">Architecture</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">${project.architecture.headlineHtml}</h2>
+          ${paragraphs(project.architecture.copy)}
+          ${featureList(project.architecture.highlights)}
         </div>
       </div>
     </section>
@@ -747,23 +782,6 @@ ${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section cla
       </div>
     </section>
 
-    <section class="project-section" id="location">
-      <div class="project-inner location-layout">
-        <div class="reveal-soft">
-          <span class="section-kicker">Location</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">${project.location.headlineHtml}</h2>
-          <p class="project-lead">${esc(project.location.copy)}</p>
-          <div class="distance-grid" style="margin-top:32px;">
-            ${pairs(project.location.distances, 'distance')}
-          </div>
-        </div>
-        <div class="map-panel reveal-soft" aria-label="Indicative location map for ${esc(project.name)}">
-          ${locationMap(project)}
-        </div>
-      </div>
-    </section>
-
     <section class="project-section" id="investment">
       <div class="project-inner">
         <div class="reveal-soft">
@@ -803,23 +821,6 @@ ${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section cla
           ${renderTimelineItems(timeline.items)}
         </div>
       </div>
-    </section>
-
-    <section class="project-section" id="availability">
-      <div class="project-inner">
-        <div class="availability-panel reveal-soft">
-          <div>
-            <span class="section-kicker">Availability</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">${project.availability.headlineHtml}</h2>
-            <p>${esc(project.availability.copy)}</p>
-          </div>
-          <div class="availability-actions">
-            ${actionLink('Request Availability')}
-            ${advisorAction(project)}
-          </div>
-        </div>
-${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
     </section>
 
     <section class="project-section" id="enquire">
