@@ -206,56 +206,41 @@
   const mediaGrid = document.querySelector('[data-media-grid]');
 
   if (mediaDialog && mediaGrid) {
-    const mediaCards = [...mediaGrid.querySelectorAll('[data-media-index]')];
-    const mediaFilters = [...document.querySelectorAll('[data-media-filter]')];
+    const mediaCards = [...mediaGrid.querySelectorAll('[data-media-category]')];
     const showAllButton = document.querySelector('[data-media-show-all]');
     const dialogImage = mediaDialog.querySelector('[data-media-dialog-image]');
     const dialogCaption = mediaDialog.querySelector('[data-media-dialog-caption]');
     const dialogCount = mediaDialog.querySelector('[data-media-dialog-count]');
-    let activeFilter = 'All';
-    let expanded = false;
+    const mediaData = document.getElementById('projectMediaData');
+    let mediaItems = [];
+    let activeMediaItems = [];
     let activeMediaIndex = 0;
     let swipeStartX = 0;
 
-    function updateMediaGrid() {
-      mediaCards.forEach((card) => {
-        const matches = activeFilter === 'All' || card.dataset.mediaCategory === activeFilter;
-        const collapsed = card.hasAttribute('data-media-collapsed');
-        card.hidden = !matches || (activeFilter === 'All' && !expanded && collapsed);
-      });
-
-      if (showAllButton) {
-        showAllButton.hidden = activeFilter !== 'All';
-        showAllButton.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-        showAllButton.textContent = expanded ? 'Show fewer images' : `View all ${mediaCards.length} images`;
-      }
-    }
-
-    function setMediaFilter(filter) {
-      activeFilter = filter;
-      mediaFilters.forEach((button) => {
-        const selected = button.dataset.mediaFilter === filter;
-        button.classList.toggle('is-active', selected);
-        button.setAttribute('aria-pressed', selected ? 'true' : 'false');
-      });
-      updateMediaGrid();
+    try {
+      mediaItems = JSON.parse(mediaData?.textContent || '[]');
+    } catch (error) {
+      console.warn('Project media data could not be read.', error);
     }
 
     function showMediaAt(index) {
-      if (!mediaCards.length || !dialogImage) return;
-      activeMediaIndex = (index + mediaCards.length) % mediaCards.length;
-      const card = mediaCards[activeMediaIndex];
-      const sourceImage = card.querySelector('img');
-      dialogImage.src = sourceImage.currentSrc || sourceImage.src;
-      dialogImage.alt = sourceImage.alt;
-      dialogImage.width = Number(sourceImage.getAttribute('width')) || 1600;
-      dialogImage.height = Number(sourceImage.getAttribute('height')) || 900;
-      if (dialogCaption) dialogCaption.textContent = card.querySelector('.project-media-caption strong')?.textContent || '';
-      if (dialogCount) dialogCount.textContent = `${String(activeMediaIndex + 1).padStart(2, '0')} / ${String(mediaCards.length).padStart(2, '0')}`;
+      if (!activeMediaItems.length || !dialogImage) return;
+      activeMediaIndex = (index + activeMediaItems.length) % activeMediaItems.length;
+      const item = activeMediaItems[activeMediaIndex];
+      dialogImage.src = item.src;
+      dialogImage.alt = item.alt || '';
+      dialogImage.width = Number(item.width) || 1600;
+      dialogImage.height = Number(item.height) || 900;
+      if (dialogCaption) dialogCaption.textContent = item.caption || '';
+      if (dialogCount) dialogCount.textContent = `${String(activeMediaIndex + 1).padStart(2, '0')} / ${String(activeMediaItems.length).padStart(2, '0')}`;
     }
 
-    function openMedia(index) {
-      showMediaAt(index);
+    function openMedia(category = 'All') {
+      activeMediaItems = category === 'All'
+        ? mediaItems
+        : mediaItems.filter((item) => item.category === category);
+      if (!activeMediaItems.length) return;
+      showMediaAt(0);
       if (typeof mediaDialog.showModal === 'function') mediaDialog.showModal();
       else mediaDialog.setAttribute('open', '');
       document.body.classList.add('media-dialog-open');
@@ -268,18 +253,10 @@
     }
 
     mediaCards.forEach((card) => {
-      card.addEventListener('click', () => openMedia(Number(card.dataset.mediaIndex)));
+      card.addEventListener('click', () => openMedia(card.dataset.mediaCategory || 'All'));
     });
 
-    mediaFilters.forEach((button) => {
-      button.addEventListener('click', () => setMediaFilter(button.dataset.mediaFilter || 'All'));
-    });
-
-    showAllButton?.addEventListener('click', () => {
-      expanded = !expanded;
-      updateMediaGrid();
-      if (!expanded) mediaGrid.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
-    });
+    showAllButton?.addEventListener('click', () => openMedia('All'));
 
     mediaDialog.querySelector('[data-media-close]')?.addEventListener('click', closeMedia);
     mediaDialog.querySelector('[data-media-prev]')?.addEventListener('click', () => showMediaAt(activeMediaIndex - 1));
@@ -305,7 +282,6 @@
     }, { passive: true });
 
     mediaDialog.addEventListener('close', () => document.body.classList.remove('media-dialog-open'));
-    updateMediaGrid();
   }
 
   const revealItems = document.querySelectorAll('.reveal-soft');

@@ -98,23 +98,28 @@ function renderProjectMedia(project) {
   if (!media?.items?.length) return { section: '', dialog: '' };
 
   const categories = [...new Set(media.items.map((item) => item.category).filter(Boolean))];
-  const initialCount = Math.max(1, Number(media.initialCount) || 8);
-  const layoutClasses = ['wide', 'standard', 'standard', 'portrait', 'standard', 'wide'];
-  const filters = ['All', ...categories].map((category, index) => {
-    const count = category === 'All'
-      ? media.items.length
-      : media.items.filter((item) => item.category === category).length;
-    return `<button type="button" class="media-filter${index === 0 ? ' is-active' : ''}" data-media-filter="${esc(category)}" aria-pressed="${index === 0 ? 'true' : 'false'}">${esc(category)} <span>${count}</span></button>`;
-  }).join('\n            ');
-
-  const cards = media.items.map((item, index) => {
-    const hidden = index >= initialCount ? ' hidden data-media-collapsed' : '';
-    const layout = layoutClasses[index % layoutClasses.length];
-    return `<button type="button" class="project-media-card project-media-card--${layout}" data-media-index="${index}" data-media-category="${esc(item.category || 'Media')}" aria-label="Open ${esc(item.caption || item.alt || `image ${index + 1}`)}"${hidden}>
+  const cards = categories.map((category) => {
+    const categoryItems = media.items.filter((item) => item.category === category);
+    const item = categoryItems[0];
+    const count = categoryItems.length;
+    return `<button type="button" class="project-media-card project-media-card--category" data-media-category="${esc(category)}" aria-label="View ${count} images in ${esc(category)}">
               ${imageTag(item, '', 'lazy')}
-              <span class="project-media-caption"><small>${esc(item.category || 'Media')}</small><strong>${esc(item.caption || '')}</strong></span>
+              <span class="project-media-caption">
+                <small>${esc(category)}</small>
+                <strong>${esc(item.caption || '')}</strong>
+                <span class="project-media-card-cta">View ${count} images <span aria-hidden="true">&#8594;</span></span>
+              </span>
             </button>`;
   }).join('\n            ');
+
+  const mediaData = JSON.stringify(media.items.map((item) => ({
+    src: item.src,
+    alt: item.alt || '',
+    width: item.width || 1600,
+    height: item.height || 900,
+    caption: item.caption || '',
+    category: item.category || 'Media'
+  }))).replace(/</g, '\\u003c');
 
   const facts = (media.facts || []).map(([value, label]) => `<div class="media-fact"><strong>${esc(value)}</strong><span>${esc(label)}</span></div>`).join('\n          ');
 
@@ -130,14 +135,11 @@ function renderProjectMedia(project) {
           <p class="project-lead">${esc(media.copy)}</p>
         </div>
         ${facts ? `<div class="media-facts reveal-soft">${facts}</div>` : ''}
-        <div class="media-toolbar" role="toolbar" aria-label="Filter project media">
-          ${filters}
-        </div>
-        <div class="project-media-grid" data-media-grid>
+        <div class="project-media-grid project-media-grid--categories" data-media-grid>
           ${cards}
         </div>
         <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all aria-expanded="false">View all ${media.items.length} images</button>
+          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>View all ${media.items.length} images</button>
           <p class="media-note">${esc(media.note || '')}</p>
         </div>
       </div>
@@ -152,7 +154,8 @@ function renderProjectMedia(project) {
         </figure>
         <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Next image">&#8594;</button>
       </div>
-    </dialog>`
+    </dialog>
+    <script type="application/json" id="projectMediaData">${mediaData}</script>`
   };
 }
 
