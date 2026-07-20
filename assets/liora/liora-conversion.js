@@ -333,6 +333,25 @@
     if (isLeadForm) form.addEventListener('submit', handleLeadSubmit);
   });
 
+  function alignLinkedLeadForm() {
+    const id = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target?.matches('form[data-crm-lead], form[action="/.netlify/functions/nueva-lead"]')) return;
+
+    // The browser may resolve the hash before fonts and page styles settle.
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const root = document.documentElement;
+      const previousBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      target.scrollIntoView({ behavior: 'auto', block: 'start' });
+      root.style.scrollBehavior = previousBehavior;
+    }));
+  }
+
+  if (document.readyState === 'complete') alignLinkedLeadForm();
+  else window.addEventListener('load', alignLinkedLeadForm, { once: true });
+
   document.querySelectorAll('a[data-whatsapp-advisor]').forEach((link) => {
     const context = link.dataset.project || link.dataset.context || pageContext;
     const intent = link.dataset.intent || 'speak with an advisor';
