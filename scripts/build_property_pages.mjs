@@ -330,14 +330,16 @@ function renderDiscoveryTags(tags = []) {
   return normaliseCardList(tags).slice(0, 5).map((tag) => `<span>${esc(tag)}</span>`).join('');
 }
 
-function renderDocumentRows(items = []) {
+function renderDocumentRows(items = [], hasPublishedAvailability = false) {
   return items.map(([title, body, action], index) => `<article class="document-row reveal-soft">
             <div class="document-index">${String(index + 1).padStart(2, '0')}</div>
             <div>
               <h3>${esc(title)}</h3>
               <p>${esc(body)}</p>
             </div>
-            <a href="#enquire" data-prefill>${esc(action || 'Request')}</a>
+            ${hasPublishedAvailability && /availability/i.test(action || '')
+              ? '<a href="#availability">Open Current Release</a>'
+              : `<a href="#enquire" data-prefill>${esc(action || 'Request')}</a>`}
           </article>`).join('\n          ');
 }
 
@@ -470,6 +472,13 @@ function renderProject(project) {
   const privateCta = project.privateViewing?.ctaLabel || 'Enter Private Viewing';
   const projectMedia = renderProjectMedia(project);
   const availabilityRelease = renderAvailabilityRelease(project);
+  const hasPublishedAvailability = Boolean(project.availability?.units?.length);
+  const availabilityBrowseAction = hasPublishedAvailability
+    ? actionLink('View Available Homes', '#availability')
+    : actionLink('Request Availability');
+  const availabilityEnquiryAction = actionLink(
+    hasPublishedAvailability ? 'Ask About a Residence' : 'Request Availability'
+  );
   const facts = [
     ['Location', project.hero.location],
     ['Starting Price', project.hero.startingPrice],
@@ -580,7 +589,7 @@ ${JSON.stringify(agentSchema, null, 2)}
           <h1 class="hero-title">${project.titleHtml}</h1>
           <p class="hero-positioning">${esc(project.description)}</p>
           <div class="hero-actions">
-            ${actionLink('Request Availability')}
+            ${availabilityBrowseAction}
             ${ghostAction(privateHeroCta, privateHref)}
           </div>
         </div>
@@ -613,8 +622,7 @@ ${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}   
           ${quickFactItems.map(([label, value]) => `<div class="quick-fact"><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('\n          ')}
         </div>
         <div class="quick-facts-actions">
-          ${actionLink('Request Availability')}
-          ${ghostAction('Request Project Material')}
+${hasPublishedAvailability ? '' : `          ${availabilityBrowseAction}\n`}          ${ghostAction('Request Project Material')}
         </div>
       </div>
     </section>
@@ -657,8 +665,7 @@ ${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}   
             <p>Current layouts, view positions and unit availability should be reviewed against the latest developer file before shortlisting.</p>
           </div>
           <div class="inline-cta-actions">
-            ${actionLink('Request Availability')}
-            ${ghostAction('View Floorplans')}
+${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}            ${ghostAction('View Floorplans')}
           </div>
         </div>
       </div>
@@ -674,7 +681,7 @@ ${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}   
             <p>${esc(project.availability.copy)}</p>
           </div>
           <div class="availability-actions">
-            ${actionLink('Request Availability')}
+            ${availabilityEnquiryAction}
             ${advisorAction(project)}
           </div>
         </div>
@@ -742,7 +749,7 @@ ${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}
           ${projectFile.image.caption ? `<figcaption>${esc(projectFile.image.caption)}</figcaption>` : ''}
         </figure>` : ''}
         <div class="document-center">
-          ${renderDocumentRows(projectFile.documents)}
+          ${renderDocumentRows(projectFile.documents, hasPublishedAvailability)}
         </div>
       </div>
     </section>
@@ -879,7 +886,7 @@ ${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}
   </main>
 
 ${projectMedia.dialog ? `  ${projectMedia.dialog}\n\n` : ''}  <div class="sticky-mobile-cta" aria-label="Project request actions">
-    <a href="#enquire" data-prefill>Request Availability</a>
+    <a href="#enquire" data-prefill>${hasPublishedAvailability ? 'Ask About a Home' : 'Request Availability'}</a>
     <a href="${esc(whatsappHref(project))}" target="_blank" rel="noopener" data-whatsapp-advisor data-project="${esc(project.name)}" data-intent="speak with an advisor">Speak With Advisor</a>
   </div>
 
