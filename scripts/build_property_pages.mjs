@@ -1,4 +1,5 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 
 const projectsDir = path.resolve('content/liora-projects');
@@ -9,6 +10,12 @@ const generatedProjectsEnd = '<!-- NUEVA GENERATED PROJECTS END -->';
 const siteUrl = 'https://nuevaliving.com';
 const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>`;
+const propertyCssVersion = fileVersion('assets/liora/liora-property.css');
+const propertyJsVersion = fileVersion('assets/liora/liora-property.js');
+
+function fileVersion(file) {
+  return createHash('sha256').update(readFileSync(path.resolve(file))).digest('hex').slice(0, 12);
+}
 
 function esc(value = '') {
   return String(value)
@@ -547,8 +554,8 @@ function renderProject(project) {
 ${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=9">
-  <script src="assets/liora/liora-property.js" defer></script>
+  <link rel="stylesheet" href="assets/liora/liora-property.css?v=${propertyCssVersion}">
+  <script src="assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>
   <script type="application/ld+json">
 ${JSON.stringify(productSchema, null, 2)}
   </script>
