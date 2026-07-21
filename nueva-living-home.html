@@ -1387,7 +1387,7 @@
       gap: 16px;
       pointer-events: auto;
     }
-    #vmode, #vsnd, #vinfoToggle {
+    #vmode, #vinfoToggle {
       font-family: 'Montserrat', sans-serif; font-size: 8.5px;
       letter-spacing: 0.2em; text-transform: uppercase;
       color: rgba(250,247,242,0.78);
@@ -1402,7 +1402,7 @@
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
     }
-    #vmode:hover, #vsnd:hover, #vinfoToggle:hover { color: rgba(250,247,242,0.86); border-color: rgba(201,163,95,0.48); background: rgba(0,0,0,0.28); }
+    #vmode:hover, #vinfoToggle:hover { color: rgba(250,247,242,0.86); border-color: rgba(201,163,95,0.48); background: rgba(0,0,0,0.28); }
     #vmode.manual { color: rgba(250,247,242,0.62); border-color: rgba(201,163,95,0.26); background: rgba(0,0,0,0.22); }
     #vmode .play-dot {
       width: 5px; height: 5px; border-radius: 50%; background: currentColor; display: block;
@@ -1426,11 +1426,6 @@
       border-color: rgba(201,163,95,0.58);
       background: rgba(18,18,15,0.42);
     }
-    .si { display: flex; align-items: flex-end; gap: 2px; height: 11px; }
-    .si b { display:block; width:2px; border-radius:1px; background:currentColor; transition: height 0.3s; }
-    .si b:nth-child(1){height:35%} .si b:nth-child(2){height:65%}
-    .si b:nth-child(3){height:100%} .si b:nth-child(4){height:50%}
-    #vsnd.muted .si b { height:12% !important; opacity:0.2; }
     #vexit {
       font-family: 'Montserrat', sans-serif; font-size: 9px;
       letter-spacing: 0.24em; text-transform: uppercase;
@@ -1946,7 +1941,7 @@
       .vbrand::before { width: 5px; height: 5px; }
       .vscene-id { display: none; }
       .vactions { gap: 6px; margin-left: auto; }
-      #vmode, #vsnd, #vinfoToggle {
+      #vmode, #vinfoToggle {
         font-size: 7px;
         letter-spacing: 0.13em;
         padding: 10px 10px;
@@ -3637,7 +3632,6 @@
     .vbrand,
     .vscene-id,
     #vmode,
-    #vsnd,
     #vinfoToggle,
     #vexit {
       font-family: var(--ui-font) !important;
@@ -4863,11 +4857,6 @@
   <div id="vgrain"></div>
   <!-- CURSOR -->
   <div id="vcursor"></div>
-  <!-- CINEMATIC AMBIENT SOUND
-       Procedural Web Audio layers are created on user click, so the experience
-       stays silent by default, avoids autoplay issues, and does not depend on
-       heavy audio files. -->
-
   <!-- ══════════════════════════════════════════════════════
        PRIVATE VIEWING — cinematic walkthrough
   ══════════════════════════════════════════════════════ -->
@@ -4885,10 +4874,6 @@
         <button id="vmode" type="button" aria-label="Pause guided viewing">
           <span class="play-dot"></span>
           <span class="mode-label">Guided</span>
-        </button>
-        <button id="vsnd" type="button" class="muted" aria-label="Private viewing soundscape">
-          <div class="si"><b></b><b></b><b></b><b></b></div>
-          <span>Sound</span>
         </button>
         <button id="vinfoToggle" type="button" aria-label="Project details" aria-controls="vinfoPanel" aria-expanded="false">
           <span class="info-label">Project Details</span>
@@ -5995,7 +5980,6 @@
 
   let vActive = 0;
   let vInitDone = false;
-  let vSndOn = false;
   const vmodeBtn = document.getElementById('vmode');
   const vmodeLabel = vmodeBtn ? vmodeBtn.querySelector('.mode-label') : null;
 
@@ -6235,10 +6219,6 @@
 
     gsap.set(vtxtinn, { opacity: alpha, y, scale, force3D: true });
 
-    // Subtle cinematic audio ducking: when copy is most readable, the ambience
-    // pulls back a little so the moment feels intimate without sounding muted.
-    vAmbientTextDuck(alpha);
-
     if (vtgline) {
       const lineWidth = VIEWING_SCENES[sceneIdx] && VIEWING_SCENES[sceneIdx].gold ? 58 * intro * outro : 0;
       gsap.set(vtgline, { width: lineWidth });
@@ -6279,9 +6259,6 @@
     vtsub.style.display    = s.sub ? 'block' : 'none';
     vtgline.style.display  = s.gold ? 'block' : 'none';
     if (vtgline) vtgline.style.width = '0';
-
-    // Keep the soundscape connected to the space the user is moving through.
-    vUpdateAmbientByScene(n);
 
     // Do not animate text here. Text visibility is handled continuously in
     // vApplyTextProgress() so the copy fades naturally with the camera flow.
@@ -6508,7 +6485,6 @@
       document.body.classList.remove('v-active', 'v-transitioning');
       const cur = document.getElementById('vcursor');
       if (cur) { cur.classList.remove('on', 'big'); }
-      vStopAudio();
       setTimeout(() => vveil.classList.remove('on'), 360);
     }, 460);
   }
@@ -6702,405 +6678,6 @@
       vGestureScrollY = null;
     }, { passive: true, capture: true });
   });
-
-  /* ─────────────────────────────────────────────────────────────
-     PRIVATE VIEWING SOUND PACKAGE — procedural, adaptive, defensive
-     Off by default. Created only after the user clicks the Sound button.
-     Layers: coastal air + room tone + pool texture + warm cinematic score.
-  ───────────────────────────────────────────────────────────── */
-  const vsndBtn = document.getElementById('vsnd');
-  let vAmbientCtx = null;
-  let vAmbientMaster = null;
-  let vAmbientCompressor = null;
-  let vAmbientReady = false;
-  let vAmbientEnabled = false;
-  let vAmbientZone = 'exterior';
-  let vAmbientDuck = 1;
-  const vAmbientBase = 0.086; // luxury-low; enough presence to inspire without taking over
-  const vZoneVolumes = {
-    exterior: 0.74,
-    interior: 0.16,
-    terrace:  0.86,
-    evening:  0.42
-  };
-  const vAmbient = {};
-  const vScore = {
-    bus: null,
-    wet: null,
-    delay: null,
-    feedback: null,
-    voices: [],
-    air: null,
-    currentMood: '',
-    motifTimer: null
-  };
-  const vScoreMoods = {
-    exterior: {
-      level: 0.58,
-      filter: 1380,
-      chord: [50, 57, 62, 66],
-      gains: [0.034, 0.026, 0.021, 0.014],
-      motif: [74, 78, 81],
-      motifLevel: 0.010
-    },
-    interior: {
-      level: 0.34,
-      filter: 760,
-      chord: [47, 54, 59, 62],
-      gains: [0.026, 0.020, 0.015, 0.010],
-      motif: [71, 74],
-      motifLevel: 0.006
-    },
-    terrace: {
-      level: 0.66,
-      filter: 1560,
-      chord: [45, 52, 57, 61],
-      gains: [0.036, 0.028, 0.022, 0.014],
-      motif: [73, 76, 81, 85],
-      motifLevel: 0.012
-    },
-    evening: {
-      level: 0.48,
-      filter: 920,
-      chord: [43, 50, 55, 59],
-      gains: [0.032, 0.025, 0.018, 0.012],
-      motif: [71, 74, 78],
-      motifLevel: 0.008
-    },
-    finale: {
-      level: 0.74,
-      filter: 1180,
-      chord: [38, 50, 57, 62],
-      gains: [0.040, 0.030, 0.024, 0.016],
-      motif: [74, 78, 81, 86],
-      motifLevel: 0.014
-    }
-  };
-
-  function vCreateNoiseBuffer(ctx, seconds = 3.5, softness = 0.42) {
-    const length = Math.floor(ctx.sampleRate * seconds);
-    const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
-    const data = buffer.getChannelData(0);
-    let last = 0;
-    for (let i = 0; i < length; i++) {
-      // Brown-ish noise: smoother and more natural than harsh white noise.
-      const white = Math.random() * 2 - 1;
-      last = (last * (1 - softness)) + (white * softness);
-      data[i] = last * 0.72;
-    }
-    return buffer;
-  }
-
-  function vMakeNoiseLayer(ctx, bus, { filterType = 'lowpass', freq = 900, q = 0.6, gain = 1, pan = 0, lfo = 0.025 } = {}) {
-    const src = ctx.createBufferSource();
-    src.buffer = vCreateNoiseBuffer(ctx, 4.2, 0.18);
-    src.loop = true;
-
-    const filter = ctx.createBiquadFilter();
-    filter.type = filterType;
-    filter.frequency.value = freq;
-    filter.Q.value = q;
-
-    const amp = ctx.createGain();
-    amp.gain.value = gain;
-
-    const panner = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
-    if (panner) panner.pan.value = pan;
-
-    // Very slight breathing so it does not feel like a static loop.
-    const osc = ctx.createOscillator();
-    const oscGain = ctx.createGain();
-    osc.type = 'sine';
-    osc.frequency.value = lfo;
-    oscGain.gain.value = Math.min(0.055, gain * 0.22);
-    osc.connect(oscGain);
-    oscGain.connect(amp.gain);
-
-    src.connect(filter);
-    filter.connect(amp);
-    if (panner) {
-      amp.connect(panner);
-      panner.connect(bus);
-    } else {
-      amp.connect(bus);
-    }
-
-    src.start();
-    osc.start();
-    return { src, filter, amp, panner, osc, oscGain };
-  }
-
-  function vMidiToFreq(note) {
-    return 440 * Math.pow(2, (note - 69) / 12);
-  }
-
-  function vEaseParam(param, value, duration = 1.4) {
-    if (!vAmbientCtx || !param) return;
-    const now = vAmbientCtx.currentTime;
-    param.cancelScheduledValues(now);
-    param.setTargetAtTime(value, now, Math.max(0.025, duration / 4));
-  }
-
-  function vMakeScoreVoice(ctx, bus, { type = 'sine', detune = 0, pan = 0, filter = 1100 } = {}) {
-    const osc = ctx.createOscillator();
-    const tone = ctx.createBiquadFilter();
-    const amp = ctx.createGain();
-    const panner = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
-
-    osc.type = type;
-    osc.frequency.value = 220;
-    osc.detune.value = detune;
-    tone.type = 'lowpass';
-    tone.frequency.value = filter;
-    tone.Q.value = 0.42;
-    amp.gain.value = 0;
-    if (panner) panner.pan.value = pan;
-
-    osc.connect(tone);
-    tone.connect(amp);
-    if (panner) {
-      amp.connect(panner);
-      panner.connect(bus);
-    } else {
-      amp.connect(bus);
-    }
-
-    osc.start();
-    return { osc, tone, amp };
-  }
-
-  function vPlayScoreMotif(freq, gain = 0.01) {
-    if (!vAmbientCtx || !vScore.bus || !vAmbientEnabled) return;
-    const ctx = vAmbientCtx;
-    const now = ctx.currentTime;
-    const osc = ctx.createOscillator();
-    const tone = ctx.createBiquadFilter();
-    const amp = ctx.createGain();
-    const pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
-
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(freq, now);
-    osc.detune.setValueAtTime((Math.random() - 0.5) * 6, now);
-    tone.type = 'lowpass';
-    tone.frequency.setValueAtTime(2400, now);
-    tone.Q.setValueAtTime(0.2, now);
-    amp.gain.setValueAtTime(0, now);
-    amp.gain.linearRampToValueAtTime(gain, now + 0.08);
-    amp.gain.exponentialRampToValueAtTime(0.0001, now + 2.9);
-    if (pan) pan.pan.setValueAtTime((Math.random() - 0.5) * 0.46, now);
-
-    osc.connect(tone);
-    tone.connect(amp);
-    if (pan) {
-      amp.connect(pan);
-      pan.connect(vScore.bus);
-    } else {
-      amp.connect(vScore.bus);
-    }
-    osc.start(now);
-    osc.stop(now + 3.05);
-  }
-
-  function vScheduleScoreMotif() {
-    if (vScore.motifTimer) clearTimeout(vScore.motifTimer);
-    if (!vAmbientEnabled || !vAmbientCtx || !vScore.bus) return;
-    const mood = vScoreMoods[vScore.currentMood] || vScoreMoods.exterior;
-    const notes = mood.motif || [];
-    if (notes.length) {
-      const note = notes[Math.floor(Math.random() * notes.length)];
-      vPlayScoreMotif(vMidiToFreq(note), mood.motifLevel || 0.008);
-    }
-    const next = 8200 + Math.random() * 7200;
-    vScore.motifTimer = setTimeout(vScheduleScoreMotif, next);
-  }
-
-  function vApplyScoreMood(moodKey = 'exterior', duration = 4.2) {
-    if (!vAmbientReady || !vAmbientEnabled || !vAmbientCtx || !vScore.bus) return;
-    const mood = vScoreMoods[moodKey] || vScoreMoods.exterior;
-    const sameMood = vScore.currentMood === moodKey;
-    vScore.currentMood = moodKey;
-
-    vEaseParam(vScore.bus.gain, mood.level, duration);
-    vScore.voices.forEach((voice, i) => {
-      const note = mood.chord[i % mood.chord.length] + (i > 3 ? 12 : 0);
-      vEaseParam(voice.osc.frequency, vMidiToFreq(note), duration);
-      vEaseParam(voice.tone.frequency, mood.filter, duration);
-      vEaseParam(voice.amp.gain, mood.gains[i % mood.gains.length] || 0.012, duration);
-    });
-
-    if (vScore.air && vScore.air.filter) {
-      vEaseParam(vScore.air.filter.frequency, moodKey === 'interior' ? 5200 : 4200, duration);
-      vEaseParam(vScore.air.amp.gain, moodKey === 'interior' ? 0.006 : 0.013, duration);
-    }
-
-    if (!sameMood) vScheduleScoreMotif();
-  }
-
-  function vInitAmbient() {
-    if (vAmbientReady) return true;
-    try {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContext) return false;
-      vAmbientCtx = new AudioContext();
-
-      vAmbientMaster = vAmbientCtx.createGain();
-      vAmbientMaster.gain.value = 0;
-      vAmbientCompressor = vAmbientCtx.createDynamicsCompressor();
-      vAmbientCompressor.threshold.value = -28;
-      vAmbientCompressor.knee.value = 18;
-      vAmbientCompressor.ratio.value = 2.2;
-      vAmbientCompressor.attack.value = 0.04;
-      vAmbientCompressor.release.value = 0.42;
-      vAmbientMaster.connect(vAmbientCompressor);
-      vAmbientCompressor.connect(vAmbientCtx.destination);
-
-      // Each zone has its own gain bus. We crossfade these, not the master.
-      ['exterior', 'interior', 'terrace', 'evening'].forEach(zone => {
-        const bus = vAmbientCtx.createGain();
-        bus.gain.value = 0;
-        bus.connect(vAmbientMaster);
-        vAmbient[zone] = { bus, layers: [] };
-      });
-
-      // Exterior: open coastal air, wide and light.
-      vAmbient.exterior.layers.push(vMakeNoiseLayer(vAmbientCtx, vAmbient.exterior.bus, { filterType:'lowpass', freq:780, q:0.35, gain:0.24, pan:-0.15, lfo:0.021 }));
-      vAmbient.exterior.layers.push(vMakeNoiseLayer(vAmbientCtx, vAmbient.exterior.bus, { filterType:'bandpass', freq:1450, q:0.45, gain:0.055, pan:0.22, lfo:0.033 }));
-
-      // Interior: almost silence; just enough low room tone to feel grounded.
-      vAmbient.interior.layers.push(vMakeNoiseLayer(vAmbientCtx, vAmbient.interior.bus, { filterType:'lowpass', freq:280, q:0.28, gain:0.045, pan:0, lfo:0.014 }));
-
-      // Terrace/pool: slightly more present water/breeze feeling.
-      vAmbient.terrace.layers.push(vMakeNoiseLayer(vAmbientCtx, vAmbient.terrace.bus, { filterType:'lowpass', freq:980, q:0.32, gain:0.22, pan:-0.18, lfo:0.027 }));
-      vAmbient.terrace.layers.push(vMakeNoiseLayer(vAmbientCtx, vAmbient.terrace.bus, { filterType:'bandpass', freq:1850, q:0.72, gain:0.075, pan:0.24, lfo:0.041 }));
-      vAmbient.terrace.layers.push(vMakeNoiseLayer(vAmbientCtx, vAmbient.terrace.bus, { filterType:'highpass', freq:2600, q:0.18, gain:0.025, pan:0.05, lfo:0.055 }));
-
-      // Evening: warmer, deeper, calmer.
-      vAmbient.evening.layers.push(vMakeNoiseLayer(vAmbientCtx, vAmbient.evening.bus, { filterType:'lowpass', freq:360, q:0.34, gain:0.12, pan:0, lfo:0.012 }));
-      vAmbient.evening.layers.push(vMakeNoiseLayer(vAmbientCtx, vAmbient.evening.bus, { filterType:'bandpass', freq:720, q:0.32, gain:0.035, pan:0.18, lfo:0.018 }));
-
-      // Premium score layer: warm pad + subtle shimmer + long delay tail.
-      vScore.bus = vAmbientCtx.createGain();
-      vScore.bus.gain.value = 0;
-      vScore.bus.connect(vAmbientMaster);
-      vScore.delay = vAmbientCtx.createDelay(6);
-      vScore.delay.delayTime.value = 0.42;
-      vScore.feedback = vAmbientCtx.createGain();
-      vScore.feedback.gain.value = 0.18;
-      vScore.wet = vAmbientCtx.createGain();
-      vScore.wet.gain.value = 0.22;
-      vScore.bus.connect(vScore.delay);
-      vScore.delay.connect(vScore.feedback);
-      vScore.feedback.connect(vScore.delay);
-      vScore.delay.connect(vScore.wet);
-      vScore.wet.connect(vAmbientMaster);
-      vScore.voices = [
-        vMakeScoreVoice(vAmbientCtx, vScore.bus, { type:'sine', pan:-0.18, detune:-5, filter:1200 }),
-        vMakeScoreVoice(vAmbientCtx, vScore.bus, { type:'sine', pan:0.18, detune:4, filter:1200 }),
-        vMakeScoreVoice(vAmbientCtx, vScore.bus, { type:'triangle', pan:-0.06, detune:1, filter:1050 }),
-        vMakeScoreVoice(vAmbientCtx, vScore.bus, { type:'sine', pan:0.08, detune:7, filter:1600 })
-      ];
-      vScore.air = vMakeNoiseLayer(vAmbientCtx, vScore.bus, { filterType:'highpass', freq:4400, q:0.22, gain:0.012, pan:0.12, lfo:0.017 });
-
-      vAmbientReady = true;
-      return true;
-    } catch (err) {
-      console.warn('Ambient sound unavailable:', err);
-      return false;
-    }
-  }
-
-  function vAmbientMasterTo(value, duration = 1.6) {
-    if (!vAmbientCtx || !vAmbientMaster) return;
-    const now = vAmbientCtx.currentTime;
-    const safe = Math.max(0, Math.min(0.12, value));
-    vAmbientMaster.gain.cancelScheduledValues(now);
-    vAmbientMaster.gain.setTargetAtTime(safe, now, Math.max(0.02, duration / 4));
-  }
-
-  function vSetAmbientZone(zone, duration = 3.2) {
-    if (!vAmbientReady || !vAmbientEnabled || !vAmbientCtx) return;
-    vAmbientZone = zone;
-    const now = vAmbientCtx.currentTime;
-    Object.entries(vAmbient).forEach(([key, z]) => {
-      const target = key === zone ? (vZoneVolumes[key] || 0.5) : 0;
-      z.bus.gain.cancelScheduledValues(now);
-      z.bus.gain.setTargetAtTime(target, now, Math.max(0.03, duration / 4));
-    });
-  }
-
-  function vUpdateAmbientByScene(index) {
-    const scene = VIEWING_SCENES[index] || {};
-    let zone = scene.txt || 'exterior';
-    if (zone === 'amenity') zone = 'interior';
-    if (zone === 'closing') zone = 'evening';
-    if (!vAmbient[zone]) zone = 'interior';
-
-    const changed = zone !== vAmbientZone;
-    if (changed) vSetAmbientZone(zone, 3.4);
-    vApplyScoreMood(scene.txt === 'closing' ? 'finale' : zone, changed ? 4.2 : 2.2);
-  }
-
-  function vAmbientTextDuck(alpha) {
-    if (!vAmbientReady || !vAmbientEnabled || !vAmbientCtx || !vAmbientMaster) return;
-    // Pull the master down subtly while text is readable, then restore.
-    const targetDuck = 1 - (Math.max(0, Math.min(1, alpha)) * 0.22);
-    if (Math.abs(targetDuck - vAmbientDuck) < 0.025) return;
-    vAmbientDuck = targetDuck;
-    vAmbientMasterTo(vAmbientBase * vAmbientDuck, 0.45);
-  }
-
-  function vStartAudio() {
-    if (!vInitAmbient()) {
-      if (vsndBtn) vsndBtn.classList.add('muted');
-      return;
-    }
-    vAmbientEnabled = true;
-    vSndOn = true;
-    vAmbientCtx.resume().then(() => {
-      vScore.currentMood = '';
-      vAmbientMasterTo(vAmbientBase, 2.2);
-      vSetAmbientZone(vAmbientZone || 'exterior', 2.8);
-      vUpdateAmbientByScene(vActive || 0);
-      if (vsndBtn) {
-        vsndBtn.classList.remove('muted');
-        const label = vsndBtn.querySelector('span');
-        if (label) label.textContent = 'Sound On';
-      }
-    }).catch(() => {
-      vSndOn = false;
-      vAmbientEnabled = false;
-      if (vsndBtn) vsndBtn.classList.add('muted');
-    });
-  }
-
-  function vStopAudio() {
-    vSndOn = false;
-    vAmbientEnabled = false;
-    if (vScore.motifTimer) {
-      clearTimeout(vScore.motifTimer);
-      vScore.motifTimer = null;
-    }
-    if (vAmbientReady && vAmbientCtx && vAmbientMaster) {
-      if (vScore.bus) vEaseParam(vScore.bus.gain, 0, 0.8);
-      vAmbientMasterTo(0, 1.2);
-      setTimeout(() => {
-        if (vAmbientCtx && vAmbientCtx.state !== 'closed') vAmbientCtx.suspend().catch(() => {});
-      }, 1200);
-    }
-    if (vsndBtn) {
-      vsndBtn.classList.add('muted');
-      const label = vsndBtn.querySelector('span');
-      if (label) label.textContent = 'Sound';
-    }
-  }
-
-  if (vsndBtn) {
-    vsndBtn.addEventListener('click', event => {
-      vHandleControlTap(event);
-      if (vSndOn) vStopAudio();
-      else vStartAudio();
-    });
-  }
 
   /* ─────────────────────────────────────────────────────────────
      CURSOR inside vox
