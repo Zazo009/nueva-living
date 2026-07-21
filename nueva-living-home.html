@@ -1507,11 +1507,15 @@
       position: absolute; inset: 0;
       background-size: cover; background-position: center;
       background-repeat: no-repeat;
-      will-change: transform, opacity;
+      will-change: auto;
       backface-visibility: hidden;
       transform-origin: center center;
       contain: paint;
     }
+
+    /* Promote only the two layers involved in the current dissolve. Keeping all
+       20 scenes promoted exhausts mobile GPU memory late in the viewing. */
+    .vlayer.is-compositing { will-change: transform, opacity; }
 
     /* Plans and masterplans are documents, not cinematic crops. Keep the full
        drawing visible. Film treatment is blended in JS so transitions between
@@ -5848,7 +5852,12 @@
   const vSceneAssetsReady = new Array(TOTAL).fill(false);
   const vSceneAssetPromises = new Array(TOTAL).fill(null);
   const vSceneImageCache = new Array(TOTAL).fill(null);
+  const vSceneAssetGeneration = new Array(TOTAL).fill(0);
   const vLayerHidden = new Array(TOTAL).fill(true);
+  const VIEWING_ASSET_KEEP_BEHIND = 2;
+  const VIEWING_ASSET_KEEP_AHEAD = 3;
+  let vAssetWindowStart = 0;
+  let vAssetWindowEnd = Math.min(TOTAL - 1, VIEWING_ASSET_KEEP_AHEAD);
 
   function vPrimeSceneAsset(index) {
     const sc = VIEWING_SCENES[index];
@@ -5863,9 +5872,7 @@
     img.decoding = 'async';
     vSceneImageCache[index] = img;
     vSceneAssetsPrimed[index] = true;
-    // Set the URL immediately so the browser can paint from cache while the
-    // readiness promise prevents transitions into a not-yet-decoded layer.
-    el.style.backgroundImage = `url("${sc.img}")`;
+    const generation = ++vSceneAssetGeneration[index];
     vSceneAssetPromises[index] = new Promise(resolve => {
       let settled = false;
       const markReady = async () => {
@@ -5876,7 +5883,13 @@
         } catch (error) {
           // A completed image can still be painted when decode() is unsupported.
         }
-        el.style.backgroundImage = `url("${sc.img}")`;
+        if (generation !== vSceneAssetGeneration[index]) {
+          resolve(false);
+          return;
+        }
+        if (index >= vAssetWindowStart && index <= vAssetWindowEnd) {
+          el.style.backgroundImage = `url("${sc.img}")`;
+        }
         vSceneAssetsReady[index] = true;
         resolve(true);
       };
@@ -5884,6 +5897,12 @@
       img.addEventListener('error', () => {
         if (settled) return;
         settled = true;
+        if (generation === vSceneAssetGeneration[index]) {
+          vSceneAssetsPrimed[index] = false;
+          vSceneAssetsReady[index] = false;
+          vSceneImageCache[index] = null;
+          vSceneAssetPromises[index] = null;
+        }
         resolve(false);
       }, { once: true });
       img.src = sc.img;
@@ -5892,9 +5911,36 @@
     return vSceneAssetPromises[index];
   }
 
+  function vEvictSceneAsset(index) {
+    const el = document.getElementById('vl' + (index + 1));
+    if (!el || (!vSceneAssetsPrimed[index] && (!el.style.backgroundImage || el.style.backgroundImage === 'none'))) return;
+
+    // Invalidate any decode that is still resolving so it cannot reattach a
+    // stale image after this scene has left the active memory window.
+    vSceneAssetGeneration[index] += 1;
+    vSceneAssetsPrimed[index] = false;
+    vSceneAssetsReady[index] = false;
+    vSceneAssetPromises[index] = null;
+    vSceneImageCache[index] = null;
+    el.style.backgroundImage = 'none';
+    el.classList.remove('is-compositing');
+  }
+
   function vPrepareSceneAssets(sceneIdx) {
-    const start = Math.max(0, sceneIdx - 1);
-    const end = Math.min(TOTAL - 1, sceneIdx + 3);
+    const start = Math.max(0, sceneIdx - VIEWING_ASSET_KEEP_BEHIND);
+    const end = Math.min(TOTAL - 1, sceneIdx + VIEWING_ASSET_KEEP_AHEAD);
+
+    // CSS backgrounds retain their decoded bitmap and compositor resources even
+    // at opacity:0. Keep a small rolling window and let the HTTP cache handle a
+    // later backwards visit instead of accumulating all scenes in GPU memory.
+    if (start !== vAssetWindowStart || end !== vAssetWindowEnd) {
+      for (let i = 0; i < TOTAL; i++) {
+        if (i < start || i > end) vEvictSceneAsset(i);
+      }
+    }
+    vAssetWindowStart = start;
+    vAssetWindowEnd = end;
+
     const preparations = [];
     for (let i = start; i <= end; i++) preparations.push(vPrimeSceneAsset(i));
     return Promise.all(preparations);
@@ -5903,14 +5949,10 @@
   function vHideLayer(layer, index) {
     if (!layer || vLayerHidden[index]) return;
     vLayerHidden[index] = true;
-    const isDocument = VIEWING_SCENES[index]?.fit === 'contain';
+    layer.classList.remove('is-compositing');
     gsap.set(layer, {
       opacity: 0,
-      scale: isDocument ? 1 : VIEWING_ZOOM_OUT,
-      xPercent: 0,
-      yPercent: 0,
-      rotationZ: 0,
-      force3D: true
+      clearProps: 'transform'
     });
   }
 
@@ -6261,15 +6303,20 @@
       if (!l) return;
       const isDocument = VIEWING_SCENES[i]?.fit === 'contain';
       vLayerHidden[i] = i !== 0;
-      gsap.set(l, {
-        // Plans and masterplans must remain fully visible and dimensionally stable.
-        scale: isDocument ? 1 : (i === 0 ? VIEWING_ZOOM_IN : VIEWING_ZOOM_OUT),
-        xPercent: 0,
-        yPercent: 0,
-        rotationZ: 0,
-        opacity: i === 0 ? 1 : 0,
-        force3D: true
-      });
+      l.classList.toggle('is-compositing', i === 0);
+      if (i === 0) {
+        gsap.set(l, {
+          // Plans and masterplans must remain fully visible and dimensionally stable.
+          scale: isDocument ? 1 : VIEWING_ZOOM_IN,
+          xPercent: 0,
+          yPercent: 0,
+          rotationZ: 0,
+          opacity: 1,
+          force3D: true
+        });
+      } else {
+        gsap.set(l, { opacity: 0, clearProps: 'transform' });
+      }
     });
     gsap.set(vtxtinn, { opacity: 0, y: 18 });
 
@@ -6339,6 +6386,7 @@
             ? 1
             : VIEWING_ZOOM_IN - (VIEWING_ZOOM_IN - VIEWING_ZOOM_OUT) * localP;
           vLayerHidden[i] = false;
+          l.classList.add('is-compositing');
 
           gsap.set(l, {
             opacity: sceneOpacity,
