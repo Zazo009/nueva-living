@@ -15,9 +15,13 @@ function contentVersion(relativePath) {
 }
 
 const conversionScriptPath = 'assets/liora/liora-conversion.js';
+const shortlistScriptPath = 'assets/liora/nueva-shortlist.js';
+const shortlistStylesheetPath = 'assets/liora/nueva-shortlist.css';
 const pagesStylesheetPath = 'assets/liora/liora-pages.css';
 const propertyStylesheetPath = 'assets/liora/liora-property.css';
 const conversionScriptVersion = contentVersion(conversionScriptPath);
+const shortlistScriptVersion = contentVersion(shortlistScriptPath);
+const shortlistStylesheetVersion = contentVersion(shortlistStylesheetPath);
 const pagesStylesheetVersion = contentVersion(pagesStylesheetPath);
 const propertyStylesheetVersion = contentVersion(propertyStylesheetPath);
 
@@ -221,6 +225,8 @@ const assetFiles = [
   'assets/liora/liora-pages.css',
   'assets/liora/liora-property.css',
   'assets/liora/liora-property.js',
+  'assets/liora/nueva-shortlist.css',
+  'assets/liora/nueva-shortlist.js',
   'assets/liora/brand/nueva-living-hero-logo.png',
   'assets/liora/brand/nueva-living-hero-logo-sand.png',
   'assets/liora/brand/nueva-living-lockup-espresso.png',
@@ -437,6 +443,23 @@ function injectConversion(html) {
   );
 }
 
+function injectShortlist(html) {
+  let next = html;
+  if (!next.includes(shortlistStylesheetPath)) {
+    next = next.replace(
+      /\n<\/head>/i,
+      `\n  <link rel="stylesheet" href="${shortlistStylesheetPath}?v=${shortlistStylesheetVersion}">\n</head>`
+    );
+  }
+  if (!next.includes(shortlistScriptPath)) {
+    next = next.replace(
+      /\n<\/body>/i,
+      `\n  <script src="${shortlistScriptPath}?v=${shortlistScriptVersion}" defer></script>\n</body>`
+    );
+  }
+  return next;
+}
+
 function externalizeHomepageController(html, publicName) {
   if (publicName !== 'index.html') return html;
 
@@ -463,7 +486,7 @@ function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const productionHtml = externalizeHomepageController(
-    injectConversion(injectSeo(html, publicName)),
+    injectShortlist(injectConversion(injectSeo(html, publicName))),
     publicName
   );
   fs.writeFileSync(target, optimizeHtml(productionHtml));

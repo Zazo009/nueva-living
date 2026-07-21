@@ -328,10 +328,18 @@
   window.lioraWhatsappUrl = whatsappUrl;
   window.lioraBuildLeadPayload = buildLeadPayload;
 
-  document.querySelectorAll('form').forEach((form) => {
-    const isLeadForm = form.matches('[data-crm-lead], [action="/.netlify/functions/nueva-lead"]');
-    if (isLeadForm) form.addEventListener('submit', handleLeadSubmit);
-  });
+  function registerLeadForms(root = document) {
+    root.querySelectorAll('form').forEach((form) => {
+      const isLeadForm = form.matches('[data-crm-lead], [action="/.netlify/functions/nueva-lead"]');
+      if (!isLeadForm || form.dataset.nuevaLeadBound === 'true') return;
+      form.dataset.nuevaLeadBound = 'true';
+      form.addEventListener('submit', handleLeadSubmit);
+    });
+  }
+
+  // Shortlist and other progressive UI layers can safely register forms after page load.
+  window.nuevaRegisterLeadForms = registerLeadForms;
+  registerLeadForms();
 
   function alignLinkedLeadForm() {
     const id = decodeURIComponent(window.location.hash.replace(/^#/, ''));
