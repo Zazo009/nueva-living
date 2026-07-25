@@ -1,6 +1,15 @@
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import propertySync from '../lib/nueva-property-sync.cjs';
+
+const {
+  DEFAULT_PROPERTY_WEBHOOK_URL,
+  cleanEnvironmentValue,
+  projectToPropertyPayload,
+  sendPropertyToCrm,
+  validatePropertyPayload
+} = propertySync;
 
 const projectsDir = path.resolve('content/liora-projects');
 const conventionalImageDir = 'assets/liora/projects';
@@ -991,6 +1000,56 @@ function updateDevelopmentsPage(projects) {
   return true;
 }
 
+async function syncProjectsToCrm(projects) {
+  const secret = cleanEnvironmentValue(process.env.CRM_WEBHOOK_SECRET);
+  if (!secret) {
+    return {
+      enabled: false,
+      reason: 'CRM_WEBHOOK_SECRET is not available in the build environment'
+    };
+  }
+
+  const webhookUrl = cleanEnvironmentValue(process.env.CRM_PROPERTY_WEBHOOK_URL)
+    || DEFAULT_PROPERTY_WEBHOOK_URL;
+  const strict = cleanEnvironmentValue(process.env.CRM_PROPERTY_SYNC_STRICT).toLowerCase() === 'true';
+  const results = [];
+
+  for (const project of projects) {
+    const payload = projectToPropertyPayload(project, { siteUrl });
+    const errors = validatePropertyPayload(payload, payload);
+
+    if (errors.length) {
+      const message = `${project.name || project.slug}: ${errors.join('; ')}`;
+      results.push({ name: project.name || project.slug, success: false, error: message });
+      if (strict) throw new Error(`CRM property sync validation failed: ${message}`);
+      console.warn(`CRM property sync skipped: ${message}`);
+      continue;
+    }
+
+    try {
+      const result = await sendPropertyToCrm(payload, { secret, webhookUrl });
+      results.push({
+        name: payload.name,
+        success: true,
+        property_id: result.property_id,
+        action: result.action
+      });
+    } catch (error) {
+      const message = error.message || 'Unknown CRM property sync error';
+      results.push({ name: payload.name, success: false, error: message });
+      if (strict) throw error;
+      console.warn(`CRM property sync failed for ${payload.name}: ${message}`);
+    }
+  }
+
+  return {
+    enabled: true,
+    synced: results.filter((item) => item.success).length,
+    failed: results.filter((item) => !item.success).length,
+    results
+  };
+}
+
 const written = [];
 const projects = loadProjects();
 for (const project of projects) {
@@ -1004,5 +1063,6 @@ for (const project of projects) {
 }
 
 const developmentsUpdated = updateDevelopmentsPage(projects);
+const crmSync = await syncProjectsToCrm(projects);
 
-console.log(JSON.stringify({ written, developmentsUpdated }, null, 2));
+console.log(JSON.stringify({ written, developmentsUpdated, crmSync }, null, 2));

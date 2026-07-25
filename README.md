@@ -26,9 +26,15 @@ Required production environment variables for lead forwarding:
 
 ```text
 CRM_WEBHOOK_URL=https://marbella-crm.vercel.app/api/webhook/liora
+CRM_PROPERTY_WEBHOOK_URL=https://marbella-crm.vercel.app/api/webhook/property
 CRM_WEBHOOK_SECRET=change-me
+PROPERTY_SYNC_TOKEN=use-a-separate-random-admin-to-server-token
 ALLOWED_ORIGINS=https://nuevaliving.com,https://www.nuevaliving.com
 ```
+
+`CRM_WEBHOOK_SECRET` must be available to both Netlify Functions and Builds.
+Functions use it for lead/property forwarding, while the property builder uses it
+to sync generated projects. Keep it out of HTML and client-side JavaScript.
 
 The browser submits to `/.netlify/functions/nueva-lead`. The function adds the
 webhook secret server-side before forwarding the lead to the CRM; never expose
@@ -38,6 +44,33 @@ Successful CRM submissions show an inline confirmation. If client-side JavaScrip
 is unavailable, the HTML form posts to the same Netlify Function and redirects to
 the thank-you page only after the CRM accepts the lead. CRM acceptance is the
 authoritative success signal; the browser never receives the webhook secret.
+
+## Property CRM Sync
+
+The existing property creation path is file-based:
+
+```text
+content/liora-projects/<slug>/project.json
+```
+
+When `scripts/build_property_pages.mjs` runs with `CRM_WEBHOOK_SECRET` available,
+every generated project is normalized and sent to the CRM property webhook.
+The CRM updates matching `name + area` records, so repeat deploys do not create
+duplicates. Set `CRM_PROPERTY_SYNC_STRICT=true` only if a CRM sync failure should
+also fail the website build.
+
+An external admin backend can trigger the same server-side flow by posting the
+property JSON to:
+
+```text
+POST /.netlify/functions/nueva-property
+X-Property-Sync-Token: <PROPERTY_SYNC_TOKEN>
+Content-Type: application/json
+```
+
+The admin sync token is separate from the CRM webhook secret. A browser admin
+must use authenticated Netlify Identity, or its backend must add the sync token
+server-side. Never place either secret in public JavaScript.
 
 ## Local Preview
 

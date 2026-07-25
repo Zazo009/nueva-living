@@ -465,6 +465,76 @@ img {
   object-fit: contain;
 }
 
+.founder-section {
+  background: var(--ivory);
+}
+
+.founder-layout {
+  grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1fr);
+}
+
+.founder-portrait {
+  position: relative;
+  aspect-ratio: 1293 / 1800;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--sand);
+  box-shadow: var(--shadow);
+}
+
+.founder-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.founder-role {
+  margin: 15px 0 0;
+  color: var(--bronze);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.founder-contact {
+  display: grid;
+  gap: 0;
+  max-width: 560px;
+  margin-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.founder-contact a {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.36fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  min-height: 60px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.founder-contact span {
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.founder-contact strong {
+  font-size: 13px;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.founder-contact a:hover strong {
+  color: var(--bronze);
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1518,6 +1588,14 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .founder-layout {
+    max-width: 720px;
+  }
+
+  .founder-portrait {
+    width: min(100%, 560px);
+  }
+
   .legal-layout {
     gap: 30px;
   }
@@ -1672,6 +1750,13 @@ footer {
 
   .section {
     padding: 64px var(--x);
+  }
+
+  .founder-contact a {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    min-height: 70px;
+    padding: 14px 0;
   }
 
   .developments-discovery {
