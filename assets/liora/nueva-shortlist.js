@@ -4,6 +4,7 @@
   let savedProjects = readShortlist();
   let previousFocus = null;
   let toastTimer = 0;
+  let renderedCount = null;
 
   function clean(value) {
     return String(value || '').replace(/\s+/g, ' ').trim();
@@ -173,13 +174,15 @@
     actions.appendChild(favoriteButton(project, 'nueva-save-project'));
   }
 
-  function triggerMarkup(className, label) {
+  function triggerMarkup(className) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = `nueva-shortlist-trigger ${className}`;
     button.setAttribute('aria-haspopup', 'dialog');
     button.setAttribute('aria-controls', 'nuevaShortlistDrawer');
-    button.innerHTML = `${heartIcon()}${label ? '<span>Shortlist</span>' : ''}<span class="nueva-shortlist-count" data-shortlist-count>0</span>`;
+    button.setAttribute('aria-label', 'Open shortlist, 0 saved projects');
+    button.title = 'Open shortlist';
+    button.innerHTML = `${heartIcon()}<span class="nueva-shortlist-count" data-shortlist-count aria-hidden="true">0</span>`;
     button.addEventListener('click', openDrawer);
     return button;
   }
@@ -190,7 +193,7 @@
 
     const rightLinks = nav.querySelector('.nav-links-right');
     if (rightLinks) {
-      const desktopTrigger = triggerMarkup('nueva-shortlist-nav-trigger', true);
+      const desktopTrigger = triggerMarkup('nueva-shortlist-nav-trigger');
       if (rightLinks.tagName === 'UL') {
         const item = document.createElement('li');
         item.className = 'nueva-shortlist-nav-item';
@@ -202,7 +205,7 @@
     }
 
     const burger = nav.querySelector('.nav-burger, #burgerBtn');
-    const mobileTrigger = triggerMarkup('nueva-shortlist-mobile-trigger', false);
+    const mobileTrigger = triggerMarkup('nueva-shortlist-mobile-trigger');
     if (burger) nav.insertBefore(mobileTrigger, burger);
     else nav.appendChild(mobileTrigger);
 
@@ -342,10 +345,24 @@
 
   function updateControls() {
     const count = savedProjects.length;
+    const countChanged = renderedCount !== null && renderedCount !== count;
+
     document.querySelectorAll('[data-shortlist-count]').forEach((node) => {
       node.textContent = String(count);
-      node.setAttribute('aria-label', `${count} saved ${count === 1 ? 'project' : 'projects'}`);
+      const trigger = node.closest('.nueva-shortlist-trigger');
+      if (!trigger) return;
+
+      trigger.classList.toggle('has-saved', count > 0);
+      trigger.setAttribute('aria-label', `Open shortlist, ${count} saved ${count === 1 ? 'project' : 'projects'}`);
+
+      if (countChanged) {
+        trigger.classList.remove('is-updated');
+        void trigger.offsetWidth;
+        trigger.classList.add('is-updated');
+        window.setTimeout(() => trigger.classList.remove('is-updated'), 360);
+      }
     });
+    renderedCount = count;
 
     document.querySelectorAll('[data-shortlist-id]').forEach((button) => {
       const saved = isSaved(button.dataset.shortlistId);

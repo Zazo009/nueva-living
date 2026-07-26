@@ -30,7 +30,11 @@
       .split(',')
       .map((selector) => form.querySelector(selector.trim()))
       .find(Boolean);
-    return Boolean(field?.checked);
+    if (!field) return false;
+    if (field.type === 'hidden') {
+      return ['true', '1', 'yes', 'on'].includes(clean(field.value).toLowerCase());
+    }
+    return Boolean(field.checked);
   }
 
   function splitName(fullName) {
@@ -245,9 +249,9 @@
     submit.dataset.originalLabel ||= submit.value || submit.textContent;
     submit.disabled = state === 'submitting' || state === 'success';
     const label = state === 'submitting'
-      ? 'Sending...'
+      ? (form.dataset.submittingLabel || 'Sending...')
       : state === 'success'
-        ? 'Request Sent'
+        ? (form.dataset.successLabel || 'Request Sent')
         : submit.dataset.originalLabel;
     if (submit.tagName === 'INPUT') submit.value = label;
     else submit.textContent = label;
@@ -290,6 +294,7 @@
       payload,
       trackingContext: {
         form_name: formName,
+        form_type: form.matches('[data-newsletter-form]') ? 'newsletter' : 'enquiry',
         lead_context: requestContext,
         project: projectField?.value || undefined
       }
@@ -307,14 +312,29 @@
 
     const { payload, trackingContext } = enrichForm(form);
     form.dataset.submitting = 'true';
-    setFormState(form, 'submitting', 'Sending your private enquiry...');
+    setFormState(
+      form,
+      'submitting',
+      form.dataset.submittingMessage || 'Sending your private enquiry...'
+    );
 
     try {
       await syncLeadToCrm(payload, trackingContext);
-      setFormState(form, 'success', 'Thank you. Your enquiry has been received and we will contact you shortly.');
+      setFormState(
+        form,
+        'success',
+        form.dataset.successMessage || 'Thank you. Your enquiry has been received and we will contact you shortly.'
+      );
       track('form_submit_success', trackingContext);
+      if (form.matches('[data-newsletter-form]')) {
+        track('newsletter_signup_success', trackingContext);
+      }
     } catch (error) {
-      setFormState(form, 'error', 'We could not send your request. Please email contact@nuevaliving.com.');
+      setFormState(
+        form,
+        'error',
+        form.dataset.errorMessage || 'We could not send your request. Please email contact@nuevaliving.com.'
+      );
       track('form_submit_error', {
         ...trackingContext,
         error: clean(error?.message)

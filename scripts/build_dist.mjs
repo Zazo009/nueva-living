@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import vm from 'node:vm';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -17,11 +18,15 @@ function contentVersion(relativePath) {
 const conversionScriptPath = 'assets/liora/liora-conversion.js';
 const shortlistScriptPath = 'assets/liora/nueva-shortlist.js';
 const shortlistStylesheetPath = 'assets/liora/nueva-shortlist.css';
+const navInteractionsStylesheetPath = 'assets/liora/nueva-nav-interactions.css';
+const newsletterStylesheetPath = 'assets/liora/nueva-newsletter.css';
 const pagesStylesheetPath = 'assets/liora/liora-pages.css';
 const propertyStylesheetPath = 'assets/liora/liora-property.css';
 const conversionScriptVersion = contentVersion(conversionScriptPath);
 const shortlistScriptVersion = contentVersion(shortlistScriptPath);
 const shortlistStylesheetVersion = contentVersion(shortlistStylesheetPath);
+const navInteractionsStylesheetVersion = contentVersion(navInteractionsStylesheetPath);
+const newsletterStylesheetVersion = contentVersion(newsletterStylesheetPath);
 const pagesStylesheetVersion = contentVersion(pagesStylesheetPath);
 const propertyStylesheetVersion = contentVersion(propertyStylesheetPath);
 
@@ -225,6 +230,8 @@ const assetFiles = [
   'assets/liora/liora-pages.css',
   'assets/liora/liora-property.css',
   'assets/liora/liora-property.js',
+  'assets/liora/nueva-newsletter.css',
+  'assets/liora/nueva-nav-interactions.css',
   'assets/liora/nueva-shortlist.css',
   'assets/liora/nueva-shortlist.js',
   'assets/liora/brand/nueva-living-hero-logo.png',
@@ -249,11 +256,45 @@ const assetDirectories = [
   'assets/liora/projects',
   'assets/liora/team',
   'assets/liora/viewing',
+  'assets/nueva/advantages',
+  'assets/nueva/journey',
   'content',
 ];
 
 function copyFile(source, target) {
   fs.mkdirSync(path.dirname(target), { recursive: true });
+
+  if (/\.(?:js|css)$/i.test(source)) {
+    let lastError = null;
+
+    for (let attempt = 0; attempt < 18; attempt += 1) {
+      try {
+        const firstRead = fs.readFileSync(source);
+        Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 90);
+        const stableRead = fs.readFileSync(source);
+
+        if (!firstRead.equals(stableRead)) {
+          throw new Error(`Asset changed while being read: ${source}`);
+        }
+        if (/\.js$/i.test(source)) {
+          new vm.Script(stableRead.toString('utf8'), { filename: source });
+        }
+
+        fs.writeFileSync(target, stableRead);
+        const written = fs.readFileSync(target);
+        if (!written.equals(stableRead)) {
+          throw new Error(`Incomplete asset copy: ${source}`);
+        }
+        return;
+      } catch (error) {
+        lastError = error;
+        Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 120 * (attempt + 1));
+      }
+    }
+
+    throw lastError || new Error(`Unable to copy stable asset: ${source}`);
+  }
+
   const expectedSize = fs.statSync(source).size;
   let lastError = null;
 
@@ -461,6 +502,72 @@ function injectShortlist(html) {
   return next;
 }
 
+function injectNavInteractions(html) {
+  if (html.includes(navInteractionsStylesheetPath)) return html;
+  return html.replace(
+    /\n<\/head>/i,
+    `\n  <link rel="stylesheet" href="${navInteractionsStylesheetPath}?v=${navInteractionsStylesheetVersion}">\n</head>`
+  );
+}
+
+const newsletterMarkup = `    <section class="footer-newsletter" aria-labelledby="footer-newsletter-title">
+      <div class="footer-newsletter-copy">
+        <span class="footer-newsletter-kicker">Private Updates</span>
+        <h2 id="footer-newsletter-title">The coast, carefully edited.</h2>
+        <p>Occasional notes on new releases, meaningful availability and the developments worth knowing about.</p>
+      </div>
+      <form class="footer-newsletter-form" name="nueva-newsletter" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead data-newsletter-form data-submitting-label="Subscribing..." data-success-label="Subscribed" data-submitting-message="Adding you to Nueva Living updates..." data-success-message="You are on the list. We will only send updates worth opening." data-error-message="We could not subscribe you just now. Please email contact@nuevaliving.com.">
+        <input type="hidden" name="request_context" value="Newsletter signup">
+        <input type="hidden" name="message" value="Newsletter subscription request">
+        <input type="hidden" name="consent" value="true">
+        <input type="hidden" name="consent_text" value="I agree to receive occasional Nueva Living project updates and for my data to be stored">
+        <label class="footer-newsletter-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+        <div class="footer-newsletter-fields">
+          <label class="footer-newsletter-field">
+            <span>First name</span>
+            <input name="first_name" type="text" autocomplete="given-name" placeholder="First name" required>
+          </label>
+          <label class="footer-newsletter-field">
+            <span>Last name</span>
+            <input name="last_name" type="text" autocomplete="family-name" placeholder="Last name" required>
+          </label>
+          <label class="footer-newsletter-field footer-newsletter-field--email">
+            <span>Email address</span>
+            <input name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@email.com" required>
+          </label>
+          <button class="footer-newsletter-submit" type="submit">Subscribe</button>
+        </div>
+        <div class="footer-newsletter-meta">
+          <label class="footer-newsletter-consent">
+            <input name="marketing_opt_in" type="checkbox" required>
+            <span>I agree to receive occasional Nueva Living updates. Unsubscribe at any time. See our <a href="privacy-policy.html">Privacy Policy</a>.</span>
+          </label>
+          <span class="form-response" aria-live="polite"></span>
+        </div>
+      </form>
+    </section>`;
+
+function injectNewsletter(html) {
+  let next = html;
+  if (!next.includes(newsletterStylesheetPath)) {
+    next = next.replace(
+      /\n<\/head>/i,
+      `\n  <link rel="stylesheet" href="${newsletterStylesheetPath}?v=${newsletterStylesheetVersion}">\n</head>`
+    );
+  }
+  if (!next.includes('data-newsletter-form') && /<footer(?:\s[^>]*)?>/i.test(next)) {
+    // The last footer is the page footer; earlier matches may be semantic
+    // attribution elements inside testimonials.
+    const footerMatches = [...next.matchAll(/<footer(?:\s[^>]*)?>/gi)];
+    const siteFooter = footerMatches.at(-1);
+    if (siteFooter) {
+      const insertAt = siteFooter.index + siteFooter[0].length;
+      next = `${next.slice(0, insertAt)}\n${newsletterMarkup}${next.slice(insertAt)}`;
+    }
+  }
+  return next;
+}
+
 function externalizeHomepageController(html, publicName) {
   if (publicName !== 'index.html') return html;
 
@@ -487,7 +594,7 @@ function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const productionHtml = externalizeHomepageController(
-    injectShortlist(injectConversion(injectSeo(html, publicName))),
+    injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectSeo(html, publicName))))),
     publicName
   );
   fs.writeFileSync(target, optimizeHtml(productionHtml));

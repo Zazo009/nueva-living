@@ -121,7 +121,7 @@ body.nueva-shortlist-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
+  gap: 7px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -148,21 +148,49 @@ body.nueva-shortlist-open {
 
 .nueva-shortlist-nav-trigger .nueva-heart-icon,
 .nueva-shortlist-mobile-trigger .nueva-heart-icon {
-  width: 18px;
-  height: 18px;
+  width: 21px;
+  height: 21px;
 }
 
 .nueva-shortlist-count {
-  min-width: 18px;
-  height: 18px;
+  min-width: 19px;
+  height: 19px;
   display: inline-grid;
   place-items: center;
-  padding: 0 4px;
+  padding: 0 5px;
   border: 1px solid rgba(168, 131, 74, 0.66);
   color: var(--nueva-shortlist-cream);
-  font-size: 9px;
+  font-size: 10px;
+  font-weight: 600;
   letter-spacing: 0;
   line-height: 1;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.nueva-shortlist-trigger.has-saved .nueva-heart-icon {
+  fill: currentColor;
+}
+
+.nueva-shortlist-trigger.has-saved .nueva-shortlist-count {
+  border-color: var(--nueva-shortlist-gold);
+  background: var(--nueva-shortlist-gold);
+  color: var(--nueva-shortlist-deep);
+}
+
+.nueva-shortlist-trigger.is-updated .nueva-heart-icon {
+  animation: nueva-shortlist-heart-confirm 360ms ease;
+}
+
+.nueva-shortlist-trigger.is-updated .nueva-shortlist-count {
+  animation: nueva-shortlist-count-confirm 360ms ease;
+}
+
+@keyframes nueva-shortlist-heart-confirm {
+  50% { transform: scale(1.16); }
+}
+
+@keyframes nueva-shortlist-count-confirm {
+  50% { transform: translateY(-2px) scale(1.08); }
 }
 
 .nueva-shortlist-mobile-trigger {
@@ -645,6 +673,7 @@ body.nueva-shortlist-open {
 @media (prefers-reduced-motion: reduce) {
   .nueva-favorite-button,
   .nueva-heart-icon,
+  .nueva-shortlist-count,
   .nueva-shortlist-scrim,
   .nueva-shortlist-drawer,
   .nueva-shortlist-toast {

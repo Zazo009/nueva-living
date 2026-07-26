@@ -1,0 +1,173 @@
+/* Shared navigation micro-interactions. Kept deliberately restrained so the
+   header feels responsive without competing with the page content. */
+.site-nav .nav-links a,
+#nav .nav-links a {
+  position: relative;
+  isolation: isolate;
+  transition:
+    color 200ms ease,
+    text-shadow 200ms ease,
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-nav .nav-links a::before,
+#nav .nav-links a::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 4px -9px;
+  background: linear-gradient(
+    108deg,
+    transparent 24%,
+    rgba(244, 234, 217, 0.02) 38%,
+    rgba(244, 234, 217, 0.24) 49%,
+    rgba(244, 234, 217, 0.02) 60%,
+    transparent 74%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-115%) skewX(-14deg);
+}
+
+.site-nav .nav-links a::after,
+#nav .nav-links a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 5px;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #a8834a 18%, #c9a877 50%, #a8834a 82%, transparent);
+  opacity: 0;
+  transform: scaleX(0.24);
+  transform-origin: center;
+  transition: opacity 200ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-nav .nav-logo,
+#nav .nav-logo {
+  transition: filter 220ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-nav .nav-burger span,
+#nav .nav-burger span {
+  transition: background-color 180ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-nav .nav-links a:hover,
+  .site-nav .nav-links a:focus-visible,
+  #nav .nav-links a:hover,
+  #nav .nav-links a:focus-visible {
+    color: #fffaf3;
+    text-shadow: 0 0 18px rgba(244, 234, 217, 0.26);
+    animation: nueva-nav-lift 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .site-nav .nav-links a:hover::before,
+  .site-nav .nav-links a:focus-visible::before,
+  #nav .nav-links a:hover::before,
+  #nav .nav-links a:focus-visible::before {
+    animation: nueva-nav-sheen 560ms ease-out both;
+  }
+
+  .site-nav .nav-links a:hover::after,
+  .site-nav .nav-links a:focus-visible::after,
+  #nav .nav-links a:hover::after,
+  #nav .nav-links a:focus-visible::after {
+    opacity: 0.92;
+    transform: scaleX(1);
+  }
+
+  .site-nav .nav-logo:hover,
+  .site-nav .nav-logo:focus-visible,
+  #nav .nav-logo:hover,
+  #nav .nav-logo:focus-visible {
+    filter: brightness(1.12);
+    transform: translateY(-1px) scale(1.012);
+  }
+
+  .site-nav .nueva-shortlist-nav-trigger:hover,
+  .site-nav .nueva-shortlist-nav-trigger:focus-visible,
+  #nav .nueva-shortlist-nav-trigger:hover,
+  #nav .nueva-shortlist-nav-trigger:focus-visible {
+    animation: nueva-nav-heart 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .site-nav .nav-burger:hover span:first-child,
+  #nav .nav-burger:hover span:first-child {
+    transform: translateX(2px);
+  }
+
+  .site-nav .nav-burger:hover span:last-child,
+  #nav .nav-burger:hover span:last-child {
+    transform: translateX(-2px);
+  }
+}
+
+.mobile-menu a {
+  position: relative;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-menu a:active {
+  color: #fffaf3;
+  background: rgba(168, 131, 74, 0.08);
+  transform: translateX(4px);
+}
+
+.site-nav .nav-burger:active,
+#nav .nav-burger:active,
+.site-nav .nueva-shortlist-mobile-trigger:active,
+#nav .nueva-shortlist-mobile-trigger:active {
+  transform: scale(0.95);
+}
+
+@keyframes nueva-nav-lift {
+  0% { transform: translateY(0); }
+  48% { transform: translateY(-3px); }
+  72% { transform: translateY(-1px); }
+  100% { transform: translateY(-2px); }
+}
+
+@keyframes nueva-nav-sheen {
+  0% {
+    opacity: 0;
+    transform: translateX(-115%) skewX(-14deg);
+  }
+  24% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translateX(115%) skewX(-14deg);
+  }
+}
+
+@keyframes nueva-nav-heart {
+  0% { transform: translateY(0) scale(1); }
+  44% { transform: translateY(-3px) scale(1.08); }
+  72% { transform: translateY(-1px) scale(0.98); }
+  100% { transform: translateY(-2px) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav .nav-links a,
+  .site-nav .nav-links a::before,
+  .site-nav .nav-links a::after,
+  .site-nav .nav-logo,
+  .site-nav .nav-burger,
+  .site-nav .nav-burger span,
+  #nav .nav-links a,
+  #nav .nav-links a::before,
+  #nav .nav-links a::after,
+  #nav .nav-logo,
+  #nav .nav-burger,
+  #nav .nav-burger span,
+  .mobile-menu a,
+  .nueva-shortlist-trigger {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

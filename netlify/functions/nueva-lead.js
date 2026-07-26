@@ -224,6 +224,12 @@ exports.handler = async (event) => {
     return response(400, { ok: false, error: 'Invalid JSON payload' }, origin);
   }
 
+  // Newsletter forms include a hidden honeypot. Treat bot submissions as
+  // successful without sending them to the CRM.
+  if (cleanString(lead.website)) {
+    return response(200, { ok: true, success: true }, origin);
+  }
+
   const payload = crmPayload(lead, event);
   if (!payload.first_name || !payload.last_name || !payload.email) {
     return response(422, { ok: false, error: 'First name, last name and email are required' }, origin);
