@@ -25,17 +25,31 @@
 </head>
 <body>
   <nav class="site-nav">
+    <div class="nav-links nav-links-left">
+      <a href="approach.html">Approach</a>
+      <a href="why-nueva.html">Why Nueva</a>
+      <a href="developments.html">Developments</a>
+    </div>
     <a class="nav-logo" href="index.html" aria-label="Nueva Living home">
       <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
-    <div class="nav-links">
-      <a href="why-nueva.html">Why Nueva</a>
-      <a href="developments.html">Developments</a>
+    <div class="nav-links nav-links-right">
       <a href="areas.html">Areas</a>
       <a href="advisory.html">Advisory</a>
       <a href="contact.html">Contact Us</a>
     </div>
+    <button class="nav-burger" type="button" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="approach.html">Approach</a>
+    <a href="why-nueva.html">Why Nueva</a>
+    <a href="developments.html">Developments</a>
+    <a href="areas.html">Areas</a>
+    <a href="advisory.html">Advisory</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
   <main>
     <section class="page-hero">
       <img src="assets/liora/viewing/scene-19.jpg" alt="" width="2048" height="1024">
@@ -49,10 +63,26 @@
       <div class="cta-inner">
         <h2 class="cta-title">Return to the current Nueva Living collection.</h2>
         <a class="btn" href="developments.html">View Developments</a>
-        <a class="btn" href="contact.html" style="margin-left:12px;">Contact Us</a>
+        <a class="btn ghost" href="contact.html">Contact Us</a>
       </div>
     </section>
   </main>
   <script src="assets/liora/liora-conversion.js" defer></script>
+  <script>
+    const burger = document.querySelector('.nav-burger');
+    const menu = document.getElementById('mobileMenu');
+    if (burger && menu) {
+      burger.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('menu-open', open);
+      });
+      menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('menu-open');
+      }));
+    }
+  </script>
 </body>
 </html>

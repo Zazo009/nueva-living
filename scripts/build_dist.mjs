@@ -20,6 +20,7 @@ const shortlistScriptPath = 'assets/liora/nueva-shortlist.js';
 const shortlistStylesheetPath = 'assets/liora/nueva-shortlist.css';
 const navInteractionsStylesheetPath = 'assets/liora/nueva-nav-interactions.css';
 const newsletterStylesheetPath = 'assets/liora/nueva-newsletter.css';
+const systemStylesheetPath = 'assets/liora/nueva-system.css';
 const pagesStylesheetPath = 'assets/liora/liora-pages.css';
 const propertyStylesheetPath = 'assets/liora/liora-property.css';
 const conversionScriptVersion = contentVersion(conversionScriptPath);
@@ -27,6 +28,7 @@ const shortlistScriptVersion = contentVersion(shortlistScriptPath);
 const shortlistStylesheetVersion = contentVersion(shortlistStylesheetPath);
 const navInteractionsStylesheetVersion = contentVersion(navInteractionsStylesheetPath);
 const newsletterStylesheetVersion = contentVersion(newsletterStylesheetPath);
+const systemStylesheetVersion = contentVersion(systemStylesheetPath);
 const pagesStylesheetVersion = contentVersion(pagesStylesheetPath);
 const propertyStylesheetVersion = contentVersion(propertyStylesheetPath);
 
@@ -234,6 +236,7 @@ const assetFiles = [
   'assets/liora/nueva-nav-interactions.css',
   'assets/liora/nueva-shortlist.css',
   'assets/liora/nueva-shortlist.js',
+  'assets/liora/nueva-system.css',
   'assets/liora/brand/nueva-living-hero-logo.png',
   'assets/liora/brand/nueva-living-hero-logo-sand.png',
   'assets/liora/brand/nueva-living-lockup-espresso.png',
@@ -448,6 +451,10 @@ function optimizeHtml(html) {
       `${propertyStylesheetPath}?v=${propertyStylesheetVersion}`
     )
     .replace(
+      /assets\/liora\/nueva-system\.css(?:\?v=[a-z0-9]+)?/gi,
+      `${systemStylesheetPath}?v=${systemStylesheetVersion}`
+    )
+    .replace(
       /assets\/liora\/liora-conversion\.js(?:\?v=[a-z0-9]+)?/gi,
       `${conversionScriptPath}?v=${conversionScriptVersion}`
     );
@@ -507,6 +514,14 @@ function injectNavInteractions(html) {
   return html.replace(
     /\n<\/head>/i,
     `\n  <link rel="stylesheet" href="${navInteractionsStylesheetPath}?v=${navInteractionsStylesheetVersion}">\n</head>`
+  );
+}
+
+function injectSystemStyles(html) {
+  if (html.includes(systemStylesheetPath)) return html;
+  return html.replace(
+    /\n<\/head>/i,
+    `\n  <link rel="stylesheet" href="${systemStylesheetPath}?v=${systemStylesheetVersion}">\n</head>`
   );
 }
 
@@ -594,7 +609,7 @@ function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const productionHtml = externalizeHomepageController(
-    injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectSeo(html, publicName))))),
+    injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectSeo(html, publicName)))))),
     publicName
   );
   fs.writeFileSync(target, optimizeHtml(productionHtml));

@@ -1,0 +1,585 @@
+/* Nueva Living shared interface layer.
+   Loaded last in production so common controls keep one identity across pages. */
+:root {
+  --nueva-sand: #e8dfcd;
+  --nueva-ivory: #faf6ee;
+  --nueva-cream: #f4ead9;
+  --nueva-espresso: #4a3b28;
+  --nueva-deep: #2f2417;
+  --nueva-gold: #a8834a;
+  --nueva-gold-light: #c7a36b;
+  --nueva-line: rgba(74, 59, 40, 0.2);
+  --nueva-line-dark: rgba(244, 234, 217, 0.22);
+  --nueva-display: "Cinzel", Georgia, serif;
+  --nueva-ui: "Montserrat", Arial, sans-serif;
+  --nueva-control-height: 52px;
+  --nueva-control-height-compact: 44px;
+  --nueva-focus-ring: 0 0 0 3px rgba(168, 131, 74, 0.24);
+  --nueva-transition: 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  color: var(--nueva-espresso);
+  background: var(--nueva-sand);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--nueva-ui);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-title,
+.section-title,
+.cta-title,
+.project-title,
+.media-title,
+.nueva-shortlist-title {
+  font-family: var(--nueva-display);
+  font-weight: 400;
+}
+
+.kicker,
+.label,
+.eyebrow,
+.nav-links a,
+.mobile-menu a,
+.breadcrumb-list,
+.footer-col-title,
+.footer-newsletter-kicker,
+.nueva-shortlist-eyebrow {
+  font-family: var(--nueva-ui);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Shared navigation proportions and legibility. */
+.site-nav,
+#nav {
+  min-height: 76px;
+  border-bottom-color: rgba(168, 131, 74, 0.42);
+}
+
+.site-nav .nav-logo,
+#nav .nav-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.site-nav .nav-logo img,
+#nav .nav-logo img {
+  display: block;
+  width: clamp(190px, 16vw, 248px);
+  height: auto;
+}
+
+.site-nav .nav-links a,
+#nav .nav-links a {
+  position: relative;
+  color: var(--nueva-cream);
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav .nav-links a[aria-current="page"],
+#nav .nav-links a[aria-current="page"] {
+  color: #fffaf0;
+}
+
+.site-nav .nav-links a[aria-current="page"]::after,
+#nav .nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.nav-burger {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  border: 1px solid rgba(168, 131, 74, 0.58);
+  border-radius: 0;
+  background: rgba(47, 36, 23, 0.18);
+  color: var(--nueva-cream);
+  touch-action: manipulation;
+}
+
+.nav-burger:focus-visible {
+  outline: 1px solid var(--nueva-gold-light);
+  outline-offset: 4px;
+}
+
+.mobile-menu {
+  background: var(--nueva-deep);
+  border-top: 1px solid rgba(168, 131, 74, 0.4);
+}
+
+.mobile-menu a {
+  color: var(--nueva-cream);
+  font-size: 13px;
+}
+
+/* One button language for every standard conversion action. */
+:is(
+  .btn,
+  .project-btn,
+  .home-contact-action,
+  .dev-viewing-btn,
+  .dev-material-btn,
+  .footer-newsletter-submit,
+  .nueva-shortlist-browse,
+  .nueva-shortlist-submit,
+  .media-show-all
+) {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--nueva-control-height);
+  padding: 0 28px;
+  border: 1px solid var(--nueva-gold);
+  border-radius: 0;
+  font-family: var(--nueva-ui);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.17em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color var(--nueva-transition),
+    background-color var(--nueva-transition),
+    border-color var(--nueva-transition),
+    box-shadow var(--nueva-transition),
+    transform var(--nueva-transition);
+  touch-action: manipulation;
+}
+
+:is(
+  .btn:not(.ghost):not(.btn-ghost-dark):not(.btn-ghost-light),
+  .btn-gold,
+  .project-btn:not(.ghost),
+  .home-contact-action,
+  .dev-viewing-btn,
+  .footer-newsletter-submit,
+  .nueva-shortlist-submit,
+  .media-show-all
+) {
+  border-color: var(--nueva-gold);
+  background: var(--nueva-gold);
+  color: var(--nueva-deep);
+}
+
+:is(
+  .btn.ghost,
+  .btn-ghost-dark,
+  .project-btn.ghost,
+  .dev-material-btn,
+  .nueva-shortlist-browse
+) {
+  border-color: var(--nueva-gold);
+  background: transparent;
+  color: var(--nueva-espresso);
+}
+
+:is(.btn-ghost-light, .cinema-cta .project-btn.ghost) {
+  border-color: rgba(244, 234, 217, 0.72);
+  background: rgba(47, 36, 23, 0.16);
+  color: var(--nueva-cream);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :is(
+    .btn,
+    .project-btn,
+    .home-contact-action,
+    .dev-viewing-btn,
+    .dev-material-btn,
+    .footer-newsletter-submit,
+    .nueva-shortlist-browse,
+    .nueva-shortlist-submit,
+    .media-show-all
+  ):hover {
+    transform: translateY(-2px);
+  }
+
+  :is(
+    .btn:not(.ghost):not(.btn-ghost-dark):not(.btn-ghost-light),
+    .btn-gold,
+    .project-btn:not(.ghost),
+    .home-contact-action,
+    .dev-viewing-btn,
+    .footer-newsletter-submit,
+    .nueva-shortlist-submit,
+    .media-show-all
+  ):hover {
+    border-color: var(--nueva-gold-light);
+    background: var(--nueva-gold-light);
+    color: var(--nueva-deep);
+    box-shadow: 0 10px 28px rgba(47, 36, 23, 0.14);
+  }
+
+  :is(
+    .btn.ghost,
+    .btn-ghost-dark,
+    .project-btn.ghost,
+    .dev-material-btn,
+    .nueva-shortlist-browse
+  ):hover {
+    border-color: var(--nueva-gold);
+    background: rgba(168, 131, 74, 0.1);
+    color: var(--nueva-deep);
+  }
+
+  :is(.btn-ghost-light, .cinema-cta .project-btn.ghost):hover {
+    border-color: var(--nueva-cream);
+    background: rgba(244, 234, 217, 0.12);
+    color: #fffaf0;
+  }
+}
+
+:is(
+  .btn,
+  .project-btn,
+  .home-contact-action,
+  .dev-viewing-btn,
+  .dev-material-btn,
+  .footer-newsletter-submit,
+  .nueva-shortlist-browse,
+  .nueva-shortlist-submit,
+  .media-show-all
+):focus-visible {
+  outline: 1px solid var(--nueva-gold);
+  outline-offset: 4px;
+  box-shadow: var(--nueva-focus-ring);
+}
+
+:is(
+  .btn,
+  .project-btn,
+  .home-contact-action,
+  .dev-viewing-btn,
+  .dev-material-btn,
+  .footer-newsletter-submit,
+  .nueva-shortlist-submit
+):disabled,
+:is(
+  .btn,
+  .project-btn,
+  .home-contact-action,
+  .dev-viewing-btn,
+  .dev-material-btn,
+  .footer-newsletter-submit,
+  .nueva-shortlist-submit
+)[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.56;
+  transform: none;
+}
+
+/* Editorial text links remain lighter than command buttons. */
+:is(
+  .project-link,
+  .hero-discovery-link,
+  .journey-cta,
+  .area-card-cta,
+  .dev-cta-link
+) {
+  font-family: var(--nueva-ui);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+
+/* Discovery controls and project tabs use the same restrained selection state. */
+:is(
+  .discovery-mode,
+  .filter-pill,
+  .clear-filters,
+  .media-filter,
+  .res-tab,
+  .sort-select
+) {
+  box-sizing: border-box;
+  min-height: var(--nueva-control-height-compact);
+  border-color: var(--nueva-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--nueva-espresso);
+  font-family: var(--nueva-ui);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition:
+    color var(--nueva-transition),
+    background-color var(--nueva-transition),
+    border-color var(--nueva-transition);
+}
+
+:is(
+  .discovery-mode.is-active,
+  .filter-pill.is-active,
+  .filter-pill[aria-pressed="true"],
+  .media-filter.is-active,
+  .media-filter[aria-selected="true"],
+  .res-tab.is-active,
+  .res-tab[aria-selected="true"]
+) {
+  border-color: var(--nueva-gold);
+  background: var(--nueva-gold);
+  color: var(--nueva-deep);
+}
+
+:is(
+  .discovery-mode,
+  .filter-pill,
+  .clear-filters,
+  .media-filter,
+  .res-tab,
+  .sort-select
+):focus-visible {
+  outline: 1px solid var(--nueva-gold);
+  outline-offset: 3px;
+  box-shadow: var(--nueva-focus-ring);
+}
+
+/* Forms share one paper, line and focus treatment. */
+:is(
+  .field input,
+  .field select,
+  .field textarea,
+  .form-field input,
+  .form-field select,
+  .form-field textarea,
+  .enquiry-form input,
+  .enquiry-form select,
+  .enquiry-form textarea,
+  .footer-newsletter-field input,
+  .nueva-shortlist-field input,
+  .nueva-shortlist-field textarea
+) {
+  box-sizing: border-box;
+  border-radius: 0;
+  font-family: var(--nueva-ui);
+  font-size: 16px;
+}
+
+:is(
+  .field input,
+  .field select,
+  .field textarea,
+  .form-field input,
+  .form-field select,
+  .form-field textarea,
+  .enquiry-form input,
+  .enquiry-form select,
+  .enquiry-form textarea
+) {
+  border-color: var(--nueva-line);
+  background: rgba(250, 246, 238, 0.74);
+  color: var(--nueva-espresso);
+}
+
+:is(
+  .field input,
+  .field select,
+  .field textarea,
+  .form-field input,
+  .form-field select,
+  .form-field textarea,
+  .enquiry-form input,
+  .enquiry-form select,
+  .enquiry-form textarea,
+  .footer-newsletter-field input,
+  .nueva-shortlist-field input,
+  .nueva-shortlist-field textarea
+):focus {
+  border-color: var(--nueva-gold);
+  outline: none;
+  box-shadow: 0 1px 0 var(--nueva-gold);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--nueva-gold);
+}
+
+/* Shared surface details: hairlines rather than page-specific shadows. */
+:is(
+  .card,
+  .legal-card,
+  .quick-fact,
+  .dossier-card,
+  .form-panel,
+  .inline-cta-panel
+) {
+  border-color: var(--nueva-line);
+}
+
+.breadcrumb-bar {
+  border-color: var(--nueva-line);
+  background: rgba(250, 246, 238, 0.94);
+}
+
+.breadcrumb-list a {
+  color: var(--nueva-espresso);
+}
+
+.breadcrumb-list [aria-current="page"] {
+  color: var(--nueva-gold);
+}
+
+.cta-inner {
+  row-gap: 18px;
+}
+
+.cta-inner .btn + .btn {
+  margin-left: 12px;
+}
+
+/* Preserve icon-only controls as icons rather than turning them into CTAs. */
+:is(
+  .nueva-favorite-button,
+  .nueva-shortlist-trigger,
+  .nueva-shortlist-close,
+  .nueva-shortlist-remove,
+  .media-dialog-close,
+  .media-dialog-prev,
+  .media-dialog-next,
+  .discovery-close,
+  .nav-burger
+) {
+  font-family: var(--nueva-ui);
+}
+
+@media (max-width: 900px) {
+  :root {
+    --nueva-control-height: 52px;
+  }
+
+  .site-nav,
+  #nav {
+    min-height: 72px;
+  }
+
+  .site-nav .nav-logo img,
+  #nav .nav-logo img {
+    width: clamp(184px, 47vw, 226px);
+  }
+
+  :is(
+    .btn,
+    .project-btn,
+    .home-contact-action,
+    .dev-viewing-btn,
+    .dev-material-btn,
+    .footer-newsletter-submit,
+    .nueva-shortlist-browse,
+    .nueva-shortlist-submit,
+    .media-show-all
+  ) {
+    min-height: 52px;
+    padding-inline: 22px;
+    font-size: 10.5px;
+    letter-spacing: 0.15em;
+  }
+
+  :is(
+    .discovery-mode,
+    .filter-pill,
+    .clear-filters,
+    .media-filter,
+    .res-tab
+  ) {
+    min-height: 46px;
+    font-size: 10px;
+  }
+
+  .cta-inner .btn + .btn {
+    margin-left: 0;
+  }
+}
+
+/* Homepage mobile rhythm: every section and footer band shares one safe gutter. */
+@media (max-width: 768px) {
+  .nueva-home {
+    --nueva-home-gutter: clamp(20px, 5.5vw, 28px);
+  }
+
+  .nueva-home #nav,
+  .nueva-home .hero-content,
+  .nueva-home .home-contact-actions,
+  .nueva-home #intro,
+  .nueva-home #developments,
+  .nueva-home #why,
+  .nueva-home #areas,
+  .nueva-home #journey,
+  .nueva-home #advisory .advisory-text,
+  .nueva-home #about,
+  .nueva-home #contact,
+  .nueva-home footer {
+    padding-left: max(var(--nueva-home-gutter), env(safe-area-inset-left));
+    padding-right: max(var(--nueva-home-gutter), env(safe-area-inset-right));
+  }
+
+  .nueva-home footer > * {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nueva-home .footer-grid,
+  .nueva-home .footer-bottom,
+  .nueva-home .footer-newsletter {
+    min-width: 0;
+  }
+
+  .nueva-home .footer-copy {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+    .btn,
+    .project-btn,
+    .home-contact-action,
+    .dev-viewing-btn,
+    .dev-material-btn,
+    .footer-newsletter-submit,
+    .nueva-shortlist-browse,
+    .nueva-shortlist-submit,
+    .media-show-all,
+    .discovery-mode,
+    .filter-pill,
+    .media-filter,
+    .res-tab
+  ) {
+    transition-duration: 0.01ms;
+  }
+}
