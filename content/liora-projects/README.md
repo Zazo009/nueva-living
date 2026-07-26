@@ -39,3 +39,36 @@ For the developments listing card, add an optional `card` block:
 ```
 
 If `card.image.src` is omitted, the builder uses `assets/liora/projects/<slug>/card.jpg` when present, otherwise the hero image.
+
+## CRM property data
+
+The builder automatically syncs generated projects to the CRM when
+`CRM_WEBHOOK_SECRET` is available in the server/build environment. Add the
+project-specific fields that cannot be inferred reliably to the `crm` block:
+
+```json
+{
+  "crm": {
+    "developer": "Developer name",
+    "area": "marbella",
+    "address": "Project address",
+    "priceMin": 850000,
+    "priceMax": 1500000,
+    "currency": "EUR",
+    "bedroomsMin": 3,
+    "bedroomsMax": 5,
+    "propertyTypes": ["villa"],
+    "totalUnits": 12,
+    "availableUnits": 8,
+    "deliveryDate": "2026-06-01",
+    "constructionStatus": "off_plan",
+    "brochureUrl": "https://example.com/brochure.pdf",
+    "amenities": ["pool", "gym", "parking"]
+  }
+}
+```
+
+Allowed `area` values are `marbella`, `estepona`, `benahavis`, and `other`.
+Allowed `constructionStatus` values are `off_plan`, `under_construction`, and
+`completed`. Allowed `propertyTypes` values are `apartment`, `penthouse`,
+`villa`, and `townhouse`.
