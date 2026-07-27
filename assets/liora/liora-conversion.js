@@ -126,8 +126,9 @@
     window.dispatchEvent(new CustomEvent('nueva:track', { detail }));
   }
 
-  function whatsappUrl(message) {
-    return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  function whatsappUrl(message, number = site.whatsappNumber) {
+    const whatsappNumber = String(number || site.whatsappNumber).replace(/\D/g, '');
+    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
   }
 
   function advisorMessage(context = pageContext, intent = 'speak with an advisor') {
@@ -383,7 +384,8 @@
   document.querySelectorAll('a[data-whatsapp-advisor]').forEach((link) => {
     const context = link.dataset.project || link.dataset.context || pageContext;
     const intent = link.dataset.intent || 'speak with an advisor';
-    link.href = whatsappUrl(advisorMessage(context, intent));
+    // A named advisor can keep a direct number while the rest of the site uses the shared line.
+    link.href = whatsappUrl(advisorMessage(context, intent), link.dataset.whatsappNumber);
     link.target = '_blank';
     link.rel = 'noopener';
   });

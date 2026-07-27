@@ -473,6 +473,18 @@ img {
   grid-template-columns: minmax(300px, 0.82fr) minmax(0, 1fr);
 }
 
+.founder-section + .founder-section {
+  border-top: 1px solid var(--line);
+}
+
+.founder-layout-reverse .founder-portrait {
+  order: 2;
+}
+
+.founder-layout-reverse .founder-copy {
+  order: 1;
+}
+
 .founder-portrait {
   position: relative;
   aspect-ratio: 1293 / 1800;
@@ -1590,6 +1602,11 @@ footer {
 
   .founder-layout {
     max-width: 720px;
+  }
+
+  .founder-layout-reverse .founder-portrait,
+  .founder-layout-reverse .founder-copy {
+    order: initial;
   }
 
   .founder-portrait {
