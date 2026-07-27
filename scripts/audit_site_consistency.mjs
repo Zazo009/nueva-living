@@ -46,9 +46,16 @@ for (const name of htmlFiles) {
   const file = path.join(dist, name);
   const html = fs.readFileSync(file, 'utf8');
   const systemLinks = html.match(/assets\/liora\/nueva-system\.css\?v=[a-z0-9]+/gi) || [];
+  const trackingScripts = html.match(/assets\/liora\/nueva-tracking\.js\?v=[a-z0-9]+/gi) || [];
 
   if (systemLinks.length !== 1) {
     fail(name, `expected one versioned Nueva system stylesheet, found ${systemLinks.length}`);
+  }
+  if (trackingScripts.length !== 1) {
+    fail(name, `expected one versioned Nueva tracking script, found ${trackingScripts.length}`);
+  }
+  if (!/<head>[\s\S]*assets\/liora\/nueva-tracking\.js\?v=[a-z0-9]+[\s\S]*<\/head>/i.test(html)) {
+    fail(name, 'Nueva tracking script is not loaded from the document head');
   }
 
   const stylesheetOrder = [...html.matchAll(/<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"/gi)]

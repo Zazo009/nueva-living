@@ -3870,6 +3870,12 @@
       outline-offset: -5px;
     }
 
+    html.private-viewing-boot .home-contact-actions,
+    body.v-active .home-contact-actions,
+    body.v-transitioning .home-contact-actions {
+      display: none !important;
+    }
+
     .home-credibility {
       background: var(--sand-light);
       border-bottom: 1px solid rgba(168, 131, 74, 0.18);
@@ -3986,14 +3992,37 @@
       border-bottom: 1px solid rgba(168, 131, 74, 0.48);
     }
 
-    .mobile-conversion-bar {
-      display: none;
-    }
-
     @media (max-width: 768px) {
       .home-contact-actions {
-        top: 56px;
-        padding: 6px 10px;
+        position: fixed;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 29980;
+        padding:
+          8px max(20px, env(safe-area-inset-right))
+          max(8px, env(safe-area-inset-bottom))
+          max(20px, env(safe-area-inset-left));
+        background: rgba(250, 246, 238, 0.97);
+        border-top: 1px solid rgba(168, 131, 74, 0.24);
+        border-bottom: 0;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translate3d(0, 110%, 0);
+        transition:
+          opacity 220ms ease,
+          transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+          visibility 0s linear 260ms;
+      }
+
+      .home-contact-actions.is-mobile-visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translate3d(0, 0, 0);
+        transition-delay: 0s;
       }
 
       .home-contact-actions-inner {
@@ -4050,60 +4079,19 @@
         text-align: center;
       }
 
-      .mobile-conversion-bar {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 22000;
-        display: grid;
-        grid-template-columns: 0.86fr 1.14fr;
-        gap: 8px;
-        padding: 9px 14px max(9px, env(safe-area-inset-bottom));
-        background: rgba(47, 36, 23, 0.94);
-        border-top: 1px solid rgba(168, 131, 74, 0.34);
-        -webkit-backdrop-filter: blur(16px);
-        backdrop-filter: blur(16px);
+      body.menu-open .home-contact-actions,
+      body.v-active .home-contact-actions,
+      body.v-transitioning .home-contact-actions,
+      html.private-viewing-boot .home-contact-actions {
         opacity: 0;
         visibility: hidden;
-        transform: translateY(110%);
-        transition: opacity 220ms ease, transform 260ms ease, visibility 220ms ease;
-      }
-
-      .mobile-conversion-bar.is-visible {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-
-      .mobile-conversion-bar .btn {
-        min-height: 46px;
-        padding: 13px 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 8.5px;
-        letter-spacing: 0.14em;
-        text-align: center;
-      }
-
-      body.menu-open .mobile-conversion-bar,
-      body.v-active .mobile-conversion-bar,
-      body.v-transitioning .mobile-conversion-bar {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(110%);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .home-contact-actions {
-        top: 56px;
+        pointer-events: none;
+        transform: translate3d(0, 110%, 0);
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .mobile-conversion-bar,
+      .home-contact-actions,
       .form-preferences summary::after {
         transition: none;
       }
@@ -5913,6 +5901,56 @@
 
   <script>
   document.addEventListener('DOMContentLoaded', () => {
+  const homeContactRail = document.querySelector('.home-contact-actions');
+  const homeHero = document.getElementById('hero');
+  const homeContactSection = document.getElementById('contact');
+  const homeContactRailQuery = window.matchMedia('(max-width: 768px)');
+  let homeContactRailFrame = 0;
+
+  function updateHomeContactRail() {
+    homeContactRailFrame = 0;
+    if (!homeContactRail || !homeHero) return;
+
+    if (!homeContactRailQuery.matches) {
+      homeContactRail.classList.remove('is-mobile-visible');
+      homeContactRail.removeAttribute('aria-hidden');
+      return;
+    }
+
+    const viewingOrMenuOpen =
+      document.documentElement.classList.contains('private-viewing-boot') ||
+      document.body.classList.contains('v-active') ||
+      document.body.classList.contains('v-transitioning') ||
+      document.body.classList.contains('menu-open');
+    const heroHasPassed = homeHero.getBoundingClientRect().bottom <= 72;
+    const contactHasArrived = Boolean(
+      homeContactSection &&
+      homeContactSection.getBoundingClientRect().top <= window.innerHeight * 0.88
+    );
+    const shouldShow = heroHasPassed && !contactHasArrived && !viewingOrMenuOpen;
+
+    homeContactRail.classList.toggle('is-mobile-visible', shouldShow);
+    homeContactRail.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+  }
+
+  function scheduleHomeContactRailUpdate() {
+    if (homeContactRailFrame) return;
+    homeContactRailFrame = window.requestAnimationFrame(updateHomeContactRail);
+  }
+
+  if (homeContactRail && homeHero) {
+    // Keep this conversion rail independent of the page grid and viewing overlay.
+    window.addEventListener('scroll', scheduleHomeContactRailUpdate, { passive: true });
+    window.addEventListener('resize', scheduleHomeContactRailUpdate, { passive: true });
+    window.visualViewport?.addEventListener('resize', scheduleHomeContactRailUpdate, { passive: true });
+    homeContactRailQuery.addEventListener?.('change', scheduleHomeContactRailUpdate);
+    new MutationObserver(scheduleHomeContactRailUpdate).observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+    scheduleHomeContactRailUpdate();
+  }
+
   /* ═════════════════════════════════════════════════════════════
      MAIN SITE SETUP + ON-DEMAND PRIVATE VIEWING MOTION
   ═════════════════════════════════════════════════════════════ */

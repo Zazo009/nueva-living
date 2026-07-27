@@ -72,6 +72,20 @@ The admin sync token is separate from the CRM webhook secret. A browser admin
 must use authenticated Netlify Identity, or its backend must add the sync token
 server-side. Never place either secret in public JavaScript.
 
+## Website Tracking
+
+Every production page loads the shared `assets/liora/nueva-tracking.js` file.
+Browser events are posted to the same-origin Netlify endpoint:
+
+```text
+POST /.netlify/functions/nueva-track
+```
+
+The function forwards events to the CRM tracking API. The optional
+`CRM_TRACKING_URL` environment variable can override the default
+`https://marbella-crm.vercel.app/api/track` endpoint. No tracking secret or CRM
+credential is exposed in browser JavaScript.
+
 ## Local Preview
 
 ```bash

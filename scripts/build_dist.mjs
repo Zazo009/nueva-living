@@ -16,6 +16,7 @@ function contentVersion(relativePath) {
 }
 
 const conversionScriptPath = 'assets/liora/liora-conversion.js';
+const trackingScriptPath = 'assets/liora/nueva-tracking.js';
 const shortlistScriptPath = 'assets/liora/nueva-shortlist.js';
 const shortlistStylesheetPath = 'assets/liora/nueva-shortlist.css';
 const navInteractionsStylesheetPath = 'assets/liora/nueva-nav-interactions.css';
@@ -24,6 +25,7 @@ const systemStylesheetPath = 'assets/liora/nueva-system.css';
 const pagesStylesheetPath = 'assets/liora/liora-pages.css';
 const propertyStylesheetPath = 'assets/liora/liora-property.css';
 const conversionScriptVersion = contentVersion(conversionScriptPath);
+const trackingScriptVersion = contentVersion(trackingScriptPath);
 const shortlistScriptVersion = contentVersion(shortlistScriptPath);
 const shortlistStylesheetVersion = contentVersion(shortlistStylesheetPath);
 const navInteractionsStylesheetVersion = contentVersion(navInteractionsStylesheetPath);
@@ -228,6 +230,7 @@ const assetFiles = [
   'assets/liora/favicon-32.png',
   'assets/liora/liora-discovery.js',
   'assets/liora/liora-conversion.js',
+  'assets/liora/nueva-tracking.js',
   'assets/liora/liora-favicon-512.png',
   'assets/liora/liora-pages.css',
   'assets/liora/liora-property.css',
@@ -492,6 +495,14 @@ function injectConversion(html) {
   );
 }
 
+function injectTracking(html) {
+  if (html.includes(trackingScriptPath)) return html;
+  return html.replace(
+    /\n<\/head>/i,
+    `\n  <script src="${trackingScriptPath}?v=${trackingScriptVersion}" defer></script>\n</head>`
+  );
+}
+
 function injectShortlist(html) {
   let next = html;
   if (!next.includes(shortlistStylesheetPath)) {
@@ -609,7 +620,7 @@ function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const productionHtml = externalizeHomepageController(
-    injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectSeo(html, publicName)))))),
+    injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(injectSeo(html, publicName))))))),
     publicName
   );
   fs.writeFileSync(target, optimizeHtml(productionHtml));
@@ -676,6 +687,7 @@ For a simple static preview, deploy the contents of this dist folder.
 
 For production lead capture with Marbella CRM, deploy the repository with netlify.toml so Netlify also deploys:
 - netlify/functions/nueva-lead.js
+- netlify/functions/nueva-track.js
 
 Entry point:
 - index.html
