@@ -106,17 +106,44 @@ function renderProjectMedia(project) {
   const media = project.media;
   if (!media?.items?.length) return { section: '', dialog: '' };
 
+  const video = media.video;
+  const videoBlock = video?.desktopSrc ? `<figure class="project-media-film reveal-soft" data-project-video-shell>
+          <div class="project-media-film-frame">
+            <video
+              playsinline
+              preload="none"
+              poster="${esc(video.poster || '')}"
+              data-project-video
+              data-video-desktop="${esc(video.desktopSrc)}"
+              data-video-mobile="${esc(video.mobileSrc || video.desktopSrc)}"
+              data-poster-desktop="${esc(video.poster || '')}"
+              data-poster-mobile="${esc(video.mobilePoster || video.poster || '')}"
+              aria-label="${esc(video.alt || `${project.name} film`)}"
+            ></video>
+            <button type="button" class="project-media-film-play" data-project-video-play aria-label="Play ${esc(video.title || `${project.name} film`)}">
+              <span class="project-media-film-play-icon" aria-hidden="true"></span>
+              <span>Play film</span>
+            </button>
+          </div>
+          <figcaption>
+            <span>Film</span>
+            <strong>${esc(video.title || '')}</strong>
+            <p>${esc(video.caption || '')}</p>
+          </figcaption>
+        </figure>` : '';
+
   const categories = [...new Set(media.items.map((item) => item.category).filter(Boolean))];
   const cards = categories.map((category) => {
     const categoryItems = media.items.filter((item) => item.category === category);
     const item = categoryItems[0];
     const count = categoryItems.length;
-    return `<button type="button" class="project-media-card project-media-card--category" data-media-category="${esc(category)}" aria-label="View ${count} images in ${esc(category)}">
+    const imageLabel = `${count} ${count === 1 ? 'image' : 'images'}`;
+    return `<button type="button" class="project-media-card project-media-card--category" data-media-category="${esc(category)}" aria-label="View ${imageLabel} in ${esc(category)}">
               ${imageTag(item, '', 'lazy')}
               <span class="project-media-caption">
                 <small>${esc(category)}</small>
                 <strong>${esc(item.caption || '')}</strong>
-                <span class="project-media-card-cta">View ${count} images <span aria-hidden="true">&#8594;</span></span>
+                <span class="project-media-card-cta">View ${imageLabel} <span aria-hidden="true">&#8594;</span></span>
               </span>
             </button>`;
   }).join('\n            ');
@@ -144,6 +171,7 @@ function renderProjectMedia(project) {
           <p class="project-lead">${esc(media.copy)}</p>
         </div>
         ${facts ? `<div class="media-facts reveal-soft">${facts}</div>` : ''}
+        ${videoBlock}
         <div class="project-media-grid project-media-grid--categories" data-media-grid>
           ${cards}
         </div>

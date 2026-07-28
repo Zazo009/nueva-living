@@ -202,6 +202,60 @@
     });
   }
 
+  const projectVideo = document.querySelector('[data-project-video]');
+  const projectVideoShell = document.querySelector('[data-project-video-shell]');
+  const projectVideoPlay = document.querySelector('[data-project-video-play]');
+
+  if (projectVideo && projectVideoShell && projectVideoPlay) {
+    const mobileVideo = window.matchMedia('(max-width: 640px) and (orientation: portrait)');
+    const selectedVideoSource = () => (
+      mobileVideo.matches
+        ? projectVideo.dataset.videoMobile
+        : projectVideo.dataset.videoDesktop
+    );
+
+    const selectedPoster = () => (
+      mobileVideo.matches
+        ? projectVideo.dataset.posterMobile
+        : projectVideo.dataset.posterDesktop
+    );
+
+    const updatePoster = () => {
+      if (projectVideo.currentSrc || projectVideo.src) return;
+      projectVideo.poster = selectedPoster() || '';
+    };
+
+    const playProjectVideo = async () => {
+      // Keep the sizeable film entirely out of the request chain until the visitor chooses to play it.
+      if (!projectVideo.src) {
+        projectVideo.src = selectedVideoSource() || '';
+        projectVideo.load();
+      }
+
+      projectVideo.controls = true;
+      projectVideoShell.classList.add('is-loading');
+      try {
+        await projectVideo.play();
+      } catch (error) {
+        projectVideoShell.classList.remove('is-loading');
+        projectVideoShell.classList.add('has-video-error');
+        console.warn('The project film could not be started.', error);
+      }
+    };
+
+    projectVideoPlay.addEventListener('click', playProjectVideo);
+    projectVideo.addEventListener('playing', () => {
+      projectVideoShell.classList.remove('is-loading', 'has-video-error');
+      projectVideoShell.classList.add('is-playing');
+    });
+    projectVideo.addEventListener('error', () => {
+      projectVideoShell.classList.remove('is-loading');
+      projectVideoShell.classList.add('has-video-error');
+    });
+    mobileVideo.addEventListener?.('change', updatePoster);
+    updatePoster();
+  }
+
   const mediaDialog = document.getElementById('projectMediaDialog');
   const mediaGrid = document.querySelector('[data-media-grid]');
 
