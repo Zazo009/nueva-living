@@ -219,12 +219,15 @@ function renderAvailabilityRelease(project) {
   const units = availability.units || [];
   if (!units.length) return '';
 
+  const hasFloorplans = units.some((unit) => unit.floorplan);
+
   const rows = units.map((unit) => `<tr>
                 <td data-label="Reference"><strong>${esc(unit.reference)}</strong></td>
                 <td data-label="Floor">${esc(unit.floor)}</td>
                 <td data-label="Bedrooms">${esc(unit.bedrooms)}</td>
                 <td data-label="Price"><strong>${esc(unit.price)}</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>
+                <td data-label="Status"><span class="availability-status">Available</span></td>${hasFloorplans ? `
+                <td data-label="Floorplan">${unit.floorplan ? `<a class="availability-floorplan-link" href="${esc(unit.floorplan)}" target="_blank" rel="noopener">View PDF</a>` : ''}</td>` : ''}
               </tr>`).join('\n              ');
 
   return `<div class="availability-release reveal-soft">
@@ -242,7 +245,7 @@ function renderAvailabilityRelease(project) {
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Available homes at ${esc(project.name)}</caption>
-                <thead><tr><th scope="col">Reference</th><th scope="col">Floor</th><th scope="col">Bedrooms</th><th scope="col">Price</th><th scope="col">Status</th></tr></thead>
+                <thead><tr><th scope="col">Reference</th><th scope="col">Floor</th><th scope="col">Bedrooms</th><th scope="col">Price</th><th scope="col">Status</th>${hasFloorplans ? '<th scope="col">Floorplan</th>' : ''}</tr></thead>
                 <tbody>
               ${rows}
                 </tbody>
