@@ -1117,7 +1117,7 @@ const CANCELADA_MAP_FIX = `  <style>
       letter-spacing: 0.18em;
     }
 
-    .property-location-map--cancelada-corrected figcaption {
+    .property-location-map--cancelada-corrected .cancelada-map-note {
       margin-top: 1rem;
       color: rgba(74, 59, 40, 0.62);
       font-size: 0.82rem;
@@ -1160,15 +1160,15 @@ const CANCELADA_MAP_FIX = `  <style>
         '<path d="M110 276 C275 238 430 244 590 216 C780 182 945 168 1115 118" fill="none" stroke="#cfc3b0" stroke-width="6" stroke-linecap="round" stroke-dasharray="16 16"></path>',
         '<text x="150" y="252" class="map-label map-label--gold">AP-7</text>',
         '<path d="M105 422 C245 388 390 402 535 374 C695 344 845 324 1098 268" fill="none" stroke="#cbb895" stroke-width="8" stroke-linecap="round"></path>',
-        '<text x="145" y="410" class="map-label map-label--gold">A-7 COAST ROAD</text>',
+        '<text x="145" y="370" class="map-label map-label--gold">A-7 COAST ROAD</text>',
         '<path d="M430 382 C462 370 494 360 536 346" stroke="#a8834a" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 12" fill="none"></path>',
         '<circle cx="430" cy="382" r="8" fill="#2f2417"></circle>',
         '<g transform="translate(540 344)"><circle r="52" fill="#faf6ee" stroke="#a8834a" stroke-width="2"></circle><circle r="8" fill="#a8834a"></circle><line x1="0" y1="52" x2="-24" y2="138" stroke="#cbb895" stroke-width="2"></line></g>',
         '<text x="540" y="438" class="map-title" text-anchor="middle">CANCELADA</text>',
         '<text x="540" y="468" class="map-title" text-anchor="middle">NEW GOLDEN MILE</text>',
         '<circle cx="265" cy="430" r="6" fill="#8d8375"></circle><text x="245" y="424" class="map-label" text-anchor="end">ESTEPONA</text>',
-        '<circle cx="700" cy="330" r="6" fill="#8d8375"></circle><text x="718" y="337" class="map-label">PUERTO BANUS</text>',
-        '<circle cx="815" cy="306" r="6" fill="#8d8375"></circle><text x="832" y="313" class="map-label">MARBELLA CENTRE</text>',
+        '<circle cx="700" cy="330" r="6" fill="#8d8375"></circle><text x="718" y="300" class="map-label">PUERTO BANUS</text>',
+        '<circle cx="815" cy="306" r="6" fill="#8d8375"></circle><text x="832" y="345" class="map-label">MARBELLA CENTRE</text>',
         '<circle cx="1080" cy="178" r="6" fill="#8d8375"></circle><text x="1098" y="185" class="map-label">MALAGA AIRPORT</text>',
         '<circle cx="602" cy="278" r="5" fill="#8d8375"></circle><text x="578" y="284" class="map-label" text-anchor="end">GOLF</text>',
         '<circle cx="555" cy="525" r="6" fill="#faf6ee" stroke="#8d8375" stroke-width="4"></circle><text x="580" y="533" class="map-label">BEACH ACCESS</text>',
@@ -1176,12 +1176,13 @@ const CANCELADA_MAP_FIX = `  <style>
         '<text x="70" y="112" class="map-label map-label--gold">INDICATIVE LOCATION</text>'
       ].join('');
 
-      var figure = map.closest('figure');
-      if (figure) {
-        figure.classList.add('property-location-map--cancelada-corrected');
-        var caption = figure.querySelector('figcaption') || document.createElement('figcaption');
-        caption.textContent = 'Indicative location. Exact project position and viewing details are confirmed privately.';
-        if (!caption.parentNode) figure.appendChild(caption);
+      var card = map.closest('.location-map-card');
+      if (card) {
+        card.classList.add('property-location-map--cancelada-corrected');
+        var note = card.querySelector('.cancelada-map-note') || document.createElement('p');
+        note.className = 'cancelada-map-note';
+        note.textContent = 'Indicative location. Exact project position and viewing details are confirmed privately.';
+        if (!note.parentNode) card.appendChild(note);
       }
     }());
   </script>
