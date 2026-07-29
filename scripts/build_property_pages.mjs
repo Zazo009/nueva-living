@@ -1142,7 +1142,7 @@ const CANCELADA_MAP_FIX = `  <style>
 
       var maps = section.querySelectorAll('svg');
       var map = Array.prototype.find.call(maps, function (node) {
-        return /CANCELADA|NEW GOLDEN MILE|INDICATIVE LOCATION/.test(node.textContent || node.getAttribute('aria-label') || '');
+        return /CANCELADA|NEW GOLDEN MILE|INDICATIVE LOCATION/i.test(node.textContent || node.getAttribute('aria-label') || '');
       });
 
       if (!map || map.dataset.canceladaCorrected === 'true') return;
