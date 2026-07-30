@@ -4585,7 +4585,7 @@
     #journey .journey-card p {
       max-width: 42ch;
       margin: 0;
-      color: rgba(74, 59, 40, 0.72);
+      color: rgba(74, 59, 40, 0.84);
       font-size: 13.5px;
       line-height: 1.68;
     }
@@ -7775,12 +7775,19 @@
   if (window.lioraUpdateNavScroll) window.lioraUpdateNavScroll();
 
   function scrollToMainTarget(target) {
-    const distance = Math.abs(target.getBoundingClientRect().top);
+    const initialRectTop = target.getBoundingClientRect().top;
+    const distance = Math.abs(initialRectTop);
     const isLongJump = distance > window.innerHeight * 2;
     const margin = Number.parseFloat(window.getComputedStyle(target).scrollMarginTop) || 0;
 
+    // The first call can reuse the rect read above (nothing writes to the DOM
+    // in between), but later corrective calls run after a real-frame or
+    // setTimeout gap where layout may have changed, so they read fresh.
+    let cachedRectTop = initialRectTop;
     const placeTarget = behavior => {
-      const top = target.getBoundingClientRect().top + window.scrollY - margin;
+      const rectTop = cachedRectTop !== null ? cachedRectTop : target.getBoundingClientRect().top;
+      cachedRectTop = null;
+      const top = rectTop + window.scrollY - margin;
       if (behavior === 'auto') {
         const root = document.documentElement;
         const previousBehavior = root.style.scrollBehavior;

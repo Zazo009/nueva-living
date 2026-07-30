@@ -183,7 +183,10 @@ h6,
 ) {
   border-color: var(--nueva-gold);
   background: var(--nueva-gold);
-  color: var(--nueva-deep);
+  /* Darker than --nueva-deep: gold-on-deep only hits 4.34:1, just under
+     WCAG AA's 4.5:1 for normal-size text. This shade clears it (5.26:1)
+     without changing the brand gold. */
+  color: #1a130b;
 }
 
 :is(

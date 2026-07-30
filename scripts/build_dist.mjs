@@ -508,7 +508,7 @@ function injectShortlist(html) {
   if (!next.includes(shortlistStylesheetPath)) {
     next = next.replace(
       /\n<\/head>/i,
-      `\n  <link rel="stylesheet" href="${shortlistStylesheetPath}?v=${shortlistStylesheetVersion}">\n</head>`
+      `\n  <link rel="stylesheet" href="${shortlistStylesheetPath}?v=${shortlistStylesheetVersion}" media="print" onload="this.media='all'">\n  <noscript><link rel="stylesheet" href="${shortlistStylesheetPath}?v=${shortlistStylesheetVersion}"></noscript>\n</head>`
     );
   }
   if (!next.includes(shortlistScriptPath)) {
@@ -524,7 +524,7 @@ function injectNavInteractions(html) {
   if (html.includes(navInteractionsStylesheetPath)) return html;
   return html.replace(
     /\n<\/head>/i,
-    `\n  <link rel="stylesheet" href="${navInteractionsStylesheetPath}?v=${navInteractionsStylesheetVersion}">\n</head>`
+    `\n  <link rel="stylesheet" href="${navInteractionsStylesheetPath}?v=${navInteractionsStylesheetVersion}" media="print" onload="this.media='all'">\n  <noscript><link rel="stylesheet" href="${navInteractionsStylesheetPath}?v=${navInteractionsStylesheetVersion}"></noscript>\n</head>`
   );
 }
 
@@ -578,7 +578,7 @@ function injectNewsletter(html) {
   if (!next.includes(newsletterStylesheetPath)) {
     next = next.replace(
       /\n<\/head>/i,
-      `\n  <link rel="stylesheet" href="${newsletterStylesheetPath}?v=${newsletterStylesheetVersion}">\n</head>`
+      `\n  <link rel="stylesheet" href="${newsletterStylesheetPath}?v=${newsletterStylesheetVersion}" media="print" onload="this.media='all'">\n  <noscript><link rel="stylesheet" href="${newsletterStylesheetPath}?v=${newsletterStylesheetVersion}"></noscript>\n</head>`
     );
   }
   if (!next.includes('data-newsletter-form') && /<footer(?:\s[^>]*)?>/i.test(next)) {
@@ -594,6 +594,71 @@ function injectNewsletter(html) {
   return next;
 }
 
+// Conservative, dependency-free JS minifier: strips comments and collapses
+// whitespace while tracking string/template-literal state so nothing inside
+// quotes is ever touched. Does not attempt regex-literal detection -- safe
+// for this codebase today (verified no regex literals in the homepage
+// controller), but a future edit that adds one should re-check this.
+function minifyJs(js) {
+  let output = '';
+  let quote = '';
+  let lineHasContent = false;
+
+  for (let index = 0; index < js.length; index += 1) {
+    const char = js[index];
+    const next = js[index + 1];
+
+    if (quote) {
+      output += char;
+      if (char === '\\') {
+        output += next || '';
+        index += 1;
+      } else if (char === quote) {
+        quote = '';
+      }
+      continue;
+    }
+
+    if (char === '"' || char === "'" || char === '`') {
+      quote = char;
+      output += char;
+      lineHasContent = true;
+      continue;
+    }
+
+    if (char === '/' && next === '/') {
+      const end = js.indexOf('\n', index + 2);
+      index = end === -1 ? js.length : end - 1;
+      continue;
+    }
+
+    if (char === '/' && next === '*') {
+      const end = js.indexOf('*/', index + 2);
+      index = end === -1 ? js.length : end + 1;
+      continue;
+    }
+
+    if (char === '\n') {
+      if (lineHasContent) output += '\n';
+      lineHasContent = false;
+      continue;
+    }
+
+    if (char === ' ' || char === '\t') {
+      let cursor = index + 1;
+      while (cursor < js.length && (js[cursor] === ' ' || js[cursor] === '\t')) cursor += 1;
+      if (lineHasContent && cursor < js.length && js[cursor] !== '\n') output += ' ';
+      index = cursor - 1;
+      continue;
+    }
+
+    output += char;
+    lineHasContent = true;
+  }
+
+  return output.trim();
+}
+
 function externalizeHomepageController(html, publicName) {
   if (publicName !== 'index.html') return html;
 
@@ -601,7 +666,7 @@ function externalizeHomepageController(html, publicName) {
   const match = html.match(controllerPattern);
   if (!match) throw new Error('Homepage controller script was not found');
 
-  const controller = `${match[1].trim()}\n`;
+  const controller = `${minifyJs(match[1].trim())}\n`;
   const controllerVersion = createHash('sha256')
     .update(controller)
     .digest('hex')
