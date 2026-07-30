@@ -513,8 +513,8 @@ function renderProject(project) {
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
   const privateHref = project.privateViewing?.href || 'index.html?private-viewing=1';
-  const privateHeroCta = project.privateViewing?.heroCta || 'Book Cinematic Presentation';
-  const privateCta = project.privateViewing?.ctaLabel || 'Enter Cinematic Presentation';
+  const privateHeroCta = project.privateViewing?.heroCta || 'Cinematic Presentation';
+  const privateCta = project.privateViewing?.ctaLabel || 'Cinematic Presentation';
   const projectMedia = renderProjectMedia(project);
   const availabilityRelease = renderAvailabilityRelease(project);
   const hasPublishedAvailability = Boolean(project.availability?.units?.length);
