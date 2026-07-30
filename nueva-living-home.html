@@ -5739,14 +5739,14 @@
        PRIVATE VIEWING — cinematic walkthrough
   ══════════════════════════════════════════════════════ -->
   <div id="vox" role="dialog" aria-modal="true"
-       aria-label="Private Viewing — Nueva Living">
+       aria-label="Cinematic Presentation — Nueva Living">
 
     <!-- Gold progress line -->
     <div id="vprog"><div id="vprog-fill"></div></div>
 
     <!-- Top bar -->
     <div id="vtop">
-      <div class="vbrand">Nueva Living · Private Viewing</div>
+      <div class="vbrand">Nueva Living · Cinematic Presentation</div>
       <div class="vscene-id"><em id="vsid">01</em> / <span id="vtotal">20</span></div>
       <div class="vactions">
         <button id="vmode" type="button" aria-label="Pause guided viewing">
@@ -7068,7 +7068,7 @@
 
   function vApplyViewingProjectChrome(project = VIEWING_PROJECT) {
     const firstScene = VIEWING_SCENES[0];
-    if (voxEl) voxEl.setAttribute('aria-label', `Private Viewing — ${project.name}`);
+    if (voxEl) voxEl.setAttribute('aria-label', `Cinematic Presentation — ${project.name}`);
     if (vinfoTitle) vinfoTitle.textContent = project.name;
     if (vinfoLocation) vinfoLocation.textContent = project.location;
     if (vProjectMark) vProjectMark.textContent = `${project.name} · ${project.location} · New Development Preview`;

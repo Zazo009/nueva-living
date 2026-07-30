@@ -513,8 +513,8 @@ function renderProject(project) {
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
   const privateHref = project.privateViewing?.href || 'index.html?private-viewing=1';
-  const privateHeroCta = project.privateViewing?.heroCta || 'Book Private Viewing';
-  const privateCta = project.privateViewing?.ctaLabel || 'Enter Private Viewing';
+  const privateHeroCta = project.privateViewing?.heroCta || 'Book Cinematic Presentation';
+  const privateCta = project.privateViewing?.ctaLabel || 'Enter Cinematic Presentation';
   const projectMedia = renderProjectMedia(project);
   const availabilityRelease = renderAvailabilityRelease(project);
   const hasPublishedAvailability = Boolean(project.availability?.units?.length);
@@ -654,7 +654,7 @@ ${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}   
         <a href="#why-this-project">Why</a>
         <a href="#architecture">Architecture</a>
         <a href="#project-file">Project Info</a>
-        <a href="#private-viewing">Private Viewing</a>
+        <a href="#private-viewing">Cinematic Presentation</a>
         <a href="#lifestyle">Lifestyle</a>
         <a href="#investment">Investment</a>
         <a href="#project-dossier">What to Know</a>
@@ -806,7 +806,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
         <div class="cinema-cta reveal-soft">
           ${imageTag(privateImage)}
           <div class="cinema-copy">
-            <span class="section-kicker">Private Viewing</span>
+            <span class="section-kicker">Cinematic Presentation</span>
             <div class="rule"></div>
             <h2 class="section-headline">${project.privateViewing.headlineHtml}</h2>
             <p>${esc(project.privateViewing.copy)}</p>
