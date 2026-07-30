@@ -373,7 +373,7 @@ function renderDiscoveryTags(tags = []) {
   return normaliseCardList(tags).slice(0, 5).map((tag) => `<span>${esc(tag)}</span>`).join('');
 }
 
-function renderDocumentRows(items = [], hasPublishedAvailability = false) {
+function renderDocumentRows(items = [], hasPublishedAvailability = false, hasFloorplans = false) {
   return items.map(([title, body, action], index) => `<article class="document-row reveal-soft">
             <div class="document-index">${String(index + 1).padStart(2, '0')}</div>
             <div>
@@ -382,6 +382,8 @@ function renderDocumentRows(items = [], hasPublishedAvailability = false) {
             </div>
             ${hasPublishedAvailability && /availability/i.test(action || '')
               ? '<a href="#availability">Open Current Release</a>'
+              : hasFloorplans && /floorplan/i.test(action || '')
+              ? '<a href="#availability">View Floorplans</a>'
               : `<a href="#enquire" data-prefill>${esc(action || 'Request')}</a>`}
           </article>`).join('\n          ');
 }
@@ -516,6 +518,7 @@ function renderProject(project) {
   const projectMedia = renderProjectMedia(project);
   const availabilityRelease = renderAvailabilityRelease(project);
   const hasPublishedAvailability = Boolean(project.availability?.units?.length);
+  const hasFloorplans = Boolean(project.availability?.units?.some((unit) => unit.floorplan));
   const availabilityBrowseAction = hasPublishedAvailability
     ? actionLink('View Available Homes', '#availability')
     : actionLink('Request Availability');
@@ -699,7 +702,9 @@ ${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section cla
               ${pairs(item.meta)}
             </div>
             ${featureList(item.features)}
-            <a class="btn ghost project-btn" href="#enquire" data-prefill>Request Floorplans</a>
+            ${hasFloorplans
+              ? '<a class="btn ghost project-btn" href="#availability">View Floorplans</a>'
+              : '<a class="btn ghost project-btn" href="#enquire" data-prefill>Request Floorplans</a>'}
           </article>`).join('\n          ')}
         </div>
         <div class="inline-cta-panel reveal-soft">
@@ -708,7 +713,7 @@ ${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section cla
             <p>Current layouts, view positions and unit availability should be reviewed against the latest developer file before shortlisting.</p>
           </div>
           <div class="inline-cta-actions">
-${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}            ${ghostAction('View Floorplans')}
+${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}            ${ghostAction('View Floorplans', hasFloorplans ? '#availability' : '#enquire')}
           </div>
         </div>
       </div>
@@ -791,7 +796,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
           ${projectFile.image.caption ? `<figcaption>${esc(projectFile.image.caption)}</figcaption>` : ''}
         </figure>` : ''}
         <div class="document-center">
-          ${renderDocumentRows(projectFile.documents, hasPublishedAvailability)}
+          ${renderDocumentRows(projectFile.documents, hasPublishedAvailability, hasFloorplans)}
         </div>
       </div>
     </section>
