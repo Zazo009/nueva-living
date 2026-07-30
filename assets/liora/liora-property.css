@@ -1183,6 +1183,11 @@ body {
   letter-spacing: 0.2em;
   list-style: none;
   text-transform: uppercase;
+  transition: background 220ms ease;
+}
+
+.availability-disclosure summary:hover {
+  background: rgba(168, 131, 74, 0.06);
 }
 
 .availability-disclosure summary::-webkit-details-marker {
@@ -1190,16 +1195,47 @@ body {
 }
 
 .availability-summary-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(168, 131, 74, 0.38);
+  border-radius: 50%;
   color: var(--bronze);
   font-family: var(--body-font);
-  font-size: 25px;
+  font-size: 17px;
   font-weight: 300;
   line-height: 1;
-  transition: transform 220ms ease;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.availability-disclosure summary:hover .availability-summary-icon {
+  border-color: rgba(168, 131, 74, 0.72);
+  background: rgba(168, 131, 74, 0.08);
 }
 
 .availability-disclosure[open] .availability-summary-icon {
   transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .availability-release.in .availability-summary-icon {
+    animation: availability-icon-attention 1.6s ease-in-out 0.5s 2;
+  }
+}
+
+@keyframes availability-icon-attention {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(168, 131, 74, 0.32);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(168, 131, 74, 0);
+    transform: scale(1.12);
+  }
 }
 
 .availability-table-wrap {
