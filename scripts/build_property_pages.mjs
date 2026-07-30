@@ -645,9 +645,9 @@ ${JSON.stringify(agentSchema, null, 2)}
     <nav class="project-nav" aria-label="Project sections">
       <div class="project-nav-inner">
         <a href="#overview">Overview</a>
-        <a href="#residences">Residences</a>
+${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}        <a href="#residences">Residences</a>
         <a href="#availability">Availability</a>
-${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}        <a href="#location">Location</a>
+        <a href="#location">Location</a>
         <a href="#why-this-project">Why</a>
         <a href="#architecture">Architecture</a>
         <a href="#project-file">Project Info</a>
@@ -684,7 +684,7 @@ ${hasPublishedAvailability ? '' : `          ${availabilityBrowseAction}\n`}    
       </div>
     </section>
 
-    <section class="project-section" id="residences">
+${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section class="project-section" id="residences">
       <div class="project-inner">
         <div class="reveal-soft">
           <span class="section-kicker">Residences</span>
@@ -731,7 +731,6 @@ ${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}  
 ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
     </section>
 
-${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}
     <section class="project-section" id="location">
       <div class="project-inner location-layout">
         <div class="reveal-soft">
