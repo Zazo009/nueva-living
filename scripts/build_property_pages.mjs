@@ -1107,14 +1107,14 @@ const CANCELADA_MAP_FIX = `  <style>
 
     .cancelada-map-svg--corrected .map-title {
       fill: #a8834a;
-      font-family: var(--font-heading, Cormorant, serif);
+      font-family: var(--font-heading, "Cinzel", Georgia, serif);
       font-size: 30px;
       letter-spacing: 0.12em;
     }
 
     .cancelada-map-svg--corrected .map-sea {
       fill: rgba(74, 59, 40, 0.34);
-      font-family: var(--font-heading, Cormorant, serif);
+      font-family: var(--font-heading, "Cinzel", Georgia, serif);
       font-size: 34px;
       letter-spacing: 0.18em;
     }
