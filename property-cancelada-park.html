@@ -996,4 +996,126 @@
         </ul>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Contac
+        <div class="footer-col-title">Contact</div>
+        <ul>
+          <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
+          <li><a href="area-marbella.html">Marbella, Spain</a></li>
+        </ul>
+        <div class="footer-col-title" style="margin-top:24px;">Legal</div>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="legal-notice.html">Legal Notice</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Information presented on this website is for general marketing purposes only and does not constitute legal, financial or investment advice. Development details, prices, availability and delivery dates are subject to change without notice.</p>
+      <span>&copy; 2026 Nueva Living &middot; LIORA LIVING SL. &middot; NIF B88827472</span>
+    </div>
+  </footer>
+  <style>
+    .cancelada-map-svg--corrected {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #faf6ee;
+      border: 1px solid rgba(74, 59, 40, 0.16);
+    }
+
+    .cancelada-map-svg--corrected .map-label {
+      fill: #6f665a;
+      font-family: var(--font-accent, Cinzel, serif);
+      font-size: 22px;
+      letter-spacing: 0.14em;
+    }
+
+    .cancelada-map-svg--corrected .map-label--gold {
+      fill: #a8834a;
+    }
+
+    .cancelada-map-svg--corrected .map-title {
+      fill: #a8834a;
+      font-family: var(--font-heading, Cormorant, serif);
+      font-size: 30px;
+      letter-spacing: 0.12em;
+    }
+
+    .cancelada-map-svg--corrected .map-sea {
+      fill: rgba(74, 59, 40, 0.34);
+      font-family: var(--font-heading, Cormorant, serif);
+      font-size: 34px;
+      letter-spacing: 0.18em;
+    }
+
+    .property-location-map--cancelada-corrected .cancelada-map-note {
+      margin-top: 1rem;
+      color: rgba(74, 59, 40, 0.62);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 720px) {
+      .cancelada-map-svg--corrected .map-label {
+        font-size: 26px;
+      }
+
+      .cancelada-map-svg--corrected .map-title {
+        font-size: 34px;
+      }
+    }
+  </style>
+  <script>
+    (function () {
+      var section = document.getElementById('location');
+      if (!section) return;
+
+      var maps = section.querySelectorAll('svg');
+      var map = Array.prototype.find.call(maps, function (node) {
+        return /CANCELADA|NEW GOLDEN MILE|INDICATIVE LOCATION/i.test(node.textContent || node.getAttribute('aria-label') || '');
+      });
+
+      if (!map || map.dataset.canceladaCorrected === 'true') return;
+
+      map.dataset.canceladaCorrected = 'true';
+      map.classList.add('cancelada-map-svg--corrected');
+      map.setAttribute('viewBox', '0 0 1200 820');
+      map.setAttribute('role', 'img');
+      map.setAttribute('aria-labelledby', 'cancelada-map-title cancelada-map-desc');
+      map.innerHTML = [
+        '<title id="cancelada-map-title">Cancelada on the New Golden Mile</title>',
+        '<desc id="cancelada-map-desc">Cancelada sits on the New Golden Mile, west of Puerto Banus and Marbella centre, with Malaga Airport further east.</desc>',
+        '<rect width="1200" height="820" fill="#f7f1e7"></rect>',
+        '<path d="M0 560 C180 520 330 548 470 512 C650 466 810 486 1010 420 C1090 395 1150 370 1200 340 L1200 820 L0 820 Z" fill="#e8dfcd" opacity=".72"></path>',
+        '<path d="M110 276 C275 238 430 244 590 216 C780 182 945 168 1115 118" fill="none" stroke="#cfc3b0" stroke-width="6" stroke-linecap="round" stroke-dasharray="16 16"></path>',
+        '<text x="150" y="252" class="map-label map-label--gold">AP-7</text>',
+        '<path d="M105 422 C245 388 390 402 535 374 C695 344 845 324 1098 268" fill="none" stroke="#cbb895" stroke-width="8" stroke-linecap="round"></path>',
+        '<text x="145" y="370" class="map-label map-label--gold">A-7 COAST ROAD</text>',
+        '<path d="M430 382 C462 370 494 360 536 346" stroke="#a8834a" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 12" fill="none"></path>',
+        '<circle cx="430" cy="382" r="8" fill="#2f2417"></circle>',
+        '<g transform="translate(540 344)"><circle r="52" fill="#faf6ee" stroke="#a8834a" stroke-width="2"></circle><circle r="8" fill="#a8834a"></circle><line x1="0" y1="52" x2="-24" y2="138" stroke="#cbb895" stroke-width="2"></line></g>',
+        '<text x="540" y="438" class="map-title" text-anchor="middle">CANCELADA</text>',
+        '<text x="540" y="468" class="map-title" text-anchor="middle">NEW GOLDEN MILE</text>',
+        '<circle cx="265" cy="430" r="6" fill="#8d8375"></circle><text x="245" y="424" class="map-label" text-anchor="end">ESTEPONA</text>',
+        '<circle cx="700" cy="330" r="6" fill="#8d8375"></circle><text x="718" y="300" class="map-label">PUERTO BANUS</text>',
+        '<circle cx="815" cy="306" r="6" fill="#8d8375"></circle><text x="832" y="345" class="map-label">MARBELLA CENTRE</text>',
+        '<circle cx="1080" cy="178" r="6" fill="#8d8375"></circle><text x="1098" y="185" class="map-label">MALAGA AIRPORT</text>',
+        '<circle cx="602" cy="278" r="5" fill="#8d8375"></circle><text x="578" y="284" class="map-label" text-anchor="end">GOLF</text>',
+        '<circle cx="555" cy="525" r="6" fill="#faf6ee" stroke="#8d8375" stroke-width="4"></circle><text x="580" y="533" class="map-label">BEACH ACCESS</text>',
+        '<text x="180" y="660" class="map-sea">MEDITERRANEAN SEA</text>',
+        '<text x="70" y="112" class="map-label map-label--gold">INDICATIVE LOCATION</text>'
+      ].join('');
+
+      var card = map.closest('.location-map-card');
+      if (card) {
+        card.classList.add('property-location-map--cancelada-corrected');
+        var note = card.querySelector('.cancelada-map-note') || document.createElement('p');
+        note.className = 'cancelada-map-note';
+        note.textContent = 'Indicative location. Exact project position and viewing details are confirmed privately.';
+        if (!note.parentNode) card.appendChild(note);
+      }
+    }());
+  </script>
+</body>
+</html>
