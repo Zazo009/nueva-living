@@ -267,14 +267,58 @@ function mapLabelLines(html = 'Project<br>Area') {
     .slice(0, 2);
 }
 
+// Indicative Costa del Sol positions, west to east, tuned against the
+// coast/road paths below (which already span the full canvas). Not
+// geodetically precise -- this is a stylised orientation map, not a
+// survey -- but the relative order and spacing is real, so a project's
+// marker actually lands on the correct side of its neighbours instead of
+// every project sharing one hardcoded position (see history of this file
+// for the Cancelada Park bug this replaces).
+const MAP_LANDMARKS = {
+  estepona: { x: 150, y: 295, label: 'Estepona' },
+  newGoldenMile: { x: 310, y: 278, label: 'New Golden Mile' },
+  sanPedro: { x: 420, y: 268, label: 'San Pedro' },
+  benahavis: { x: 460, y: 145, label: 'Benahávis' },
+  puertoBanus: { x: 560, y: 255, label: 'Puerto Banús' },
+  nuevaAndalucia: { x: 600, y: 165, label: 'Nueva Andalucía' },
+  goldenMile: { x: 680, y: 233, label: 'Golden Mile' },
+  marbellaCentre: { x: 800, y: 218, label: 'Marbella Centre' },
+  marbellaEast: { x: 950, y: 195, label: 'Marbella East' },
+  malagaAirport: { x: 1080, y: 165, label: 'Málaga Airport' }
+};
+
+// Context landmarks shown on every map for orientation, unless the
+// project's own marker sits on (or very close to) one of them.
+const MAP_CONTEXT_ORDER = ['estepona', 'puertoBanus', 'marbellaCentre', 'malagaAirport'];
+
+function resolveMapArea(project) {
+  const key = project.location?.mapArea;
+  if (key && MAP_LANDMARKS[key]) return key;
+  return 'marbellaCentre';
+}
+
 function locationMap(project) {
   const [mapLineOne = project.name, mapLineTwo = project.hero?.location || 'Costa del Sol'] = mapLabelLines(project.location?.mapLabelHtml);
   const titleId = `${project.slug}-map-title`;
   const descId = `${project.slug}-map-desc`;
+
+  const areaKey = resolveMapArea(project);
+  const marker = MAP_LANDMARKS[areaKey];
+  const context = MAP_CONTEXT_ORDER.filter((key) => key !== areaKey).slice(0, 3);
+  const contextNodes = context.map((key, index) => {
+    const point = MAP_LANDMARKS[key];
+    const muted = index !== 0;
+    const anchorEnd = point.x > marker.x;
+    return `<g class="map-node${muted ? ' map-node-muted' : ''}" transform="translate(${point.x} ${point.y})">
+                <circle r="${muted ? 5 : 6}"/>
+                <text x="${anchorEnd ? -12 : 16}" y="${muted ? 4 : -18}"${anchorEnd ? ' text-anchor="end"' : ''}>${esc(point.label)}</text>
+              </g>`;
+  }).join('\n              ');
+
   return `<div class="location-map-card">
-            <svg class="location-map-svg" viewBox="0 0 760 520" role="img" aria-labelledby="${esc(titleId)} ${esc(descId)}" focusable="false">
+            <svg class="location-map-svg" viewBox="0 0 1200 620" role="img" aria-labelledby="${esc(titleId)} ${esc(descId)}" focusable="false">
               <title id="${esc(titleId)}">${esc(project.name)} location map</title>
-              <desc id="${esc(descId)}">Indicative map showing ${esc(project.name)} in ${esc(project.hero?.location || project.location?.mapLabelHtml || 'Costa del Sol')}, close to the coast, Marbella Centre, Puerto Banús, golf and Málaga Airport.</desc>
+              <desc id="${esc(descId)}">Indicative map showing ${esc(project.name)} in ${esc(project.hero?.location || project.location?.mapLabelHtml || 'Costa del Sol')}, relative to ${context.map((key) => esc(MAP_LANDMARKS[key].label)).join(', ')}.</desc>
               <defs>
                 <linearGradient id="mapSeaGradient" x1="0" x2="1" y1="0" y2="1">
                   <stop offset="0" stop-color="#F4EAD9"/>
@@ -289,47 +333,26 @@ function locationMap(project) {
                   <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2F2417" flood-opacity="0.14"/>
                 </filter>
               </defs>
-              <rect class="map-paper" x="1" y="1" width="758" height="518"/>
-              <path class="map-hills" d="M0 118 C90 82 158 132 246 100 C336 66 430 104 520 72 C618 38 696 56 760 30 L760 0 L0 0 Z"/>
-              <path class="map-sea" d="M0 358 C92 332 174 356 272 342 C376 326 464 346 570 324 C654 306 716 318 760 286 L760 520 L0 520 Z"/>
-              <path class="map-coast" d="M0 358 C92 332 174 356 272 342 C376 326 464 346 570 324 C654 306 716 318 760 286"/>
-              <path class="map-road map-road-secondary" d="M50 188 C150 164 238 178 350 154 C482 126 592 140 714 112"/>
-              <path class="map-road map-road-main" d="M42 292 C142 270 256 292 376 270 C492 248 606 248 720 218"/>
-              <path class="map-road map-local" d="M502 224 C488 252 478 286 468 322"/>
-              <path class="map-route" d="M356 265 C398 250 448 242 500 226"/>
-              <g class="map-node map-node-muted" transform="translate(198 282)">
-                <circle r="5"/>
-                <text x="-6" y="-17" text-anchor="end">Puerto Banús</text>
-              </g>
-              <g class="map-node" transform="translate(356 266)">
-                <circle r="6"/>
-                <text x="-12" y="-20" text-anchor="end">Marbella Centre</text>
-              </g>
-              <g class="map-node map-node-muted" transform="translate(646 164)">
-                <circle r="5"/>
-                <text x="16" y="4">Málaga Airport</text>
-              </g>
-              <g class="map-node map-node-muted" transform="translate(492 334)">
-                <circle r="5"/>
-                <text x="16" y="4">Beach access</text>
-              </g>
-              <g class="map-node map-node-muted" transform="translate(458 184)">
-                <circle r="5"/>
-                <text x="-14" y="4" text-anchor="end">Golf</text>
-              </g>
-              <g class="map-marker" transform="translate(502 224)" filter="url(#mapSoftShadow)">
+              <rect class="map-paper" width="1200" height="620"/>
+              <path class="map-hills" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232 L1200 0 L0 0 Z"/>
+              <path class="map-sea" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232 L1200 620 L0 620 Z"/>
+              <path class="map-coast" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232"/>
+              <path class="map-road map-road-secondary" d="M100 210 C270 176 425 182 585 156 C775 126 940 114 1115 74"/>
+              <text x="140" y="188" class="map-road-label">AP-7</text>
+              <path class="map-road map-road-main" d="M95 300 C245 272 390 282 535 258 C695 232 845 214 1098 168"/>
+              <text x="850" y="248" class="map-road-label">A-7 Coast Road</text>
+              ${contextNodes}
+              <g class="map-marker" transform="translate(${marker.x} ${marker.y})" filter="url(#mapSoftShadow)">
                 <circle class="map-marker-glow" r="58"/>
                 <circle class="map-marker-disc" r="34"/>
                 <circle class="map-marker-dot" r="5"/>
               </g>
-              <text class="map-project-label" x="502" y="286" text-anchor="middle">
-                <tspan x="502">${esc(mapLineOne)}</tspan>
-                <tspan x="502" dy="18">${esc(mapLineTwo)}</tspan>
+              <text class="map-project-label" x="${marker.x}" y="${marker.y + 62}" text-anchor="middle">
+                <tspan x="${marker.x}">${esc(mapLineOne)}</tspan>
+                <tspan x="${marker.x}" dy="18">${esc(mapLineTwo)}</tspan>
               </text>
-              <text class="map-water-label" x="92" y="430">Mediterranean Sea</text>
-              <text class="map-road-label" x="86" y="178">AP-7</text>
-              <text class="map-road-label" x="84" y="286">A-7 Coast Road</text>
-              <text class="map-note" x="40" y="52">Indicative location</text>
+              <text class="map-water-label" x="150" y="502">Mediterranean Sea</text>
+              <text class="map-note" x="60" y="52">Indicative location</text>
             </svg>
             <div class="map-legend" aria-hidden="true">
               <span><i class="legend-pin"></i> Project area</span>
@@ -1163,125 +1186,6 @@ async function syncProjectsToCrm(projects) {
   };
 }
 
-// Cancelada Park's generic locationMap() geometry placed the project east of
-// Marbella Centre/Puerto Banus, which is backwards (Cancelada sits west of
-// both, on the New Golden Mile toward Estepona). Until locationMap() takes
-// per-project coordinates, this client-side patch swaps in a corrected map
-// for that page only. Re-applied on every build so it survives regeneration.
-const CANCELADA_MAP_FIX = `  <style>
-    .cancelada-map-svg--corrected {
-      width: 100%;
-      height: auto;
-      display: block;
-      background: #faf6ee;
-      border: 1px solid rgba(74, 59, 40, 0.16);
-    }
-
-    .cancelada-map-svg--corrected .map-label {
-      fill: #6f665a;
-      font-family: var(--font-accent, Cinzel, serif);
-      font-size: 22px;
-      letter-spacing: 0.14em;
-    }
-
-    .cancelada-map-svg--corrected .map-label--gold {
-      fill: #a8834a;
-    }
-
-    .cancelada-map-svg--corrected .map-title {
-      fill: #a8834a;
-      font-family: var(--font-heading, "Cinzel", Georgia, serif);
-      font-size: 30px;
-      letter-spacing: 0.12em;
-    }
-
-    .cancelada-map-svg--corrected .map-sea {
-      fill: rgba(74, 59, 40, 0.34);
-      font-family: var(--font-heading, "Cinzel", Georgia, serif);
-      font-size: 34px;
-      letter-spacing: 0.18em;
-    }
-
-    .property-location-map--cancelada-corrected .cancelada-map-note {
-      margin-top: 1rem;
-      color: rgba(74, 59, 40, 0.62);
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 720px) {
-      .cancelada-map-svg--corrected .map-label {
-        font-size: 26px;
-      }
-
-      .cancelada-map-svg--corrected .map-title {
-        font-size: 34px;
-      }
-    }
-  </style>
-  <script>
-    (function () {
-      var section = document.getElementById('location');
-      if (!section) return;
-
-      var maps = section.querySelectorAll('svg');
-      var map = Array.prototype.find.call(maps, function (node) {
-        return /CANCELADA|NEW GOLDEN MILE|INDICATIVE LOCATION/i.test(node.textContent || node.getAttribute('aria-label') || '');
-      });
-
-      if (!map || map.dataset.canceladaCorrected === 'true') return;
-
-      map.dataset.canceladaCorrected = 'true';
-      map.classList.add('cancelada-map-svg--corrected');
-      map.setAttribute('viewBox', '0 0 1200 620');
-      map.setAttribute('role', 'img');
-      map.setAttribute('aria-labelledby', 'cancelada-map-title cancelada-map-desc');
-      map.innerHTML = [
-        '<title id="cancelada-map-title">Cancelada on the New Golden Mile</title>',
-        '<desc id="cancelada-map-desc">Cancelada sits on the New Golden Mile, west of Puerto Banus and Marbella centre, with Malaga Airport further east.</desc>',
-        '<rect width="1200" height="620" fill="#f7f1e7"></rect>',
-        '<path d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232 L1200 620 L0 620 Z" fill="#e8dfcd" opacity=".72"></path>',
-        '<path d="M100 210 C270 176 425 182 585 156 C775 126 940 114 1115 74" fill="none" stroke="#cfc3b0" stroke-width="6" stroke-linecap="round" stroke-dasharray="16 16"></path>',
-        '<text x="140" y="188" class="map-label map-label--gold">AP-7</text>',
-        '<path d="M95 300 C245 272 390 282 535 258 C695 232 845 214 1098 168" fill="none" stroke="#cbb895" stroke-width="8" stroke-linecap="round"></path>',
-        '<text x="100" y="252" class="map-label map-label--gold">A-7 COAST ROAD</text>',
-        '<path d="M430 268 C458 264 484 260 512 252" stroke="#a8834a" stroke-width="3" stroke-linecap="round" stroke-dasharray="4 12" fill="none"></path>',
-        '<circle cx="430" cy="268" r="8" fill="#2f2417"></circle>',
-        '<g transform="translate(500 250)"><circle r="48" fill="#faf6ee" stroke="#a8834a" stroke-width="2"></circle><circle r="8" fill="#a8834a"></circle><line x1="0" y1="48" x2="-14" y2="118" stroke="#cbb895" stroke-width="2"></line></g>',
-        '<text x="500" y="330" class="map-title" text-anchor="middle">CANCELADA</text>',
-        '<text x="500" y="358" class="map-title" text-anchor="middle">NEW GOLDEN MILE</text>',
-        '<circle cx="228" cy="322" r="6" fill="#8d8375"></circle><text x="208" y="316" class="map-label" text-anchor="end">ESTEPONA</text>',
-        '<circle cx="662" cy="228" r="6" fill="#8d8375"></circle><text x="680" y="200" class="map-label">PUERTO BANUS</text>',
-        '<circle cx="800" cy="204" r="6" fill="#8d8375"></circle><text x="818" y="246" class="map-label">MARBELLA CENTRE</text>',
-        '<circle cx="1078" cy="132" r="6" fill="#8d8375"></circle><text x="1096" y="139" class="map-label">MALAGA AIRPORT</text>',
-        '<circle cx="626" cy="140" r="5" fill="#8d8375"></circle><text x="644" y="146" class="map-label">GOLF</text>',
-        '<circle cx="486" cy="392" r="6" fill="#faf6ee" stroke="#8d8375" stroke-width="4"></circle><text x="512" y="400" class="map-label">BEACH ACCESS</text>',
-        '<text x="150" y="502" class="map-sea">MEDITERRANEAN SEA</text>',
-        '<text x="60" y="52" class="map-label map-label--gold">INDICATIVE LOCATION</text>'
-      ].join('');
-
-      var card = map.closest('.location-map-card');
-      if (card) {
-        card.classList.add('property-location-map--cancelada-corrected');
-        var note = card.querySelector('.cancelada-map-note') || document.createElement('p');
-        note.className = 'cancelada-map-note';
-        note.textContent = 'Indicative location. Exact project position and viewing details are confirmed privately.';
-        if (!note.parentNode) card.appendChild(note);
-      }
-    }());
-  </script>
-`;
-
-const MANUAL_OVERRIDES = {
-  'cancelada-park': (html) => html.replace('</body>', `${CANCELADA_MAP_FIX}</body>`)
-};
-
-function applyManualOverrides(project, html) {
-  const override = MANUAL_OVERRIDES[project.slug];
-  return override ? override(html) : html;
-}
-
 const written = [];
 const projects = loadProjects();
 for (const project of projects) {
@@ -1289,7 +1193,7 @@ for (const project of projects) {
     throw new Error(`${path.relative(process.cwd(), project.sourceFile)} must include slug and output.`);
   }
 
-  const html = applyManualOverrides(project, renderProject(project));
+  const html = renderProject(project);
   writeFileSync(path.resolve(project.output), html);
   written.push(project.output);
 }

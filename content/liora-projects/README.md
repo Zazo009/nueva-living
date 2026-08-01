@@ -40,6 +40,38 @@ For the developments listing card, add an optional `card` block:
 
 If `card.image.src` is omitted, the builder uses `assets/liora/projects/<slug>/card.jpg` when present, otherwise the hero image.
 
+For the homepage's "Selected Residences" cards, the same `card` block is reused
+automatically (no separate HTML edit needed). Two optional fields let you
+diverge from the Developments-page copy where the homepage wants something
+shorter or punchier:
+
+```json
+{
+  "card": {
+    "badge": "Current Release",
+    "typeTag": "Golf Valley",
+    "locExtended": "Marbella East — Elevated Coastline"
+  }
+}
+```
+
+`badge` defaults to the title-cased `discovery.status` if omitted. `typeTag`
+defaults to the first `discovery.locationTags` entry. `locExtended` defaults
+to `card.label`.
+
+### Location map
+
+`location.mapArea` controls where the project's marker lands on the location
+map (`src/.../locationMap()` in `build_property_pages.mjs`) relative to a
+fixed set of real Costa del Sol landmarks -- it does not use the actual
+coordinates of the project, only which named area it belongs to. Valid
+values: `estepona`, `newGoldenMile`, `sanPedro`, `benahavis`, `puertoBanus`,
+`nuevaAndalucia`, `goldenMile`, `marbellaCentre`, `marbellaEast`,
+`malagaAirport`. Omitting it falls back to `marbellaCentre`, so always set it
+explicitly for anything not actually in central Marbella -- an earlier
+version of this map hardcoded one fixed layout for every project, which
+placed at least one real project on the wrong side of Puerto Banús.
+
 ## CRM property data
 
 The builder automatically syncs generated projects to the CRM when
