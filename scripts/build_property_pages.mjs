@@ -16,6 +16,9 @@ const conventionalImageDir = 'assets/liora/projects';
 const developmentsPage = path.resolve('developments.html');
 const generatedProjectsStart = '<!-- NUEVA GENERATED PROJECTS START -->';
 const generatedProjectsEnd = '<!-- NUEVA GENERATED PROJECTS END -->';
+const homepagePage = path.resolve('nueva-living-home.html');
+const generatedHomeCardsStart = '<!-- NUEVA GENERATED HOME PROJECTS START -->';
+const generatedHomeCardsEnd = '<!-- NUEVA GENERATED HOME PROJECTS END -->';
 const siteUrl = 'https://nuevaliving.com';
 const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>`;
@@ -1007,6 +1010,81 @@ function renderProjectCard(project) {
           </article>`;
 }
 
+function titleCase(value = '') {
+  return String(value).replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+}
+
+function renderHomeCard(project, index) {
+  const img = cardImage(project);
+  const card = project.card || {};
+  const discovery = project.discovery || {};
+  const meta = card.meta || [
+    ['From', project.hero?.startingPrice?.replace(/^From\s+/i, '') || 'On request'],
+    ['Type', project.hero?.type || 'Residences'],
+    ['Delivery', project.hero?.delivery || 'On request']
+  ];
+  const priceValue = (meta.find(([label]) => /^from$/i.test(label)) || [])[1]
+    || project.hero?.startingPrice?.replace(/^From\s+/i, '')
+    || 'On request';
+  const badge = card.badge || titleCase(discovery.status || 'Current Release');
+  const loc = card.locExtended || card.label || project.hero?.location || '';
+  const typeTag = card.typeTag || (discovery.locationTags || [])[0] || card.label || '';
+  const match = String(img.src || '').match(/^(.*)\.(?:jpe?g)$/i);
+  const base = match ? match[1] : null;
+  const sizes = '(max-width: 900px) calc(100vw - 50px), 33vw';
+  const picture = base
+    ? `<picture>
+            <source type="image/avif" srcset="${esc(base)}-640.avif 640w, ${esc(base)}-900.avif 900w" sizes="${sizes}">
+            <source type="image/webp" srcset="${esc(base)}-640.webp 640w, ${esc(base)}-900.webp 900w" sizes="${sizes}">
+            ${imageTag(img)}
+          </picture>`
+    : imageTag(img);
+
+  return `      <div class="dev-card reveal" style="transition-delay:${(0.2 + index * 0.05).toFixed(2)}s" data-card-url="${esc(project.output)}">
+        <div class="dev-img-wrap">
+          <span class="dev-badge">${esc(badge)}</span>
+          ${picture}
+          <div class="dev-img-overlay"></div>
+          <div class="dev-price-overlay">From ${esc(priceValue)}</div>
+        </div>
+        <div class="dev-body">
+          <div class="dev-loc">${esc(loc)}</div>
+          <div class="dev-name">${esc(project.name)}</div>
+          <p class="dev-tagline">${esc(card.description || project.description)}</p>
+          <div class="dev-meta">
+            ${meta.map(([label, value]) => `<div class="dev-meta-item"><span class="lbl">${esc(label)}</span><span class="val">${esc(value)}</span></div>`).join('\n            ')}
+          </div>
+          <div class="dev-footer">
+            <a class="dev-cta-link" href="${esc(project.output)}">Discover Project</a>
+            <span class="dev-type-tag">${esc(typeTag)}</span>
+          </div>
+        </div>
+      </div>`;
+}
+
+function updateHomepageProjectCards(projects) {
+  if (!existsSync(homepagePage)) return false;
+
+  const html = readFileSync(homepagePage, 'utf8');
+  const start = html.indexOf(generatedHomeCardsStart);
+  const end = html.indexOf(generatedHomeCardsEnd);
+
+  if (start === -1 || end === -1 || end < start) {
+    throw new Error('nueva-living-home.html is missing NUEVA GENERATED HOME PROJECTS markers.');
+  }
+
+  const featured = projects
+    .filter((project) => project.discovery?.featured)
+    .sort((a, b) => (a.discovery?.priority ?? a.card?.order ?? 999) - (b.discovery?.priority ?? b.card?.order ?? 999));
+
+  const cards = featured.map(renderHomeCard).join('\n\n');
+  const before = html.slice(0, start + generatedHomeCardsStart.length);
+  const after = html.slice(end);
+  const next = `${before}\n${cards}\n      ${after}`;
+  writeFileSync(homepagePage, next);
+  return true;
+}
+
 function updateDevelopmentsPage(projects) {
   if (!existsSync(developmentsPage)) return false;
 
@@ -1217,6 +1295,7 @@ for (const project of projects) {
 }
 
 const developmentsUpdated = updateDevelopmentsPage(projects);
+const homepageUpdated = updateHomepageProjectCards(projects);
 const crmSync = await syncProjectsToCrm(projects);
 
-console.log(JSON.stringify({ written, developmentsUpdated, crmSync }, null, 2));
+console.log(JSON.stringify({ written, developmentsUpdated, homepageUpdated, crmSync }, null, 2));
