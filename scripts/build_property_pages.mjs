@@ -565,7 +565,13 @@ function renderConstructionTimeline(project) {
       </div>
       <div class="project-inner timeline-track reveal-soft">${points}
       </div>
-    </section>
+${Array.isArray(timeline.paymentTerms) && timeline.paymentTerms.length ? `      <div class="project-inner timeline-payment-terms reveal-soft">
+        <span class="timeline-payment-kicker">${esc(timeline.paymentTermsLabel || 'Payment Terms')}</span>
+        <div class="timeline-payment-grid">
+          ${pairs(timeline.paymentTerms, 'timeline-payment-item')}
+        </div>
+      </div>
+` : ''}    </section>
 
 `;
 }

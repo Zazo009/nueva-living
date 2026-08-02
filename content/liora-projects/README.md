@@ -106,6 +106,11 @@ optional -- one of `start` (flag), `construction` (crane) or `finish`
 animates in on scroll (line draws left to right, markers pop in one by
 one) as part of the shared `.reveal-soft` scroll-reveal system.
 
+An optional `paymentTerms` array renders a row of stat chips below the
+track (same `[label, value]` tuple shape used elsewhere, e.g.
+`["Reservation", "10%"]`). Omit it if the payment schedule isn't
+confirmed yet -- same rule as the dates: never invent figures.
+
 ### Developments-page filters
 
 The Developments page's primary filter bar (Location, Property Type, Status,
