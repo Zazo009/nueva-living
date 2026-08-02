@@ -1106,7 +1106,6 @@ function titleCase(value = '') {
 }
 
 function renderHomeCard(project, index) {
-  const img = cardImage(project);
   const card = project.card || {};
   const discovery = project.discovery || {};
   const meta = card.meta || [
@@ -1120,16 +1119,7 @@ function renderHomeCard(project, index) {
   const badge = card.badge || titleCase(discovery.status || 'Current Release');
   const loc = card.locExtended || card.label || project.hero?.location || '';
   const typeTag = card.typeTag || (discovery.locationTags || [])[0] || card.label || '';
-  const match = String(img.src || '').match(/^(.*)\.(?:jpe?g)$/i);
-  const base = match ? match[1] : null;
-  const sizes = '(max-width: 900px) calc(100vw - 50px), 33vw';
-  const picture = base
-    ? `<picture>
-            <source type="image/avif" srcset="${esc(base)}-640.avif 640w, ${esc(base)}-900.avif 900w" sizes="${sizes}">
-            <source type="image/webp" srcset="${esc(base)}-640.webp 640w, ${esc(base)}-900.webp 900w" sizes="${sizes}">
-            ${imageTag(img)}
-          </picture>`
-    : imageTag(img);
+  const picture = renderProjectCardGallery(project);
 
   return `      <div class="dev-card reveal" style="transition-delay:${(0.2 + index * 0.05).toFixed(2)}s" data-card-url="${esc(project.output)}">
         <div class="dev-img-wrap">

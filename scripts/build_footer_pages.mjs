@@ -130,6 +130,7 @@ function page({ title, breadcrumbTitle, breadcrumbs, description, heroImage, her
 ${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css">
+  <script src="assets/liora/liora-card-gallery.js" defer></script>
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
   ${nav()}
@@ -179,12 +180,31 @@ function esc(value) {
     .replace(/"/g, '&quot;');
 }
 
+function areaProjectCardGallery(project) {
+  const items = (project.media?.items || []).slice(0, 6);
+  if (!items.length) {
+    const image = project.images?.hero || {};
+    return `<img src="${esc(image.src)}" alt="${esc(image.alt || project.name)}" width="${image.width || 1600}" height="${image.height || 900}" loading="lazy" decoding="async">`;
+  }
+
+  const slides = items.map((item) => `
+      <img src="${esc(item.src)}" alt="${esc(item.alt || project.name)}" loading="lazy" decoding="async">`).join('');
+  const dots = items.length > 1
+    ? `<div class="project-card-gallery-dots" data-gallery-dots>${items.map((_, index) => `<button type="button" class="project-card-gallery-dot${index === 0 ? ' is-active' : ''}" data-gallery-dot="${index}" aria-label="Show image ${index + 1} of ${items.length}"></button>`).join('')}</div>`
+    : '';
+
+  return `<div class="project-card-gallery" data-project-card-gallery data-card-url="${esc(project.output)}">
+      <div class="project-card-gallery-track" data-gallery-track>${slides}
+      </div>
+      ${dots}
+    </div>`;
+}
+
 function areaProjectCard(project) {
-  const image = project.images?.hero || {};
   const meta = project.card?.meta || [];
   const projectType = project.hero?.type || project.quickFacts?.find(([label]) => label === 'Property type')?.[1] || 'New development';
   return `<article class="project-card area-project-card" data-project-card>
-    <img src="${esc(image.src)}" alt="${esc(image.alt || project.name)}" width="${image.width || 1600}" height="${image.height || 900}" loading="lazy" decoding="async">
+    ${areaProjectCardGallery(project)}
     <div class="project-body">
       <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
       <h3>${esc(project.name)}</h3>
