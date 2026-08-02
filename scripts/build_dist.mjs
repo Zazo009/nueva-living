@@ -16,6 +16,7 @@ function contentVersion(relativePath) {
 }
 
 const conversionScriptPath = 'assets/liora/liora-conversion.js';
+const discoveryScriptPath = 'assets/liora/liora-discovery.js';
 const trackingScriptPath = 'assets/liora/nueva-tracking.js';
 const shortlistScriptPath = 'assets/liora/nueva-shortlist.js';
 const shortlistStylesheetPath = 'assets/liora/nueva-shortlist.css';
@@ -25,6 +26,7 @@ const systemStylesheetPath = 'assets/liora/nueva-system.css';
 const pagesStylesheetPath = 'assets/liora/liora-pages.css';
 const propertyStylesheetPath = 'assets/liora/liora-property.css';
 const conversionScriptVersion = contentVersion(conversionScriptPath);
+const discoveryScriptVersion = contentVersion(discoveryScriptPath);
 const trackingScriptVersion = contentVersion(trackingScriptPath);
 const shortlistScriptVersion = contentVersion(shortlistScriptPath);
 const shortlistStylesheetVersion = contentVersion(shortlistStylesheetPath);
@@ -460,6 +462,10 @@ function optimizeHtml(html) {
     .replace(
       /assets\/liora\/liora-conversion\.js(?:\?v=[a-z0-9]+)?/gi,
       `${conversionScriptPath}?v=${conversionScriptVersion}`
+    )
+    .replace(
+      /assets\/liora\/liora-discovery\.js(?:\?v=[a-z0-9]+)?/gi,
+      `${discoveryScriptPath}?v=${discoveryScriptVersion}`
     );
 }
 
