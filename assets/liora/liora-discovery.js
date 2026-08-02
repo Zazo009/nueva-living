@@ -128,7 +128,7 @@
       const millions = value / 1000000;
       return `€${millions % 1 === 0 ? millions.toFixed(0) : millions.toFixed(1)}M`;
     }
-    return `€${Math.round(value / 1000)}k`;
+    return `€${Math.round(value).toLocaleString('en-US')}`;
   };
 
   const formatBedrooms = (value, bounds, isMax) => (isMax && value >= bounds.max ? `${value}+` : `${value}`);
