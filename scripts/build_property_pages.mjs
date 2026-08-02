@@ -537,23 +537,28 @@ function footer(project) {
   </footer>`;
 }
 
-const TIMELINE_LEAF_SVG = '<svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg>';
+const TIMELINE_ICONS = {
+  leaf: '<svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg>',
+  start: '<svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 4v20" stroke-linecap="round"/><path d="M9 5 21 9.5 9 14Z" stroke-linejoin="round"/></svg>',
+  construction: '<svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M8 24V6" stroke-linecap="round"/><path d="M8 6 22 8" stroke-linecap="round"/><path d="M20 8v6" stroke-linecap="round"/><path d="M4 24h10" stroke-linecap="round"/></svg>',
+  finish: '<svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg>'
+};
 
 function renderConstructionTimeline(project) {
   const timeline = project.constructionTimeline;
   if (!timeline || !Array.isArray(timeline.points) || !timeline.points.length) return '';
 
-  const points = timeline.points.map((point) => `
-        <div class="timeline-point${point.milestone ? ' is-milestone' : ''}">
+  const points = timeline.points.map((point, index) => `
+        <div class="timeline-point${point.milestone ? ' is-milestone' : ''}" style="transition-delay:${(index * 0.09).toFixed(2)}s">
           <span class="timeline-label">${point.milestone && point.label ? esc(point.label) : ''}</span>
-          <span class="timeline-marker">${point.milestone ? TIMELINE_LEAF_SVG : ''}</span>
+          <span class="timeline-marker">${point.milestone ? (TIMELINE_ICONS[point.icon] || TIMELINE_ICONS.leaf) : ''}</span>
           <span class="timeline-year">${esc(point.year || '')}</span>
         </div>`).join('');
 
   return `    <section class="project-section construction-timeline-section" id="construction-timeline">
       <div class="project-inner timeline-head reveal-soft">
         <div>
-          <span class="section-kicker">${esc(timeline.kicker || 'Time Line')}</span>
+          <span class="section-kicker">${esc(timeline.kicker || 'Timeline')}</span>
           <div class="rule"></div>
         </div>
         ${timeline.copy ? `<p class="project-lead timeline-intro">${esc(timeline.copy)}</p>` : ''}

@@ -491,7 +491,16 @@ body {
 }
 
 .construction-timeline-section {
-  padding-top: 0;
+  padding: clamp(48px, 6vw, 76px) var(--x);
+  background:
+    linear-gradient(180deg, rgba(168, 131, 74, 0.07), rgba(168, 131, 74, 0.02) 60%, transparent),
+    radial-gradient(circle at 92% 0%, rgba(168, 131, 74, 0.10), transparent 40%);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.construction-timeline-section .project-inner {
+  padding: 0;
 }
 
 .timeline-head {
@@ -525,7 +534,13 @@ body {
   top: 50%;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--line-dark) 6%, var(--line-dark) 94%, transparent);
-  transform: translateY(-50%);
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.timeline-track.in::before {
+  transform: translateY(-50%) scaleX(1);
 }
 
 .timeline-point {
@@ -537,6 +552,14 @@ body {
   justify-items: center;
   gap: 12px;
   flex: 1 1 0;
+  opacity: 0;
+  transform: translateY(10px) scale(0.85);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.timeline-track.in .timeline-point {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .timeline-label {
@@ -560,17 +583,30 @@ body {
 }
 
 .timeline-point.is-milestone .timeline-marker {
-  width: 28px;
-  height: 28px;
-  background: none;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 253, 248, 0.92);
+  border: 1px solid rgba(168, 131, 74, 0.28);
+  border-radius: 50%;
+  box-shadow: 0 8px 22px rgba(41, 36, 27, 0.10);
 }
 
 .timeline-leaf {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   fill: rgba(122, 143, 118, 0.85);
   stroke: rgba(122, 143, 118, 0.85);
   stroke-width: 1;
+}
+
+.timeline-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: rgba(122, 143, 118, 0.9);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .timeline-year {

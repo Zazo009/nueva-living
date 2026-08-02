@@ -74,7 +74,7 @@ placed at least one real project on the wrong side of Puerto Banús.
 
 ### Construction timeline
 
-`constructionTimeline` renders an optional "Time Line" band right after
+`constructionTimeline` renders an optional "Timeline" band right after
 Overview on the property page -- a horizontal line of year markers, with
 a leaf icon and label on milestone points (e.g. "Phase I", "Phase II",
 "End"). Omit the whole block if a project has no confirmed phase
@@ -85,22 +85,26 @@ developer.
 ```json
 {
   "constructionTimeline": {
-    "kicker": "Time Line",
+    "kicker": "Timeline",
     "copy": "Short factual note about the build phases.",
     "points": [
-      { "year": "2024", "label": "Phase I", "milestone": true },
+      { "year": "2024", "label": "Phase I", "milestone": true, "icon": "start" },
       { "year": "2025" },
       { "year": "2026" },
-      { "year": "2027", "label": "Phase II", "milestone": true },
+      { "year": "2027", "label": "Phase II", "milestone": true, "icon": "construction" },
       { "year": "2028" },
-      { "year": "2029", "label": "End", "milestone": true }
+      { "year": "2029", "label": "End", "milestone": true, "icon": "finish" }
     ]
   }
 }
 ```
 
-`milestone: true` points get the leaf icon and (if present) the label
-above the line; other points just get a plain dot and their year.
+`milestone: true` points get an icon and (if present) the label above
+the line; other points just get a plain dot and their year. `icon` is
+optional -- one of `start` (flag), `construction` (crane) or `finish`
+(key); omit it to fall back to the plain leaf mark. The whole track
+animates in on scroll (line draws left to right, markers pop in one by
+one) as part of the shared `.reveal-soft` scroll-reveal system.
 
 ### Developments-page filters
 
