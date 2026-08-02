@@ -72,6 +72,36 @@ explicitly for anything not actually in central Marbella -- an earlier
 version of this map hardcoded one fixed layout for every project, which
 placed at least one real project on the wrong side of Puerto Banús.
 
+### Construction timeline
+
+`constructionTimeline` renders an optional "Time Line" band right after
+Overview on the property page -- a horizontal line of year markers, with
+a leaf icon and label on milestone points (e.g. "Phase I", "Phase II",
+"End"). Omit the whole block if a project has no confirmed phase
+schedule; the section simply doesn't render. Never invent dates -- only
+add this once real phase/delivery years are confirmed from the
+developer.
+
+```json
+{
+  "constructionTimeline": {
+    "kicker": "Time Line",
+    "copy": "Short factual note about the build phases.",
+    "points": [
+      { "year": "2024", "label": "Phase I", "milestone": true },
+      { "year": "2025" },
+      { "year": "2026" },
+      { "year": "2027", "label": "Phase II", "milestone": true },
+      { "year": "2028" },
+      { "year": "2029", "label": "End", "milestone": true }
+    ]
+  }
+}
+```
+
+`milestone: true` points get the leaf icon and (if present) the label
+above the line; other points just get a plain dot and their year.
+
 ### Developments-page filters
 
 The Developments page's primary filter bar (Location, Property Type, Status,

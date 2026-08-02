@@ -537,6 +537,34 @@ function footer(project) {
   </footer>`;
 }
 
+const TIMELINE_LEAF_SVG = '<svg class="timeline-leaf" viewBox="0 0 28 28" aria-hidden="true"><path d="M6 22C7 13 13 7 22 6c-1 9-7 15-16 16Z"/><path d="M7.5 20.5 20 8" /></svg>';
+
+function renderConstructionTimeline(project) {
+  const timeline = project.constructionTimeline;
+  if (!timeline || !Array.isArray(timeline.points) || !timeline.points.length) return '';
+
+  const points = timeline.points.map((point) => `
+        <div class="timeline-point${point.milestone ? ' is-milestone' : ''}">
+          <span class="timeline-label">${point.milestone && point.label ? esc(point.label) : ''}</span>
+          <span class="timeline-marker">${point.milestone ? TIMELINE_LEAF_SVG : ''}</span>
+          <span class="timeline-year">${esc(point.year || '')}</span>
+        </div>`).join('');
+
+  return `    <section class="project-section construction-timeline-section" id="construction-timeline">
+      <div class="project-inner timeline-head reveal-soft">
+        <div>
+          <span class="section-kicker">${esc(timeline.kicker || 'Time Line')}</span>
+          <div class="rule"></div>
+        </div>
+        ${timeline.copy ? `<p class="project-lead timeline-intro">${esc(timeline.copy)}</p>` : ''}
+      </div>
+      <div class="project-inner timeline-track reveal-soft">${points}
+      </div>
+    </section>
+
+`;
+}
+
 function renderProject(project) {
   const heroImage = image(project, 'hero');
   const architectureImage = image(project, 'architecture');
@@ -545,6 +573,7 @@ function renderProject(project) {
   const privateHeroCta = project.privateViewing?.heroCta || 'Cinematic Presentation';
   const privateCta = project.privateViewing?.ctaLabel || 'Cinematic Presentation';
   const projectMedia = renderProjectMedia(project);
+  const constructionTimeline = renderConstructionTimeline(project);
   const availabilityRelease = renderAvailabilityRelease(project);
   const hasPublishedAvailability = Boolean(project.availability?.units?.length);
   const hasFloorplans = Boolean(project.availability?.units?.some((unit) => unit.floorplan));
@@ -716,7 +745,7 @@ ${hasPublishedAvailability ? '' : `          ${availabilityBrowseAction}\n`}    
       </div>
     </section>
 
-${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section class="project-section" id="residences">
+${constructionTimeline}${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section class="project-section" id="residences">
       <div class="project-inner">
         <div class="reveal-soft">
           <span class="section-kicker">Residences</span>
