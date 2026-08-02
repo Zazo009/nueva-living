@@ -551,24 +551,31 @@ function renderConstructionTimeline(project) {
   const points = timeline.points.map((point, index) => `
         <div class="timeline-point${point.milestone ? ' is-milestone' : ''}" style="transition-delay:${(index * 0.09).toFixed(2)}s">
           <span class="timeline-label">${point.milestone && point.label ? esc(point.label) : ''}</span>
-          <span class="timeline-marker">${point.milestone ? (TIMELINE_ICONS[point.icon] || TIMELINE_ICONS.leaf) : ''}</span>
+          <span class="timeline-marker">${point.milestone ? `<span class="timeline-marker-ring"></span><span class="timeline-marker-core">${TIMELINE_ICONS[point.icon] || TIMELINE_ICONS.leaf}</span>` : ''}</span>
           <span class="timeline-year">${esc(point.year || '')}</span>
         </div>`).join('');
+
+  const paymentTerms = Array.isArray(timeline.paymentTerms) ? timeline.paymentTerms : [];
 
   return `    <section class="project-section construction-timeline-section" id="construction-timeline">
       <div class="project-inner timeline-head reveal-soft">
         <div>
           <span class="section-kicker">${esc(timeline.kicker || 'Timeline')}</span>
           <div class="rule"></div>
+          <h2 class="section-headline">${timeline.headlineHtml || `${esc(timeline.kicker || 'Timeline')} of <em>delivery</em>`}</h2>
         </div>
         ${timeline.copy ? `<p class="project-lead timeline-intro">${esc(timeline.copy)}</p>` : ''}
       </div>
       <div class="project-inner timeline-track reveal-soft">${points}
       </div>
-${Array.isArray(timeline.paymentTerms) && timeline.paymentTerms.length ? `      <div class="project-inner timeline-payment-terms reveal-soft">
+${paymentTerms.length ? `      <div class="project-inner timeline-payment-terms reveal-soft">
         <span class="timeline-payment-kicker">${esc(timeline.paymentTermsLabel || 'Payment Terms')}</span>
         <div class="timeline-payment-grid">
-          ${pairs(timeline.paymentTerms, 'timeline-payment-item')}
+          ${paymentTerms.map(([label, value], index) => `<div class="timeline-payment-item">
+            <span class="timeline-payment-index">${String(index + 1).padStart(2, '0')}</span>
+            <span class="timeline-payment-label">${esc(label)}</span>
+            <strong class="timeline-payment-value">${esc(value)}</strong>
+          </div>`).join('\n          ')}
         </div>
       </div>
 ` : ''}    </section>
@@ -1030,8 +1037,24 @@ function loadProjects() {
     });
 }
 
+function renderProjectCardGallery(project) {
+  const items = (project.media?.items || []).slice(0, 6);
+  if (!items.length) return responsiveCardImageTag(cardImage(project));
+
+  const slides = items.map((item) => `
+              <img src="${esc(item.src)}" alt="${esc(item.alt || project.name)}" loading="lazy" decoding="async">`).join('');
+  const dots = items.length > 1
+    ? `<div class="project-card-gallery-dots" data-gallery-dots>${items.map((_, index) => `<button type="button" class="project-card-gallery-dot${index === 0 ? ' is-active' : ''}" data-gallery-dot="${index}" aria-label="Show image ${index + 1} of ${items.length}"></button>`).join('')}</div>`
+    : '';
+
+  return `<div class="project-card-gallery" data-project-card-gallery data-card-url="${esc(project.output)}">
+              <div class="project-card-gallery-track" data-gallery-track>${slides}
+              </div>
+              ${dots}
+            </div>`;
+}
+
 function renderProjectCard(project) {
-  const img = cardImage(project);
   const meta = project.card?.meta || [
     ['From', project.hero?.startingPrice?.replace(/^From\s+/i, '') || 'On request'],
     ['Type', project.hero?.type || 'Residences'],
@@ -1065,7 +1088,7 @@ function renderProjectCard(project) {
   const propertyTypes = normaliseCardList(crm.propertyTypes);
 
   return `          <article class="project-card" id="${esc(project.slug)}" data-project-card${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', crm.constructionStatus)}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}>
-            ${responsiveCardImageTag(img)}
+            ${renderProjectCardGallery(project)}
             <div class="project-body">
               <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
               <h3>${esc(project.name)}</h3>
