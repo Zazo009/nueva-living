@@ -1046,10 +1046,15 @@ function renderProjectCardGallery(project) {
   const dots = items.length > 1
     ? `<div class="project-card-gallery-dots" data-gallery-dots>${items.map((_, index) => `<button type="button" class="project-card-gallery-dot${index === 0 ? ' is-active' : ''}" data-gallery-dot="${index}" aria-label="Show image ${index + 1} of ${items.length}"></button>`).join('')}</div>`
     : '';
+  const arrows = items.length > 1
+    ? `<button type="button" class="project-card-gallery-arrow project-card-gallery-arrow--prev" data-gallery-prev aria-label="Previous image">&#8249;</button>
+              <button type="button" class="project-card-gallery-arrow project-card-gallery-arrow--next" data-gallery-next aria-label="Next image">&#8250;</button>`
+    : '';
 
   return `<div class="project-card-gallery" data-project-card-gallery data-card-url="${esc(project.output)}">
               <div class="project-card-gallery-track" data-gallery-track>${slides}
               </div>
+              ${arrows}
               ${dots}
             </div>`;
 }
