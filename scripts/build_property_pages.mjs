@@ -1021,8 +1021,10 @@ function renderProjectCard(project) {
     ...practicalTags
   ];
   const cardTags = discovery.cardTags || allTags.slice(0, 4);
+  const crm = project.crm || {};
+  const propertyTypes = normaliseCardList(crm.propertyTypes);
 
-  return `          <article class="project-card" id="${esc(project.slug)}" data-project-card${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}>
+  return `          <article class="project-card" id="${esc(project.slug)}" data-project-card${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', crm.constructionStatus)}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}>
             ${responsiveCardImageTag(img)}
             <div class="project-body">
               <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>

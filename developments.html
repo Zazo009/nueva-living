@@ -80,125 +80,140 @@
     </section>
     <section class="section developments-discovery" id="development-discovery" data-discovery>
       <div class="section-inner">
-        <button class="mobile-refine-bar" type="button" data-discovery-open aria-controls="developmentDiscoveryPanel" aria-expanded="false">
-          <span>Refine / Discover</span>
-          <strong data-mobile-result-count>5 projects</strong>
-        </button>
-        <button class="discovery-scrim" type="button" data-discovery-close aria-label="Close discovery filters"></button>
-
         <div class="discovery-panel" id="developmentDiscoveryPanel" aria-label="Development discovery filters">
-          <div class="discovery-panel-head">
-            <div>
-              <span class="fine-label">Discover By</span>
-              <p data-result-count aria-live="polite">5 projects</p>
+          <div class="discovery-primary">
+            <label class="discovery-field">
+              <span>Location</span>
+              <select data-filter-select="area">
+                <option value="">All Locations</option>
+                <option value="marbella">Marbella</option>
+                <option value="estepona">Estepona</option>
+                <option value="benahavis">Benah&aacute;vis</option>
+                <option value="nueva-andalucia">Nueva Andaluc&iacute;a</option>
+                <option value="mijas-fuengirola">Mijas &amp; Fuengirola</option>
+              </select>
+            </label>
+            <label class="discovery-field">
+              <span>Property Type</span>
+              <select data-filter-select="propertyType">
+                <option value="">All Types</option>
+                <option value="apartment">Apartment</option>
+                <option value="penthouse">Penthouse</option>
+                <option value="villa">Villa</option>
+                <option value="townhouse">Townhouse</option>
+              </select>
+            </label>
+            <label class="discovery-field">
+              <span>Status</span>
+              <select data-filter-select="status">
+                <option value="">Any Status</option>
+                <option value="off_plan">Off-Plan</option>
+                <option value="under_construction">Under Construction</option>
+                <option value="completed">Completed</option>
+              </select>
+            </label>
+            <div class="discovery-field discovery-range" data-range-field="price" data-range-min="500000" data-range-max="2500000" data-range-step="50000">
+              <span>Price Range<em class="range-readout" data-range-readout>Any price</em></span>
+              <div class="range-track-wrap">
+                <div class="range-track"><div class="range-track-fill" data-range-fill></div></div>
+                <input type="range" min="500000" max="2500000" step="50000" value="500000" data-range-input="min" aria-label="Minimum price">
+                <input type="range" min="500000" max="2500000" step="50000" value="2500000" data-range-input="max" aria-label="Maximum price">
+              </div>
             </div>
-            <button class="discovery-close" type="button" data-discovery-close>Close</button>
+            <div class="discovery-field discovery-range" data-range-field="bedrooms" data-range-min="1" data-range-max="6" data-range-step="1">
+              <span>Bedrooms<em class="range-readout" data-range-readout>Any</em></span>
+              <div class="range-track-wrap">
+                <div class="range-track"><div class="range-track-fill" data-range-fill></div></div>
+                <input type="range" min="1" max="6" step="1" value="1" data-range-input="min" aria-label="Minimum bedrooms">
+                <input type="range" min="1" max="6" step="1" value="6" data-range-input="max" aria-label="Maximum bedrooms">
+              </div>
+            </div>
+            <button class="clear-filters" type="button" data-clear-filters>Reset Filters</button>
           </div>
 
-          <div class="discovery-mode-tabs" role="tablist" aria-label="Discovery mode">
-            <button class="discovery-mode is-active" type="button" data-mode="lifestyle" aria-selected="true">Lifestyle</button>
-            <button class="discovery-mode" type="button" data-mode="architecture" aria-selected="false">Architecture</button>
-            <button class="discovery-mode" type="button" data-mode="location" aria-selected="false">Location</button>
-            <button class="discovery-mode" type="button" data-mode="investment" aria-selected="false">Investment</button>
-            <button class="discovery-mode" type="button" data-mode="practical" aria-selected="false">Practical</button>
-          </div>
+          <button class="lifestyle-toggle" type="button" data-lifestyle-toggle aria-expanded="false" aria-controls="lifestylePanel">
+            <span class="lifestyle-toggle-label"><span class="lifestyle-star" aria-hidden="true">&#10022;</span> Filter by Lifestyle</span>
+            <span class="lifestyle-toggle-count" data-result-count aria-live="polite">5 curated developments</span>
+            <span class="lifestyle-caret" aria-hidden="true">&#8964;</span>
+          </button>
 
-          <div class="filter-groups">
-            <div class="filter-group is-active" data-filter-panel="lifestyle">
-              <button class="filter-pill" type="button" data-filter="Sea View">Sea View</button>
-              <button class="filter-pill" type="button" data-filter="Beachside">Beachside</button>
-              <button class="filter-pill" type="button" data-filter="Golf Living">Golf Living</button>
-              <button class="filter-pill" type="button" data-filter="Wellness Living">Wellness Living</button>
-              <button class="filter-pill" type="button" data-filter="Resort Lifestyle">Resort Lifestyle</button>
-              <button class="filter-pill" type="button" data-filter="Family-Oriented">Family-Oriented</button>
-              <button class="filter-pill" type="button" data-filter="Privacy &amp; Security">Privacy &amp; Security</button>
-              <button class="filter-pill" type="button" data-filter="Walkable Lifestyle">Walkable Lifestyle</button>
-              <button class="filter-pill" type="button" data-filter="Lock-and-Leave">Lock-and-Leave</button>
-              <button class="filter-pill" type="button" data-filter="Smart Home">Smart Home</button>
-              <button class="filter-pill" type="button" data-filter="Sustainable Living">Sustainable Living</button>
-              <button class="filter-pill" type="button" data-filter="Design-Led">Design-Led</button>
-              <button class="filter-pill" type="button" data-filter="Ultra Luxury">Ultra Luxury</button>
-              <button class="filter-pill" type="button" data-filter="Boutique Community">Boutique Community</button>
+          <div class="lifestyle-panel" id="lifestylePanel" data-lifestyle-panel hidden>
+            <div class="discovery-mode-tabs" role="tablist" aria-label="Lifestyle filter mode">
+              <button class="discovery-mode is-active" type="button" data-mode="lifestyle" aria-selected="true">Lifestyle</button>
+              <button class="discovery-mode" type="button" data-mode="architecture" aria-selected="false">Architecture</button>
+              <button class="discovery-mode" type="button" data-mode="location" aria-selected="false">Setting</button>
+              <button class="discovery-mode" type="button" data-mode="investment" aria-selected="false">Investment</button>
             </div>
 
-            <div class="filter-group" data-filter-panel="architecture">
-              <button class="filter-pill" type="button" data-filter="Contemporary Mediterranean">Contemporary Mediterranean</button>
-              <button class="filter-pill" type="button" data-filter="Minimalist Architecture">Minimalist Architecture</button>
-              <button class="filter-pill" type="button" data-filter="Organic Design">Organic Design</button>
-              <button class="filter-pill" type="button" data-filter="Panoramic Glass Design">Panoramic Glass Design</button>
-              <button class="filter-pill" type="button" data-filter="Low-Density Development">Low-Density Development</button>
-              <button class="filter-pill" type="button" data-filter="Boutique Development">Boutique Development</button>
-              <button class="filter-pill" type="button" data-filter="Villas">Villas</button>
-              <button class="filter-pill" type="button" data-filter="Penthouses">Penthouses</button>
-              <button class="filter-pill" type="button" data-filter="Apartments">Apartments</button>
-              <button class="filter-pill" type="button" data-filter="Townhouses">Townhouses</button>
+            <div class="filter-groups">
+              <div class="filter-group is-active" data-filter-panel="lifestyle">
+                <button class="filter-pill" type="button" data-filter="Sea View">Sea View</button>
+                <button class="filter-pill" type="button" data-filter="Beachside">Beachside</button>
+                <button class="filter-pill" type="button" data-filter="Golf Living">Golf Living</button>
+                <button class="filter-pill" type="button" data-filter="Wellness Living">Wellness Living</button>
+                <button class="filter-pill" type="button" data-filter="Resort Lifestyle">Resort Lifestyle</button>
+                <button class="filter-pill" type="button" data-filter="Family-Oriented">Family-Oriented</button>
+                <button class="filter-pill" type="button" data-filter="Privacy &amp; Security">Privacy &amp; Security</button>
+                <button class="filter-pill" type="button" data-filter="Walkable Lifestyle">Walkable Lifestyle</button>
+                <button class="filter-pill" type="button" data-filter="Lock-and-Leave">Lock-and-Leave</button>
+                <button class="filter-pill" type="button" data-filter="Smart Home">Smart Home</button>
+                <button class="filter-pill" type="button" data-filter="Sustainable Living">Sustainable Living</button>
+                <button class="filter-pill" type="button" data-filter="Design-Led">Design-Led</button>
+                <button class="filter-pill" type="button" data-filter="Ultra Luxury">Ultra Luxury</button>
+                <button class="filter-pill" type="button" data-filter="Boutique Community">Boutique Community</button>
+              </div>
+
+              <div class="filter-group" data-filter-panel="architecture">
+                <button class="filter-pill" type="button" data-filter="Contemporary Mediterranean">Contemporary Mediterranean</button>
+                <button class="filter-pill" type="button" data-filter="Minimalist Architecture">Minimalist Architecture</button>
+                <button class="filter-pill" type="button" data-filter="Organic Design">Organic Design</button>
+                <button class="filter-pill" type="button" data-filter="Panoramic Glass Design">Panoramic Glass Design</button>
+                <button class="filter-pill" type="button" data-filter="Low-Density Development">Low-Density Development</button>
+                <button class="filter-pill" type="button" data-filter="Boutique Development">Boutique Development</button>
+              </div>
+
+              <div class="filter-group" data-filter-panel="location">
+                <button class="filter-pill" type="button" data-filter="Golden Mile">Golden Mile</button>
+                <button class="filter-pill" type="button" data-filter="Golf Valley">Golf Valley</button>
+                <button class="filter-pill" type="button" data-filter="New Golden Mile">New Golden Mile</button>
+                <button class="filter-pill" type="button" data-filter="Marbella East">Marbella East</button>
+                <button class="filter-pill" type="button" data-filter="Beachfront">Beachfront</button>
+                <button class="filter-pill" type="button" data-filter="Hillside Views">Hillside Views</button>
+                <button class="filter-pill" type="button" data-filter="Gated Community">Gated Community</button>
+                <button class="filter-pill" type="button" data-filter="Walkable to Amenities">Walkable to Amenities</button>
+              </div>
+
+              <div class="filter-group" data-filter-panel="investment">
+                <button class="filter-pill" type="button" data-filter="Primary Residence">Primary Residence</button>
+                <button class="filter-pill" type="button" data-filter="Holiday Home">Holiday Home</button>
+                <button class="filter-pill" type="button" data-filter="Investment Property">Investment Property</button>
+                <button class="filter-pill" type="button" data-filter="Rental Yield Potential">Rental Yield Potential</button>
+                <button class="filter-pill" type="button" data-filter="Family Relocation">Family Relocation</button>
+                <button class="filter-pill" type="button" data-filter="International Buyer">International Buyer</button>
+                <button class="filter-pill" type="button" data-filter="Second Home">Second Home</button>
+                <button class="filter-pill" type="button" data-filter="Lifestyle Investment">Lifestyle Investment</button>
+                <button class="filter-pill" type="button" data-filter="Long-Term Value">Long-Term Value</button>
+                <button class="filter-pill" type="button" data-filter="Low-Maintenance Ownership">Low-Maintenance Ownership</button>
+              </div>
             </div>
 
-            <div class="filter-group" data-filter-panel="location">
-              <button class="filter-pill" type="button" data-filter="Marbella">Marbella</button>
-              <button class="filter-pill" type="button" data-filter="Golden Mile">Golden Mile</button>
-              <button class="filter-pill" type="button" data-filter="Nueva Andalucia">Nueva Andalucia</button>
-              <button class="filter-pill" type="button" data-filter="Golf Valley">Golf Valley</button>
-              <button class="filter-pill" type="button" data-filter="Benahavis">Benahavis</button>
-              <button class="filter-pill" type="button" data-filter="Estepona">Estepona</button>
-              <button class="filter-pill" type="button" data-filter="New Golden Mile">New Golden Mile</button>
-              <button class="filter-pill" type="button" data-filter="Marbella East">Marbella East</button>
-              <button class="filter-pill" type="button" data-filter="Beachfront">Beachfront</button>
-              <button class="filter-pill" type="button" data-filter="Hillside Views">Hillside Views</button>
-              <button class="filter-pill" type="button" data-filter="Gated Community">Gated Community</button>
-              <button class="filter-pill" type="button" data-filter="Walkable to Amenities">Walkable to Amenities</button>
-            </div>
-
-            <div class="filter-group" data-filter-panel="investment">
-              <button class="filter-pill" type="button" data-filter="Primary Residence">Primary Residence</button>
-              <button class="filter-pill" type="button" data-filter="Holiday Home">Holiday Home</button>
-              <button class="filter-pill" type="button" data-filter="Investment Property">Investment Property</button>
-              <button class="filter-pill" type="button" data-filter="Rental Yield Potential">Rental Yield Potential</button>
-              <button class="filter-pill" type="button" data-filter="Family Relocation">Family Relocation</button>
-              <button class="filter-pill" type="button" data-filter="International Buyer">International Buyer</button>
-              <button class="filter-pill" type="button" data-filter="Second Home">Second Home</button>
-              <button class="filter-pill" type="button" data-filter="Lifestyle Investment">Lifestyle Investment</button>
-              <button class="filter-pill" type="button" data-filter="Long-Term Value">Long-Term Value</button>
-              <button class="filter-pill" type="button" data-filter="Low-Maintenance Ownership">Low-Maintenance Ownership</button>
-            </div>
-
-            <div class="filter-group" data-filter-panel="practical">
-              <button class="filter-pill" type="button" data-filter="Under €750k">Under &euro;750k</button>
-              <button class="filter-pill" type="button" data-filter="€750k–€1.5M">&euro;750k-&euro;1.5M</button>
-              <button class="filter-pill" type="button" data-filter="€1.5M+">&euro;1.5M+</button>
-              <button class="filter-pill" type="button" data-filter="2+ Bedrooms">2+ Bedrooms</button>
-              <button class="filter-pill" type="button" data-filter="4+ Bedrooms">4+ Bedrooms</button>
-              <button class="filter-pill" type="button" data-filter="120m2+ Build">120m2+ Build</button>
-              <button class="filter-pill" type="button" data-filter="250m2+ Build">250m2+ Build</button>
-              <button class="filter-pill" type="button" data-filter="Apartments">Apartments</button>
-              <button class="filter-pill" type="button" data-filter="Villas">Villas</button>
-              <button class="filter-pill" type="button" data-filter="Penthouses">Penthouses</button>
-              <button class="filter-pill" type="button" data-filter="Q2 2026">Q2 2026</button>
-              <button class="filter-pill" type="button" data-filter="Q4 2027">Q4 2027</button>
-              <button class="filter-pill" type="button" data-filter="Private availability">Private availability</button>
-              <button class="filter-pill" type="button" data-filter="Outdoor Space">Outdoor Space</button>
-              <button class="filter-pill" type="button" data-filter="Community Amenities">Community Amenities</button>
-            </div>
-          </div>
-
-          <div class="discovery-footer">
             <div class="selected-filters" data-selected-filters>
-              <span>No filters selected</span>
+              <span>No lifestyle filters selected</span>
             </div>
-            <div class="discovery-controls">
-              <label>
-                <span>Sort</span>
-                <select data-sort>
-                  <option value="curated">Recommended order</option>
-                  <option value="newest">Newest release</option>
-                  <option value="price-asc">Price: low to high</option>
-                  <option value="price-desc">Price: high to low</option>
-                  <option value="completion">Completion soonest</option>
-                  <option value="featured">Featured projects</option>
-                </select>
-              </label>
-              <button class="clear-filters" type="button" data-clear-filters>Clear all</button>
-            </div>
+          </div>
+
+          <div class="discovery-summary">
+            <p data-result-count-summary aria-live="polite">5 curated developments</p>
+            <label class="discovery-sort">
+              <span>Sort</span>
+              <select data-sort>
+                <option value="curated">Recommended order</option>
+                <option value="newest">Newest release</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="completion">Completion soonest</option>
+              </select>
+            </label>
           </div>
         </div>
 
@@ -210,7 +225,7 @@
 
         <div class="project-grid" data-project-grid>
           <!-- NUEVA GENERATED PROJECTS START -->
-          <article class="project-card" id="altos-de-marbella" data-project-card data-title="Altos de Marbella Residences" data-price="1250000" data-completion="2027-4" data-release="2026-05" data-priority="10" data-featured="true" data-tags="Sea View|Privacy &amp; Security|Lock-and-Leave|Design-Led|Sustainable Living|Boutique Community|Contemporary Mediterranean|Minimalist Architecture|Panoramic Glass Design|Low-Density Development|Villas|Penthouses|Marbella|Marbella East|Hillside Views|Gated Community|Beachfront|Lifestyle Investment|Long-Term Value|Second Home|International Buyer|Low-Maintenance Ownership|€750k–€1.5M|€1.5M+|2+ Bedrooms|4+ Bedrooms|120m2+ Build|250m2+ Build|Penthouses|Villas|Q4 2027|Private availability|Outdoor Space|Community Amenities" data-lifestyle="Sea View|Privacy &amp; Security|Lock-and-Leave|Design-Led|Sustainable Living|Boutique Community" data-architecture="Contemporary Mediterranean|Minimalist Architecture|Panoramic Glass Design|Low-Density Development|Villas|Penthouses" data-location="Marbella|Marbella East|Hillside Views|Gated Community|Beachfront" data-investment="Lifestyle Investment|Long-Term Value|Second Home|International Buyer|Low-Maintenance Ownership" data-practical="€750k–€1.5M|€1.5M+|2+ Bedrooms|4+ Bedrooms|120m2+ Build|250m2+ Build|Penthouses|Villas|Q4 2027|Private availability|Outdoor Space|Community Amenities">
+          <article class="project-card" id="altos-de-marbella" data-project-card data-title="Altos de Marbella Residences" data-price="1050000" data-completion="2027-4" data-release="2026-05" data-priority="10" data-featured="true" data-area="marbella" data-property-types="penthouse|villa" data-status="off_plan" data-bedrooms-min="2" data-bedrooms-max="5" data-tags="Sea View|Privacy &amp; Security|Lock-and-Leave|Design-Led|Sustainable Living|Boutique Community|Contemporary Mediterranean|Minimalist Architecture|Panoramic Glass Design|Low-Density Development|Villas|Penthouses|Marbella|Marbella East|Hillside Views|Gated Community|Beachfront|Lifestyle Investment|Long-Term Value|Second Home|International Buyer|Low-Maintenance Ownership|€750k–€1.5M|€1.5M+|2+ Bedrooms|4+ Bedrooms|120m2+ Build|250m2+ Build|Penthouses|Villas|Q4 2027|Private availability|Outdoor Space|Community Amenities" data-lifestyle="Sea View|Privacy &amp; Security|Lock-and-Leave|Design-Led|Sustainable Living|Boutique Community" data-architecture="Contemporary Mediterranean|Minimalist Architecture|Panoramic Glass Design|Low-Density Development|Villas|Penthouses" data-location="Marbella|Marbella East|Hillside Views|Gated Community|Beachfront" data-investment="Lifestyle Investment|Long-Term Value|Second Home|International Buyer|Low-Maintenance Ownership" data-practical="€750k–€1.5M|€1.5M+|2+ Bedrooms|4+ Bedrooms|120m2+ Build|250m2+ Build|Penthouses|Villas|Q4 2027|Private availability|Outdoor Space|Community Amenities">
             <img src="assets/liora/viewing/scene-08.jpg" alt="Elevated sea-facing terrace with private pool and Mediterranean outlook" width="2048" height="1024" loading="lazy" decoding="async">
             <div class="project-body">
               <span class="label">Marbella East</span>
@@ -222,7 +237,7 @@
               <a class="project-link" href="property-altos-de-marbella.html">Explore Project</a>
             </div>
           </article>
-          <article class="project-card" id="cancelada-park" data-project-card data-title="Cancelada Park" data-price="799000" data-release="2026-07" data-priority="12" data-featured="true" data-tags="Resort Lifestyle|Family-Oriented|Privacy &amp; Security|Walkable Lifestyle|Wellness Living|Lock-and-Leave|Contemporary Mediterranean|Low-Density Development|Apartments|Penthouses|Estepona|New Golden Mile|Cancelada|Walkable to Amenities|Second Home|Lifestyle Investment|Long-Term Value|International Buyer|€750k-€1m|€1m-€2m|2+ Bedrooms|3+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Outdoor Space|Community Amenities|Current release" data-lifestyle="Resort Lifestyle|Family-Oriented|Privacy &amp; Security|Walkable Lifestyle|Wellness Living|Lock-and-Leave" data-architecture="Contemporary Mediterranean|Low-Density Development|Apartments|Penthouses" data-location="Estepona|New Golden Mile|Cancelada|Walkable to Amenities" data-investment="Second Home|Lifestyle Investment|Long-Term Value|International Buyer" data-practical="€750k-€1m|€1m-€2m|2+ Bedrooms|3+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Outdoor Space|Community Amenities|Current release">
+          <article class="project-card" id="cancelada-park" data-project-card data-title="Cancelada Park" data-price="799000" data-release="2026-07" data-priority="12" data-featured="true" data-area="estepona" data-property-types="apartment|penthouse" data-status="off_plan" data-bedrooms-min="2" data-bedrooms-max="4" data-tags="Resort Lifestyle|Family-Oriented|Privacy &amp; Security|Walkable Lifestyle|Wellness Living|Lock-and-Leave|Contemporary Mediterranean|Low-Density Development|Apartments|Penthouses|Estepona|New Golden Mile|Cancelada|Walkable to Amenities|Second Home|Lifestyle Investment|Long-Term Value|International Buyer|€750k-€1m|€1m-€2m|2+ Bedrooms|3+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Outdoor Space|Community Amenities|Current release" data-lifestyle="Resort Lifestyle|Family-Oriented|Privacy &amp; Security|Walkable Lifestyle|Wellness Living|Lock-and-Leave" data-architecture="Contemporary Mediterranean|Low-Density Development|Apartments|Penthouses" data-location="Estepona|New Golden Mile|Cancelada|Walkable to Amenities" data-investment="Second Home|Lifestyle Investment|Long-Term Value|International Buyer" data-practical="€750k-€1m|€1m-€2m|2+ Bedrooms|3+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Outdoor Space|Community Amenities|Current release">
             <picture class="project-card-picture">
               <source type="image/avif" srcset="assets/liora/cards/card-cancelada-park-640.avif 640w, assets/liora/cards/card-cancelada-park-900.avif 900w" sizes="(max-width: 760px) calc(100vw - 50px), (max-width: 1100px) 50vw, 33vw">
               <source type="image/webp" srcset="assets/liora/cards/card-cancelada-park-640.webp 640w, assets/liora/cards/card-cancelada-park-900.webp 900w" sizes="(max-width: 760px) calc(100vw - 50px), (max-width: 1100px) 50vw, 33vw">
@@ -238,7 +253,7 @@
               <a class="project-link" href="property-cancelada-park.html">Explore Project</a>
             </div>
           </article>
-          <article class="project-card" id="marbella-west-garden-residences" data-project-card data-title="Marbella West Garden Residences" data-price="595200" data-completion="2029-2" data-release="2026-07" data-priority="15" data-featured="true" data-tags="Wellness Living|Resort Lifestyle|Family-Oriented|Walkable Lifestyle|Lock-and-Leave|Smart Home|Sustainable Living|Design-Led|Contemporary Mediterranean|Organic Design|Apartments|Penthouses|Marbella|Marbella West|Walkable to Amenities|Primary Residence|Holiday Home|Second Home|Lifestyle Investment|Long-Term Value|International Buyer|1+ Bedrooms|2+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Q2 2029|Under construction|Outdoor Space|Community Amenities" data-lifestyle="Wellness Living|Resort Lifestyle|Family-Oriented|Walkable Lifestyle|Lock-and-Leave|Smart Home|Sustainable Living|Design-Led" data-architecture="Contemporary Mediterranean|Organic Design|Apartments|Penthouses" data-location="Marbella|Marbella West|Walkable to Amenities" data-investment="Primary Residence|Holiday Home|Second Home|Lifestyle Investment|Long-Term Value|International Buyer" data-practical="1+ Bedrooms|2+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Q2 2029|Under construction|Outdoor Space|Community Amenities">
+          <article class="project-card" id="marbella-west-garden-residences" data-project-card data-title="Marbella West Garden Residences" data-price="595200" data-completion="2029-2" data-release="2026-07" data-priority="15" data-featured="true" data-area="marbella" data-property-types="apartment|penthouse" data-status="under_construction" data-bedrooms-min="1" data-bedrooms-max="4" data-tags="Wellness Living|Resort Lifestyle|Family-Oriented|Walkable Lifestyle|Lock-and-Leave|Smart Home|Sustainable Living|Design-Led|Contemporary Mediterranean|Organic Design|Apartments|Penthouses|Marbella|Marbella West|Walkable to Amenities|Primary Residence|Holiday Home|Second Home|Lifestyle Investment|Long-Term Value|International Buyer|1+ Bedrooms|2+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Q2 2029|Under construction|Outdoor Space|Community Amenities" data-lifestyle="Wellness Living|Resort Lifestyle|Family-Oriented|Walkable Lifestyle|Lock-and-Leave|Smart Home|Sustainable Living|Design-Led" data-architecture="Contemporary Mediterranean|Organic Design|Apartments|Penthouses" data-location="Marbella|Marbella West|Walkable to Amenities" data-investment="Primary Residence|Holiday Home|Second Home|Lifestyle Investment|Long-Term Value|International Buyer" data-practical="1+ Bedrooms|2+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Q2 2029|Under construction|Outdoor Space|Community Amenities">
             <picture class="project-card-picture">
               <source type="image/avif" srcset="assets/liora/cards/card-marbella-west-garden-residences-640.avif 640w, assets/liora/cards/card-marbella-west-garden-residences-900.avif 900w" sizes="(max-width: 760px) calc(100vw - 50px), (max-width: 1100px) 50vw, 33vw">
               <source type="image/webp" srcset="assets/liora/cards/card-marbella-west-garden-residences-640.webp 640w, assets/liora/cards/card-marbella-west-garden-residences-900.webp 900w" sizes="(max-width: 760px) calc(100vw - 50px), (max-width: 1100px) 50vw, 33vw">
@@ -254,7 +269,7 @@
               <a class="project-link" href="property-marbella-west-garden-residences.html">Explore Project</a>
             </div>
           </article>
-          <article class="project-card" id="vega-verde-residences" data-project-card data-title="Vega Verde Residences" data-price="785000" data-completion="2028-4" data-release="2026-07" data-priority="18" data-featured="true" data-tags="Resort Lifestyle|Design-Led|Lock-and-Leave|Wellness Living|Contemporary Mediterranean|Avant-Garde Design|Apartments|Penthouses|Nueva Andalucia|Golf Valley|Marbella|Walkable to Amenities|Second Home|Lifestyle Investment|Long-Term Value|International Buyer|€750k-€1m|€1m-€2m|2+ Bedrooms|3+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Outdoor Space|Community Amenities|Current release" data-lifestyle="Resort Lifestyle|Design-Led|Lock-and-Leave|Wellness Living" data-architecture="Contemporary Mediterranean|Avant-Garde Design|Apartments|Penthouses" data-location="Nueva Andalucia|Golf Valley|Marbella|Walkable to Amenities" data-investment="Second Home|Lifestyle Investment|Long-Term Value|International Buyer" data-practical="€750k-€1m|€1m-€2m|2+ Bedrooms|3+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Outdoor Space|Community Amenities|Current release">
+          <article class="project-card" id="vega-verde-residences" data-project-card data-title="Vega Verde Residences" data-price="785000" data-completion="2028-4" data-release="2026-07" data-priority="18" data-featured="true" data-area="nueva-andalucia" data-property-types="apartment|penthouse" data-status="under_construction" data-bedrooms-min="2" data-bedrooms-max="4" data-tags="Resort Lifestyle|Design-Led|Lock-and-Leave|Wellness Living|Contemporary Mediterranean|Avant-Garde Design|Apartments|Penthouses|Nueva Andalucia|Golf Valley|Marbella|Walkable to Amenities|Second Home|Lifestyle Investment|Long-Term Value|International Buyer|€750k-€1m|€1m-€2m|2+ Bedrooms|3+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Outdoor Space|Community Amenities|Current release" data-lifestyle="Resort Lifestyle|Design-Led|Lock-and-Leave|Wellness Living" data-architecture="Contemporary Mediterranean|Avant-Garde Design|Apartments|Penthouses" data-location="Nueva Andalucia|Golf Valley|Marbella|Walkable to Amenities" data-investment="Second Home|Lifestyle Investment|Long-Term Value|International Buyer" data-practical="€750k-€1m|€1m-€2m|2+ Bedrooms|3+ Bedrooms|4+ Bedrooms|Apartments|Penthouses|Outdoor Space|Community Amenities|Current release">
             <img src="assets/liora/projects/vega-verde-residences/card.jpg" alt="Daytime pool terrace at Vega Verde Residences" width="1920" height="960" loading="lazy" decoding="async">
             <div class="project-body">
               <span class="label">Nueva Andalucia / Golf Valley</span>

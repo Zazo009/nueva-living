@@ -72,6 +72,21 @@ explicitly for anything not actually in central Marbella -- an earlier
 version of this map hardcoded one fixed layout for every project, which
 placed at least one real project on the wrong side of Puerto Banús.
 
+### Developments-page filters
+
+The Developments page's primary filter bar (Location, Property Type, Status,
+Price and Bedrooms) reads two fields on each project:
+
+- `discovery.area` -- one of `marbella`, `estepona`, `benahavis`,
+  `nueva-andalucia`, `mijas-fuengirola`. This drives the Location select only
+  and is independent of `crm.area` below (which uses a different, CRM-side
+  enum and may not exist for every project).
+- `crm.propertyTypes`, `crm.bedroomsMin`, `crm.bedroomsMax` and
+  `crm.constructionStatus` -- reused as-is for the Property Type, Bedrooms
+  and Status filters. A project without a `crm` block is invisible to those
+  three filters (it will only show for "Any"), so add one even when
+  `CRM_WEBHOOK_SECRET` sync is disabled.
+
 ## CRM property data
 
 The builder automatically syncs generated projects to the CRM when
