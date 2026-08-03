@@ -446,9 +446,21 @@
   const archivedSection = document.querySelector('[data-archived-section]');
   const archivedGrid = document.querySelector('[data-archived-project-grid]');
   const archivedEmpty = document.querySelector('[data-archived-empty]');
+  const archivedTab = document.querySelector('[data-view-tab="archived"]');
+  const viewTabsBar = document.querySelector('.developments-view-tabs');
+  const hasSoldProjects = archivedGrid?.querySelector('[data-project-card]') != null;
 
   if (archivedEmpty && archivedGrid) {
-    archivedEmpty.hidden = archivedGrid.querySelector('[data-project-card]') !== null;
+    archivedEmpty.hidden = hasSoldProjects;
+  }
+
+  // No point showing an "Earlier Sold Projects" tab with nothing in it --
+  // hide the whole tab bar until a project is actually marked archived.
+  if (!hasSoldProjects) {
+    archivedTab?.remove();
+    if (viewTabsBar && viewTabsBar.querySelectorAll('[data-view-tab]').length <= 1) {
+      viewTabsBar.hidden = true;
+    }
   }
 
   if (viewTabs.length && archivedSection) {
