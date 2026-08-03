@@ -1326,7 +1326,13 @@ function updateDevelopmentsPage(projects) {
   if (!existsSync(developmentsPage)) return false;
 
   const activeProjects = projects.filter((project) => !project.archived);
-  const archivedProjects = projects.filter((project) => project.archived);
+  // "Completed Projects" means already-built developments that still have
+  // availability -- a curated view of the active set, not a separate
+  // sold-out bucket. `archived` is reserved for developments delisted from
+  // marketing entirely (fully sold, no longer shown anywhere).
+  const completedProjects = activeProjects.filter((project) => (
+    project.crm?.constructionStatus === 'completed' && project.crm?.availableUnits !== 0
+  ));
 
   let html = readFileSync(developmentsPage, 'utf8');
   html = writeGeneratedGrid(html, {
@@ -1342,7 +1348,7 @@ function updateDevelopmentsPage(projects) {
       gridMarkerAttr: 'data-archived-project-grid',
       startMarker: generatedArchivedProjectsStart,
       endMarker: generatedArchivedProjectsEnd,
-      cards: archivedProjects.map(renderProjectCard).join('\n'),
+      cards: completedProjects.map(renderProjectCard).join('\n'),
       label: 'NUEVA GENERATED ARCHIVED PROJECTS'
     });
   }

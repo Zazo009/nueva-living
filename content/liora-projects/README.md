@@ -74,18 +74,29 @@ explicitly for anything not actually in central Marbella -- an earlier
 version of this map hardcoded one fixed layout for every project, which
 placed at least one real project on the wrong side of Puerto Banús.
 
-### Completed / sold-out projects
+### Completed Projects tab
 
-Set `"archived": true` at the top level of a project's `project.json` once
-it's fully delivered or sold out, instead of deleting the project folder.
-The build then:
+The "Completed Projects" tab on developments.html is a curated view of
+already-built developments that still have availability -- not a
+separate sold-out bucket. It's populated automatically from the active
+project set wherever `crm.constructionStatus` is `"completed"` and
+`crm.availableUnits` is not `0`. A project can appear in both the main
+Developments grid and this tab at the same time (the tab is just a
+shortcut to the same "Completed" value the Status filter already
+supports). No extra field needs to be set -- just keep `crm` accurate.
+
+### Delisting a sold-out project
+
+Set `"archived": true` at the top level of a project's `project.json`
+once it's fully sold out and should no longer be marketed anywhere,
+instead of deleting the project folder. The build then:
 
 - Leaves it out of the main Developments grid, the filter bar's dataset,
-  and the homepage "Selected Residences" cards.
-- Renders it into the "Completed Projects" tab on developments.html
-  instead (a separate, unfiltered grid -- no search/sort applied there).
+  the homepage "Selected Residences" cards, and the Completed Projects
+  tab.
 - Still generates its own `property-<slug>.html` page normally, so the
-  project remains fully viewable when clicked from that tab.
+  page keeps working for anyone with a direct link, even though nothing
+  on the site links to it anymore.
 
 Nothing else in the schema needs to change -- pricing/availability copy on
 the page itself should be updated by hand to reflect that it's sold out.

@@ -458,4 +458,100 @@
       });
     });
   }
+
+  // --- AI-assisted free-text search --------------------------------------
+
+  const AREAS_SET = new Set(['marbella', 'estepona', 'benahavis', 'nueva-andalucia', 'mijas-fuengirola']);
+  const PROPERTY_TYPES_SET = new Set(['apartment', 'penthouse', 'villa', 'townhouse']);
+  const STATUSES_SET = new Set(['off_plan', 'under_construction', 'completed']);
+  const TIMINGS_SET = new Set(['ready', '1y', '2y', '2y+']);
+
+  const aiSearchForm = root.querySelector('[data-ai-search-form]');
+  const aiSearchInput = root.querySelector('[data-ai-search-input]');
+  const aiSearchSubmit = root.querySelector('[data-ai-search-submit]');
+  const aiSearchSubmitLabel = root.querySelector('[data-ai-search-submit-label]');
+  const aiSearchStatus = root.querySelector('[data-ai-search-status]');
+  const aiSearchExamples = Array.from(root.querySelectorAll('[data-ai-search-example]'));
+
+  const applyAiFilters = (filters = {}) => {
+    if (filters.area && AREAS_SET.has(filters.area)) {
+      const select = selectInputs.find((item) => item.dataset.filterSelect === 'area');
+      if (select) { select.value = filters.area; selectState.area = filters.area; }
+    }
+    if (filters.propertyType && PROPERTY_TYPES_SET.has(filters.propertyType)) {
+      const select = selectInputs.find((item) => item.dataset.filterSelect === 'propertyType');
+      if (select) { select.value = filters.propertyType; selectState.propertyType = filters.propertyType; }
+    }
+    if (filters.status && STATUSES_SET.has(filters.status)) {
+      const select = selectInputs.find((item) => item.dataset.filterSelect === 'status');
+      if (select) { select.value = filters.status; selectState.status = filters.status; }
+    }
+    if (filters.timing && TIMINGS_SET.has(filters.timing)) {
+      const select = selectInputs.find((item) => item.dataset.filterSelect === 'timing');
+      if (select) { select.value = filters.timing; selectState.timing = filters.timing; }
+    }
+    if (filters.priceMin !== undefined || filters.priceMax !== undefined) {
+      setRange('price', filters.priceMin, filters.priceMax);
+    }
+    if (filters.bedroomsMin !== undefined || filters.bedroomsMax !== undefined) {
+      setRange('bedrooms', filters.bedroomsMin, filters.bedroomsMax);
+    }
+    if (Array.isArray(filters.tags)) {
+      filters.tags.forEach((tag) => {
+        if (root.querySelector(`[data-filter="${CSS.escape(tag)}"]`)) selected.add(tag);
+      });
+    }
+
+    update();
+    syncUrl();
+  };
+
+  const setAiSearchBusy = (busy) => {
+    if (aiSearchSubmit) aiSearchSubmit.disabled = busy;
+    if (aiSearchSubmitLabel) aiSearchSubmitLabel.textContent = busy ? 'Searching…' : 'Search';
+  };
+
+  const showAiSearchStatus = (text, isError) => {
+    if (!aiSearchStatus) return;
+    aiSearchStatus.textContent = text;
+    aiSearchStatus.hidden = !text;
+    aiSearchStatus.classList.toggle('is-error', Boolean(isError));
+  };
+
+  const runAiSearch = async (query) => {
+    if (!query) return;
+    setAiSearchBusy(true);
+    showAiSearchStatus('', false);
+    try {
+      const res = await fetch('/.netlify/functions/nueva-ai-search', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query }),
+      });
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !data?.ok) throw new Error(data?.error || 'AI search failed');
+
+      applyAiFilters(data.filters || {});
+      showAiSearchStatus(data.filters?.summary || 'Showing matching developments.', false);
+    } catch {
+      showAiSearchStatus('AI search is unavailable right now — try the filters below instead.', true);
+    } finally {
+      setAiSearchBusy(false);
+    }
+  };
+
+  if (aiSearchForm) {
+    aiSearchForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      runAiSearch(aiSearchInput?.value.trim());
+    });
+  }
+
+  aiSearchExamples.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const text = chip.textContent.trim();
+      if (aiSearchInput) aiSearchInput.value = text;
+      runAiSearch(text);
+    });
+  });
 })();
