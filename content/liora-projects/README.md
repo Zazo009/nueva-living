@@ -25,6 +25,8 @@ The builder writes `property-*.html` pages and refreshes the managed project car
 
 If `images.hero.src`, `images.architecture.src` or `images.privateViewing.src` are omitted, the builder looks for conventional image names in `assets/liora/projects/<slug>/`.
 
+Any image entry can also take an optional `focus` field (e.g. `"center 30%"`), rendered as an `object-position` override -- use it if a photo's busy detail (rooflines, people, signage) lands under the hero title text and the built-in bottom-left vignette isn't enough on its own.
+
 For the developments listing card, add an optional `card` block:
 
 ```json
