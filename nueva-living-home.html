@@ -384,62 +384,6 @@
     }
 
     /* ═══════════════════════════════════════════════════════════
-       SECTION — INTRO
-    ═══════════════════════════════════════════════════════════ */
-    #intro { padding: 130px 6vw 120px; }
-    .intro-top {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 100px;
-      align-items: end;
-      margin-bottom: 80px;
-    }
-    .intro-right p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13.5px;
-      color: var(--mid);
-      line-height: 1.9;
-      font-weight: 300;
-    }
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--sand);
-    }
-    .pillar {
-      background: var(--white);
-      padding: 48px 40px 44px;
-      transition: box-shadow 0.3s ease;
-    }
-    .pillar:hover {
-      box-shadow: 0 8px 40px rgba(47,51,43,0.07);
-    }
-    .pillar-num {
-      font-family: 'Cinzel', serif;
-      font-size: 40px;
-      color: var(--gold-pale);
-      font-weight: 400;
-      line-height: 1;
-      margin-bottom: 24px;
-      letter-spacing: 0.04em;
-    }
-    .pillar h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 16px;
-      font-style: normal;
-      letter-spacing: 0.04em;
-      margin-bottom: 14px;
-    }
-    .pillar p {
-      font-size: 12.5px;
-      color: var(--mid);
-      line-height: 1.82;
-      font-weight: 300;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    /* ═══════════════════════════════════════════════════════════
        SECTION — DEVELOPMENTS
     ═══════════════════════════════════════════════════════════ */
     #developments { padding: 120px 6vw; background: var(--cream); }
@@ -1074,12 +1018,11 @@
     /* ── 1024px — tablet landscape ──────────────────────────── */
     @media (max-width: 1024px) {
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .intro-top { grid-template-columns: 1fr; gap: 40px; }
       .about-inner { grid-template-columns: 1fr; gap: 48px; }
       .about-img-wrap { height: 380px; }
       .about-img-wrap::before { display: none; }
       .stat-row { gap: 32px; }
-      #intro, #developments, #why, #areas, #journey, #about, #contact { padding: 96px 6vw; }
+      #developments, #why, #areas, #journey, #about, #contact { padding: 96px 6vw; }
       .dev-header { margin-bottom: 44px; }
     }
 
@@ -1117,8 +1060,6 @@
       }
 
       /* Sections */
-      #intro { padding: 72px 5.5vw 64px; }
-      #intro .intro-top { margin-bottom: 48px; gap: 28px; }
       #developments { padding: 72px 5.5vw; }
       #why { padding: 72px 5.5vw; }
       #areas { padding: 72px 5.5vw; }
@@ -1127,10 +1068,6 @@
       #contact { padding: 72px 5.5vw; }
       #shortlist-form { scroll-margin-top: 136px; }
 
-      /* Intro / pillars */
-      .pillars { grid-template-columns: 1fr; gap: 1px; }
-      .pillar { padding: 36px 28px 32px; }
-      .pillar-num { font-size: 32px; margin-bottom: 16px; }
       .section-title { font-size: clamp(22px, 5vw, 34px); }
       .label { font-size: 8.5px; letter-spacing: 0.28em; }
       .gold-rule { margin-bottom: 22px; }
@@ -1234,7 +1171,7 @@
       .step-dot { width: 42px; height: 42px; font-size: 14px; }
 
       /* Sections */
-      #intro, #developments, #why, #areas, #journey, #about, #contact { padding: 60px 5vw; }
+      #developments, #why, #areas, #journey, #about, #contact { padding: 60px 5vw; }
       footer { padding: 56px 5vw 36px; }
 
       /* Section title smaller */
@@ -2333,7 +2270,6 @@
       gap: 12px;
     }
 
-    #intro,
     #developments,
     #why,
     #areas,
@@ -2343,11 +2279,6 @@
       padding: var(--section-y) var(--section-x);
     }
 
-    #intro {
-      padding-top: clamp(78px, 8vw, 118px);
-    }
-
-    #intro > *,
     #developments > *,
     #why > *,
     #areas > *,
@@ -2365,12 +2296,10 @@
       text-wrap: balance;
     }
 
-    .body-copy,
-    .intro-right p {
+    .body-copy {
       color: rgba(44, 42, 35, 0.78);
     }
 
-    .pillars,
     .dev-grid,
     .why-grid,
     .areas-grid {
@@ -2378,7 +2307,6 @@
       background: transparent;
     }
 
-    .pillar,
     .dev-card,
     .why-item,
     .area-card {
@@ -2387,17 +2315,11 @@
       overflow: hidden;
     }
 
-    .pillar,
     .dev-card,
     .area-card {
       background: rgba(255, 253, 248, 0.92);
     }
 
-    .pillar {
-      padding: clamp(34px, 4vw, 50px);
-    }
-
-    .pillar:hover,
     .dev-card:hover,
     .area-card:hover {
       box-shadow: var(--shadow-soft);
@@ -2717,7 +2639,6 @@
         max-width: none;
       }
 
-      .pillars,
       .dev-grid,
       .why-grid,
       .areas-grid {
@@ -3043,7 +2964,6 @@
       background: rgba(255, 250, 242, 0.08);
     }
 
-    #intro,
     #developments,
     #journey {
       background: #f7f1e7;
@@ -4158,10 +4078,6 @@
       color: #c9a877;
     }
 
-    .pillar-num {
-      color: #76562f;
-    }
-
     #why .label,
     footer [style*="color:var(--gold)"] {
       color: #c9a877 !important;
@@ -4177,7 +4093,6 @@
 
     /* Keep the first render focused on the hero. Off-screen sections are
        laid out as they approach the viewport, with stable reserved space. */
-    #intro,
     #developments,
     #areas,
     #journey,
@@ -5312,37 +5227,6 @@
       </div>
       <!-- NUEVA GENERATED HOME PROJECTS END -->
 
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════ INTRO ═══════════════════════════════ -->
-  <section id="intro">
-    <div class="intro-top">
-      <div class="reveal">
-        <span class="label">Our Approach</span>
-        <div class="gold-rule"></div>
-        <h2 class="section-title">A Simpler Way<br><em>to Buy New</em></h2>
-      </div>
-      <div class="reveal" style="transition-delay:0.12s">
-        <p>We focus only on new-build and off-plan homes. That means we can help you compare projects, understand the details and avoid wasting time on options that do not fit.</p>
-      </div>
-    </div>
-    <div class="pillars">
-      <div class="pillar reveal">
-        <div class="pillar-num">01</div>
-        <h3>Projects Worth Your Time</h3>
-        <p>We look at the developer, location, pricing and plans before a project reaches your shortlist.</p>
-      </div>
-      <div class="pillar reveal" style="transition-delay:0.1s">
-        <div class="pillar-num">02</div>
-        <h3>Advice Built Around You</h3>
-        <p>We start with what you need, then help from the first conversation through reservation and completion.</p>
-      </div>
-      <div class="pillar reveal" style="transition-delay:0.2s">
-        <div class="pillar-num">03</div>
-        <h3>Local Market Knowledge</h3>
-        <p>Clear guidance on prices, neighbourhoods, developers and what is changing across the Costa del Sol.</p>
-      </div>
     </div>
   </section>
 
