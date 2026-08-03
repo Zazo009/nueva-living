@@ -57,6 +57,29 @@
     return year * 10 + (quarter || 4);
   };
 
+  // Move-in timing buckets are computed against today's date, not stored, so
+  // "Within 1 Year" etc. stay accurate as time passes without manual upkeep.
+  const completionDate = (value = '') => {
+    const [year, quarter] = String(value).split('-').map(Number);
+    if (!year) return null;
+    const monthIndex = ((quarter || 4) - 1) * 3 + 2;
+    return new Date(year, monthIndex, 28);
+  };
+
+  const timingBucket = (value) => {
+    const date = completionDate(value);
+    if (!date) return null;
+    const now = new Date();
+    const oneYear = new Date(now);
+    oneYear.setFullYear(now.getFullYear() + 1);
+    const twoYears = new Date(now);
+    twoYears.setFullYear(now.getFullYear() + 2);
+    if (date <= now) return 'ready';
+    if (date <= oneYear) return '1y';
+    if (date <= twoYears) return '2y';
+    return '2y+';
+  };
+
   const releaseValue = (value = '') => {
     const time = Date.parse(`${value}-01`);
     return Number.isNaN(time) ? 0 : time;
@@ -106,7 +129,7 @@
 
   // --- Primary selects -------------------------------------------------
 
-  const selectState = { area: '', propertyType: '', status: '' };
+  const selectState = { area: '', propertyType: '', status: '', timing: '' };
   selectInputs.forEach((select) => {
     const key = select.dataset.filterSelect;
     select.addEventListener('change', () => {
@@ -220,6 +243,7 @@
 
       if (selectState.area && card.dataset.area !== selectState.area) return false;
       if (selectState.status && card.dataset.status !== selectState.status) return false;
+      if (selectState.timing && timingBucket(card.dataset.completion) !== selectState.timing) return false;
       if (selectState.propertyType) {
         const types = listFrom(card.dataset.propertyTypes).map(normalize);
         if (!types.includes(selectState.propertyType)) return false;
@@ -291,6 +315,7 @@
     selectState.area = '';
     selectState.propertyType = '';
     selectState.status = '';
+    selectState.timing = '';
     selectInputs.forEach((select) => { select.value = ''; });
     rangeControllers.forEach((controller) => {
       controller.minInput.value = String(controller.bounds.min);
@@ -321,6 +346,7 @@
     if (selectState.area) params.set('area', selectState.area);
     if (selectState.propertyType) params.set('type', selectState.propertyType);
     if (selectState.status) params.set('status', selectState.status);
+    if (selectState.timing) params.set('timing', selectState.timing);
     const price = rangeState.price;
     const priceBounds = rangeControllers.find((item) => item.key === 'price')?.bounds;
     if (price && priceBounds && (price.min !== priceBounds.min || price.max !== priceBounds.max)) {
@@ -368,6 +394,11 @@
     if (status) {
       const select = selectInputs.find((item) => item.dataset.filterSelect === 'status');
       if (select) { select.value = status; selectState.status = status; }
+    }
+    const timing = params.get('timing');
+    if (timing) {
+      const select = selectInputs.find((item) => item.dataset.filterSelect === 'timing');
+      if (select) { select.value = timing; selectState.timing = timing; }
     }
 
     const pmin = params.get('pmin');
