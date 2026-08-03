@@ -431,4 +431,31 @@
 
   restoreFromUrl();
   update();
+
+  // --- Current / Completed projects view toggle -------------------------
+
+  const viewTabs = Array.from(document.querySelectorAll('[data-view-tab]'));
+  const currentViewEls = Array.from(document.querySelectorAll('[data-current-view]'));
+  const archivedSection = document.querySelector('[data-archived-section]');
+  const archivedGrid = document.querySelector('[data-archived-project-grid]');
+  const archivedEmpty = document.querySelector('[data-archived-empty]');
+
+  if (archivedEmpty && archivedGrid) {
+    archivedEmpty.hidden = archivedGrid.querySelector('[data-project-card]') !== null;
+  }
+
+  if (viewTabs.length && archivedSection) {
+    viewTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const showArchived = tab.dataset.viewTab === 'archived';
+        viewTabs.forEach((item) => {
+          const active = item === tab;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        currentViewEls.forEach((el) => { el.hidden = showArchived; });
+        archivedSection.hidden = !showArchived;
+      });
+    });
+  }
 })();

@@ -81,7 +81,11 @@
     </section>
     <section class="section developments-discovery" id="development-discovery" data-discovery>
       <div class="section-inner">
-        <div class="discovery-panel" id="developmentDiscoveryPanel" aria-label="Development discovery filters">
+        <div class="developments-view-tabs" role="tablist" aria-label="Developments view">
+          <button type="button" class="developments-view-tab is-active" data-view-tab="current" role="tab" aria-selected="true">Current Developments</button>
+          <button type="button" class="developments-view-tab" data-view-tab="archived" role="tab" aria-selected="false">Completed Projects</button>
+        </div>
+        <div class="discovery-panel" id="developmentDiscoveryPanel" aria-label="Development discovery filters" data-current-view>
           <div class="discovery-primary">
             <label class="discovery-field">
               <span>Location</span>
@@ -228,13 +232,13 @@
           </div>
         </div>
 
-        <div class="discovery-empty" data-empty-state hidden>
+        <div class="discovery-empty" data-empty-state data-current-view hidden>
           <span>No exact match found.</span>
           <p>Try fewer filters, explore similar projects or tell us what you are looking for.</p>
           <a class="project-link" href="contact.html?intent=Personal%20Project%20Shortlist#contact-form">Get a Personal Shortlist</a>
         </div>
 
-        <div class="project-grid" data-project-grid>
+        <div class="project-grid" data-project-grid data-current-view>
           <!-- NUEVA GENERATED PROJECTS START -->
           <article class="project-card" id="altos-de-marbella" data-project-card data-title="Altos de Marbella Residences" data-price="1050000" data-completion="2027-4" data-release="2026-05" data-priority="10" data-featured="true" data-area="marbella" data-property-types="penthouse|villa" data-status="off_plan" data-bedrooms-min="2" data-bedrooms-max="5" data-tags="Sea View|Privacy &amp; Security|Lock-and-Leave|Design-Led|Sustainable Living|Boutique Community|Contemporary Mediterranean|Minimalist Architecture|Panoramic Glass Design|Low-Density Development|Villas|Penthouses|Marbella|Marbella East|Hillside Views|Gated Community|Beachfront|Lifestyle Investment|Long-Term Value|Second Home|International Buyer|Low-Maintenance Ownership|€750k–€1.5M|€1.5M+|2+ Bedrooms|4+ Bedrooms|120m2+ Build|250m2+ Build|Penthouses|Villas|Q4 2027|Private availability|Outdoor Space|Community Amenities" data-lifestyle="Sea View|Privacy &amp; Security|Lock-and-Leave|Design-Led|Sustainable Living|Boutique Community" data-architecture="Contemporary Mediterranean|Minimalist Architecture|Panoramic Glass Design|Low-Density Development|Villas|Penthouses" data-location="Marbella|Marbella East|Hillside Views|Gated Community|Beachfront" data-investment="Lifestyle Investment|Long-Term Value|Second Home|International Buyer|Low-Maintenance Ownership" data-practical="€750k–€1.5M|€1.5M+|2+ Bedrooms|4+ Bedrooms|120m2+ Build|250m2+ Build|Penthouses|Villas|Q4 2027|Private availability|Outdoor Space|Community Amenities">
             <div class="project-card-gallery" data-project-card-gallery data-card-url="property-altos-de-marbella.html">
@@ -360,6 +364,24 @@
         </div>
       </div>
     </section>
+
+    <section class="section archived-section" id="archived-projects" data-archived-section hidden>
+      <div class="section-inner">
+        <div class="section-head">
+          <span class="label">Track Record</span>
+          <div class="rule"></div>
+          <h2 class="section-title">Completed &amp; <em>sold-out projects</em></h2>
+          <p class="body-copy">A look back at developments we have already delivered or fully sold, kept here rather than removed so you can see our track record.</p>
+        </div>
+        <div class="project-grid archived-project-grid" data-archived-project-grid>
+          <!-- NUEVA GENERATED ARCHIVED PROJECTS START -->
+
+          <!-- NUEVA GENERATED ARCHIVED PROJECTS END -->
+        </div>
+        <p class="archived-empty" data-archived-empty hidden>No completed projects to show yet &mdash; check back soon.</p>
+      </div>
+    </section>
+
     <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">Before You View</span><div class="rule"></div><h2 class="section-title">What we check before <em>a viewing</em></h2></div><div class="cards"><article class="card"><h3>Latest Prices &amp; Availability</h3><p>Which homes are available, their reservation status, current prices and expected delivery.</p></article><article class="card"><h3>The Developer</h3><p>Previous projects, warranties, specifications and comparable developments nearby.</p></article><article class="card"><h3>The Location</h3><p>Access, nearby services, rental demand, resale appeal and how the area fits your plans.</p></article></div></div></section>
     <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Ask for the latest project list and documents.</h2><a class="btn" href="contact.html?intent=Request%20Project%20Information">Get Project Information</a></div></section>
   </main>

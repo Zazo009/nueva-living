@@ -16,6 +16,8 @@ const conventionalImageDir = 'assets/liora/projects';
 const developmentsPage = path.resolve('developments.html');
 const generatedProjectsStart = '<!-- NUEVA GENERATED PROJECTS START -->';
 const generatedProjectsEnd = '<!-- NUEVA GENERATED PROJECTS END -->';
+const generatedArchivedProjectsStart = '<!-- NUEVA GENERATED ARCHIVED PROJECTS START -->';
+const generatedArchivedProjectsEnd = '<!-- NUEVA GENERATED ARCHIVED PROJECTS END -->';
 const homepagePage = path.resolve('nueva-living-home.html');
 const generatedHomeCardsStart = '<!-- NUEVA GENERATED HOME PROJECTS START -->';
 const generatedHomeCardsEnd = '<!-- NUEVA GENERATED HOME PROJECTS END -->';
@@ -1287,7 +1289,7 @@ function updateHomepageProjectCards(projects) {
   }
 
   const featured = projects
-    .filter((project) => project.discovery?.featured)
+    .filter((project) => project.discovery?.featured && !project.archived)
     .sort((a, b) => (a.discovery?.priority ?? a.card?.order ?? 999) - (b.discovery?.priority ?? b.card?.order ?? 999));
 
   const cards = featured.map(renderHomeCard).join('\n\n');
@@ -1298,31 +1300,54 @@ function updateHomepageProjectCards(projects) {
   return true;
 }
 
-function updateDevelopmentsPage(projects) {
-  if (!existsSync(developmentsPage)) return false;
+function writeGeneratedGrid(html, { gridMarkerAttr, startMarker, endMarker, cards, label }) {
+  const attrIndex = html.indexOf(gridMarkerAttr);
+  const start = html.indexOf(startMarker);
+  const end = html.indexOf(endMarker);
 
-  const html = readFileSync(developmentsPage, 'utf8');
-  const gridOpen = '<div class="project-grid" data-project-grid>';
-  const gridStart = html.indexOf(gridOpen);
-  const start = html.indexOf(generatedProjectsStart);
-  const end = html.indexOf(generatedProjectsEnd);
-
-  if (gridStart === -1) {
-    throw new Error('developments.html is missing the project grid container.');
+  if (attrIndex === -1) {
+    throw new Error(`developments.html is missing the ${label} grid container.`);
   }
-
   if (start === -1 || end === -1 || end < start) {
-    throw new Error('developments.html is missing NUEVA GENERATED PROJECTS markers.');
+    throw new Error(`developments.html is missing ${label} markers.`);
   }
 
-  const gridContentStart = gridStart + gridOpen.length;
+  const tagClose = html.indexOf('>', attrIndex);
+  const gridStart = html.lastIndexOf('<div', attrIndex);
+  const gridContentStart = tagClose + 1;
   const lineStart = html.lastIndexOf('\n', gridStart) + 1;
   const gridIndent = html.slice(lineStart, gridStart);
   const cardIndent = `${gridIndent}  `;
-  const cards = projects.map(renderProjectCard).join('\n');
-  const generatedBlock = `\n${cardIndent}${generatedProjectsStart}\n${cards}\n${cardIndent}${generatedProjectsEnd}`;
-  const next = `${html.slice(0, gridContentStart)}${generatedBlock}${html.slice(end + generatedProjectsEnd.length)}`;
-  writeFileSync(developmentsPage, next);
+  const generatedBlock = `\n${cardIndent}${startMarker}\n${cards}\n${cardIndent}${endMarker}`;
+  return `${html.slice(0, gridContentStart)}${generatedBlock}${html.slice(end + endMarker.length)}`;
+}
+
+function updateDevelopmentsPage(projects) {
+  if (!existsSync(developmentsPage)) return false;
+
+  const activeProjects = projects.filter((project) => !project.archived);
+  const archivedProjects = projects.filter((project) => project.archived);
+
+  let html = readFileSync(developmentsPage, 'utf8');
+  html = writeGeneratedGrid(html, {
+    gridMarkerAttr: 'data-project-grid',
+    startMarker: generatedProjectsStart,
+    endMarker: generatedProjectsEnd,
+    cards: activeProjects.map(renderProjectCard).join('\n'),
+    label: 'NUEVA GENERATED PROJECTS'
+  });
+
+  if (html.includes('data-archived-project-grid')) {
+    html = writeGeneratedGrid(html, {
+      gridMarkerAttr: 'data-archived-project-grid',
+      startMarker: generatedArchivedProjectsStart,
+      endMarker: generatedArchivedProjectsEnd,
+      cards: archivedProjects.map(renderProjectCard).join('\n'),
+      label: 'NUEVA GENERATED ARCHIVED PROJECTS'
+    });
+  }
+
+  writeFileSync(developmentsPage, html);
   return true;
 }
 

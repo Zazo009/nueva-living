@@ -74,6 +74,22 @@ explicitly for anything not actually in central Marbella -- an earlier
 version of this map hardcoded one fixed layout for every project, which
 placed at least one real project on the wrong side of Puerto Banús.
 
+### Completed / sold-out projects
+
+Set `"archived": true` at the top level of a project's `project.json` once
+it's fully delivered or sold out, instead of deleting the project folder.
+The build then:
+
+- Leaves it out of the main Developments grid, the filter bar's dataset,
+  and the homepage "Selected Residences" cards.
+- Renders it into the "Completed Projects" tab on developments.html
+  instead (a separate, unfiltered grid -- no search/sort applied there).
+- Still generates its own `property-<slug>.html` page normally, so the
+  project remains fully viewable when clicked from that tab.
+
+Nothing else in the schema needs to change -- pricing/availability copy on
+the page itself should be updated by hand to reflect that it's sold out.
+
 ### Construction timeline
 
 `constructionTimeline` renders an optional "Timeline" band right after
