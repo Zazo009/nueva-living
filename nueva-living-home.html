@@ -592,11 +592,16 @@
       display: block;
     }
     .dev-meta-item .val {
+      display: block;
       font-family: 'Montserrat', sans-serif;
       font-size: 12.5px;
+      line-height: 1.4;
       color: var(--charcoal);
       margin-top: 4px;
       font-weight: 400;
+    }
+    #developments .dev-card:not(.featured-walkthrough-card) .dev-meta-item .val {
+      min-height: calc(1.4em * 2);
     }
     .dev-footer {
       display: flex; align-items: center; justify-content: space-between;
@@ -2412,7 +2417,8 @@
       }
 
       #developments .dev-card:not(.featured-walkthrough-card) {
-        height: 600px;
+        height: auto;
+        min-height: 600px;
       }
 
       #developments .dev-card:not(.featured-walkthrough-card) .dev-footer {
@@ -2423,7 +2429,7 @@
 
     @media (max-width: 480px) {
       #developments .dev-card:not(.featured-walkthrough-card) {
-        height: 590px;
+        min-height: 590px;
       }
     }
 
