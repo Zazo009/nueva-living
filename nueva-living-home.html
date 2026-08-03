@@ -842,38 +842,6 @@
     }
 
     /* ═══════════════════════════════════════════════════════════
-       SECTION — ADVISORY
-    ═══════════════════════════════════════════════════════════ */
-    #advisory {
-      padding: 0;
-      background: var(--olive);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-    .advisory-text {
-      padding: 110px 7vw 110px 6vw;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .advisory-img-wrap {
-      position: relative;
-      overflow: hidden;
-      min-height: 520px;
-      background:
-        linear-gradient(135deg, rgba(33, 41, 30, 0.92), rgba(166, 132, 75, 0.32)),
-        #252b22;
-    }
-    .advisory-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-    .advisory-img-wrap::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: rgba(28,38,25,0.22);
-    }
-
-    /* ═══════════════════════════════════════════════════════════
        SECTION — ABOUT
     ═══════════════════════════════════════════════════════════ */
     #about { padding: 120px 6vw; }
@@ -1107,9 +1075,6 @@
     @media (max-width: 1024px) {
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
       .intro-top { grid-template-columns: 1fr; gap: 40px; }
-      #advisory { grid-template-columns: 1fr; }
-      .advisory-img-wrap { min-height: 400px; order: -1; }
-      .advisory-text { padding: 72px 6vw; }
       .about-inner { grid-template-columns: 1fr; gap: 48px; }
       .about-img-wrap { height: 380px; }
       .about-img-wrap::before { display: none; }
@@ -1158,7 +1123,6 @@
       #why { padding: 72px 5.5vw; }
       #areas { padding: 72px 5.5vw; }
       #journey { padding: 72px 5.5vw; }
-      #advisory .advisory-text { padding: 64px 5.5vw; }
       #about { padding: 72px 5.5vw; }
       #contact { padding: 72px 5.5vw; }
       #shortlist-form { scroll-margin-top: 136px; }
@@ -1218,10 +1182,6 @@
       .step-title { grid-column: 2; grid-row: 1; font-size: 14px; align-self: center; margin-bottom: 6px; }
       .step-desc { grid-column: 2; grid-row: 2; font-size: 11.5px; line-height: 1.7; }
 
-      /* Advisory */
-      #advisory { grid-template-columns: 1fr; }
-      .advisory-img-wrap { min-height: 300px; order: -1; }
-
       /* About */
       .about-inner { grid-template-columns: 1fr; gap: 36px; }
       .about-img-wrap { height: 280px; }
@@ -1274,7 +1234,7 @@
       .step-dot { width: 42px; height: 42px; font-size: 14px; }
 
       /* Sections */
-      #intro, #developments, #why, #areas, #journey, #advisory .advisory-text, #about, #contact { padding: 60px 5vw; }
+      #intro, #developments, #why, #areas, #journey, #about, #contact { padding: 60px 5vw; }
       footer { padding: 56px 5vw 36px; }
 
       /* Section title smaller */
@@ -2628,29 +2588,11 @@
       box-shadow: 0 0 0 7px rgba(255, 253, 248, 0.86);
     }
 
-    #advisory {
-      background: var(--olive);
-    }
-
-    .advisory-text {
-      padding: clamp(78px, 9vw, 126px) var(--section-x);
-    }
-
-    .advisory-img-wrap {
-      min-height: clamp(420px, 54vw, 680px);
-    }
-
-    #advisory .body-copy-light {
-      color: rgba(251, 248, 241, 0.70);
-      max-width: 560px;
-    }
-
     .about-inner {
       gap: clamp(46px, 6vw, 86px);
     }
 
-    .about-img-wrap,
-    .advisory-img-wrap {
+    .about-img-wrap {
       border-radius: 8px;
     }
 
@@ -3637,8 +3579,7 @@
       }
     }
 
-    #why,
-    #advisory {
+    #why {
       background: #2F2417;
     }
 
@@ -5713,21 +5654,6 @@
           </div>
         </article>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════ ADVISORY ═══════════════════════════════ -->
-  <section id="advisory">
-    <div class="advisory-text">
-      <span class="label" style="color:var(--gold-light)" >Buyer Support</span>
-      <div class="gold-rule"></div>
-      <h2 class="section-title title-dark reveal">More Than<br><em>Finding a Home</em></h2>
-      <p class="body-copy body-copy-light reveal" style="transition-delay:0.1s;margin-bottom:20px;">We help you compare projects, understand the developer, review payment plans and see how each location works in real life.</p>
-      <p class="body-copy body-copy-light reveal" style="transition-delay:0.16s;margin-bottom:40px;">Whether you are buying a main home, a holiday place or an investment, you get clear advice at every step.</p>
-      <a href="#contact" class="btn btn-gold reveal" style="transition-delay:0.22s;align-self:flex-start;">Talk to Us</a>
-    </div>
-    <div class="advisory-img-wrap">
-      <img src="assets/liora/advisory-property.jpg" alt="Luxury Costa del Sol property advisory setting" loading="lazy" decoding="async" width="2048" height="1024" />
     </div>
   </section>
 
