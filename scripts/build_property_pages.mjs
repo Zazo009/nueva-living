@@ -63,7 +63,8 @@ function image(project, key, fallback = {}) {
 }
 
 function imageTag(img, className = '', loading = 'lazy') {
-  return `<img${className ? ` class="${className}"` : ''} src="${esc(img.src)}" alt="${esc(img.alt || '')}"${attr('width', img.width)}${attr('height', img.height)}${loading ? attr('loading', loading) : ''} decoding="async">`;
+  const style = img.focus ? ` style="object-position: ${esc(img.focus)};"` : '';
+  return `<img${className ? ` class="${className}"` : ''} src="${esc(img.src)}" alt="${esc(img.alt || '')}"${attr('width', img.width)}${attr('height', img.height)}${loading ? attr('loading', loading) : ''} decoding="async"${style}>`;
 }
 
 function responsiveCardImageTag(img) {
@@ -324,8 +325,8 @@ function locationMap(project) {
               <desc id="${esc(descId)}">Indicative map showing ${esc(project.name)} in ${esc(project.hero?.location || project.location?.mapLabelHtml || 'Costa del Sol')}, relative to ${context.map((key) => esc(MAP_LANDMARKS[key].label)).join(', ')}.</desc>
               <defs>
                 <linearGradient id="mapSeaGradient" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0" stop-color="#F4EAD9"/>
-                  <stop offset="1" stop-color="#E0CFB3"/>
+                  <stop offset="0" stop-color="#BFDCE0"/>
+                  <stop offset="1" stop-color="#5C8E98"/>
                 </linearGradient>
                 <radialGradient id="mapProjectGlow" cx="50%" cy="50%" r="50%">
                   <stop offset="0" stop-color="#A8834A" stop-opacity="0.34"/>
@@ -713,6 +714,7 @@ ${JSON.stringify(agentSchema, null, 2)}
           <div class="hero-actions">
             ${availabilityBrowseAction}
             ${ghostAction(privateHeroCta, privateHref)}
+            ${project.media?.items?.length ? ghostAction('All Photos', '#media') : ''}
           </div>
         </div>
         <aside class="hero-facts reveal-soft" aria-label="Project key facts">

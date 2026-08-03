@@ -20,8 +20,9 @@ body {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(18, 18, 13, 0.84) 0%, rgba(37, 34, 25, 0.54) 50%, rgba(37, 34, 25, 0.10) 100%),
-    linear-gradient(0deg, rgba(16, 16, 12, 0.84) 0%, rgba(16, 16, 12, 0.24) 56%, rgba(16, 16, 12, 0.28) 100%);
+    radial-gradient(ellipse 68% 58% at 14% 100%, rgba(14, 14, 10, 0.66) 0%, rgba(14, 14, 10, 0.30) 62%, rgba(14, 14, 10, 0) 100%),
+    linear-gradient(90deg, rgba(18, 18, 13, 0.62) 0%, rgba(37, 34, 25, 0.34) 50%, rgba(37, 34, 25, 0.05) 100%),
+    linear-gradient(0deg, rgba(16, 16, 12, 0.70) 0%, rgba(16, 16, 12, 0.14) 56%, rgba(16, 16, 12, 0.16) 100%);
 }
 
 .project-hero-img {
@@ -316,9 +317,11 @@ body {
   max-width: var(--max);
   margin: 0 auto;
   padding: 0 var(--x);
+  padding-right: calc(var(--x) + 46px);
   display: flex;
   gap: clamp(18px, 2.8vw, 38px);
   overflow-x: auto;
+  scroll-snap-type: x proximity;
   scrollbar-width: none;
   overscroll-behavior-inline: contain;
   -webkit-overflow-scrolling: touch;
@@ -341,6 +344,7 @@ body {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   white-space: nowrap;
+  scroll-snap-align: start;
   transition: color 0.22s ease, opacity 0.22s ease;
   -webkit-tap-highlight-color: transparent;
 }
@@ -1178,7 +1182,7 @@ body {
 
 .map-water-label {
   font-family: "Cinzel", Georgia, serif;
-  fill: rgba(74, 59, 40, 0.34);
+  fill: rgba(255, 253, 248, 0.6);
   font-size: 21px;
   letter-spacing: 0.15em;
 }
@@ -1245,7 +1249,7 @@ body {
 
 .map-legend .legend-sea {
   height: 8px;
-  background: linear-gradient(90deg, rgba(232, 223, 205, 0), rgba(168, 131, 74, 0.28));
+  background: linear-gradient(90deg, rgba(191, 220, 224, 0.15), rgba(92, 142, 152, 0.72));
 }
 
 .investment-grid {
