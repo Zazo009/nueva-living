@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import propertySync from '../lib/nueva-property-sync.cjs';
@@ -1031,6 +1031,38 @@ function projectFiles() {
     .filter((file) => existsSync(file));
 }
 
+function buildSearchCatalog(projects) {
+  return projects
+    .filter((project) => !project.archived)
+    .map((project) => {
+      const discovery = project.discovery || {};
+      const crm = project.crm || {};
+      const tags = [
+        ...(discovery.lifestyleTags || []),
+        ...(discovery.architectureTags || []),
+        ...(discovery.locationTags || []),
+        ...(discovery.investmentTags || [])
+      ];
+      return {
+        slug: project.slug,
+        name: project.name,
+        area: discovery.area || crm.area || null,
+        propertyTypes: crm.propertyTypes || discovery.propertyTypes || [],
+        priceMin: crm.priceMin ?? discovery.price ?? null,
+        priceMax: crm.priceMax ?? null,
+        bedroomsMin: crm.bedroomsMin ?? null,
+        bedroomsMax: crm.bedroomsMax ?? null,
+        constructionStatus: crm.constructionStatus || null,
+        tags: [...new Set(tags)],
+        description: project.description || '',
+        overview: (project.overview?.copy || []).join(' '),
+        why: project.why?.copy || '',
+        location: project.location?.copy || '',
+        distances: project.location?.distances || []
+      };
+    });
+}
+
 function loadProjects() {
   return projectFiles()
     .map((file) => ({ ...readJson(file), sourceFile: file }))
@@ -1326,13 +1358,10 @@ function updateDevelopmentsPage(projects) {
   if (!existsSync(developmentsPage)) return false;
 
   const activeProjects = projects.filter((project) => !project.archived);
-  // "Completed Projects" means already-built developments that still have
-  // availability -- a curated view of the active set, not a separate
-  // sold-out bucket. `archived` is reserved for developments delisted from
-  // marketing entirely (fully sold, no longer shown anywhere).
-  const completedProjects = activeProjects.filter((project) => (
-    project.crm?.constructionStatus === 'completed' && project.crm?.availableUnits !== 0
-  ));
+  // "Earlier Sold Projects" is a track-record tab: developments that have
+  // sold out and are no longer part of the active marketing set. Set
+  // `"archived": true` on a project's project.json to move it here.
+  const soldProjects = projects.filter((project) => project.archived);
 
   let html = readFileSync(developmentsPage, 'utf8');
   html = writeGeneratedGrid(html, {
@@ -1348,7 +1377,7 @@ function updateDevelopmentsPage(projects) {
       gridMarkerAttr: 'data-archived-project-grid',
       startMarker: generatedArchivedProjectsStart,
       endMarker: generatedArchivedProjectsEnd,
-      cards: completedProjects.map(renderProjectCard).join('\n'),
+      cards: soldProjects.map(renderProjectCard).join('\n'),
       label: 'NUEVA GENERATED ARCHIVED PROJECTS'
     });
   }
@@ -1423,5 +1452,9 @@ const developmentsUpdated = updateDevelopmentsPage(projects);
 const homepageUpdated = updateHomepageProjectCards(projects);
 const viewingUpdated = updateHomepageViewingData(projects);
 const crmSync = await syncProjectsToCrm(projects);
+
+const searchCatalogDir = path.resolve('netlify/functions/data');
+mkdirSync(searchCatalogDir, { recursive: true });
+writeFileSync(path.join(searchCatalogDir, 'projects-catalog.json'), JSON.stringify(buildSearchCatalog(projects), null, 2));
 
 console.log(JSON.stringify({ written, developmentsUpdated, homepageUpdated, viewingUpdated, crmSync }, null, 2));

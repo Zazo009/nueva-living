@@ -17,6 +17,7 @@
   const lifestyleToggle = root.querySelector('[data-lifestyle-toggle]');
   const lifestylePanel = root.querySelector('[data-lifestyle-panel]');
   const selected = new Set();
+  let aiMatchedSlugs = null;
 
   const normalize = (value = '') =>
     String(value)
@@ -133,6 +134,7 @@
   selectInputs.forEach((select) => {
     const key = select.dataset.filterSelect;
     select.addEventListener('change', () => {
+      aiMatchedSlugs = null;
       selectState[key] = select.value;
       update();
       syncUrl();
@@ -195,6 +197,7 @@
 
     [minInput, maxInput].forEach((input) => {
       input?.addEventListener('input', () => {
+        aiMatchedSlugs = null;
         render();
         update();
       });
@@ -238,6 +241,8 @@
     const bedsMax = bedsBounds && beds.max >= bedsBounds.max ? Infinity : beds.max;
 
     const visible = cards.filter((card) => {
+      if (aiMatchedSlugs) return aiMatchedSlugs.has(card.id);
+
       const tokens = cardTokens(card);
       if (!activeTokens.every((token) => tokens.has(token))) return false;
 
@@ -302,6 +307,7 @@
   filterButtons.forEach((button) => {
     button.setAttribute('aria-pressed', 'false');
     button.addEventListener('click', () => {
+      aiMatchedSlugs = null;
       const value = button.dataset.filter;
       if (selected.has(value)) selected.delete(value);
       else selected.add(value);
@@ -311,6 +317,7 @@
   });
 
   clearButton?.addEventListener('click', () => {
+    aiMatchedSlugs = null;
     selected.clear();
     selectState.area = '';
     selectState.propertyType = '';
@@ -460,11 +467,10 @@
   }
 
   // --- AI-assisted free-text search --------------------------------------
-
-  const AREAS_SET = new Set(['marbella', 'estepona', 'benahavis', 'nueva-andalucia', 'mijas-fuengirola']);
-  const PROPERTY_TYPES_SET = new Set(['apartment', 'penthouse', 'villa', 'townhouse']);
-  const STATUSES_SET = new Set(['off_plan', 'under_construction', 'completed']);
-  const TIMINGS_SET = new Set(['ready', '1y', '2y', '2y+']);
+  // Sends the raw query to the AI search function, which reasons over each
+  // development's real profile (not just discrete filter fields) and
+  // returns matching slugs directly, so results stay accurate for queries
+  // that don't map cleanly onto the manual filter set.
 
   const aiSearchForm = root.querySelector('[data-ai-search-form]');
   const aiSearchInput = root.querySelector('[data-ai-search-input]');
@@ -472,39 +478,6 @@
   const aiSearchSubmitLabel = root.querySelector('[data-ai-search-submit-label]');
   const aiSearchStatus = root.querySelector('[data-ai-search-status]');
   const aiSearchExamples = Array.from(root.querySelectorAll('[data-ai-search-example]'));
-
-  const applyAiFilters = (filters = {}) => {
-    if (filters.area && AREAS_SET.has(filters.area)) {
-      const select = selectInputs.find((item) => item.dataset.filterSelect === 'area');
-      if (select) { select.value = filters.area; selectState.area = filters.area; }
-    }
-    if (filters.propertyType && PROPERTY_TYPES_SET.has(filters.propertyType)) {
-      const select = selectInputs.find((item) => item.dataset.filterSelect === 'propertyType');
-      if (select) { select.value = filters.propertyType; selectState.propertyType = filters.propertyType; }
-    }
-    if (filters.status && STATUSES_SET.has(filters.status)) {
-      const select = selectInputs.find((item) => item.dataset.filterSelect === 'status');
-      if (select) { select.value = filters.status; selectState.status = filters.status; }
-    }
-    if (filters.timing && TIMINGS_SET.has(filters.timing)) {
-      const select = selectInputs.find((item) => item.dataset.filterSelect === 'timing');
-      if (select) { select.value = filters.timing; selectState.timing = filters.timing; }
-    }
-    if (filters.priceMin !== undefined || filters.priceMax !== undefined) {
-      setRange('price', filters.priceMin, filters.priceMax);
-    }
-    if (filters.bedroomsMin !== undefined || filters.bedroomsMax !== undefined) {
-      setRange('bedrooms', filters.bedroomsMin, filters.bedroomsMax);
-    }
-    if (Array.isArray(filters.tags)) {
-      filters.tags.forEach((tag) => {
-        if (root.querySelector(`[data-filter="${CSS.escape(tag)}"]`)) selected.add(tag);
-      });
-    }
-
-    update();
-    syncUrl();
-  };
 
   const setAiSearchBusy = (busy) => {
     if (aiSearchSubmit) aiSearchSubmit.disabled = busy;
@@ -531,8 +504,15 @@
       const data = await res.json().catch(() => null);
       if (!res.ok || !data?.ok) throw new Error(data?.error || 'AI search failed');
 
-      applyAiFilters(data.filters || {});
-      showAiSearchStatus(data.filters?.summary || 'Showing matching developments.', false);
+      const matchedSlugs = Array.isArray(data.matchedSlugs) ? data.matchedSlugs : [];
+      if (matchedSlugs.length) {
+        aiMatchedSlugs = new Set(matchedSlugs);
+        update();
+        syncUrl();
+        showAiSearchStatus(data.summary || 'Showing matching developments.', false);
+      } else {
+        showAiSearchStatus(data.summary || 'No current development matches that search.', false);
+      }
     } catch {
       showAiSearchStatus('AI search is unavailable right now — try the filters below instead.', true);
     } finally {

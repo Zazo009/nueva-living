@@ -1,47 +1,29 @@
+const catalog = require('./data/projects-catalog.json');
+
 const DEFAULT_ALLOWED_ORIGINS = [
   'https://nuevaliving.com',
   'https://www.nuevaliving.com',
 ];
 
-const AREAS = ['marbella', 'estepona', 'benahavis', 'nueva-andalucia', 'mijas-fuengirola'];
-const PROPERTY_TYPES = ['apartment', 'penthouse', 'villa', 'townhouse'];
-const STATUSES = ['off_plan', 'under_construction', 'completed'];
-const TIMINGS = ['ready', '1y', '2y', '2y+'];
-const TAGS = [
-  'Sea View', 'Beachside', 'Golf Living', 'Wellness Living', 'Resort Lifestyle',
-  'Family-Oriented', 'Privacy & Security', 'Walkable Lifestyle', 'Lock-and-Leave',
-  'Smart Home', 'Sustainable Living', 'Design-Led', 'Ultra Luxury', 'Boutique Community',
-  'Contemporary Mediterranean', 'Minimalist Architecture', 'Organic Design',
-  'Panoramic Glass Design', 'Low-Density Development', 'Boutique Development',
-  'Golden Mile', 'Golf Valley', 'New Golden Mile', 'Marbella East', 'Beachfront',
-  'Hillside Views', 'Gated Community', 'Walkable to Amenities',
-  'Primary Residence', 'Holiday Home', 'Investment Property', 'Rental Yield Potential',
-  'Family Relocation', 'International Buyer', 'Second Home', 'Lifestyle Investment',
-  'Long-Term Value', 'Low-Maintenance Ownership',
-];
+const CATALOG_SLUGS = catalog.map((project) => project.slug);
 
 const SEARCH_TOOL = {
-  name: 'apply_property_filters',
-  description: 'Map a free-text property search into the site\'s existing filter values. Only include a field if the text clearly implies it -- omit anything uncertain.',
+  name: 'search_developments',
+  description: 'Return which Costa del Sol developments (by slug) match the visitor\'s search, reasoning over each development\'s full profile below -- not just a keyword match on area or type. If no development is a strong match, return an empty matchedSlugs array and explain why in summary (e.g. no current development in that area), optionally suggesting the closest real alternative from the catalog by name in the summary text.',
   input_schema: {
     type: 'object',
     properties: {
-      area: { type: 'string', enum: AREAS, description: 'Location filter' },
-      propertyType: { type: 'string', enum: PROPERTY_TYPES },
-      status: { type: 'string', enum: STATUSES },
-      timing: { type: 'string', enum: TIMINGS, description: 'Move-in timing bucket' },
-      priceMin: { type: 'number', description: 'Minimum budget in EUR' },
-      priceMax: { type: 'number', description: 'Maximum budget in EUR' },
-      bedroomsMin: { type: 'number' },
-      bedroomsMax: { type: 'number' },
-      tags: {
+      matchedSlugs: {
         type: 'array',
-        items: { type: 'string', enum: TAGS },
-        description: 'Lifestyle, architecture, setting or investment tags implied by the text',
+        items: { type: 'string', enum: CATALOG_SLUGS },
+        description: 'Slugs of developments that genuinely match the search, best match first. Empty if nothing matches.',
       },
-      summary: { type: 'string', description: 'One short sentence confirming what was searched for, to show the visitor' },
+      summary: {
+        type: 'string',
+        description: 'One short, natural sentence for the visitor confirming what was found, or explaining why nothing matched and what the closest option is instead.',
+      },
     },
-    required: [],
+    required: ['matchedSlugs', 'summary'],
   },
 };
 
@@ -114,11 +96,11 @@ exports.handler = async (event) => {
       },
       body: JSON.stringify({
         model: 'claude-haiku-4-5-20251001',
-        max_tokens: 400,
-        system: 'You map free-text Costa del Sol property search queries onto a fixed set of filter values by calling apply_property_filters exactly once. Never invent values outside the given enums. If nothing in the text maps to a field, omit it.',
+        max_tokens: 600,
+        system: `You help visitors search a small, real catalog of Costa del Sol property developments by calling search_developments exactly once. Judge matches using the full profile of each development (location, price, bedrooms, construction status, tags, and description/overview/location text) -- not just literal keyword overlap. A query can match on lifestyle or setting language even if it doesn't name the area directly. Never invent a development that isn't in the catalog, and never force a match that isn't genuinely relevant just to avoid an empty result.\n\nCatalog:\n${JSON.stringify(catalog)}`,
         messages: [{ role: 'user', content: query }],
         tools: [SEARCH_TOOL],
-        tool_choice: { type: 'tool', name: 'apply_property_filters' },
+        tool_choice: { type: 'tool', name: 'search_developments' },
       }),
     });
 
@@ -130,9 +112,12 @@ exports.handler = async (event) => {
 
     const result = await aiResponse.json();
     const toolUse = result?.content?.find((block) => block.type === 'tool_use');
-    const filters = toolUse?.input || {};
+    const matchedSlugs = Array.isArray(toolUse?.input?.matchedSlugs)
+      ? toolUse.input.matchedSlugs.filter((slug) => CATALOG_SLUGS.includes(slug))
+      : [];
+    const summary = typeof toolUse?.input?.summary === 'string' ? toolUse.input.summary : '';
 
-    return response(200, { ok: true, filters }, origin);
+    return response(200, { ok: true, matchedSlugs, summary }, origin);
   } catch (error) {
     console.error('AI search request failed', { message: error.message || 'Unknown error' });
     return response(502, { ok: false, error: 'AI search request failed' }, origin);

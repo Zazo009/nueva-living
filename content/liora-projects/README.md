@@ -74,32 +74,33 @@ explicitly for anything not actually in central Marbella -- an earlier
 version of this map hardcoded one fixed layout for every project, which
 placed at least one real project on the wrong side of Puerto Banús.
 
-### Completed Projects tab
-
-The "Completed Projects" tab on developments.html is a curated view of
-already-built developments that still have availability -- not a
-separate sold-out bucket. It's populated automatically from the active
-project set wherever `crm.constructionStatus` is `"completed"` and
-`crm.availableUnits` is not `0`. A project can appear in both the main
-Developments grid and this tab at the same time (the tab is just a
-shortcut to the same "Completed" value the Status filter already
-supports). No extra field needs to be set -- just keep `crm` accurate.
-
-### Delisting a sold-out project
+### Earlier Sold Projects tab
 
 Set `"archived": true` at the top level of a project's `project.json`
-once it's fully sold out and should no longer be marketed anywhere,
-instead of deleting the project folder. The build then:
+once it's fully sold out, instead of deleting the project folder. The
+build then:
 
 - Leaves it out of the main Developments grid, the filter bar's dataset,
-  the homepage "Selected Residences" cards, and the Completed Projects
-  tab.
+  and the homepage "Selected Residences" cards.
+- Renders it into the "Earlier Sold Projects" tab on developments.html
+  instead (a separate, unfiltered grid -- no search/sort applied there)
+  as a track-record showcase.
 - Still generates its own `property-<slug>.html` page normally, so the
-  page keeps working for anyone with a direct link, even though nothing
-  on the site links to it anymore.
+  project remains fully viewable when clicked from that tab.
 
 Nothing else in the schema needs to change -- pricing/availability copy on
 the page itself should be updated by hand to reflect that it's sold out.
+
+### AI search catalog
+
+`node scripts/build_property_pages.mjs` also writes
+`netlify/functions/data/projects-catalog.json`, a compact profile
+(area, price, bedrooms, tags, description/overview/location text) of
+every non-archived project. The `nueva-ai-search` Netlify function
+bundles this file and gives it to Claude in full, so free-text search
+reasons over each development's real content instead of only matching
+a fixed set of filter values -- run the build after any content change
+so the catalog stays current.
 
 ### Construction timeline
 
