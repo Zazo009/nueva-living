@@ -1436,12 +1436,42 @@ async function syncProjectsToCrm(projects) {
   };
 }
 
+// Required sections whose headlineHtml (and, for a couple, copy) is
+// interpolated directly into the page with no fallback -- an omitted
+// field would otherwise render as the literal string "undefined" on a
+// live page instead of failing the build. `media` is only required
+// when the project actually has media.items.
+const REQUIRED_SECTIONS = [
+  'overview', 'residences', 'availability', 'location', 'why',
+  'architecture', 'projectFile', 'privateViewing', 'lifestyle',
+  'investment', 'trustDossier', 'timeline', 'enquiry'
+];
+
+function validateProject(project) {
+  const label = path.relative(process.cwd(), project.sourceFile);
+  for (const key of REQUIRED_SECTIONS) {
+    const section = project[key];
+    if (!section || typeof section.headlineHtml !== 'string' || !section.headlineHtml.trim()) {
+      throw new Error(`${label}: "${key}.headlineHtml" is missing -- it renders directly into the page with no fallback.`);
+    }
+  }
+  if (project.media?.items?.length) {
+    if (typeof project.media.headlineHtml !== 'string' || !project.media.headlineHtml.trim()) {
+      throw new Error(`${label}: "media.headlineHtml" is missing -- required whenever media.items is set.`);
+    }
+    if (typeof project.media.copy !== 'string' || !project.media.copy.trim()) {
+      throw new Error(`${label}: "media.copy" is missing -- required whenever media.items is set.`);
+    }
+  }
+}
+
 const written = [];
 const projects = loadProjects();
 for (const project of projects) {
   if (!project.slug || !project.output) {
     throw new Error(`${path.relative(process.cwd(), project.sourceFile)} must include slug and output.`);
   }
+  validateProject(project);
 
   const html = renderProject(project);
   writeFileSync(path.resolve(project.output), html);
