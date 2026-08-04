@@ -1462,6 +1462,9 @@ function validateProject(project) {
     if (typeof project.media.copy !== 'string' || !project.media.copy.trim()) {
       throw new Error(`${label}: "media.copy" is missing -- required whenever media.items is set.`);
     }
+    if (!project.media.items.some((item) => item.category)) {
+      throw new Error(`${label}: no media.items have a "category" -- the preview grid groups by category, so without one it renders as an empty gap above the "View all" button.`);
+    }
   }
 }
 
