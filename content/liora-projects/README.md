@@ -192,3 +192,27 @@ Allowed `area` values are `marbella`, `estepona`, `benahavis`, and `other`.
 Allowed `constructionStatus` values are `off_plan`, `under_construction`, and
 `completed`. Allowed `propertyTypes` values are `apartment`, `penthouse`,
 `villa`, and `townhouse`.
+
+### Anonymized projects: keep the CRM record accurate
+
+When a project's public name and developer are anonymized (real developer
+brand removed from the site, per the standing redaction practice for
+developer-supplied materials), set `crm.realName` and `crm.realDeveloper` to
+the actual project name and developer. `projectToPropertyPayload()` in
+`lib/nueva-property-sync.cjs` sends these to the CRM instead of the public
+`name` / `crm.developer` whenever they're set, so the CRM's own property
+record stays correct even though the public site never shows the real
+name -- without this, the CRM would silently store the fictional public
+name and developer as if they were real. Leave both blank for projects that
+aren't anonymized; the payload then falls back to the public name and
+`crm.developer` as before.
+
+```json
+{
+  "crm": {
+    "developer": "Public-facing developer name shown nowhere, but kept for schema parity",
+    "realName": "Actual project name, e.g. Aloha Forest",
+    "realDeveloper": "Actual developer, e.g. Grupo Vasari"
+  }
+}
+```
