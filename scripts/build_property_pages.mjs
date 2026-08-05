@@ -736,8 +736,6 @@ ${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}   
         <a href="#project-file">Project Info</a>
         <a href="#private-viewing">Cinematic Presentation</a>
         <a href="#lifestyle">Lifestyle</a>
-        <a href="#investment">Investment</a>
-        <a href="#project-dossier">What to Know</a>
         <a href="#enquire">Enquire</a>
       </div>
     </nav>
@@ -841,8 +839,12 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
           <h2 class="section-headline">${why.headlineHtml}</h2>
           <p class="project-lead">${esc(why.copy)}</p>
         </div>
-        <div class="why-point-grid">
-          ${(why.points || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n          ')}
+        <div class="why-point-grid why-point-grid--merged">
+          ${[
+            ...(why.points || []),
+            ...(project.investment?.cards || []),
+            ...(trustDossier.cards || [])
+          ].map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n          ')}
         </div>
       </div>
     </section>
@@ -912,34 +914,6 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
         </div>
         <div class="lifestyle-panels reveal-soft">
           ${project.lifestyle.panels.map(([title, body]) => `<article class="lifestyle-panel"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n          ')}
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="investment">
-      <div class="project-inner">
-        <div class="reveal-soft">
-          <span class="section-kicker">Investment Context</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">${project.investment.headlineHtml}</h2>
-          <p class="project-lead">${esc(project.investment.copy)}</p>
-        </div>
-        <div class="investment-grid">
-          ${project.investment.cards.map(([title, body]) => `<article class="investment-card reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n          ')}
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section dossier-section" id="project-dossier">
-      <div class="project-inner dossier-layout">
-        <div class="reveal-soft">
-          <span class="section-kicker">Before You View</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">${trustDossier.headlineHtml}</h2>
-          <p class="project-lead">${esc(trustDossier.copy)}</p>
-        </div>
-        <div class="dossier-grid">
-          ${(trustDossier.cards || []).map(([title, body]) => `<article class="dossier-card reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n          ')}
         </div>
       </div>
     </section>
@@ -1134,7 +1108,6 @@ function renderProjectCard(project) {
               <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
               <h3>${esc(project.name)}</h3>
               <p>${esc(project.card?.description || project.description)}</p>
-              ${discovery.advisoryBadge ? `<div class="advisory-badge">${esc(discovery.advisoryBadge)}</div>` : ''}
               <div class="meta">${meta.map(([label, value]) => `<div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('')}</div>
               ${cardTags.length ? `<div class="project-tags">${renderDiscoveryTags(cardTags)}</div>` : ''}
               <a class="project-link" href="${esc(project.output)}">Explore Project</a>
@@ -1443,8 +1416,7 @@ async function syncProjectsToCrm(projects) {
 // when the project actually has media.items.
 const REQUIRED_SECTIONS = [
   'overview', 'residences', 'availability', 'location', 'why',
-  'architecture', 'projectFile', 'privateViewing', 'lifestyle',
-  'investment', 'trustDossier', 'timeline', 'enquiry'
+  'architecture', 'projectFile', 'privateViewing', 'lifestyle', 'timeline', 'enquiry'
 ];
 
 function validateProject(project) {
@@ -1454,6 +1426,15 @@ function validateProject(project) {
     if (!section || typeof section.headlineHtml !== 'string' || !section.headlineHtml.trim()) {
       throw new Error(`${label}: "${key}.headlineHtml" is missing -- it renders directly into the page with no fallback.`);
     }
+  }
+  // investment.cards and trustDossier.cards feed the merged "Why This
+  // Project" grid alongside why.points -- their own headlineHtml/copy no
+  // longer render anywhere, but the cards themselves still need to exist.
+  if (!project.investment?.cards?.length) {
+    throw new Error(`${label}: "investment.cards" is missing or empty -- it feeds the merged Why This Project grid.`);
+  }
+  if (!project.trustDossier?.cards?.length) {
+    throw new Error(`${label}: "trustDossier.cards" is missing or empty -- it feeds the merged Why This Project grid.`);
   }
   if (project.media?.items?.length) {
     if (typeof project.media.headlineHtml !== 'string' || !project.media.headlineHtml.trim()) {

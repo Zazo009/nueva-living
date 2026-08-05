@@ -231,6 +231,16 @@ body {
   border: 1px solid var(--line);
 }
 
+.why-point-grid--merged {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 640px) {
+  .why-point-grid--merged {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .why-point,
 .dossier-card {
   padding: clamp(24px, 3vw, 34px);
