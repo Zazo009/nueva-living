@@ -641,6 +641,7 @@ function renderProject(project) {
     '@type': 'Product',
     name: project.name,
     description: project.description,
+    image: assetUrl(heroImage.src),
     category: project.schema?.category || 'New development residences',
     brand: { '@type': 'Brand', name: 'Nueva Living' },
     ...(schemaPrice ? {
