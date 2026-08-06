@@ -102,6 +102,26 @@ reasons over each development's real content instead of only matching
 a fixed set of filter values -- run the build after any content change
 so the catalog stays current.
 
+### FAQ
+
+Every property page renders an FAQ section built from a shared set of
+general buyer-process questions (NIE numbers, non-resident mortgages,
+legal representation, etc. -- see `DEFAULT_FAQS` in
+`scripts/build_property_pages.mjs`) with FAQPage structured data for
+SEO. Add an optional `"faq"` array to a project's `project.json` to
+append project-specific questions after the shared set:
+
+```json
+{
+  "faq": [
+    ["Is furniture included?", "Replace with a factual answer specific to this development."]
+  ]
+}
+```
+
+Do not restate the general buyer-process questions here -- they are
+already covered by the shared defaults on every page.
+
 ### Construction timeline
 
 `constructionTimeline` renders an optional "Timeline" band right after

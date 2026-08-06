@@ -27,6 +27,20 @@ const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/8vIJ7w
 const propertyCssVersion = fileVersion('assets/liora/liora-property.css');
 const propertyJsVersion = fileVersion('assets/liora/liora-property.js');
 
+// General buyer-process questions that apply to every development. A
+// project's own `faq` array (if set) is appended after these, for
+// anything specific to that particular release.
+const DEFAULT_FAQS = [
+  ['Can foreigners buy property in Spain?', 'Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident.'],
+  ['What is an NIE number and do I need one?', 'An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve.'],
+  ['What costs should I budget for on top of the purchase price?', 'Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve.'],
+  ['Can I get a mortgage in Spain as a non-resident?', 'Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile.'],
+  ['What is the difference between off-plan and completed properties?', 'Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now.'],
+  ['How does the reservation and payment process work?', 'Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step.'],
+  ['Can I rent out the property after purchase?', 'This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve.'],
+  ['Do I need a lawyer?', 'Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property.']
+];
+
 function fileVersion(file) {
   return createHash('sha256').update(readFileSync(path.resolve(file))).digest('hex').slice(0, 12);
 }
@@ -665,6 +679,16 @@ function renderProject(project) {
     email: 'contact@nuevaliving.com',
     areaServed: 'Costa del Sol'
   };
+  const faqs = [...DEFAULT_FAQS, ...(project.faq || [])];
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(([question, answer]) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer }
+    }))
+  };
 
   return `<!doctype html>
 <html lang="en">
@@ -696,6 +720,9 @@ ${JSON.stringify(productSchema, null, 2)}
   </script>
   <script type="application/ld+json">
 ${JSON.stringify(agentSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+${JSON.stringify(faqSchema, null, 2)}
   </script>
 </head>
 <body
@@ -737,6 +764,7 @@ ${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}   
         <a href="#project-file">Project Info</a>
         <a href="#private-viewing">Cinematic Presentation</a>
         <a href="#lifestyle">Lifestyle</a>
+        <a href="#faq">FAQ</a>
         <a href="#enquire">Enquire</a>
       </div>
     </nav>
@@ -928,6 +956,22 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
         </div>
         <div class="project-timeline">
           ${renderTimelineItems(timeline.items)}
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section faq-section" id="faq">
+      <div class="project-inner">
+        <div class="section-head center reveal-soft">
+          <span class="section-kicker">FAQ</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">Common <em>buyer questions</em></h2>
+        </div>
+        <div class="faq-list">
+          ${faqs.map(([question, answer], index) => `<details class="faq-item reveal-soft"${index === 0 ? ' open' : ''}>
+            <summary>${esc(question)}<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+            <p>${esc(answer)}</p>
+          </details>`).join('\n          ')}
         </div>
       </div>
     </section>
