@@ -354,3 +354,51 @@
     revealItems.forEach((item) => item.classList.add('in'));
   }
 })();
+
+// --- Affordability calculator ---------------------------------------
+(() => {
+  const panel = document.querySelector('[data-calculator]');
+  if (!panel) return;
+
+  const priceInput = panel.querySelector('[data-calc-price]');
+  const depositInput = panel.querySelector('[data-calc-deposit]');
+  const depositReadout = panel.querySelector('[data-calc-deposit-readout]');
+  const rateInput = panel.querySelector('[data-calc-rate]');
+  const termInput = panel.querySelector('[data-calc-term]');
+  const depositAmountOut = panel.querySelector('[data-calc-deposit-amount]');
+  const loanOut = panel.querySelector('[data-calc-loan]');
+  const monthlyOut = panel.querySelector('[data-calc-monthly]');
+
+  const formatEuro = (value) => `€${Math.round(Math.max(0, value)).toLocaleString('en-US')}`;
+
+  function update() {
+    const price = Number(priceInput.value) || 0;
+    const depositPct = Number(depositInput.value) || 0;
+    const rate = Number(rateInput.value) || 0;
+    const years = Number(termInput.value) || 0;
+
+    const depositAmount = price * (depositPct / 100);
+    const loanAmount = Math.max(0, price - depositAmount);
+    const months = Math.max(1, Math.round(years * 12));
+    const monthlyRate = rate / 100 / 12;
+
+    let monthlyPayment;
+    if (monthlyRate === 0) {
+      monthlyPayment = loanAmount / months;
+    } else {
+      const factor = Math.pow(1 + monthlyRate, months);
+      monthlyPayment = loanAmount * (monthlyRate * factor) / (factor - 1);
+    }
+
+    depositReadout.textContent = `${depositPct}%`;
+    depositAmountOut.textContent = formatEuro(depositAmount);
+    loanOut.textContent = formatEuro(loanAmount);
+    monthlyOut.textContent = formatEuro(monthlyPayment);
+  }
+
+  [priceInput, depositInput, rateInput, termInput].forEach((input) => {
+    input?.addEventListener('input', update);
+  });
+
+  update();
+})();

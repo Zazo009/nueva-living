@@ -650,6 +650,7 @@ function renderProject(project) {
   };
   const schemaUrl = project.canonical || `https://nuevaliving.com/${project.output}`;
   const schemaPrice = project.schema?.price;
+  const calculatorSeedPrice = project.crm?.priceMin ?? project.discovery?.price ?? schemaPrice ?? 500000;
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -758,6 +759,7 @@ ${JSON.stringify(faqSchema, null, 2)}
         <a href="#overview">Overview</a>
 ${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}        <a href="#residences">Residences</a>
         <a href="#availability">Availability</a>
+        <a href="#calculator">Affordability</a>
         <a href="#location">Location</a>
         <a href="#why-this-project">Why</a>
         <a href="#architecture">Architecture</a>
@@ -841,6 +843,42 @@ ${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}  
           </div>
         </div>
 ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
+    </section>
+
+    <section class="project-section calculator-section" id="calculator">
+      <div class="project-inner">
+        <div class="section-head center reveal-soft">
+          <span class="section-kicker">Affordability</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">Estimate your <em>monthly payment</em></h2>
+          <p class="body-copy">A quick indicative estimate only. Confirm exact terms with your lender before making any decision.</p>
+        </div>
+        <div class="calculator-panel reveal-soft" data-calculator>
+          <div class="calculator-inputs">
+            <label class="calculator-field">
+              <span>Purchase price</span>
+              <input type="number" data-calc-price value="${esc(calculatorSeedPrice)}" min="0" step="1000">
+            </label>
+            <label class="calculator-field">
+              <span>Deposit <em data-calc-deposit-readout>30%</em></span>
+              <input type="range" data-calc-deposit min="10" max="100" step="5" value="30">
+            </label>
+            <label class="calculator-field">
+              <span>Interest rate</span>
+              <input type="number" data-calc-rate value="3.5" min="0" max="15" step="0.1">
+            </label>
+            <label class="calculator-field">
+              <span>Term (years)</span>
+              <input type="number" data-calc-term value="25" min="5" max="35" step="1">
+            </label>
+          </div>
+          <div class="calculator-results">
+            <div class="calculator-result"><span>Deposit</span><strong data-calc-deposit-amount>&euro;0</strong></div>
+            <div class="calculator-result"><span>Loan amount</span><strong data-calc-loan>&euro;0</strong></div>
+            <div class="calculator-result calculator-result--highlight"><span>Estimated monthly payment</span><strong data-calc-monthly>&euro;0</strong></div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="project-section" id="location">
