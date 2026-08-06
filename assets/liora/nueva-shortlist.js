@@ -326,7 +326,9 @@
     if (!body) return;
 
     body.innerHTML = savedProjects.length
-      ? `<ol class="nueva-shortlist-items">${savedProjects.map(itemMarkup).join('')}</ol>${formMarkup()}`
+      ? `<ol class="nueva-shortlist-items">${savedProjects.map(itemMarkup).join('')}</ol>${
+          savedProjects.length >= 2 ? '<a class="nueva-shortlist-compare" href="compare.html">Compare Saved Projects</a>' : ''
+        }${formMarkup()}`
       : emptyMarkup();
 
     body.querySelectorAll('[data-remove-shortlist]').forEach((button) => {

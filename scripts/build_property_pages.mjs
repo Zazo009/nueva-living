@@ -855,27 +855,55 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
         </div>
         <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
-            <label class="calculator-field">
-              <span>Purchase price</span>
-              <input type="number" data-calc-price value="${esc(calculatorSeedPrice)}" min="0" step="1000">
-            </label>
-            <label class="calculator-field">
-              <span>Deposit <em data-calc-deposit-readout>30%</em></span>
+            <div class="calculator-field calculator-field--dual">
+              <div class="calculator-field-label"><span>Purchase price</span><em data-calc-price-readout>&euro;0</em></div>
+              <input type="range" data-calc-price-range min="150000" max="3000000" step="5000" value="${esc(calculatorSeedPrice)}">
+              <input type="number" data-calc-price value="${esc(calculatorSeedPrice)}" min="0" step="1000" class="calculator-field-number">
+            </div>
+            <div class="calculator-field calculator-field--dual">
+              <div class="calculator-field-label"><span>Deposit</span><em data-calc-deposit-readout>30% &middot; &euro;0</em></div>
               <input type="range" data-calc-deposit min="10" max="100" step="5" value="30">
-            </label>
+            </div>
+            <div class="calculator-field calculator-field--dual">
+              <div class="calculator-field-label"><span>Mortgage term</span><em data-calc-term-readout>25 years</em></div>
+              <input type="range" data-calc-term min="5" max="35" step="1" value="25">
+            </div>
+            <div class="calculator-field calculator-field--split">
+              <label>
+                <span>Interest rate</span>
+                <input type="number" data-calc-rate value="3.5" min="0" max="15" step="0.1">
+              </label>
+              <div class="calculator-rate-toggle" data-calc-rate-toggle role="group" aria-label="Rate type">
+                <button type="button" class="is-active" data-rate-type="fixed">Fixed</button>
+                <button type="button" data-rate-type="variable">Variable</button>
+              </div>
+            </div>
             <label class="calculator-field">
-              <span>Interest rate</span>
-              <input type="number" data-calc-rate value="3.5" min="0" max="15" step="0.1">
-            </label>
-            <label class="calculator-field">
-              <span>Term (years)</span>
-              <input type="number" data-calc-term value="25" min="5" max="35" step="1">
+              <span>Taxes &amp; purchase costs</span>
+              <input type="number" data-calc-costs value="10" min="0" max="20" step="0.5">
+              <em class="calculator-field-hint">Indicative only &mdash; ITP/VAT, notary, registry and legal fees vary by case. Confirm exact costs with your lawyer.</em>
             </label>
           </div>
           <div class="calculator-results">
-            <div class="calculator-result"><span>Deposit</span><strong data-calc-deposit-amount>&euro;0</strong></div>
-            <div class="calculator-result"><span>Loan amount</span><strong data-calc-loan>&euro;0</strong></div>
             <div class="calculator-result calculator-result--highlight"><span>Estimated monthly payment</span><strong data-calc-monthly>&euro;0</strong></div>
+            <div class="calculator-breakdown-bar" data-calc-bar>
+              <span class="calculator-bar-segment calculator-bar-segment--deposit" data-calc-bar-deposit></span>
+              <span class="calculator-bar-segment calculator-bar-segment--principal" data-calc-bar-principal></span>
+              <span class="calculator-bar-segment calculator-bar-segment--interest" data-calc-bar-interest></span>
+            </div>
+            <div class="calculator-bar-legend">
+              <span><i class="calculator-bar-segment--deposit"></i>Deposit</span>
+              <span><i class="calculator-bar-segment--principal"></i>Mortgage principal</span>
+              <span><i class="calculator-bar-segment--interest"></i>Total interest</span>
+            </div>
+            <div class="calculator-result-grid">
+              <div class="calculator-result"><span>Deposit</span><strong data-calc-deposit-amount>&euro;0</strong></div>
+              <div class="calculator-result"><span>Loan amount</span><strong data-calc-loan>&euro;0</strong></div>
+              <div class="calculator-result"><span>Financed</span><strong data-calc-financed-pct>0%</strong></div>
+              <div class="calculator-result"><span>Total interest paid</span><strong data-calc-total-interest>&euro;0</strong></div>
+              <div class="calculator-result"><span>Taxes &amp; purchase costs</span><strong data-calc-costs-amount>&euro;0</strong></div>
+              <div class="calculator-result"><span>Total cost of property</span><strong data-calc-total-property>&euro;0</strong></div>
+            </div>
           </div>
         </div>
       </div>
@@ -1086,6 +1114,32 @@ function projectFiles() {
     .filter((entry) => entry.isDirectory())
     .map((entry) => path.join(projectsDir, entry.name, 'project.json'))
     .filter((file) => existsSync(file));
+}
+
+function buildCompareCatalog(projects) {
+  return projects
+    .filter((project) => !project.archived)
+    .map((project) => {
+      const discovery = project.discovery || {};
+      const crm = project.crm || {};
+      return {
+        slug: project.slug,
+        name: project.name,
+        url: project.output,
+        image: assetUrl(cardImage(project).src),
+        area: discovery.area || crm.area || null,
+        propertyTypes: crm.propertyTypes || discovery.propertyTypes || [],
+        priceMin: crm.priceMin ?? discovery.price ?? null,
+        priceMax: crm.priceMax ?? null,
+        bedroomsMin: crm.bedroomsMin ?? null,
+        bedroomsMax: crm.bedroomsMax ?? null,
+        totalUnits: crm.totalUnits ?? null,
+        availableUnits: crm.availableUnits ?? null,
+        constructionStatus: crm.constructionStatus || null,
+        deliveryDate: crm.deliveryDate || null,
+        amenities: crm.amenities || []
+      };
+    });
 }
 
 function buildSearchCatalog(projects) {
@@ -1553,5 +1607,9 @@ const crmSync = await syncProjectsToCrm(projects);
 const searchCatalogDir = path.resolve('netlify/functions/data');
 mkdirSync(searchCatalogDir, { recursive: true });
 writeFileSync(path.join(searchCatalogDir, 'projects-catalog.json'), JSON.stringify(buildSearchCatalog(projects), null, 2));
+
+const compareCatalogDir = path.resolve('assets/liora/data');
+mkdirSync(compareCatalogDir, { recursive: true });
+writeFileSync(path.join(compareCatalogDir, 'projects-catalog.json'), JSON.stringify(buildCompareCatalog(projects), null, 2));
 
 console.log(JSON.stringify({ written, developmentsUpdated, homepageUpdated, viewingUpdated, crmSync }, null, 2));

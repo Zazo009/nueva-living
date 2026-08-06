@@ -21,6 +21,8 @@ const cardGalleryScriptPath = 'assets/liora/liora-card-gallery.js';
 const trackingScriptPath = 'assets/liora/nueva-tracking.js';
 const shortlistScriptPath = 'assets/liora/nueva-shortlist.js';
 const shortlistStylesheetPath = 'assets/liora/nueva-shortlist.css';
+const compareScriptPath = 'assets/liora/liora-compare.js';
+const compareStylesheetPath = 'assets/liora/liora-compare.css';
 const navInteractionsStylesheetPath = 'assets/liora/nueva-nav-interactions.css';
 const newsletterStylesheetPath = 'assets/liora/nueva-newsletter.css';
 const systemStylesheetPath = 'assets/liora/nueva-system.css';
@@ -32,6 +34,8 @@ const cardGalleryScriptVersion = contentVersion(cardGalleryScriptPath);
 const trackingScriptVersion = contentVersion(trackingScriptPath);
 const shortlistScriptVersion = contentVersion(shortlistScriptPath);
 const shortlistStylesheetVersion = contentVersion(shortlistStylesheetPath);
+const compareScriptVersion = contentVersion(compareScriptPath);
+const compareStylesheetVersion = contentVersion(compareStylesheetPath);
 const navInteractionsStylesheetVersion = contentVersion(navInteractionsStylesheetPath);
 const newsletterStylesheetVersion = contentVersion(newsletterStylesheetPath);
 const systemStylesheetVersion = contentVersion(systemStylesheetPath);
@@ -47,6 +51,7 @@ const baseHtmlFiles = [
   'why-nueva.html',
   'areas.html',
   ...areas.map((area) => area.output),
+  'compare.html',
   'cookie-policy.html',
   'developments.html',
   'legal-notice.html',
@@ -162,6 +167,13 @@ const basePageMeta = {
     robots: 'noindex,follow',
     type: 'website'
   },
+  'compare.html': {
+    title: 'Compare Your Shortlist | Nueva Living',
+    description: 'Compare the Costa del Sol developments you have saved to your shortlist, side by side.',
+    path: '/compare.html',
+    robots: 'noindex,follow',
+    type: 'website'
+  },
   '404.html': {
     title: 'Page Not Found | Nueva Living',
     description: 'The requested Nueva Living page could not be found.',
@@ -244,6 +256,8 @@ const assetFiles = [
   'assets/liora/nueva-nav-interactions.css',
   'assets/liora/nueva-shortlist.css',
   'assets/liora/nueva-shortlist.js',
+  'assets/liora/liora-compare.css',
+  'assets/liora/liora-compare.js',
   'assets/liora/nueva-system.css',
   'assets/liora/brand/nueva-living-hero-logo.png',
   'assets/liora/brand/nueva-living-hero-logo-sand.png',
@@ -263,6 +277,7 @@ const assetDirectories = [
   'assets/fonts/google',
   'assets/liora/areas',
   'assets/liora/cards',
+  'assets/liora/data',
   'assets/liora/hero',
   'assets/liora/projects',
   'assets/liora/team',
@@ -457,6 +472,14 @@ function optimizeHtml(html) {
     .replace(
       /assets\/liora\/liora-property\.css(?:\?v=[a-z0-9]+)?/gi,
       `${propertyStylesheetPath}?v=${propertyStylesheetVersion}`
+    )
+    .replace(
+      /assets\/liora\/liora-compare\.css(?:\?v=[a-z0-9]+)?/gi,
+      `${compareStylesheetPath}?v=${compareStylesheetVersion}`
+    )
+    .replace(
+      /assets\/liora\/liora-compare\.js(?:\?v=[a-z0-9]+)?/gi,
+      `${compareScriptPath}?v=${compareScriptVersion}`
     )
     .replace(
       /assets\/liora\/nueva-system\.css(?:\?v=[a-z0-9]+)?/gi,
