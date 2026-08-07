@@ -71,17 +71,43 @@ const basePageMeta = {
     description: 'Find and compare new-build homes across Marbella, Estepona, Benahavis and the wider Costa del Sol with personal buyer support.',
     path: '/',
     type: 'website',
-    schema: {
-      '@context': 'https://schema.org',
-      '@type': 'RealEstateAgent',
-      name: 'Nueva Living',
-      legalName: 'LIORA LIVING SL.',
-      taxID: 'B88827472',
-      url: siteUrl,
-      email: 'contact@nuevaliving.com',
-      areaServed: ['Marbella', 'Estepona', 'Benahavis', 'Costa del Sol'],
-      knowsAbout: ['New developments', 'Off-plan property', 'Luxury real estate advisory']
-    }
+    schema: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'RealEstateAgent',
+        name: 'Nueva Living',
+        legalName: 'LIORA LIVING SL.',
+        taxID: 'B88827472',
+        url: siteUrl,
+        email: 'contact@nuevaliving.com',
+        areaServed: ['Marbella', 'Estepona', 'Benahavis', 'Costa del Sol'],
+        knowsAbout: ['New developments', 'Off-plan property', 'Luxury real estate advisory']
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Nueva Living',
+        legalName: 'LIORA LIVING SL.',
+        url: siteUrl,
+        logo: `${siteUrl}/assets/liora/brand/nueva-living-lockup-espresso-transparent.png`,
+        email: 'contact@nuevaliving.com',
+        telephone: '+34645446624',
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: 'Avenida del Prado 71',
+          postalCode: '29660',
+          addressLocality: 'Marbella',
+          addressRegion: 'Malaga',
+          addressCountry: 'ES'
+        }
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Nueva Living',
+        url: siteUrl
+      }
+    ]
   },
   'developments.html': {
     title: 'Costa del Sol New Developments | Nueva Living',
@@ -220,6 +246,25 @@ function loadProjectPages() {
     .sort((a, b) => (a.card?.order ?? 999) - (b.card?.order ?? 999));
 }
 
+function projectAreaLabel(project) {
+  const location = `${project.hero?.location || ''} ${project.schema?.areaServed || ''}`.toLowerCase();
+  if (location.includes('nueva andaluc') || location.includes('nueva andalucía')) return 'Nueva Andalucia';
+  if (location.includes('benahav')) return 'Benahavis';
+  if (location.includes('estepona') || location.includes('new golden mile')) return 'Estepona';
+  if (location.includes('mijas') || location.includes('fuengirola')) return 'Mijas & Fuengirola';
+  if (location.includes('marbella east')) return 'Marbella East';
+  return 'Marbella';
+}
+
+// Mirrors seoTitle() in build_property_pages.mjs -- leads with property
+// type and area, since that is what buyers actually search for, not the
+// project's own (often anonymized) name.
+function projectSeoTitle(project) {
+  const area = projectAreaLabel(project);
+  const type = project.hero?.type || 'New Development';
+  return `${type} in ${area} — ${project.shortName || project.name} | Nueva Living`;
+}
+
 const projectPages = loadProjectPages();
 const htmlFiles = [
   ...baseHtmlFiles,
@@ -231,7 +276,7 @@ const pageMeta = {
   ...Object.fromEntries(projectPages.map((project) => [
     project.output,
     {
-      title: `${project.name} | Nueva Living`,
+      title: projectSeoTitle(project),
       description: project.seoDescription || project.description || `${project.name} new development preview by Nueva Living.`,
       path: `/${project.output}`,
       type: 'website'
@@ -808,6 +853,8 @@ Excluded:
 
 fs.writeFileSync(path.join(dist, 'README.md'), metadata);
 
+const sitemapLastmod = new Date().toISOString().slice(0, 10);
+
 const sitemapEntries = Object.entries(pageMeta)
   .filter(([, meta]) => meta.robots !== 'noindex,follow')
   .map(([file, meta]) => {
@@ -815,6 +862,7 @@ const sitemapEntries = Object.entries(pageMeta)
     return [
       '  <url>',
       `<loc>${siteUrl}${meta.path}</loc>`,
+      `<lastmod>${sitemapLastmod}</lastmod>`,
       '<changefreq>weekly</changefreq>',
       `<priority>${priority}</priority>`,
       '</url>'

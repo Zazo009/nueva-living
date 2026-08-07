@@ -506,6 +506,27 @@ function breadcrumb(project) {
   </nav>`;
 }
 
+function breadcrumbSchema(project) {
+  const area = projectArea(project);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Developments', item: `${siteUrl}/developments.html` },
+      { '@type': 'ListItem', position: 2, name: area.label, item: `${siteUrl}/${area.href}` },
+      { '@type': 'ListItem', position: 3, name: project.shortName || project.name, item: `${siteUrl}/${project.output}` }
+    ]
+  };
+}
+
+// Search-facing title/meta lead with property type and area, since those
+// are what buyers actually search for -- not the project's own name.
+function seoTitle(project) {
+  const area = projectArea(project);
+  const type = project.hero?.type || 'New Development';
+  return `${type} in ${area.label} — ${project.shortName || project.name} | Nueva Living`;
+}
+
 function footer(project) {
   return `<footer>
     <div class="footer-grid">
@@ -693,22 +714,23 @@ function renderProject(project) {
       acceptedAnswer: { '@type': 'Answer', text: answer }
     }))
   };
+  const pageTitle = seoTitle(project);
 
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(project.name)} | Nueva Living</title>
+  <title>${esc(pageTitle)}</title>
   <meta name="description" content="${esc(project.seoDescription || project.description)}">
   <link rel="canonical" href="${esc(project.canonical || '')}">
-  <meta property="og:title" content="${esc(project.name)} | Nueva Living">
+  <meta property="og:title" content="${esc(pageTitle)}">
   <meta property="og:description" content="${esc(project.description)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${esc(project.canonical || '')}">
   <meta property="og:image" content="${esc(assetUrl(heroImage.src))}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${esc(project.name)} | Nueva Living">
+  <meta name="twitter:title" content="${esc(pageTitle)}">
   <meta name="twitter:description" content="${esc(project.twitterDescription || project.description)}">
   <meta name="twitter:image" content="${esc(assetUrl(heroImage.src))}">
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
@@ -727,6 +749,9 @@ ${JSON.stringify(agentSchema, null, 2)}
   </script>
   <script type="application/ld+json">
 ${JSON.stringify(faqSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+${JSON.stringify(breadcrumbSchema(project), null, 2)}
   </script>
 </head>
 <body
