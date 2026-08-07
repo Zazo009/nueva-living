@@ -430,7 +430,8 @@ function renderGuidesPage() {
         url: `${siteUrl}/${segment.output}`,
         name: segment.title
       }))
-    }
+    },
+    generalFaqSchema()
   ];
 
   return `<!doctype html>
@@ -469,6 +470,7 @@ ${JSON.stringify(schema, null, 2)}
         ${SEGMENTS.map(guideCard).join('\n        ')}
       </div>
     </div></section>
+    ${faqSection(GENERAL_FAQS)}
   </main>
   ${footer()}
   <script>
@@ -494,6 +496,32 @@ ${JSON.stringify(schema, null, 2)}
   </script>
 </body>
 </html>`;
+}
+
+// Same general buyer-process FAQ used on every property page
+// (DEFAULT_FAQS in build_property_pages.mjs), duplicated here since this
+// script is a separate, self-contained generator.
+const GENERAL_FAQS = [
+  ['Can foreigners buy property in Spain?', 'Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident.'],
+  ['What is an NIE number and do I need one?', 'An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve.'],
+  ['What costs should I budget for on top of the purchase price?', 'Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve.'],
+  ['Can I get a mortgage in Spain as a non-resident?', 'Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile.'],
+  ['What is the difference between off-plan and completed properties?', 'Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now.'],
+  ['How does the reservation and payment process work?', 'Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step.'],
+  ['Can I rent out the property after purchase?', 'This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve.'],
+  ['Do I need a lawyer?', 'Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property.']
+];
+
+function generalFaqSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: GENERAL_FAQS.map(([question, answer]) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer }
+    }))
+  };
 }
 
 const SEGMENTS = [
