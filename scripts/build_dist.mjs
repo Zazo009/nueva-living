@@ -56,6 +56,8 @@ const baseHtmlFiles = [
   'developments.html',
   'legal-notice.html',
   'new-build-apartments-penthouses-marbella.html',
+  'new-build-apartments-penthouses-estepona.html',
+  'new-build-apartments-penthouses-nueva-andalucia.html',
   'privacy-policy.html',
   'thank-you.html',
 ];
@@ -127,6 +129,18 @@ const basePageMeta = {
     type: 'website'
     // No `schema` here either: build_segment_pages.mjs already writes the
     // full CollectionPage/ItemList/BreadcrumbList/FAQPage JSON-LD inline.
+  },
+  'new-build-apartments-penthouses-estepona.html': {
+    title: 'New-Build Apartments & Penthouses in Estepona | Nueva Living',
+    description: 'Compare new-build apartments and penthouses in Estepona, from the New Golden Mile to the town centre, with real prices, availability and floorplans from Nueva Living.',
+    path: '/new-build-apartments-penthouses-estepona.html',
+    type: 'website'
+  },
+  'new-build-apartments-penthouses-nueva-andalucia.html': {
+    title: 'New-Build Apartments & Penthouses in Nueva Andalucia | Nueva Living',
+    description: 'Compare new-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus, with real prices, availability and floorplans from Nueva Living.',
+    path: '/new-build-apartments-penthouses-nueva-andalucia.html',
+    type: 'website'
   },
   'areas.html': {
     title: 'Costa del Sol Area Guide | Nueva Living',

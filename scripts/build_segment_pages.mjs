@@ -293,7 +293,7 @@ function renderSegmentPage(segment) {
   const amenitiesSection = amenities.length ? `<section class="section quiet-band segment-amenities"><div class="section-inner">
     <div class="section-head"><span class="label">What To Expect</span><div class="rule"></div><h2 class="section-title">${segment.amenitiesHeadlineHtml}</h2><p class="body-copy">${esc(segment.amenitiesIntro)}</p></div>
     <ul class="segment-amenity-list">
-      ${amenities.map((amenity) => `<li>${esc(amenity.replace(/\b\w/g, (c) => c.toUpperCase()))}</li>`).join('\n      ')}
+      ${amenities.map((amenity) => `<li>${esc(amenity.replace(/(^|[\s-])[a-z]/g, (c) => c.toUpperCase()))}</li>`).join('\n      ')}
     </ul>
   </div></section>` : '';
 
@@ -433,6 +433,111 @@ const SEGMENTS = [
       ['Is a golf-view or sea-view unit significantly more expensive than a garden-view unit in the same building?', 'View typically carries a real premium within the same development, though the size of that premium varies by project and by floor. Comparing the current price list across several units in the same building is the most reliable way to see it.'],
       ['Can I still use the pool and gym if I only visit a few months a year?', 'Yes. Community amenities such as pools, gyms and gardens are available to owners year-round regardless of how often you visit, and are covered by the community service charge whether you use them or not.'],
       ['Do these developments allow short-term holiday rental?', 'This depends on the individual development’s community rules and the local municipal licence requirements, which can differ between Marbella’s sub-areas. Nueva Living confirms the specific rental position for a development before you reserve.']
+    ]
+  },
+  {
+    output: 'new-build-apartments-penthouses-estepona.html',
+    area: 'estepona',
+    areaLabel: 'Estepona',
+    areaHref: 'area-estepona.html',
+    propertyTypes: ['apartment', 'penthouse'],
+    breadcrumbLabel: 'Apartments & Penthouses',
+    title: 'New-Build Apartments & Penthouses in Estepona | Nueva Living',
+    description: 'Compare new-build apartments and penthouses in Estepona, from the New Golden Mile to the town centre, with real prices, availability and floorplans from Nueva Living.',
+    kicker: 'Estepona &middot; Apartments &amp; Penthouses',
+    heroTitleHtml: 'New-Build Apartments &amp; Penthouses in <em>Estepona</em>',
+    heroLead: 'Compare current apartment and penthouse developments across Estepona, from low-rise garden homes on the New Golden Mile to gated communities in the town centre, with real prices and availability confirmed before you view.',
+    hero: {
+      image: 'assets/liora/projects/jardin-del-mar-residences/hero.jpg',
+      alt: 'Exterior view of a new-build apartment and penthouse development with a palm-lined pool terrace, Estepona',
+      width: 1920,
+      height: 1097,
+      position: 'center 50%'
+    },
+    introLabel: 'Buying In Estepona',
+    introHeadlineHtml: 'The Costa del Sol’s <em>fastest-growing market</em>',
+    introParagraphs: [
+      'Estepona has been the most active new-build market on the Costa del Sol in recent years, and it covers more than one kind of address. A low-rise garden apartment on the New Golden Mile and a gated penthouse in the town centre are both "Estepona", but they suit different buyers.',
+      'New-build apartments and penthouses here are typically sold off-plan, with staged payments through to completion. Nueva Living reconfirms the current price list, floorplans and payment schedule for any development before you shortlist it.'
+    ],
+    quickFacts: [
+      ['Buyer Profile', 'Suits both primary residence and lock-and-leave second-home buyers.'],
+      ['Typical Status', 'Current releases are off-plan, sold with staged payments through to completion.'],
+      ['What Varies Most', 'New Golden Mile developments favour space and resort amenities; central Estepona favours walkability.'],
+      ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
+    ],
+    subareasHeadlineHtml: 'Two sub-areas, <em>two different homes</em>',
+    subareas: [
+      ['Cancelada & New Golden Mile', 'Low-rise garden apartments and penthouses set within a wider resort-style development, with generous private outdoor space and shared amenities such as pools, padel and spa facilities.'],
+      ['Central Estepona', 'Gated communities within walking distance of the old town and seafront promenade, generally smaller in scale with a stronger emphasis on wellness amenities and lock-and-leave convenience.']
+    ],
+    developmentsHeadlineHtml: 'Current apartment &amp; penthouse <em>developments</em>',
+    amenitiesHeadlineHtml: 'Amenities to expect',
+    amenitiesIntro: 'Specification varies by development, but current Estepona apartment and penthouse releases typically include some combination of the following.',
+    comparisonHeadlineHtml: 'Apartment or penthouse <em>in Estepona?</em>',
+    comparison: [
+      ['Apartment', 'Usually the lower entry price for a given development, with lower service charges than a penthouse in the same building. Ground-floor units in these developments are often sold with a private garden rather than a terrace.'],
+      ['Penthouse', 'Typically the largest terrace or roof solarium in the building and the best view, at a meaningful price premium over a mid-floor apartment. Service charges are usually higher, reflecting the larger private outdoor space.']
+    ],
+    faq: [
+      ['What is the difference between buying on the New Golden Mile and in central Estepona?', 'The New Golden Mile generally offers larger, more resort-style developments with more shared amenities and land around each building, while central Estepona offers smaller, more walkable developments closer to the old town and seafront. Both are typically sold off-plan. Nueva Living can talk through which setting suits your priorities.'],
+      ['Are service charges higher for a penthouse than an apartment in the same development?', 'Usually, yes. Service charges are typically calculated on built size or a fixed per-unit share, and a penthouse’s larger terrace or solarium generally puts it in a higher share than a mid-floor apartment in the same building. Nueva Living confirms the exact community fee structure for any development before you reserve.'],
+      ['Do ground-floor apartments come with a private garden?', 'In many of the developments we work with, yes, ground-floor units are sold with a private garden rather than the terrace that upper floors receive, though this varies by development and by building layout. We confirm this unit by unit.'],
+      ['Can I still use the pool, spa and gym if I only visit a few months a year?', 'Yes. Community amenities are available to owners year-round regardless of how often you visit, and are covered by the community service charge whether you use them or not.'],
+      ['Do these developments allow short-term holiday rental?', 'This depends on the individual development’s community rules and the local municipal licence requirements. Nueva Living confirms the specific rental position for a development before you reserve.']
+    ]
+  },
+  {
+    output: 'new-build-apartments-penthouses-nueva-andalucia.html',
+    area: 'nueva-andalucia',
+    areaLabel: 'Nueva Andalucía',
+    areaHref: 'area-nueva-andalucia.html',
+    propertyTypes: ['apartment', 'penthouse'],
+    breadcrumbLabel: 'Apartments & Penthouses',
+    title: 'New-Build Apartments & Penthouses in Nueva Andalucia | Nueva Living',
+    description: 'Compare new-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus, with real prices, availability and floorplans from Nueva Living.',
+    kicker: 'Nueva Andaluc&iacute;a &middot; Apartments &amp; Penthouses',
+    heroTitleHtml: 'New-Build Apartments &amp; Penthouses in <em>Nueva Andaluc&iacute;a</em>',
+    heroLead: 'Compare current apartment and penthouse developments in Nueva Andalucía’s Golf Valley, minutes from Puerto Banús, with real prices and availability confirmed before you view.',
+    hero: {
+      image: 'assets/liora/projects/los-olivos-residences/hero.jpg',
+      alt: 'Aerial view of a new-build apartment and penthouse development under construction in Nueva Andalucía’s Golf Valley, Marbella, with the coastline beyond',
+      width: 1920,
+      height: 1078,
+      position: 'center 50%'
+    },
+    introLabel: 'Buying In Nueva Andalucía',
+    introHeadlineHtml: 'Golf Valley, <em>minutes from Puerto Banús</em>',
+    introParagraphs: [
+      'Nueva Andalucía’s Golf Valley is one of the most established gated-community settings on the Costa del Sol: green, quiet and close to golf courses, yet a short drive from Puerto Banús and the beach.',
+      'New-build apartments and penthouses here are typically sold off-plan or under construction, with staged payments through to completion. Nueva Living reconfirms the current price list, floorplans and payment schedule for any development before you shortlist it.'
+    ],
+    quickFacts: [
+      ['Buyer Profile', 'Suits both primary residence and lock-and-leave second-home buyers.'],
+      ['Typical Status', 'Current releases are under construction, sold with staged payments through to completion.'],
+      ['What Varies Most', 'Floor level and outlook (golf course or communal gardens) drive price more than the building itself.'],
+      ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
+    ],
+    subareasHeadlineHtml: 'What Golf Valley <em>living means</em>',
+    subareas: [
+      ['A Golf-Course Setting', 'Developments are built around or alongside golf courses, giving most residences an open, green outlook rather than a dense urban one.'],
+      ['Minutes From Puerto Banús', 'Golf Valley sits a short drive from Puerto Banús and the Golden Mile, keeping restaurants, marina life and the beach close without living directly on top of them.'],
+      ['Gated & Resort-Style', 'Current developments in this pocket are gated communities with 24-hour security and shared wellness amenities such as pools, spas and social lounges.']
+    ],
+    developmentsHeadlineHtml: 'Current apartment &amp; penthouse <em>developments</em>',
+    amenitiesHeadlineHtml: 'Amenities to expect',
+    amenitiesIntro: 'Specification varies by development, but current Nueva Andalucía apartment and penthouse releases typically include some combination of the following.',
+    comparisonHeadlineHtml: 'Apartment or penthouse <em>in Nueva Andalucía?</em>',
+    comparison: [
+      ['Apartment', 'Usually the lower entry price for a given development, with lower service charges than a penthouse in the same building. Ground-floor units in these developments are often sold with a private garden rather than a terrace.'],
+      ['Penthouse', 'Typically the largest terrace or roof solarium in the building and the best view, at a meaningful price premium over a mid-floor apartment. Service charges are usually higher, reflecting the larger private outdoor space.']
+    ],
+    faq: [
+      ['How far is Golf Valley from Puerto Banús and the beach?', 'Golf Valley is a short drive from both, typically well under fifteen minutes depending on the exact development and time of day. It is close enough for regular use without the traffic and noise of being directly on the Golden Mile.'],
+      ['Are service charges higher for a penthouse than an apartment in the same development?', 'Usually, yes. Service charges are typically calculated on built size or a fixed per-unit share, and a penthouse’s larger terrace or solarium generally puts it in a higher share than a mid-floor apartment in the same building. Nueva Living confirms the exact community fee structure for any development before you reserve.'],
+      ['Do ground-floor apartments come with a private garden?', 'In many of the developments we work with, yes, ground-floor units are sold with a private garden rather than the terrace that upper floors receive, though this varies by development and by building layout. We confirm this unit by unit.'],
+      ['Is a golf-view unit significantly more expensive than a garden-view unit in the same building?', 'View typically carries a real premium within the same development, though the size of that premium varies by project and by floor. Comparing the current price list across several units in the same building is the most reliable way to see it.'],
+      ['Can I still use the pool, spa and gym if I only visit a few months a year?', 'Yes. Community amenities are available to owners year-round regardless of how often you visit, and are covered by the community service charge whether you use them or not.']
     ]
   }
 ];
