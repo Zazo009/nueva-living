@@ -189,22 +189,30 @@ h6,
   color: #1a130b;
 }
 
+/* Tonal fill: the shape itself reads as a button before anyone parses the
+   label, so clickability doesn't depend on spotting small gold text.
+   .nueva-shortlist-browse/.nueva-shortlist-compare are deliberately not
+   here -- they live on the always-dark shortlist drawer and get their own
+   cream-tinted fill in nueva-shortlist.css instead. */
 :is(
   .btn.ghost,
   .btn-ghost-dark,
   .project-btn.ghost,
-  .dev-material-btn,
-  .nueva-shortlist-browse
+  .dev-material-btn
 ) {
-  border-color: var(--nueva-gold);
-  background: transparent;
+  border-color: rgba(168, 131, 74, 0.45);
+  background: rgba(168, 131, 74, 0.12);
   color: var(--nueva-espresso);
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
 :is(.btn-ghost-light, .cinema-cta .project-btn.ghost) {
-  border-color: rgba(244, 234, 217, 0.72);
-  background: rgba(47, 36, 23, 0.16);
+  border-color: rgba(244, 234, 217, 0.55);
+  background: rgba(244, 234, 217, 0.14);
   color: var(--nueva-cream);
+  font-weight: 600;
+  letter-spacing: 0.1em;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -242,17 +250,16 @@ h6,
     .btn.ghost,
     .btn-ghost-dark,
     .project-btn.ghost,
-    .dev-material-btn,
-    .nueva-shortlist-browse
+    .dev-material-btn
   ):hover {
     border-color: var(--nueva-gold);
-    background: rgba(168, 131, 74, 0.1);
+    background: rgba(168, 131, 74, 0.22);
     color: var(--nueva-deep);
   }
 
   :is(.btn-ghost-light, .cinema-cta .project-btn.ghost):hover {
     border-color: var(--nueva-cream);
-    background: rgba(244, 234, 217, 0.12);
+    background: rgba(244, 234, 217, 0.26);
     color: #fffaf0;
   }
 }
@@ -296,21 +303,58 @@ h6,
   transform: none;
 }
 
-/* Editorial text links remain lighter than command buttons. */
+/* Editorial text links: no border or fill (they sit inside cards that are
+   already framed), so weight and a permanent underline carry the "this is
+   clickable" signal instead of color alone. */
 :is(
   .project-link,
   .hero-discovery-link,
   .journey-cta,
   .area-card-cta,
-  .dev-cta-link
+  .dev-cta-link,
+  .area-guide-link,
+  .segment-related-list a,
+  .area-price-sources a
 ) {
   font-family: var(--nueva-ui);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 6px;
+  color: var(--nueva-espresso);
+  text-decoration: underline;
+  text-decoration-color: rgba(168, 131, 74, 0.55);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+}
+
+:is(
+  .project-link,
+  .hero-discovery-link,
+  .journey-cta,
+  .area-card-cta,
+  .dev-cta-link,
+  .area-guide-link,
+  .segment-related-list a,
+  .area-price-sources a
+):hover {
+  color: var(--nueva-espresso);
+  text-decoration-color: var(--nueva-gold);
+}
+
+/* .hero-discovery-link sits directly on the developments-page hero photo,
+   so it needs cream ink like the headline above it, not dark espresso.
+   (.page-hero prefix, not just the class alone: the shared text-link :is()
+   block above picks up the specificity of its most specific member --
+   .segment-related-list a -- so a bare single-class override here would
+   lose to it regardless of source order.) */
+.page-hero .hero-discovery-link {
+  color: var(--nueva-cream);
+  text-decoration-color: rgba(244, 234, 217, 0.55);
+}
+.page-hero .hero-discovery-link:hover {
+  color: var(--nueva-cream);
+  text-decoration-color: var(--nueva-cream);
 }
 
 /* Discovery controls and project tabs use the same restrained selection state. */
