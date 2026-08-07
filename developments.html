@@ -75,7 +75,8 @@
       <div class="hero-inner">
         <span class="kicker">Selected Developments</span>
         <h1 class="display-title">Luxury properties for sale on the <em>Costa del Sol</em></h1>
-        <p class="lead">Find your ideal home on the Costa del Sol with our advanced property search. Browse a carefully selected collection of new developments and luxury residences, and filter by location, price, property type and more to discover the home that perfectly matches your lifestyle.</p>
+        <p class="lead hero-lead-collapsible is-clamped" id="devHeroLead">Find your ideal home on the Costa del Sol with our advanced property search. Browse a carefully selected collection of new developments and luxury residences, and filter by location, price, property type and more to discover the home that perfectly matches your lifestyle.</p>
+        <button type="button" class="hero-lead-toggle" data-hero-lead-toggle aria-expanded="false" aria-controls="devHeroLead">Read More</button>
         <a class="hero-discovery-link" href="#development-discovery">Explore Developments</a>
       </div>
     </section>
@@ -510,6 +511,16 @@
           burger.setAttribute('aria-expanded', 'false');
           document.body.classList.remove('menu-open');
         });
+      });
+    }
+
+    const heroLead = document.getElementById('devHeroLead');
+    const heroLeadToggle = document.querySelector('[data-hero-lead-toggle]');
+    if (heroLead && heroLeadToggle) {
+      heroLeadToggle.addEventListener('click', () => {
+        const expanded = heroLead.classList.toggle('is-clamped') === false;
+        heroLeadToggle.textContent = expanded ? 'Read Less' : 'Read More';
+        heroLeadToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
       });
     }
   </script>

@@ -342,6 +342,34 @@ img {
   margin-top: 20px;
 }
 
+.hero-lead-toggle {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .hero-lead-collapsible.is-clamped {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .hero-lead-toggle {
+    display: block;
+    margin: 10px 0 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--bronze-light, var(--bronze));
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}
+
 .hero-discovery-link {
   display: inline-flex;
   align-items: center;
