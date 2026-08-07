@@ -202,7 +202,7 @@ function renderProjectMedia(project) {
       </div>
     </section>`,
     dialog: `<dialog class="project-media-dialog" id="projectMediaDialog" aria-label="${esc(project.name)} media viewer">
-      <div class="project-media-dialog-shell">
+      <div class="project-media-dialog-shell" data-media-dialog-shell>
         <button type="button" class="media-dialog-close" data-media-close aria-label="Close media viewer">Close</button>
         <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Previous image">&#8592;</button>
         <figure class="media-dialog-figure">
@@ -210,6 +210,9 @@ function renderProjectMedia(project) {
           <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
         </figure>
         <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Next image">&#8594;</button>
+        <div class="media-dialog-stack" data-media-dialog-stack hidden>
+          <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
+        </div>
       </div>
     </dialog>
     <script type="application/json" id="projectMediaData">${mediaData}</script>`

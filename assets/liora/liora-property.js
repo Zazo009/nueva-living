@@ -262,20 +262,27 @@
   if (mediaDialog && mediaGrid) {
     const mediaCards = [...mediaGrid.querySelectorAll('[data-media-category]')];
     const showAllButton = document.querySelector('[data-media-show-all]');
+    const dialogShell = mediaDialog.querySelector('[data-media-dialog-shell]');
     const dialogImage = mediaDialog.querySelector('[data-media-dialog-image]');
     const dialogCaption = mediaDialog.querySelector('[data-media-dialog-caption]');
     const dialogCount = mediaDialog.querySelector('[data-media-dialog-count]');
+    const dialogStack = mediaDialog.querySelector('[data-media-dialog-stack]');
+    const dialogStackCount = mediaDialog.querySelector('[data-media-dialog-stack-count]');
     const mediaData = document.getElementById('projectMediaData');
     let mediaItems = [];
     let activeMediaItems = [];
     let activeMediaIndex = 0;
     let swipeStartX = 0;
+    let stackObserver = null;
 
     try {
       mediaItems = JSON.parse(mediaData?.textContent || '[]');
     } catch (error) {
       console.warn('Project media data could not be read.', error);
     }
+
+    const stackQuery = window.matchMedia ? window.matchMedia('(max-width: 640px)') : null;
+    const useStack = () => Boolean(stackQuery?.matches);
 
     function showMediaAt(index) {
       if (!activeMediaItems.length || !dialogImage) return;
@@ -289,12 +296,72 @@
       if (dialogCount) dialogCount.textContent = `${String(activeMediaIndex + 1).padStart(2, '0')} / ${String(activeMediaItems.length).padStart(2, '0')}`;
     }
 
+    function updateStackCount(index) {
+      if (!dialogStackCount) return;
+      dialogStackCount.textContent = `${String(index + 1).padStart(2, '0')} / ${String(activeMediaItems.length).padStart(2, '0')}`;
+    }
+
+    function buildStack() {
+      if (!dialogStack) return;
+      stackObserver?.disconnect();
+      dialogStack.querySelectorAll('.media-dialog-stack-item').forEach((el) => el.remove());
+
+      activeMediaItems.forEach((item, index) => {
+        const figure = document.createElement('figure');
+        figure.className = 'media-dialog-stack-item';
+        figure.dataset.stackIndex = String(index);
+
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.alt || '';
+        img.width = Number(item.width) || 1600;
+        img.height = Number(item.height) || 900;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        figure.appendChild(img);
+
+        if (item.caption) {
+          const caption = document.createElement('figcaption');
+          caption.textContent = item.caption;
+          figure.appendChild(caption);
+        }
+
+        dialogStack.appendChild(figure);
+      });
+
+      updateStackCount(0);
+
+      if ('IntersectionObserver' in window) {
+        stackObserver = new IntersectionObserver((entries) => {
+          const visible = entries.filter((entry) => entry.isIntersecting);
+          if (!visible.length) return;
+          visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          const index = Number(visible[0].target.dataset.stackIndex || 0);
+          activeMediaIndex = index;
+          updateStackCount(index);
+        }, { root: dialogStack, threshold: [0.5, 0.75] });
+
+        dialogStack.querySelectorAll('.media-dialog-stack-item').forEach((el) => stackObserver.observe(el));
+      }
+    }
+
     function openMedia(category = 'All') {
       activeMediaItems = category === 'All'
         ? mediaItems
         : mediaItems.filter((item) => item.category === category);
       if (!activeMediaItems.length) return;
-      showMediaAt(0);
+
+      if (useStack()) {
+        dialogShell?.classList.add('is-stack-mode');
+        if (dialogStack) dialogStack.hidden = false;
+        dialogStack.scrollTop = 0;
+        buildStack();
+      } else {
+        dialogShell?.classList.remove('is-stack-mode');
+        if (dialogStack) dialogStack.hidden = true;
+        showMediaAt(0);
+      }
+
       if (typeof mediaDialog.showModal === 'function') mediaDialog.showModal();
       else mediaDialog.setAttribute('open', '');
       document.body.classList.add('media-dialog-open');
@@ -304,6 +371,7 @@
       if (typeof mediaDialog.close === 'function') mediaDialog.close();
       else mediaDialog.removeAttribute('open');
       document.body.classList.remove('media-dialog-open');
+      stackObserver?.disconnect();
     }
 
     mediaCards.forEach((card) => {
@@ -323,19 +391,25 @@
       if (event.target === mediaDialog) closeMedia();
     });
     mediaDialog.addEventListener('keydown', (event) => {
+      if (useStack()) return;
       if (event.key === 'ArrowLeft') showMediaAt(activeMediaIndex - 1);
       if (event.key === 'ArrowRight') showMediaAt(activeMediaIndex + 1);
     });
     mediaDialog.addEventListener('pointerdown', (event) => {
+      if (useStack()) return;
       swipeStartX = event.clientX;
     }, { passive: true });
     mediaDialog.addEventListener('pointerup', (event) => {
+      if (useStack()) return;
       const distance = event.clientX - swipeStartX;
       if (Math.abs(distance) < 48) return;
       showMediaAt(activeMediaIndex + (distance < 0 ? 1 : -1));
     }, { passive: true });
 
-    mediaDialog.addEventListener('close', () => document.body.classList.remove('media-dialog-open'));
+    mediaDialog.addEventListener('close', () => {
+      document.body.classList.remove('media-dialog-open');
+      stackObserver?.disconnect();
+    });
   }
 
   const revealItems = document.querySelectorAll('.reveal-soft');
