@@ -20,6 +20,7 @@
   const totalInterestOut = panel.querySelector('[data-calc-total-interest]');
   const costsAmountOut = panel.querySelector('[data-calc-costs-amount]');
   const totalPropertyOut = panel.querySelector('[data-calc-total-property]');
+  const cashWithMortgageOut = panel.querySelector('[data-calc-cash-with-mortgage]');
   const monthlyOut = panel.querySelector('[data-calc-monthly]');
 
   const barDeposit = panel.querySelector('[data-calc-bar-deposit]');
@@ -59,6 +60,7 @@
     const totalInterest = Math.max(0, totalRepaid - loanAmount);
     const costsAmount = price * (costsPct / 100);
     const totalProperty = price + costsAmount;
+    const cashWithMortgage = depositAmount + costsAmount;
     const financedPct = price > 0 ? Math.round((loanAmount / price) * 100) : 0;
 
     if (priceRange) priceRange.value = String(price);
@@ -71,6 +73,7 @@
     totalInterestOut.textContent = formatEuro(totalInterest);
     costsAmountOut.textContent = formatEuro(costsAmount);
     totalPropertyOut.textContent = formatEuro(totalProperty);
+    if (cashWithMortgageOut) cashWithMortgageOut.textContent = formatEuro(cashWithMortgage);
     monthlyOut.textContent = formatEuro(monthlyPayment);
 
     const barTotal = Math.max(1, depositAmount + loanAmount + totalInterest);

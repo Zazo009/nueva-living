@@ -926,6 +926,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
           <div class="calculator-results">
             <div class="calculator-result calculator-result--highlight"><span>Estimated monthly payment</span><strong data-calc-monthly>&euro;0</strong></div>
             <div class="calculator-result calculator-result--secondary"><span>Cash needed without a mortgage</span><strong data-calc-total-property>&euro;0</strong></div>
+            <div class="calculator-result calculator-result--secondary"><span>Cash needed with a mortgage (deposit + costs)</span><strong data-calc-cash-with-mortgage>&euro;0</strong></div>
             <div class="calculator-breakdown-bar" data-calc-bar>
               <span class="calculator-bar-segment calculator-bar-segment--deposit" data-calc-bar-deposit></span>
               <span class="calculator-bar-segment calculator-bar-segment--principal" data-calc-bar-principal></span>
