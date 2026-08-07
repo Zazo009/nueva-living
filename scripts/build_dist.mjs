@@ -342,6 +342,7 @@ const assetFiles = [
   'assets/liora/liora-pages.css',
   'assets/liora/liora-property.css',
   'assets/liora/liora-property.js',
+  'assets/liora/liora-calculator.js',
   'assets/liora/nueva-newsletter.css',
   'assets/liora/nueva-nav-interactions.css',
   'assets/liora/nueva-shortlist.css',

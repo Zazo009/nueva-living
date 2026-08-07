@@ -26,6 +26,7 @@ const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/8vIJ7w
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>`;
 const propertyCssVersion = fileVersion('assets/liora/liora-property.css');
 const propertyJsVersion = fileVersion('assets/liora/liora-property.js');
+const calculatorJsVersion = fileVersion('assets/liora/liora-calculator.js');
 
 // General buyer-process questions that apply to every development. A
 // project's own `faq` array (if set) is appended after these, for
@@ -743,6 +744,7 @@ ${fontPreloadBlock}
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
   <link rel="stylesheet" href="assets/liora/liora-property.css?v=${propertyCssVersion}">
   <script src="assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>
+  <script src="assets/liora/liora-calculator.js?v=${calculatorJsVersion}" defer></script>
   <script type="application/ld+json">
 ${JSON.stringify(productSchema, null, 2)}
   </script>
