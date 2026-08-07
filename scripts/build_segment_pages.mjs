@@ -22,7 +22,7 @@ const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX
   <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>`;
 
 const navLinks = [
-  ['Approach', 'approach.html'],
+  ['Buying Guides', 'guides.html'],
   ['Why Nueva', 'why-nueva.html'],
   ['Developments', 'developments.html'],
   ['Areas', 'areas.html'],
@@ -83,7 +83,6 @@ function footer() {
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
         <ul>
-          <li><a href="approach.html">Our Approach</a></li>
           <li><a href="why-nueva.html">Why Nueva Living</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="advisory.html">Advisory</a></li>

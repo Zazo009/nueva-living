@@ -47,7 +47,6 @@ const baseHtmlFiles = [
   'about.html',
   'contact.html',
   'advisory.html',
-  'approach.html',
   'why-nueva.html',
   'areas.html',
   ...areas.map((area) => area.output),
@@ -155,15 +154,9 @@ const basePageMeta = {
     path: '/areas.html',
     type: 'article'
   },
-  'approach.html': {
-    title: 'New Development Advisory Approach | Nueva Living',
-    description: 'See how Nueva Living helps buyers compare new developments and make a clear, informed choice on the Costa del Sol.',
-    path: '/approach.html',
-    type: 'article'
-  },
   'why-nueva.html': {
     title: 'Why Choose Nueva Living | Costa del Sol Buyer Support',
-    description: 'Local Costa del Sol insight, honest advice and hands-on help from the first conversation through to handover.',
+    description: 'Local Costa del Sol insight, honest advice and a clear step-by-step process, from the first conversation through to handover.',
     path: '/why-nueva.html',
     type: 'website',
     schema: {
@@ -911,7 +904,8 @@ fs.writeFileSync(
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
 
 const legacyRedirects = [
-  '/liora-approach.html /approach.html 301',
+  '/liora-approach.html /why-nueva.html 301',
+  '/approach.html /why-nueva.html 301',
   '/liora-developments.html /developments.html 301',
   '/liora-areas.html /areas.html 301',
   '/liora-advisory.html /advisory.html 301',

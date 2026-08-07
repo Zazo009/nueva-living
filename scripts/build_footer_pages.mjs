@@ -13,7 +13,7 @@ const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX
   <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>`;
 
 const navLinks = [
-  ['Approach', 'approach.html'],
+  ['Buying Guides', 'guides.html'],
   ['Why Nueva', 'why-nueva.html'],
   ['Developments', 'developments.html'],
   ['Areas', 'areas.html'],
@@ -23,7 +23,6 @@ const navLinks = [
 
 const footerLinks = {
   company: [
-    ['Our Approach', 'approach.html'],
     ['Why Nueva Living', 'why-nueva.html'],
     ['About', 'about.html'],
     ['Advisory', 'advisory.html'],
@@ -302,56 +301,6 @@ function areaDetailPage(area) {
 
 const pages = [
   {
-    file: 'approach.html',
-    title: 'Our Approach',
-    description: 'How Nueva Living helps buyers find and compare Costa del Sol new developments.',
-    heroImage: 'assets/liora/viewing/scene-02.jpg',
-    heroKicker: 'Our Approach',
-    heroTitle: 'A simpler way to buy <em>a new home</em>',
-    heroLead: 'We narrow down the market, compare the right projects and help you from the first shortlist through to completion.',
-    body: `<section class="section">
-      <div class="section-inner split">
-        <div>
-          <span class="label">Built Around You</span>
-          <div class="rule"></div>
-          <h2 class="section-title">Understand the options before <em>you choose</em></h2>
-          <p class="body-copy">There are a lot of new projects on the Costa del Sol, and they are not all equally good. We help you understand the developer, location, payment plan and whether the home actually fits the way you want to live.</p>
-        </div>
-        <div class="image-panel"><img src="assets/liora/advisory-property.jpg" alt="Costa del Sol property advisory setting"></div>
-      </div>
-    </section>
-    <section class="section quiet-band">
-      <div class="section-inner">
-        <div class="section-head">
-          <span class="label">How We Work</span>
-          <div class="rule"></div>
-          <h2 class="section-title">A focused search with <em>real guidance</em></h2>
-        </div>
-        <div class="cards">
-          <article class="card"><div class="card-number">01</div><h3>Your Shortlist</h3><p>We filter projects by location, developer, quality, completion date and price.</p></article>
-          <article class="card"><div class="card-number">02</div><h3>The Important Details</h3><p>We check master plans, payment schedules, reservation terms and nearby alternatives before you decide.</p></article>
-          <article class="card"><div class="card-number">03</div><h3>A Clear Comparison</h3><p>You see the strengths, trade-offs and next steps before booking a viewing or making a reservation.</p></article>
-        </div>
-      </div>
-    </section>
-    <section class="section">
-      <div class="section-inner">
-        <div class="section-head center">
-          <span class="label">Process</span>
-          <div class="rule"></div>
-          <h2 class="section-title">From first enquiry to <em>reservation</em></h2>
-          <p class="body-copy" style="margin-left:auto;margin-right:auto;">A simple step-by-step process, with no pressure.</p>
-        </div>
-        <div class="cards">
-          <article class="card"><div class="card-number">1</div><h3>Tell Us What You Need</h3><p>We talk through your budget, timing, preferred areas and must-haves.</p></article>
-          <article class="card"><div class="card-number">2</div><h3>Receive Your Shortlist</h3><p>You get a focused selection with current prices and availability.</p></article>
-          <article class="card"><div class="card-number">3</div><h3>View and Decide</h3><p>We arrange viewings, share the project documents and explain the reservation process.</p></article>
-        </div>
-      </div>
-    </section>
-    <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Tell us what you are looking for and we will narrow it down.</h2><a class="btn" href="contact.html">Talk to Us</a></div></section>`,
-  },
-  {
     file: 'why-nueva.html',
     title: 'Why Choose Nueva Living',
     description: 'Why international buyers choose Nueva Living for local insight, honest advice and a smoother Costa del Sol property search.',
@@ -368,6 +317,11 @@ const pages = [
       <article class="card"><div class="card-number">04</div><h3>Three Languages, One Conversation</h3><p>Speak with us in English, Spanish or Swedish. The details stay clear, whichever language feels most natural.</p></article>
       <article class="card"><div class="card-number">05</div><h3>Honest About the Trade-offs</h3><p>If a location is noisy, a terrace is overlooked or the price feels ambitious, we say so. A good decision matters more than a quick one.</p></article>
       <article class="card"><div class="card-number">06</div><h3>Still Here After the Keys</h3><p>Handover is not the end of the relationship. We remain available and connect you with trusted local services when needed.</p></article>
+    </div></div></section>
+    <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Process</span><div class="rule"></div><h2 class="section-title">From first enquiry to <em>reservation</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">A simple step-by-step process, with no pressure.</p></div><div class="cards">
+      <article class="card"><div class="card-number">1</div><h3>Tell Us What You Need</h3><p>We talk through your budget, timing, preferred areas and must-haves.</p></article>
+      <article class="card"><div class="card-number">2</div><h3>Receive Your Shortlist</h3><p>You get a focused selection with current prices and availability.</p></article>
+      <article class="card"><div class="card-number">3</div><h3>View and Decide</h3><p>We arrange viewings, share the project documents and explain the reservation process.</p></article>
     </div></div></section>
     <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Client Perspective</span><div class="rule"></div><h2 class="section-title">How the experience <em>should feel</em></h2><p class="body-copy testimonial-disclaimer">Preview text only. Replace with verified client feedback before public promotion.</p></div><div class="cards testimonial-grid">
       <blockquote class="card testimonial-card"><p>“We arrived with twenty tabs open and left with three homes worth seeing.”</p><footer>Sample testimonial · Marbella buyer</footer></blockquote>

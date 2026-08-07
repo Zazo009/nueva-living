@@ -12,7 +12,7 @@ const pages = [
   'about.html',
   'contact.html',
   'advisory.html',
-  'approach.html',
+  'guides.html',
   'areas.html',
   'cookie-policy.html',
   'developments.html',

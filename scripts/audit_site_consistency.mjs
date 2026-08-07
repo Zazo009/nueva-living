@@ -7,7 +7,7 @@ const dist = path.join(root, 'dist');
 const failures = [];
 const warnings = [];
 const expectedNavTargets = [
-  'approach.html',
+  'guides.html',
   'why-nueva.html',
   'developments.html',
   'areas.html',

@@ -448,7 +448,7 @@ function renderTimelineItems(items = []) {
 function nav() {
   return `<nav class="site-nav">
     <div class="nav-links nav-links-left">
-      <a href="approach.html">Approach</a>
+      <a href="guides.html">Buying Guides</a>
       <a href="why-nueva.html">Why Nueva</a>
       <a href="developments.html">Developments</a>
     </div>
@@ -466,7 +466,7 @@ function nav() {
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="approach.html">Approach</a>
+    <a href="guides.html">Buying Guides</a>
     <a href="why-nueva.html">Why Nueva</a>
     <a href="developments.html">Developments</a>
     <a href="areas.html">Areas</a>
@@ -537,7 +537,6 @@ function footer(project) {
       <div class="footer-col">
         <div class="footer-col-title">Company</div>
         <ul>
-          <li><a href="approach.html">Our Approach</a></li>
           <li><a href="why-nueva.html">Why Nueva Living</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="advisory.html">Advisory</a></li>
