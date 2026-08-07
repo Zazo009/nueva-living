@@ -55,6 +55,7 @@ const baseHtmlFiles = [
   'cookie-policy.html',
   'developments.html',
   'legal-notice.html',
+  'new-build-apartments-penthouses-marbella.html',
   'privacy-policy.html',
   'thank-you.html',
 ];
@@ -113,14 +114,19 @@ const basePageMeta = {
     title: 'Costa del Sol New Developments | Nueva Living',
     description: 'Explore new developments across the Costa del Sol, chosen for their design, location and everyday appeal.',
     path: '/developments.html',
-    type: 'website',
-    schema: {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: 'Costa del Sol New Developments',
-      url: `${siteUrl}/developments.html`,
-      description: 'New-development projects across the Costa del Sol.'
-    }
+    type: 'website'
+    // No `schema` here: developments.html already carries its own inline
+    // CollectionPage JSON-LD, and seoBlock() does not strip existing
+    // <script type="application/ld+json"> tags, so adding one here would
+    // duplicate it in the built output.
+  },
+  'new-build-apartments-penthouses-marbella.html': {
+    title: 'New-Build Apartments & Penthouses in Marbella | Nueva Living',
+    description: 'Compare new-build apartments and penthouses across Marbella’s Golf Valley, Elevated Coastline and Marbella West, with real prices, availability and floorplans from Nueva Living.',
+    path: '/new-build-apartments-penthouses-marbella.html',
+    type: 'website'
+    // No `schema` here either: build_segment_pages.mjs already writes the
+    // full CollectionPage/ItemList/BreadcrumbList/FAQPage JSON-LD inline.
   },
   'areas.html': {
     title: 'Costa del Sol Area Guide | Nueva Living',
@@ -858,7 +864,7 @@ const sitemapLastmod = new Date().toISOString().slice(0, 10);
 const sitemapEntries = Object.entries(pageMeta)
   .filter(([, meta]) => meta.robots !== 'noindex,follow')
   .map(([file, meta]) => {
-    const priority = file === 'index.html' ? '1.0' : file === 'developments.html' ? '0.9' : file.startsWith('property-') ? '0.85' : '0.7';
+    const priority = file === 'index.html' ? '1.0' : file === 'developments.html' ? '0.9' : file.startsWith('property-') ? '0.85' : file.startsWith('new-build-') ? '0.8' : '0.7';
     return [
       '  <url>',
       `<loc>${siteUrl}${meta.path}</loc>`,
