@@ -774,7 +774,7 @@ ${JSON.stringify(breadcrumbSchema(project), null, 2)}
           <div class="hero-actions">
             ${availabilityBrowseAction}
             ${ghostAction(privateHeroCta, privateHref)}
-            ${project.media?.items?.length ? ghostAction('All Photos', '#media') : ''}
+            ${project.media?.items?.length ? ghostAction('All Images', '#media') : ''}
           </div>
         </div>
         <aside class="hero-facts reveal-soft" aria-label="Project key facts">
