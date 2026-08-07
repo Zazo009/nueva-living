@@ -59,6 +59,7 @@ const baseHtmlFiles = [
   'new-build-apartments-penthouses-estepona.html',
   'new-build-apartments-penthouses-nueva-andalucia.html',
   'privacy-policy.html',
+  'referrals.html',
   'thank-you.html',
 ];
 
@@ -171,6 +172,12 @@ const basePageMeta = {
     title: 'Costa del Sol Buyer Advisory | Nueva Living',
     description: 'Practical buyer support for comparing Costa del Sol new developments, developers, purchase steps and long-term suitability.',
     path: '/advisory.html',
+    type: 'article'
+  },
+  'referrals.html': {
+    title: 'Referral & Ambassador Program | Nueva Living',
+    description: 'Introduce a friend to Nueva Living and receive a share of our commission when their Costa del Sol purchase completes.',
+    path: '/referrals.html',
     type: 'article'
   },
   'about.html': {

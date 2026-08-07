@@ -26,6 +26,7 @@ const footerLinks = {
     ['Why Nueva Living', 'why-nueva.html'],
     ['About', 'about.html'],
     ['Advisory', 'advisory.html'],
+    ['Referral Program', 'referrals.html'],
     ['Contact Us', 'contact.html'],
   ],
   projects: [
@@ -359,6 +360,48 @@ const pages = [
     <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">How We Help</span><div class="rule"></div><h2 class="section-title">The details we help you <em>compare</em></h2></div><div class="cards"><article class="card"><h3>Compare Projects</h3><p>We compare prices, orientation, amenities, completion dates and nearby alternatives side by side.</p></article><article class="card"><h3>Plan the Purchase</h3><p>We talk through how you will use the home, rental plans, financing and what you may want later.</p></article><article class="card"><h3>Reserve with Clarity</h3><p>We organise project documents, viewings, reservation details and an introduction to an independent lawyer.</p></article></div></div></section>
     <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Our Promise</span><div class="rule"></div><h2 class="section-title">Straight answers, <em>no pressure</em></h2></div><div class="cards two"><article class="card"><h3>A Shorter, Better List</h3><p>We would rather show you three suitable projects than thirty generic options.</p></article><article class="card"><h3>Real Urgency Only</h3><p>We only flag urgency when availability, pricing or a reservation deadline genuinely changes.</p></article></div></div></section>
     <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Talk through the options before you reserve.</h2><a class="btn" href="contact.html">Talk to an Advisor</a></div></section>`,
+  },
+  {
+    file: 'referrals.html',
+    title: 'Referral & Ambassador Program',
+    description: 'Introduce a friend to Nueva Living and receive a share of our commission when their Costa del Sol purchase completes.',
+    heroImage: 'assets/liora/viewing/scene-19.jpg',
+    heroKicker: 'Referral & Ambassador Program',
+    heroTitle: 'Know someone looking for a home <em>on the Costa del Sol?</em>',
+    heroLead: 'Introduce them to Nueva Living. If their purchase completes, you receive a share of our commission as a thank you.',
+    body: `<section class="section"><div class="section-inner"><div class="section-head"><span class="label">How It Works</span><div class="rule"></div><h2 class="section-title">A simple way to <em>say thank you</em></h2></div><div class="cards">
+      <article class="card"><div class="card-number">1</div><h3>Tell Us Who to Introduce</h3><p>Send us your friend or contact's details using the form below, along with a little about what they are looking for.</p></article>
+      <article class="card"><div class="card-number">2</div><h3>We Look After Them</h3><p>We reach out, understand their search and guide them through the same process every Nueva Living client gets.</p></article>
+      <article class="card"><div class="card-number">3</div><h3>You Get Rewarded</h3><p>If they go on to complete a purchase through Nueva Living, you receive a share of our commission on that sale.</p></article>
+    </div></div></section>
+    <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">The Reward</span><div class="rule"></div><h2 class="section-title">A share of our commission, <em>paid on completion</em></h2><p class="body-copy">Not a discount off someone else's purchase and not a finder's fee for a name on a list -- a genuine share of what we earn, paid once your introduction has actually bought a home through us. We confirm the exact percentage and payment terms with you directly, in writing, before any introduction is made.</p></div></div></section>
+    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Who Can Take Part</span><div class="rule"></div><h2 class="section-title">Open to <em>anyone</em></h2></div><div class="cards two">
+      <article class="card"><h3>Past Clients &amp; Friends</h3><p>If someone in your life is thinking about a new home on the Costa del Sol, this program is open to you, whether or not you have bought through us before.</p></article>
+      <article class="card"><h3>A Genuine Introduction</h3><p>The program rewards real introductions to people who are not already in touch with Nueva Living. We will always tell you honestly if a contact is already known to us.</p></article>
+    </div></div></section>
+    <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">Good to Know</span><div class="rule"></div><h2 class="section-title">The <em>practical details</em></h2></div><div class="cards two">
+      <article class="card"><h3>When You Get Paid</h3><p>The reward is paid after your introduction's purchase legally completes, not at reservation stage. We will keep you updated on where things stand.</p></article>
+      <article class="card"><h3>Taxes &amp; Reporting</h3><p>You are responsible for declaring any reward you receive under your own local tax rules. We recommend checking with an advisor if you are unsure.</p></article>
+    </div></div></section>
+    <section class="section" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Refer Someone</span><div class="rule"></div><h2 class="section-title">Introduce them <em>today</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Share your details and theirs. We will take it from there.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><input type="hidden" name="message" id="referral-message"><div class="form-grid"><div class="field"><label for="ref-first-name">Your First Name</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div><div class="field"><label for="ref-last-name">Your Last Name</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div><div class="field"><label for="ref-email">Your Email Address</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Your Phone Number</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div><div class="field"><label for="friend-name">Their Name</label><input id="friend-name" name="friend_name" placeholder="Who are you introducing?" required></div><div class="field"><label for="friend-contact">Their Email or Phone</label><input id="friend-contact" name="friend_contact" placeholder="How can we reach them?" required></div><div class="field full"><label for="friend-notes">What Are They Looking For?</label><textarea id="friend-notes" name="friend_notes" placeholder="Budget, area, property type, timing -- whatever you know."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored.</span></label></div><div class="form-actions"><button class="btn" type="submit">Submit Referral</button><span class="form-response"></span></div></form></div></section>
+    <script>
+      (() => {
+        const nameField = document.getElementById('friend-name');
+        const contactField = document.getElementById('friend-contact');
+        const notesField = document.getElementById('friend-notes');
+        const messageField = document.getElementById('referral-message');
+        if (!nameField || !contactField || !notesField || !messageField) return;
+        function composeMessage() {
+          const parts = ['Referral: ' + (nameField.value || '(name not given)') + ' -- ' + (contactField.value || '(no contact given)')];
+          if (notesField.value.trim()) parts.push(notesField.value.trim());
+          messageField.value = parts.join('. ');
+        }
+        [nameField, contactField, notesField].forEach((field) => {
+          field.addEventListener('input', composeMessage);
+        });
+        composeMessage();
+      })();
+    </script>`,
   },
   {
     file: 'about.html',

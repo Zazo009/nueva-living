@@ -540,6 +540,7 @@ function footer(project) {
           <li><a href="why-nueva.html">Why Nueva Living</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="advisory.html">Advisory</a></li>
+          <li><a href="referrals.html">Referral Program</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
       </div>
