@@ -904,7 +904,10 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
             <div class="calculator-field calculator-field--split">
               <label>
                 <span>Interest rate</span>
-                <input type="number" data-calc-rate value="3.5" min="0" max="15" step="0.1">
+                <div class="calculator-input-suffix">
+                  <input type="number" data-calc-rate value="3.5" min="0" max="15" step="0.1">
+                  <span class="calculator-input-suffix-label">%</span>
+                </div>
               </label>
               <div class="calculator-rate-toggle" data-calc-rate-toggle role="group" aria-label="Rate type">
                 <button type="button" class="is-active" data-rate-type="fixed">Fixed</button>
@@ -913,7 +916,10 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
             </div>
             <label class="calculator-field">
               <span>Taxes &amp; purchase costs</span>
-              <input type="number" data-calc-costs value="10" min="0" max="20" step="0.5">
+              <div class="calculator-input-suffix">
+                <input type="number" data-calc-costs value="10" min="0" max="20" step="0.5">
+                <span class="calculator-input-suffix-label">%</span>
+              </div>
               <em class="calculator-field-hint">Indicative only &mdash; ITP/VAT, notary, registry and legal fees vary by case. Confirm exact costs with your lawyer.</em>
             </label>
           </div>
