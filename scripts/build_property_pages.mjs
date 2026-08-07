@@ -549,6 +549,7 @@ function footer(project) {
         <ul>
           <li><a href="developments.html">All Developments</a></li>
           <li><a href="${esc(project.output)}">${esc(project.shortName || project.name)}</a></li>
+          <li><a href="guides.html">Buying Guides</a></li>
           <li><a href="areas.html">Areas Overview</a></li>
           <li><a href="area-marbella.html">Marbella</a></li>
           <li><a href="area-estepona.html">Estepona</a></li>
@@ -561,7 +562,8 @@ function footer(project) {
         <div class="footer-col-title">Contact</div>
         <ul>
           <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
-          <li><a href="area-marbella.html">Marbella, Spain</a></li>
+          <li><a href="tel:+34645446624">+34 645 44 66 24</a></li>
+          <li><a href="https://maps.google.com/?q=Avenida+del+Prado+71,+29660+Marbella,+M%C3%A1laga,+Spain" target="_blank" rel="noopener">Avenida del Prado 71, 29660 Marbella</a></li>
         </ul>
         <div class="footer-col-title" style="margin-top:24px;">Legal</div>
         <ul>

@@ -2899,3 +2899,109 @@ li,
   font-size: 13px;
   line-height: 1.8;
 }
+
+.segment-related-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.segment-related-list a {
+  color: var(--bronze-light, var(--bronze));
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.segment-related-list a::after {
+  content: " \2192";
+}
+
+.guides-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.guide-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 64px rgba(41, 36, 27, 0.14);
+}
+
+.guide-card-image {
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+}
+
+.guide-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.guide-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.guide-card-body .meta {
+  display: flex;
+  gap: 24px;
+  margin: 6px 0 4px;
+}
+
+.guide-card-body .meta span {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.guide-card-body .meta strong {
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.guide-card-body .project-link {
+  margin-top: 4px;
+}
+
+.developments-guide-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 20px;
+  padding: 20px var(--x, 0) 0;
+  border-top: 1px solid var(--line);
+}
+
+.developments-guide-links-label {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.developments-guide-links a {
+  color: var(--bronze);
+  font-size: 12px;
+  font-weight: 500;
+}

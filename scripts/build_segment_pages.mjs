@@ -94,6 +94,7 @@ function footer() {
         <div class="footer-col-title">Projects</div>
         <ul>
           <li><a href="developments.html">All Developments</a></li>
+          <li><a href="guides.html">Buying Guides</a></li>
           <li><a href="areas.html">Areas Overview</a></li>
           <li><a href="area-marbella.html">Marbella</a></li>
           <li><a href="area-estepona.html">Estepona</a></li>
@@ -311,6 +312,15 @@ function renderSegmentPage(segment) {
     </div>
   </div></section>`;
 
+  const otherSegments = SEGMENTS.filter((s) => s.output !== segment.output);
+  const relatedSection = `<section class="section quiet-band segment-related"><div class="section-inner">
+    <div class="section-head"><span class="label">Other Areas</span><div class="rule"></div><h2 class="section-title">More buying <em>guides</em></h2></div>
+    <ul class="segment-related-list">
+      ${otherSegments.map((s) => `<li><a href="${esc(s.output)}">${esc(s.breadcrumbLabel)} in ${esc(s.areaLabel)}</a></li>`).join('\n      ')}
+      <li><a href="guides.html">All Buying Guides</a></li>
+    </ul>
+  </div></section>`;
+
   const schema = segmentSchema(segment, matches);
 
   return `<!doctype html>
@@ -353,7 +363,112 @@ ${JSON.stringify(schema, null, 2)}
     ${amenitiesSection}
     ${comparisonSection}
     ${faqSection(segment.faq)}
+    ${otherSegments.length ? relatedSection : ''}
     ${enquirySection}
+  </main>
+  ${footer()}
+  <script>
+    const burger = document.querySelector('.nav-burger');
+    const menu = document.getElementById('mobileMenu');
+    if (burger && menu) {
+      burger.addEventListener('pointerdown', (event) => event.stopPropagation());
+      burger.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const open = menu.classList.toggle('open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.classList.toggle('menu-open', open);
+      });
+      menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
+        });
+      });
+    }
+  </script>
+</body>
+</html>`;
+}
+
+function guideCard(segment) {
+  const matches = matchProjects(segment);
+  const stats = computeStats(matches);
+  return `<a class="card guide-card" href="${esc(segment.output)}">
+      <div class="guide-card-image"><img src="${esc(segment.hero.image)}" alt="${esc(segment.hero.alt)}" width="640" height="420" loading="lazy" decoding="async"></div>
+      <div class="guide-card-body">
+        <span class="label">${segment.kicker}</span>
+        <h3>${esc(segment.breadcrumbLabel)} in ${esc(segment.areaLabel)}</h3>
+        <p>${esc(segment.description)}</p>
+        <div class="meta">
+          <div><span>Developments</span><strong>${stats.count}</strong></div>
+          ${stats.priceFrom ? `<div><span>From</span><strong>${formatEuro(stats.priceFrom)}</strong></div>` : ''}
+        </div>
+        <span class="project-link">Read the Guide</span>
+      </div>
+    </a>`;
+}
+
+function renderGuidesPage() {
+  const title = 'Costa del Sol Buying Guides | Nueva Living';
+  const description = 'Compare new-build apartments and penthouses by area across the Costa del Sol, with real prices, availability and local buying guidance from Nueva Living.';
+  const schema = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Costa del Sol Buying Guides',
+      url: `${siteUrl}/guides.html`,
+      description
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      itemListElement: SEGMENTS.map((segment, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${siteUrl}/${segment.output}`,
+        name: segment.title
+      }))
+    }
+  ];
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${esc(title)}</title>
+  <meta name="description" content="${esc(description)}">
+  <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
+  <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
+${fontPreloadBlock}
+  <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
+  <link rel="stylesheet" href="assets/liora/liora-pages.css">
+  <script src="assets/liora/liora-card-gallery.js" defer></script>
+  <script type="application/ld+json">
+${JSON.stringify(schema, null, 2)}
+  </script>
+</head>
+<body class="segment-page">
+  ${nav()}
+  ${breadcrumb('Buying Guides', [['Developments', 'developments.html']])}
+  <main>
+    <section class="page-hero">
+      <img src="assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg" alt="Aerial dusk view of a new-build Costa del Sol residence and pool terrace" width="1920" height="1085" loading="eager" fetchpriority="high" decoding="async">
+      <div class="hero-inner">
+        <span class="kicker">Buying Guides</span>
+        <h1 class="display-title">Costa del Sol <em>Buying Guides</em></h1>
+        <p class="lead">Compare new-build apartments and penthouses by area, with real prices, availability and the local context you need before you shortlist.</p>
+      </div>
+    </section>
+    <section class="section guides-list"><div class="section-inner">
+      <div class="section-head"><span class="label">By Area &amp; Property Type</span><div class="rule"></div><h2 class="section-title">Choose a <em>starting point</em></h2><p class="body-copy">Each guide covers only developments currently matching that area and property type, so the prices and availability shown are real, not indicative.</p></div>
+      <div class="cards guides-grid">
+        ${SEGMENTS.map(guideCard).join('\n        ')}
+      </div>
+    </div></section>
   </main>
   ${footer()}
   <script>
@@ -547,4 +662,6 @@ for (const segment of SEGMENTS) {
   writeFileSync(segment.output, html);
 }
 
-console.log(JSON.stringify({ written: SEGMENTS.map((s) => s.output) }, null, 2));
+writeFileSync('guides.html', renderGuidesPage());
+
+console.log(JSON.stringify({ written: [...SEGMENTS.map((s) => s.output), 'guides.html'] }, null, 2));

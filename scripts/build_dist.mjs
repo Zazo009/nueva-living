@@ -54,6 +54,7 @@ const baseHtmlFiles = [
   'compare.html',
   'cookie-policy.html',
   'developments.html',
+  'guides.html',
   'legal-notice.html',
   'new-build-apartments-penthouses-marbella.html',
   'new-build-apartments-penthouses-estepona.html',
@@ -121,6 +122,12 @@ const basePageMeta = {
     // CollectionPage JSON-LD, and seoBlock() does not strip existing
     // <script type="application/ld+json"> tags, so adding one here would
     // duplicate it in the built output.
+  },
+  'guides.html': {
+    title: 'Costa del Sol Buying Guides | Nueva Living',
+    description: 'Compare new-build apartments and penthouses by area across the Costa del Sol, with real prices, availability and local buying guidance from Nueva Living.',
+    path: '/guides.html',
+    type: 'website'
   },
   'new-build-apartments-penthouses-marbella.html': {
     title: 'New-Build Apartments & Penthouses in Marbella | Nueva Living',
