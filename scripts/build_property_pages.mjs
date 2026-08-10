@@ -623,12 +623,14 @@ function renderConstructionTimeline(project) {
 ${paymentTerms.length ? `      <div class="project-inner timeline-payment-terms reveal-soft">
         <span class="timeline-payment-kicker">${esc(timeline.paymentTermsLabel || 'Payment Terms')}</span>
         <div class="timeline-payment-grid">
-          ${paymentTerms.map(([label, value], index) => `<div class="timeline-payment-item">
+          ${paymentTerms.map(([label, value, note], index) => `<div class="timeline-payment-item">
             <span class="timeline-payment-index">${String(index + 1).padStart(2, '0')}</span>
             <span class="timeline-payment-label">${esc(label)}</span>
             <strong class="timeline-payment-value">${esc(value)}</strong>
+            ${note ? `<span class="timeline-payment-note">${esc(note)}</span>` : ''}
           </div>`).join('\n          ')}
         </div>
+        ${timeline.paymentTermsNote ? `<p class="timeline-payment-disclaimer">${esc(timeline.paymentTermsNote)}</p>` : ''}
       </div>
 ` : ''}    </section>
 
