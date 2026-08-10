@@ -639,6 +639,7 @@ function renderProject(project) {
   const heroImage = image(project, 'hero');
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
+  const lifestyleImage = image(project, 'lifestyle');
   const privateHref = project.privateViewing?.href || 'index.html?private-viewing=1';
   const privateHeroCta = project.privateViewing?.heroCta || 'Cinematic Presentation';
   const privateCta = project.privateViewing?.ctaLabel || 'Cinematic Presentation';
@@ -1061,15 +1062,15 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
     </section>
 
     <section class="project-section dark" id="lifestyle">
-      <div class="project-inner lifestyle-layout">
-        <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Lifestyle</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">${project.lifestyle.headlineHtml}</h2>
-          <p>${esc(project.lifestyle.copy)}</p>
-        </div>
-        <div class="lifestyle-panels reveal-soft">
-          ${project.lifestyle.panels.map(([title, body]) => `<article class="lifestyle-panel"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n          ')}
+      <div class="project-inner">
+        <div class="cinema-cta reveal-soft">
+          ${imageTag(lifestyleImage)}
+          <div class="cinema-copy">
+            <span class="section-kicker">Lifestyle</span>
+            <div class="rule"></div>
+            <h2 class="section-headline">${project.lifestyle.headlineHtml}</h2>
+            <p>${esc(project.lifestyle.copy)}</p>
+          </div>
         </div>
       </div>
     </section>
