@@ -357,6 +357,7 @@ const pages = [
       <blockquote class="card testimonial-card"><p>“They told us what they liked, what they questioned and what they would walk away from.”</p><footer>Sample testimonial · Estepona buyer</footer></blockquote>
       <blockquote class="card testimonial-card"><p>“The handover felt like part of the service, not the point where it ended.”</p><footer>Sample testimonial · International buyer</footer></blockquote>
     </div></div></section>
+    <section class="section quiet-band"><div class="section-inner"><div class="section-head center"><span class="label">Know Someone Looking?</span><div class="rule"></div><h2 class="section-title">Introduce a friend, <em>get rewarded</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">If someone in your life is thinking about a home on the Costa del Sol, our <a href="referrals.html">Referral &amp; Ambassador Program</a> lets you introduce them and receive a share of our commission when their purchase completes.</p></div></div></section>
     <section class="cta-band"><div class="cta-inner"><div><span class="label">Ready When You Are</span><h2 class="cta-title">Bring us your wish list. We will bring back the options worth your time.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>`,
   },
   {
