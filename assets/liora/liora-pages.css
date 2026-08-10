@@ -3370,6 +3370,109 @@ li,
   }
 }
 
+.ambassador-page .ambassador-hexline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 40px) clamp(16px, 2.4vw, 32px);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.ambassador-page .ambassador-hex-step {
+  flex: 1 1 190px;
+  max-width: 220px;
+  text-align: center;
+}
+
+.ambassador-page .ambassador-hex-step--down {
+  margin-top: 52px;
+}
+
+.ambassador-page .ambassador-hex {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 18px;
+  clip-path: polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0% 50%);
+  background: linear-gradient(160deg, #2F2417 0%, #46341f 100%);
+  border: 1px solid var(--bronze);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bronze-light);
+}
+
+.ambassador-page .ambassador-hex-num {
+  display: block;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--bronze);
+  margin-bottom: 8px;
+}
+
+.ambassador-page .ambassador-hex-step h3 {
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.ambassador-page .ambassador-hex-step p {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: rgba(44, 42, 35, 0.72);
+  margin: 0;
+}
+
+@media (max-width: 780px) {
+  .ambassador-page .ambassador-hex-step--down {
+    margin-top: 0;
+  }
+  .ambassador-page .ambassador-hexline {
+    gap: 32px 24px;
+  }
+}
+
+.ambassador-page .ambassador-facts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.ambassador-page .ambassador-fact {
+  text-align: center;
+  padding: 4px;
+}
+
+.ambassador-page .ambassador-fact-icon {
+  width: 30px;
+  height: 30px;
+  color: var(--bronze);
+  margin: 0 auto 14px;
+}
+
+.ambassador-page .ambassador-fact p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(251, 247, 239, 0.76);
+  margin: 0;
+}
+
+@media (max-width: 780px) {
+  .ambassador-page .ambassador-facts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .ambassador-page .ambassador-facts {
+    grid-template-columns: 1fr;
+  }
+}
+
 .ambassador-page .ambassador-reveal {
   opacity: 0;
   transform: translateY(22px);
