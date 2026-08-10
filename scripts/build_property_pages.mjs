@@ -438,9 +438,17 @@ function renderDocumentRows(items = [], hasPublishedAvailability = false, hasFlo
           </article>`).join('\n          ');
 }
 
+const NEXT_STEPS_ICONS = [
+  '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
+  '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="7" height="16" rx="1"/><rect x="14" y="4" width="7" height="16" rx="1"/></svg>',
+  '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>',
+  '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg>',
+];
+
 function renderTimelineItems(items = []) {
-  return items.map(([step, title, body]) => `<article class="timeline-item reveal-soft">
-            <span>${esc(step)}</span>
+  return items.map(([step, title, body], index) => `<article class="timeline-item reveal-soft">
+            <span class="timeline-hex">${NEXT_STEPS_ICONS[index % NEXT_STEPS_ICONS.length]}</span>
+            <span class="timeline-num">${esc(step)}</span>
             <h3>${esc(title)}</h3>
             <p>${esc(body)}</p>
           </article>`).join('\n          ');
@@ -862,19 +870,19 @@ ${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}  
 
     <section class="project-section" id="availability">
       <div class="project-inner">
-        <div class="availability-panel reveal-soft">
-          <div>
-            <span class="section-kicker">Availability</span>
-            <div class="rule"></div>
-            <h2 class="section-headline">${project.availability.headlineHtml}</h2>
-            <p>${esc(project.availability.copy)}</p>
-          </div>
+        <div class="section-head reveal-soft">
+          <span class="section-kicker">Availability</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">${project.availability.headlineHtml}</h2>
+          <p class="project-lead">${esc(project.availability.copy)}</p>
+        </div>
+${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div class="availability-panel availability-panel--followup reveal-soft">
           <div class="availability-actions">
             ${availabilityEnquiryAction}
             ${advisorAction(project)}
           </div>
         </div>
-${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
+      </div>
     </section>
 
     <section class="project-section calculator-section" id="calculator">
@@ -974,12 +982,25 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}      </div>
           <h2 class="section-headline">${why.headlineHtml}</h2>
           <p class="project-lead">${esc(why.copy)}</p>
         </div>
-        <div class="why-point-grid why-point-grid--merged">
-          ${[
-            ...(why.points || []),
-            ...(project.investment?.cards || []),
-            ...(trustDossier.cards || [])
-          ].map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n          ')}
+        <div class="why-groups">
+          <div class="why-group reveal-soft">
+            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Why It Fits</h3></div>
+            <div class="why-point-grid">
+              ${(why.points || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n              ')}
+            </div>
+          </div>
+          <div class="why-group reveal-soft">
+            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investment Case</h3></div>
+            <div class="why-point-grid">
+              ${(project.investment?.cards || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n              ')}
+            </div>
+          </div>
+          <div class="why-group reveal-soft">
+            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Trust &amp; Diligence</h3></div>
+            <div class="why-point-grid">
+              ${(trustDossier.cards || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n              ')}
+            </div>
+          </div>
         </div>
       </div>
     </section>
