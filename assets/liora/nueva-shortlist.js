@@ -1,6 +1,6 @@
 (() => {
   const storageKey = 'nueva-living-shortlist-v1';
-  const projectPathPattern = /property-[a-z0-9-]+\.html/i;
+  const projectPathPattern = /property-[a-z0-9-]+(?:\.html)?/i;
   let savedProjects = readShortlist();
   let previousFocus = null;
   let toastTimer = 0;
