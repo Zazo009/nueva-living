@@ -315,6 +315,15 @@ const MAP_LANDMARKS = {
 // project's own marker sits on (or very close to) one of them.
 const MAP_CONTEXT_ORDER = ['estepona', 'puertoBanus', 'marbellaCentre', 'malagaAirport'];
 
+// Below this pixel distance (in the map's 1200x620 coordinate space) a
+// context dot's label would overlap the main project marker's glow and
+// label, so it's dropped instead of rendered on top of it.
+const MAP_CONTEXT_MIN_DISTANCE = 170;
+
+function mapDistance(a, b) {
+  return Math.hypot(a.x - b.x, a.y - b.y);
+}
+
 function resolveMapArea(project) {
   const key = project.location?.mapArea;
   if (key && MAP_LANDMARKS[key]) return key;
@@ -328,7 +337,10 @@ function locationMap(project) {
 
   const areaKey = resolveMapArea(project);
   const marker = MAP_LANDMARKS[areaKey];
-  const context = MAP_CONTEXT_ORDER.filter((key) => key !== areaKey).slice(0, 3);
+  const context = MAP_CONTEXT_ORDER
+    .filter((key) => key !== areaKey)
+    .filter((key) => mapDistance(MAP_LANDMARKS[key], marker) >= MAP_CONTEXT_MIN_DISTANCE)
+    .slice(0, 3);
   const contextNodes = context.map((key, index) => {
     const point = MAP_LANDMARKS[key];
     const muted = index !== 0;
