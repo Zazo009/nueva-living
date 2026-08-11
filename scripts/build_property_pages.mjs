@@ -890,7 +890,11 @@ ${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}  
           <div class="rule"></div>
           <h2 class="section-headline">${project.availability.headlineHtml}</h2>
           <p class="project-lead">${esc(project.availability.copy)}</p>
-        </div>
+        </div>${project.availability.image ? `
+        <figure class="project-plan reveal-soft">
+          ${imageTag(project.availability.image)}
+          ${project.availability.image.caption ? `<figcaption>${esc(project.availability.image.caption)}</figcaption>` : ''}
+        </figure>` : ''}
 ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div class="availability-panel availability-panel--followup reveal-soft">
           <div class="availability-actions">
             ${availabilityEnquiryAction}
