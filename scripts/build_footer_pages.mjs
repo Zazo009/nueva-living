@@ -396,68 +396,251 @@ const pages = [
     heroLead: 'Off-plan and new-build purchases work differently from buying a resale home. Here is exactly how the process runs, from your first shortlist to collecting the keys.',
     bodyClass: 'guide-article-page',
     body: `<section class="section"><div class="section-inner">
-      <div class="guide-intro reveal-soft">
-        <p class="body-copy">Most general buying guides are written for resale property, where you are buying a home that already exists. New-build and off-plan purchases follow a different sequence -- staged payments, a private purchase contract instead of a simple deposit, and a developer's construction timeline instead of an immediate move-in date. This guide covers that specific process, since it is the only kind of purchase Nueva Living handles.</p>
-      </div>
-      <nav class="guide-toc reveal-soft" aria-label="Guide contents">
-        <span class="guide-toc-label">In This Guide</span>
-        <div class="guide-toc-list">
-          <a href="#brief"><span>01</span> Work out what you actually want</a>
-          <a href="#shortlist"><span>02</span> Build a real shortlist</a>
-          <a href="#viewing"><span>03</span> View the projects</a>
-          <a href="#reservation"><span>04</span> Reserve your chosen residence</a>
-          <a href="#contract"><span>05</span> Sign the private purchase contract</a>
-          <a href="#legal"><span>06</span> Legal checks and independent representation</a>
-          <a href="#completion"><span>07</span> Completion and handover</a>
+      <div class="guide-intro g-reveal">
+        <p class="body-copy">New-build and off-plan purchases follow a different sequence from a resale purchase: staged payments, a private purchase contract, and a developer's construction timeline rather than an immediate move-in date. Seven steps, start to finish.</p>
+        <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+          <a class="btn" href="#journey">See the Full Journey</a>
+          <a class="btn ghost" href="contact.html#contact-form">Speak With an Advisor</a>
         </div>
-      </nav>
+      </div>
+      <div class="guide-overview g-reveal" style="--reveal-delay:80ms">
+        <div class="guide-overview-item"><strong>7</strong><span>Steps, Reservation to Keys</span></div>
+        <div class="guide-overview-item"><strong>3</strong><span>People Involved: You, Nueva Living, Your Lawyer</span></div>
+        <div class="guide-overview-item"><strong>NIE</strong><span>Needed Before You Sign</span></div>
+        <div class="guide-overview-item"><strong>2&ndash;4</strong><span>Weeks, Reservation to Contract</span></div>
+      </div>
+    </div></section>
+    <section class="section" id="journey"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">The Buying Journey</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Seven steps, <em>start to finish</em></h2></div>
+      <div class="guide-journey">
+        <article class="guide-step g-reveal">
+          <div class="guide-step-head">
+            <span class="guide-step-index">01</span>
+            <div class="guide-step-body">
+              <h3>Work Out What You Actually Want</h3>
+              <p>Be clear on budget, area, property type and timing before looking at a single project. Off-plan homes can be sold years before delivery, so timing matters here more than for a resale purchase.</p>
+            </div>
+          </div>
+          <div class="guide-step-roles">
+            <div class="guide-role"><span>What You Do</span><p>Decide your budget, preferred areas, property type and rough timing.</p></div>
+            <div class="guide-role"><span>What Nueva Living Does</span><p>Helps you weigh off-plan against a completed, move-in-ready home for your situation.</p></div>
+          </div>
+          <details class="guide-step-more">
+            <summary>Good to know: off-plan or completed?</summary>
+            <p>Off-plan usually means a lower entry price and payments staged over the build period, at the cost of waiting. A completed home costs more upfront but you can see and move into it now. See our <a href="guide-off-plan-vs-resale.html">full off-plan vs resale comparison</a> for the detail.</p>
+          </details>
+        </article>
+        <article class="guide-step g-reveal">
+          <div class="guide-step-head">
+            <span class="guide-step-index">02</span>
+            <div class="guide-step-body">
+              <h3>Build a Real Shortlist</h3>
+              <p>Property portals tend to show broad price ranges and renders rather than confirmed, current availability. A useful shortlist compares a small number of genuinely suitable projects on the details that matter.</p>
+            </div>
+          </div>
+          <div class="guide-step-roles">
+            <div class="guide-role"><span>What You Do</span><p>Share your budget, areas and requirements.</p></div>
+            <div class="guide-role"><span>What Nueva Living Does</span><p>Compares confirmed current pricing, availability and developer track record across projects for you.</p></div>
+          </div>
+          <details class="guide-step-more">
+            <summary>Good to know: do I need to be in Spain to start?</summary>
+            <p>No. Most of this stage -- comparing projects, reviewing floorplans and pricing, even a private cinematic presentation of a project -- can be done remotely before you commit to a viewing trip.</p>
+          </details>
+        </article>
+        <article class="guide-step g-reveal">
+          <div class="guide-step-head">
+            <span class="guide-step-index">03</span>
+            <div class="guide-step-body">
+              <h3>View the Projects</h3>
+              <p>For off-plan projects this usually means visiting the site and a show apartment if one exists. For completed developments, you view the actual residence you would be buying.</p>
+            </div>
+          </div>
+          <div class="guide-step-roles">
+            <div class="guide-role"><span>What You Do</span><p>Plan and attend the viewing trip, or a remote presentation first.</p></div>
+            <div class="guide-role"><span>What Nueva Living Does</span><p>Arranges viewings and show apartments, ideally two or three projects on one trip for real comparison.</p></div>
+          </div>
+        </article>
+        <article class="guide-step g-reveal">
+          <div class="guide-step-head">
+            <span class="guide-step-index">04</span>
+            <div class="guide-step-body">
+              <h3>Reserve Your Chosen Residence</h3>
+              <p>A reservation takes the specific residence off the market while your private purchase contract is prepared, typically within two to four weeks.</p>
+            </div>
+          </div>
+          <div class="guide-step-roles">
+            <div class="guide-role"><span>What You Do</span><p>Pay the reservation amount, which is later credited against the purchase price.</p></div>
+            <div class="guide-role"><span>What Nueva Living Does</span><p>Confirms the reservation terms and what happens to the amount if you do not proceed.</p></div>
+          </div>
+          <details class="guide-step-more">
+            <summary>Good to know: how much is the reservation?</summary>
+            <p>It varies by developer and project, from a few thousand euros up to around 1% of the price on some developments. A reservation is not the point of no return, but it is a real commitment -- confirm the terms before you pay it.</p>
+          </details>
+        </article>
+        <article class="guide-step g-reveal">
+          <div class="guide-step-head">
+            <span class="guide-step-index">05</span>
+            <div class="guide-step-body">
+              <h3>Sign the Private Purchase Contract</h3>
+              <p>The binding agreement setting out price, payment schedule, specification and delivery terms. You will need an NIE before or shortly after this stage.</p>
+            </div>
+          </div>
+          <div class="guide-step-roles">
+            <div class="guide-role"><span>What You Do</span><p>Obtain your NIE if you do not already have one, and review the contract.</p></div>
+            <div class="guide-role"><span>What Nueva Living Does</span><p>Coordinates the paperwork and timeline with the developer.</p></div>
+            <div class="guide-role"><span>What Your Lawyer Does</span><p>Reviews the contract terms and confirms the bank guarantee before you sign.</p></div>
+          </div>
+          <details class="guide-step-more">
+            <summary>Good to know: what if the developer does not finish the project?</summary>
+            <p>For off-plan purchases, payments from this point are usually staged across construction milestones. Spanish law requires developers to bank-guarantee off-plan payments made before completion, so staged payments are protected if the development is not delivered -- confirming that guarantee is in place is one of the checks your lawyer carries out.</p>
+          </details>
+        </article>
+        <article class="guide-step g-reveal">
+          <div class="guide-step-head">
+            <span class="guide-step-index">06</span>
+            <div class="guide-step-body">
+              <h3>Legal Checks and Independent Representation</h3>
+              <p>We strongly recommend independent legal representation -- a lawyer acting for you, not the developer or the selling agency.</p>
+            </div>
+          </div>
+          <div class="guide-step-roles">
+            <div class="guide-role"><span>What You Do</span><p>Instruct an independent lawyer before signing anything binding.</p></div>
+            <div class="guide-role"><span>What Nueva Living Does</span><p>Can introduce you to independent lawyers experienced in Costa del Sol property.</p></div>
+            <div class="guide-role"><span>What Your Lawyer Does</span><p>Checks the developer's registration and track record, the building licence, land registry status and the bank guarantee.</p></div>
+          </div>
+          <details class="guide-step-more">
+            <summary>Good to know: financing</summary>
+            <p>Many non-resident buyers arrange a mortgage at this stage. Spanish banks do lend to non-residents, usually financing a portion of the price, though exact terms depend on the bank and your financial profile.</p>
+          </details>
+        </article>
+        <article class="guide-step g-reveal">
+          <div class="guide-step-head">
+            <span class="guide-step-index">07</span>
+            <div class="guide-step-body">
+              <h3>Completion and Handover</h3>
+              <p>Completion happens at the notary, where the final balance is paid and the deed of sale is signed and registered in your name.</p>
+            </div>
+          </div>
+          <div class="guide-step-roles">
+            <div class="guide-role"><span>What You Do</span><p>Pay the final balance and sign at the notary.</p></div>
+            <div class="guide-role"><span>What Nueva Living Does</span><p>Coordinates handover and helps you inspect the property against the agreed specification.</p></div>
+            <div class="guide-role"><span>What Your Lawyer Does</span><p>Confirms the deed of sale and its registration.</p></div>
+          </div>
+          <details class="guide-step-more">
+            <summary>Good to know: warranties and ongoing costs</summary>
+            <p>Spanish building law generally provides for a structural warranty, a shorter warranty on installations, and a one-year warranty on finishes. After completion, budgeting for ongoing costs such as community fees and annual property tax (IBI) becomes part of owning the home.</p>
+          </details>
+        </article>
+      </div>
+    </div></section>
+    <section class="section quiet-band"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Before You Start</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">A quick <em>checklist</em></h2></div>
+      <div class="guide-checklist g-reveal" data-guide-checklist data-checklist-id="how-buying-works">
+        <div class="guide-checklist-progress">
+          <div class="guide-checklist-progress-track"><div class="guide-checklist-progress-fill" data-checklist-fill></div></div>
+          <span class="guide-checklist-count" data-checklist-count>0 of 7</span>
+        </div>
+        <div class="guide-checklist-list">
+          <label class="guide-check-item"><input type="checkbox" data-checklist-item="budget"><span>Define your budget</span></label>
+          <label class="guide-check-item"><input type="checkbox" data-checklist-item="offplan"><span>Decide off-plan or completed</span></label>
+          <label class="guide-check-item"><input type="checkbox" data-checklist-item="nie"><span>Apply for your NIE</span></label>
+          <label class="guide-check-item"><input type="checkbox" data-checklist-item="lawyer"><span>Select an independent lawyer</span></label>
+          <label class="guide-check-item"><input type="checkbox" data-checklist-item="bank"><span>Consider a Spanish bank account</span></label>
+          <label class="guide-check-item"><input type="checkbox" data-checklist-item="funds"><span>Prepare proof of funds</span></label>
+          <label class="guide-check-item"><input type="checkbox" data-checklist-item="use"><span>Clarify how you will use the property</span></label>
+        </div>
+        <button type="button" class="guide-checklist-reset" data-checklist-reset>Reset Checklist</button>
+      </div>
     </div></section>
     <section class="section"><div class="section-inner">
-      <div class="guide-section reveal-soft" id="brief">
-        <div class="guide-section-head"><span class="guide-section-number">01</span><h2>Work out what you <em>actually</em> want</h2></div>
-        <p>Before looking at a single project, it helps to be honest about four things: your budget, the areas you would genuinely live in or rent out, the property type that suits how you will use it, and your timing. Off-plan homes are sold years before delivery in some cases, so "when do I actually need this" matters more here than for a resale purchase.</p>
-        <p>This is also where deciding between off-plan and a completed, move-in-ready home matters. Off-plan usually means a lower entry price and staged payments spread over the build period, at the cost of waiting. A completed development, like a finished phase of a project, gives you a home you can see and move into now, for a higher upfront commitment.</p>
-      </div>
-      <div class="guide-section reveal-soft" id="shortlist">
-        <div class="guide-section-head"><span class="guide-section-number">02</span><h2>Build a <em>real</em> shortlist</h2></div>
-        <p>The Costa del Sol has dozens of new developments under construction or in planning at any time, most of them marketed through overlapping networks of agencies. Property portals tend to show broad price ranges and rendered images rather than confirmed, current availability, which makes them a poor starting point if you want an actual short list of homes you could buy.</p>
-        <p>A useful shortlist compares a small number of genuinely suitable projects against each other on the details that matter: confirmed current pricing (not an old headline price), what is actually still available, the developer's track record, and the payment schedule, not just the finished renders.</p>
-        <div class="guide-callout reveal-soft">
-          <h4>Do I need to be in Spain to start?</h4>
-          <p>No. Most of this stage -- comparing projects, reviewing floorplans and pricing, even a private cinematic presentation of a project -- can be done remotely before you commit to a viewing trip.</p>
-        </div>
-      </div>
-      <div class="guide-section reveal-soft" id="viewing">
-        <div class="guide-section-head"><span class="guide-section-number">03</span><h2>View the <em>projects</em></h2></div>
-        <p>Once you have a short list, a viewing trip is worth planning properly rather than fitting in as an afterthought. For off-plan projects, this usually means visiting the site, a show apartment if one exists, and the surrounding area at different times of day. For completed developments, you can view the actual residence you would be buying.</p>
-        <p>It is worth viewing more than one project on the same trip, even if one is already your favourite on paper. Seeing two or three developments back to back makes it much easier to judge build quality, location and value against each other, rather than in isolation.</p>
-      </div>
-      <div class="guide-section reveal-soft" id="reservation">
-        <div class="guide-section-head"><span class="guide-section-number">04</span><h2>Reserve your <em>chosen residence</em></h2></div>
-        <p>Once you have decided, a reservation takes the specific residence off the market while your private purchase contract is prepared, typically within two to four weeks. The reservation amount varies by developer and project, from a few thousand euros up to around 1% of the price on some developments, and is later credited against the purchase price.</p>
-        <p>A reservation is not the point of no return, but it is a real commitment. Confirm what happens to the reservation amount if you do not proceed before you pay it, since terms vary by developer.</p>
-      </div>
-      <div class="guide-section reveal-soft" id="contract">
-        <div class="guide-section-head"><span class="guide-section-number">05</span><h2>Sign the <em>private purchase contract</em></h2></div>
-        <p>The private purchase contract (contrato de compraventa) is the binding agreement that sets out the price, the payment schedule, the specification and the delivery terms. For a non-Spanish buyer, you will need an NIE (Numero de Identificacion de Extranjero) -- a tax ID number required for any property purchase in Spain -- before or shortly after this stage.</p>
-        <p>For off-plan purchases, payments from this point are usually staged: a percentage on signing, further payments at agreed construction milestones or dates, and the balance on completion. Spanish law requires developers to bank-guarantee off-plan payments made before completion, so that staged payments are protected if the development is not delivered.</p>
-        <div class="guide-callout reveal-soft">
-          <h4>What if the developer does not finish the project?</h4>
-          <p>Off-plan payments made ahead of completion are required by law to be covered by a bank guarantee or insurance policy. Confirming that guarantee is in place, and covers your specific payments, is one of the checks an independent lawyer carries out before you sign.</p>
-        </div>
-      </div>
-      <div class="guide-section reveal-soft" id="legal">
-        <div class="guide-section-head"><span class="guide-section-number">06</span><h2>Legal checks and <em>independent representation</em></h2></div>
-        <p>We strongly recommend independent legal representation for any property purchase in Spain -- a lawyer acting for you, not for the developer or the selling agency. Before you sign anything binding, a lawyer will typically check the developer's registration and track record, the building licence and land registry status, the bank guarantee covering your payments, and the exact terms of the private purchase contract itself.</p>
-        <p>Many non-resident buyers also arrange a mortgage at this stage. Spanish banks do lend to non-residents, usually financing a portion of the price, though exact terms depend on the bank and your financial profile.</p>
-      </div>
-      <div class="guide-section reveal-soft" id="completion">
-        <div class="guide-section-head"><span class="guide-section-number">07</span><h2>Completion and <em>handover</em></h2></div>
-        <p>Completion happens at the notary, where the final balance is paid and the deed of sale (escritura) is signed and registered in your name. For off-plan purchases, this follows the developer's confirmed delivery date; for completed developments, it can happen soon after your purchase contract is signed.</p>
-        <p>At handover, it is worth inspecting the property against the agreed specification before signing off, and keeping a note of the applicable warranty periods -- Spanish building law generally provides for a structural warranty, a shorter warranty on installations, and a one-year warranty on finishes. After that, budgeting for ongoing costs such as community fees and annual property tax (IBI) becomes part of owning the home.</p>
+      <div class="section-head center g-reveal"><span class="label">Key Terms</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">A short <em>glossary</em></h2></div>
+      <div class="guide-glossary g-reveal">
+        <details class="guide-glossary-item"><summary>NIE</summary><p>Numero de Identificacion de Extranjero -- a Spanish tax ID number required for any property purchase by a non-Spanish national.</p></details>
+        <details class="guide-glossary-item"><summary>Reservation Agreement</summary><p>The document and payment that takes a specific residence off the market while your private purchase contract is prepared.</p></details>
+        <details class="guide-glossary-item"><summary>Private Purchase Contract</summary><p>Contrato de compraventa -- the binding agreement setting out price, payment schedule, specification and delivery terms.</p></details>
+        <details class="guide-glossary-item"><summary>Bank Guarantee</summary><p>Legally required protection for off-plan payments made before completion, covering you if the development is not delivered.</p></details>
+        <details class="guide-glossary-item"><summary>Notary</summary><p>The public official before whom the final deed of sale is signed at completion.</p></details>
+        <details class="guide-glossary-item"><summary>Escritura</summary><p>The deed of sale signed at the notary and registered in your name at completion.</p></details>
+        <details class="guide-glossary-item"><summary>Land Registry</summary><p>The official record of property ownership and charges, checked by your lawyer before you sign.</p></details>
       </div>
     </div></section>
-    <section class="cta-band"><div class="cta-inner"><div><span class="label">Ready to Start</span><h2 class="cta-title">Tell us your budget, area and timing. We will bring back the projects worth your time.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>`,
+    ${generalFaqSection()}
+    <div class="section-inner"><p class="guide-disclaimer g-reveal">This guide is general information about the typical off-plan buying process on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.</p></div>
+    <section class="cta-band"><div class="cta-inner"><div><span class="label">Ready to Start</span><h2 class="cta-title">Tell us your budget, area and timing. We will bring back the projects worth your time.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>
+    <script>
+      (() => {
+        const items = document.querySelectorAll('.g-reveal');
+        if (!items.length) return;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reducedMotion || !('IntersectionObserver' in window)) {
+          items.forEach((item) => item.classList.add('in'));
+          return;
+        }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 });
+        items.forEach((item) => observer.observe(item));
+      })();
+      (() => {
+        document.querySelectorAll('[data-guide-checklist]').forEach((panel) => {
+          const id = panel.dataset.checklistId || 'default';
+          const storageKey = \`nueva-guide-checklist-\${id}\`;
+          const checkboxes = [...panel.querySelectorAll('[data-checklist-item]')];
+          const fill = panel.querySelector('[data-checklist-fill]');
+          const count = panel.querySelector('[data-checklist-count]');
+          const resetBtn = panel.querySelector('[data-checklist-reset]');
+
+          function readState() {
+            try {
+              return JSON.parse(window.localStorage.getItem(storageKey) || '{}');
+            } catch (err) {
+              return {};
+            }
+          }
+
+          function writeState(state) {
+            try {
+              window.localStorage.setItem(storageKey, JSON.stringify(state));
+            } catch (err) {
+              /* localStorage unavailable; checklist still works for this session */
+            }
+          }
+
+          function render() {
+            const checked = checkboxes.filter((box) => box.checked).length;
+            const pct = checkboxes.length ? Math.round((checked / checkboxes.length) * 100) : 0;
+            if (fill) fill.style.width = \`\${pct}%\`;
+            if (count) count.textContent = \`\${checked} of \${checkboxes.length}\`;
+          }
+
+          const saved = readState();
+          checkboxes.forEach((box) => {
+            const key = box.dataset.checklistItem;
+            if (saved[key]) box.checked = true;
+            box.addEventListener('change', () => {
+              const state = readState();
+              state[box.dataset.checklistItem] = box.checked;
+              writeState(state);
+              render();
+            });
+          });
+
+          if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+              checkboxes.forEach((box) => { box.checked = false; });
+              writeState({});
+              render();
+            });
+          }
+
+          render();
+        });
+      })();
+    </script>`,
   },
   {
     file: 'guide-off-plan-vs-resale.html',
@@ -469,65 +652,103 @@ const pages = [
     heroLead: 'Both are legitimate ways to buy on the Costa del Sol. The right one depends on your timeline, your appetite for construction risk, and what you actually want the property to do for you.',
     bodyClass: 'guide-article-page',
     body: `<section class="section"><div class="section-inner">
-      <div class="guide-intro reveal-soft">
-        <p class="body-copy">"Off-plan" means buying a home before, or during, construction, direct from the developer through staged payments. "Resale" here means buying a completed, previously-owned or already-delivered home, paid in full at completion. Neither is inherently the better investment -- they suit different buyers, timelines and risk tolerances. This guide compares them on the points that actually affect your decision, not the ones that just sound good in a brochure.</p>
-      </div>
-      <nav class="guide-toc reveal-soft" aria-label="Guide contents">
-        <span class="guide-toc-label">In This Guide</span>
-        <div class="guide-toc-list">
-          <a href="#price"><span>01</span> Price and entry cost</a>
-          <a href="#payment"><span>02</span> How you pay</a>
-          <a href="#risk"><span>03</span> Risk: construction vs certainty</a>
-          <a href="#spec"><span>04</span> Specification and finish</a>
-          <a href="#timeline"><span>05</span> Time to move in or rent out</a>
-          <a href="#appreciation"><span>06</span> Resale and appreciation potential</a>
-          <a href="#fit"><span>07</span> Which one actually fits you</a>
+      <div class="guide-intro g-reveal">
+        <p class="body-copy">Neither is inherently the better investment -- they suit different buyers, timelines and risk tolerances. Compare them below on the six points that actually affect your decision.</p>
+        <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+          <a class="btn" href="#compare">Compare Now</a>
+          <a class="btn ghost" href="contact.html#contact-form">Speak With an Advisor</a>
         </div>
-      </nav>
+      </div>
     </div></section>
-    <section class="section"><div class="section-inner">
-      <div class="guide-section reveal-soft" id="price">
-        <div class="guide-section-head"><span class="guide-section-number">01</span><h2>Price and <em>entry cost</em></h2></div>
-        <p>Off-plan is usually priced below a comparable finished home in the same area, since you are committing years ahead of delivery and taking on construction timeline risk the developer would otherwise have to price in themselves. That gap tends to narrow, or close entirely, as a project moves from launch through to the final released units, which is exactly why "off-plan pricing" is treated as a moving target rather than a fixed discount.</p>
-        <p>Resale and completed new-build cost more upfront, but you are paying for a known quantity: the actual finish, the actual view, the actual noise level from the street, none of which you can fully judge from a floorplan and a render.</p>
-      </div>
-      <div class="guide-section reveal-soft" id="payment">
-        <div class="guide-section-head"><span class="guide-section-number">02</span><h2>How you <em>pay</em></h2></div>
-        <p>Off-plan payments are staged: typically a reservation, a larger payment on signing the private purchase contract, further payments at agreed construction milestones or dates, and the balance on completion. This spreads your cash outlay over the build period rather than requiring it all at once, which matters if you are financing the purchase from savings or staged income rather than a single mortgage drawdown.</p>
-        <p>A completed home is simpler: reserve, sign, pay the balance, usually within 30 to 60 days. There is no construction-linked schedule to track, but there is also no way to spread the cost over time the way an off-plan schedule does.</p>
-      </div>
-      <div class="guide-section reveal-soft" id="risk">
-        <div class="guide-section-head"><span class="guide-section-number">03</span><h2>Risk: construction <em>vs certainty</em></h2></div>
-        <p>The honest risk in buying off-plan is construction and delivery risk: the project could be delayed, or in a worst case, not completed. Spanish law requires developers to bank-guarantee off-plan payments made before completion specifically because of this risk, which is a real protection, not a formality -- confirming that guarantee is in place is one of the first things an independent lawyer should check.</p>
-        <p>A completed home removes that risk entirely. What you see is what you get, and you can inspect it before you commit to anything.</p>
-        <div class="guide-callout reveal-soft">
-          <h4>Does the bank guarantee cover everything I pay?</h4>
-          <p>It covers payments made ahead of completion specifically. The exact scope and validity of the guarantee for a given project is something to confirm in writing before signing, not something to assume.</p>
+    <section class="section" id="compare"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Side by Side</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Off-plan <em>or completed</em></h2></div>
+      <div class="guide-tabs g-reveal" data-guide-tabs>
+        <div class="guide-tablist" role="tablist" aria-label="Off-plan vs resale comparison">
+          <button type="button" class="guide-tab" id="tab-offplan" role="tab" aria-selected="true" aria-controls="panel-offplan" data-tab-target="panel-offplan">Off-Plan / New Development</button>
+          <button type="button" class="guide-tab" id="tab-resale" role="tab" aria-selected="false" aria-controls="panel-resale" data-tab-target="panel-resale" tabindex="-1">Completed / Resale</button>
+        </div>
+        <div class="guide-tabpanel is-active" id="panel-offplan" role="tabpanel" aria-labelledby="tab-offplan">
+          <div class="guide-compare-grid">
+            <div class="guide-compare-row"><div class="guide-compare-label">Price</div><div><p>Usually priced below a comparable finished home, since you are committing years ahead of delivery and taking on construction timeline risk. That gap narrows, or closes, as a project moves toward its final released units.</p></div></div>
+            <div class="guide-compare-row"><div class="guide-compare-label">Payment</div><div><p>Staged: a reservation, a larger payment on signing the private purchase contract, further payments at construction milestones, and the balance on completion.</p></div></div>
+            <div class="guide-compare-row"><div class="guide-compare-label">Risk</div><div><p>Construction and delivery risk: the project could be delayed or, worst case, not completed. Payments made before completion are required by law to be bank-guaranteed.</p></div></div>
+            <div class="guide-compare-row"><div class="guide-compare-label">Specification</div><div><p>Buying early sometimes means a genuine say in finishes -- flooring, kitchen options, occasionally layout -- depending how far along construction is. That window closes near completion.</p></div></div>
+            <div class="guide-compare-row"><div class="guide-compare-label">Timing</div><div><p>Waiting, sometimes years, for delivery. The developer's track record for hitting its delivery date deserves real scrutiny.</p></div></div>
+            <div class="guide-compare-row"><div class="guide-compare-label">Appreciation</div><div><p>The case is buying below completed-market price and the value closing that gap by delivery. This depends on the specific project and area performing as expected -- it is not a guarantee.</p></div></div>
+          </div>
+        </div>
+        <div class="guide-tabpanel" id="panel-resale" role="tabpanel" aria-labelledby="tab-resale" hidden>
+          <div class="guide-compare-grid">
+            <div class="guide-compare-row"><div class="guide-compare-label">Price</div><div><p>Costs more upfront, but you are paying for a known quantity: the actual finish, the actual view, the actual noise level, none of which you can fully judge from a floorplan and a render.</p></div></div>
+            <div class="guide-compare-row"><div class="guide-compare-label">Payment</div><div><p>Simpler: reserve, sign, pay the balance, usually within 30 to 60 days. No construction-linked schedule, and no way to spread the cost over time.</p></div></div>
+            <div class="guide-compare-row"><div class="guide-compare-label">Risk</div><div><p>Removed entirely. What you see is what you get, and you can inspect the actual property before committing to anything.</p></div></div>
+            <div class="guide-compare-row"><div class="guide-compare-label">Specification</div><div><p>Fixed. A limitation if you wanted something different, an advantage if you would rather judge real materials and workmanship than a specification sheet.</p></div></div>
+            <div class="guide-compare-row"><div class="guide-compare-label">Timing</div><div><p>Can generate rental income or be lived in immediately after completion, with no construction timeline in the way.</p></div></div>
+            <div class="guide-compare-row"><div class="guide-compare-label">Appreciation</div><div><p>Easier to benchmark against genuinely comparable recent sales in the same building or area -- real, current data rather than a projection.</p></div></div>
+          </div>
         </div>
       </div>
-      <div class="guide-section reveal-soft" id="spec">
-        <div class="guide-section-head"><span class="guide-section-number">04</span><h2>Specification and <em>finish</em></h2></div>
-        <p>Buying early in an off-plan release sometimes means a genuine say in finishes -- flooring, kitchen options, sometimes layout tweaks -- depending on how far along construction is when you reserve. That window closes as the project nears completion.</p>
-        <p>A completed home's finish is fixed. That is a limitation if you wanted something different, and an advantage if you would rather judge the actual materials and workmanship than a specification sheet.</p>
+      <div class="guide-callout g-reveal" style="max-width:820px;margin-left:auto;margin-right:auto;">
+        <h4>Does the bank guarantee cover everything I pay?</h4>
+        <p>It covers payments made ahead of completion specifically. The exact scope and validity of the guarantee for a given project is something to confirm in writing before signing, not something to assume.</p>
       </div>
-      <div class="guide-section reveal-soft" id="timeline">
-        <div class="guide-section-head"><span class="guide-section-number">05</span><h2>Time to move in <em>or rent out</em></h2></div>
-        <p>Off-plan means waiting, sometimes years, for delivery. If your plan depends on moving in or renting the property out by a specific date, that delivery date -- and the developer's track record of actually hitting it -- deserves more scrutiny than almost anything else in the purchase.</p>
-        <p>A completed home can generate rental income or be lived in immediately after completion, with no construction timeline standing between you and using the property.</p>
-      </div>
-      <div class="guide-section reveal-soft" id="appreciation">
-        <div class="guide-section-head"><span class="guide-section-number">06</span><h2>Resale and <em>appreciation potential</em></h2></div>
-        <p>The theoretical case for off-plan appreciation is that you buy below the completed-market price and the value closes that gap by delivery, on top of whatever the wider market does in the meantime. That case depends entirely on the specific project and area performing as expected, not on off-plan buying being inherently profitable -- it is not a guarantee, and Nueva Living does not present it as one.</p>
-        <p>A completed home's value is easier to benchmark against genuinely comparable recent sales in the same building or area, since there is real, current data to compare it against rather than a projection.</p>
-      </div>
-      <div class="guide-section reveal-soft" id="fit">
-        <div class="guide-section-head"><span class="guide-section-number">07</span><h2>Which one <em>actually fits you</em></h2></div>
+    </div></section>
+    <section class="section quiet-band"><div class="section-inner">
+      <div class="guide-section g-reveal" style="max-width:720px;margin:0 auto;padding-top:0;">
+        <div class="guide-section-head" style="justify-content:center;"><h2>Which one <em>actually fits you</em></h2></div>
         <p>Off-plan tends to suit buyers who do not need the property immediately, want to spread payments over time, and are comfortable with construction-stage risk in exchange for a lower entry price and, in some cases, a say in the finish.</p>
         <p>A completed home tends to suit buyers who want to move in, rent out, or simply see exactly what they are buying without waiting or without taking on delivery risk -- often at a higher upfront cost for that certainty.</p>
-        <p>Most buyers are not purely one or the other. The honest way to decide is to compare specific projects against your own budget, timeline and risk tolerance, rather than deciding on off-plan versus resale as an abstract category first.</p>
+        <p>Most buyers are not purely one or the other. The honest way to decide is to compare specific projects against your own budget, timeline and risk tolerance, rather than deciding on off-plan versus resale as an abstract category first. For the full step-by-step process once you have decided, see <a href="guide-how-buying-works.html">how buying works</a>.</p>
       </div>
     </div></section>
-    <section class="cta-band"><div class="cta-inner"><div><span class="label">Compare Real Options</span><h2 class="cta-title">Tell us your timeline and budget. We will show you both off-plan and completed options that actually fit.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>`,
+    <div class="section-inner"><p class="guide-disclaimer g-reveal">This guide is general information to help you compare off-plan and resale purchases on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.</p></div>
+    <section class="cta-band"><div class="cta-inner"><div><span class="label">Compare Real Options</span><h2 class="cta-title">Tell us your timeline and budget. We will show you both off-plan and completed options that actually fit.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>
+    <script>
+      (() => {
+        const items = document.querySelectorAll('.g-reveal');
+        if (!items.length) return;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reducedMotion || !('IntersectionObserver' in window)) {
+          items.forEach((item) => item.classList.add('in'));
+          return;
+        }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0.12 });
+        items.forEach((item) => observer.observe(item));
+      })();
+      (() => {
+        document.querySelectorAll('[data-guide-tabs]').forEach((wrap) => {
+          const tabs = [...wrap.querySelectorAll('[role="tab"]')];
+          tabs.forEach((tab) => {
+            tab.addEventListener('click', () => activate(tab));
+            tab.addEventListener('keydown', (event) => {
+              const index = tabs.indexOf(tab);
+              if (event.key === 'ArrowRight') activate(tabs[(index + 1) % tabs.length], true);
+              if (event.key === 'ArrowLeft') activate(tabs[(index - 1 + tabs.length) % tabs.length], true);
+            });
+          });
+
+          function activate(tab, focus) {
+            tabs.forEach((item) => {
+              const selected = item === tab;
+              item.setAttribute('aria-selected', selected ? 'true' : 'false');
+              item.tabIndex = selected ? 0 : -1;
+              const panel = document.getElementById(item.dataset.tabTarget);
+              if (panel) {
+                panel.classList.toggle('is-active', selected);
+                panel.hidden = !selected;
+              }
+            });
+            if (focus) tab.focus();
+          }
+        });
+      })();
+    </script>`,
   },
   {
     file: 'referrals.html',
