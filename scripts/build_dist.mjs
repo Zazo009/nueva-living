@@ -47,6 +47,8 @@ const baseHtmlFiles = [
   'about.html',
   'contact.html',
   'advisory.html',
+  'guide-how-buying-works.html',
+  'guide-off-plan-vs-resale.html',
   'why-nueva.html',
   'areas.html',
   ...areas.map((area) => area.output),
@@ -192,9 +194,21 @@ const basePageMeta = {
       }))
     }
   },
+  'guide-how-buying-works.html': {
+    title: 'How Buying a New-Build Home Works | Nueva Living',
+    description: 'A step-by-step guide to buying a new-build home on the Costa del Sol, from your first shortlist to collecting the keys.',
+    path: '/guide-how-buying-works.html',
+    type: 'article'
+  },
+  'guide-off-plan-vs-resale.html': {
+    title: 'Off-Plan vs Resale on the Costa del Sol | Nueva Living',
+    description: 'How buying off-plan and buying a completed resale home actually compare, across price, risk, payment terms and appreciation.',
+    path: '/guide-off-plan-vs-resale.html',
+    type: 'article'
+  },
   'referrals.html': {
     title: 'Referral & Ambassador Program | Nueva Living',
-    description: 'Introduce a friend to Nueva Living and receive a share of our commission when their Costa del Sol purchase completes.',
+    description: 'Introduce someone to Nueva Living and receive a share of our commission when their Costa del Sol purchase completes.',
     path: '/referrals.html',
     type: 'article'
   },

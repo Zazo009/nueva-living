@@ -477,6 +477,37 @@ function guidesCalculatorSection() {
   </div></section>`;
 }
 
+const PROCESS_GUIDES = [
+  {
+    output: 'guide-off-plan-vs-resale.html',
+    kicker: 'Buying Guide',
+    title: 'Off-Plan vs Resale',
+    description: 'How buying off-plan and buying a completed resale home actually compare, across price, risk, payment terms and appreciation.',
+    image: 'assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg',
+    alt: 'Aerial dusk view of a new-build Costa del Sol residence and pool terrace'
+  },
+  {
+    output: 'guide-how-buying-works.html',
+    kicker: 'Buying Guide',
+    title: 'How Buying Works',
+    description: 'A step-by-step guide to buying a new-build home on the Costa del Sol, from your first shortlist to collecting the keys.',
+    image: 'assets/nueva/journey/reservation-legal-1200.webp',
+    alt: 'Buyer signing an agreement with professional guidance'
+  }
+];
+
+function processGuideCard(guide) {
+  return `<a class="card guide-card" href="${esc(guide.output)}">
+      <div class="guide-card-image"><img src="${esc(guide.image)}" alt="${esc(guide.alt)}" width="640" height="420" loading="lazy" decoding="async"></div>
+      <div class="guide-card-body">
+        <span class="label">${esc(guide.kicker)}</span>
+        <h3>${esc(guide.title)}</h3>
+        <p>${esc(guide.description)}</p>
+        <span class="project-link">Read the Guide</span>
+      </div>
+    </a>`;
+}
+
 function guideCard(segment) {
   const matches = matchProjects(segment);
   const stats = computeStats(matches);
@@ -551,6 +582,12 @@ ${JSON.stringify(schema, null, 2)}
       </div>
     </section>
     <section class="section guides-list"><div class="section-inner">
+      <div class="section-head"><span class="label">The Process</span><div class="rule"></div><h2 class="section-title">How buying <em>actually works</em></h2><p class="body-copy">Understand the process before you compare projects.</p></div>
+      <div class="cards guides-grid">
+        ${PROCESS_GUIDES.map(processGuideCard).join('\n        ')}
+      </div>
+    </div></section>
+    <section class="section quiet-band guides-list"><div class="section-inner">
       <div class="section-head"><span class="label">By Area &amp; Property Type</span><div class="rule"></div><h2 class="section-title">Choose a <em>starting point</em></h2><p class="body-copy">Each guide covers only developments currently matching that area and property type, so the prices and availability shown are real, not indicative.</p></div>
       <div class="cards guides-grid">
         ${SEGMENTS.map(guideCard).join('\n        ')}

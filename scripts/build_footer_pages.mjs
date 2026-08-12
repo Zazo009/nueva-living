@@ -387,6 +387,149 @@ const pages = [
     <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Talk through the options before you reserve.</h2><a class="btn" href="contact.html">Talk to an Advisor</a></div></section>`,
   },
   {
+    file: 'guide-how-buying-works.html',
+    title: 'How Buying Works',
+    description: 'A step-by-step guide to buying a new-build home on the Costa del Sol, from your first shortlist to collecting the keys.',
+    heroImage: 'assets/liora/viewing/scene-13.jpg',
+    heroKicker: 'Buying Guide',
+    heroTitle: 'Buying a new-build home, <em>step by step</em>',
+    heroLead: 'Off-plan and new-build purchases work differently from buying a resale home. Here is exactly how the process runs, from your first shortlist to collecting the keys.',
+    bodyClass: 'guide-article-page',
+    body: `<section class="section"><div class="section-inner">
+      <div class="guide-intro reveal-soft">
+        <p class="body-copy">Most general buying guides are written for resale property, where you are buying a home that already exists. New-build and off-plan purchases follow a different sequence -- staged payments, a private purchase contract instead of a simple deposit, and a developer's construction timeline instead of an immediate move-in date. This guide covers that specific process, since it is the only kind of purchase Nueva Living handles.</p>
+      </div>
+      <nav class="guide-toc reveal-soft" aria-label="Guide contents">
+        <span class="guide-toc-label">In This Guide</span>
+        <div class="guide-toc-list">
+          <a href="#brief"><span>01</span> Work out what you actually want</a>
+          <a href="#shortlist"><span>02</span> Build a real shortlist</a>
+          <a href="#viewing"><span>03</span> View the projects</a>
+          <a href="#reservation"><span>04</span> Reserve your chosen residence</a>
+          <a href="#contract"><span>05</span> Sign the private purchase contract</a>
+          <a href="#legal"><span>06</span> Legal checks and independent representation</a>
+          <a href="#completion"><span>07</span> Completion and handover</a>
+        </div>
+      </nav>
+    </div></section>
+    <section class="section"><div class="section-inner">
+      <div class="guide-section reveal-soft" id="brief">
+        <div class="guide-section-head"><span class="guide-section-number">01</span><h2>Work out what you <em>actually</em> want</h2></div>
+        <p>Before looking at a single project, it helps to be honest about four things: your budget, the areas you would genuinely live in or rent out, the property type that suits how you will use it, and your timing. Off-plan homes are sold years before delivery in some cases, so "when do I actually need this" matters more here than for a resale purchase.</p>
+        <p>This is also where deciding between off-plan and a completed, move-in-ready home matters. Off-plan usually means a lower entry price and staged payments spread over the build period, at the cost of waiting. A completed development, like a finished phase of a project, gives you a home you can see and move into now, for a higher upfront commitment.</p>
+      </div>
+      <div class="guide-section reveal-soft" id="shortlist">
+        <div class="guide-section-head"><span class="guide-section-number">02</span><h2>Build a <em>real</em> shortlist</h2></div>
+        <p>The Costa del Sol has dozens of new developments under construction or in planning at any time, most of them marketed through overlapping networks of agencies. Property portals tend to show broad price ranges and rendered images rather than confirmed, current availability, which makes them a poor starting point if you want an actual short list of homes you could buy.</p>
+        <p>A useful shortlist compares a small number of genuinely suitable projects against each other on the details that matter: confirmed current pricing (not an old headline price), what is actually still available, the developer's track record, and the payment schedule, not just the finished renders.</p>
+        <div class="guide-callout reveal-soft">
+          <h4>Do I need to be in Spain to start?</h4>
+          <p>No. Most of this stage -- comparing projects, reviewing floorplans and pricing, even a private cinematic presentation of a project -- can be done remotely before you commit to a viewing trip.</p>
+        </div>
+      </div>
+      <div class="guide-section reveal-soft" id="viewing">
+        <div class="guide-section-head"><span class="guide-section-number">03</span><h2>View the <em>projects</em></h2></div>
+        <p>Once you have a short list, a viewing trip is worth planning properly rather than fitting in as an afterthought. For off-plan projects, this usually means visiting the site, a show apartment if one exists, and the surrounding area at different times of day. For completed developments, you can view the actual residence you would be buying.</p>
+        <p>It is worth viewing more than one project on the same trip, even if one is already your favourite on paper. Seeing two or three developments back to back makes it much easier to judge build quality, location and value against each other, rather than in isolation.</p>
+      </div>
+      <div class="guide-section reveal-soft" id="reservation">
+        <div class="guide-section-head"><span class="guide-section-number">04</span><h2>Reserve your <em>chosen residence</em></h2></div>
+        <p>Once you have decided, a reservation takes the specific residence off the market while your private purchase contract is prepared, typically within two to four weeks. The reservation amount varies by developer and project, from a few thousand euros up to around 1% of the price on some developments, and is later credited against the purchase price.</p>
+        <p>A reservation is not the point of no return, but it is a real commitment. Confirm what happens to the reservation amount if you do not proceed before you pay it, since terms vary by developer.</p>
+      </div>
+      <div class="guide-section reveal-soft" id="contract">
+        <div class="guide-section-head"><span class="guide-section-number">05</span><h2>Sign the <em>private purchase contract</em></h2></div>
+        <p>The private purchase contract (contrato de compraventa) is the binding agreement that sets out the price, the payment schedule, the specification and the delivery terms. For a non-Spanish buyer, you will need an NIE (Numero de Identificacion de Extranjero) -- a tax ID number required for any property purchase in Spain -- before or shortly after this stage.</p>
+        <p>For off-plan purchases, payments from this point are usually staged: a percentage on signing, further payments at agreed construction milestones or dates, and the balance on completion. Spanish law requires developers to bank-guarantee off-plan payments made before completion, so that staged payments are protected if the development is not delivered.</p>
+        <div class="guide-callout reveal-soft">
+          <h4>What if the developer does not finish the project?</h4>
+          <p>Off-plan payments made ahead of completion are required by law to be covered by a bank guarantee or insurance policy. Confirming that guarantee is in place, and covers your specific payments, is one of the checks an independent lawyer carries out before you sign.</p>
+        </div>
+      </div>
+      <div class="guide-section reveal-soft" id="legal">
+        <div class="guide-section-head"><span class="guide-section-number">06</span><h2>Legal checks and <em>independent representation</em></h2></div>
+        <p>We strongly recommend independent legal representation for any property purchase in Spain -- a lawyer acting for you, not for the developer or the selling agency. Before you sign anything binding, a lawyer will typically check the developer's registration and track record, the building licence and land registry status, the bank guarantee covering your payments, and the exact terms of the private purchase contract itself.</p>
+        <p>Many non-resident buyers also arrange a mortgage at this stage. Spanish banks do lend to non-residents, usually financing a portion of the price, though exact terms depend on the bank and your financial profile.</p>
+      </div>
+      <div class="guide-section reveal-soft" id="completion">
+        <div class="guide-section-head"><span class="guide-section-number">07</span><h2>Completion and <em>handover</em></h2></div>
+        <p>Completion happens at the notary, where the final balance is paid and the deed of sale (escritura) is signed and registered in your name. For off-plan purchases, this follows the developer's confirmed delivery date; for completed developments, it can happen soon after your purchase contract is signed.</p>
+        <p>At handover, it is worth inspecting the property against the agreed specification before signing off, and keeping a note of the applicable warranty periods -- Spanish building law generally provides for a structural warranty, a shorter warranty on installations, and a one-year warranty on finishes. After that, budgeting for ongoing costs such as community fees and annual property tax (IBI) becomes part of owning the home.</p>
+      </div>
+    </div></section>
+    <section class="cta-band"><div class="cta-inner"><div><span class="label">Ready to Start</span><h2 class="cta-title">Tell us your budget, area and timing. We will bring back the projects worth your time.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>`,
+  },
+  {
+    file: 'guide-off-plan-vs-resale.html',
+    title: 'Off-Plan vs Resale',
+    description: 'How buying off-plan and buying a completed resale home actually compare on the Costa del Sol, across price, risk, payment terms and appreciation.',
+    heroImage: 'assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg',
+    heroKicker: 'Buying Guide',
+    heroTitle: 'Off-plan vs resale: <em>which fits your plan</em>',
+    heroLead: 'Both are legitimate ways to buy on the Costa del Sol. The right one depends on your timeline, your appetite for construction risk, and what you actually want the property to do for you.',
+    bodyClass: 'guide-article-page',
+    body: `<section class="section"><div class="section-inner">
+      <div class="guide-intro reveal-soft">
+        <p class="body-copy">"Off-plan" means buying a home before, or during, construction, direct from the developer through staged payments. "Resale" here means buying a completed, previously-owned or already-delivered home, paid in full at completion. Neither is inherently the better investment -- they suit different buyers, timelines and risk tolerances. This guide compares them on the points that actually affect your decision, not the ones that just sound good in a brochure.</p>
+      </div>
+      <nav class="guide-toc reveal-soft" aria-label="Guide contents">
+        <span class="guide-toc-label">In This Guide</span>
+        <div class="guide-toc-list">
+          <a href="#price"><span>01</span> Price and entry cost</a>
+          <a href="#payment"><span>02</span> How you pay</a>
+          <a href="#risk"><span>03</span> Risk: construction vs certainty</a>
+          <a href="#spec"><span>04</span> Specification and finish</a>
+          <a href="#timeline"><span>05</span> Time to move in or rent out</a>
+          <a href="#appreciation"><span>06</span> Resale and appreciation potential</a>
+          <a href="#fit"><span>07</span> Which one actually fits you</a>
+        </div>
+      </nav>
+    </div></section>
+    <section class="section"><div class="section-inner">
+      <div class="guide-section reveal-soft" id="price">
+        <div class="guide-section-head"><span class="guide-section-number">01</span><h2>Price and <em>entry cost</em></h2></div>
+        <p>Off-plan is usually priced below a comparable finished home in the same area, since you are committing years ahead of delivery and taking on construction timeline risk the developer would otherwise have to price in themselves. That gap tends to narrow, or close entirely, as a project moves from launch through to the final released units, which is exactly why "off-plan pricing" is treated as a moving target rather than a fixed discount.</p>
+        <p>Resale and completed new-build cost more upfront, but you are paying for a known quantity: the actual finish, the actual view, the actual noise level from the street, none of which you can fully judge from a floorplan and a render.</p>
+      </div>
+      <div class="guide-section reveal-soft" id="payment">
+        <div class="guide-section-head"><span class="guide-section-number">02</span><h2>How you <em>pay</em></h2></div>
+        <p>Off-plan payments are staged: typically a reservation, a larger payment on signing the private purchase contract, further payments at agreed construction milestones or dates, and the balance on completion. This spreads your cash outlay over the build period rather than requiring it all at once, which matters if you are financing the purchase from savings or staged income rather than a single mortgage drawdown.</p>
+        <p>A completed home is simpler: reserve, sign, pay the balance, usually within 30 to 60 days. There is no construction-linked schedule to track, but there is also no way to spread the cost over time the way an off-plan schedule does.</p>
+      </div>
+      <div class="guide-section reveal-soft" id="risk">
+        <div class="guide-section-head"><span class="guide-section-number">03</span><h2>Risk: construction <em>vs certainty</em></h2></div>
+        <p>The honest risk in buying off-plan is construction and delivery risk: the project could be delayed, or in a worst case, not completed. Spanish law requires developers to bank-guarantee off-plan payments made before completion specifically because of this risk, which is a real protection, not a formality -- confirming that guarantee is in place is one of the first things an independent lawyer should check.</p>
+        <p>A completed home removes that risk entirely. What you see is what you get, and you can inspect it before you commit to anything.</p>
+        <div class="guide-callout reveal-soft">
+          <h4>Does the bank guarantee cover everything I pay?</h4>
+          <p>It covers payments made ahead of completion specifically. The exact scope and validity of the guarantee for a given project is something to confirm in writing before signing, not something to assume.</p>
+        </div>
+      </div>
+      <div class="guide-section reveal-soft" id="spec">
+        <div class="guide-section-head"><span class="guide-section-number">04</span><h2>Specification and <em>finish</em></h2></div>
+        <p>Buying early in an off-plan release sometimes means a genuine say in finishes -- flooring, kitchen options, sometimes layout tweaks -- depending on how far along construction is when you reserve. That window closes as the project nears completion.</p>
+        <p>A completed home's finish is fixed. That is a limitation if you wanted something different, and an advantage if you would rather judge the actual materials and workmanship than a specification sheet.</p>
+      </div>
+      <div class="guide-section reveal-soft" id="timeline">
+        <div class="guide-section-head"><span class="guide-section-number">05</span><h2>Time to move in <em>or rent out</em></h2></div>
+        <p>Off-plan means waiting, sometimes years, for delivery. If your plan depends on moving in or renting the property out by a specific date, that delivery date -- and the developer's track record of actually hitting it -- deserves more scrutiny than almost anything else in the purchase.</p>
+        <p>A completed home can generate rental income or be lived in immediately after completion, with no construction timeline standing between you and using the property.</p>
+      </div>
+      <div class="guide-section reveal-soft" id="appreciation">
+        <div class="guide-section-head"><span class="guide-section-number">06</span><h2>Resale and <em>appreciation potential</em></h2></div>
+        <p>The theoretical case for off-plan appreciation is that you buy below the completed-market price and the value closes that gap by delivery, on top of whatever the wider market does in the meantime. That case depends entirely on the specific project and area performing as expected, not on off-plan buying being inherently profitable -- it is not a guarantee, and Nueva Living does not present it as one.</p>
+        <p>A completed home's value is easier to benchmark against genuinely comparable recent sales in the same building or area, since there is real, current data to compare it against rather than a projection.</p>
+      </div>
+      <div class="guide-section reveal-soft" id="fit">
+        <div class="guide-section-head"><span class="guide-section-number">07</span><h2>Which one <em>actually fits you</em></h2></div>
+        <p>Off-plan tends to suit buyers who do not need the property immediately, want to spread payments over time, and are comfortable with construction-stage risk in exchange for a lower entry price and, in some cases, a say in the finish.</p>
+        <p>A completed home tends to suit buyers who want to move in, rent out, or simply see exactly what they are buying without waiting or without taking on delivery risk -- often at a higher upfront cost for that certainty.</p>
+        <p>Most buyers are not purely one or the other. The honest way to decide is to compare specific projects against your own budget, timeline and risk tolerance, rather than deciding on off-plan versus resale as an abstract category first.</p>
+      </div>
+    </div></section>
+    <section class="cta-band"><div class="cta-inner"><div><span class="label">Compare Real Options</span><h2 class="cta-title">Tell us your timeline and budget. We will show you both off-plan and completed options that actually fit.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>`,
+  },
+  {
     file: 'referrals.html',
     title: 'Referral & Ambassador Program',
     description: 'Introduce someone to Nueva Living and receive a share of our commission when their Costa del Sol purchase completes.',
