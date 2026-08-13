@@ -822,9 +822,17 @@ body {
   border-top: 1px solid var(--line);
 }
 
+.timeline-payment-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 20px;
+  margin-bottom: 22px;
+}
+
 .timeline-payment-kicker {
   display: block;
-  margin-bottom: 22px;
   color: var(--bronze);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 8px;
@@ -833,25 +841,39 @@ body {
   text-transform: uppercase;
 }
 
+.timeline-payment-total {
+  color: var(--muted);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-style: italic;
+}
+
 .timeline-payment-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px clamp(20px, 3vw, 36px);
 }
 
 .timeline-payment-item {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 4px clamp(24px, 3vw, 40px) 4px 0;
-  margin-right: clamp(24px, 3vw, 40px);
+  gap: 8px;
+  padding: 4px clamp(20px, 3vw, 36px) 4px 0;
   border-right: 1px solid var(--line);
 }
 
 .timeline-payment-item:last-child {
   padding-right: 0;
-  margin-right: 0;
   border-right: 0;
+}
+
+.timeline-payment-running {
+  color: rgba(168, 131, 74, 0.85);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 .timeline-payment-index {

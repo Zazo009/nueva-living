@@ -621,6 +621,13 @@ function renderConstructionTimeline(project) {
 
   const paymentTerms = Array.isArray(timeline.paymentTerms) ? timeline.paymentTerms : [];
 
+  let runningPercent = 0;
+  const percentTotal = paymentTerms.reduce((sum, [, value]) => {
+    const match = /^([\d.]+)%/.exec(String(value).trim());
+    return match ? sum + parseFloat(match[1]) : sum;
+  }, 0);
+  const fixedAmount = paymentTerms.find(([, value]) => !/%/.test(String(value)));
+
   return `    <section class="project-section construction-timeline-section" id="construction-timeline">
       <div class="project-inner timeline-head reveal-soft">
         <div>
@@ -633,14 +640,23 @@ function renderConstructionTimeline(project) {
       <div class="project-inner timeline-track reveal-soft">${points}
       </div>
 ${paymentTerms.length ? `      <div class="project-inner timeline-payment-terms reveal-soft">
-        <span class="timeline-payment-kicker">${esc(timeline.paymentTermsLabel || 'Payment Terms')}</span>
+        <div class="timeline-payment-heading">
+          <span class="timeline-payment-kicker">${esc(timeline.paymentTermsLabel || 'Payment Terms')}</span>
+          ${percentTotal ? `<span class="timeline-payment-total">${fixedAmount ? `${esc(fixedAmount[1])} reservation, plus ` : ''}${percentTotal % 1 === 0 ? percentTotal : percentTotal.toFixed(1)}% of the price staged across ${paymentTerms.length - (fixedAmount ? 1 : 0)} payments</span>` : ''}
+        </div>
         <div class="timeline-payment-grid">
-          ${paymentTerms.map(([label, value, note], index) => `<div class="timeline-payment-item">
+          ${paymentTerms.map(([label, value, note], index) => {
+            const match = /^([\d.]+)%/.exec(String(value).trim());
+            if (match) runningPercent += parseFloat(match[1]);
+            const runningLabel = match ? `Running total: ${runningPercent % 1 === 0 ? runningPercent : runningPercent.toFixed(1)}%` : '';
+            return `<div class="timeline-payment-item">
             <span class="timeline-payment-index">${String(index + 1).padStart(2, '0')}</span>
             <span class="timeline-payment-label">${esc(label)}</span>
             <strong class="timeline-payment-value">${esc(value)}</strong>
             ${note ? `<span class="timeline-payment-note">${esc(note)}</span>` : ''}
-          </div>`).join('\n          ')}
+            ${runningLabel ? `<span class="timeline-payment-running">${esc(runningLabel)}</span>` : ''}
+          </div>`;
+          }).join('\n          ')}
         </div>
         ${timeline.paymentTermsNote ? `<p class="timeline-payment-disclaimer">${esc(timeline.paymentTermsNote)}</p>` : ''}
       </div>
