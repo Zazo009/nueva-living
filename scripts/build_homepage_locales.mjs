@@ -249,32 +249,7 @@ const HOMEPAGE_CONTENT_ENTRIES = [
   { find: '<p>Get the latest brochure, master plan, floorplans, availability and prices.</p>', es: '<p>Recibe el último dosier, master plan, planos, disponibilidad y precios.</p>', fr: '<p>Recevez la brochure la plus récente, le plan de masse, les plans, la disponibilité et les prix.</p>', de: '<p>Erhalten Sie die aktuelle Broschüre, den Masterplan, Grundrisse, Verfügbarkeit und Preise.</p>', ru: '<p>Получите актуальную брошюру, генеральный план, планировки, информацию о наличии и цены.</p>', ar: '<p>احصل على أحدث كتيب، والمخطط الرئيسي، ومخططات الوحدات، والتوفر، والأسعار.</p>' }
 ];
 
-// KNOWN ISSUE (2026-08-14): the built `ar/index.html` reproducibly renders
-// as a blank page when loaded at that exact path/filename, while
-// BYTE-IDENTICAL content saved under a different filename in the same
-// directory renders perfectly. Extensive investigation (DOM inspection,
-// computed styles, get_page_text extraction, network requests, console
-// errors, Cache API, Service Worker registrations, localStorage) all came
-// back clean -- the DOM is fully populated with correctly positioned,
-// fully opaque, visible elements and correct translated text, with zero
-// console errors and all assets loading with 200s -- yet the page paints
-// nothing when captured. No `location.pathname` checks exist anywhere in
-// nueva-living-home.html's script, ruling out a homepage-detection code
-// path. This strongly resembles a browser/screenshot-tooling render
-// artifact (this project has one documented precedent for this exact
-// class of issue: a language-switcher dropdown once produced a similar
-// "dimmed" screenshot that had no underlying CSS cause). However, since
-// `/ar/index.html` is literally the real production URL for this page, a
-// genuine bug at that exact path cannot be fully ruled out from this
-// environment alone, so out of caution this function still returns no
-// translations for `ar` (chrome/nav/footer/RTL layout for `ar` are
-// unaffected and still fully translated -- this only concerns the
-// hero/Why/Areas/Journey/viewer copy this function injects, which falls
-// back to English). Before re-enabling, verify `ar/index.html` renders
-// correctly in a real desktop browser (not just this automation
-// environment) -- if it does, remove the `locale === 'ar'` guard below.
 function homepageContentReplacements(locale) {
-  if (locale === 'ar') return [];
   return HOMEPAGE_CONTENT_ENTRIES
     .filter((entry) => entry[locale])
     .map((entry) => [entry.find, entry[locale]]);
