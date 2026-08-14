@@ -22,7 +22,7 @@
 // content, which is honest fallback behaviour, not a broken or empty route.
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, rootPrefix } from './lib/i18n.mjs';
+import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl } from './lib/i18n.mjs';
 
 const root = process.cwd();
 const sourcePath = path.join(root, 'nueva-living-home.html');
@@ -331,9 +331,13 @@ const switcherCss = `
 
 function renderSwitcherHtml(locale, forMobile) {
   const current = localeMeta(locale);
-  const p = rootPrefix(locale);
   const options = LOCALES.map((meta) => {
-    const href = `${p}${meta.urlPrefix ? `${meta.urlPrefix}/` : ''}index.html`;
+    // Absolute path -- see the matching comment in
+    // scripts/lib/i18n.mjs's renderLanguageSwitcher() for why: a bare
+    // relative "index.html" (English's case, no urlPrefix) gets silently
+    // mis-rewritten by Netlify's link post-processing, which doesn't
+    // understand this page's <base href="../"> tag.
+    const href = `/${meta.urlPrefix ? `${meta.urlPrefix}/` : ''}index.html`;
     const active = meta.code === locale;
     return `<a class="lang-switcher-option${active ? ' is-active' : ''}" href="${href}" lang="${meta.htmlLang}" ${active ? 'aria-current="true"' : ''}>${meta.nativeLabel}</a>`;
   }).join('\n              ');

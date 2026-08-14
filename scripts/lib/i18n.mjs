@@ -120,9 +120,15 @@ export function baseHrefTag(locale) {
 // locale's equivalent URL so switching language preserves the current page.
 export function renderLanguageSwitcher(outputPath, locale) {
   const current = localeMeta(locale);
-  const prefix = rootPrefix(locale);
   const options = LOCALES.map((meta) => {
-    const href = `${prefix}${localizedPath(outputPath, meta.code)}`;
+    // Absolute path (leading "/"), not a bare relative filename resolved
+    // via <base href>: Netlify's link post-processing does not understand
+    // <base>, and it silently mis-rewrote the English option's relative
+    // "index.html" (or "developments.html", etc.) into the current page's
+    // own directory (e.g. "/ar/") since that's the only locale whose
+    // localizedPath() has no directory prefix to anchor it. An absolute
+    // path needs no resolution by anything, so it can't be mis-rewritten.
+    const href = `/${localizedPath(outputPath, meta.code)}`;
     const active = meta.code === locale;
     return `<a class="lang-switcher-option${active ? ' is-active' : ''}" href="${href}" lang="${meta.htmlLang}" ${active ? 'aria-current="true"' : ''}>${meta.nativeLabel}</a>`;
   }).join('\n            ');
