@@ -47,16 +47,18 @@ const calculatorJsVersion = fileVersion('assets/liora/liora-calculator.js');
 // General buyer-process questions that apply to every development. A
 // project's own `faq` array (if set) is appended after these, for
 // anything specific to that particular release.
-const DEFAULT_FAQS = [
-  ['Can foreigners buy property in Spain?', 'Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident.'],
-  ['What is an NIE number and do I need one?', 'An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve.'],
-  ['What costs should I budget for on top of the purchase price?', 'Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve.'],
-  ['Can I get a mortgage in Spain as a non-resident?', 'Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile.'],
-  ['What is the difference between off-plan and completed properties?', 'Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now.'],
-  ['How does the reservation and payment process work?', 'Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step.'],
-  ['Can I rent out the property after purchase?', 'This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve.'],
-  ['Do I need a lawyer?', 'Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property.']
-];
+function defaultFaqs(locale = DEFAULT_LOCALE) {
+  return [
+    [t('faq.foreigners.q', locale), t('faq.foreigners.a', locale)],
+    [t('faq.nie.q', locale), t('faq.nie.a', locale)],
+    [t('faq.costs.q', locale), t('faq.costs.a', locale)],
+    [t('faq.mortgage.q', locale), t('faq.mortgage.a', locale)],
+    [t('faq.offplan.q', locale), t('faq.offplan.a', locale)],
+    [t('faq.reservation.q', locale), t('faq.reservation.a', locale)],
+    [t('faq.rental.q', locale), t('faq.rental.a', locale)],
+    [t('faq.lawyer.q', locale), t('faq.lawyer.a', locale)]
+  ];
+}
 
 function fileVersion(file) {
   return createHash('sha256').update(readFileSync(path.resolve(file))).digest('hex').slice(0, 12);
@@ -260,6 +262,33 @@ function ghostAction(label, href = '#enquire') {
   return actionLink(label, href, 'ghost');
 }
 
+const MONTH_NAMES = {
+  January: { en: 'January', es: 'enero', fr: 'janvier', de: 'Januar', ru: 'января', ar: 'يناير' },
+  February: { en: 'February', es: 'febrero', fr: 'février', de: 'Februar', ru: 'февраля', ar: 'فبراير' },
+  March: { en: 'March', es: 'marzo', fr: 'mars', de: 'März', ru: 'марта', ar: 'مارس' },
+  April: { en: 'April', es: 'abril', fr: 'avril', de: 'April', ru: 'апреля', ar: 'أبريل' },
+  May: { en: 'May', es: 'mayo', fr: 'mai', de: 'Mai', ru: 'мая', ar: 'مايو' },
+  June: { en: 'June', es: 'junio', fr: 'juin', de: 'Juni', ru: 'июня', ar: 'يونيو' },
+  July: { en: 'July', es: 'julio', fr: 'juillet', de: 'Juli', ru: 'июля', ar: 'يوليو' },
+  August: { en: 'August', es: 'agosto', fr: 'août', de: 'August', ru: 'августа', ar: 'أغسطس' },
+  September: { en: 'September', es: 'septiembre', fr: 'septembre', de: 'September', ru: 'сентября', ar: 'سبتمبر' },
+  October: { en: 'October', es: 'octubre', fr: 'octobre', de: 'Oktober', ru: 'октября', ar: 'أكتوبر' },
+  November: { en: 'November', es: 'noviembre', fr: 'novembre', de: 'November', ru: 'ноября', ar: 'نوفمبر' },
+  December: { en: 'December', es: 'diciembre', fr: 'décembre', de: 'Dezember', ru: 'декабря', ar: 'ديسمبر' }
+};
+
+function localizeMonthDate(value, locale) {
+  if (!value || locale === DEFAULT_LOCALE) return value;
+  const match = /^(?:(\d{1,2})\s+)?([A-Z][a-z]+)\s+(\d{4})$/.exec(value.trim());
+  if (!match) return value.replace(/[A-Z][a-z]+/, (month) => MONTH_NAMES[month]?.[locale] || month);
+  const [, day, monthName, year] = match;
+  const month = MONTH_NAMES[monthName]?.[locale] || monthName;
+  if (!day) return `${month} ${year}`;
+  if (locale === 'es') return `${day} de ${month} de ${year}`;
+  if (locale === 'de') return `${day}. ${month} ${year}`;
+  return `${day} ${month} ${year}`;
+}
+
 function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   const availability = project.availability || {};
   const units = availability.units || [];
@@ -280,11 +309,11 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
               </tr>`).join('\n              ');
 
   return `<div class="availability-release reveal-soft">
-          <div class="availability-release-stats" aria-label="Current release summary">
+          <div class="availability-release-stats" aria-label="${t('aria.currentReleaseSummary', locale)}">
             <div><span>${t('availability.availableHomes', locale)}</span><strong>${units.length}</strong></div>
             <div><span>${t('cinematic.startingPrice', locale)}</span><strong>${esc(availability.startingPrice || project.hero?.startingPrice || '')}</strong></div>
             <div><span>${t('availability.priceRange', locale)}</span><strong>${esc(availability.priceRange || '')}</strong></div>
-            <div><span>${t('availability.checked', locale)}</span><strong>${esc(availability.checkedDate || '')}</strong></div>
+            <div><span>${t('availability.checked', locale)}</span><strong>${esc(localizeMonthDate(availability.checkedDate, locale) || '')}</strong></div>
           </div>
           <details class="availability-disclosure">
             <summary>
@@ -322,16 +351,20 @@ function mapLabelLines(html = 'Project<br>Area') {
 // for the Cancelada Park bug this replaces).
 const MAP_LANDMARKS = {
   estepona: { x: 150, y: 295, label: 'Estepona' },
-  newGoldenMile: { x: 310, y: 278, label: 'New Golden Mile' },
+  newGoldenMile: { x: 310, y: 278, label: 'New Golden Mile', key: 'map.newGoldenMile' },
   sanPedro: { x: 420, y: 268, label: 'San Pedro' },
   benahavis: { x: 460, y: 145, label: 'Benahávis' },
   puertoBanus: { x: 560, y: 255, label: 'Puerto Banús' },
   nuevaAndalucia: { x: 600, y: 165, label: 'Nueva Andalucía' },
-  goldenMile: { x: 680, y: 233, label: 'Golden Mile' },
-  marbellaCentre: { x: 800, y: 218, label: 'Marbella Centre' },
-  marbellaEast: { x: 950, y: 195, label: 'Marbella East' },
-  malagaAirport: { x: 1080, y: 165, label: 'Málaga Airport' }
+  goldenMile: { x: 680, y: 233, label: 'Golden Mile', key: 'map.goldenMile' },
+  marbellaCentre: { x: 800, y: 218, label: 'Marbella Centre', key: 'map.marbellaCentre' },
+  marbellaEast: { x: 950, y: 195, label: 'Marbella East', key: 'map.marbellaEast' },
+  malagaAirport: { x: 1080, y: 165, label: 'Málaga Airport', key: 'map.malagaAirport' }
 };
+
+function mapLandmarkLabel(point, locale) {
+  return point.key ? t(point.key, locale) : point.label;
+}
 
 // Context landmarks shown on every map for orientation, unless the
 // project's own marker sits on (or very close to) one of them.
@@ -352,7 +385,7 @@ function resolveMapArea(project) {
   return 'marbellaCentre';
 }
 
-function locationMap(project) {
+function locationMap(project, locale = DEFAULT_LOCALE) {
   const [mapLineOne = project.name, mapLineTwo = project.hero?.location || 'Costa del Sol'] = mapLabelLines(project.location?.mapLabelHtml);
   const titleId = `${project.slug}-map-title`;
   const descId = `${project.slug}-map-desc`;
@@ -369,14 +402,14 @@ function locationMap(project) {
     const anchorEnd = point.x > marker.x;
     return `<g class="map-node${muted ? ' map-node-muted' : ''}" transform="translate(${point.x} ${point.y})">
                 <circle r="${muted ? 5 : 6}"/>
-                <text x="${anchorEnd ? -12 : 16}" y="${muted ? 4 : -18}"${anchorEnd ? ' text-anchor="end"' : ''}>${esc(point.label)}</text>
+                <text x="${anchorEnd ? -12 : 16}" y="${muted ? 4 : -18}"${anchorEnd ? ' text-anchor="end"' : ''}>${esc(mapLandmarkLabel(point, locale))}</text>
               </g>`;
   }).join('\n              ');
 
   return `<div class="location-map-card">
             <svg class="location-map-svg" viewBox="0 0 1200 620" role="img" aria-labelledby="${esc(titleId)} ${esc(descId)}" focusable="false">
               <title id="${esc(titleId)}">${esc(project.name)} location map</title>
-              <desc id="${esc(descId)}">Indicative map showing ${esc(project.name)} in ${esc(project.hero?.location || project.location?.mapLabelHtml || 'Costa del Sol')}, relative to ${context.map((key) => esc(MAP_LANDMARKS[key].label)).join(', ')}.</desc>
+              <desc id="${esc(descId)}">Indicative map showing ${esc(project.name)} in ${esc(project.hero?.location || project.location?.mapLabelHtml || 'Costa del Sol')}, relative to ${context.map((key) => esc(mapLandmarkLabel(MAP_LANDMARKS[key], locale))).join(', ')}.</desc>
               <defs>
                 <linearGradient id="mapSeaGradient" x1="0" x2="1" y1="0" y2="1">
                   <stop offset="0" stop-color="#BFDCE0"/>
@@ -398,7 +431,7 @@ function locationMap(project) {
               <path class="map-road map-road-secondary" d="M100 210 C270 176 425 182 585 156 C775 126 940 114 1115 74"/>
               <text x="140" y="188" class="map-road-label">AP-7</text>
               <path class="map-road map-road-main" d="M95 300 C245 272 390 282 535 258 C695 232 845 214 1098 168"/>
-              <text x="850" y="248" class="map-road-label">A-7 Coast Road</text>
+              <text x="850" y="248" class="map-road-label">${esc(t('map.a7CoastRoad', locale))}</text>
               ${contextNodes}
               <g class="map-marker" transform="translate(${marker.x} ${marker.y})" filter="url(#mapSoftShadow)">
                 <circle class="map-marker-glow" r="58"/>
@@ -409,13 +442,13 @@ function locationMap(project) {
                 <tspan x="${marker.x}">${esc(mapLineOne)}</tspan>
                 <tspan x="${marker.x}" dy="18">${esc(mapLineTwo)}</tspan>
               </text>
-              <text class="map-water-label" x="150" y="502">Mediterranean Sea</text>
-              <text class="map-note" x="60" y="52">Indicative location</text>
+              <text class="map-water-label" x="150" y="502">${esc(t('map.mediterraneanSea', locale))}</text>
+              <text class="map-note" x="60" y="52">${esc(t('map.indicativeLocation', locale))}</text>
             </svg>
             <div class="map-legend" aria-hidden="true">
-              <span><i class="legend-pin"></i> Project area</span>
-              <span><i class="legend-road"></i> Coastal access</span>
-              <span><i class="legend-sea"></i> Mediterranean</span>
+              <span><i class="legend-pin"></i> ${esc(t('map.legendProjectArea', locale))}</span>
+              <span><i class="legend-road"></i> ${esc(t('map.legendCoastalAccess', locale))}</span>
+              <span><i class="legend-sea"></i> ${esc(t('map.legendMediterranean', locale))}</span>
             </div>
           </div>`;
 }
@@ -786,7 +819,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     email: 'contact@nuevaliving.com',
     areaServed: 'Costa del Sol'
   };
-  const faqs = [...DEFAULT_FAQS, ...(project.faq || [])];
+  const faqs = [...defaultFaqs(locale), ...(project.faq || [])];
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -864,39 +897,39 @@ ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
           <div class="hero-actions">
             ${availabilityBrowseAction}
             ${ghostAction(privateHeroCta, privateHref)}
-            ${project.media?.items?.length ? ghostAction('All Images', '#media') : ''}
+            ${project.media?.items?.length ? ghostAction(t('cta.allImages', locale), '#media') : ''}
           </div>
         </div>
-        <aside class="hero-facts reveal-soft" aria-label="Project key facts">
+        <aside class="hero-facts reveal-soft" aria-label="${t('aria.projectKeyFacts', locale)}">
           ${facts.map(([label, value]) => `<div class="hero-fact"><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('\n          ')}
         </aside>
       </div>
     </section>
 
-    <nav class="project-nav" aria-label="Project sections">
+    <nav class="project-nav" aria-label="${t('aria.projectSections', locale)}">
       <div class="project-nav-inner">
-        <a href="#overview">Overview</a>
-${project.media?.items?.length ? '        <a href="#media">Media</a>\n' : ''}        <a href="#residences">Residences</a>
-        <a href="#availability">Availability</a>
-        <a href="#calculator">Affordability</a>
-        <a href="#location">Location</a>
-        <a href="#why-this-project">Why</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#project-file">Project Info</a>
-        <a href="#private-viewing">Cinematic Presentation</a>
-        <a href="#lifestyle">Lifestyle</a>
-        <a href="#faq">FAQ</a>
-        <a href="#enquire">Enquire</a>
+        <a href="#overview">${t('navInPage.overview', locale)}</a>
+${project.media?.items?.length ? `        <a href="#media">${t('navInPage.media', locale)}</a>\n` : ''}        <a href="#residences">${t('navInPage.residences', locale)}</a>
+        <a href="#availability">${t('navInPage.availability', locale)}</a>
+        <a href="#calculator">${t('navInPage.affordability', locale)}</a>
+        <a href="#location">${t('navInPage.location', locale)}</a>
+        <a href="#why-this-project">${t('navInPage.why', locale)}</a>
+        <a href="#architecture">${t('navInPage.architecture', locale)}</a>
+        <a href="#project-file">${t('navInPage.projectInfo', locale)}</a>
+        <a href="#private-viewing">${t('cta.cinematicPresentation', locale)}</a>
+        <a href="#lifestyle">${t('navInPage.lifestyle', locale)}</a>
+        <a href="#faq">${t('navInPage.faq', locale)}</a>
+        <a href="#enquire">${t('navInPage.enquire', locale)}</a>
       </div>
     </nav>
 
-    <section class="quick-facts-band" aria-label="Project quick facts">
+    <section class="quick-facts-band" aria-label="${t('aria.projectQuickFacts', locale)}">
       <div class="project-inner quick-facts-shell reveal-soft">
         <div class="quick-facts-grid">
           ${quickFactItems.map(([label, value]) => `<div class="quick-fact"><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('\n          ')}
         </div>
         <div class="quick-facts-actions">
-${hasPublishedAvailability ? '' : `          ${availabilityBrowseAction}\n`}          ${ghostAction('Request Project Material')}
+${hasPublishedAvailability ? '' : `          ${availabilityBrowseAction}\n`}          ${ghostAction(t('cta.requestProjectMaterial', locale))}
         </div>
       </div>
     </section>
@@ -904,7 +937,7 @@ ${hasPublishedAvailability ? '' : `          ${availabilityBrowseAction}\n`}    
     <section class="project-section" id="overview">
       <div class="project-inner overview-grid">
         <div class="reveal-soft">
-          <span class="section-kicker">Overview</span>
+          <span class="section-kicker">${t('section.overview', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-headline">${project.overview.headlineHtml}</h2>
           ${project.overview.copy.map((item) => `<p class="project-lead">${esc(item)}</p>`).join('\n          ')}
@@ -918,7 +951,7 @@ ${hasPublishedAvailability ? '' : `          ${availabilityBrowseAction}\n`}    
 ${constructionTimeline}${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section class="project-section" id="residences">
       <div class="project-inner">
         <div class="reveal-soft">
-          <span class="section-kicker">Residences</span>
+          <span class="section-kicker">${t('section.residences', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-headline">${project.residences.headlineHtml}</h2>
           <p class="project-lead">${esc(project.residences.copy)}</p>
@@ -931,17 +964,17 @@ ${constructionTimeline}${projectMedia.section ? `    ${projectMedia.section}\n\n
             </div>
             ${featureList(item.features)}
             ${hasFloorplans
-              ? '<a class="btn ghost project-btn" href="#availability">View Floorplans</a>'
-              : '<a class="btn ghost project-btn" href="#enquire" data-prefill>Request Floorplans</a>'}
+              ? `<a class="btn ghost project-btn" href="#availability">${t('cta.viewFloorplans', locale)}</a>`
+              : `<a class="btn ghost project-btn" href="#enquire" data-prefill>${t('cta.requestFloorplans', locale)}</a>`}
           </article>`).join('\n          ')}
         </div>
         <div class="inline-cta-panel reveal-soft">
           <div>
-            <span class="fine-label">Private Material</span>
-            <p>Current layouts, view positions and unit availability should be reviewed against the latest developer file before shortlisting.</p>
+            <span class="fine-label">${t('label.privateMaterial', locale)}</span>
+            <p>${t('copy.privateMaterialNote', locale)}</p>
           </div>
           <div class="inline-cta-actions">
-${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}            ${ghostAction('View Floorplans', hasFloorplans ? '#availability' : '#enquire')}
+${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}            ${ghostAction(t('cta.viewFloorplans', locale), hasFloorplans ? '#availability' : '#enquire')}
           </div>
         </div>
       </div>
@@ -950,7 +983,7 @@ ${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}  
     <section class="project-section" id="availability">
       <div class="project-inner">
         <div class="section-head reveal-soft">
-          <span class="section-kicker">Availability</span>
+          <span class="section-kicker">${t('section.availability', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-headline">${project.availability.headlineHtml}</h2>
           <p class="project-lead">${esc(project.availability.copy)}</p>
@@ -962,7 +995,7 @@ ${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}  
 ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div class="availability-panel availability-panel--followup reveal-soft">
           <div class="availability-actions">
             ${availabilityEnquiryAction}
-            ${advisorAction(project)}
+            ${advisorAction(project, t('cta.speakWithAdvisor', locale))}
           </div>
         </div>
       </div>
@@ -971,69 +1004,69 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
     <section class="project-section calculator-section" id="calculator">
       <div class="project-inner">
         <div class="section-head center reveal-soft">
-          <span class="section-kicker">Affordability</span>
+          <span class="section-kicker">${t('section.affordability', locale)}</span>
           <div class="rule"></div>
-          <h2 class="section-headline">Estimate your <em>monthly payment</em></h2>
-          <p class="body-copy">A quick indicative estimate only. Confirm exact terms with your lender before making any decision.</p>
+          <h2 class="section-headline">${t('calculator.headlineHtml', locale)}</h2>
+          <p class="body-copy">${t('calculator.intro', locale)}</p>
         </div>
         <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
-              <div class="calculator-field-label"><span>Purchase price</span><em data-calc-price-readout>&euro;0</em></div>
+              <div class="calculator-field-label"><span>${t('calculator.purchasePrice', locale)}</span><em data-calc-price-readout>&euro;0</em></div>
               <input type="range" data-calc-price-range min="150000" max="3000000" step="5000" value="${esc(calculatorSeedPrice)}">
               <input type="number" data-calc-price value="${esc(calculatorSeedPrice)}" min="0" step="1000" class="calculator-field-number">
             </div>
             <div class="calculator-field calculator-field--dual">
-              <div class="calculator-field-label"><span>Deposit</span><em data-calc-deposit-readout>30% &middot; &euro;0</em></div>
+              <div class="calculator-field-label"><span>${t('calculator.deposit', locale)}</span><em data-calc-deposit-readout>30% &middot; &euro;0</em></div>
               <input type="range" data-calc-deposit min="10" max="100" step="5" value="30">
-              <em class="calculator-field-hint">Set to 30% by default &mdash; as a non-Spanish resident, lenders typically finance up to 70% of the property value. Your own maximum will depend on your bank and financial profile.</em>
+              <em class="calculator-field-hint">${t('calculator.depositHint', locale)}</em>
             </div>
             <div class="calculator-field calculator-field--dual">
-              <div class="calculator-field-label"><span>Mortgage term</span><em data-calc-term-readout>25 years</em></div>
+              <div class="calculator-field-label"><span>${t('calculator.mortgageTerm', locale)}</span><em data-calc-term-readout>25 ${t('common.years', locale)}</em></div>
               <input type="range" data-calc-term min="5" max="35" step="1" value="25">
             </div>
             <div class="calculator-field calculator-field--split">
               <label>
-                <span>Interest rate</span>
+                <span>${t('calculator.interestRate', locale)}</span>
                 <div class="calculator-input-suffix">
                   <input type="number" data-calc-rate value="3.2" min="0" max="15" step="0.1">
                   <span class="calculator-input-suffix-label">%</span>
                 </div>
               </label>
-              <div class="calculator-rate-toggle" data-calc-rate-toggle role="group" aria-label="Rate type">
-                <button type="button" class="is-active" data-rate-type="fixed">Fixed</button>
-                <button type="button" data-rate-type="variable">Variable</button>
+              <div class="calculator-rate-toggle" data-calc-rate-toggle role="group" aria-label="${t('calculator.rateType', locale)}">
+                <button type="button" class="is-active" data-rate-type="fixed">${t('calculator.fixed', locale)}</button>
+                <button type="button" data-rate-type="variable">${t('calculator.variable', locale)}</button>
               </div>
             </div>
             <label class="calculator-field">
-              <span>Taxes &amp; purchase costs</span>
+              <span>${t('calculator.taxesAndCosts', locale)}</span>
               <div class="calculator-input-suffix">
                 <input type="number" data-calc-costs value="10" min="0" max="20" step="0.5">
                 <span class="calculator-input-suffix-label">%</span>
               </div>
-              <em class="calculator-field-hint">Indicative only &mdash; ITP/VAT, notary, registry and legal fees vary by case. Confirm exact costs with your lawyer.</em>
+              <em class="calculator-field-hint">${t('calculator.taxesHint', locale)}</em>
             </label>
           </div>
           <div class="calculator-results">
-            <div class="calculator-result calculator-result--highlight"><span>Estimated monthly payment</span><strong data-calc-monthly>&euro;0</strong></div>
-            <div class="calculator-result calculator-result--secondary"><span>Cash needed without a mortgage</span><strong data-calc-total-property>&euro;0</strong></div>
-            <div class="calculator-result calculator-result--secondary"><span>Cash needed with a mortgage (deposit + costs)</span><strong data-calc-cash-with-mortgage>&euro;0</strong></div>
+            <div class="calculator-result calculator-result--highlight"><span>${t('calculator.estimatedMonthly', locale)}</span><strong data-calc-monthly>&euro;0</strong></div>
+            <div class="calculator-result calculator-result--secondary"><span>${t('calculator.cashWithoutMortgage', locale)}</span><strong data-calc-total-property>&euro;0</strong></div>
+            <div class="calculator-result calculator-result--secondary"><span>${t('calculator.cashWithMortgage', locale)}</span><strong data-calc-cash-with-mortgage>&euro;0</strong></div>
             <div class="calculator-breakdown-bar" data-calc-bar>
               <span class="calculator-bar-segment calculator-bar-segment--deposit" data-calc-bar-deposit></span>
               <span class="calculator-bar-segment calculator-bar-segment--principal" data-calc-bar-principal></span>
               <span class="calculator-bar-segment calculator-bar-segment--interest" data-calc-bar-interest></span>
             </div>
             <div class="calculator-bar-legend">
-              <span><i class="calculator-bar-segment--deposit"></i>Deposit</span>
-              <span><i class="calculator-bar-segment--principal"></i>Mortgage principal</span>
-              <span><i class="calculator-bar-segment--interest"></i>Total interest</span>
+              <span><i class="calculator-bar-segment--deposit"></i>${t('calculator.deposit', locale)}</span>
+              <span><i class="calculator-bar-segment--principal"></i>${t('calculator.legendPrincipal', locale)}</span>
+              <span><i class="calculator-bar-segment--interest"></i>${t('calculator.legendInterest', locale)}</span>
             </div>
             <div class="calculator-result-grid">
-              <div class="calculator-result"><span>Deposit</span><strong data-calc-deposit-amount>&euro;0</strong></div>
-              <div class="calculator-result"><span>Loan amount</span><strong data-calc-loan>&euro;0</strong></div>
-              <div class="calculator-result"><span>Financed</span><strong data-calc-financed-pct>0%</strong></div>
-              <div class="calculator-result"><span>Total interest paid</span><strong data-calc-total-interest>&euro;0</strong></div>
-              <div class="calculator-result"><span>Taxes &amp; purchase costs</span><strong data-calc-costs-amount>&euro;0</strong></div>
+              <div class="calculator-result"><span>${t('calculator.deposit', locale)}</span><strong data-calc-deposit-amount>&euro;0</strong></div>
+              <div class="calculator-result"><span>${t('calculator.resultLoan', locale)}</span><strong data-calc-loan>&euro;0</strong></div>
+              <div class="calculator-result"><span>${t('calculator.resultFinanced', locale)}</span><strong data-calc-financed-pct>0%</strong></div>
+              <div class="calculator-result"><span>${t('calculator.resultTotalInterest', locale)}</span><strong data-calc-total-interest>&euro;0</strong></div>
+              <div class="calculator-result"><span>${t('calculator.taxesAndCosts', locale)}</span><strong data-calc-costs-amount>&euro;0</strong></div>
             </div>
           </div>
         </div>
@@ -1043,7 +1076,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
     <section class="project-section" id="location">
       <div class="project-inner location-layout">
         <div class="reveal-soft">
-          <span class="section-kicker">Location</span>
+          <span class="section-kicker">${t('section.location', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-headline">${project.location.headlineHtml}</h2>
           <p class="project-lead">${esc(project.location.copy)}</p>
@@ -1051,8 +1084,8 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
             ${pairs(project.location.distances, 'distance')}
           </div>
         </div>
-        <div class="map-panel reveal-soft" aria-label="Indicative location map for ${esc(project.name)}">
-          ${locationMap(project)}
+        <div class="map-panel reveal-soft" aria-label="${t('aria.indicativeLocationMap', locale, { name: esc(project.name) })}">
+          ${locationMap(project, locale)}
         </div>
       </div>
     </section>
@@ -1060,26 +1093,26 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
     <section class="project-section project-why" id="why-this-project">
       <div class="project-inner why-grid">
         <div class="reveal-soft">
-          <span class="section-kicker">Why This Project</span>
+          <span class="section-kicker">${t('section.why', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-headline">${why.headlineHtml}</h2>
           <p class="project-lead">${esc(why.copy)}</p>
         </div>
         <div class="why-groups">
           <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>Why It Fits</h3></div>
+            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><h3>${t('why.whyItFits', locale)}</h3></div>
             <div class="why-point-grid">
               ${(why.points || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n              ')}
             </div>
           </div>
           <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>Investment Case</h3></div>
+            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>${t('why.investmentCase', locale)}</h3></div>
             <div class="why-point-grid">
               ${(project.investment?.cards || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n              ')}
             </div>
           </div>
           <div class="why-group reveal-soft">
-            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>Trust &amp; Diligence</h3></div>
+            <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg><h3>${t('why.trustDiligence', locale)}</h3></div>
             <div class="why-point-grid">
               ${(trustDossier.cards || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n              ')}
             </div>
@@ -1092,10 +1125,10 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
       <div class="project-inner editorial-layout">
         <figure class="editorial-image reveal-soft">
           ${imageTag(architectureImage)}
-          <figcaption class="image-caption">${esc(architectureImage.caption || 'Architecture preview')}</figcaption>
+          <figcaption class="image-caption">${esc(architectureImage.caption || t('architecture.previewFallback', locale))}</figcaption>
         </figure>
         <div class="editorial-copy reveal-soft">
-          <span class="section-kicker">Architecture</span>
+          <span class="section-kicker">${t('section.architecture', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-headline">${project.architecture.headlineHtml}</h2>
           ${paragraphs(project.architecture.copy)}
@@ -1107,7 +1140,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
     <section class="project-section project-file-section" id="project-file">
       <div class="project-inner">
         <div class="section-head reveal-soft">
-          <span class="section-kicker">Project Information</span>
+          <span class="section-kicker">${t('section.projectFile', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-headline">${projectFile.headlineHtml}</h2>
           <p class="project-lead">${esc(projectFile.copy)}</p>
@@ -1127,7 +1160,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
         <div class="cinema-cta reveal-soft">
           ${imageTag(privateImage)}
           <div class="cinema-copy">
-            <span class="section-kicker">Cinematic Presentation</span>
+            <span class="section-kicker">${t('cta.cinematicPresentation', locale)}</span>
             <div class="rule"></div>
             <h2 class="section-headline">${project.privateViewing.headlineHtml}</h2>
             <p>${esc(project.privateViewing.copy)}</p>
@@ -1136,7 +1169,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
             </div>
             <div class="cinema-actions">
               ${actionLink(privateCta, privateHref)}
-              ${ghostAction('Request Project Material')}
+              ${ghostAction(t('cta.requestProjectMaterial', locale))}
             </div>
           </div>
         </div>
@@ -1148,7 +1181,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
         <div class="cinema-cta reveal-soft">
           ${imageTag(lifestyleImage)}
           <div class="cinema-copy">
-            <span class="section-kicker">Lifestyle</span>
+            <span class="section-kicker">${t('section.lifestyle', locale)}</span>
             <div class="rule"></div>
             <h2 class="section-headline">${project.lifestyle.headlineHtml}</h2>
             <p>${esc(project.lifestyle.copy)}</p>
@@ -1160,7 +1193,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
     <section class="project-section timeline-section" id="timeline">
       <div class="project-inner">
         <div class="section-head center reveal-soft">
-          <span class="section-kicker">Next Steps</span>
+          <span class="section-kicker">${t('section.timeline', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-headline">${timeline.headlineHtml}</h2>
         </div>
@@ -1173,9 +1206,9 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
     <section class="project-section faq-section" id="faq">
       <div class="project-inner">
         <div class="section-head center reveal-soft">
-          <span class="section-kicker">FAQ</span>
+          <span class="section-kicker">${t('section.faq', locale)}</span>
           <div class="rule"></div>
-          <h2 class="section-headline">Common <em>buyer questions</em></h2>
+          <h2 class="section-headline">${t('faq.headlineHtml', locale)}</h2>
         </div>
         <div class="faq-list">
           ${faqs.map(([question, answer], index) => `<details class="faq-item reveal-soft"${index === 0 ? ' open' : ''}>
@@ -1189,7 +1222,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
     <section class="project-section" id="enquire">
       <div class="project-inner">
         <div class="section-head center reveal-soft">
-          <span class="label">Enquire</span>
+          <span class="label">${t('section.enquireLabel', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-title">${project.enquiry.headlineHtml}</h2>
           <p class="body-copy">${esc(project.enquiry.copy)}</p>
@@ -1204,36 +1237,36 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
           <input type="hidden" name="budget_range" value="${esc(project.hero?.startingPrice || '')}">
           <div class="form-grid">
             <div class="field">
-              <label for="f-first-name">First Name</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="First name" required>
+              <label for="f-first-name">${t('form.firstName', locale)}</label>
+              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="${t('form.firstName', locale)}" required>
             </div>
             <div class="field">
-              <label for="f-last-name">Last Name</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="Last name" required>
+              <label for="f-last-name">${t('form.lastName', locale)}</label>
+              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="${t('form.lastName', locale)}" required>
             </div>
             <div class="field">
-              <label for="f-email">Email</label>
+              <label for="f-email">${t('form.email', locale)}</label>
               <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
             </div>
             <div class="field">
-              <label for="f-phone">Phone / WhatsApp</label>
+              <label for="f-phone">${t('form.phone', locale)}</label>
               <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international">
             </div>
             <div class="field full">
-              <label for="f-msg">Message</label>
+              <label for="f-msg">${t('form.message', locale)}</label>
               <textarea id="f-msg" name="message">${esc(project.enquiry.message)}</textarea>
             </div>
             <label class="consent-row field full" for="f-consent">
               <input id="f-consent" name="consent" type="checkbox" required>
-              <span>I agree to be contacted and for my data to be stored.</span>
+              <span>${t('form.consentContact', locale)}</span>
             </label>
             <label class="consent-row field full" for="f-marketing-opt-in">
               <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>I would also like to receive occasional project updates from Nueva Living.</span>
+              <span>${t('form.consentMarketing', locale)}</span>
             </label>
           </div>
           <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">Submit Request</button>
+            <button type="submit" class="btn project-btn">${t('form.submitRequest', locale)}</button>
             <span class="form-note">${esc(project.enquiry.note)}</span>
           </div>
         </form>
@@ -1241,8 +1274,8 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
     </section>
   </main>
 
-${projectMedia.dialog ? `  ${projectMedia.dialog}\n\n` : ''}  <div class="sticky-mobile-cta" aria-label="Project request actions">
-    <a href="#enquire" data-prefill>${hasPublishedAvailability ? 'Ask About a Home' : 'Request Availability'}</a>
+${projectMedia.dialog ? `  ${projectMedia.dialog}\n\n` : ''}  <div class="sticky-mobile-cta" aria-label="${t('aria.projectRequestActions', locale)}">
+    <a href="#enquire" data-prefill>${hasPublishedAvailability ? t('cta.askAboutAHome', locale) : t('cta.requestAvailability', locale)}</a>
     <a href="${esc(whatsappHref(project))}" target="_blank" rel="noopener" data-whatsapp-advisor data-project="${esc(project.name)}" data-intent="speak with an advisor">${t('cta.speakWithAdvisor', locale)}</a>
   </div>
 

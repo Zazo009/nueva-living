@@ -3,6 +3,11 @@
   const panel = document.querySelector('[data-calculator]');
   if (!panel) return;
 
+  const YEARS_LABEL = {
+    en: 'years', es: 'años', fr: 'ans', de: 'Jahre', ru: 'лет', ar: 'سنة'
+  };
+  const yearsLabel = YEARS_LABEL[document.documentElement.getAttribute('lang')] || YEARS_LABEL.en;
+
   const priceRange = panel.querySelector('[data-calc-price-range]');
   const priceInput = panel.querySelector('[data-calc-price]');
   const priceReadout = panel.querySelector('[data-calc-price-readout]');
@@ -66,7 +71,7 @@
     if (priceRange) priceRange.value = String(price);
     priceReadout.textContent = formatEuro(price);
     depositReadout.textContent = `${depositPct}% · ${formatEuro(depositAmount)}`;
-    termReadout.textContent = `${years} years`;
+    termReadout.textContent = `${years} ${yearsLabel}`;
     depositAmountOut.textContent = formatEuro(depositAmount);
     loanOut.textContent = formatEuro(loanAmount);
     financedPctOut.textContent = `${financedPct}%`;
