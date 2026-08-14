@@ -10,31 +10,57 @@ import {
   hreflangLinks,
   baseHrefTag,
   renderLanguageSwitcher,
-  LANG_SWITCHER_SCRIPT
+  LANG_SWITCHER_SCRIPT,
+  localizeProject
 } from './lib/i18n.mjs';
+import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
 
-// Same general buyer-process FAQ used on every property page
-// (DEFAULT_FAQS in build_property_pages.mjs), duplicated here since this
-// script is a separate, self-contained generator.
-const GENERAL_FAQS = [
-  ['Can foreigners buy property in Spain?', 'Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident.'],
-  ['What is an NIE number and do I need one?', 'An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve.'],
-  ['What costs should I budget for on top of the purchase price?', 'Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve.'],
-  ['Can I get a mortgage in Spain as a non-resident?', 'Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile.'],
-  ['What is the difference between off-plan and completed properties?', 'Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now.'],
-  ['How does the reservation and payment process work?', 'Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step.'],
-  ['Can I rent out the property after purchase?', 'This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve.'],
-  ['Do I need a lawyer?', 'Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property.']
-];
+// Applies FOOTER_PAGE_ENTRIES (translated body prose for footer pages) as
+// literal string replacement over already-rendered HTML -- the `pages`
+// array below is built once with fixed English `body` HTML, so rather
+// than restructure every page's render into a locale-aware function
+// (a much bigger refactor for content that's opaque markup, not
+// structured fields), each entry's exact English text is swapped for its
+// translation post-render, the same proven approach used for the
+// homepage's HOMEPAGE_CONTENT_ENTRIES. Untranslated entries (or entries
+// with no match for a given locale) simply leave the English text in
+// place -- safe, honest fallback, not a broken page.
+function applyFooterPageTranslations(html, locale) {
+  if (locale === DEFAULT_LOCALE) return html;
+  let result = html;
+  for (const entry of FOOTER_PAGE_ENTRIES) {
+    const replacement = entry[locale];
+    if (!replacement) continue;
+    result = result.split(entry.find).join(replacement);
+  }
+  return result;
+}
 
-function generalFaqSection() {
-  const items = GENERAL_FAQS.map(([question, answer], index) => `<details class="segment-faq-item"${index === 0 ? ' open' : ''}>
+// Same general buyer-process FAQ used on every property page (defaultFaqs()
+// in build_property_pages.mjs) -- sourced from the same translated
+// content/i18n/strings.json faq.* keys rather than a hardcoded English
+// duplicate, so this already has full es/fr/de/ru/ar coverage.
+function generalFaqs(locale = DEFAULT_LOCALE) {
+  return [
+    [t('faq.foreigners.q', locale), t('faq.foreigners.a', locale)],
+    [t('faq.nie.q', locale), t('faq.nie.a', locale)],
+    [t('faq.costs.q', locale), t('faq.costs.a', locale)],
+    [t('faq.mortgage.q', locale), t('faq.mortgage.a', locale)],
+    [t('faq.offplan.q', locale), t('faq.offplan.a', locale)],
+    [t('faq.reservation.q', locale), t('faq.reservation.a', locale)],
+    [t('faq.rental.q', locale), t('faq.rental.a', locale)],
+    [t('faq.lawyer.q', locale), t('faq.lawyer.a', locale)]
+  ];
+}
+
+function generalFaqSection(locale = DEFAULT_LOCALE) {
+  const items = generalFaqs(locale).map(([question, answer], index) => `<details class="segment-faq-item"${index === 0 ? ' open' : ''}>
         <summary>${question}</summary>
         <p>${answer}</p>
       </details>`).join('\n      ');
 
   return `<section class="section segment-faq-section"><div class="section-inner">
-    <div class="section-head"><span class="label">Common Questions</span><div class="rule"></div><h2 class="section-title">What buyers usually <em>ask us</em></h2></div>
+    <div class="section-head"><span class="label">${t('section.faq', locale)}</span><div class="rule"></div><h2 class="section-title">${t('faq.headlineHtml', locale)}</h2></div>
     <div class="segment-faq-list">
       ${items}
     </div>
@@ -169,7 +195,7 @@ function footer(locale = DEFAULT_LOCALE) {
 function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, heroTitle, heroLead, body, bodyClass = '' }, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
-  return `<!doctype html>
+  const html = `<!doctype html>
 <html lang="${meta.htmlLang}" dir="${meta.dir}">
 <head>
   <meta charset="utf-8">
@@ -226,6 +252,7 @@ ${fontPreloadBlock}
   ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>`;
+  return applyFooterPageTranslations(html, locale);
 }
 
 function esc(value) {
@@ -256,34 +283,52 @@ function areaProjectCardGallery(project) {
     </div>`;
 }
 
-function areaProjectCard(project) {
-  const meta = project.card?.meta || [];
-  const projectType = project.hero?.type || project.quickFacts?.find(([label]) => label === 'Property type')?.[1] || 'New development';
+const META_LABEL_KEYS = { From: 'common.from', Type: 'common.type', Status: 'common.status', Delivery: 'common.delivery' };
+
+// card.meta is raw [label, value] data on the English project object, never
+// translated directly (see the docs on the project.i18n overlay pattern --
+// only prose fields are translated, not this kind of paired data). Labels
+// are a small closed vocabulary so they're translated via t(); the "Type"
+// value specifically is swapped for the already-localized hero.type
+// (falling back to the raw meta value for any other label, e.g. price or
+// delivery-quarter strings that are locale-agnostic anyway).
+function localizedMeta(project, meta, locale) {
+  return meta.map(([label, value]) => {
+    const localizedLabel = META_LABEL_KEYS[label] ? t(META_LABEL_KEYS[label], locale) : label;
+    const localizedValue = label === 'Type' && project.hero?.type ? project.hero.type : value;
+    return [localizedLabel, localizedValue];
+  });
+}
+
+function areaProjectCard(sourceProject, locale = DEFAULT_LOCALE) {
+  const project = localizeProject(sourceProject, locale);
+  const meta = localizedMeta(project, project.card?.meta || [], locale);
+  const projectType = project.hero?.type || project.quickFacts?.find(([label]) => label === 'Property type')?.[1] || t('common.newDevelopment', locale);
   return `<article class="project-card area-project-card" data-project-card>
     ${areaProjectCardGallery(project)}
     <div class="project-body">
-      <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
+      <span class="label">${esc(project.card?.label || project.hero?.location || t('common.newDevelopment', locale))}</span>
       <h3>${esc(project.name)}</h3>
       <p>${esc(project.card?.description || project.description)}</p>
       <div class="meta">${meta.slice(0, 3).map(([label, value]) => `<div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('')}</div>
-      <div class="project-tags"><span>${esc(projectType)}</span><span>Current Availability</span></div>
-      <a class="project-link" href="${esc(project.output)}">Explore Project</a>
+      <div class="project-tags"><span>${esc(projectType)}</span><span>${t('common.currentAvailability', locale)}</span></div>
+      <a class="project-link" href="${esc(project.output)}">${t('cta.exploreProject', locale)}</a>
     </div>
   </article>`;
 }
 
-function areaProjects(area) {
+function areaProjects(area, locale = DEFAULT_LOCALE) {
   const selected = area.featuredProjects
     .map((projectSlug) => projects.find((project) => project.slug === projectSlug))
     .filter(Boolean);
 
-  if (selected.length) return selected.map(areaProjectCard).join('\n');
+  if (selected.length) return selected.map((project) => areaProjectCard(project, locale)).join('\n');
 
   return `<article class="area-project-empty">
-    <span class="label">Private Selection</span>
-    <h3>Current opportunities available by request</h3>
-    <p>We do not publish a project here until its information is ready to compare. Tell us what you need and we will check the current Mijas and Fuengirola releases directly.</p>
-    <a class="project-link" href="#area-enquiry">Request a Shortlist</a>
+    <span class="label">${t('area.privateSelection', locale)}</span>
+    <h3>${t('area.currentOpportunities', locale)}</h3>
+    <p>${t('area.noPublishedProjectNote', locale)}</p>
+    <a class="project-link" href="#area-enquiry">${t('area.requestShortlist', locale)}</a>
   </article>`;
 }
 
@@ -326,18 +371,19 @@ const SEGMENT_LINKS = {
   'nueva-andalucia': { href: 'new-build-apartments-penthouses-nueva-andalucia.html', label: 'Read the full Nueva Andaluc&iacute;a apartments &amp; penthouses guide' },
 };
 
-function areaDetailPage(area) {
+function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
+  const area = localizeProject(sourceArea, locale);
   const priceItems = area.prices.map((price) => `<div class="area-price-item"><span>${esc(price.label)}</span><strong>${esc(price.value)}</strong></div>`).join('');
   const highlights = area.highlights.map(([title, copy], index) => `<article class="area-highlight"><span>${String(index + 1).padStart(2, '0')}</span><h3>${esc(title)}</h3><p>${esc(copy)}</p></article>`).join('');
   const paragraphs = area.intro.paragraphs.map((paragraph) => `<p class="body-copy">${esc(paragraph)}</p>`).join('');
   const spotlightSection = area.spotlight ? `
-    <section class="section area-spotlight"><div class="section-inner"><div class="section-head"><span class="label">Local Knowledge</span><div class="rule"></div><h2 class="section-title">${area.spotlight.headlineHtml}</h2><p class="body-copy">${esc(area.spotlight.intro)}</p></div><div class="cards spotlight-cards">${area.spotlight.items.map(([title, copy, image], index) => `<article class="card spotlight-card">${image ? `<div class="spotlight-card-image"><img src="${esc(image.src)}" alt="${esc(image.alt || title)}" width="${image.width || 800}" height="${image.height || 600}" loading="lazy" decoding="async"></div>` : ''}<div class="spotlight-card-body"><div class="card-number">${String(index + 1).padStart(2, '0')}</div><h3>${esc(title)}</h3><p>${esc(copy)}</p></div></article>`).join('')}</div>${area.spotlight.photoCredits ? `<p class="spotlight-photo-credits">${esc(area.spotlight.photoCredits)}</p>` : ''}</div></section>` : '';
+    <section class="section area-spotlight"><div class="section-inner"><div class="section-head"><span class="label">${t('area.localKnowledge', locale)}</span><div class="rule"></div><h2 class="section-title">${area.spotlight.headlineHtml}</h2><p class="body-copy">${esc(area.spotlight.intro)}</p></div><div class="cards spotlight-cards">${area.spotlight.items.map(([title, copy, image], index) => `<article class="card spotlight-card">${image ? `<div class="spotlight-card-image"><img src="${esc(image.src)}" alt="${esc(image.alt || title)}" width="${image.width || 800}" height="${image.height || 600}" loading="lazy" decoding="async"></div>` : ''}<div class="spotlight-card-body"><div class="card-number">${String(index + 1).padStart(2, '0')}</div><h3>${esc(title)}</h3><p>${esc(copy)}</p></div></article>`).join('')}</div>${area.spotlight.photoCredits ? `<p class="spotlight-photo-credits">${esc(area.spotlight.photoCredits)}</p>` : ''}</div></section>` : '';
 
   return {
     file: area.output,
-    title: `${area.name} Area Guide`,
+    title: t('area.areaGuide', locale, { name: area.name }),
     breadcrumbTitle: area.name,
-    breadcrumbs: [['Areas', 'areas.html']],
+    breadcrumbs: [[t('nav.areas', locale), 'areas.html']],
     description: area.seo.description,
     heroImage: area.hero.image,
     heroAlt: area.hero.alt,
@@ -348,10 +394,10 @@ function areaDetailPage(area) {
     heroTitle: area.hero.titleHtml,
     heroLead: area.hero.lead,
     bodyClass: 'area-detail-page',
-    body: `<section class="section area-introduction"><div class="section-inner area-intro-layout"><div><span class="label">Living in ${esc(area.name)}</span><div class="rule"></div><h2 class="section-title">${area.intro.headlineHtml}</h2>${paragraphs}</div><div class="area-highlights">${highlights}</div></div></section>${spotlightSection}
-    <section class="section quiet-band area-market"><div class="section-inner area-market-layout"><div><span class="label">Price Context</span><div class="rule"></div><h2 class="section-title">Current asking-price <em>reference</em></h2><p class="body-copy">Use the area average for orientation only. New-build pricing depends heavily on the exact location, specification and views.</p></div><div class="area-price-panel">${priceItems}<p>${esc(area.priceNote)}</p><div class="area-price-sources">${areaPriceSources(area)}</div></div></div></section>
-    <section class="section area-developments"><div class="section-inner"><div class="section-head"><span class="label">Current Match</span><div class="rule"></div><h2 class="section-title">Projects in <em>${esc(area.name)}</em></h2><p class="body-copy">Only projects currently matching this area are shown. Price and availability are confirmed before a viewing.</p>${SEGMENT_LINKS[area.slug] ? `<a class="project-link area-guide-link" href="${SEGMENT_LINKS[area.slug].href}">${SEGMENT_LINKS[area.slug].label}</a>` : ''}</div><div class="project-grid area-project-grid">${areaProjects(area)}</div></div></section>
-    <section class="section area-enquiry-section" id="area-enquiry"><div class="section-inner"><div class="section-head center"><span class="label">Ask About ${esc(area.name)}</span><div class="rule"></div><h2 class="section-title">Request a relevant <em>shortlist</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Tell us your budget and priorities. We will reply with matching projects and current availability.</p></div>${areaForm(area)}</div></section>`,
+    body: `<section class="section area-introduction"><div class="section-inner area-intro-layout"><div><span class="label">${t('area.livingIn', locale, { name: esc(area.name) })}</span><div class="rule"></div><h2 class="section-title">${area.intro.headlineHtml}</h2>${paragraphs}</div><div class="area-highlights">${highlights}</div></div></section>${spotlightSection}
+    <section class="section quiet-band area-market"><div class="section-inner area-market-layout"><div><span class="label">${t('area.priceContext', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.currentAskingPriceReference', locale)}</h2><p class="body-copy">${t('area.priceContextIntro', locale)}</p></div><div class="area-price-panel">${priceItems}<p>${esc(area.priceNote)}</p><div class="area-price-sources">${areaPriceSources(area)}</div></div></div></section>
+    <section class="section area-developments"><div class="section-inner"><div class="section-head"><span class="label">${t('area.currentMatch', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.projectsIn', locale, { name: esc(area.name) })}</h2><p class="body-copy">${t('area.projectsMatchingNote', locale)}</p>${SEGMENT_LINKS[area.slug] ? `<a class="project-link area-guide-link" href="${SEGMENT_LINKS[area.slug].href}">${SEGMENT_LINKS[area.slug].label}</a>` : ''}</div><div class="project-grid area-project-grid">${areaProjects(area, locale)}</div></div></section>
+    <section class="section area-enquiry-section" id="area-enquiry"><div class="section-inner"><div class="section-head center"><span class="label">${t('area.askAbout', locale, { name: esc(area.name) })}</span><div class="rule"></div><h2 class="section-title">${t('area.requestRelevantShortlist', locale)}</h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">${t('area.shortlistNote', locale)}</p></div>${areaForm(area)}</div></section>`,
   };
 }
 
@@ -973,7 +1019,7 @@ const pages = [
   },
 ];
 
-pages.push(...areas.map(areaDetailPage));
+pages.push(...areas.map((area) => ({ __area: area, file: area.output })));
 
 function legalBody(title, sections) {
   return `<section class="section"><div class="section-inner legal-layout"><aside class="legal-nav">${sections.map(([heading]) => `<a href="#${slug(heading)}">${heading}</a>`).join('')}</aside><div class="legal-stack"><div class="section-head"><span class="label">Important Information</span><div class="rule"></div><h2 class="section-title">${title}</h2><p class="body-copy">This page explains the main terms in plain language. It should be reviewed by qualified legal counsel before any future material change.</p></div>${sections.map(([heading, text]) => `<article class="legal-card" id="${slug(heading)}"><h3>${heading}</h3><p>${text}</p></article>`).join('')}</div></div></section><section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Have a question about a project?</h2><a class="btn" href="contact.html">Contact Us</a></div></section>`;
@@ -986,10 +1032,11 @@ function slug(value) {
 const written = [];
 for (const item of pages) {
   for (const { code: locale } of LOCALES) {
+    const resolvedItem = item.__area ? areaDetailPage(item.__area, locale) : item;
     const outputPath = localizedPath(item.file, locale);
     const fullPath = outputPath;
     if (outputPath.includes('/')) mkdirSync(outputPath.split('/')[0], { recursive: true });
-    writeFileSync(fullPath, page(item, locale));
+    writeFileSync(fullPath, page(resolvedItem, locale));
     written.push(outputPath);
   }
 }

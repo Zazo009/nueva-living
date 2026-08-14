@@ -13,6 +13,24 @@ import {
   renderLanguageSwitcher,
   LANG_SWITCHER_SCRIPT
 } from './lib/i18n.mjs';
+import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
+
+// Same approach as applyFooterPageTranslations() in build_footer_pages.mjs:
+// literal find/replace of translated prose over already-rendered English
+// HTML, since segment-page body content (introParagraphs, sub-area
+// write-ups, comparison rows, page-specific FAQ) is opaque markup built
+// once, not structured per-locale fields. Missing entries for a locale
+// leave the English text in place.
+function applySegmentPageTranslations(html, locale) {
+  if (locale === DEFAULT_LOCALE) return html;
+  let result = html;
+  for (const entry of SEGMENT_PAGE_ENTRIES) {
+    const replacement = entry[locale];
+    if (!replacement) continue;
+    result = result.split(entry.find).join(replacement);
+  }
+  return result;
+}
 
 function fileVersion(file) {
   return createHash('sha256').update(readFileSync(file)).digest('hex').slice(0, 12);
@@ -350,7 +368,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
 
   const schema = segmentSchema(segment, matches);
 
-  return `<!doctype html>
+  const html = `<!doctype html>
 <html lang="${meta.htmlLang}" dir="${meta.dir}">
 <head>
   <meta charset="utf-8">
@@ -421,6 +439,7 @@ ${JSON.stringify(schema, null, 2)}
   ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>`;
+  return applySegmentPageTranslations(html, locale);
 }
 
 function lowestPriceAcrossSegments() {
@@ -576,7 +595,7 @@ function renderGuidesPage(locale = DEFAULT_LOCALE) {
     generalFaqSchema()
   ];
 
-  return `<!doctype html>
+  const html = `<!doctype html>
 <html lang="${meta.htmlLang}" dir="${meta.dir}">
 <head>
   <meta charset="utf-8">
@@ -650,6 +669,7 @@ ${JSON.stringify(schema, null, 2)}
   ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>`;
+  return applySegmentPageTranslations(html, locale);
 }
 
 // Same general buyer-process FAQ used on every property page
