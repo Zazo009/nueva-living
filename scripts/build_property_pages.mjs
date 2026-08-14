@@ -322,7 +322,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
             </summary>
             <div class="availability-table-wrap">
               <table class="availability-table">
-                <caption class="sr-only">Available homes at ${esc(project.name)}</caption>
+                <caption class="sr-only">${t('availability.tableCaption', locale, { project: esc(project.name) })}</caption>
                 <thead><tr><th scope="col">${t('availability.reference', locale)}</th>${hasFloor ? `<th scope="col">${t('availability.floor', locale)}</th>` : ''}<th scope="col">${t('availability.bedrooms', locale)}</th>${hasSize ? `<th scope="col">${t('availability.size', locale)}</th>` : ''}<th scope="col">${t('availability.price', locale)}</th><th scope="col">${t('availability.status', locale)}</th>${hasFloorplans ? `<th scope="col">${t('availability.floorplan', locale)}</th>` : ''}</tr></thead>
                 <tbody>
               ${rows}

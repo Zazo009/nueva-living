@@ -25,10 +25,15 @@ import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
 // homepage's HOMEPAGE_CONTENT_ENTRIES. Untranslated entries (or entries
 // with no match for a given locale) simply leave the English text in
 // place -- safe, honest fallback, not a broken page.
+// Longest find first: a short entry ("Areas" -> "Zonas") must never fire
+// inside a longer string ("Areas We Cover") before that string's own
+// entry has had its chance to match.
+const SORTED_FOOTER_PAGE_ENTRIES = [...FOOTER_PAGE_ENTRIES].sort((a, b) => b.find.length - a.find.length);
+
 function applyFooterPageTranslations(html, locale) {
   if (locale === DEFAULT_LOCALE) return html;
   let result = html;
-  for (const entry of FOOTER_PAGE_ENTRIES) {
+  for (const entry of SORTED_FOOTER_PAGE_ENTRIES) {
     const replacement = entry[locale];
     if (!replacement) continue;
     result = result.split(entry.find).join(replacement);
@@ -332,15 +337,15 @@ function areaProjects(area, locale = DEFAULT_LOCALE) {
   </article>`;
 }
 
-function areaPriceSources(area) {
-  const sources = area.priceSources || [{ label: 'View market reference', url: area.priceSource }];
+function areaPriceSources(area, locale = DEFAULT_LOCALE) {
+  const sources = area.priceSources || [{ label: t('area.viewMarketReference', locale), url: area.priceSource }];
   return sources
     .filter((source) => source.url)
     .map((source) => `<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.label)}</a>`)
     .join('');
 }
 
-function areaForm(area) {
+function areaForm(area, locale = DEFAULT_LOCALE) {
   const areaOptions = areas.map((option) => (
     `<option value="${esc(option.formArea)}"${option.slug === area.slug ? ' selected' : ''}>${esc(option.name)}</option>`
   )).join('');
@@ -353,7 +358,7 @@ function areaForm(area) {
       <div class="field"><label for="${esc(area.slug)}-last-name">Last Name</label><input id="${esc(area.slug)}-last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div>
       <div class="field"><label for="${esc(area.slug)}-email">Email Address</label><input id="${esc(area.slug)}-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div>
       <div class="field"><label for="${esc(area.slug)}-phone">Phone Number</label><input id="${esc(area.slug)}-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div>
-      <div class="field"><label for="${esc(area.slug)}-area">Preferred Area</label><select id="${esc(area.slug)}-area" name="preferred_area">${areaOptions}<option value="Open to all areas">Open to all areas</option></select></div>
+      <div class="field"><label for="${esc(area.slug)}-area">Preferred Area</label><select id="${esc(area.slug)}-area" name="preferred_area">${areaOptions}<option value="Open to all areas">${t('form.openToAllAreas', locale)}</option></select></div>
       <div class="field"><label for="${esc(area.slug)}-property-type">Property Type</label><select id="${esc(area.slug)}-property-type" name="property_type_interest"><option value="">Select type...</option><option>Apartments</option><option>Penthouses</option><option>Villas</option><option>Townhouses</option><option>Mixed / Open</option></select></div>
       <div class="field"><label for="${esc(area.slug)}-budget">Budget Range</label><select id="${esc(area.slug)}-budget" name="budget_range"><option value="">Select budget...</option><option>&euro;300,000 - &euro;500,000</option><option>&euro;500,000 - &euro;900,000</option><option>&euro;900,000 - &euro;1,500,000</option><option>&euro;1,500,000+</option></select></div>
       <div class="field"><label for="${esc(area.slug)}-bedrooms">Minimum Bedrooms</label><select id="${esc(area.slug)}-bedrooms" name="bedrooms_min"><option value="">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></div>
@@ -366,9 +371,9 @@ function areaForm(area) {
 }
 
 const SEGMENT_LINKS = {
-  marbella: { href: 'new-build-apartments-penthouses-marbella.html', label: 'Read the full Marbella apartments &amp; penthouses guide' },
-  estepona: { href: 'new-build-apartments-penthouses-estepona.html', label: 'Read the full Estepona apartments &amp; penthouses guide' },
-  'nueva-andalucia': { href: 'new-build-apartments-penthouses-nueva-andalucia.html', label: 'Read the full Nueva Andaluc&iacute;a apartments &amp; penthouses guide' },
+  marbella: { href: 'new-build-apartments-penthouses-marbella.html', area: 'Marbella' },
+  estepona: { href: 'new-build-apartments-penthouses-estepona.html', area: 'Estepona' },
+  'nueva-andalucia': { href: 'new-build-apartments-penthouses-nueva-andalucia.html', area: 'Nueva Andaluc&iacute;a' },
 };
 
 function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
@@ -395,9 +400,9 @@ function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
     heroLead: area.hero.lead,
     bodyClass: 'area-detail-page',
     body: `<section class="section area-introduction"><div class="section-inner area-intro-layout"><div><span class="label">${t('area.livingIn', locale, { name: esc(area.name) })}</span><div class="rule"></div><h2 class="section-title">${area.intro.headlineHtml}</h2>${paragraphs}</div><div class="area-highlights">${highlights}</div></div></section>${spotlightSection}
-    <section class="section quiet-band area-market"><div class="section-inner area-market-layout"><div><span class="label">${t('area.priceContext', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.currentAskingPriceReference', locale)}</h2><p class="body-copy">${t('area.priceContextIntro', locale)}</p></div><div class="area-price-panel">${priceItems}<p>${esc(area.priceNote)}</p><div class="area-price-sources">${areaPriceSources(area)}</div></div></div></section>
-    <section class="section area-developments"><div class="section-inner"><div class="section-head"><span class="label">${t('area.currentMatch', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.projectsIn', locale, { name: esc(area.name) })}</h2><p class="body-copy">${t('area.projectsMatchingNote', locale)}</p>${SEGMENT_LINKS[area.slug] ? `<a class="project-link area-guide-link" href="${SEGMENT_LINKS[area.slug].href}">${SEGMENT_LINKS[area.slug].label}</a>` : ''}</div><div class="project-grid area-project-grid">${areaProjects(area, locale)}</div></div></section>
-    <section class="section area-enquiry-section" id="area-enquiry"><div class="section-inner"><div class="section-head center"><span class="label">${t('area.askAbout', locale, { name: esc(area.name) })}</span><div class="rule"></div><h2 class="section-title">${t('area.requestRelevantShortlist', locale)}</h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">${t('area.shortlistNote', locale)}</p></div>${areaForm(area)}</div></section>`,
+    <section class="section quiet-band area-market"><div class="section-inner area-market-layout"><div><span class="label">${t('area.priceContext', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.currentAskingPriceReference', locale)}</h2><p class="body-copy">${t('area.priceContextIntro', locale)}</p></div><div class="area-price-panel">${priceItems}<p>${esc(area.priceNote)}</p><div class="area-price-sources">${areaPriceSources(area, locale)}</div></div></div></section>
+    <section class="section area-developments"><div class="section-inner"><div class="section-head"><span class="label">${t('area.currentMatch', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.projectsIn', locale, { name: esc(area.name) })}</h2><p class="body-copy">${t('area.projectsMatchingNote', locale)}</p>${SEGMENT_LINKS[area.slug] ? `<a class="project-link area-guide-link" href="${SEGMENT_LINKS[area.slug].href}">${t('area.readFullGuide', locale, { area: SEGMENT_LINKS[area.slug].area })}</a>` : ''}</div><div class="project-grid area-project-grid">${areaProjects(area, locale)}</div></div></section>
+    <section class="section area-enquiry-section" id="area-enquiry"><div class="section-inner"><div class="section-head center"><span class="label">${t('area.askAbout', locale, { name: esc(area.name) })}</span><div class="rule"></div><h2 class="section-title">${t('area.requestRelevantShortlist', locale)}</h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">${t('area.shortlistNote', locale)}</p></div>${areaForm(area, locale)}</div></section>`,
   };
 }
 

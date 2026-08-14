@@ -26,7 +26,10 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   { find: 'FAQ', es: 'Preguntas Frecuentes', fr: 'FAQ', de: 'Häufige Fragen', ru: 'Частые вопросы', ar: 'الأسئلة الشائعة' },
   { find: 'Common <em>buyer questions</em>', es: 'Preguntas <em>frecuentes de compradores</em>', fr: 'Questions <em>fréquentes des acheteurs</em>', de: 'Häufige <em>Fragen von Käufern</em>', ru: 'Частые <em>вопросы покупателей</em>', ar: 'أسئلة <em>شائعة من المشترين</em>' },
   // ---------- areas.html (was missed in the original assignment) ----------
-  { find: `Areas`, es: `Zonas`, fr: `Secteurs`, de: `Gebiete`, ru: `Районы`, ar: `المناطق` },
+  // Scoped to the breadcrumb: a bare "Areas" find also fired inside longer
+  // strings like "Areas We Cover", corrupting them before their own entry
+  // could match.
+  { find: `aria-current="page">Areas</span>`, es: `aria-current="page">Zonas</span>`, fr: `aria-current="page">Secteurs</span>`, de: `aria-current="page">Gebiete</span>`, ru: `aria-current="page">Районы</span>`, ar: `aria-current="page">المناطق</span>` },
   {
     find: `Costa del Sol area guide for new development buyers.`,
     es: `Guía de zonas de la Costa del Sol para compradores de obra nueva.`,

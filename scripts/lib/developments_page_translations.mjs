@@ -67,7 +67,7 @@ export const TAG_LABELS = {
   'Flex Living': { es: 'Flex Living', fr: 'Flex Living', de: 'Flex Living', ru: 'Гибкое Владение', ar: 'سكن مرن' }
 };
 
-export const DEVELOPMENTS_PAGE_ENTRIES = [
+const PAGE_ENTRIES_HEAD = [
   // Head
   { find: '<title>Costa del Sol New Developments | Nueva Living</title>', es: '<title>Obra Nueva en la Costa del Sol | Nueva Living</title>', fr: '<title>Programmes Neufs sur la Costa del Sol | Nueva Living</title>', de: '<title>Neubauprojekte an der Costa del Sol | Nueva Living</title>', ru: '<title>Новостройки на Коста-дель-Соль | Nueva Living</title>', ar: '<title>مشاريع جديدة في كوستا ديل سول | Nueva Living</title>' },
   { find: 'Explore new developments across the Costa del Sol, chosen for their design, location and everyday appeal.', es: 'Descubre promociones de obra nueva en toda la Costa del Sol, seleccionadas por su diseño, ubicación y atractivo para el día a día.', fr: 'Découvrez des programmes neufs sur toute la Costa del Sol, choisis pour leur design, leur emplacement et leur agrément au quotidien.', de: 'Entdecken Sie Neubauprojekte an der gesamten Costa del Sol, ausgewählt nach Design, Lage und Alltagstauglichkeit.', ru: 'Изучите новостройки по всему побережью Коста-дель-Соль, отобранные за дизайн, расположение и удобство для жизни.', ar: 'استكشف مشاريع جديدة في جميع أنحاء كوستا ديل سول، مختارة لتصميمها وموقعها وملاءمتها للحياة اليومية.' },
@@ -155,7 +155,13 @@ export const DEVELOPMENTS_PAGE_ENTRIES = [
   { find: '<p>Try fewer filters, explore similar projects or tell us what you are looking for.</p>', es: '<p>Prueba con menos filtros, explora proyectos similares o cuéntanos qué buscas.</p>', fr: '<p>Essayez avec moins de filtres, explorez des projets similaires ou dites-nous ce que vous recherchez.</p>', de: '<p>Versuchen Sie es mit weniger Filtern, entdecken Sie ähnliche Projekte oder sagen Sie uns, wonach Sie suchen.</p>', ru: '<p>Попробуйте убрать часть фильтров, посмотрите похожие проекты или расскажите нам, что вы ищете.</p>', ar: '<p>جرّب عددًا أقل من الفلاتر، أو استكشف مشاريع مشابهة، أو أخبرنا بما تبحث عنه.</p>' },
   { find: '>Get a Personal Shortlist</a>', es: '>Solicita tu Lista Personalizada</a>', fr: '>Recevoir une Sélection Personnalisée</a>', de: '>Persönliche Auswahl Erhalten</a>', ru: '>Получить Персональную Подборку</a>', ar: '>احصل على قائمة مختارة شخصية</a>' },
 
-  // Card meta labels + CTA
+  // Card meta labels + CTA (shared set lives in PROJECT_CARD_ENTRIES below;
+  // merged into this page's entries at the bottom of this file)
+];
+
+// Project-card meta labels, meta values and CTA shared by every page that
+// renders generated project cards (developments.html, segment pages).
+export const PROJECT_CARD_ENTRIES = [
   { find: '<div><span>From</span><strong>', es: '<div><span>Desde</span><strong>', fr: '<div><span>À Partir de</span><strong>', de: '<div><span>Ab</span><strong>', ru: '<div><span>От</span><strong>', ar: '<div><span>ابتداءً من</span><strong>' },
   { find: '<div><span>Type</span><strong>', es: '<div><span>Tipo</span><strong>', fr: '<div><span>Type</span><strong>', de: '<div><span>Typ</span><strong>', ru: '<div><span>Тип</span><strong>', ar: '<div><span>النوع</span><strong>' },
   { find: '<div><span>Status</span><strong>', es: '<div><span>Estado</span><strong>', fr: '<div><span>Statut</span><strong>', de: '<div><span>Status</span><strong>', ru: '<div><span>Статус</span><strong>', ar: '<div><span>الحالة</span><strong>' },
@@ -180,7 +186,9 @@ export const DEVELOPMENTS_PAGE_ENTRIES = [
   { find: '<strong>Current release</strong>', es: '<strong>Fase actual</strong>', fr: '<strong>Phase actuelle</strong>', de: '<strong>Aktuelle Phase</strong>', ru: '<strong>Текущая очередь</strong>', ar: '<strong>المرحلة الحالية</strong>' },
   { find: '<strong>Under construction</strong>', es: '<strong>En construcción</strong>', fr: '<strong>En construction</strong>', de: '<strong>Im Bau</strong>', ru: '<strong>В стадии строительства</strong>', ar: '<strong>قيد الإنشاء</strong>' },
   { find: '<strong>Est. Q2 2029</strong>', es: '<strong>Est. T2 2029</strong>', fr: '<strong>Est. T2 2029</strong>', de: '<strong>Vsl. Q2 2029</strong>', ru: '<strong>Ориент. 2 кв. 2029</strong>', ar: '<strong>تقديريًا الربع الثاني 2029</strong>' },
+];
 
+const PAGE_ENTRIES_TAIL = [
   // Archived section
   { find: '<span class="label">Track Record</span>', es: '<span class="label">Trayectoria</span>', fr: '<span class="label">Historique</span>', de: '<span class="label">Erfolgsbilanz</span>', ru: '<span class="label">Наш Опыт</span>', ar: '<span class="label">سجل الإنجازات</span>' },
   { find: '<h2 class="section-title">Earlier <em>sold projects</em></h2>', es: '<h2 class="section-title">Proyectos <em>ya vendidos</em></h2>', fr: '<h2 class="section-title">Projets <em>déjà vendus</em></h2>', de: '<h2 class="section-title">Bereits <em>verkaufte Projekte</em></h2>', ru: '<h2 class="section-title">Ранее <em>проданные проекты</em></h2>', ar: '<h2 class="section-title">مشاريع <em>بيعت سابقًا</em></h2>' },
@@ -202,12 +210,12 @@ export const DEVELOPMENTS_PAGE_ENTRIES = [
   { find: '>Get Project Information</a>', es: '>Solicitar Información</a>', fr: '>Obtenir des Informations</a>', de: '>Projektinformationen Anfordern</a>', ru: '>Получить Информацию</a>', ar: '>الحصول على معلومات المشروع</a>' },
 
   // Nav / mobile menu
-  { find: '>Buying Guides</a>', es: '>Guías de Compra</a>', fr: '>Guides d’Achat</a>', de: '>Kaufratgeber</a>', ru: '>Гиды Покупателя</a>', ar: '>أدلة الشراء</a>' },
+  { find: '>Buying Guides</a>', es: '>Guías de Compra</a>', fr: '>Guides d’Achat</a>', de: '>Kaufratgeber</a>', ru: '>Покупателям</a>', ar: '>أدلة الشراء</a>' },
   { find: '>Why Nueva</a>', es: '>Por Qué Nueva</a>', fr: '>Pourquoi Nueva</a>', de: '>Warum Nueva</a>', ru: '>Почему Nueva</a>', ar: '>لماذا نويفا</a>' },
   { find: '>Developments</a>', es: '>Promociones</a>', fr: '>Programmes</a>', de: '>Neubauprojekte</a>', ru: '>Новостройки</a>', ar: '>المشاريع</a>' },
   { find: '>Areas</a>', es: '>Zonas</a>', fr: '>Secteurs</a>', de: '>Lagen</a>', ru: '>Районы</a>', ar: '>المناطق</a>' },
   { find: '>Advisory</a>', es: '>Asesoramiento</a>', fr: '>Conseil</a>', de: '>Beratung</a>', ru: '>Консультации</a>', ar: '>الاستشارات</a>' },
-  { find: '>Contact Us</a>', es: '>Contacto</a>', fr: '>Contactez-Nous</a>', de: '>Kontakt</a>', ru: '>Связаться с Нами</a>', ar: '>اتصل بنا</a>' },
+  { find: '>Contact Us</a>', es: '>Contacto</a>', fr: '>Contact</a>', de: '>Kontakt</a>', ru: '>Контакты</a>', ar: '>اتصل بنا</a>' },
   { find: 'aria-label="Nueva Living home"', es: 'aria-label="Inicio de Nueva Living"', fr: 'aria-label="Accueil Nueva Living"', de: 'aria-label="Nueva Living Startseite"', ru: 'aria-label="Главная Nueva Living"', ar: 'aria-label="الصفحة الرئيسية Nueva Living"' },
   { find: 'aria-label="Menu"', es: 'aria-label="Menú"', fr: 'aria-label="Menu"', de: 'aria-label="Menü"', ru: 'aria-label="Меню"', ar: 'aria-label="القائمة"' },
 
@@ -227,6 +235,12 @@ export const DEVELOPMENTS_PAGE_ENTRIES = [
   { find: '>Cookie Policy</a>', es: '>Política de Cookies</a>', fr: '>Politique de Cookies</a>', de: '>Cookie-Richtlinie</a>', ru: '>Политика Использования Cookie</a>', ar: '>سياسة ملفات تعريف الارتباط</a>' },
   { find: 'Information presented on this website is for general marketing purposes only and does not constitute legal, financial or investment advice. Development details, prices and delivery dates are subject to change without notice.', es: 'La información presentada en este sitio web tiene únicamente fines comerciales generales y no constituye asesoramiento legal, financiero ni de inversión. Los detalles de las promociones, precios y fechas de entrega pueden cambiar sin previo aviso.', fr: 'Les informations présentées sur ce site le sont à des fins commerciales générales uniquement et ne constituent pas un conseil juridique, financier ou en investissement. Les détails des programmes, les prix et les dates de livraison peuvent être modifiés sans préavis.', de: 'Die auf dieser Website dargestellten Informationen dienen ausschließlich allgemeinen Marketingzwecken und stellen keine Rechts-, Finanz- oder Anlageberatung dar. Projektdetails, Preise und Übergabetermine können sich ohne Vorankündigung ändern.', ru: 'Информация, представленная на этом сайте, носит исключительно общий маркетинговый характер и не является юридической, финансовой или инвестиционной консультацией. Характеристики проектов, цены и сроки сдачи могут изменяться без предварительного уведомления.', ar: 'المعلومات المعروضة على هذا الموقع هي لأغراض تسويقية عامة فقط ولا تشكل استشارة قانونية أو مالية أو استثمارية. تفاصيل المشاريع والأسعار ومواعيد التسليم قابلة للتغيير دون إشعار مسبق.' },
   { find: 'aria-label="Contact Nueva Living on WhatsApp"', es: 'aria-label="Contactar con Nueva Living por WhatsApp"', fr: 'aria-label="Contacter Nueva Living sur WhatsApp"', de: 'aria-label="Nueva Living über WhatsApp kontaktieren"', ru: 'aria-label="Связаться с Nueva Living в WhatsApp"', ar: 'aria-label="التواصل مع Nueva Living عبر واتساب"' }
+];
+
+export const DEVELOPMENTS_PAGE_ENTRIES = [
+  ...PAGE_ENTRIES_HEAD,
+  ...PROJECT_CARD_ENTRIES,
+  ...PAGE_ENTRIES_TAIL
 ];
 
 // "Show image N of M" gallery-dot aria-labels, translated as templates

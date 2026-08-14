@@ -14,6 +14,7 @@ import {
   LANG_SWITCHER_SCRIPT
 } from './lib/i18n.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
+import { PROJECT_CARD_ENTRIES } from './lib/developments_page_translations.mjs';
 
 // Same approach as applyFooterPageTranslations() in build_footer_pages.mjs:
 // literal find/replace of translated prose over already-rendered English
@@ -21,13 +22,35 @@ import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
 // write-ups, comparison rows, page-specific FAQ) is opaque markup built
 // once, not structured per-locale fields. Missing entries for a locale
 // leave the English text in place.
+// Longest find first, so a short entry can never fire inside a longer
+// string before that string's own entry matches. PROJECT_CARD_ENTRIES adds
+// the shared project-card meta labels/values and CTA (same set used on
+// developments.html); per-project card descriptions come from each
+// project.json's own i18n overlay.
+const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...PROJECT_CARD_ENTRIES]
+  .sort((a, b) => b.find.length - a.find.length);
+
+function cardDescriptionReplacements(locale) {
+  const replacements = [];
+  for (const project of projects) {
+    const en = project.card?.description || project.description;
+    const translated = project.i18n?.[locale]?.card?.description;
+    if (!en || !translated || en === translated) continue;
+    replacements.push([`<p>${en}</p>`, `<p>${translated}</p>`]);
+  }
+  return replacements;
+}
+
 function applySegmentPageTranslations(html, locale) {
   if (locale === DEFAULT_LOCALE) return html;
   let result = html;
-  for (const entry of SEGMENT_PAGE_ENTRIES) {
+  for (const entry of SORTED_SEGMENT_PAGE_ENTRIES) {
     const replacement = entry[locale];
     if (!replacement) continue;
     result = result.split(entry.find).join(replacement);
+  }
+  for (const [find, replace] of cardDescriptionReplacements(locale)) {
+    result = result.split(find).join(replace);
   }
   return result;
 }

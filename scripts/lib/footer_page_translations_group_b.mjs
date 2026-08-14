@@ -447,5 +447,9 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   { find: 'Ready to Start', es: 'Listos para Empezar', fr: 'Prêt à Commencer', de: 'Bereit für den Start', ru: 'Готовы начать', ar: 'مستعد للبدء' },
   { find: 'Let\'s find your fit.', es: 'Encontremos lo que encaja contigo.', fr: 'Trouvons ce qui vous correspond.', de: 'Lassen Sie uns das Passende für Sie finden.', ru: 'Найдём то, что подходит именно вам.', ar: 'لنجد ما يناسبك.' },
-  { find: 'Start Your Search', es: 'Empieza tu Búsqueda', fr: 'Démarrez Votre Recherche', de: 'Starten Sie Ihre Suche', ru: 'Начните поиск', ar: 'ابدأ بحثك' }
+  { find: 'Start Your Search', es: 'Empieza tu Búsqueda', fr: 'Démarrez Votre Recherche', de: 'Starten Sie Ihre Suche', ru: 'Начните поиск', ar: 'ابدأ بحثك' },
+  // Checklist progress counter: the baked-in initial text and the inline
+  // JS template literal that re-renders it on every checkbox change.
+  { find: 'data-checklist-count>0 of 7<', es: 'data-checklist-count>0 de 7<', fr: 'data-checklist-count>0 sur 7<', de: 'data-checklist-count>0 von 7<', ru: 'data-checklist-count>0 из 7<', ar: 'data-checklist-count>0 من 7<' },
+  { find: '${checked} of ${checkboxes.length}', es: '${checked} de ${checkboxes.length}', fr: '${checked} sur ${checkboxes.length}', de: '${checked} von ${checkboxes.length}', ru: '${checked} из ${checkboxes.length}', ar: '${checked} من ${checkboxes.length}' }
 ];

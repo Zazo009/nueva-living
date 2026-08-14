@@ -37,6 +37,7 @@ if (!existsSync(sourcePath)) {
 }
 
 const siteUrl = 'https://nuevaliving.com';
+const SORTED_ENTRIES = [...DEVELOPMENTS_PAGE_ENTRIES].sort((a, b) => b.find.length - a.find.length);
 
 // Idempotency: remove anything this script previously injected into the
 // English source so re-running never compounds duplicates.
@@ -150,8 +151,9 @@ for (const meta of LOCALES) {
   // while the English anchors are still literal.
   html = injectSwitcher(html, locale);
 
-  // Page copy, filter UI, cards, footer.
-  for (const entry of DEVELOPMENTS_PAGE_ENTRIES) {
+  // Page copy, filter UI, cards, footer. Longest find first so a short
+  // entry can never corrupt a longer string before its own entry matches.
+  for (const entry of SORTED_ENTRIES) {
     const replacement = entry[locale];
     if (!replacement) continue;
     html = html.split(entry.find).join(replacement);

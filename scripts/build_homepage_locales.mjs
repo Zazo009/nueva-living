@@ -273,12 +273,24 @@ const HOMEPAGE_CONTENT_ENTRIES = [
   { find: "vInfoSection('Availability', (project.availability || [])", es: "vInfoSection('Disponibilidad', (project.availability || [])", fr: "vInfoSection('Disponibilité', (project.availability || [])", de: "vInfoSection('Verfügbarkeit', (project.availability || [])", ru: "vInfoSection('Наличие', (project.availability || [])", ar: "vInfoSection('التوفر', (project.availability || [])" },
   { find: '<h3>Get Project Information</h3>', es: '<h3>Solicitar Información del Proyecto</h3>', fr: '<h3>Recevoir les Informations du Projet</h3>', de: '<h3>Projektinformationen Anfordern</h3>', ru: '<h3>Получить Информацию о Проекте</h3>', ar: '<h3>طلب معلومات المشروع</h3>' },
   { find: "project.ctaLabel || 'Get Project Information'", es: "project.ctaLabel || 'Solicitar Información del Proyecto'", fr: "project.ctaLabel || 'Recevoir les Informations du Projet'", de: "project.ctaLabel || 'Projektinformationen Anfordern'", ru: "project.ctaLabel || 'Получить Информацию о Проекте'", ar: "project.ctaLabel || 'طلب معلومات المشروع'" },
-  { find: '<p>Get the latest brochure, master plan, floorplans, availability and prices.</p>', es: '<p>Recibe el último dosier, master plan, planos, disponibilidad y precios.</p>', fr: '<p>Recevez la brochure la plus récente, le plan de masse, les plans, la disponibilité et les prix.</p>', de: '<p>Erhalten Sie die aktuelle Broschüre, den Masterplan, Grundrisse, Verfügbarkeit und Preise.</p>', ru: '<p>Получите актуальную брошюру, генеральный план, планировки, информацию о наличии и цены.</p>', ar: '<p>احصل على أحدث كتيب، والمخطط الرئيسي، ومخططات الوحدات، والتوفر، والأسعار.</p>' }
+  { find: '<p>Get the latest brochure, master plan, floorplans, availability and prices.</p>', es: '<p>Recibe el último dosier, master plan, planos, disponibilidad y precios.</p>', fr: '<p>Recevez la brochure la plus récente, le plan de masse, les plans, la disponibilité et les prix.</p>', de: '<p>Erhalten Sie die aktuelle Broschüre, den Masterplan, Grundrisse, Verfügbarkeit und Preise.</p>', ru: '<p>Получите актуальную брошюру, генеральный план, планировки, информацию о наличии и цены.</p>', ar: '<p>احصل على أحدث كتيب، والمخطط الرئيسي، ومخططات الوحدات، والتوفر، والأسعار.</p>' },
+  // Selected Residences card extras: price overlay prefix and the two
+  // non-place-name type tags.
+  { find: 'dev-price-overlay">From ', es: 'dev-price-overlay">Desde ', fr: 'dev-price-overlay">À partir de ', de: 'dev-price-overlay">Ab ', ru: 'dev-price-overlay">От ', ar: 'dev-price-overlay">ابتداءً من ' },
+  { find: 'dev-type-tag">Sea View<', es: 'dev-type-tag">Vistas al Mar<', fr: 'dev-type-tag">Vue Mer<', de: 'dev-type-tag">Meerblick<', ru: 'dev-type-tag">Вид на Море<', ar: 'dev-type-tag">إطلالة على البحر<' },
+  { find: 'dev-type-tag">Urban Resort<', es: 'dev-type-tag">Resort Urbano<', fr: 'dev-type-tag">Resort Urbain<', de: 'dev-type-tag">Urbanes Resort<', ru: 'dev-type-tag">Городской Курорт<', ar: 'dev-type-tag">منتجع حضري<' },
+  { find: '>Explore All Residences<', es: '>Ver Todas las Viviendas<', fr: '>Voir Toutes les Résidences<', de: '>Alle Residenzen Ansehen<', ru: '>Смотреть Все Резиденции<', ar: '>عرض جميع المساكن<' },
+  // Head: page title + meta description
+  { find: '<title>Nueva Living | Costa del Sol New Developments</title>', es: '<title>Nueva Living | Obra Nueva en la Costa del Sol</title>', fr: '<title>Nueva Living | Programmes Neufs sur la Costa del Sol</title>', de: '<title>Nueva Living | Neubauprojekte an der Costa del Sol</title>', ru: '<title>Nueva Living | Новостройки на Коста-дель-Соль</title>', ar: '<title>Nueva Living | مشاريع جديدة في كوستا ديل سول</title>' },
+  { find: 'Find and compare new-build homes across Marbella, Estepona, Benahavís and the wider Costa del Sol with personal buyer support.', es: 'Encuentra y compara viviendas de obra nueva en Marbella, Estepona, Benahavís y el resto de la Costa del Sol con acompañamiento personal al comprador.', fr: "Trouvez et comparez des logements neufs à Marbella, Estepona, Benahavís et sur l'ensemble de la Costa del Sol avec un accompagnement personnalisé.", de: 'Finden und vergleichen Sie Neubauimmobilien in Marbella, Estepona, Benahavís und an der gesamten Costa del Sol mit persönlicher Käuferbetreuung.', ru: 'Находите и сравнивайте новостройки в Марбелье, Эстепоне, Бенаависе и по всему побережью Коста-дель-Соль с персональным сопровождением покупателя.', ar: 'اعثر على منازل جديدة وقارن بينها في ماربيا واستيبونا وبيناهافيس وسائر كوستا ديل سول مع دعم شخصي للمشتري.' }
 ];
 
+// Longest find first, so a short entry can never fire inside a longer
+// string before that string's own entry has matched.
 function homepageContentReplacements(locale) {
   return HOMEPAGE_CONTENT_ENTRIES
     .filter((entry) => entry[locale])
+    .sort((a, b) => b.find.length - a.find.length)
     .map((entry) => [entry.find, entry[locale]]);
 }
 
