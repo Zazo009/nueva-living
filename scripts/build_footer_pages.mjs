@@ -1,5 +1,17 @@
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
+import {
+  LOCALES,
+  DEFAULT_LOCALE,
+  localeMeta,
+  isRtl,
+  t,
+  localizedPath,
+  hreflangLinks,
+  baseHrefTag,
+  renderLanguageSwitcher,
+  LANG_SWITCHER_SCRIPT
+} from './lib/i18n.mjs';
 
 // Same general buyer-process FAQ used on every property page
 // (DEFAULT_FAQS in build_property_pages.mjs), duplicated here since this
@@ -40,130 +52,144 @@ const home = 'index.html';
 const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>`;
 
-const navLinks = [
-  ['Buying Guides', 'guides.html'],
-  ['Why Nueva', 'why-nueva.html'],
-  ['Developments', 'developments.html'],
-  ['Areas', 'areas.html'],
-  ['Advisory', 'advisory.html'],
-  ['Contact Us', 'contact.html'],
-];
+function navLinks(locale) {
+  return [
+    [t('nav.buyingGuides', locale), 'guides.html'],
+    [t('nav.whyNueva', locale), 'why-nueva.html'],
+    [t('nav.developments', locale), 'developments.html'],
+    [t('nav.areas', locale), 'areas.html'],
+    [t('nav.advisory', locale), 'advisory.html'],
+    [t('nav.contactUs', locale), 'contact.html'],
+  ];
+}
 
-const footerLinks = {
-  company: [
-    ['Why Nueva Living', 'why-nueva.html'],
-    ['About', 'about.html'],
-    ['Advisory', 'advisory.html'],
-    ['Referral Program', 'referrals.html'],
-    ['Contact Us', 'contact.html'],
-  ],
-  projects: [
-    ['All Developments', 'developments.html'],
-    ['Buying Guides', 'guides.html'],
-    ['Areas Overview', 'areas.html'],
-    ['Marbella', 'area-marbella.html'],
-    ['Estepona', 'area-estepona.html'],
-    ['Benahav&iacute;s', 'area-benahavis.html'],
-    ['Nueva Andaluc&iacute;a', 'area-nueva-andalucia.html'],
-    ['Mijas &amp; Fuengirola', 'area-mijas-fuengirola.html'],
-  ],
-  legal: [
-    ['Privacy Policy', 'privacy-policy.html'],
-    ['Legal Notice', 'legal-notice.html'],
-    ['Cookie Policy', 'cookie-policy.html'],
-  ],
-};
+function footerLinks(locale) {
+  return {
+    company: [
+      [t('footer.whyNuevaLiving', locale), 'why-nueva.html'],
+      [t('footer.about', locale), 'about.html'],
+      [t('footer.advisory', locale), 'advisory.html'],
+      [t('footer.referralProgram', locale), 'referrals.html'],
+      [t('footer.contactUs', locale), 'contact.html'],
+    ],
+    projects: [
+      [t('footer.allDevelopments', locale), 'developments.html'],
+      [t('footer.buyingGuides', locale), 'guides.html'],
+      [t('footer.areasOverview', locale), 'areas.html'],
+      [t('area.marbella', locale), 'area-marbella.html'],
+      [t('area.estepona', locale), 'area-estepona.html'],
+      [t('area.benahavis', locale), 'area-benahavis.html'],
+      [t('area.nuevaAndalucia', locale), 'area-nueva-andalucia.html'],
+      [t('area.mijasFuengirola', locale), 'area-mijas-fuengirola.html'],
+    ],
+    legal: [
+      [t('footer.privacyPolicy', locale), 'privacy-policy.html'],
+      [t('footer.legalNotice', locale), 'legal-notice.html'],
+      [t('footer.cookiePolicy', locale), 'cookie-policy.html'],
+    ],
+  };
+}
 
-function nav() {
+function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
+  const links = navLinks(locale);
+  const switcher = renderLanguageSwitcher(currentOutputPath, locale);
   return `<nav class="site-nav">
     <div class="nav-links nav-links-left">
-      ${navLinks.slice(0, 3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${links.slice(0, 3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
     </div>
-    <a class="nav-logo" href="${home}" aria-label="Nueva Living home">
+    <a class="nav-logo" href="${home}" aria-label="${t('nav.home', locale)}">
       <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
     <div class="nav-links nav-links-right">
-      ${navLinks.slice(3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${links.slice(3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${switcher}
     </div>
-    <button class="nav-burger" type="button" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
+    <button class="nav-burger" type="button" aria-label="${t('nav.menu', locale)}" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    ${navLinks.map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${links.map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${renderLanguageSwitcher(currentOutputPath, locale)}
   </div>`;
 }
 
-function breadcrumb(currentLabel, parents = []) {
+function breadcrumb(currentLabel, parents = [], locale = DEFAULT_LOCALE) {
   const parentItems = parents.map(([label, href]) => `<li><a href="${esc(href)}">${esc(label)}</a></li>`).join('\n      ');
   return `<nav class="breadcrumb-bar" aria-label="Breadcrumb">
     <ol class="breadcrumb-list">
-      <li><a href="${home}">Home</a></li>${parentItems ? `
+      <li><a href="${home}">${t('breadcrumb.home', locale)}</a></li>${parentItems ? `
       ${parentItems}` : ''}
       <li><span aria-current="page">${esc(currentLabel)}</span></li>
     </ol>
   </nav>`;
 }
 
-function footer() {
+function footer(locale = DEFAULT_LOCALE) {
+  const links = footerLinks(locale);
   const list = (items) => items.map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join('\n          ');
   return `<footer>
     <div class="footer-grid">
       <div>
         <img class="footer-logo" src="assets/liora/brand/nueva-living-lockup-espresso-transparent.png?v=7" alt="Nueva Living" width="700" height="340">
-        <p class="footer-about">We help international buyers find and compare new-build and off-plan homes across the Costa del Sol.</p>
+        <p class="footer-about">${t('footer.about.text', locale)}</p>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Company</div>
+        <div class="footer-col-title">${t('footer.companyTitle', locale)}</div>
         <ul>
-          ${list(footerLinks.company)}
+          ${list(links.company)}
         </ul>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Projects</div>
+        <div class="footer-col-title">${t('footer.projectsTitle', locale)}</div>
         <ul>
-          ${list(footerLinks.projects)}
+          ${list(links.projects)}
         </ul>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Contact</div>
+        <div class="footer-col-title">${t('footer.contactTitle', locale)}</div>
         <ul>
           <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
-          <li><a href="tel:+34645446624">+34 645 44 66 24</a></li>
+          <li><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a></li>
           <li><a href="https://maps.google.com/?q=Avenida+del+Prado+71,+29660+Marbella,+M%C3%A1laga,+Spain" target="_blank" rel="noopener">Avenida del Prado 71, 29660 Marbella</a></li>
         </ul>
-        <div class="footer-col-title" style="margin-top:24px;">Legal</div>
+        <div class="footer-col-title" style="margin-top:24px;">${t('footer.legalTitle', locale)}</div>
         <ul>
-          ${list(footerLinks.legal)}
+          ${list(links.legal)}
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Information presented on this website is for general marketing purposes only and does not constitute legal, financial or investment advice. Development details, prices and delivery dates are subject to change without notice.</p>
+      <p>${t('footer.disclaimer', locale)}</p>
       <span>&copy; 2026 Nueva Living &middot; LIORA LIVING SL. &middot; NIF B88827472</span>
     </div>
   </footer>`;
 }
 
-function page({ title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, heroTitle, heroLead, body, bodyClass = '' }) {
+function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, heroTitle, heroLead, body, bodyClass = '' }, locale = DEFAULT_LOCALE) {
+  const meta = localeMeta(locale);
+  const rtl = isRtl(locale);
   return `<!doctype html>
-<html lang="en">
+<html lang="${meta.htmlLang}" dir="${meta.dir}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(title)} | Nueva Living</title>
+${baseHrefTag(locale)}  <title>${esc(title)} | Nueva Living</title>
   <meta name="description" content="${esc(description)}">
+${hreflangLinks(file, 'https://nuevaliving.com')}
+  <meta property="og:locale" content="${meta.htmlLang}">
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
 ${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
-  <link rel="stylesheet" href="assets/liora/liora-pages.css">
+  <link rel="stylesheet" href="assets/liora/liora-pages.css">${rtl ? `
+  <link rel="stylesheet" href="assets/liora/liora-rtl.css">` : ''}
   <script src="assets/liora/liora-card-gallery.js" defer></script>
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
-  ${nav()}
-  ${breadcrumb(breadcrumbTitle || title, breadcrumbs)}
+  ${nav(locale, file)}
+  ${breadcrumb(breadcrumbTitle || title, breadcrumbs, locale)}
   <main>
     <section class="page-hero">
       <img src="${esc(heroImage)}" alt="${esc(heroAlt)}"${heroWidth ? ` width="${heroWidth}"` : ''}${heroHeight ? ` height="${heroHeight}"` : ''}${heroPosition ? ` style="object-position:${esc(heroPosition)}"` : ''} loading="eager" fetchpriority="high" decoding="async">
@@ -175,7 +201,7 @@ ${fontPreloadBlock}
     </section>
     ${body}
   </main>
-  ${footer()}
+  ${footer(locale)}
   <script>
     const burger = document.querySelector('.nav-burger');
     const menu = document.getElementById('mobileMenu');
@@ -197,6 +223,7 @@ ${fontPreloadBlock}
       });
     }
   </script>
+  ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>`;
 }
@@ -956,8 +983,15 @@ function slug(value) {
   return value.toLowerCase().replace(/&amp;/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
+const written = [];
 for (const item of pages) {
-  writeFileSync(item.file, page(item));
+  for (const { code: locale } of LOCALES) {
+    const outputPath = localizedPath(item.file, locale);
+    const fullPath = outputPath;
+    if (outputPath.includes('/')) mkdirSync(outputPath.split('/')[0], { recursive: true });
+    writeFileSync(fullPath, page(item, locale));
+    written.push(outputPath);
+  }
 }
 
-console.log(JSON.stringify({ pages: pages.map((item) => item.file) }, null, 2));
+console.log(JSON.stringify({ pages: written }, null, 2));
