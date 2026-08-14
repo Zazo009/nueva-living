@@ -517,6 +517,9 @@
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       overscroll-behavior-x: contain;
+      /* Touch gestures on the gallery must only scroll the page -- see
+         the matching note in liora-pages.css. */
+      touch-action: pan-y;
     }
     .project-card-gallery-track::-webkit-scrollbar { display: none; }
     .project-card-gallery-track img {
@@ -2642,7 +2645,7 @@
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1120px) {
       #nav .btn-ghost-dark {
         display: none;
       }
@@ -3293,7 +3296,7 @@
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 1120px) {
       #nav .nav-links,
       #nav > .btn {
         display: none;

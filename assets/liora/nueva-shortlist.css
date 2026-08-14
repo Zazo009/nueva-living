@@ -623,6 +623,9 @@ body.nueva-shortlist-open {
   transform: translateY(0);
 }
 
+/* Swap desktop trigger for the burger-adjacent one at exactly the same
+   width the nav itself collapses (1120px on every page), so the heart
+   never floats detached from either the links or the burger. */
 @media (max-width: 1120px) {
   .nueva-shortlist-nav-trigger {
     display: none;
@@ -691,4 +694,15 @@ body.nueva-shortlist-open {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* When the heart precedes the burger, the heart's own margin-left:auto
+   does the pushing -- a second auto margin on the burger (homepage) would
+   split the free space and strand the heart mid-bar. */
+.nueva-shortlist-mobile-trigger + .nav-burger {
+  margin-left: 0;
+}
+
+[dir="rtl"] .nueva-shortlist-mobile-trigger + .nav-burger {
+  margin-right: 0;
 }

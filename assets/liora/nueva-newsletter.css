@@ -190,11 +190,15 @@
 }
 
 .footer-newsletter-honeypot {
+  /* Clip-based hiding, not an off-canvas left offset: a physical
+     left:-10000px EXPANDS the scrollable area on RTL (Arabic) pages,
+     adding 10,000px of blank horizontal scroll to every page. */
   position: absolute !important;
-  left: -10000px !important;
   width: 1px !important;
   height: 1px !important;
   overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
 }
 
 @media (max-width: 1080px) {

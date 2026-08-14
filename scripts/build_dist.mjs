@@ -687,6 +687,35 @@ function injectSeo(html, file) {
   return next;
 }
 
+// Google Tag Manager, installed on every page at packaging time: the
+// loader as high in <head> as possible (right after <meta charset>), and
+// the noscript iframe immediately after the opening <body> tag.
+const GTM_ID = 'GTM-NKMT6NZL';
+const gtmHeadSnippet = `<!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','${GTM_ID}');</script>
+  <!-- End Google Tag Manager -->`;
+const gtmBodySnippet = `<!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->`;
+
+function injectGtm(html) {
+  if (html.includes(`id=${GTM_ID}`) || html.includes(`'${GTM_ID}'`)) return html;
+  let next = html;
+  const charsetMatch = next.match(/<meta charset=[^>]*>/i);
+  if (charsetMatch) {
+    next = next.replace(charsetMatch[0], `${charsetMatch[0]}\n  ${gtmHeadSnippet}`);
+  } else {
+    next = next.replace(/<head>/i, `<head>\n  ${gtmHeadSnippet}`);
+  }
+  next = next.replace(/<body([^>]*)>/i, (m) => `${m}\n  ${gtmBodySnippet}`);
+  return next;
+}
+
 function injectConversion(html) {
   if (html.includes('assets/liora/liora-conversion.js')) return html;
   return html.replace(
@@ -890,7 +919,7 @@ function writeHtml(source, target, publicName) {
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const locale = localeFromPublicName(publicName);
   const productionHtml = externalizeHomepageController(
-    injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(injectSeo(html, publicName))), locale)))),
+    injectGtm(injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(injectSeo(html, publicName))), locale))))),
     publicName
   );
   fs.writeFileSync(target, optimizeHtml(productionHtml));
