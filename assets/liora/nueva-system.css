@@ -630,3 +630,141 @@ input[type="radio"] {
     transition-duration: 0.01ms;
   }
 }
+
+/* --- Language switcher ------------------------------------------------
+   One shared identity for the nav language selector on every page type
+   (property, footer, segment, developments, homepage). Overrides the
+   homepage's older inline #nav styles by loading last with matching
+   selectors. */
+.lang-switcher,
+#nav .lang-switcher,
+.mobile-menu .lang-switcher {
+  position: relative;
+  list-style: none;
+}
+
+.lang-switcher-toggle,
+#nav .lang-switcher-toggle,
+.mobile-menu .lang-switcher-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  list-style: none;
+  color: rgba(244, 234, 217, 0.86);
+  font-family: var(--nueva-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  padding: 9px 13px;
+  border: 1px solid rgba(199, 163, 107, 0.38);
+  border-radius: 2px;
+  background: rgba(244, 234, 217, 0.04);
+  transition: border-color var(--nueva-transition), color var(--nueva-transition), background var(--nueva-transition);
+}
+
+.lang-switcher-toggle::-webkit-details-marker,
+#nav .lang-switcher-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.lang-switcher-toggle::marker {
+  content: "";
+}
+
+.lang-switcher-toggle:hover,
+.lang-switcher[open] .lang-switcher-toggle,
+#nav .lang-switcher-toggle:hover,
+#nav .lang-switcher[open] .lang-switcher-toggle {
+  color: var(--nueva-gold-light);
+  border-color: rgba(199, 163, 107, 0.75);
+  background: rgba(199, 163, 107, 0.10);
+}
+
+.lang-switcher-caret,
+#nav .lang-switcher-caret {
+  width: 10px;
+  height: 7px;
+  transition: transform var(--nueva-transition);
+}
+
+.lang-switcher[open] .lang-switcher-caret {
+  transform: rotate(180deg);
+}
+
+.lang-switcher-caret path {
+  stroke: currentColor;
+}
+
+.lang-switcher-panel,
+#nav .lang-switcher-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 172px;
+  background: var(--nueva-deep);
+  border: 1px solid rgba(199, 163, 107, 0.32);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.38);
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  z-index: 30010;
+}
+
+.lang-switcher-option,
+#nav .lang-switcher-option {
+  display: block;
+  padding: 10px 12px;
+  color: var(--nueva-cream);
+  font-family: var(--nueva-ui);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--nueva-transition), color var(--nueva-transition);
+}
+
+.lang-switcher-option:hover,
+.lang-switcher-option.is-active,
+#nav .lang-switcher-option:hover,
+#nav .lang-switcher-option.is-active {
+  background: rgba(199, 163, 107, 0.16);
+  color: var(--nueva-gold-light);
+}
+
+.lang-switcher-option.is-active::after {
+  content: "✓";
+  float: right;
+  margin-left: 14px;
+  color: var(--nueva-gold-light);
+}
+
+.mobile-menu .lang-switcher-toggle {
+  margin-top: 6px;
+}
+
+.mobile-menu .lang-switcher-panel {
+  position: static;
+  margin-top: 8px;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0 0 0 12px;
+}
+
+.mobile-menu .lang-switcher-option {
+  color: inherit;
+}
+
+[dir="rtl"] .lang-switcher-panel {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .lang-switcher-option.is-active::after {
+  float: left;
+  margin-left: 0;
+  margin-right: 14px;
+}

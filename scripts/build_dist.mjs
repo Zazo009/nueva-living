@@ -979,29 +979,28 @@ fs.writeFileSync(path.join(dist, 'README.md'), metadata);
 
 const sitemapLastmod = new Date().toISOString().slice(0, 10);
 
-// Property pages are the only pages with real per-locale content right
-// now, so they're the only ones that earn hreflang alternates in the
-// sitemap -- an alternate pointing at an English-fallback-chrome-only page
-// would be a legitimate hreflang use (it's a real, working page), but for
-// now we scope sitemap alternates to the pages that were actually
-// generated with a locale prefix on disk, so we never advertise a URL that
-// doesn't exist.
+// Every page type now renders real per-locale content (property, footer,
+// segment, area, homepage, developments), so sitemap hreflang alternates
+// are driven purely by what exists on disk with a locale prefix -- we
+// still never advertise a URL that wasn't actually generated.
 const localizedOutputs = new Set(
-  projectPages.flatMap((project) => nonDefaultLocales
-    .map((locale) => localizedPath(project.output, locale.code))
+  Object.keys(pageMeta).flatMap((englishFile) => nonDefaultLocales
+    .map((locale) => localizedPath(englishFile === 'index.html' ? 'index.html' : englishFile, locale.code))
     .filter((file) => fs.existsSync(path.join(root, file))))
 );
 
+function englishHref(englishFile) {
+  return englishFile === 'index.html' ? `${siteUrl}/` : `${siteUrl}/${englishFile}`;
+}
+
 function hreflangAlternatesXml(englishFile) {
-  const isProperty = projectPages.some((project) => project.output === englishFile);
-  if (!isProperty) return '';
-  const entries = [`    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}/${englishFile}"/>`];
+  const entries = [`    <xhtml:link rel="alternate" hreflang="en" href="${englishHref(englishFile)}"/>`];
   for (const locale of nonDefaultLocales) {
     const localizedFile = localizedPath(englishFile, locale.code);
     if (!localizedOutputs.has(localizedFile)) continue;
     entries.push(`    <xhtml:link rel="alternate" hreflang="${locale.hreflang}" href="${siteUrl}/${localizedFile}"/>`);
   }
-  entries.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}/${englishFile}"/>`);
+  entries.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${englishHref(englishFile)}"/>`);
   return entries.length > 2 ? `\n${entries.join('\n')}` : '';
 }
 
@@ -1020,30 +1019,33 @@ const sitemapEntries = Object.entries(pageMeta)
   })
   .join('\n');
 
-// Reciprocal entries for each locale variant of a property page, each
+// Reciprocal entries for each locale variant of every indexed page, each
 // pointing its own hreflang set back at English + its siblings, per
 // standard reciprocal-hreflang requirements.
-const localeSitemapEntries = projectPages.flatMap((project) => nonDefaultLocales
-  .map((locale) => {
-    const file = localizedPath(project.output, locale.code);
-    if (!localizedOutputs.has(file)) return null;
-    const alternates = [`    <xhtml:link rel="alternate" hreflang="en" href="${siteUrl}/${project.output}"/>`];
-    for (const other of nonDefaultLocales) {
-      const otherFile = localizedPath(project.output, other.code);
-      if (!localizedOutputs.has(otherFile)) continue;
-      alternates.push(`    <xhtml:link rel="alternate" hreflang="${other.hreflang}" href="${siteUrl}/${otherFile}"/>`);
-    }
-    alternates.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}/${project.output}"/>`);
-    return [
-      '  <url>',
-      `<loc>${siteUrl}/${file}</loc>`,
-      `<lastmod>${sitemapLastmod}</lastmod>`,
-      '<changefreq>weekly</changefreq>',
-      `<priority>0.8</priority>\n${alternates.join('\n')}`,
-      '</url>'
-    ].join('');
-  })
-  .filter(Boolean))
+const localeSitemapEntries = Object.entries(pageMeta)
+  .filter(([, meta]) => meta.robots !== 'noindex,follow')
+  .flatMap(([englishFile]) => nonDefaultLocales
+    .map((locale) => {
+      const file = localizedPath(englishFile, locale.code);
+      if (!localizedOutputs.has(file)) return null;
+      const alternates = [`    <xhtml:link rel="alternate" hreflang="en" href="${englishHref(englishFile)}"/>`];
+      for (const other of nonDefaultLocales) {
+        const otherFile = localizedPath(englishFile, other.code);
+        if (!localizedOutputs.has(otherFile)) continue;
+        alternates.push(`    <xhtml:link rel="alternate" hreflang="${other.hreflang}" href="${siteUrl}/${otherFile}"/>`);
+      }
+      alternates.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${englishHref(englishFile)}"/>`);
+      const priority = englishFile === 'index.html' ? '0.9' : englishFile.startsWith('property-') || englishFile === 'developments.html' ? '0.8' : '0.6';
+      return [
+        '  <url>',
+        `<loc>${siteUrl}/${file}</loc>`,
+        `<lastmod>${sitemapLastmod}</lastmod>`,
+        '<changefreq>weekly</changefreq>',
+        `<priority>${priority}</priority>\n${alternates.join('\n')}`,
+        '</url>'
+      ].join('');
+    })
+    .filter(Boolean))
   .join('\n');
 
 fs.writeFileSync(

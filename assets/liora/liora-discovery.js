@@ -86,7 +86,30 @@
     return Number.isNaN(time) ? 0 : time;
   };
 
-  const countLabel = (count) => `${count} curated ${count === 1 ? 'development' : 'developments'}`;
+  // Locale pages override these via data-i18n-* attributes on the
+  // [data-discovery] section; the English page carries no attributes and
+  // falls back to the literals below.
+  const i18n = {
+    countOne: root.dataset.i18nCountOne || '{count} curated development',
+    countMany: root.dataset.i18nCountMany || '{count} curated developments',
+    noFilters: root.dataset.i18nNoFilters || 'No lifestyle filters selected',
+    anyPrice: root.dataset.i18nAnyPrice || 'Any price',
+    any: root.dataset.i18nAny || 'Any',
+    searching: root.dataset.i18nSearching || 'Searching…',
+    search: root.dataset.i18nSearch || 'Search',
+    aiMatching: root.dataset.i18nAiMatching || 'Showing matching developments.',
+    aiNoMatch: root.dataset.i18nAiNoMatch || 'No current development matches that search.',
+    aiError: root.dataset.i18nAiError || 'AI search is unavailable right now — try the filters below instead.'
+  };
+
+  const countLabel = (count) => (count === 1 ? i18n.countOne : i18n.countMany).replace('{count}', String(count));
+
+  // Selected-filter chips must show the pill's translated visible label,
+  // not the English data-filter matching value.
+  const filterLabel = (value) => {
+    const match = filterButtons.find((button) => button.dataset.filter === value);
+    return match ? match.textContent : value;
+  };
 
   const sortCards = (items) => {
     const mode = sortSelect?.value || 'curated';
@@ -109,7 +132,7 @@
 
     if (!selected.size) {
       const empty = document.createElement('span');
-      empty.textContent = 'No lifestyle filters selected';
+      empty.textContent = i18n.noFilters;
       selectedFiltersNode.append(empty);
       return;
     }
@@ -118,7 +141,7 @@
       const chip = document.createElement('button');
       chip.className = 'selected-chip';
       chip.type = 'button';
-      chip.textContent = value;
+      chip.textContent = filterLabel(value);
       chip.addEventListener('click', () => {
         selected.delete(value);
         update();
@@ -190,7 +213,7 @@
       }
       if (readout) {
         readout.textContent = min === bounds.min && max === bounds.max
-          ? (key === 'price' ? 'Any price' : 'Any')
+          ? (key === 'price' ? i18n.anyPrice : i18n.any)
           : `${formatter(min, bounds, false)} – ${formatter(max, bounds, true)}`;
       }
     };
@@ -493,7 +516,7 @@
 
   const setAiSearchBusy = (busy) => {
     if (aiSearchSubmit) aiSearchSubmit.disabled = busy;
-    if (aiSearchSubmitLabel) aiSearchSubmitLabel.textContent = busy ? 'Searching…' : 'Search';
+    if (aiSearchSubmitLabel) aiSearchSubmitLabel.textContent = busy ? i18n.searching : i18n.search;
   };
 
   const showAiSearchStatus = (text, isError) => {
@@ -521,12 +544,12 @@
         aiMatchedSlugs = new Set(matchedSlugs);
         update();
         syncUrl();
-        showAiSearchStatus(data.summary || 'Showing matching developments.', false);
+        showAiSearchStatus(data.summary || i18n.aiMatching, false);
       } else {
-        showAiSearchStatus(data.summary || 'No current development matches that search.', false);
+        showAiSearchStatus(data.summary || i18n.aiNoMatch, false);
       }
     } catch {
-      showAiSearchStatus('AI search is unavailable right now — try the filters below instead.', true);
+      showAiSearchStatus(i18n.aiError, true);
     } finally {
       setAiSearchBusy(false);
     }
