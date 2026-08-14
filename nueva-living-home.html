@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Nueva Living | Costa del Sol New Developments</title>
+  <link rel="alternate" hreflang="en" href="https://nuevaliving.com/index.html">
+  <link rel="alternate" hreflang="es" href="https://nuevaliving.com/es/index.html">
+  <link rel="alternate" hreflang="fr" href="https://nuevaliving.com/fr/index.html">
+  <link rel="alternate" hreflang="de" href="https://nuevaliving.com/de/index.html">
+  <link rel="alternate" hreflang="ru" href="https://nuevaliving.com/ru/index.html">
+  <link rel="alternate" hreflang="ar" href="https://nuevaliving.com/ar/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://nuevaliving.com/index.html">
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
   <link rel="icon" href="assets/liora/favicon-16.png?v=6" type="image/png" sizes="16x16">
@@ -4933,6 +4940,30 @@
       max-width: 560px;
       margin: 0 auto 28px;
     }
+
+  
+    #nav .lang-switcher, .mobile-menu .lang-switcher { position: relative; }
+    #nav .lang-switcher-toggle, .mobile-menu .lang-switcher-toggle {
+      display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
+      color: #f4ead9; font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(13px, 0.95vw, 14px);
+      font-weight: 600; letter-spacing: 0.10em; padding: 12px 0;
+    }
+    #nav .lang-switcher-toggle::-webkit-details-marker { display: none; }
+    #nav .lang-switcher-caret { width: 10px; height: 7px; }
+    #nav .lang-switcher-caret path, .mobile-menu .lang-switcher-caret path { stroke: currentColor; }
+    #nav .lang-switcher-panel {
+      position: absolute; top: 100%; right: 0; margin-top: 10px; min-width: 160px;
+      background: #2f2417; border: 1px solid rgba(201,163,95,0.28); box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+      display: flex; flex-direction: column; padding: 8px; z-index: 40;
+    }
+    #nav .lang-switcher-option {
+      display: block; padding: 9px 12px; color: #f4ead9; font-size: 13px; font-weight: 500;
+      letter-spacing: 0.02em; text-decoration: none; white-space: nowrap;
+    }
+    #nav .lang-switcher-option:hover, #nav .lang-switcher-option.is-active { background: rgba(201,163,95,0.16); color: #c9a35f; }
+    .mobile-menu .lang-switcher-panel { position: static; margin-top: 8px; border: none; background: transparent; box-shadow: none; padding-left: 12px; }
+    .mobile-menu .lang-switcher-option { color: inherit; }
+
   </style>
 </head>
 <body class="nueva-home">
@@ -4951,6 +4982,20 @@
       <li><a href="areas.html">Areas</a></li>
       <li><a href="advisory.html">Advisory</a></li>
       <li><a href="contact.html">Contact Us</a></li>
+    <li><details class="lang-switcher" data-lang-switcher>
+      <summary class="lang-switcher-toggle" aria-label="Language">
+        <span class="lang-switcher-code">EN</span>
+        <svg class="lang-switcher-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="lang-switcher-panel" role="menu">
+              <a class="lang-switcher-option is-active" href="index.html" lang="en" aria-current="true">English</a>
+              <a class="lang-switcher-option" href="es/index.html" lang="es" >Español</a>
+              <a class="lang-switcher-option" href="fr/index.html" lang="fr" >Français</a>
+              <a class="lang-switcher-option" href="de/index.html" lang="de" >Deutsch</a>
+              <a class="lang-switcher-option" href="ru/index.html" lang="ru" >Русский</a>
+              <a class="lang-switcher-option" href="ar/index.html" lang="ar" >العربية</a>
+      </div>
+    </details></li>
     </ul>
     <button class="nav-burger" id="burgerBtn" type="button" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -4963,6 +5008,20 @@
     <a href="areas.html" onclick="closeMobile()">Areas</a>
     <a href="advisory.html" onclick="closeMobile()">Advisory</a>
     <a href="contact.html" onclick="closeMobile()">Contact Us</a>
+    <details class="lang-switcher" data-lang-switcher>
+      <summary class="lang-switcher-toggle" aria-label="Language">
+        <span class="lang-switcher-code">EN</span>
+        <svg class="lang-switcher-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="lang-switcher-panel" role="menu">
+              <a class="lang-switcher-option is-active" href="index.html" lang="en" aria-current="true">English</a>
+              <a class="lang-switcher-option" href="es/index.html" lang="es" >Español</a>
+              <a class="lang-switcher-option" href="fr/index.html" lang="fr" >Français</a>
+              <a class="lang-switcher-option" href="de/index.html" lang="de" >Deutsch</a>
+              <a class="lang-switcher-option" href="ru/index.html" lang="ru" >Русский</a>
+              <a class="lang-switcher-option" href="ar/index.html" lang="ar" >العربية</a>
+      </div>
+    </details>
   </div>
 
   <script>
@@ -7230,7 +7289,7 @@
     {
       img: "assets/liora/projects/altos-de-marbella/media/wellness-pool.jpg",
       pos: "center 50%",
-      label: "15 — Resort",
+      label: "15 — mediaCategory.Resort",
       hl: "Resident wellness pool",
       sub: "Developer visual of the resident wellness area with heated pool and sauna",
       gold: false,
@@ -7241,7 +7300,7 @@
     {
       img: "assets/liora/projects/altos-de-marbella/media/outdoor-gym.jpg",
       pos: "center 50%",
-      label: "16 — Resort",
+      label: "16 — mediaCategory.Resort",
       hl: "Resident gym",
       sub: "Developer visual of the resident gym and fitness area",
       gold: false,
@@ -7252,7 +7311,7 @@
     {
       img: "assets/liora/projects/altos-de-marbella/media/golf-simulator.jpg",
       pos: "center 50%",
-      label: "17 — Resort",
+      label: "17 — mediaCategory.Resort",
       hl: "Golf simulator",
       sub: "Developer visual of the resident golf simulator room",
       gold: true,
@@ -7320,7 +7379,7 @@
     {
       img: "assets/liora/projects/cancelada-park/media/resort-wellness.jpg",
       pos: "center 50%",
-      label: "06 — Resort",
+      label: "06 — mediaCategory.Resort",
       hl: "Wider resort wellness concept",
       sub: "Indicative developer visual of the spa and wellness facilities in the wider resort plan",
       gold: false,
@@ -7331,7 +7390,7 @@
     {
       img: "assets/liora/projects/cancelada-park/media/resort-padel.jpg",
       pos: "center 50%",
-      label: "07 — Resort",
+      label: "07 — mediaCategory.Resort",
       hl: "Aerial view of the resort setting",
       sub: "Aerial developer visual of the wider Cancelada Park resort setting",
       gold: false,
@@ -7342,7 +7401,7 @@
     {
       img: "assets/liora/projects/cancelada-park/media/resort-dining-terrace.jpg",
       pos: "center 50%",
-      label: "08 — Resort",
+      label: "08 — mediaCategory.Resort",
       hl: "Wider resort dining concept",
       sub: "Indicative developer visual of the restaurant terrace in the wider resort plan",
       gold: false,
@@ -7419,7 +7478,7 @@
     {
       img: "assets/liora/projects/cancelada-park/media/resort-fitness.jpg",
       pos: "center 50%",
-      label: "15 — Resort",
+      label: "15 — mediaCategory.Resort",
       hl: "Wider resort outdoor fitness",
       sub: "Indicative developer visual of outdoor fitness facilities in the wider resort plan",
       gold: false,
@@ -7430,7 +7489,7 @@
     {
       img: "assets/liora/projects/cancelada-park/media/resort-gym.jpg",
       pos: "center 50%",
-      label: "16 — Resort",
+      label: "16 — mediaCategory.Resort",
       hl: "Wider resort gym concept",
       sub: "Indicative developer visual of the open-air gym in the wider resort plan",
       gold: false,
@@ -7463,7 +7522,7 @@
     {
       img: "assets/liora/projects/cancelada-park/media/resort-restaurant.jpg",
       pos: "center 50%",
-      label: "19 — Resort",
+      label: "19 — mediaCategory.Resort",
       hl: "Wider resort restaurant",
       sub: "Developer visual of the wider resort restaurant terrace",
       gold: false,
@@ -7474,7 +7533,7 @@
     {
       img: "assets/liora/projects/cancelada-park/media/resort-chill-out.jpg",
       pos: "center 50%",
-      label: "20 — Resort",
+      label: "20 — mediaCategory.Resort",
       hl: "Wider resort chill-out lounge",
       sub: "Developer visual of a wider resort chill-out lounge area",
       gold: true,
@@ -7509,7 +7568,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/living-3.jpg",
       pos: "center 50%",
-      label: "03 — Interiors",
+      label: "03 — mediaCategory.Interiors",
       hl: "Sea-facing living area",
       sub: "Developer visual of a sea-facing living area at Marbella West Garden Residences",
       gold: false,
@@ -7520,7 +7579,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/terrace-5.jpg",
       pos: "center 50%",
-      label: "04 — Terraces",
+      label: "04 — mediaCategory.Terraces",
       hl: "Rooftop pool terrace",
       sub: "Developer visual of a rooftop pool terrace at Marbella West Garden Residences",
       gold: false,
@@ -7553,7 +7612,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/terrace-1.jpg",
       pos: "center 50%",
-      label: "07 — Terraces",
+      label: "07 — mediaCategory.Terraces",
       hl: "Terrace with outdoor kitchen and pool",
       sub: "Developer visual of a terrace with outdoor kitchen and private pool at Marbella West Garden Residences",
       gold: false,
@@ -7564,7 +7623,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/bedroom-1.jpg",
       pos: "center 50%",
-      label: "08 — Interiors",
+      label: "08 — mediaCategory.Interiors",
       hl: "Bedroom opening to the terrace",
       sub: "Developer visual of a bedroom opening onto a terrace at Marbella West Garden Residences",
       gold: false,
@@ -7597,7 +7656,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/living.jpg",
       pos: "center 50%",
-      label: "11 — Interiors",
+      label: "11 — mediaCategory.Interiors",
       hl: "Living area and terrace connection",
       sub: "Developer visual of the connection between a living area and terrace at Marbella West Garden Residences",
       gold: false,
@@ -7608,7 +7667,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/terrace-2.jpg",
       pos: "center 50%",
-      label: "12 — Terraces",
+      label: "12 — mediaCategory.Terraces",
       hl: "Evening terrace",
       sub: "Developer visual of a furnished evening terrace at Marbella West Garden Residences",
       gold: false,
@@ -7641,7 +7700,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/kitchen-1.jpg",
       pos: "center 50%",
-      label: "15 — Interiors",
+      label: "15 — mediaCategory.Interiors",
       hl: "Open-plan kitchen",
       sub: "Developer visual of an open-plan kitchen at Marbella West Garden Residences",
       gold: false,
@@ -7652,7 +7711,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/terrace-3.jpg",
       pos: "center 50%",
-      label: "16 — Terraces",
+      label: "16 — mediaCategory.Terraces",
       hl: "Panoramic private-pool terrace",
       sub: "Developer visual of a panoramic private-pool terrace at Marbella West Garden Residences",
       gold: false,
@@ -7674,7 +7733,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/bathroom-1.jpg",
       pos: "center 50%",
-      label: "18 — Interiors",
+      label: "18 — mediaCategory.Interiors",
       hl: "Bathroom finish palette",
       sub: "Developer visual of the bathroom finish palette at Marbella West Garden Residences",
       gold: false,
@@ -7685,7 +7744,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/terrace-4.jpg",
       pos: "center 50%",
-      label: "19 — Terraces",
+      label: "19 — mediaCategory.Terraces",
       hl: "Covered dining terrace",
       sub: "Developer visual of a covered dining terrace at Marbella West Garden Residences",
       gold: false,
@@ -7707,7 +7766,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/bedroom-2.jpg",
       pos: "center 50%",
-      label: "21 — Interiors",
+      label: "21 — mediaCategory.Interiors",
       hl: "Primary bedroom suite",
       sub: "Developer visual of a primary bedroom suite at Marbella West Garden Residences",
       gold: false,
@@ -7740,7 +7799,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/living-2.jpg",
       pos: "center 50%",
-      label: "24 — Interiors",
+      label: "24 — mediaCategory.Interiors",
       hl: "Living and dining area",
       sub: "Developer visual of a living and dining area at Marbella West Garden Residences",
       gold: false,
@@ -7751,7 +7810,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/terrace-6.jpg",
       pos: "center 50%",
-      label: "25 — Terraces",
+      label: "25 — mediaCategory.Terraces",
       hl: "Outdoor kitchen and dining terrace",
       sub: "Developer visual of an outdoor kitchen and dining terrace at Marbella West Garden Residences",
       gold: false,
@@ -7773,7 +7832,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/bathroom-2.jpg",
       pos: "center 50%",
-      label: "27 — Interiors",
+      label: "27 — mediaCategory.Interiors",
       hl: "Bathroom interior",
       sub: "Developer visual of a bathroom interior at Marbella West Garden Residences",
       gold: false,
@@ -7784,7 +7843,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/terrace-7.jpg",
       pos: "center 50%",
-      label: "28 — Terraces",
+      label: "28 — mediaCategory.Terraces",
       hl: "Sunset pool terrace",
       sub: "Developer visual of a sunset pool terrace at Marbella West Garden Residences",
       gold: false,
@@ -7806,7 +7865,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/bedroom-3.jpg",
       pos: "center 50%",
-      label: "30 — Interiors",
+      label: "30 — mediaCategory.Interiors",
       hl: "Bedroom interior",
       sub: "Developer visual of a bedroom interior at Marbella West Garden Residences",
       gold: false,
@@ -7817,7 +7876,7 @@
     {
       img: "assets/liora/projects/marbella-west-garden-residences/media/living-4.jpg",
       pos: "center 50%",
-      label: "31 — Interiors",
+      label: "31 — mediaCategory.Interiors",
       hl: "Living room interior",
       sub: "Developer visual of a living room interior at Marbella West Garden Residences",
       gold: true,
@@ -7940,7 +7999,7 @@
     {
       img: "assets/liora/projects/vega-verde-residences/media/resort-gym.jpg",
       pos: "center 50%",
-      label: "11 — Resort",
+      label: "11 — mediaCategory.Resort",
       hl: "Resident gym",
       sub: "Developer visual of the resident gym",
       gold: false,
@@ -7951,7 +8010,7 @@
     {
       img: "assets/liora/projects/vega-verde-residences/media/resort-gym-private.jpg",
       pos: "center 50%",
-      label: "12 — Resort",
+      label: "12 — mediaCategory.Resort",
       hl: "Private training studio",
       sub: "Developer visual of a private training studio within the gym",
       gold: false,
@@ -7962,7 +8021,7 @@
     {
       img: "assets/liora/projects/vega-verde-residences/media/resort-indoor-pool-spa.jpg",
       pos: "center 50%",
-      label: "13 — Resort",
+      label: "13 — mediaCategory.Resort",
       hl: "Indoor heated pool",
       sub: "Developer visual of the indoor heated pool and spa area",
       gold: true,
@@ -8008,7 +8067,7 @@
     {
       img: "assets/liora/projects/alisios-residences/media/rooftop-terrace-lounge.jpg",
       pos: "center 50%",
-      label: "04 — Resort",
+      label: "04 — mediaCategory.Resort",
       hl: "Rooftop terrace lounge",
       sub: "Developer visual of a shaded rooftop terrace lounge and dining area",
       gold: false,
@@ -8063,7 +8122,7 @@
     {
       img: "assets/liora/projects/alisios-residences/media/resort-gym.jpg",
       pos: "center 50%",
-      label: "09 — Resort",
+      label: "09 — mediaCategory.Resort",
       hl: "Resident gym",
       sub: "Developer visual of the resident gym",
       gold: false,
@@ -8074,7 +8133,7 @@
     {
       img: "assets/liora/projects/alisios-residences/media/resort-coworking-lounge.jpg",
       pos: "center 50%",
-      label: "10 — Resort",
+      label: "10 — mediaCategory.Resort",
       hl: "Co-working and lounge space",
       sub: "Developer visual of the resident co-working and lounge space",
       gold: false,
@@ -8120,7 +8179,7 @@
     {
       img: "assets/liora/projects/los-olivos-residences/media/terrace-dining-la-concha.jpg",
       pos: "center 50%",
-      label: "03 — Terraces",
+      label: "03 — mediaCategory.Terraces",
       hl: "Terrace dining with a La Concha view",
       sub: "Private terrace dining area with a view of La Concha mountain",
       gold: false,
@@ -8131,7 +8190,7 @@
     {
       img: "assets/liora/projects/los-olivos-residences/media/terrace-lounge.jpg",
       pos: "center 50%",
-      label: "04 — Terraces",
+      label: "04 — mediaCategory.Terraces",
       hl: "Terrace lounge seating",
       sub: "Terrace lounge seating overlooking the surrounding hillside",
       gold: false,
@@ -8142,7 +8201,7 @@
     {
       img: "assets/liora/projects/los-olivos-residences/media/dining-terrace-view.jpg",
       pos: "center 50%",
-      label: "05 — Terraces",
+      label: "05 — mediaCategory.Terraces",
       hl: "Dining terrace",
       sub: "Dining terrace with pendant lighting and mountain views",
       gold: false,
@@ -9102,8 +9161,8 @@
       "area": "Marbella",
       "price": "From €690,000",
       "bedrooms": "2-4 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Off-plan",
       "status": "Off-plan, private availability",
       "lifestyle": "An 88-home gated collection of 2-4 bedroom apartments, penthouses and garden villas in an elevated pocket of Elviria West, with resort-style amenities and open views toward the mountains and sea.",
@@ -9133,7 +9192,7 @@
               "value": "Ask for the latest Elviria Hills information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest project information for Elviria Hills Residences."
   },
   "rio-real-townhouses": {
@@ -9143,8 +9202,8 @@
       "area": "Marbella",
       "price": "From €1,890,000",
       "bedrooms": "4-6 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Completed",
       "status": "Completed, ready to move in",
       "lifestyle": "A completed collection of 27 semi-detached 4 and 5 bedroom houses in Rio Real, Marbella, built across basement, ground and first floor levels with a private rooftop solarium and pool.",
@@ -9174,7 +9233,7 @@
               "value": "Ask for the latest Rio Real Townhouses information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest project information for Rio Real Townhouses."
   },
   "altos-de-marbella": {
@@ -9184,8 +9243,8 @@
       "area": "Marbella",
       "price": "From €1,050,000",
       "bedrooms": "2–5 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Q4 2027",
       "status": "Private availability",
       "lifestyle": "A small collection of elevated homes with open terraces, sea views and a quieter coastal setting.",
@@ -9219,7 +9278,7 @@
               "value": "Ask for the latest Altos de Marbella information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest information for Altos de Marbella Residences, including current availability, prices, floorplans and viewing options."
   },
   "cancelada-park": {
@@ -9229,8 +9288,8 @@
       "area": "Estepona",
       "price": "From €799,000",
       "bedrooms": "2-4 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "To be confirmed",
       "status": "Current release",
       "lifestyle": "A low-rise collection of garden apartments and penthouses on the New Golden Mile, pairing generous private outdoor space with access to a wider resort setting.",
@@ -9261,7 +9320,7 @@
               "value": "Ask for the latest Cancelada Park information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like the latest information for Cancelada Park, including current availability, prices, floorplans, payment terms and viewing options."
   },
   "marbella-west-garden-residences": {
@@ -9271,8 +9330,8 @@
       "area": "Marbella",
       "price": "From €595,200",
       "bedrooms": "1-4 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Estimated Q2 2029",
       "status": "Under construction",
       "lifestyle": "A resort-style collection of 139 light-filled residences near San Pedro and Puerto Banus, with extensive wellness spaces and the beach within walking distance.",
@@ -9303,7 +9362,7 @@
               "value": "Ask for the latest Marbella West Gardens information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like the latest information for Marbella West Garden Residences, including prices, current availability, floorplans and viewing options."
   },
   "vega-verde-residences": {
@@ -9313,8 +9372,8 @@
       "area": "Nueva Andalucía",
       "price": "From €785,000",
       "bedrooms": "2-4 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Q4 2028 (estimated)",
       "status": "Current release",
       "lifestyle": "An avant-garde development in Nueva Andalucia's Golf Valley, pairing contemporary architecture with resort-style amenities minutes from Puerto Banus.",
@@ -9346,7 +9405,7 @@
               "value": "Ask for the latest Vega Verde information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest project information for Vega Verde Residences."
   },
   "alisios-residences": {
@@ -9356,8 +9415,8 @@
       "area": "Marbella",
       "price": "From €690,000",
       "bedrooms": "2-4 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Q4 2026",
       "status": "Under construction",
       "lifestyle": "A boutique collection of 34 apartments and penthouses in Guadalmina Golf, Marbella, framed by golf-course views and close to San Pedro Alcántara and Puerto Banús.",
@@ -9389,7 +9448,7 @@
               "value": "Ask for the latest Alisios information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest project information for Alisios Residences."
   },
   "los-olivos-residences": {
@@ -9399,8 +9458,8 @@
       "area": "Nueva Andalucía",
       "price": "From €1,237,625",
       "bedrooms": "2-3 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Phase I — 2026",
       "status": "Under construction",
       "lifestyle": "A gated collection of two- and three-bedroom apartments and penthouses in Marbella's Golf Valley, minutes from Puerto Banús and the Golden Mile.",
@@ -9430,7 +9489,7 @@
               "value": "Ask for the latest Los Olivos information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest project information for Los Olivos Residences."
   },
   "jardin-del-mar-residences": {
@@ -9440,8 +9499,8 @@
       "area": "Estepona",
       "price": "From €720,000",
       "bedrooms": "2-3 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Off-plan",
       "status": "Off-plan",
       "lifestyle": "A gated community of two- and three-bedroom apartments and penthouses in the heart of Estepona, with a private spa, gym, cinema and coworking lounge.",
@@ -9471,7 +9530,7 @@
               "value": "Ask for the latest Jardin del Mar information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest project information for Jardin del Mar Residences."
   },
   "nueva-alcantara-residences": {
@@ -9481,8 +9540,8 @@
       "area": "Marbella",
       "price": "From €592,200",
       "bedrooms": "1-3 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Off-plan",
       "status": "Off-plan, private availability",
       "lifestyle": "A 19-home boutique development of 1-3 bedroom apartments and duplex penthouses in San Pedro Alcántara, a short walk from the beach, with a rooftop pool, gym and solarium.",
@@ -9512,7 +9571,7 @@
               "value": "Ask for the latest Nueva Alcántara information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest project information for Nueva Alcántara Residences."
   },
   "golden-mile-duplex-residences": {
@@ -9522,8 +9581,8 @@
       "area": "Marbella",
       "price": "From €4,500,000",
       "bedrooms": "3-4 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Off-plan",
       "status": "Off-plan, private availability",
       "lifestyle": "A boutique collection of just 8 duplex residences on Marbella's Golden Mile, furnished by a world-renowned luxury design house, steps from Puente Romano and the Marbella Club Hotel.",
@@ -9553,7 +9612,7 @@
               "value": "Ask for the latest Golden Mile Duplex information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest project information for Golden Mile Duplex Residences."
   },
   "nueva-andalucia-villa-collection": {
@@ -9563,8 +9622,8 @@
       "area": "Nueva Andalucía",
       "price": "From €11,500,000",
       "bedrooms": "5 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Off-plan",
       "status": "Off-plan, private availability",
       "lifestyle": "A boutique collection of just 8 villas in Nueva Andalucía, Marbella, interior-designed by a world-renowned Italian luxury fashion house, on plots of approximately 2,000m² each.",
@@ -9594,7 +9653,7 @@
               "value": "Ask for the latest Nueva Andalucía Villas information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest project information for the Nueva Andalucía Villa Collection."
   },
   "golf-valley-flex-residences": {
@@ -9604,8 +9663,8 @@
       "area": "Nueva Andalucía",
       "price": "From €450,000",
       "bedrooms": "1-6 bedrooms",
-      "builtSize": "Residence-specific",
-      "terraceSize": "Residence-specific",
+      "builtSize": "",
+      "terraceSize": "",
       "completion": "Off-plan",
       "status": "Off-plan, private availability",
       "lifestyle": "A 43-home villa and apartment collection in Nueva Andalucía's Golf Valley, with a flexible own-and-let ownership model, resort-style amenities and a kids' club.",
@@ -9635,7 +9694,7 @@
               "value": "Ask for the latest Golf Valley Flex information"
           }
       ],
-      "ctaLabel": "Get Project Information",
+      "ctaLabel": "Request Project Material",
       "ctaMessage": "I would like to receive the latest project information for Golf Valley Flex Residences."
   }
   };
@@ -10613,5 +10672,14 @@
 
 </script>
 <script src="assets/liora/liora-card-gallery.js" defer></script>
+  <script>
+  document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+  });
+</script>
 </body>
 </html>

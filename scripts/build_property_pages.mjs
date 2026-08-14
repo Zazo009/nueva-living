@@ -2,6 +2,20 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import propertySync from '../lib/nueva-property-sync.cjs';
+import {
+  LOCALES,
+  DEFAULT_LOCALE,
+  localeMeta,
+  isRtl,
+  t,
+  localizeProject,
+  localizedPath,
+  hreflangLinks,
+  rootPrefix,
+  baseHrefTag,
+  renderLanguageSwitcher,
+  LANG_SWITCHER_SCRIPT
+} from './lib/i18n.mjs';
 
 const {
   DEFAULT_PROPERTY_WEBHOOK_URL,
@@ -22,9 +36,11 @@ const homepagePage = path.resolve('nueva-living-home.html');
 const generatedHomeCardsStart = '<!-- NUEVA GENERATED HOME PROJECTS START -->';
 const generatedHomeCardsEnd = '<!-- NUEVA GENERATED HOME PROJECTS END -->';
 const siteUrl = 'https://nuevaliving.com';
-const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>`;
+const fontPreloadBlock = (p = '', locale = 'en') => `  <link rel="preload" href="${p}assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${p}assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>${locale === 'ar' ? `
+  <link rel="preload" href="${p}assets/fonts/arabic/SLXVc1nY6HkvangtZmpQdkhzfH5lkSscQyyS4J0.woff2" as="font" type="font/woff2" crossorigin>` : ''}`;
 const propertyCssVersion = fileVersion('assets/liora/liora-property.css');
+const rtlCssVersion = existsSync('assets/liora/liora-rtl.css') ? fileVersion('assets/liora/liora-rtl.css') : '1';
 const propertyJsVersion = fileVersion('assets/liora/liora-property.js');
 const calculatorJsVersion = fileVersion('assets/liora/liora-calculator.js');
 
@@ -123,7 +139,12 @@ function featureList(items = []) {
   return `<ul class="feature-list">\n${items.map((item) => `            <li>${esc(item)}</li>`).join('\n')}\n          </ul>`;
 }
 
-function renderProjectMedia(project) {
+function localizedCategory(category, locale) {
+  const key = `mediaCategory.${category}`;
+  return category ? t(key, locale) : category;
+}
+
+function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
   const media = project.media;
   if (!media?.items?.length) return { section: '', dialog: '' };
 
@@ -141,13 +162,13 @@ function renderProjectMedia(project) {
               data-poster-mobile="${esc(video.mobilePoster || video.poster || '')}"
               aria-label="${esc(video.alt || `${project.name} film`)}"
             ></video>
-            <button type="button" class="project-media-film-play" data-project-video-play aria-label="Play ${esc(video.title || `${project.name} film`)}">
+            <button type="button" class="project-media-film-play" data-project-video-play aria-label="${esc(t('media.playFilm', locale))} ${esc(video.title || `${project.name} film`)}">
               <span class="project-media-film-play-icon" aria-hidden="true"></span>
-              <span>Play film</span>
+              <span>${t('media.playFilm', locale)}</span>
             </button>
           </div>
           <figcaption>
-            <span>Film</span>
+            <span>${t('media.film', locale)}</span>
             <strong>${esc(video.title || '')}</strong>
             <p>${esc(video.caption || '')}</p>
           </figcaption>
@@ -158,13 +179,14 @@ function renderProjectMedia(project) {
     const categoryItems = media.items.filter((item) => item.category === category);
     const item = categoryItems[0];
     const count = categoryItems.length;
-    const imageLabel = `${count} ${count === 1 ? 'image' : 'images'}`;
-    return `<button type="button" class="project-media-card project-media-card--category" data-media-category="${esc(category)}" aria-label="View ${imageLabel} in ${esc(category)}">
+    const categoryLabel = localizedCategory(category, locale);
+    const imageLabel = count === 1 ? t('media.imageCountSingular', locale) : t('media.imagesCount', locale, { count });
+    return `<button type="button" class="project-media-card project-media-card--category" data-media-category="${esc(category)}" aria-label="${esc(t('media.viewImagesInCategory', locale, { count, category: categoryLabel }))}">
               ${imageTag(item, '', 'lazy')}
               <span class="project-media-caption">
-                <small>${esc(category)}</small>
+                <small>${esc(categoryLabel)}</small>
                 <strong>${esc(item.caption || '')}</strong>
-                <span class="project-media-card-cta">View ${imageLabel} <span aria-hidden="true">&#8594;</span></span>
+                <span class="project-media-card-cta">${esc(imageLabel)} <span aria-hidden="true">${isRtl(locale) ? '&#8592;' : '&#8594;'}</span></span>
               </span>
             </button>`;
   }).join('\n            ');
@@ -175,7 +197,7 @@ function renderProjectMedia(project) {
     width: item.width || 1600,
     height: item.height || 900,
     caption: item.caption || '',
-    category: item.category || 'Media'
+    category: item.category ? localizedCategory(item.category, locale) : t('media.kicker', locale)
   }))).replace(/</g, '\\u003c');
 
   const facts = (media.facts || []).map(([value, label]) => `<div class="media-fact"><strong>${esc(value)}</strong><span>${esc(label)}</span></div>`).join('\n          ');
@@ -185,7 +207,7 @@ function renderProjectMedia(project) {
       <div class="project-inner">
         <div class="project-media-intro reveal-soft">
           <div>
-            <span class="section-kicker">Media</span>
+            <span class="section-kicker">${t('media.kicker', locale)}</span>
             <div class="rule"></div>
             <h2 class="section-headline">${media.headlineHtml}</h2>
           </div>
@@ -197,20 +219,20 @@ function renderProjectMedia(project) {
           ${cards}
         </div>
         <div class="media-gallery-footer">
-          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>View all ${media.items.length} images</button>
+          <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>${t('media.viewAllImages', locale, { count: media.items.length })}</button>
           <p class="media-note">${esc(media.note || '')}</p>
         </div>
       </div>
     </section>`,
     dialog: `<dialog class="project-media-dialog" id="projectMediaDialog" aria-label="${esc(project.name)} media viewer">
       <div class="project-media-dialog-shell" data-media-dialog-shell>
-        <button type="button" class="media-dialog-close" data-media-close aria-label="Close media viewer">Close</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="Previous image">&#8592;</button>
+        <button type="button" class="media-dialog-close" data-media-close aria-label="${t('media.close', locale)}">${t('media.close', locale)}</button>
+        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="${t('media.previousImage', locale)}">${isRtl(locale) ? '&#8594;' : '&#8592;'}</button>
         <figure class="media-dialog-figure">
           <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
           <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
         </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="Next image">&#8594;</button>
+        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="${t('media.nextImage', locale)}">${isRtl(locale) ? '&#8592;' : '&#8594;'}</button>
         <div class="media-dialog-stack" data-media-dialog-stack hidden>
           <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
         </div>
@@ -238,7 +260,7 @@ function ghostAction(label, href = '#enquire') {
   return actionLink(label, href, 'ghost');
 }
 
-function renderAvailabilityRelease(project) {
+function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   const availability = project.availability || {};
   const units = availability.units || [];
   if (!units.length) return '';
@@ -248,31 +270,31 @@ function renderAvailabilityRelease(project) {
   const hasFloor = units.some((unit) => unit.floor);
 
   const rows = units.map((unit) => `<tr>
-                <td data-label="Reference"><strong>${esc(unit.reference)}</strong></td>${hasFloor ? `
-                <td data-label="Floor">${esc(unit.floor)}</td>` : ''}
-                <td data-label="Bedrooms">${esc(unit.bedrooms)}</td>${hasSize ? `
-                <td data-label="Size">${esc(unit.size)}</td>` : ''}
-                <td data-label="Price"><strong>${esc(unit.price)}</strong></td>
-                <td data-label="Status"><span class="availability-status">Available</span></td>${hasFloorplans ? `
-                <td data-label="Floorplan">${unit.floorplan ? `<a class="availability-floorplan-link" href="${esc(unit.floorplan)}" target="_blank" rel="noopener">View PDF</a>` : ''}</td>` : ''}
+                <td data-label="${t('availability.reference', locale)}"><strong>${esc(unit.reference)}</strong></td>${hasFloor ? `
+                <td data-label="${t('availability.floor', locale)}">${esc(unit.floor)}</td>` : ''}
+                <td data-label="${t('availability.bedrooms', locale)}">${esc(unit.bedrooms)}</td>${hasSize ? `
+                <td data-label="${t('availability.size', locale)}">${esc(unit.size)}</td>` : ''}
+                <td data-label="${t('availability.price', locale)}"><strong>${esc(unit.price)}</strong></td>
+                <td data-label="${t('availability.status', locale)}"><span class="availability-status">${t('availability.available', locale)}</span></td>${hasFloorplans ? `
+                <td data-label="${t('availability.floorplan', locale)}">${unit.floorplan ? `<a class="availability-floorplan-link" href="${esc(unit.floorplan)}" target="_blank" rel="noopener">${t('availability.viewPdf', locale)}</a>` : ''}</td>` : ''}
               </tr>`).join('\n              ');
 
   return `<div class="availability-release reveal-soft">
           <div class="availability-release-stats" aria-label="Current release summary">
-            <div><span>Available homes</span><strong>${units.length}</strong></div>
-            <div><span>Starting price</span><strong>${esc(availability.startingPrice || project.hero?.startingPrice || '')}</strong></div>
-            <div><span>Price range</span><strong>${esc(availability.priceRange || '')}</strong></div>
-            <div><span>Checked</span><strong>${esc(availability.checkedDate || '')}</strong></div>
+            <div><span>${t('availability.availableHomes', locale)}</span><strong>${units.length}</strong></div>
+            <div><span>${t('cinematic.startingPrice', locale)}</span><strong>${esc(availability.startingPrice || project.hero?.startingPrice || '')}</strong></div>
+            <div><span>${t('availability.priceRange', locale)}</span><strong>${esc(availability.priceRange || '')}</strong></div>
+            <div><span>${t('availability.checked', locale)}</span><strong>${esc(availability.checkedDate || '')}</strong></div>
           </div>
           <details class="availability-disclosure">
             <summary>
-              <span>View all ${units.length} available homes</span>
+              <span>${t('availability.viewAll', locale, { count: units.length })}</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Available homes at ${esc(project.name)}</caption>
-                <thead><tr><th scope="col">Reference</th>${hasFloor ? '<th scope="col">Floor</th>' : ''}<th scope="col">Bedrooms</th>${hasSize ? '<th scope="col">Size</th>' : ''}<th scope="col">Price</th><th scope="col">Status</th>${hasFloorplans ? '<th scope="col">Floorplan</th>' : ''}</tr></thead>
+                <thead><tr><th scope="col">${t('availability.reference', locale)}</th>${hasFloor ? `<th scope="col">${t('availability.floor', locale)}</th>` : ''}<th scope="col">${t('availability.bedrooms', locale)}</th>${hasSize ? `<th scope="col">${t('availability.size', locale)}</th>` : ''}<th scope="col">${t('availability.price', locale)}</th><th scope="col">${t('availability.status', locale)}</th>${hasFloorplans ? `<th scope="col">${t('availability.floorplan', locale)}</th>` : ''}</tr></thead>
                 <tbody>
               ${rows}
                 </tbody>
@@ -466,136 +488,144 @@ function renderTimelineItems(items = []) {
           </article>`).join('\n          ');
 }
 
-function nav() {
+function nav(project, locale = DEFAULT_LOCALE) {
+  const p = rootPrefix(locale);
+  const outputPath = project?.output || 'developments.html';
+  const switcher = renderLanguageSwitcher(outputPath, locale);
   return `<nav class="site-nav">
     <div class="nav-links nav-links-left">
-      <a href="guides.html">Buying Guides</a>
-      <a href="why-nueva.html">Why Nueva</a>
-      <a href="developments.html">Developments</a>
+      <a href="${p}${localizedPath('guides.html', locale)}">${t('nav.buyingGuides', locale)}</a>
+      <a href="${p}${localizedPath('why-nueva.html', locale)}">${t('nav.whyNueva', locale)}</a>
+      <a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a>
     </div>
-    <a class="nav-logo" href="index.html" aria-label="Nueva Living home">
-      <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
+    <a class="nav-logo" href="${p}${localizedPath('index.html', locale)}" aria-label="${t('nav.home', locale)}">
+      <img src="${p}assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
     <div class="nav-links nav-links-right">
-      <a href="areas.html">Areas</a>
-      <a href="advisory.html">Advisory</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a>
+      <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
+      <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
+      ${switcher}
     </div>
-    <button class="nav-burger" type="button" aria-label="Menu" aria-controls="mobileMenu" aria-expanded="false">
+    <button class="nav-burger" type="button" aria-label="${t('nav.menu', locale)}" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="guides.html">Buying Guides</a>
-    <a href="why-nueva.html">Why Nueva</a>
-    <a href="developments.html">Developments</a>
-    <a href="areas.html">Areas</a>
-    <a href="advisory.html">Advisory</a>
-    <a href="contact.html">Contact Us</a>
+    <a href="${p}${localizedPath('guides.html', locale)}">${t('nav.buyingGuides', locale)}</a>
+    <a href="${p}${localizedPath('why-nueva.html', locale)}">${t('nav.whyNueva', locale)}</a>
+    <a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a>
+    <a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a>
+    <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
+    <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
+    ${renderLanguageSwitcher(outputPath, locale)}
   </div>`;
 }
 
-function projectArea(project) {
+function projectArea(project, locale = DEFAULT_LOCALE) {
   const location = `${project.hero?.location || ''} ${project.schema?.areaServed || ''}`.toLowerCase();
   if (location.includes('nueva andaluc') || location.includes('nueva andalucía')) {
-    return { label: 'Nueva Andalucía', href: 'area-nueva-andalucia.html' };
+    return { label: t('area.nuevaAndalucia', locale), href: 'area-nueva-andalucia.html' };
   }
   if (location.includes('benahav')) {
-    return { label: 'Benahavís', href: 'area-benahavis.html' };
+    return { label: t('area.benahavis', locale), href: 'area-benahavis.html' };
   }
   if (location.includes('estepona') || location.includes('new golden mile')) {
-    return { label: 'Estepona', href: 'area-estepona.html' };
+    return { label: t('area.estepona', locale), href: 'area-estepona.html' };
   }
   if (location.includes('mijas') || location.includes('fuengirola')) {
-    return { label: 'Mijas & Fuengirola', href: 'area-mijas-fuengirola.html' };
+    return { label: t('area.mijasFuengirola', locale), href: 'area-mijas-fuengirola.html' };
   }
   if (location.includes('marbella east')) {
-    return { label: 'Marbella East', href: 'area-marbella.html' };
+    return { label: t('area.marbellaEast', locale), href: 'area-marbella.html' };
   }
-  return { label: 'Marbella', href: 'area-marbella.html' };
+  return { label: t('area.marbella', locale), href: 'area-marbella.html' };
 }
 
-function breadcrumb(project) {
-  const area = projectArea(project);
+function breadcrumb(project, locale = DEFAULT_LOCALE) {
+  const area = projectArea(project, locale);
+  const p = rootPrefix(locale);
   return `<nav class="breadcrumb-bar" aria-label="Breadcrumb">
     <ol class="breadcrumb-list">
-      <li><a href="developments.html">Developments</a></li>
-      <li><a href="${area.href}">${area.label}</a></li>
+      <li><a href="${p}${localizedPath('developments.html', locale)}">${t('breadcrumb.developments', locale)}</a></li>
+      <li><a href="${p}${localizedPath(area.href, locale)}">${area.label}</a></li>
       <li><span aria-current="page">${esc(project.shortName || project.name)}</span></li>
     </ol>
   </nav>`;
 }
 
-function breadcrumbSchema(project) {
-  const area = projectArea(project);
+function breadcrumbSchema(project, locale = DEFAULT_LOCALE) {
+  const area = projectArea(project, locale);
+  const p = localeMeta(locale).urlPrefix ? `${localeMeta(locale).urlPrefix}/` : '';
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Developments', item: `${siteUrl}/developments.html` },
-      { '@type': 'ListItem', position: 2, name: area.label, item: `${siteUrl}/${area.href}` },
-      { '@type': 'ListItem', position: 3, name: project.shortName || project.name, item: `${siteUrl}/${project.output}` }
+      { '@type': 'ListItem', position: 1, name: t('breadcrumb.developments', locale), item: `${siteUrl}/${p}developments.html` },
+      { '@type': 'ListItem', position: 2, name: area.label, item: `${siteUrl}/${p}${area.href}` },
+      { '@type': 'ListItem', position: 3, name: project.shortName || project.name, item: `${siteUrl}/${p}${project.output}` }
     ]
   };
 }
 
 // Search-facing title/meta lead with property type and area, since those
 // are what buyers actually search for -- not the project's own name.
-function seoTitle(project) {
-  const area = projectArea(project);
+function seoTitle(project, locale = DEFAULT_LOCALE) {
+  const area = projectArea(project, locale);
   const type = project.hero?.type || 'New Development';
-  return `${type} in ${area.label} — ${project.shortName || project.name} | Nueva Living`;
+  return t('seo.titleTemplate', locale, { type, area: area.label, name: project.shortName || project.name });
 }
 
-function footer(project) {
+function footer(project, locale = DEFAULT_LOCALE) {
+  const p = rootPrefix(locale);
   return `<footer>
     <div class="footer-grid">
       <div>
-        <img class="footer-logo" src="assets/liora/brand/nueva-living-lockup-espresso-transparent.png?v=7" alt="Nueva Living" width="700" height="340" loading="lazy" decoding="async">
-        <p class="footer-about">We help international buyers find and compare new-build and off-plan homes across the Costa del Sol.</p>
+        <img class="footer-logo" src="${p}assets/liora/brand/nueva-living-lockup-espresso-transparent.png?v=7" alt="Nueva Living" width="700" height="340" loading="lazy" decoding="async">
+        <p class="footer-about">${t('footer.about.text', locale)}</p>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Company</div>
+        <div class="footer-col-title">${t('footer.companyTitle', locale)}</div>
         <ul>
-          <li><a href="why-nueva.html">Why Nueva Living</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="advisory.html">Advisory</a></li>
-          <li><a href="referrals.html">Referral Program</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="${p}${localizedPath('why-nueva.html', locale)}">${t('footer.whyNuevaLiving', locale)}</a></li>
+          <li><a href="${p}${localizedPath('about.html', locale)}">${t('footer.about', locale)}</a></li>
+          <li><a href="${p}${localizedPath('advisory.html', locale)}">${t('footer.advisory', locale)}</a></li>
+          <li><a href="${p}${localizedPath('referrals.html', locale)}">${t('footer.referralProgram', locale)}</a></li>
+          <li><a href="${p}${localizedPath('contact.html', locale)}">${t('footer.contactUs', locale)}</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Projects</div>
+        <div class="footer-col-title">${t('footer.projectsTitle', locale)}</div>
         <ul>
-          <li><a href="developments.html">All Developments</a></li>
-          <li><a href="${esc(project.output)}">${esc(project.shortName || project.name)}</a></li>
-          <li><a href="guides.html">Buying Guides</a></li>
-          <li><a href="areas.html">Areas Overview</a></li>
-          <li><a href="area-marbella.html">Marbella</a></li>
-          <li><a href="area-estepona.html">Estepona</a></li>
-          <li><a href="area-benahavis.html">Benahavís</a></li>
-          <li><a href="area-nueva-andalucia.html">Nueva Andalucía</a></li>
-          <li><a href="area-mijas-fuengirola.html">Mijas &amp; Fuengirola</a></li>
+          <li><a href="${p}${localizedPath('developments.html', locale)}">${t('footer.allDevelopments', locale)}</a></li>
+          <li><a href="${p}${localizedPath(project.output, locale)}">${esc(project.shortName || project.name)}</a></li>
+          <li><a href="${p}${localizedPath('guides.html', locale)}">${t('footer.buyingGuides', locale)}</a></li>
+          <li><a href="${p}${localizedPath('areas.html', locale)}">${t('footer.areasOverview', locale)}</a></li>
+          <li><a href="${p}${localizedPath('area-marbella.html', locale)}">${t('area.marbella', locale)}</a></li>
+          <li><a href="${p}${localizedPath('area-estepona.html', locale)}">${t('area.estepona', locale)}</a></li>
+          <li><a href="${p}${localizedPath('area-benahavis.html', locale)}">${t('area.benahavis', locale)}</a></li>
+          <li><a href="${p}${localizedPath('area-nueva-andalucia.html', locale)}">${t('area.nuevaAndalucia', locale)}</a></li>
+          <li><a href="${p}${localizedPath('area-mijas-fuengirola.html', locale)}">${t('area.mijasFuengirola', locale)}</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <div class="footer-col-title">Contact</div>
+        <div class="footer-col-title">${t('footer.contactTitle', locale)}</div>
         <ul>
           <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
-          <li><a href="tel:+34645446624">+34 645 44 66 24</a></li>
+          <li><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a></li>
           <li><a href="https://maps.google.com/?q=Avenida+del+Prado+71,+29660+Marbella,+M%C3%A1laga,+Spain" target="_blank" rel="noopener">Avenida del Prado 71, 29660 Marbella</a></li>
         </ul>
-        <div class="footer-col-title" style="margin-top:24px;">Legal</div>
+        <div class="footer-col-title" style="margin-top:24px;">${t('footer.legalTitle', locale)}</div>
         <ul>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="legal-notice.html">Legal Notice</a></li>
-          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="${p}${localizedPath('privacy-policy.html', locale)}">${t('footer.privacyPolicy', locale)}</a></li>
+          <li><a href="${p}${localizedPath('legal-notice.html', locale)}">${t('footer.legalNotice', locale)}</a></li>
+          <li><a href="${p}${localizedPath('cookie-policy.html', locale)}">${t('footer.cookiePolicy', locale)}</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Information presented on this website is for general marketing purposes only and does not constitute legal, financial or investment advice. Development details, prices, availability and delivery dates are subject to change without notice.</p>
+      <p>${t('footer.disclaimer', locale)}</p>
       <span>&copy; 2026 Nueva Living &middot; LIORA LIVING SL. &middot; NIF B88827472</span>
     </div>
   </footer>`;
@@ -608,7 +638,7 @@ const TIMELINE_ICONS = {
   finish: '<svg class="timeline-icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="9" cy="14" r="4.5"/><path d="M13 14h11" stroke-linecap="round"/><path d="M19 14v4" stroke-linecap="round"/><path d="M24 14v3" stroke-linecap="round"/></svg>'
 };
 
-function renderConstructionTimeline(project) {
+function renderConstructionTimeline(project, locale = DEFAULT_LOCALE) {
   const timeline = project.constructionTimeline;
   if (!timeline || !Array.isArray(timeline.points) || !timeline.points.length) return '';
 
@@ -631,9 +661,9 @@ function renderConstructionTimeline(project) {
   return `    <section class="project-section construction-timeline-section" id="construction-timeline">
       <div class="project-inner timeline-head reveal-soft">
         <div>
-          <span class="section-kicker">${esc(timeline.kicker || 'Timeline')}</span>
+          <span class="section-kicker">${esc(timeline.kicker || t('timeline.timeline', locale))}</span>
           <div class="rule"></div>
-          <h2 class="section-headline">${timeline.headlineHtml || `${esc(timeline.kicker || 'Timeline')} of <em>delivery</em>`}</h2>
+          <h2 class="section-headline">${timeline.headlineHtml || `${esc(timeline.kicker || t('timeline.timeline', locale))} of <em>delivery</em>`}</h2>
         </div>
         ${timeline.copy ? `<p class="project-lead timeline-intro">${esc(timeline.copy)}</p>` : ''}
       </div>
@@ -641,14 +671,18 @@ function renderConstructionTimeline(project) {
       </div>
 ${paymentTerms.length ? `      <div class="project-inner timeline-payment-terms reveal-soft">
         <div class="timeline-payment-heading">
-          <span class="timeline-payment-kicker">${esc(timeline.paymentTermsLabel || 'Payment Terms')}</span>
-          ${percentTotal ? `<span class="timeline-payment-total">${fixedAmount ? `${esc(fixedAmount[1])} reservation, plus ` : ''}${percentTotal % 1 === 0 ? percentTotal : percentTotal.toFixed(1)}% of the price staged across ${paymentTerms.length - (fixedAmount ? 1 : 0)} payments</span>` : ''}
+          <span class="timeline-payment-kicker">${esc(timeline.paymentTermsLabel || t('timeline.paymentTerms', locale))}</span>
+          ${percentTotal ? `<span class="timeline-payment-total">${esc(t(fixedAmount ? 'timeline.paymentSummaryWithReservation' : 'timeline.paymentSummary', locale, {
+            amount: fixedAmount ? fixedAmount[1] : '',
+            percent: percentTotal % 1 === 0 ? percentTotal : percentTotal.toFixed(1),
+            count: paymentTerms.length - (fixedAmount ? 1 : 0)
+          }))}</span>` : ''}
         </div>
         <div class="timeline-payment-grid">
           ${paymentTerms.map(([label, value, note], index) => {
             const match = /^([\d.]+)%/.exec(String(value).trim());
             if (match) runningPercent += parseFloat(match[1]);
-            const runningLabel = match ? `Running total: ${runningPercent % 1 === 0 ? runningPercent : runningPercent.toFixed(1)}%` : '';
+            const runningLabel = match ? t('timeline.runningTotal', locale, { percent: runningPercent % 1 === 0 ? runningPercent : runningPercent.toFixed(1) }) : '';
             return `<div class="timeline-payment-item">
             <span class="timeline-payment-index">${String(index + 1).padStart(2, '0')}</span>
             <span class="timeline-payment-label">${esc(label)}</span>
@@ -665,30 +699,36 @@ ${paymentTerms.length ? `      <div class="project-inner timeline-payment-terms 
 `;
 }
 
-function renderProject(project) {
+function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
+  const project = localizeProject(sourceProject, locale);
+  const rtl = isRtl(locale);
+  const p = rootPrefix(locale);
   const heroImage = image(project, 'hero');
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
   const lifestyleImage = image(project, 'lifestyle');
-  const privateHref = project.privateViewing?.href || 'index.html?private-viewing=1';
-  const privateHeroCta = project.privateViewing?.heroCta || 'Cinematic Presentation';
-  const privateCta = project.privateViewing?.ctaLabel || 'Cinematic Presentation';
-  const projectMedia = renderProjectMedia(project);
-  const constructionTimeline = renderConstructionTimeline(project);
-  const availabilityRelease = renderAvailabilityRelease(project);
+  const privateHrefRaw = project.privateViewing?.href || 'index.html?private-viewing=1';
+  const privateHref = locale === DEFAULT_LOCALE
+    ? privateHrefRaw
+    : privateHrefRaw.replace(/^index\.html/, localizedPath('index.html', locale));
+  const privateHeroCta = project.privateViewing?.heroCta || t('cta.cinematicPresentation', locale);
+  const privateCta = project.privateViewing?.ctaLabel || t('cta.cinematicPresentation', locale);
+  const projectMedia = renderProjectMedia(project, locale);
+  const constructionTimeline = renderConstructionTimeline(project, locale);
+  const availabilityRelease = renderAvailabilityRelease(project, locale);
   const hasPublishedAvailability = Boolean(project.availability?.units?.length);
   const hasFloorplans = Boolean(project.availability?.units?.some((unit) => unit.floorplan));
   const availabilityBrowseAction = hasPublishedAvailability
-    ? actionLink('View Available Homes', '#availability')
-    : actionLink('Request Availability');
+    ? actionLink(t('cta.viewAvailableHomes', locale), '#availability')
+    : actionLink(t('common.onRequest', locale));
   const availabilityEnquiryAction = actionLink(
-    hasPublishedAvailability ? 'Ask About a Residence' : 'Request Availability'
+    hasPublishedAvailability ? t('cta.askAboutAHome', locale) : t('common.onRequest', locale)
   );
   const facts = [
-    ['Location', project.hero.location],
-    ['Starting Price', project.hero.startingPrice],
-    ['Type', project.hero.type],
-    ['Delivery', project.hero.delivery]
+    [t('common.location', locale), project.hero.location],
+    [t('cinematic.startingPrice', locale), project.hero.startingPrice],
+    [t('common.propertyType', locale), project.hero.type],
+    [t('common.delivery', locale), project.hero.delivery]
   ];
   const quickFactItems = quickFacts(project);
   const why = project.why || {
@@ -756,34 +796,41 @@ function renderProject(project) {
       acceptedAnswer: { '@type': 'Answer', text: answer }
     }))
   };
-  const pageTitle = seoTitle(project);
+  const pageTitle = seoTitle(project, locale);
+  const localeMetaInfo = localeMeta(locale);
+  const canonicalHref = project.canonical
+    ? (locale === DEFAULT_LOCALE ? project.canonical : project.canonical.replace('nuevaliving.com/', `nuevaliving.com/${localeMetaInfo.urlPrefix}/`))
+    : '';
 
   return `<!doctype html>
-<html lang="en">
+<html lang="${localeMetaInfo.htmlLang}" dir="${localeMetaInfo.dir}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(pageTitle)}</title>
+${baseHrefTag(locale)}  <title>${esc(pageTitle)}</title>
   <meta name="description" content="${esc(project.seoDescription || project.description)}">
-  <link rel="canonical" href="${esc(project.canonical || '')}">
+  <link rel="canonical" href="${esc(canonicalHref)}">
+${hreflangLinks(sourceProject.output, siteUrl)}
   <meta property="og:title" content="${esc(pageTitle)}">
   <meta property="og:description" content="${esc(project.description)}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="${esc(project.canonical || '')}">
+  <meta property="og:url" content="${esc(canonicalHref)}">
+  <meta property="og:locale" content="${localeMetaInfo.htmlLang}">
   <meta property="og:image" content="${esc(assetUrl(heroImage.src))}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(pageTitle)}">
   <meta name="twitter:description" content="${esc(project.twitterDescription || project.description)}">
   <meta name="twitter:image" content="${esc(assetUrl(heroImage.src))}">
-  <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
-  <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
-${fontPreloadBlock}
-  <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
-  <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=${propertyCssVersion}">
-  <script src="assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>
-  <script src="assets/liora/liora-calculator.js?v=${calculatorJsVersion}" defer></script>
+  <link rel="icon" href="${p}assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
+  <link rel="icon" href="${p}assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="${p}assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
+${fontPreloadBlock(p, locale)}
+  <link rel="stylesheet" href="${p}assets/fonts/google/liora-fonts.css">
+  <link rel="stylesheet" href="${p}assets/liora/liora-pages.css?v=9">
+  <link rel="stylesheet" href="${p}assets/liora/liora-property.css?v=${propertyCssVersion}">${rtl ? `
+  <link rel="stylesheet" href="${p}assets/liora/liora-rtl.css?v=${rtlCssVersion}">` : ''}
+  <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>
+  <script src="${p}assets/liora/liora-calculator.js?v=${calculatorJsVersion}" defer></script>
   <script type="application/ld+json">
 ${JSON.stringify(productSchema, null, 2)}
   </script>
@@ -794,16 +841,17 @@ ${JSON.stringify(agentSchema, null, 2)}
 ${JSON.stringify(faqSchema, null, 2)}
   </script>
   <script type="application/ld+json">
-${JSON.stringify(breadcrumbSchema(project), null, 2)}
+${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
   </script>
 </head>
 <body
+  data-locale="${locale}"
   data-project-name="${esc(project.name)}"
   data-project-message="${esc(project.enquiry.message)}"
   data-project-sent-message="${esc(project.enquiry.sentMessage)}"
 >
-  ${nav()}
-  ${breadcrumb(project)}
+  ${nav(project, locale)}
+  ${breadcrumb(project, locale)}
 
   <main>
     <section class="project-hero" id="top">
@@ -1195,10 +1243,11 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
 
 ${projectMedia.dialog ? `  ${projectMedia.dialog}\n\n` : ''}  <div class="sticky-mobile-cta" aria-label="Project request actions">
     <a href="#enquire" data-prefill>${hasPublishedAvailability ? 'Ask About a Home' : 'Request Availability'}</a>
-    <a href="${esc(whatsappHref(project))}" target="_blank" rel="noopener" data-whatsapp-advisor data-project="${esc(project.name)}" data-intent="speak with an advisor">Speak With Advisor</a>
+    <a href="${esc(whatsappHref(project))}" target="_blank" rel="noopener" data-whatsapp-advisor data-project="${esc(project.name)}" data-intent="speak with an advisor">${t('cta.speakWithAdvisor', locale)}</a>
   </div>
 
-  ${footer(project)}
+  ${footer(project, locale)}
+  ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>
 `;
@@ -1410,7 +1459,8 @@ const VIEWING_SCENE_OVERLAY = 'linear-gradient(to right, rgba(10,9,8,0.42), rgba
 // Cinematic Presentation scenes, auto-derived from the project's own curated
 // media gallery so every project gets its own real photos by default --
 // never a stand-in fallback belonging to a different project.
-function renderViewingScenesJs(project) {
+function renderViewingScenesJs(sourceProject, locale = DEFAULT_LOCALE) {
+  const project = localizeProject(sourceProject, locale);
   const items = project.media?.items || [];
   if (!items.length) return null;
 
@@ -1421,10 +1471,11 @@ function renderViewingScenesJs(project) {
     const motion = index % 2 === 0
       ? '(p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })'
       : '(p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })';
+    const categoryLabel = item.category ? localizedCategory(item.category, locale) : t('mediaCategory.Residences', locale);
     return `    {
       img: ${JSON.stringify(item.src)},
       pos: "center 50%",
-      label: ${JSON.stringify(`${num} — ${item.category || 'Residence'}`)},
+      label: ${JSON.stringify(`${num} — ${categoryLabel}`)},
       hl: ${JSON.stringify(item.caption || project.shortName || project.name)},
       sub: ${JSON.stringify(item.alt || '')},
       gold: ${isLast ? 'true' : 'false'},
@@ -1434,45 +1485,46 @@ function renderViewingScenesJs(project) {
     }`;
   });
 
-  return `  ${JSON.stringify(project.slug)}: [\n${scenes.join(',\n')}\n  ]`;
+  return `  ${JSON.stringify(sourceProject.slug)}: [\n${scenes.join(',\n')}\n  ]`;
 }
 
 // Cinematic Presentation project metadata (info panel), derived from the same
 // project.json fields used everywhere else on the site instead of a
 // hand-duplicated copy that can drift out of sync.
-function renderViewingProjectEntryJs(project) {
+function renderViewingProjectEntryJs(sourceProject, locale = DEFAULT_LOCALE) {
+  const project = localizeProject(sourceProject, locale);
   const discovery = project.discovery || {};
   const viewing = project.viewing || {};
   const areaDisplay = AREA_DISPLAY_NAMES[discovery.area] || project.card?.label || project.hero?.location || '';
   const highlights = project.architecture?.highlights || [];
   const investmentNotes = (project.investment?.cards || []).map(([, note]) => note).filter(Boolean);
   const availability = viewing.availability || [
-    { label: 'Status', value: discovery.status || project.hero?.delivery || 'On request' },
-    { label: 'Material', value: 'Brochure, floorplans and current price list' },
-    { label: 'Next Step', value: `Ask for the latest ${project.shortName || project.name} information` }
+    { label: t('availability.status', locale), value: discovery.status || project.hero?.delivery || t('common.onRequest', locale) },
+    { label: t('viewing.material', locale), value: t('viewing.materialValue', locale) },
+    { label: t('viewing.nextStep', locale), value: t('viewing.nextStepValue', locale, { project: project.shortName || project.name }) }
   ];
 
   const entry = {
-    id: project.slug,
+    id: sourceProject.slug,
     name: project.name,
     location: project.hero?.location || '',
     area: areaDisplay,
-    price: project.hero?.startingPrice || 'On request',
+    price: project.hero?.startingPrice || t('common.onRequest', locale),
     bedrooms: discovery.bedrooms || '',
-    builtSize: viewing.builtSize || 'Residence-specific',
-    terraceSize: viewing.terraceSize || 'Residence-specific',
-    completion: project.hero?.delivery || 'On request',
+    builtSize: viewing.builtSize || '',
+    terraceSize: viewing.terraceSize || '',
+    completion: project.hero?.delivery || t('common.onRequest', locale),
     status: discovery.status || '',
     lifestyle: project.description || '',
     overview: project.overview?.copy?.[0] || project.description || '',
     highlights,
     investmentNotes,
     availability,
-    ctaLabel: viewing.ctaLabel || 'Get Project Information',
+    ctaLabel: viewing.ctaLabel || t('cta.requestProjectMaterial', locale),
     ctaMessage: project.enquiry?.message || `I would like to receive the latest information for ${project.name}.`
   };
 
-  return `  ${JSON.stringify(project.slug)}: ${JSON.stringify(entry, null, 4).replace(/\n/g, '\n  ')}`;
+  return `  ${JSON.stringify(sourceProject.slug)}: ${JSON.stringify(entry, null, 4).replace(/\n/g, '\n  ')}`;
 }
 
 function updateHomepageViewingData(projects) {
@@ -1690,9 +1742,14 @@ for (const project of projects) {
   }
   validateProject(project);
 
-  const html = renderProject(project);
-  writeFileSync(path.resolve(project.output), html);
-  written.push(project.output);
+  for (const { code: locale } of LOCALES) {
+    const outputPath = localizedPath(project.output, locale);
+    const html = renderProject(project, locale);
+    const fullPath = path.resolve(outputPath);
+    mkdirSync(path.dirname(fullPath), { recursive: true });
+    writeFileSync(fullPath, html);
+    written.push(outputPath);
+  }
 }
 
 const developmentsUpdated = updateDevelopmentsPage(projects);

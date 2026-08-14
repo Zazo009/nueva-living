@@ -1,0 +1,238 @@
+/* Nueva Living -- RTL layer, loaded only on Arabic (dir="rtl") pages.
+   ------------------------------------------------------------------
+   Scope and approach: the base stylesheets (liora-pages.css,
+   liora-property.css) already avoid hardcoded `text-align: left` almost
+   everywhere, so paragraph and heading flow already follows the browser's
+   native start-alignment under `dir="rtl"` with zero extra CSS. This file
+   only overrides declarations that are explicitly physical (margin-left,
+   padding-right, border-right, left:, right:, float, text-align: left/right,
+   or a directional transform) on components that are genuinely
+   directional -- not decorative artwork, logos, or photography, which stay
+   unmirrored per the design brief. Rules are scoped under [dir="rtl"] and
+   grouped by component so a reviewer can trace each override back to the
+   LTR rule it corrects, rather than a blanket left/right find-replace.
+   ------------------------------------------------------------------ */
+
+/* ---------- Arabic typeface ----------
+   Cairo is applied only to :lang(ar) text runs, so a mixed-language page
+   (an Arabic sentence containing a Latin brand name or a property
+   reference) keeps Montserrat/Cinzel for the Latin portion and Cairo for
+   the Arabic portion, rather than forcing one face across a bidi string. */
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url(../fonts/arabic/SLXVc1nY6HkvangtZmpQdkhzfH5lkSscQyyS4J0.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+:lang(ar) {
+  font-family: 'Cairo', 'Montserrat', Arial, sans-serif;
+}
+
+/* Cinzel has no Arabic coverage; display headings fall back to Cairo's
+   heavier weights instead of the Latin serif substituting broken glyphs. */
+[dir="rtl"] .display-title,
+[dir="rtl"] .section-headline,
+[dir="rtl"] .hero-title,
+[dir="rtl"] h1:lang(ar),
+[dir="rtl"] h2:lang(ar) {
+  font-family: 'Cairo', 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* Numbers, prices, phone numbers, references and other LTR-internal
+   tokens must not be visually reordered by the surrounding RTL run. */
+[dir="rtl"] .timeline-payment-value,
+[dir="rtl"] .availability-table td[data-label="السعر"],
+[dir="rtl"] [data-label] strong,
+[dir="rtl"] a[href^="tel:"],
+[dir="rtl"] a[href^="mailto:"] {
+  unicode-bidi: isolate;
+}
+
+/* ---------- Navigation ---------- */
+[dir="rtl"] .site-nav {
+  direction: rtl;
+}
+
+[dir="rtl"] .nav-burger span {
+  margin-inline: auto;
+}
+
+/* Language switcher panel opens toward the reading direction */
+[dir="rtl"] .lang-switcher-panel {
+  right: auto;
+  left: 0;
+  text-align: right;
+}
+
+[dir="rtl"] .lang-switcher-caret {
+  transform: scaleX(-1);
+}
+
+/* ---------- Breadcrumb ---------- */
+[dir="rtl"] .breadcrumb-list {
+  direction: rtl;
+}
+
+[dir="rtl"] .breadcrumb-list li + li::before {
+  transform: scaleX(-1);
+}
+
+/* ---------- Footer ---------- */
+[dir="rtl"] .footer-grid {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .footer-bottom {
+  text-align: right;
+}
+
+/* ---------- Hero facts / quick-facts panel (absolute-positioned box) ---------- */
+[dir="rtl"] .project-hero .hero-facts,
+[dir="rtl"] .quick-facts-panel {
+  left: auto;
+  right: 0;
+  text-align: right;
+}
+
+/* ---------- Payment terms grid: the divider border sits on the
+   trailing edge of each item in LTR (border-right), so in RTL the
+   trailing edge is the left side. ---------- */
+[dir="rtl"] .timeline-payment-item {
+  border-right: 0;
+  border-left: 1px solid var(--line);
+  padding: 4px 0 4px clamp(20px, 3vw, 36px);
+}
+
+[dir="rtl"] .timeline-payment-item:last-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+[dir="rtl"] .timeline-payment-heading {
+  direction: rtl;
+}
+
+/* ---------- Availability release stats + table ---------- */
+[dir="rtl"] .availability-release-stats {
+  direction: rtl;
+}
+
+[dir="rtl"] .availability-table {
+  direction: rtl;
+}
+
+[dir="rtl"] .availability-table th,
+[dir="rtl"] .availability-table td {
+  text-align: right;
+}
+
+/* ---------- Timeline track (construction milestones) ----------
+   The horizontal progress line reads start-to-end; in RTL that is
+   right-to-left, so the whole track's visual order mirrors while each
+   milestone icon (a symmetric mark, not an arrow) stays unmirrored. */
+[dir="rtl"] .timeline-track {
+  direction: rtl;
+}
+
+/* ---------- Media gallery cards + dialog ---------- */
+[dir="rtl"] .project-media-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .project-media-card-cta {
+  direction: rtl;
+}
+
+[dir="rtl"] .media-note {
+  margin: 0 auto 0 0;
+}
+
+[dir="rtl"] .media-dialog-prev {
+  left: auto;
+}
+
+[dir="rtl"] .media-dialog-next {
+  right: auto;
+}
+
+/* ---------- FAQ / accordion toggle icon space ---------- */
+[dir="rtl"] .faq-item p {
+  padding-right: 0;
+  padding-left: 34px;
+}
+
+/* ---------- Project section nav (in-page chevron indicator) ---------- */
+[dir="rtl"] .project-nav::before {
+  right: auto;
+  left: calc(var(--project-nav-edge) + 22px);
+  transform: scaleX(-1);
+}
+
+/* ---------- Generic directional icons ----------
+   Chevrons and arrows that indicate "next/forward" flip so they still
+   point toward the reading direction's forward motion. Symmetric icons
+   (search, close, play, pause, checkmarks, the brand monogram) are left
+   alone -- only glyphs whose shape itself encodes a direction are mirrored. */
+[dir="rtl"] .hero-discovery-link svg,
+[dir="rtl"] .btn-arrow,
+[dir="rtl"] .project-media-card-cta > span[aria-hidden="true"],
+[dir="rtl"] .media-dialog-nav svg,
+[dir="rtl"] .cta-chevron {
+  transform: scaleX(-1);
+}
+
+/* ---------- Cinematic presentation chrome ----------
+   Slide progress ("01 / 12"), guided/manual toggle, exit control and the
+   project-details drawer all mirror as a unit; the underlying photography
+   and video layers are never mirrored. */
+[dir="rtl"] #vox {
+  direction: rtl;
+}
+
+[dir="rtl"] .v-details-panel {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .v-details-close {
+  right: auto;
+  left: 24px;
+}
+
+[dir="rtl"] .v-controls {
+  direction: rtl;
+}
+
+/* Horizontal scene entrance motion is direction-aware: scenes advance
+   toward the reading direction instead of always sliding leftward. */
+[dir="rtl"] .v-scene-layer {
+  --viewing-motion-sign: -1;
+}
+
+/* ---------- Forms ----------
+   Text/email/tel inputs stay LTR-typed for addresses and numbers even
+   inside an RTL form, per the bidi requirements; the fields themselves
+   (label position, border radius, focus ring) mirror with the form. */
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="tel"],
+[dir="rtl"] input[type="url"] {
+  direction: ltr;
+  text-align: right;
+}
+
+[dir="rtl"] .form-field label,
+[dir="rtl"] .form-field {
+  text-align: right;
+}
+
+/* ---------- Reduced motion ----------
+   Mirrored transforms above are static (a flipped icon), not animation;
+   respecting prefers-reduced-motion for the site's existing animated
+   elements is handled by the base stylesheets already and is unaffected
+   by this file. */
