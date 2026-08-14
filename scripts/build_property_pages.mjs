@@ -1352,7 +1352,7 @@ function buildSearchCatalog(projects) {
     });
 }
 
-function loadProjects() {
+export function loadProjects() {
   return projectFiles()
     .map((file) => ({ ...readJson(file), sourceFile: file }))
     .sort((a, b) => {
@@ -1560,25 +1560,37 @@ function renderViewingProjectEntryJs(sourceProject, locale = DEFAULT_LOCALE) {
   return `  ${JSON.stringify(sourceProject.slug)}: ${JSON.stringify(entry, null, 4).replace(/\n/g, '\n  ')}`;
 }
 
-function updateHomepageViewingData(projects) {
-  if (!existsSync(homepagePage)) return false;
-
-  let html = readFileSync(homepagePage, 'utf8');
+// Shared by the initial (English) homepage generation below and by
+// build_homepage_locales.mjs, which re-calls this per non-English locale
+// to regenerate the cinematic viewer's per-project scene captions/labels
+// (translated media.items captions, translated category labels, etc.)
+// instead of leaving the English-baked blocks from this pass in place
+// untouched on every cloned locale homepage.
+export function renderViewingBlocks(projects, locale = DEFAULT_LOCALE) {
   const sorted = [...projects].sort((a, b) => (a.discovery?.priority ?? a.card?.order ?? 999) - (b.discovery?.priority ?? b.card?.order ?? 999));
   const defaultId = sorted[0]?.slug || '';
 
   const projectsBlock = `/* NUEVA GENERATED VIEWING PROJECTS START */
   const VIEWING_PROJECTS = {
-${sorted.map(renderViewingProjectEntryJs).join(',\n')}
+${sorted.map((project) => renderViewingProjectEntryJs(project, locale)).join(',\n')}
   };
   const DEFAULT_VIEWING_PROJECT_ID = ${JSON.stringify(defaultId)};
   /* NUEVA GENERATED VIEWING PROJECTS END */`;
 
   const scenesBlock = `/* NUEVA GENERATED VIEWING SCENES START */
   const PROJECT_VIEWING_SCENE_SETS = {
-${sorted.map(renderViewingScenesJs).filter(Boolean).join(',\n')}
+${sorted.map((project) => renderViewingScenesJs(project, locale)).filter(Boolean).join(',\n')}
   };
   /* NUEVA GENERATED VIEWING SCENES END */`;
+
+  return { projectsBlock, scenesBlock };
+}
+
+function updateHomepageViewingData(projects) {
+  if (!existsSync(homepagePage)) return false;
+
+  let html = readFileSync(homepagePage, 'utf8');
+  const { projectsBlock, scenesBlock } = renderViewingBlocks(projects, DEFAULT_LOCALE);
 
   const projectsStart = html.indexOf('/* NUEVA GENERATED VIEWING PROJECTS START */');
   const projectsEnd = html.indexOf('/* NUEVA GENERATED VIEWING PROJECTS END */');

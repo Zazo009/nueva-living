@@ -23,6 +23,33 @@
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl } from './lib/i18n.mjs';
+import { loadProjects, renderViewingBlocks } from './lib/viewing.mjs';
+
+// Regenerates the cinematic-presentation viewer's VIEWING_PROJECTS /
+// PROJECT_VIEWING_SCENE_SETS blocks for a given locale. Without this, the
+// English-baked blocks written by build_property_pages.mjs (which only
+// ever runs once, in English) would simply be cloned unchanged into every
+// locale homepage below -- the viewer's per-project scene captions/labels
+// silently staying English on every translated page.
+function applyViewingBlocks(html, locale) {
+  if (locale === DEFAULT_LOCALE) return html;
+  const projects = loadProjects();
+  const { projectsBlock, scenesBlock } = renderViewingBlocks(projects, locale);
+
+  const replaceBlock = (source, startMarker, endMarker, block) => {
+    const start = source.indexOf(startMarker);
+    const end = source.indexOf(endMarker);
+    if (start === -1 || end === -1 || end < start) {
+      throw new Error(`nueva-living-home.html is missing the ${startMarker} / ${endMarker} markers.`);
+    }
+    return source.slice(0, start) + block + source.slice(end + endMarker.length);
+  };
+
+  let next = html;
+  next = replaceBlock(next, '/* NUEVA GENERATED VIEWING PROJECTS START */', '/* NUEVA GENERATED VIEWING PROJECTS END */', projectsBlock);
+  next = replaceBlock(next, '/* NUEVA GENERATED VIEWING SCENES START */', '/* NUEVA GENERATED VIEWING SCENES END */', scenesBlock);
+  return next;
+}
 
 const root = process.cwd();
 const sourcePath = path.join(root, 'nueva-living-home.html');
@@ -389,6 +416,9 @@ for (const meta of LOCALES) {
   for (const [find, replace] of projectCardTaglineReplacements(locale)) {
     html = html.split(find).join(replace);
   }
+
+  // Cinematic-presentation viewer's per-project scene captions/labels
+  html = applyViewingBlocks(html, locale);
 
   // Reciprocal hreflang, right after <title> (a stable, unique anchor).
   html = html.replace(
