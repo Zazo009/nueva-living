@@ -2,7 +2,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import vm from 'node:vm';
-import { LOCALES, DEFAULT_LOCALE, localizedPath } from './lib/i18n.mjs';
+import { LOCALES, DEFAULT_LOCALE, localizedPath, t } from './lib/i18n.mjs';
+
+// writeHtml() below is called once per output file across the whole site
+// (English root files, and every es/fr/de/ru/ar/*.html locale variant) --
+// this recovers the locale from that file's own path so the injections
+// downstream (specifically the newsletter block) render translated,
+// instead of always baking in English regardless of which locale's page
+// they land on.
+function localeFromPublicName(publicName) {
+  const prefix = publicName.split('/')[0];
+  const match = LOCALES.find((meta) => meta.urlPrefix && meta.urlPrefix === prefix);
+  return match ? match.code : DEFAULT_LOCALE;
+}
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -724,44 +736,48 @@ function injectSystemStyles(html) {
   );
 }
 
-const newsletterMarkup = `    <section class="footer-newsletter" aria-labelledby="footer-newsletter-title">
+function newsletterMarkup(locale = DEFAULT_LOCALE) {
+  const privacyHref = `/${localizedPath('privacy-policy.html', locale)}`;
+  const consent = t('newsletter.consent', locale, { privacyHref });
+  return `    <section class="footer-newsletter" aria-labelledby="footer-newsletter-title">
       <div class="footer-newsletter-copy">
-        <span class="footer-newsletter-kicker">Private Updates</span>
-        <h2 id="footer-newsletter-title">The coast, carefully edited.</h2>
-        <p>Occasional notes on new releases, meaningful availability and the developments worth knowing about.</p>
+        <span class="footer-newsletter-kicker">${t('newsletter.kicker', locale)}</span>
+        <h2 id="footer-newsletter-title">${t('newsletter.title', locale)}</h2>
+        <p>${t('newsletter.intro', locale)}</p>
       </div>
-      <form class="footer-newsletter-form" name="nueva-newsletter" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead data-newsletter-form data-submitting-label="Subscribing..." data-success-label="Subscribed" data-submitting-message="Adding you to Nueva Living updates..." data-success-message="You are on the list. We will only send updates worth opening." data-error-message="We could not subscribe you just now. Please email contact@nuevaliving.com.">
+      <form class="footer-newsletter-form" name="nueva-newsletter" method="POST" action="/.netlify/functions/nueva-lead" data-crm-lead data-newsletter-form data-submitting-label="${t('newsletter.submitting', locale)}" data-success-label="${t('newsletter.success', locale)}" data-submitting-message="${t('newsletter.submittingMessage', locale)}" data-success-message="${t('newsletter.successMessage', locale)}" data-error-message="${t('newsletter.errorMessage', locale)}">
         <input type="hidden" name="request_context" value="Newsletter signup">
         <input type="hidden" name="message" value="Newsletter subscription request">
         <input type="hidden" name="consent" value="true">
-        <input type="hidden" name="consent_text" value="I agree to receive occasional Nueva Living project updates and for my data to be stored">
-        <label class="footer-newsletter-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+        <input type="hidden" name="consent_text" value="${t('newsletter.consentText', locale)}">
+        <label class="footer-newsletter-honeypot" aria-hidden="true">${t('newsletter.website', locale)}<input name="website" tabindex="-1" autocomplete="off"></label>
         <div class="footer-newsletter-fields">
           <label class="footer-newsletter-field">
-            <span>First name</span>
-            <input name="first_name" type="text" autocomplete="given-name" placeholder="First name" required>
+            <span>${t('newsletter.firstName', locale)}</span>
+            <input name="first_name" type="text" autocomplete="given-name" placeholder="${t('newsletter.firstName', locale)}" required>
           </label>
           <label class="footer-newsletter-field">
-            <span>Last name</span>
-            <input name="last_name" type="text" autocomplete="family-name" placeholder="Last name" required>
+            <span>${t('newsletter.lastName', locale)}</span>
+            <input name="last_name" type="text" autocomplete="family-name" placeholder="${t('newsletter.lastName', locale)}" required>
           </label>
           <label class="footer-newsletter-field footer-newsletter-field--email">
-            <span>Email address</span>
+            <span>${t('newsletter.emailAddress', locale)}</span>
             <input name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@email.com" required>
           </label>
-          <button class="footer-newsletter-submit" type="submit">Subscribe</button>
+          <button class="footer-newsletter-submit" type="submit">${t('newsletter.subscribe', locale)}</button>
         </div>
         <div class="footer-newsletter-meta">
           <label class="footer-newsletter-consent">
             <input name="marketing_opt_in" type="checkbox" required>
-            <span>I agree to receive occasional Nueva Living updates. Unsubscribe at any time. See our <a href="privacy-policy.html">Privacy Policy</a>.</span>
+            <span>${consent}</span>
           </label>
           <span class="form-response" aria-live="polite"></span>
         </div>
       </form>
     </section>`;
+}
 
-function injectNewsletter(html) {
+function injectNewsletter(html, locale = DEFAULT_LOCALE) {
   let next = html;
   if (!next.includes(newsletterStylesheetPath)) {
     next = next.replace(
@@ -776,7 +792,7 @@ function injectNewsletter(html) {
     const siteFooter = footerMatches.at(-1);
     if (siteFooter) {
       const insertAt = siteFooter.index + siteFooter[0].length;
-      next = `${next.slice(0, insertAt)}\n${newsletterMarkup}${next.slice(insertAt)}`;
+      next = `${next.slice(0, insertAt)}\n${newsletterMarkup(locale)}${next.slice(insertAt)}`;
     }
   }
   return next;
@@ -872,8 +888,9 @@ function externalizeHomepageController(html, publicName) {
 function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
+  const locale = localeFromPublicName(publicName);
   const productionHtml = externalizeHomepageController(
-    injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(injectSeo(html, publicName))))))),
+    injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(injectSeo(html, publicName))), locale)))),
     publicName
   );
   fs.writeFileSync(target, optimizeHtml(productionHtml));
