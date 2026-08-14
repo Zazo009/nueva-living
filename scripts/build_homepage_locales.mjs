@@ -7,16 +7,19 @@
 // Scope (documented, not silently partial): this script fully localizes
 // the homepage's shared chrome -- nav, mobile menu, footer, language
 // switcher, <html lang/dir>, hreflang, and (for Arabic) the RTL stylesheet
-// and self-hosted Arabic font. It does NOT translate the homepage's own
-// hero copy, repeating content blocks, or the embedded cinematic
-// presentation's UI-chrome strings ("Guided", "Project Details", field
-// labels) -- those live deep inside ~700 lines of hand-authored JS in this
-// file and are called out explicitly as the top follow-up item in
-// docs/i18n.md. Every non-default-locale homepage is a real, complete page
-// (not a placeholder): the untranslated sections simply render their
-// existing English content, which is honest fallback behaviour, not a
-// broken or empty route.
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+// and self-hosted Arabic font -- for every locale, plus the homepage's own
+// hero copy, repeating content blocks (Why/Areas/Journey/About/Referral),
+// the contact form, and the embedded cinematic-presentation viewer's
+// UI-chrome strings ("Guided", "Project Details", field labels), currently
+// only for Spanish (see homepageContentReplacements below -- other locales
+// return an empty array there and keep the documented English fallback for
+// this page's marketing copy). Per-project card taglines on the "Selected
+// Residences" grid ARE translated for every locale that has a
+// `card.description` overlay (see projectCardTaglineReplacements). Every
+// non-default-locale homepage is a real, complete page (not a
+// placeholder): untranslated sections simply render their existing English
+// content, which is honest fallback behaviour, not a broken or empty route.
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, rootPrefix } from './lib/i18n.mjs';
 
@@ -246,6 +249,31 @@ function homepageContentReplacements(locale) {
   ];
 }
 
+// Per-project homepage card taglines (the <p class="dev-tagline"> text on
+// the "Selected Residences" grid). These come from each project's own
+// project.json `card.description` (falling back to `description`), and are
+// translated via each project's `i18n.<locale>.card.description` overlay --
+// NOT via the literal find/replace pairs above, since this text is
+// per-project data, not shared page copy. Projects/locales without a
+// translated card.description simply keep the English tagline (documented
+// fallback, same principle as everywhere else in this pipeline).
+function projectCardTaglineReplacements(locale) {
+  if (locale === DEFAULT_LOCALE) return [];
+  const projectsDir = path.join(root, 'content/liora-projects');
+  if (!existsSync(projectsDir)) return [];
+  const replacements = [];
+  for (const slug of readdirSync(projectsDir)) {
+    const projectPath = path.join(projectsDir, slug, 'project.json');
+    if (!existsSync(projectPath)) continue;
+    const project = JSON.parse(readFileSync(projectPath, 'utf8'));
+    const enTagline = project.card?.description || project.description;
+    const translatedTagline = project.i18n?.[locale]?.card?.description;
+    if (!enTagline || !translatedTagline || enTagline === translatedTagline) continue;
+    replacements.push([`<p class="dev-tagline">${enTagline}</p>`, `<p class="dev-tagline">${translatedTagline}</p>`]);
+  }
+  return replacements;
+}
+
 const switcherCss = `
     #nav .lang-switcher, .mobile-menu .lang-switcher { position: relative; }
     #nav .lang-switcher-toggle, .mobile-menu .lang-switcher-toggle {
@@ -344,6 +372,11 @@ for (const meta of LOCALES) {
 
   // Hero, marketing sections and cinematic-viewer chrome
   for (const [find, replace] of homepageContentReplacements(locale)) {
+    html = html.split(find).join(replace);
+  }
+
+  // Per-project card taglines on the "Selected Residences" grid
+  for (const [find, replace] of projectCardTaglineReplacements(locale)) {
     html = html.split(find).join(replace);
   }
 
