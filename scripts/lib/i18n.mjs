@@ -90,10 +90,10 @@ export function localizedPath(outputPath, locale) {
 // locale that has a rendered equivalent, plus x-default pointing at English.
 export function hreflangLinks(outputPath, siteUrl) {
   const links = LOCALES.map((meta) => {
-    const href = `${siteUrl}/${localizedPath(outputPath, meta.code)}`;
+    const href = pageUrl(outputPath, meta.code, siteUrl);
     return `  <link rel="alternate" hreflang="${meta.hreflang}" href="${href}">`;
   });
-  links.push(`  <link rel="alternate" hreflang="x-default" href="${siteUrl}/${outputPath}">`);
+  links.push(`  <link rel="alternate" hreflang="x-default" href="${pageUrl(outputPath, DEFAULT_LOCALE, siteUrl)}">`);
   return links.join('\n');
 }
 
@@ -110,6 +110,90 @@ export function rootPrefix() {
 
 export function baseHrefTag(locale) {
   return localeMeta(locale).urlPrefix ? '  <base href="../">\n' : '';
+}
+
+// The public URL for a page in a given locale.
+//
+// Homepages are served from their directory, so the canonical form is
+// https://nuevaliving.com/ and https://nuevaliving.com/es/ -- never
+// /es/index.html. Both resolve, and advertising two forms of the same page
+// across canonical, hreflang and sitemap is exactly the kind of ambiguity
+// those tags exist to remove. English already used the clean form; this
+// makes every locale match.
+export function pageUrl(outputPath, locale, siteUrl = 'https://nuevaliving.com') {
+  const prefix = localeMeta(locale).urlPrefix;
+  const dir = prefix ? `${prefix}/` : '';
+  if (outputPath === 'index.html') return `${siteUrl}/${dir}`;
+  return `${siteUrl}/${dir}${outputPath}`;
+}
+
+// WebPage + BreadcrumbList JSON-LD for a page that has no schema of its
+// own. The footer, area and guides pages shipped with no structured data
+// in any language (90 indexable pages), which is what breadcrumb rich
+// results in search are built from. `trail` is [[label, outputPath], ...]
+// from the page's own visible breadcrumb, so the two always agree.
+export function pageSchema({ outputPath, locale, title, description, trail = [], siteUrl = 'https://nuevaliving.com' }) {
+  const items = [
+    { name: 'Nueva Living', path: 'index.html' },
+    ...trail.map(([name, path]) => ({ name, path })),
+    { name: title, path: outputPath }
+  ];
+  const schema = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      name: title,
+      description,
+      url: pageUrl(outputPath, locale, siteUrl),
+      inLanguage: localeMeta(locale).htmlLang,
+      isPartOf: { '@type': 'WebSite', name: 'Nueva Living', url: siteUrl }
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: pageUrl(item.path, locale, siteUrl)
+      }))
+    }
+  ];
+  return `  <script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n  </script>`;
+}
+
+// Self-referencing canonical + social tags for a locale page.
+//
+// build_dist.mjs's injectSeo() only covers pages that have a pageMeta
+// entry, which in practice means the English originals -- it deliberately
+// skips locale pages on the assumption they author their own tags at
+// render time. Footer and segment pages only emitted hreflang and
+// og:locale, so 110 indexable locale pages shipped with no canonical and
+// no Open Graph at all. With six near-identical language versions a
+// self-referencing canonical is what keeps them from reading as duplicates.
+export function seoTags(outputPath, locale, { title, description, siteUrl = 'https://nuevaliving.com', image, type = 'website' } = {}) {
+  const meta = localeMeta(locale);
+  const url = pageUrl(outputPath, locale, siteUrl);
+  const shareImage = image || `${siteUrl}/assets/liora/viewing/scene-08.jpg`;
+  const esc = (value) => String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+  return [
+    `<link rel="canonical" href="${esc(url)}">`,
+    `<meta property="og:site_name" content="Nueva Living">`,
+    `<meta property="og:locale" content="${esc(meta.htmlLang)}">`,
+    `<meta property="og:type" content="${esc(type)}">`,
+    `<meta property="og:title" content="${esc(title)}">`,
+    `<meta property="og:description" content="${esc(description)}">`,
+    `<meta property="og:url" content="${esc(url)}">`,
+    `<meta property="og:image" content="${esc(shareImage)}">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="${esc(title)}">`,
+    `<meta name="twitter:description" content="${esc(description)}">`,
+    `<meta name="twitter:image" content="${esc(shareImage)}">`
+  ].map((line) => `  ${line}`).join('\n');
 }
 
 // `<base href="../">` makes relative ASSET paths resolve correctly from one

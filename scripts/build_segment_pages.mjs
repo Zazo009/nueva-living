@@ -12,7 +12,8 @@ import {
   baseHrefTag,
   renderLanguageSwitcher,
   LANG_SWITCHER_SCRIPT,
-  localizeInternalLinks
+  localizeInternalLinks,
+  seoTags
 } from './lib/i18n.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -426,7 +427,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
 ${baseHrefTag(locale)}  <title>${esc(segment.title)}</title>
   <meta name="description" content="${esc(segment.description)}">
 ${hreflangLinks(segment.output, siteUrl)}
-  <meta property="og:locale" content="${meta.htmlLang}">
+${seoTags(segment.output, locale, { title: segment.title, description: segment.description, image: `${siteUrl}/${segment.hero.image}` })}
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
@@ -653,7 +654,7 @@ function renderGuidesPage(locale = DEFAULT_LOCALE) {
 ${baseHrefTag(locale)}  <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
 ${hreflangLinks('guides.html', siteUrl)}
-  <meta property="og:locale" content="${meta.htmlLang}">
+${seoTags('guides.html', locale, { title, description })}
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
@@ -861,7 +862,7 @@ const SEGMENTS = [
     areaHref: 'area-nueva-andalucia.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
-    title: 'New-Build Apartments & Penthouses in Nueva Andalucia | Nueva Living',
+    title: 'New-Build Apartments & Penthouses in Nueva Andalucia',
     description: 'Compare new-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus, with real prices, availability and floorplans from Nueva Living.',
     kicker: 'Nueva Andaluc&iacute;a &middot; Apartments &amp; Penthouses',
     heroTitleHtml: 'New-Build Apartments &amp; Penthouses in <em>Nueva Andaluc&iacute;a</em>',

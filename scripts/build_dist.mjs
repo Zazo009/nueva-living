@@ -159,7 +159,7 @@ const basePageMeta = {
     type: 'website'
   },
   'new-build-apartments-penthouses-nueva-andalucia.html': {
-    title: 'New-Build Apartments & Penthouses in Nueva Andalucia | Nueva Living',
+    title: 'New-Build Apartments & Penthouses in Nueva Andalucia',
     description: 'Compare new-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus, with real prices, availability and floorplans from Nueva Living.',
     path: '/new-build-apartments-penthouses-nueva-andalucia.html',
     type: 'website'
@@ -349,10 +349,15 @@ function projectAreaLabel(project) {
 // Mirrors seoTitle() in build_property_pages.mjs -- leads with property
 // type and area, since that is what buyers actually search for, not the
 // project's own (often anonymized) name.
+// Mirrors seoTitle() in build_property_pages.mjs, including its 60-char
+// rule: search results truncate around there, and the descriptive half
+// earns the click more than the brand suffix, which already shows in the
+// URL and breadcrumb. Keep the two in step.
 function projectSeoTitle(project) {
   const area = projectAreaLabel(project);
   const type = project.hero?.type || 'New Development';
-  return `${type} in ${area} — ${project.shortName || project.name} | Nueva Living`;
+  const full = `${type} in ${area} — ${project.shortName || project.name} | Nueva Living`;
+  return full.length > 60 ? full.slice(0, -' | Nueva Living'.length) : full;
 }
 
 const projectPages = loadProjectPages();
@@ -1046,12 +1051,17 @@ function englishHref(englishFile) {
   return englishFile === 'index.html' ? `${siteUrl}/` : `${siteUrl}/${englishFile}`;
 }
 
+function localeHref(englishFile, locale) {
+  const prefix = locale.urlPrefix ? `${locale.urlPrefix}/` : '';
+  return englishFile === 'index.html' ? `${siteUrl}/${prefix}` : `${siteUrl}/${prefix}${englishFile}`;
+}
+
 function hreflangAlternatesXml(englishFile) {
   const entries = [`    <xhtml:link rel="alternate" hreflang="en" href="${englishHref(englishFile)}"/>`];
   for (const locale of nonDefaultLocales) {
     const localizedFile = localizedPath(englishFile, locale.code);
     if (!localizedOutputs.has(localizedFile)) continue;
-    entries.push(`    <xhtml:link rel="alternate" hreflang="${locale.hreflang}" href="${siteUrl}/${localizedFile}"/>`);
+    entries.push(`    <xhtml:link rel="alternate" hreflang="${locale.hreflang}" href="${localeHref(englishFile, locale)}"/>`);
   }
   entries.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${englishHref(englishFile)}"/>`);
   return entries.length > 2 ? `\n${entries.join('\n')}` : '';
@@ -1085,13 +1095,13 @@ const localeSitemapEntries = Object.entries(pageMeta)
       for (const other of nonDefaultLocales) {
         const otherFile = localizedPath(englishFile, other.code);
         if (!localizedOutputs.has(otherFile)) continue;
-        alternates.push(`    <xhtml:link rel="alternate" hreflang="${other.hreflang}" href="${siteUrl}/${otherFile}"/>`);
+        alternates.push(`    <xhtml:link rel="alternate" hreflang="${other.hreflang}" href="${localeHref(englishFile, other)}"/>`);
       }
       alternates.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${englishHref(englishFile)}"/>`);
       const priority = englishFile === 'index.html' ? '0.9' : englishFile.startsWith('property-') || englishFile === 'developments.html' ? '0.8' : '0.6';
       return [
         '  <url>',
-        `<loc>${siteUrl}/${file}</loc>`,
+        `<loc>${localeHref(englishFile, locale)}</loc>`,
         `<lastmod>${sitemapLastmod}</lastmod>`,
         '<changefreq>weekly</changefreq>',
         `<priority>${priority}</priority>\n${alternates.join('\n')}`,

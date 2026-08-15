@@ -961,4 +961,12 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     ru: `Отправить рекомендацию`,
     ar: `إرسال الإحالة`,
   },
+
+  // ===== SEO <title> and meta description.
+  // Scoped to the tags themselves so a short title like "Areas" can never
+  // fire inside body prose. These shipped untranslated, which also left
+  // five locales sharing one identical title.
+  { find: '<title>Areas | Nueva Living</title>', es: '<title>Guía de Zonas de la Costa del Sol | Nueva Living</title>', fr: '<title>Guide des Secteurs de la Costa del Sol | Nueva Living</title>', de: '<title>Costa-del-Sol-Gebietsguide | Nueva Living</title>', ru: '<title>Путеводитель по районам Коста-дель-Соль | Nueva Living</title>', ar: '<title>دليل مناطق كوستا ديل سول | Nueva Living</title>' },
+  { find: '<title>Referral &amp; Ambassador Program | Nueva Living</title>', es: '<title>Programa de Recomendación y Embajadores | Nueva Living</title>', fr: '<title>Programme de Parrainage et Ambassadeurs | Nueva Living</title>', de: '<title>Empfehlungs- und Botschafterprogramm | Nueva Living</title>', ru: '<title>Реферальная и амбассадорская программа | Nueva Living</title>', ar: '<title>برنامج التوصية والسفراء | Nueva Living</title>' },
+  { find: 'content="Costa del Sol area guide for new development buyers."', es: 'content="Guía de zonas de la Costa del Sol para compradores de obra nueva: Marbella, Estepona, Benahavís, Nueva Andalucía y Mijas."', fr: 'content="Guide des secteurs de la Costa del Sol pour les acquéreurs de programmes neufs : Marbella, Estepona, Benahavís, Nueva Andalucía et Mijas."', de: 'content="Gebietsguide der Costa del Sol für Neubaukäufer: Marbella, Estepona, Benahavís, Nueva Andalucía und Mijas."', ru: 'content="Путеводитель по районам Коста-дель-Соль для покупателей новостроек: Марбелья, Эстепона, Бенаавис, Нуэва-Андалусия и Михас."', ar: 'content="دليل مناطق كوستا ديل سول لمشتري المشاريع الجديدة: ماربيا وإستيبونا وبيناهافيس ونويفا أندلوسيا وميخاس."' }
 ];

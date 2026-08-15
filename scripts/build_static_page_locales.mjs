@@ -27,9 +27,13 @@ import {
 const root = process.cwd();
 const siteUrl = 'https://nuevaliving.com';
 
+// `noindex` matters here: thank-you.html and 404.html carry the tag in
+// their own source, but compare.html gets it from build_dist's pageMeta --
+// which locale clones bypass. Without it the five locale compare pages
+// were indexable, thin, near-duplicate tool pages.
 const PAGES = [
   { file: 'thank-you.html', entries: THANK_YOU_ENTRIES },
-  { file: 'compare.html', entries: COMPARE_ENTRIES, compareRuntime: true },
+  { file: 'compare.html', entries: COMPARE_ENTRIES, compareRuntime: true, robots: 'noindex,follow' },
   { file: '404.html', entries: NOT_FOUND_ENTRIES }
 ];
 
@@ -95,6 +99,13 @@ for (const page of PAGES) {
       html = html.replace(localeCanonical, `${localeCanonical}\n${hreflangLinks(page.file, siteUrl)}`);
     } else {
       html = html.replace(/(<meta name="description"[^\n]*)/, `$1\n${hreflangLinks(page.file, siteUrl)}`);
+    }
+
+    if (page.robots && !/<meta name="robots"/i.test(html)) {
+      html = html.replace(
+        /(<meta name="description"[^>]*>)/i,
+        `$1\n  <meta name="robots" content="${page.robots}">`
+      );
     }
 
     html = injectSwitcher(html, page.file, locale);

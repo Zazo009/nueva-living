@@ -22,7 +22,7 @@
 // content, which is honest fallback behaviour, not a broken or empty route.
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, localizeInternalLinks } from './lib/i18n.mjs';
+import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, localizeInternalLinks, seoTags, pageSchema } from './lib/i18n.mjs';
 import { loadProjects, renderViewingBlocks } from './lib/viewing.mjs';
 import { BESPOKE_SCENE_ENTRIES } from './lib/bespoke_scene_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -407,8 +407,9 @@ const LANG_SWITCHER_SCRIPT = `<script>
 
 const siteUrl = 'https://nuevaliving.com';
 function hreflangBlock() {
-  const lines = LOCALES.map((m) => `  <link rel="alternate" hreflang="${m.hreflang}" href="${siteUrl}/${m.urlPrefix ? `${m.urlPrefix}/` : ''}index.html">`);
-  lines.push(`  <link rel="alternate" hreflang="x-default" href="${siteUrl}/index.html">`);
+  // Directory form, matching the canonical and the sitemap.
+  const lines = LOCALES.map((m) => `  <link rel="alternate" hreflang="${m.hreflang}" href="${siteUrl}/${m.urlPrefix ? `${m.urlPrefix}/` : ''}">`);
+  lines.push(`  <link rel="alternate" hreflang="x-default" href="${siteUrl}/">`);
   return lines.join('\n');
 }
 
@@ -467,10 +468,15 @@ for (const meta of LOCALES) {
   // Cinematic-presentation viewer's per-project scene captions/labels
   html = applyViewingBlocks(html, locale);
 
-  // Reciprocal hreflang, right after <title> (a stable, unique anchor).
+  // Reciprocal hreflang + this locale's own canonical and social tags,
+  // right after <title> (a stable, unique anchor). Locale homepages
+  // previously shipped with no canonical at all, since build_dist's
+  // injectSeo only covers pages that have a pageMeta entry.
+  const localeTitle = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || 'Nueva Living';
+  const localeDesc = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1] || '';
   html = html.replace(
     /(<title>[^<]*<\/title>)/,
-    `$1\n${hreflangBlock()}`
+    `$1\n${hreflangBlock()}\n${seoTags('index.html', locale, { title: localeTitle, description: localeDesc })}\n${pageSchema({ outputPath: 'index.html', locale, title: localeTitle, description: localeDesc })}`
   );
 
   // Switcher styling + close-on-outside-click script + RTL/Arabic assets

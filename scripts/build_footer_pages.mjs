@@ -12,7 +12,9 @@ import {
   renderLanguageSwitcher,
   LANG_SWITCHER_SCRIPT,
   localizeProject,
-  localizeInternalLinks
+  localizeInternalLinks,
+  seoTags,
+  pageSchema
 } from './lib/i18n.mjs';
 import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -210,7 +212,8 @@ function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImag
 ${baseHrefTag(locale)}  <title>${esc(title)} | Nueva Living</title>
   <meta name="description" content="${esc(description)}">
 ${hreflangLinks(file, 'https://nuevaliving.com')}
-  <meta property="og:locale" content="${meta.htmlLang}">
+${seoTags(file, locale, { title: `${title} | Nueva Living`, description, image: heroImage ? `https://nuevaliving.com/${heroImage}` : undefined })}
+${pageSchema({ outputPath: file, locale, title: breadcrumbTitle || title, description, trail: breadcrumbs || [] })}
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
