@@ -15,6 +15,7 @@ import {
   localizeInternalLinks,
   seoTags
 } from './lib/i18n.mjs';
+import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
 import { PROJECT_CARD_ENTRIES } from './lib/developments_page_translations.mjs';
@@ -219,30 +220,6 @@ function footer(locale = DEFAULT_LOCALE) {
   </footer>`;
 }
 
-function segmentProjectCardGallery(project) {
-  const items = (project.media?.items || []).slice(0, 6);
-  if (!items.length) {
-    const image = project.images?.hero || {};
-    return `<img src="${esc(image.src)}" alt="${esc(image.alt || project.name)}" width="${image.width || 1600}" height="${image.height || 900}" loading="lazy" decoding="async">`;
-  }
-
-  const slides = items.map((item) => `
-      <img src="${esc(item.src)}" alt="${esc(item.alt || project.name)}" loading="lazy" decoding="async">`).join('');
-  const dots = items.length > 1
-    ? `<div class="project-card-gallery-dots" data-gallery-dots>${items.map((_, index) => `<button type="button" class="project-card-gallery-dot${index === 0 ? ' is-active' : ''}" data-gallery-dot="${index}" aria-label="Show image ${index + 1} of ${items.length}"></button>`).join('')}</div>`
-    : '';
-  const arrows = items.length > 1
-    ? `<button type="button" class="project-card-gallery-arrow project-card-gallery-arrow--prev" data-gallery-prev aria-label="Previous image">&#8249;</button>
-      <button type="button" class="project-card-gallery-arrow project-card-gallery-arrow--next" data-gallery-next aria-label="Next image">&#8250;</button>`
-    : '';
-
-  return `<div class="project-card-gallery" data-project-card-gallery data-card-url="${esc(project.output)}">
-      <div class="project-card-gallery-track" data-gallery-track>${slides}
-      </div>
-      ${arrows}
-      ${dots}
-    </div>`;
-}
 
 function segmentProjectCard(project) {
   const meta = project.card?.meta || [
@@ -251,7 +228,7 @@ function segmentProjectCard(project) {
     ['Delivery', project.hero?.delivery || 'On request']
   ];
   return `<article class="project-card area-project-card" data-project-card>
-    ${segmentProjectCardGallery(project)}
+    ${renderProjectCardGallery(project)}
     <div class="project-body">
       <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
       <h3>${esc(project.name)}</h3>

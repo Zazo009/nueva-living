@@ -880,14 +880,26 @@ html[lang="ru"] #nav .nav-links a {
   margin: 0;
 }
 
+/* The heart carries `margin-left: auto` to push the control group to the far
+   end of the bar. On tablet, where the nav links are still on show, that auto
+   margin landed between the switcher and the heart and stranded the switcher
+   in the middle of the bar. Move the auto onto the switcher -- the first item
+   of the group -- so all three travel together. */
 .site-nav [data-lang-switcher-compact],
 #nav [data-lang-switcher-compact] {
   margin: 0 var(--nueva-nav-control-gap) 0 0;
+  margin-inline-start: auto;
 }
 
 [dir="rtl"] .site-nav [data-lang-switcher-compact],
 [dir="rtl"] #nav [data-lang-switcher-compact] {
   margin: 0 0 0 var(--nueva-nav-control-gap);
+  margin-inline-start: auto;
+}
+
+.site-nav [data-lang-switcher-compact] + .nueva-shortlist-mobile-trigger,
+#nav [data-lang-switcher-compact] + .nueva-shortlist-mobile-trigger {
+  margin-inline-start: 0;
 }
 
 .site-nav .nueva-shortlist-mobile-trigger,
@@ -1118,10 +1130,68 @@ body.card-lightbox-open {
   z-index: auto;
 }
 
-/* And the badge stops short of the buttons rather than running under them. */
+/* Four things share a 331px image on a phone: promo badge, action buttons,
+   dot indicators and price. Any two of them on the same row collide -- the
+   badge alone needs 214px and the buttons 134px -- so each gets its own
+   corner, and the badge, the only element whose width is content-driven, is
+   allowed to wrap onto a second line rather than truncate or push into the
+   price. Nothing is dropped: the price stays exactly where it was. */
 .dev-img-wrap .dev-badge {
-  max-width: calc(100% - 170px);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  top: auto;
+  bottom: 18px;
+  max-width: calc(100% - 162px);
+  white-space: normal;
+  line-height: 1.5;
+}
+
+/* The dots move to the free top-left corner. They carry their own dark ring
+   and shadow (below), so they no longer depend on the bottom gradient to be
+   legible. */
+.dev-img-wrap .project-card-gallery-dots {
+  top: 22px;
+  bottom: auto;
+  left: 20px;
+  right: auto;
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .dev-img-wrap .project-card-gallery-dots {
+  left: auto;
+  right: 20px;
+}
+
+/* The dots were 6px at 50% white with a hairline ring -- on a bright sky they
+   disappeared. Bigger, near-opaque, and carrying a dark ring plus a shadow so
+   they hold their edge against any photo. The higher-specificity selector is
+   deliberate: the base rules exist in both liora-pages.css and the homepage's
+   own inline styles, and this has to win over whichever loads last. */
+.project-card-gallery .project-card-gallery-dot {
+  width: 7px;
+  height: 7px;
+  background: rgba(255, 253, 248, 0.92);
+  box-shadow: 0 0 0 1px rgba(20, 14, 8, 0.42), 0 1px 4px rgba(20, 14, 8, 0.45);
+}
+
+.project-card-gallery .project-card-gallery-dot.is-active {
+  background: var(--nueva-gold-light, #c9a35f);
+  box-shadow: 0 0 0 1px rgba(20, 14, 8, 0.5), 0 1px 5px rgba(20, 14, 8, 0.5);
+  transform: scale(1.35);
+}
+
+.project-card-gallery .project-card-gallery-dots {
+  gap: 7px;
+}
+
+/* The badge and price are positioned with physical left/right in the
+   homepage's own styles, so they stayed put in Arabic while the dots and the
+   button cluster mirrored -- the corners ended up in a mix of both
+   directions. Flip them too, so RTL is a clean mirror of LTR. */
+[dir="rtl"] .dev-img-wrap .dev-badge {
+  left: auto;
+  right: 20px;
+}
+
+[dir="rtl"] .dev-img-wrap .dev-price-overlay {
+  right: auto;
+  left: 20px;
 }

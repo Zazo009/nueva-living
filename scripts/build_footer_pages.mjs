@@ -16,6 +16,7 @@ import {
   seoTags,
   pageSchema
 } from './lib/i18n.mjs';
+import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
 
@@ -273,26 +274,6 @@ function esc(value) {
     .replace(/"/g, '&quot;');
 }
 
-function areaProjectCardGallery(project) {
-  const items = (project.media?.items || []).slice(0, 6);
-  if (!items.length) {
-    const image = project.images?.hero || {};
-    return `<img src="${esc(image.src)}" alt="${esc(image.alt || project.name)}" width="${image.width || 1600}" height="${image.height || 900}" loading="lazy" decoding="async">`;
-  }
-
-  const slides = items.map((item) => `
-      <img src="${esc(item.src)}" alt="${esc(item.alt || project.name)}" loading="lazy" decoding="async">`).join('');
-  const dots = items.length > 1
-    ? `<div class="project-card-gallery-dots" data-gallery-dots>${items.map((_, index) => `<button type="button" class="project-card-gallery-dot${index === 0 ? ' is-active' : ''}" data-gallery-dot="${index}" aria-label="Show image ${index + 1} of ${items.length}"></button>`).join('')}</div>`
-    : '';
-
-  return `<div class="project-card-gallery" data-project-card-gallery data-card-url="${esc(project.output)}">
-      <div class="project-card-gallery-track" data-gallery-track>${slides}
-      </div>
-      ${dots}
-    </div>`;
-}
-
 const META_LABEL_KEYS = { From: 'common.from', Type: 'common.type', Status: 'common.status', Delivery: 'common.delivery' };
 
 // card.meta is raw [label, value] data on the English project object, never
@@ -315,7 +296,7 @@ function areaProjectCard(sourceProject, locale = DEFAULT_LOCALE) {
   const meta = localizedMeta(project, project.card?.meta || [], locale);
   const projectType = project.hero?.type || project.quickFacts?.find(([label]) => label === 'Property type')?.[1] || t('common.newDevelopment', locale);
   return `<article class="project-card area-project-card" data-project-card>
-    ${areaProjectCardGallery(project)}
+    ${renderProjectCardGallery(project)}
     <div class="project-body">
       <span class="label">${esc(project.card?.label || project.hero?.location || t('common.newDevelopment', locale))}</span>
       <h3>${esc(project.name)}</h3>

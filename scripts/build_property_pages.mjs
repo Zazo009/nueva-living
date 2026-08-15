@@ -17,6 +17,7 @@ import {
   LANG_SWITCHER_SCRIPT
 } from './lib/i18n.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
+import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 
 const {
   DEFAULT_PROPERTY_WEBHOOK_URL,
@@ -1588,87 +1589,6 @@ const CARD_IMAGE_SIZES = '(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30v
 // Media-grid tiles sit two-up on phones and four-up on desktop.
 const MEDIA_TILE_SIZES = '(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw';
 
-function renderProjectCardGallery(project) {
-  const items = (project.media?.items || []).slice(0, 6);
-  if (!items.length) return responsiveCardImageTag(cardImage(project));
-
-  // Card slides render around 350 CSS px wide but the source files are
-  // 1920px -- roughly 430KB each, six per card, which was the bulk of the
-  // homepage payload. Serve WebP at card-appropriate widths instead.
-  //
-  // <picture> is `display: contents` in CSS, so the <img> stays the flex
-  // item of the scroll track and every existing gallery rule applies
-  // unchanged -- the markup gets smaller files without moving a pixel.
-  const slides = items.map((item) => {
-    const img = `<img src="${esc(item.src)}" alt="${esc(item.alt || project.name)}" loading="lazy" decoding="async">`;
-    const match = String(item.src || '').match(/^(.*)\.(?:jpe?g)$/i);
-    if (!match) return `\n              ${img}`;
-    const base = match[1];
-    const candidates = [[`${base}-640.webp`, 640], [`${base}-960.webp`, 960]]
-      .filter(([file]) => existsSync(file))
-      .map(([file, width]) => `${esc(file)} ${width}w`);
-    if (!candidates.length) return `\n              ${img}`;
-    return `
-              <picture>
-                <source type="image/webp" srcset="${candidates.join(', ')}" sizes="${CARD_IMAGE_SIZES}">
-                ${img}
-              </picture>`;
-  }).join('');
-  const dots = items.length > 1
-    ? `<div class="project-card-gallery-dots" data-gallery-dots>${items.map((_, index) => `<button type="button" class="project-card-gallery-dot${index === 0 ? ' is-active' : ''}" data-gallery-dot="${index}" aria-label="Show image ${index + 1} of ${items.length}"></button>`).join('')}</div>`
-    : '';
-  const arrows = items.length > 1
-    ? `<button type="button" class="project-card-gallery-arrow project-card-gallery-arrow--prev" data-gallery-prev aria-label="Previous image">&#8249;</button>
-              <button type="button" class="project-card-gallery-arrow project-card-gallery-arrow--next" data-gallery-next aria-label="Next image">&#8250;</button>`
-    : '';
-
-  // The card carries six slides, but the fullscreen viewer opens the whole
-  // project -- 41 images on Elviria. Only the URLs and alt text ship with the
-  // page; the images themselves are fetched when the viewer opens.
-  //
-  // The list ships as a <template> of real <img alt="..."> rather than JSON,
-  // because the locale builds translate gallery captions by rewriting
-  // `alt="<english>"` across the rendered page (build_developments_locales
-  // applyCardImageAlts). Writing the captions in that exact shape means all
-  // 41 localize themselves; the same strings inside a JSON blob would have
-  // stayed English on every non-English page. Template content is inert, and
-  // the URL sits on data-src, so nothing here is fetched until the viewer
-  // opens.
-  const allImages = (project.media?.items || []).filter((item) => item.src && !item.video);
-  const manifest = allImages.length > 1
-    ? `\n              <template data-card-images>${allImages
-        .map((item) => {
-          const match = String(item.src).match(/^(.*)\.(?:jpe?g)$/i);
-          // A 2560px master per image is far too much for a phone scrolling
-          // forty of them; point at the WebP derivative where one exists.
-          const webp = match && existsSync(`${match[1]}-960.webp`) ? ` data-webp="${esc(`${match[1]}-960.webp`)}"` : '';
-          return `<img data-src="${esc(item.src)}"${webp} alt="${esc(item.alt || item.caption || project.name)}">`;
-        })
-        .join('')}</template>`
-    : '';
-
-  // Share and fullscreen sit with the shortlist heart in one corner cluster;
-  // nueva-shortlist.js drops the heart in at the top of this container.
-  // Labels are set at runtime from the gallery script's own dictionary, so
-  // every locale gets them without touching the page translation tables.
-  const actions = `
-              <div class="project-card-actions" data-card-actions>
-                <button type="button" class="project-card-action" data-card-share>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>
-                </button>${allImages.length > 1 ? `
-                <button type="button" class="project-card-action" data-card-expand>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5"></path></svg>
-                </button>` : ''}
-              </div>`;
-
-  return `<div class="project-card-gallery" data-project-card-gallery data-card-url="${esc(project.output)}"${attr('data-card-name', project.name)}>
-              <div class="project-card-gallery-track" data-gallery-track>${slides}
-              </div>
-              ${arrows}
-              ${dots}${actions}${manifest}
-            </div>`;
-}
-
 function renderProjectCard(project) {
   const meta = project.card?.meta || [
     ['From', project.hero?.startingPrice?.replace(/^From\s+/i, '') || 'On request'],
@@ -1703,7 +1623,7 @@ function renderProjectCard(project) {
   const propertyTypes = normaliseCardList(crm.propertyTypes);
 
   return `          <article class="project-card" id="${esc(project.slug)}" data-project-card${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', crm.constructionStatus)}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}>
-            ${renderProjectCardGallery(project)}
+            ${renderProjectCardGallery(project, { fallback: responsiveCardImageTag(cardImage(project)) })}
             <div class="project-body">
               <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
               <h3>${esc(project.name)}</h3>
@@ -1733,7 +1653,7 @@ function renderHomeCard(project, index) {
   const badge = card.badge || titleCase(discovery.status || 'Current Release');
   const loc = card.locExtended || card.label || project.hero?.location || '';
   const typeTag = card.typeTag || (discovery.locationTags || [])[0] || card.label || '';
-  const picture = renderProjectCardGallery(project);
+  const picture = renderProjectCardGallery(project, { fallback: responsiveCardImageTag(cardImage(project)) });
 
   return `      <div class="dev-card reveal" style="transition-delay:${(0.2 + index * 0.05).toFixed(2)}s" data-card-url="${esc(project.output)}">
         <div class="dev-img-wrap">
