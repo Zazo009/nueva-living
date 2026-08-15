@@ -1622,11 +1622,50 @@ function renderProjectCardGallery(project) {
               <button type="button" class="project-card-gallery-arrow project-card-gallery-arrow--next" data-gallery-next aria-label="Next image">&#8250;</button>`
     : '';
 
-  return `<div class="project-card-gallery" data-project-card-gallery data-card-url="${esc(project.output)}">
+  // The card carries six slides, but the fullscreen viewer opens the whole
+  // project -- 41 images on Elviria. Only the URLs and alt text ship with the
+  // page; the images themselves are fetched when the viewer opens.
+  //
+  // The list ships as a <template> of real <img alt="..."> rather than JSON,
+  // because the locale builds translate gallery captions by rewriting
+  // `alt="<english>"` across the rendered page (build_developments_locales
+  // applyCardImageAlts). Writing the captions in that exact shape means all
+  // 41 localize themselves; the same strings inside a JSON blob would have
+  // stayed English on every non-English page. Template content is inert, and
+  // the URL sits on data-src, so nothing here is fetched until the viewer
+  // opens.
+  const allImages = (project.media?.items || []).filter((item) => item.src && !item.video);
+  const manifest = allImages.length > 1
+    ? `\n              <template data-card-images>${allImages
+        .map((item) => {
+          const match = String(item.src).match(/^(.*)\.(?:jpe?g)$/i);
+          // A 2560px master per image is far too much for a phone scrolling
+          // forty of them; point at the WebP derivative where one exists.
+          const webp = match && existsSync(`${match[1]}-960.webp`) ? ` data-webp="${esc(`${match[1]}-960.webp`)}"` : '';
+          return `<img data-src="${esc(item.src)}"${webp} alt="${esc(item.alt || item.caption || project.name)}">`;
+        })
+        .join('')}</template>`
+    : '';
+
+  // Share and fullscreen sit with the shortlist heart in one corner cluster;
+  // nueva-shortlist.js drops the heart in at the top of this container.
+  // Labels are set at runtime from the gallery script's own dictionary, so
+  // every locale gets them without touching the page translation tables.
+  const actions = `
+              <div class="project-card-actions" data-card-actions>
+                <button type="button" class="project-card-action" data-card-share>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>
+                </button>${allImages.length > 1 ? `
+                <button type="button" class="project-card-action" data-card-expand>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5"></path></svg>
+                </button>` : ''}
+              </div>`;
+
+  return `<div class="project-card-gallery" data-project-card-gallery data-card-url="${esc(project.output)}"${attr('data-card-name', project.name)}>
               <div class="project-card-gallery-track" data-gallery-track>${slides}
               </div>
               ${arrows}
-              ${dots}
+              ${dots}${actions}${manifest}
             </div>`;
 }
 

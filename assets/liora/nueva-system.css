@@ -69,6 +69,17 @@ h6,
   border-bottom-color: rgba(168, 131, 74, 0.42);
 }
 
+/* The top bar's icon controls -- language, shortlist heart, burger -- are
+   one system. They were drifting apart (61x46, 46x44, 48x48, two border
+   opacities, two fills), which read as sloppy at a glance and left the
+   logo with literally zero gap beside it. One size, one line, one fill. */
+:root {
+  --nueva-nav-control: 44px;
+  --nueva-nav-control-gap: 8px;
+  --nueva-nav-control-line: rgba(168, 131, 74, 0.42);
+  --nueva-nav-control-fill: rgba(255, 250, 242, 0.05);
+}
+
 .site-nav .nav-logo,
 #nav .nav-logo {
   display: inline-flex;
@@ -107,13 +118,14 @@ h6,
 }
 
 .nav-burger {
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  min-height: 48px;
-  border: 1px solid rgba(168, 131, 74, 0.58);
+  width: var(--nueva-nav-control);
+  height: var(--nueva-nav-control);
+  min-width: var(--nueva-nav-control);
+  min-height: var(--nueva-nav-control);
+  flex: 0 0 var(--nueva-nav-control);
+  border: 1px solid var(--nueva-nav-control-line);
   border-radius: 0;
-  background: rgba(47, 36, 23, 0.18);
+  background: var(--nueva-nav-control-fill);
   color: var(--nueva-cream);
   touch-action: manipulation;
 }
@@ -798,12 +810,22 @@ html[lang="ru"] #nav .nav-links a {
 }
 
 [data-lang-switcher-compact] .lang-switcher-toggle {
-  min-height: 46px;
+  width: var(--nueva-nav-control);
+  height: var(--nueva-nav-control);
+  min-height: var(--nueva-nav-control);
   margin-top: 0;
-  padding: 0 10px;
-  border: 1px solid rgba(168, 131, 74, 0.34);
-  background: rgba(255, 250, 242, 0.035);
+  padding: 0;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--nueva-nav-control-line);
+  background: var(--nueva-nav-control-fill);
   color: rgba(244, 234, 217, 0.94);
+}
+
+/* The caret costs ~15px of a bar that has none to spare, and the open
+   panel already says which language is active. Code only on mobile. */
+[data-lang-switcher-compact] .lang-switcher-caret {
+  display: none;
 }
 
 /* Restore the floating panel the menu variant had flattened. */
@@ -833,4 +855,273 @@ html[lang="ru"] #nav .nav-links a {
 [data-lang-switcher-compact] .lang-switcher-option.is-active {
   background: rgba(199, 163, 107, 0.16);
   color: var(--nueva-gold-light);
+}
+
+/* ---------- Top-bar control cluster ---------- */
+
+.site-nav .nueva-shortlist-mobile-trigger,
+#nav .nueva-shortlist-mobile-trigger {
+  width: var(--nueva-nav-control);
+  height: var(--nueva-nav-control);
+  min-width: var(--nueva-nav-control);
+  min-height: var(--nueva-nav-control);
+  flex: 0 0 var(--nueva-nav-control);
+  border: 1px solid var(--nueva-nav-control-line);
+  background: var(--nueva-nav-control-fill);
+}
+
+/* The count sat on a negative margin that threw it clear of the button and
+   into the controls beside it. Pin it inside the top-inline-end corner. */
+.site-nav .nueva-shortlist-mobile-trigger .nueva-shortlist-count,
+#nav .nueva-shortlist-mobile-trigger .nueva-shortlist-count {
+  position: absolute;
+  top: -7px;
+  inset-inline-end: -7px;
+  margin: 0;
+}
+
+.site-nav [data-lang-switcher-compact],
+#nav [data-lang-switcher-compact] {
+  margin: 0 var(--nueva-nav-control-gap) 0 0;
+}
+
+[dir="rtl"] .site-nav [data-lang-switcher-compact],
+[dir="rtl"] #nav [data-lang-switcher-compact] {
+  margin: 0 0 0 var(--nueva-nav-control-gap);
+}
+
+.site-nav .nueva-shortlist-mobile-trigger,
+#nav .nueva-shortlist-mobile-trigger {
+  margin-inline-end: var(--nueva-nav-control-gap);
+}
+
+/* An empty shortlist has nothing to report, and the badge was overflowing
+   the button's corner into its neighbours to say "0". */
+.nueva-shortlist-trigger:not(.has-saved) .nueva-shortlist-count {
+  display: none;
+}
+
+/* The logo was being squeezed to 152px by the controls beside it. Hold a
+   floor and a real gap so it can never be crowded again. */
+@media (max-width: 1120px) {
+  .site-nav .nav-logo,
+  #nav .nav-logo {
+    flex: 0 1 auto;
+    margin-inline-end: auto;
+    padding-inline-end: 16px;
+  }
+
+  .site-nav .nav-logo img,
+  #nav .nav-logo img {
+    width: clamp(170px, 50vw, 240px);
+    min-width: 170px;
+  }
+}
+
+/* ---------- Project card gallery, actions and fullscreen viewer ----------
+   These live here rather than in liora-pages.css because the homepage does
+   not load that stylesheet, and the cards are on the homepage too. Build
+   inlines this file into every page. */
+
+/* Once the script takes over, the horizontal scroller stops being a
+   scroller. A vertical swipe that starts on a card image was being
+   swallowed by this element -- mandatory snapping plus snap-stop holds the
+   gesture until it lands on the next slide, so the page froze while the
+   photo slid sideways. `touch-action: pan-y` was supposed to prevent that
+   and does in desktop emulation, but it was not holding on real phones.
+   Removing the scroll entirely and moving a transform instead means there
+   is no horizontal scroller left to capture anything: the script decides
+   the axis on the first 10px and only claims the gesture if it is sideways.
+   The plain scroller stays in the markup for the no-JS case. */
+.project-card-gallery.is-swipe .project-card-gallery-track {
+  overflow: hidden;
+  scroll-snap-type: none;
+  touch-action: pan-y;
+  will-change: transform;
+}
+
+.project-card-gallery.is-swipe .project-card-gallery-track img {
+  scroll-snap-align: none;
+  scroll-snap-stop: normal;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* ---------- Card action cluster ---------- */
+
+/* A row, not a column: the card image is wider than it is tall, and three
+   stacked buttons ate two thirds of its height. */
+.project-card-actions {
+  position: absolute;
+  z-index: 9;
+  top: 12px;
+  inset-inline-end: 12px;
+  display: flex;
+  gap: 7px;
+}
+
+.project-card-action,
+.project-card-actions .nueva-favorite-button {
+  position: static;
+  width: 40px;
+  height: 40px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(244, 234, 217, 0.34);
+  border-radius: 1px;
+  background: rgba(24, 18, 11, 0.5);
+  color: #f4ead9;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.project-card-action svg {
+  width: 17px;
+  height: 17px;
+}
+
+.project-card-action:hover,
+.project-card-action:focus-visible {
+  border-color: rgba(244, 234, 217, 0.85);
+  background: rgba(24, 18, 11, 0.78);
+}
+
+/* Arrows are revealed on hover, which no touch device can do -- without
+   this the only way to change image on a phone was the swipe. */
+@media (hover: none) {
+  .project-card-gallery .project-card-gallery-arrow {
+    opacity: 1;
+  }
+}
+
+/* ---------- Fullscreen viewer ---------- */
+
+/* One vertical scroll through every photo in the project, the same shape as
+   the media dialog on the property pages -- not a click-through. */
+
+body.card-lightbox-open {
+  overflow: hidden;
+}
+
+.card-lightbox {
+  position: fixed;
+  z-index: 60030;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: #0e0a06;
+}
+
+.card-lightbox[hidden] {
+  display: none;
+}
+
+.card-lightbox-bar {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  background: #0e0a06;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px clamp(16px, 3vw, 32px);
+  border-bottom: 1px solid rgba(168, 131, 74, 0.28);
+}
+
+.card-lightbox-title {
+  min-width: 0;
+  overflow: hidden;
+  color: #f4ead9;
+  font-family: var(--display-font, "Cinzel", Georgia, serif);
+  font-size: clamp(14px, 2.4vw, 19px);
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-lightbox-count {
+  margin-inline-start: auto;
+  color: var(--bronze, #a8834a);
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.card-lightbox-close {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(244, 234, 217, 0.4);
+  background: rgba(30, 23, 14, 0.5);
+  color: #f4ead9;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.card-lightbox-close:hover,
+.card-lightbox-close:focus-visible {
+  border-color: #f4ead9;
+  background: rgba(30, 23, 14, 0.85);
+}
+
+.card-lightbox-stack {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: clamp(16px, 3vw, 34px);
+  scroll-snap-type: y proximity;
+}
+
+.card-lightbox-item {
+  max-width: 1180px;
+  margin: 0 auto 28px;
+  scroll-snap-align: start;
+}
+
+.card-lightbox-item:last-child {
+  margin-bottom: 0;
+}
+
+.card-lightbox-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card-lightbox-item figcaption {
+  margin-top: 10px;
+  color: rgba(244, 234, 217, 0.82);
+  font-family: var(--body-font, "Montserrat", Arial, sans-serif);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+
+/* On the homepage cards the gallery sits inside .dev-img-wrap alongside a
+   badge (z-index 3) and a gradient (z-index 2). The gallery's own z-index
+   made it a stacking context, trapping the action cluster underneath the
+   badge -- with a long badge like "OFF-PLAN, PRIVATE AVAILABILITY" the
+   heart disappeared behind it. Dropping the gallery to z-auto lets the
+   cluster's z-index compete with the badge directly, while the gradient
+   still paints over the photo. */
+.dev-img-wrap .project-card-gallery {
+  z-index: auto;
+}
+
+/* And the badge stops short of the buttons rather than running under them. */
+.dev-img-wrap .dev-badge {
+  max-width: calc(100% - 170px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

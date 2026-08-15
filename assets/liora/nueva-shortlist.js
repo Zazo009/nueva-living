@@ -241,9 +241,15 @@
       const project = projectFromCard(card);
       if (!project) return;
 
-      const target = card.matches('.dev-card') ? card.querySelector('.dev-img-wrap') : card;
+      // The card gallery ships an action cluster (share, fullscreen). When
+      // it is there the heart joins it as the first item instead of floating
+      // on its own, so the three controls read as one group.
+      const cluster = card.querySelector('[data-card-actions]');
+      const target = cluster || (card.matches('.dev-card') ? card.querySelector('.dev-img-wrap') : card);
       if (!target) return;
-      target.appendChild(favoriteButton(project));
+      const button = favoriteButton(project);
+      if (cluster) cluster.insertBefore(button, cluster.firstElementChild);
+      else target.appendChild(button);
       card.dataset.shortlistReady = 'true';
     });
   }

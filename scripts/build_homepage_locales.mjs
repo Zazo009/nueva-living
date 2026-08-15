@@ -22,7 +22,7 @@
 // content, which is honest fallback behaviour, not a broken or empty route.
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, localizeInternalLinks, seoTags, pageSchema } from './lib/i18n.mjs';
+import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, localizeInternalLinks, seoTags, pageSchema, LANG_SWITCHER_SCRIPT } from './lib/i18n.mjs';
 import { loadProjects, renderViewingBlocks } from './lib/viewing.mjs';
 import { BESPOKE_SCENE_ENTRIES } from './lib/bespoke_scene_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -394,16 +394,6 @@ function renderSwitcherHtml(locale, forMobile) {
     </details>`;
   return forMobile ? inner : `<li>${inner}</li>`;
 }
-
-const LANG_SWITCHER_SCRIPT = `<script>
-  document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
-    document.addEventListener('click', (event) => {
-      if (!el.open) return;
-      if (el.contains(event.target)) return;
-      el.open = false;
-    });
-  });
-</script>`;
 
 const siteUrl = 'https://nuevaliving.com';
 function hreflangBlock() {
