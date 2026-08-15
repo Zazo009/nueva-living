@@ -112,6 +112,37 @@ export function baseHrefTag(locale) {
   return localeMeta(locale).urlPrefix ? '  <base href="../">\n' : '';
 }
 
+// `<base href="../">` makes relative ASSET paths resolve correctly from one
+// directory deeper -- but it does the same thing to relative PAGE links, so
+// a bare href="guides.html" on es/about.html resolves to the ENGLISH
+// /guides.html. That silently dropped the reader back into English from
+// every nav link, footer link, breadcrumb and logo on every locale page.
+//
+// This rewrites internal page links to sit inside the locale directory
+// (guides.html -> es/guides.html, which `<base>` then resolves to
+// /es/guides.html). Applied to already-rendered HTML so it covers links
+// wherever they were written, rather than relying on every one of the
+// hundreds of call sites remembering to localize itself.
+//
+// Left alone: absolute paths (the language switcher deliberately uses
+// those to move BETWEEN locales), external URLs, anchors, mailto/tel,
+// asset paths, and anything already carrying the locale prefix.
+export function localizeInternalLinks(html, locale) {
+  const meta = localeMeta(locale);
+  if (!meta.urlPrefix) return html;
+  const prefix = meta.urlPrefix;
+
+  return html.replace(/href="([^"]+)"/g, (whole, url) => {
+    if (/^(?:[a-z][a-z0-9+.-]*:|\/\/|\/|#)/i.test(url)) return whole;
+    if (url.startsWith(`${prefix}/`)) return whole;
+    // Only page links: must be an .html file at the top level, optionally
+    // followed by a query string and/or fragment. Asset paths (which live
+    // under assets/…) never match because of the leading-directory check.
+    if (!/^[A-Za-z0-9._-]+\.html(?:[?#].*)?$/.test(url)) return whole;
+    return `href="${prefix}/${url}"`;
+  });
+}
+
 // Renders the on-brand language switcher: a native <details>/<summary>
 // primitive (accessible, keyboard-operable, zero JS dependency by default)
 // styled entirely through the site's own design tokens rather than a

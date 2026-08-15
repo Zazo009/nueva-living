@@ -8,6 +8,13 @@
   try { i18n = JSON.parse(root.dataset.i18n || '{}'); } catch { i18n = {}; }
   const tt = (key, fallback) => i18n[key] || fallback;
 
+  // Locale pages carry <base href="../">, so a bare "developments.html"
+  // written from JS would resolve to the ENGLISH page and drop the reader
+  // out of their language. See the matching helper in nueva-shortlist.js.
+  const LOCALE_DIRS = ['es', 'fr', 'de', 'ru', 'ar'];
+  const localeDir = LOCALE_DIRS.find((dir) => location.pathname.startsWith('/' + dir + '/')) || '';
+  const localeHref = (page) => (localeDir ? localeDir + '/' + page : page);
+
   const storageKey = 'nueva-living-shortlist-v1';
 
   function readShortlist() {
@@ -64,7 +71,7 @@
   function emptyState(message) {
     root.innerHTML = `<div class="compare-empty">
       <p class="body-copy">${message}</p>
-      <a class="btn" href="developments.html">${tt('browse', 'Browse Developments')}</a>
+      <a class="btn" href="${localeHref('developments.html')}">${tt('browse', 'Browse Developments')}</a>
     </div>`;
   }
 

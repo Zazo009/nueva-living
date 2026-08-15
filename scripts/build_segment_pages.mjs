@@ -11,7 +11,8 @@ import {
   hreflangLinks,
   baseHrefTag,
   renderLanguageSwitcher,
-  LANG_SWITCHER_SCRIPT
+  LANG_SWITCHER_SCRIPT,
+  localizeInternalLinks
 } from './lib/i18n.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -488,7 +489,7 @@ ${JSON.stringify(schema, null, 2)}
   ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>`;
-  return applySegmentPageTranslations(html, locale);
+  return localizeInternalLinks(applySegmentPageTranslations(html, locale), locale);
 }
 
 function lowestPriceAcrossSegments() {
@@ -718,7 +719,7 @@ ${JSON.stringify(schema, null, 2)}
   ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>`;
-  return applySegmentPageTranslations(html, locale);
+  return localizeInternalLinks(applySegmentPageTranslations(html, locale), locale);
 }
 
 // Same general buyer-process FAQ used on every property page

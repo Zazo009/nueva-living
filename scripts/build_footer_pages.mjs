@@ -11,7 +11,8 @@ import {
   baseHrefTag,
   renderLanguageSwitcher,
   LANG_SWITCHER_SCRIPT,
-  localizeProject
+  localizeProject,
+  localizeInternalLinks
 } from './lib/i18n.mjs';
 import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -258,7 +259,7 @@ ${fontPreloadBlock}
   ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>`;
-  return applyFooterPageTranslations(html, locale);
+  return localizeInternalLinks(applyFooterPageTranslations(html, locale), locale);
 }
 
 function esc(value) {

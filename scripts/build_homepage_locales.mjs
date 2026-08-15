@@ -22,7 +22,7 @@
 // content, which is honest fallback behaviour, not a broken or empty route.
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl } from './lib/i18n.mjs';
+import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, localizeInternalLinks } from './lib/i18n.mjs';
 import { loadProjects, renderViewingBlocks } from './lib/viewing.mjs';
 import { BESPOKE_SCENE_ENTRIES } from './lib/bespoke_scene_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -485,6 +485,7 @@ for (const meta of LOCALES) {
 
   const outPath = path.join(root, meta.urlPrefix, 'index.html');
   mkdirSync(path.dirname(outPath), { recursive: true });
+  html = localizeInternalLinks(html, locale);
   writeFileSync(outPath, html);
   written.push(`${meta.urlPrefix}/index.html`);
 }

@@ -7,6 +7,16 @@
   let renderedCount = null;
 
   const locale = document.documentElement.getAttribute('lang') || 'en';
+
+  // Locale pages carry <base href="../">, so a bare "developments.html"
+  // written from JS resolves to the ENGLISH page and silently drops the
+  // reader out of their language. Prefix links injected at runtime with the
+  // locale directory, mirroring what the build does for server-rendered
+  // markup. Derived from the URL rather than <html lang> so it stays right
+  // even if the two ever disagree.
+  const LOCALE_DIRS = ['es', 'fr', 'de', 'ru', 'ar'];
+  const localeDir = LOCALE_DIRS.find((dir) => location.pathname.startsWith('/' + dir + '/')) || '';
+  const localeHref = (page) => (localeDir ? localeDir + '/' + page : page);
   const STRINGS = {
     saveProject: { en: 'Save Project', es: 'Guardar Proyecto', fr: 'Enregistrer le Projet', de: 'Projekt Speichern', ru: 'Сохранить проект', ar: 'حفظ المشروع' },
     savedToShortlist: { en: 'Saved to Shortlist', es: 'Guardado en tu Lista', fr: 'Enregistré dans la Liste', de: 'Zur Merkliste hinzugefügt', ru: 'Сохранено в списке', ar: 'تم الحفظ في القائمة' },
@@ -349,7 +359,7 @@
       <div class="nueva-shortlist-empty">
         <span class="nueva-shortlist-empty-icon">${heartIcon()}</span>
         <p>${t('emptyText')}</p>
-        <a class="nueva-shortlist-browse" href="developments.html">${t('browseDevelopments')}</a>
+        <a class="nueva-shortlist-browse" href="${localeHref('developments.html')}">${t('browseDevelopments')}</a>
       </div>`;
   }
 
@@ -398,7 +408,7 @@
 
     body.innerHTML = savedProjects.length
       ? `<ol class="nueva-shortlist-items">${savedProjects.map(itemMarkup).join('')}</ol>${
-          savedProjects.length >= 2 ? `<a class="nueva-shortlist-compare" href="compare.html">${t('compareSaved')}</a>` : ''
+          savedProjects.length >= 2 ? `<a class="nueva-shortlist-compare" href="${localeHref('compare.html')}">${t('compareSaved')}</a>` : ''
         }${formMarkup()}`
       : emptyMarkup();
 
