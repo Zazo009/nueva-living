@@ -695,13 +695,51 @@ function injectSeo(html, file) {
 // loader as high in <head> as possible (right after <meta charset>), and
 // the noscript iframe immediately after the opening <body> tag.
 const GTM_ID = 'GTM-NKMT6NZL';
-const gtmHeadSnippet = `<!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','${GTM_ID}');</script>
-  <!-- End Google Tag Manager -->`;
+const GA4_ID = 'G-5WMQ4FZQCM';
+const gtmHeadSnippet = `<!-- Google Tag Manager + Google tag (gtag.js) -->
+  <script>
+    // The two Google tags together weigh ~445KB and were loading at
+    // 250-500ms, straight through the critical path -- under simulated
+    // slow 4G they starved the hero paint and pushed LCP out by seconds.
+    //
+    // Nothing is dropped. dataLayer and gtag() are defined immediately and
+    // the usual gtm.start / js / config calls run right away, so every hit
+    // is queued in order; both libraries replay that queue when they load.
+    // Only the two script downloads are moved off the critical path, to
+    // after load and then the first idle moment (with a timeout so they
+    // still fire on a busy main thread), or to the first user interaction,
+    // whichever comes first.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    gtag('js', new Date());
+    gtag('config', '${GA4_ID}');
+    (function (w, d) {
+      var started = false;
+      function start() {
+        if (started) return;
+        started = true;
+        ['https://www.googletagmanager.com/gtm.js?id=${GTM_ID}',
+         'https://www.googletagmanager.com/gtag/js?id=${GA4_ID}'].forEach(function (src) {
+          var s = d.createElement('script');
+          s.async = true;
+          s.src = src;
+          d.head.appendChild(s);
+        });
+      }
+      function schedule() {
+        if ('requestIdleCallback' in w) w.requestIdleCallback(start, { timeout: 3000 });
+        else w.setTimeout(start, 1200);
+      }
+      // Never let a real interaction go unmeasured while we are waiting.
+      ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (evt) {
+        w.addEventListener(evt, start, { once: true, passive: true });
+      });
+      if (d.readyState === 'complete') schedule();
+      else w.addEventListener('load', schedule, { once: true });
+    })(window, document);
+  </script>
+  <!-- End Google Tag Manager + Google tag -->`;
 const gtmBodySnippet = `<!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -712,17 +750,6 @@ const gtmBodySnippet = `<!-- Google Tag Manager (noscript) -->
 // gtag.js directly means GA4 reports even if no GA4 tag is configured
 // inside the GTM container. They share window.dataLayer safely -- gtag()
 // pushes onto the same queue GTM already created.
-const GA4_ID = 'G-5WMQ4FZQCM';
-const ga4HeadSnippet = `<!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_ID}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '${GA4_ID}');
-  </script>
-  <!-- End Google tag (gtag.js) -->`;
-
 function injectGtm(html) {
   let next = html;
   // Warm the connection to Google's tag origin. Both GTM and GA4 load from
@@ -735,9 +762,7 @@ function injectGtm(html) {
   const hasGa4 = next.includes(GA4_ID);
   if (hasGtm && hasGa4) return next;
 
-  const headBlock = [hasGtm ? '' : gtmHeadSnippet, hasGa4 ? '' : ga4HeadSnippet]
-    .filter(Boolean)
-    .join('\n  ');
+  const headBlock = gtmHeadSnippet;
 
   const charsetMatch = next.match(/<meta charset=[^>]*>/i);
   if (charsetMatch) {
