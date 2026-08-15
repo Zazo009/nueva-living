@@ -2483,6 +2483,11 @@ body {
   color: #2f2417;
 }
 
+/* Media-grid tiles use <picture> for WebP; the wrapper generates no box
+   so the <img> keeps its own sizing rules. */
+.project-media-card picture,
+.project-media-grid picture { display: contents; }
+
 .project-media-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));

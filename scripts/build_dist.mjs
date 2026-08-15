@@ -725,6 +725,12 @@ const ga4HeadSnippet = `<!-- Google tag (gtag.js) -->
 
 function injectGtm(html) {
   let next = html;
+  // Warm the connection to Google's tag origin. Both GTM and GA4 load from
+  // it, so paying DNS + TLS once up front keeps them off the critical path.
+  if (!next.includes('rel="preconnect" href="https://www.googletagmanager.com"')) {
+    next = next.replace(/<meta charset=[^>]*>/i, (m) =>
+      `${m}\n  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>\n  <link rel="dns-prefetch" href="https://www.googletagmanager.com">`);
+  }
   const hasGtm = next.includes(`id=${GTM_ID}`) || next.includes(`'${GTM_ID}'`);
   const hasGa4 = next.includes(GA4_ID);
   if (hasGtm && hasGa4) return next;
@@ -786,11 +792,22 @@ function injectNavInteractions(html) {
   );
 }
 
+// Inlined rather than linked. This was the only truly render-blocking
+// stylesheet left on every page: an extra round trip before first paint,
+// worth ~300ms on a slow connection. It cannot simply be deferred --
+// it styles the nav controls and language switcher, which are above the
+// fold, so loading it late would flash unstyled controls.
+//
+// At ~17KB (a few KB gzipped) inlining is the better trade: same CSS, same
+// position (last in <head>, so cascade order is unchanged), one less
+// blocking request. Pages already inline their critical CSS the same way.
+const systemStylesheetCss = fs.readFileSync(path.join(root, systemStylesheetPath), 'utf8');
+
 function injectSystemStyles(html) {
-  if (html.includes(systemStylesheetPath)) return html;
+  if (html.includes(systemStylesheetPath) || html.includes('data-nueva-system')) return html;
   return html.replace(
     /\n<\/head>/i,
-    `\n  <link rel="stylesheet" href="${systemStylesheetPath}?v=${systemStylesheetVersion}">\n</head>`
+    `\n  <style data-nueva-system>${systemStylesheetCss}</style>\n</head>`
   );
 }
 

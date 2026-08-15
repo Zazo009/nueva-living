@@ -1414,6 +1414,12 @@ img {
   display: none;
 }
 
+/* The card gallery serves WebP through <picture>. `display: contents`
+   removes the wrapper's box so the <img> stays the flex item of the
+   scroll track and every rule below still targets it directly -- smaller
+   files, identical layout. */
+.project-card-gallery-track picture { display: contents; }
+
 .project-card-gallery-track img {
   flex: 0 0 100%;
   width: 100%;

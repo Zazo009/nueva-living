@@ -172,12 +172,12 @@ function pictureTag(img, className = '', loading = 'lazy', options = {}) {
   const match = String(img.src || '').match(/^(.*)\.(?:jpe?g)$/i);
   if (!match) return imageTag(img, className, loading, options);
   const base = match[1];
-  const full = `${base}.webp`;
-  const small = `${base}-960.webp`;
-  if (!existsSync(full)) return imageTag(img, className, loading, options);
-  const srcset = existsSync(small)
-    ? `${esc(small)} 960w, ${esc(full)} ${img.width || 1920}w`
-    : `${esc(full)} ${img.width || 1920}w`;
+  if (!existsSync(`${base}.webp`)) return imageTag(img, className, loading, options);
+  const srcset = [
+    [`${base}-640.webp`, 640],
+    [`${base}-960.webp`, 960],
+    [`${base}.webp`, img.width || 1920]
+  ].filter(([file]) => existsSync(file)).map(([file, w]) => `${esc(file)} ${w}w`).join(', ');
   const sizes = options.sizes || '100vw';
   return `<picture>
         <source type="image/webp" srcset="${srcset}" sizes="${esc(sizes)}">
@@ -267,7 +267,7 @@ function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
     const categoryLabel = localizedCategory(category, locale);
     const imageLabel = count === 1 ? t('media.imageCountSingular', locale) : t('media.imagesCount', locale, { count });
     return `<button type="button" class="project-media-card project-media-card--category" data-media-category="${esc(category)}" aria-label="${esc(t('media.viewImagesInCategory', locale, { count, category: categoryLabel }))}">
-              ${imageTag(item, '', 'lazy')}
+              ${pictureTag(item, '', 'lazy', { sizes: MEDIA_TILE_SIZES })}
               <span class="project-media-caption">
                 <small>${esc(categoryLabel)}</small>
                 <strong>${esc(item.caption || '')}</strong>
@@ -1456,12 +1456,40 @@ export function loadProjects() {
     });
 }
 
+// Project cards sit one-per-row on phones, two across on tablets and
+// three on desktop, so the rendered width never approaches the 1920px
+// source.
+const CARD_IMAGE_SIZES = '(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw';
+
+// Media-grid tiles sit two-up on phones and four-up on desktop.
+const MEDIA_TILE_SIZES = '(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw';
+
 function renderProjectCardGallery(project) {
   const items = (project.media?.items || []).slice(0, 6);
   if (!items.length) return responsiveCardImageTag(cardImage(project));
 
-  const slides = items.map((item) => `
-              <img src="${esc(item.src)}" alt="${esc(item.alt || project.name)}" loading="lazy" decoding="async">`).join('');
+  // Card slides render around 350 CSS px wide but the source files are
+  // 1920px -- roughly 430KB each, six per card, which was the bulk of the
+  // homepage payload. Serve WebP at card-appropriate widths instead.
+  //
+  // <picture> is `display: contents` in CSS, so the <img> stays the flex
+  // item of the scroll track and every existing gallery rule applies
+  // unchanged -- the markup gets smaller files without moving a pixel.
+  const slides = items.map((item) => {
+    const img = `<img src="${esc(item.src)}" alt="${esc(item.alt || project.name)}" loading="lazy" decoding="async">`;
+    const match = String(item.src || '').match(/^(.*)\.(?:jpe?g)$/i);
+    if (!match) return `\n              ${img}`;
+    const base = match[1];
+    const candidates = [[`${base}-640.webp`, 640], [`${base}-960.webp`, 960]]
+      .filter(([file]) => existsSync(file))
+      .map(([file, width]) => `${esc(file)} ${width}w`);
+    if (!candidates.length) return `\n              ${img}`;
+    return `
+              <picture>
+                <source type="image/webp" srcset="${candidates.join(', ')}" sizes="${CARD_IMAGE_SIZES}">
+                ${img}
+              </picture>`;
+  }).join('');
   const dots = items.length > 1
     ? `<div class="project-card-gallery-dots" data-gallery-dots>${items.map((_, index) => `<button type="button" class="project-card-gallery-dot${index === 0 ? ' is-active' : ''}" data-gallery-dot="${index}" aria-label="Show image ${index + 1} of ${items.length}"></button>`).join('')}</div>`
     : '';
