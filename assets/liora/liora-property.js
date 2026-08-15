@@ -428,3 +428,81 @@
     revealItems.forEach((item) => item.classList.add('in'));
   }
 })();
+
+// ---------- Availability filtering ----------
+// The release table can run to sixty rows. Bedroom and price-band chips are
+// emitted at build time (with the units' parsed values on each <tr>), so all
+// this has to do is show and hide rows. Everything stays in the DOM, so the
+// table is complete for search engines and for anyone without JS.
+(function () {
+  document.querySelectorAll('[data-availability-filters]').forEach((panel) => {
+    const release = panel.closest('.availability-release');
+    const table = release?.querySelector('.availability-table');
+    const empty = release?.querySelector('[data-availability-empty]');
+    const countEl = panel.querySelector('[data-availability-count]');
+    const clearBtn = panel.querySelector('[data-availability-clear]');
+    if (!table) return;
+
+    const rows = Array.from(table.querySelectorAll('tbody tr'));
+    const template = panel.getAttribute('data-count-template') || '';
+    const active = { beds: 'all', price: 'all' };
+
+    const matches = (row) => {
+      if (active.beds !== 'all' && row.dataset.beds !== active.beds) return false;
+      if (active.price !== 'all') {
+        const price = Number(row.dataset.price);
+        if (!Number.isFinite(price)) return false;
+        const [min, max] = active.price.split('-');
+        if (price < Number(min)) return false;
+        if (max !== '' && price >= Number(max)) return false;
+      }
+      return true;
+    };
+
+    const apply = () => {
+      let shown = 0;
+      rows.forEach((row) => {
+        const visible = matches(row);
+        row.hidden = !visible;
+        if (visible) shown += 1;
+      });
+
+      const filtered = active.beds !== 'all' || active.price !== 'all';
+      if (countEl) {
+        countEl.textContent = filtered
+          ? template.replace('{shown}', String(shown)).replace('{total}', String(rows.length))
+          : '';
+      }
+      if (clearBtn) clearBtn.hidden = !filtered;
+      if (empty) empty.hidden = shown > 0;
+      // A header over nothing reads as a broken table.
+      table.hidden = shown === 0;
+    };
+
+    panel.querySelectorAll('[data-filter-group]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const group = button.getAttribute('data-filter-group');
+        active[group] = button.getAttribute('data-filter-value');
+        panel.querySelectorAll(`[data-filter-group="${group}"]`).forEach((peer) => {
+          const on = peer === button;
+          peer.classList.toggle('is-active', on);
+          peer.setAttribute('aria-pressed', String(on));
+        });
+        apply();
+      });
+    });
+
+    clearBtn?.addEventListener('click', () => {
+      active.beds = 'all';
+      active.price = 'all';
+      panel.querySelectorAll('[data-filter-group]').forEach((peer) => {
+        const on = peer.getAttribute('data-filter-value') === 'all';
+        peer.classList.toggle('is-active', on);
+        peer.setAttribute('aria-pressed', String(on));
+      });
+      apply();
+    });
+
+    apply();
+  });
+})();

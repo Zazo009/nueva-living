@@ -30,8 +30,8 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=57f25ccc3e20">
-  <script src="assets/liora/liora-property.js?v=14eb306909a6" defer></script>
+  <link rel="stylesheet" href="assets/liora/liora-property.css?v=573dd34285b3">
+  <script src="assets/liora/liora-property.js?v=91ccacef5e6e" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -506,173 +506,200 @@
               <span>View All 24 Available Homes</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
+            <div class="availability-filters" role="group" aria-label="Filter available homes"
+              data-availability-filters
+              data-count-template="Showing {shown} of {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Bedrooms</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="1" aria-pressed="false">1 bed</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="2" aria-pressed="false">2 bed</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="3" aria-pressed="false">3 bed</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="4" aria-pressed="false">4 bed</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Price</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-750000" aria-pressed="false">Under €750k</button>
+                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="750000-" aria-pressed="false">€750k+</button>
+                </div>
+              </div>
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Clear filters</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>No homes match these filters.</p>
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Available homes at Marbella West Garden Residences</caption>
                 <thead><tr><th scope="col">Reference</th><th scope="col">Floor</th><th scope="col">Bedrooms</th><th scope="col">Price</th><th scope="col">Status</th></tr></thead>
                 <tbody>
-              <tr>
+              <tr data-beds="2" data-price="705400">
                 <td data-label="Reference"><strong>TG-11D</strong></td>
                 <td data-label="Floor">First floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€705,400</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="743814">
                 <td data-label="Reference"><strong>TG-51B</strong></td>
                 <td data-label="Floor">First floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€743,814</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="676465">
                 <td data-label="Reference"><strong>TG-61D</strong></td>
                 <td data-label="Floor">First floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€676,465</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="632775">
                 <td data-label="Reference"><strong>TG-61E</strong></td>
                 <td data-label="Floor">First floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€632,775</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="631150">
                 <td data-label="Reference"><strong>TG-71C</strong></td>
                 <td data-label="Floor">First floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€631,150</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="806600">
                 <td data-label="Reference"><strong>TG-71D</strong></td>
                 <td data-label="Floor">First floor</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
                 <td data-label="Price"><strong>€806,600</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="4" data-price="1688400">
                 <td data-label="Reference"><strong>TG-71F</strong></td>
                 <td data-label="Floor">First floor</td>
                 <td data-label="Bedrooms">4 bedrooms</td>
                 <td data-label="Price"><strong>€1,688,400</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="670850">
                 <td data-label="Reference"><strong>TG-12C</strong></td>
                 <td data-label="Floor">Second floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€670,850</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="733700">
                 <td data-label="Reference"><strong>TG-12D</strong></td>
                 <td data-label="Floor">Second floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€733,700</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="704400">
                 <td data-label="Reference"><strong>TG-62D</strong></td>
                 <td data-label="Floor">Second floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€704,400</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="666350">
                 <td data-label="Reference"><strong>TG-62E</strong></td>
                 <td data-label="Floor">Second floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€666,350</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="666200">
                 <td data-label="Reference"><strong>TG-72C</strong></td>
                 <td data-label="Floor">Second floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€666,200</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="872250">
                 <td data-label="Reference"><strong>TG-72D</strong></td>
                 <td data-label="Floor">Second floor</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
                 <td data-label="Price"><strong>€872,250</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1018050">
                 <td data-label="Reference"><strong>TG-13A</strong></td>
                 <td data-label="Floor">Third floor</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
                 <td data-label="Price"><strong>€1,018,050</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="731650">
                 <td data-label="Reference"><strong>TG-13C</strong></td>
                 <td data-label="Floor">Third floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€731,650</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="796500">
                 <td data-label="Reference"><strong>TG-13D</strong></td>
                 <td data-label="Floor">Third floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€796,500</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="758565">
                 <td data-label="Reference"><strong>TG-32E</strong></td>
                 <td data-label="Floor">Third floor</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
                 <td data-label="Price"><strong>€758,565</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="762600">
                 <td data-label="Reference"><strong>TG-53A</strong></td>
                 <td data-label="Floor">Third floor</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
                 <td data-label="Price"><strong>€762,600</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="1" data-price="595200">
                 <td data-label="Reference"><strong>TG-63A</strong></td>
                 <td data-label="Floor">Third floor</td>
                 <td data-label="Bedrooms">1 bedroom</td>
                 <td data-label="Price"><strong>€595,200</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="734950">
                 <td data-label="Reference"><strong>TG-63C</strong></td>
                 <td data-label="Floor">Third floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€734,950</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="954650">
                 <td data-label="Reference"><strong>TG-73D</strong></td>
                 <td data-label="Floor">Third floor</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
                 <td data-label="Price"><strong>€954,650</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="830000">
                 <td data-label="Reference"><strong>TG-24E</strong></td>
                 <td data-label="Floor">Fourth floor</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
                 <td data-label="Price"><strong>€830,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="777000">
                 <td data-label="Reference"><strong>TG-74C</strong></td>
                 <td data-label="Floor">Fourth floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Price"><strong>€777,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr>
+              <tr data-beds="4" data-price="2953200">
                 <td data-label="Reference"><strong>TG-74F</strong></td>
                 <td data-label="Floor">Fourth floor</td>
                 <td data-label="Bedrooms">4 bedrooms</td>

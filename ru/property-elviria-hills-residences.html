@@ -31,8 +31,8 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=57f25ccc3e20">
-  <script src="assets/liora/liora-property.js?v=14eb306909a6" defer></script>
+  <link rel="stylesheet" href="assets/liora/liora-property.css?v=573dd34285b3">
+  <script src="assets/liora/liora-property.js?v=91ccacef5e6e" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -537,12 +537,38 @@
               <span>Смотреть все доступные варианты (36)</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
+            <div class="availability-filters" role="group" aria-label="Фильтр доступных вариантов"
+              data-availability-filters
+              data-count-template="Показано {shown} из {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Спальни</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">Все</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="2" aria-pressed="false">2 сп.</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="3" aria-pressed="false">3 сп.</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Цена</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Все</button>
+                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-900000" aria-pressed="false">До €900k</button>
+                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="900000-1000000" aria-pressed="false">€900k – €1M</button>
+                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="1000000-" aria-pressed="false">€1M+</button>
+                </div>
+              </div>
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Сбросить фильтры</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>Нет вариантов, соответствующих фильтрам.</p>
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Доступные резиденции в Elviria Hills Residences</caption>
                 <thead><tr><th scope="col">Номер</th><th scope="col">Этаж</th><th scope="col">Спальни</th><th scope="col">Цена</th><th scope="col">Статус</th><th scope="col">Планировка</th></tr></thead>
                 <tbody>
-              <tr>
+              <tr data-beds="2" data-price="950000">
                 <td data-label="Номер"><strong>Building 1 / Atico B</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -550,7 +576,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/elviria-hills-residences/floorplans/building-1-atico-b.pdf" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="840000">
                 <td data-label="Номер"><strong>Building 1 / Bajo A</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -558,7 +584,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="810000">
                 <td data-label="Номер"><strong>Building 1 / Bajo C</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -566,7 +592,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="830000">
                 <td data-label="Номер"><strong>Building 2 / Bajo A</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -574,7 +600,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="810000">
                 <td data-label="Номер"><strong>Building 2 / Bajo B</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -582,7 +608,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="810000">
                 <td data-label="Номер"><strong>Building 2 / Bajo C</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -590,7 +616,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="850000">
                 <td data-label="Номер"><strong>Building 2 / Bajo D</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -598,7 +624,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="980000">
                 <td data-label="Номер"><strong>Building 3 / Atico C</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -606,7 +632,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="860000">
                 <td data-label="Номер"><strong>Building 3 / Bajo B</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -614,7 +640,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="840000">
                 <td data-label="Номер"><strong>Building 3 / Bajo C</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -622,7 +648,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="870000">
                 <td data-label="Номер"><strong>Building 3 / Bajo D</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -630,7 +656,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="790000">
                 <td data-label="Номер"><strong>Building 4 / Atico C</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -638,7 +664,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="850000">
                 <td data-label="Номер"><strong>Building 4 / Atico D</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -646,7 +672,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="750000">
                 <td data-label="Номер"><strong>Building 4 / Bajo A</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -654,7 +680,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="730000">
                 <td data-label="Номер"><strong>Building 4 / Bajo B</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -662,7 +688,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="790000">
                 <td data-label="Номер"><strong>Building 5 / Atico C</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -670,7 +696,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="850000">
                 <td data-label="Номер"><strong>Building 5 / Atico D</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -678,7 +704,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="690000">
                 <td data-label="Номер"><strong>Building 5 / Bajo B</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -686,7 +712,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="990000">
                 <td data-label="Номер"><strong>Building 6 / Atico B</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -694,7 +720,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="990000">
                 <td data-label="Номер"><strong>Building 6 / Bajo A</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -702,7 +728,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="970000">
                 <td data-label="Номер"><strong>Building 6 / Bajo B</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -710,7 +736,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="960000">
                 <td data-label="Номер"><strong>Building 6 / Bajo C</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -718,7 +744,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="970000">
                 <td data-label="Номер"><strong>Building 6 / Bajo D</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -726,7 +752,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1250000">
                 <td data-label="Номер"><strong>Building 7 / Atico B</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -734,7 +760,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1250000">
                 <td data-label="Номер"><strong>Building 7 / Atico C</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -742,7 +768,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1300000">
                 <td data-label="Номер"><strong>Building 7 / Bajo A</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -750,7 +776,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1250000">
                 <td data-label="Номер"><strong>Building 7 / Bajo B</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -758,7 +784,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1250000">
                 <td data-label="Номер"><strong>Building 7 / Bajo C</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -766,7 +792,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1300000">
                 <td data-label="Номер"><strong>Building 7 / Bajo D</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -774,7 +800,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1200000">
                 <td data-label="Номер"><strong>Building 8 / Atico B</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -782,7 +808,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1200000">
                 <td data-label="Номер"><strong>Building 8 / Atico C</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -790,7 +816,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1350000">
                 <td data-label="Номер"><strong>Building 8 / Atico D</strong></td>
                 <td data-label="Этаж">Пентхаус</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -798,7 +824,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1100000">
                 <td data-label="Номер"><strong>Building 8 / Bajo A</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -806,7 +832,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="990000">
                 <td data-label="Номер"><strong>Building 8 / Bajo B</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -814,7 +840,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="990000">
                 <td data-label="Номер"><strong>Building 8 / Bajo C</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -822,7 +848,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1050000">
                 <td data-label="Номер"><strong>Building 8 / Bajo D</strong></td>
                 <td data-label="Этаж">Первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>

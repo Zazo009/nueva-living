@@ -372,6 +372,124 @@ function localizeMonthDate(value, locale) {
   return `${day} ${month} ${year}`;
 }
 
+// Bedroom counts are free text and inconsistent across sources: "3 bedrooms",
+// "Villa · 4 bed / 4 bath", "5 bed / 6 bath". The first number attached to a
+// "bed" word is the bedroom count in every form we hold; the bathroom count
+// always follows a "bath" word, so it never matches first.
+function unitBedCount(unit) {
+  const match = /(\d+)\s*bed/i.exec(String(unit.bedrooms || ''));
+  return match ? Number(match[1]) : null;
+}
+
+// Prices are display strings ("€1,014,000", "€890,000 + IVA"). Only the
+// leading number carries value -- the VAT/IVA suffix has no digits, so
+// stripping non-digits is safe.
+function unitPriceValue(unit) {
+  const digits = String(unit.price || '').replace(/[^\d]/g, '');
+  return digits ? Number(digits) : null;
+}
+
+// Short, locale-neutral price for band labels: €900k, €1.2M. The table itself
+// keeps the exact figure -- these only need to be scannable on a chip.
+function compactPrice(value) {
+  if (value >= 1_000_000) {
+    // Two decimals, trailing zeros trimmed: 2M, 1.5M, 1.75M. Rounding to one
+    // decimal would label a €1.75M band boundary "€1.8M" and put units just
+    // under the cut in what looks like the wrong band.
+    const millions = (value / 1_000_000).toFixed(2).replace(/\.?0+$/, '');
+    return `€${millions}M`;
+  }
+  return `€${Math.round(value / 1000)}k`;
+}
+
+// Bands are derived per project rather than fixed site-wide: releases run from
+// sub-€400k apartments to €5M villas, so any shared set of thresholds would
+// leave most projects with every unit in one band. Split at tertiles, snapped
+// to a round step, and drop the whole control if that fails to separate the
+// units into at least two groups.
+function priceBands(values) {
+  const sorted = [...values].sort((a, b) => a - b);
+  if (sorted.length < 12) return [];
+  const step = sorted[sorted.length - 1] >= 2_000_000 ? 250_000 : 100_000;
+  const snap = (value) => Math.round(value / step) * step;
+  const cuts = [...new Set([
+    snap(sorted[Math.floor(sorted.length / 3)]),
+    snap(sorted[Math.floor((sorted.length * 2) / 3)])
+  ])].filter((cut) => cut > sorted[0] && cut <= sorted[sorted.length - 1]);
+  if (!cuts.length) return [];
+
+  const bands = [];
+  let min = 0;
+  for (const cut of cuts) {
+    bands.push({ min, max: cut });
+    min = cut;
+  }
+  bands.push({ min, max: Infinity });
+  // A band nobody falls into is just a dead chip.
+  return bands.filter((band) => values.some((v) => v >= band.min && v < band.max)).length === bands.length
+    ? bands
+    : [];
+}
+
+function bandLabel(band, locale) {
+  if (band.min === 0) return t('availability.bandUnder', locale, { max: compactPrice(band.max) });
+  if (band.max === Infinity) return t('availability.bandOver', locale, { min: compactPrice(band.min) });
+  return t('availability.bandBetween', locale, {
+    min: compactPrice(band.min),
+    max: compactPrice(band.max)
+  });
+}
+
+// Below this the chips cost more attention than the scrolling they save.
+const FILTER_MIN_UNITS = 8;
+
+function renderAvailabilityFilters(units, locale) {
+  if (units.length < FILTER_MIN_UNITS) return '';
+
+  const beds = [...new Set(units.map(unitBedCount).filter((n) => n !== null))].sort((a, b) => a - b);
+  const prices = units.map(unitPriceValue).filter((n) => n !== null);
+  const bands = prices.length === units.length ? priceBands(prices) : [];
+  // One bedroom count and no usable bands means there is nothing to filter by.
+  if (beds.length < 2 && !bands.length) return '';
+
+  // "€1.75M+" and "€1M – €1.75M" are made of number runs joined by neutral
+  // characters. In an RTL paragraph those neutrals take the paragraph
+  // direction, so the trailing "+" jumps to the left and the two ends of a
+  // range swap. Labels that carry no words are pinned to LTR; ones that do
+  // ("أقل من €1M") are left alone so the words stay in reading order.
+  const numericOnly = (label) => !/[^\s\d€.,+–\-Mk]/.test(label);
+  const chip = (group, value, label, active = false) =>
+    `<button type="button" class="availability-chip${active ? ' is-active' : ''}"${numericOnly(label) ? ' dir="ltr"' : ''} data-filter-group="${group}" data-filter-value="${value}" aria-pressed="${active}">${label}</button>`;
+
+  const bedGroup = beds.length < 2 ? '' : `<div class="availability-filter-group">
+                <span class="availability-filter-label">${t('availability.bedrooms', locale)}</span>
+                <div class="availability-chip-row">
+                  ${chip('beds', 'all', t('availability.filterAll', locale), true)}
+                  ${beds.map((n) => chip('beds', String(n), t('availability.bedChip', locale, { count: n }))).join('\n                  ')}
+                </div>
+              </div>`;
+
+  const bandGroup = !bands.length ? '' : `<div class="availability-filter-group">
+                <span class="availability-filter-label">${t('availability.price', locale)}</span>
+                <div class="availability-chip-row">
+                  ${chip('price', 'all', t('availability.filterAll', locale), true)}
+                  ${bands.map((band) => chip('price', `${band.min}-${band.max === Infinity ? '' : band.max}`, esc(bandLabel(band, locale)))).join('\n                  ')}
+                </div>
+              </div>`;
+
+  return `<div class="availability-filters" role="group" aria-label="${t('aria.filterHomes', locale)}"
+              data-availability-filters
+              data-count-template="${esc(t('availability.filterShowing', locale, { shown: '{shown}', total: '{total}' }))}">
+              ${bedGroup}
+              ${bandGroup}
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>${t('availability.filterClear', locale)}</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>${t('availability.filterNone', locale)}</p>`;
+}
+
 function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   const availability = project.availability || {};
   const units = availability.units || [];
@@ -380,8 +498,12 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   const hasFloorplans = units.some((unit) => unit.floorplan);
   const hasSize = units.some((unit) => unit.size);
   const hasFloor = units.some((unit) => unit.floor);
+  const filters = renderAvailabilityFilters(units, locale);
 
-  const rows = units.map((unit) => `<tr>
+  const rows = units.map((unit) => {
+    const beds = unitBedCount(unit);
+    const price = unitPriceValue(unit);
+    return `<tr${beds === null ? '' : ` data-beds="${beds}"`}${price === null ? '' : ` data-price="${price}"`}>
                 <td data-label="${t('availability.reference', locale)}"><strong>${esc(unit.reference)}</strong></td>${hasFloor ? `
                 <td data-label="${t('availability.floor', locale)}">${esc(localizedUnitFloor(unit.floor, locale))}</td>` : ''}
                 <td data-label="${t('availability.bedrooms', locale)}">${esc(localizedUnitBedrooms(unit.bedrooms, locale))}</td>${hasSize ? `
@@ -389,7 +511,8 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
                 <td data-label="${t('availability.price', locale)}"><strong>${esc(unit.price)}</strong></td>
                 <td data-label="${t('availability.status', locale)}"><span class="availability-status">${t('availability.available', locale)}</span></td>${hasFloorplans ? `
                 <td data-label="${t('availability.floorplan', locale)}">${unit.floorplan ? `<a class="availability-floorplan-link" href="${esc(unit.floorplan)}" target="_blank" rel="noopener">${t('availability.viewPdf', locale)}</a>` : ''}</td>` : ''}
-              </tr>`).join('\n              ');
+              </tr>`;
+  }).join('\n              ');
 
   return `<div class="availability-release reveal-soft">
           <div class="availability-release-stats" aria-label="${t('aria.currentReleaseSummary', locale)}">
@@ -403,6 +526,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
               <span>${t('availability.viewAll', locale, { count: units.length })}</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
+            ${filters}
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">${t('availability.tableCaption', locale, { project: esc(project.name) })}</caption>

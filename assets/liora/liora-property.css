@@ -1695,6 +1695,114 @@ body {
   }
 }
 
+.availability-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: clamp(18px, 3vw, 34px);
+  padding: 20px clamp(20px, 3vw, 32px);
+  border-top: 1px solid var(--line);
+  background: rgba(168, 131, 74, 0.04);
+}
+
+.availability-filter-group {
+  min-width: 0;
+}
+
+.availability-filter-label {
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(74, 59, 40, 0.62);
+  font-family: var(--ui-font);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.availability-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.availability-chip {
+  padding: 8px 15px;
+  border: 1px solid rgba(168, 131, 74, 0.34);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--ui-font);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.availability-chip:hover {
+  border-color: rgba(168, 131, 74, 0.7);
+  background: rgba(168, 131, 74, 0.08);
+}
+
+.availability-chip.is-active {
+  border-color: var(--bronze);
+  background: var(--bronze);
+  color: #fffdf8;
+}
+
+.availability-filter-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-inline-start: auto;
+}
+
+.availability-filter-count {
+  color: rgba(74, 59, 40, 0.62);
+  font-family: var(--ui-font);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.availability-filter-clear {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(168, 131, 74, 0.5);
+  background: none;
+  color: var(--bronze);
+  cursor: pointer;
+  font-family: var(--ui-font);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.availability-filter-clear:hover {
+  border-bottom-color: var(--bronze);
+}
+
+.availability-empty {
+  margin: 0;
+  padding: 26px clamp(20px, 3vw, 32px);
+  border-top: 1px solid var(--line);
+  color: rgba(74, 59, 40, 0.72);
+  font-size: 15px;
+}
+
+@media (max-width: 720px) {
+  .availability-filters {
+    gap: 18px;
+  }
+
+  .availability-filter-meta {
+    width: 100%;
+    margin-inline-start: 0;
+  }
+}
+
 .availability-table-wrap {
   overflow-x: auto;
   border-top: 1px solid var(--line);
@@ -1707,6 +1815,16 @@ body {
 
 .availability-table th {
   display: table-cell;
+}
+
+/* Filtering hides rows with the [hidden] attribute. Below 860px the card
+   layout sets `display: grid` on rows and `display: block` on the table,
+   and both outrank the UA stylesheet's rule for [hidden] -- so hidden rows
+   kept showing on mobile while the count said otherwise. Restate it with
+   enough weight to win in both layouts. */
+.availability-table[hidden],
+.availability-table tbody tr[hidden] {
+  display: none !important;
 }
 
 .availability-table caption.sr-only {

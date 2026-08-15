@@ -32,9 +32,9 @@
   <link rel="preload" href="assets/fonts/arabic/SLXVc1nY6HkvangtZmpQdkhzfH5lkSscQyyS4J0.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=57f25ccc3e20">
+  <link rel="stylesheet" href="assets/liora/liora-property.css?v=573dd34285b3">
   <link rel="stylesheet" href="assets/liora/liora-rtl.css?v=45167fbd5919">
-  <script src="assets/liora/liora-property.js?v=14eb306909a6" defer></script>
+  <script src="assets/liora/liora-property.js?v=91ccacef5e6e" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -473,12 +473,38 @@
               <span>عرض جميع الوحدات المتاحة (19)</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
+            <div class="availability-filters" role="group" aria-label="تصفية الوحدات المتاحة"
+              data-availability-filters
+              data-count-template="عرض {shown} من {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">غرف النوم</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">الكل</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="2" aria-pressed="false">2 غرفة</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="3" aria-pressed="false">3 غرفة</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">السعر</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">الكل</button>
+                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-800000" aria-pressed="false">أقل من €800k</button>
+                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="800000-900000" aria-pressed="false">€800k – €900k</button>
+                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="900000-" aria-pressed="false">€900k+</button>
+                </div>
+              </div>
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>مسح الفلاتر</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>لا توجد وحدات تطابق هذه الفلاتر.</p>
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">المساكن المتاحة في Jardin del Mar Residences</caption>
                 <thead><tr><th scope="col">المرجع</th><th scope="col">الطابق</th><th scope="col">غرف النوم</th><th scope="col">المساحة</th><th scope="col">السعر</th><th scope="col">الحالة</th><th scope="col">المخطط</th></tr></thead>
                 <tbody>
-              <tr>
+              <tr data-beds="2" data-price="772000">
                 <td data-label="المرجع"><strong>102</strong></td>
                 <td data-label="الطابق">المبنى 1، الطابق الأرضي</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -487,7 +513,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-102.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="772000">
                 <td data-label="المرجع"><strong>103</strong></td>
                 <td data-label="الطابق">المبنى 1، الطابق الأرضي</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -496,7 +522,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-103.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1224000">
                 <td data-label="المرجع"><strong>108</strong></td>
                 <td data-label="الطابق">المبنى 1، دوبلكس في الطابق الأول</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -505,7 +531,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-108.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1263000">
                 <td data-label="المرجع"><strong>110</strong></td>
                 <td data-label="الطابق">المبنى 1، بنتهاوس دوبلكس</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -514,7 +540,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-110.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="772000">
                 <td data-label="المرجع"><strong>202</strong></td>
                 <td data-label="الطابق">المبنى 2، الطابق الأرضي</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -523,7 +549,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-202.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="772000">
                 <td data-label="المرجع"><strong>203</strong></td>
                 <td data-label="الطابق">المبنى 2، الطابق الأرضي</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -532,7 +558,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-203.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="774000">
                 <td data-label="المرجع"><strong>207</strong></td>
                 <td data-label="الطابق">المبنى 2، الطابق الأول</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -541,7 +567,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-207.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1263000">
                 <td data-label="المرجع"><strong>309</strong></td>
                 <td data-label="الطابق">المبنى 3، بنتهاوس دوبلكس</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -550,7 +576,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-309.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="740000">
                 <td data-label="المرجع"><strong>502</strong></td>
                 <td data-label="الطابق">المبنى 5، الطابق الأرضي</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -559,7 +585,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-502.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="740000">
                 <td data-label="المرجع"><strong>503</strong></td>
                 <td data-label="الطابق">المبنى 5، الطابق الأرضي</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -568,7 +594,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-503.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="720000">
                 <td data-label="المرجع"><strong>507</strong></td>
                 <td data-label="الطابق">المبنى 5، الطابق الأول</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -577,7 +603,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-507.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="868000">
                 <td data-label="المرجع"><strong>508</strong></td>
                 <td data-label="الطابق">المبنى 5، الطابق الأول</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -586,7 +612,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1212000">
                 <td data-label="المرجع"><strong>512</strong></td>
                 <td data-label="الطابق">المبنى 5، بنتهاوس دوبلكس</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -595,7 +621,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-512.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="740000">
                 <td data-label="المرجع"><strong>602</strong></td>
                 <td data-label="الطابق">المبنى 6، الطابق الأرضي</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -604,7 +630,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-602.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="740000">
                 <td data-label="المرجع"><strong>603</strong></td>
                 <td data-label="الطابق">المبنى 6، الطابق الأرضي</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -613,7 +639,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-603.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="885000">
                 <td data-label="المرجع"><strong>604</strong></td>
                 <td data-label="الطابق">المبنى 6، الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -622,7 +648,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="720000">
                 <td data-label="المرجع"><strong>606</strong></td>
                 <td data-label="الطابق">المبنى 6، الطابق الأول</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -631,7 +657,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-606.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1212000">
                 <td data-label="المرجع"><strong>609</strong></td>
                 <td data-label="الطابق">المبنى 6، بنتهاوس دوبلكس</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -640,7 +666,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-609.jpg" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1014000">
                 <td data-label="المرجع"><strong>611</strong></td>
                 <td data-label="الطابق">المبنى 6، بنتهاوس دوبلكس</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>

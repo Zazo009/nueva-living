@@ -31,8 +31,8 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=57f25ccc3e20">
-  <script src="assets/liora/liora-property.js?v=14eb306909a6" defer></script>
+  <link rel="stylesheet" href="assets/liora/liora-property.css?v=573dd34285b3">
+  <script src="assets/liora/liora-property.js?v=91ccacef5e6e" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -497,82 +497,100 @@
               <span>Alle 11 Verfügbaren Wohnungen Ansehen</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
+            <div class="availability-filters" role="group" aria-label="Verfügbare Wohnungen filtern"
+              data-availability-filters
+              data-count-template="{shown} von {total} werden angezeigt">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Schlafzimmer</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="2" aria-pressed="false">2 SZ</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="3" aria-pressed="false">3 SZ</button>
+                </div>
+              </div>
+              
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Filter zurücksetzen</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>Keine Wohnungen entsprechen diesen Filtern.</p>
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Verfügbare Wohnungen in Altos de Marbella Residences</caption>
                 <thead><tr><th scope="col">Referenz</th><th scope="col">Etage</th><th scope="col">Schlafzimmer</th><th scope="col">Preis</th><th scope="col">Status</th></tr></thead>
                 <tbody>
-              <tr>
+              <tr data-beds="3" data-price="2105000">
                 <td data-label="Referenz"><strong>1-0-A</strong></td>
                 <td data-label="Etage">Erdgeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Preis"><strong>€2,105,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1475000">
                 <td data-label="Referenz"><strong>1-1-A</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Preis"><strong>€1,475,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1160000">
                 <td data-label="Referenz"><strong>1-1-B</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Preis"><strong>€1,160,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1250000">
                 <td data-label="Referenz"><strong>1-2-A</strong></td>
                 <td data-label="Etage">Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Preis"><strong>€1,250,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1160000">
                 <td data-label="Referenz"><strong>2-1-A</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Preis"><strong>€1,160,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1310000">
                 <td data-label="Referenz"><strong>2-1-B</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Preis"><strong>€1,310,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1315000">
                 <td data-label="Referenz"><strong>3-1-A</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Preis"><strong>€1,315,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1290000">
                 <td data-label="Referenz"><strong>3-1-B</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Preis"><strong>€1,290,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1465000">
                 <td data-label="Referenz"><strong>4-0-A</strong></td>
                 <td data-label="Etage">Erdgeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Preis"><strong>€1,465,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1465000">
                 <td data-label="Referenz"><strong>4-0-C</strong></td>
                 <td data-label="Etage">Erdgeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Preis"><strong>€1,465,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1050000">
                 <td data-label="Referenz"><strong>4-1-B</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>

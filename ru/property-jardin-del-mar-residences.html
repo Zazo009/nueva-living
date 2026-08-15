@@ -31,8 +31,8 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=57f25ccc3e20">
-  <script src="assets/liora/liora-property.js?v=14eb306909a6" defer></script>
+  <link rel="stylesheet" href="assets/liora/liora-property.css?v=573dd34285b3">
+  <script src="assets/liora/liora-property.js?v=91ccacef5e6e" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -471,12 +471,38 @@
               <span>Смотреть все доступные варианты (19)</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
+            <div class="availability-filters" role="group" aria-label="Фильтр доступных вариантов"
+              data-availability-filters
+              data-count-template="Показано {shown} из {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Спальни</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">Все</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="2" aria-pressed="false">2 сп.</button>
+                  <button type="button" class="availability-chip" data-filter-group="beds" data-filter-value="3" aria-pressed="false">3 сп.</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Цена</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="price" data-filter-value="all" aria-pressed="true">Все</button>
+                  <button type="button" class="availability-chip" data-filter-group="price" data-filter-value="0-800000" aria-pressed="false">До €800k</button>
+                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="800000-900000" aria-pressed="false">€800k – €900k</button>
+                  <button type="button" class="availability-chip" dir="ltr" data-filter-group="price" data-filter-value="900000-" aria-pressed="false">€900k+</button>
+                </div>
+              </div>
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Сбросить фильтры</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>Нет вариантов, соответствующих фильтрам.</p>
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Доступные резиденции в Jardin del Mar Residences</caption>
                 <thead><tr><th scope="col">Номер</th><th scope="col">Этаж</th><th scope="col">Спальни</th><th scope="col">Площадь</th><th scope="col">Цена</th><th scope="col">Статус</th><th scope="col">Планировка</th></tr></thead>
                 <tbody>
-              <tr>
+              <tr data-beds="2" data-price="772000">
                 <td data-label="Номер"><strong>102</strong></td>
                 <td data-label="Этаж">Корпус 1, первый этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -485,7 +511,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-102.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="772000">
                 <td data-label="Номер"><strong>103</strong></td>
                 <td data-label="Этаж">Корпус 1, первый этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -494,7 +520,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-103.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1224000">
                 <td data-label="Номер"><strong>108</strong></td>
                 <td data-label="Этаж">Корпус 1, дуплекс на втором этаже</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -503,7 +529,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-108.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1263000">
                 <td data-label="Номер"><strong>110</strong></td>
                 <td data-label="Этаж">Корпус 1, двухуровневый пентхаус</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -512,7 +538,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-110.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="772000">
                 <td data-label="Номер"><strong>202</strong></td>
                 <td data-label="Этаж">Корпус 2, первый этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -521,7 +547,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-202.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="772000">
                 <td data-label="Номер"><strong>203</strong></td>
                 <td data-label="Этаж">Корпус 2, первый этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -530,7 +556,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-203.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="774000">
                 <td data-label="Номер"><strong>207</strong></td>
                 <td data-label="Этаж">Корпус 2, второй этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -539,7 +565,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-207.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1263000">
                 <td data-label="Номер"><strong>309</strong></td>
                 <td data-label="Этаж">Корпус 3, двухуровневый пентхаус</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -548,7 +574,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-309.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="740000">
                 <td data-label="Номер"><strong>502</strong></td>
                 <td data-label="Этаж">Корпус 5, первый этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -557,7 +583,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-502.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="740000">
                 <td data-label="Номер"><strong>503</strong></td>
                 <td data-label="Этаж">Корпус 5, первый этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -566,7 +592,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-503.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="720000">
                 <td data-label="Номер"><strong>507</strong></td>
                 <td data-label="Этаж">Корпус 5, второй этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -575,7 +601,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-507.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="868000">
                 <td data-label="Номер"><strong>508</strong></td>
                 <td data-label="Этаж">Корпус 5, второй этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -584,7 +610,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1212000">
                 <td data-label="Номер"><strong>512</strong></td>
                 <td data-label="Этаж">Корпус 5, двухуровневый пентхаус</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -593,7 +619,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-512.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="740000">
                 <td data-label="Номер"><strong>602</strong></td>
                 <td data-label="Этаж">Корпус 6, первый этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -602,7 +628,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-602.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="740000">
                 <td data-label="Номер"><strong>603</strong></td>
                 <td data-label="Этаж">Корпус 6, первый этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -611,7 +637,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-603.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="885000">
                 <td data-label="Номер"><strong>604</strong></td>
                 <td data-label="Этаж">Корпус 6, первый этаж</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -620,7 +646,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="720000">
                 <td data-label="Номер"><strong>606</strong></td>
                 <td data-label="Этаж">Корпус 6, второй этаж</td>
                 <td data-label="Спальни">Спальни: 2</td>
@@ -629,7 +655,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-606.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="3" data-price="1212000">
                 <td data-label="Номер"><strong>609</strong></td>
                 <td data-label="Этаж">Корпус 6, двухуровневый пентхаус</td>
                 <td data-label="Спальни">Спальни: 3</td>
@@ -638,7 +664,7 @@
                 <td data-label="Статус"><span class="availability-status">Доступно</span></td>
                 <td data-label="Планировка"><a class="availability-floorplan-link" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-609.jpg" target="_blank" rel="noopener">Открыть PDF</a></td>
               </tr>
-              <tr>
+              <tr data-beds="2" data-price="1014000">
                 <td data-label="Номер"><strong>611</strong></td>
                 <td data-label="Этаж">Корпус 6, двухуровневый пентхаус</td>
                 <td data-label="Спальни">Спальни: 2</td>
