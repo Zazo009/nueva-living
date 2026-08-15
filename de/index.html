@@ -1379,8 +1379,14 @@
     #vprog-fill {
       height: 100%;
       background: linear-gradient(90deg, #c9a35f, #d7b06e);
-      width: 0%; will-change: width;
-      transition: width 0.18s linear;
+      /* Driven by transform, not width: width animates layout every scroll
+         frame, and the old 0.18s transition fought the scrub so the bar
+         always trailed the film. scaleX is compositor-only and lands on
+         exactly the frame the scrub asks for. */
+      width: 100%;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      will-change: transform;
     }
 
     /* ── Topbar UI ──────────────────────────────────────────── */
@@ -9746,6 +9752,16 @@
   const vSceneImageCache = new Array(TOTAL).fill(null);
   const vSceneAssetGeneration = new Array(TOTAL).fill(0);
   const vLayerHidden = new Array(TOTAL).fill(true);
+  // Indices currently composited on screen (never more than two: the active
+  // scene and the one it is dissolving into). Lets the scrub loop hide only
+  // what is actually visible instead of walking every layer each frame.
+  const vVisibleLayers = new Set();
+
+  // Scroll position the film is easing toward, and the position it has
+  // actually rendered. See the ticker in initViewing() for why these are
+  // separate.
+  let vTargetProgress = 0;
+  let vRenderedProgress = 0;
   const VIEWING_ASSET_KEEP_BEHIND = 2;
   const VIEWING_ASSET_KEEP_AHEAD = 3;
   let vAssetWindowStart = 0;
@@ -9846,6 +9862,55 @@
       opacity: 0,
       clearProps: 'transform'
     });
+  }
+
+  /* ─────────────────────────────────────────────────────────────
+     Per-frame write cache for the scrub loop.
+
+     The scroll handler below runs on every animation frame while the
+     film is moving. Most of what it writes -- overlay, vignette, depth
+     frames, light sweep -- only changes on a handful of those frames,
+     and several values (the depth frames' xPercent/yPercent) never
+     change at all. Re-writing an unchanged value still dirties the
+     element and costs compositor work, which is what made the motion
+     feel uneven rather than metronomic.
+
+     vSetNum writes only when the value actually differs from the last one
+     written. The test is exact equality, not a tolerance: a tolerance
+     would swallow the small per-frame deltas of anything that moves
+     slowly -- the progress bar in guided playback advances by a tiny
+     fraction each frame -- and make it stair-step instead of glide.
+     Plateaued values (a depth pass sitting at exactly 0 through a
+     non-transition scene) compare equal and cost nothing.
+  ───────────────────────────────────────────────────────────── */
+  const vWriteCache = new Map();
+
+  // Scene indices that get the architectural depth pass and the light
+  // sweep. Sets rather than arrays so the per-frame lookup is a hash hit
+  // instead of a linear scan.
+  const VIEWING_TRANSITION_SCENES = new Set([1, 2, 3, 5]);
+  const VIEWING_LIGHT_SCENES = new Set([2, 3, 4]);
+
+  function vSetNum(el, key, prop, value) {
+    if (!el) return;
+    if (vWriteCache.get(key) === value) return;
+    vWriteCache.set(key, value);
+    gsap.set(el, { [prop]: value });
+  }
+
+  function vResetWriteCache() {
+    vWriteCache.clear();
+    // Layer 0 is the only thing composited straight after a reset.
+    vVisibleLayers.clear();
+    vVisibleLayers.add(0);
+  }
+
+  // The depth frames sit at fixed offsets and only ever change opacity, so
+  // their transforms are written once at init instead of on every frame.
+  function vPositionDepthFrames() {
+    if (vdfLeft)  gsap.set(vdfLeft,  { xPercent: -28, force3D: true });
+    if (vdfRight) gsap.set(vdfRight, { xPercent:  28, force3D: true });
+    if (vdfTop)   gsap.set(vdfTop,   { yPercent: -22, force3D: true });
   }
 
   // Private Viewing assets are primed only when the user enters the experience.
@@ -10179,6 +10244,25 @@
     vInitDone = true;
 
     const canvas = document.getElementById('vcanvas');
+
+    // The markup ships a fixed pool of 20 .vlayer divs, but a project's
+    // scene count comes from its own media gallery -- Elviria Hills, the
+    // default project on this page, has 41. Scenes past the 20th had no
+    // layer to draw into, so the viewer went black for over half the film.
+    // Top the pool up to whatever this project actually needs.
+    for (let i = 1; i <= VIEWING_SCENES.length; i += 1) {
+      if (document.getElementById('vl' + i)) continue;
+      const previous = document.getElementById('vl' + (i - 1));
+      if (!previous || !previous.parentNode) break;
+      const extra = document.createElement('div');
+      extra.className = 'vlayer';
+      extra.id = 'vl' + i;
+      extra.style.opacity = '0';
+      // Insert directly after the previous layer, so the new divs stay
+      // grouped with the originals and ahead of the overlay elements.
+      previous.parentNode.insertBefore(extra, previous.nextSibling);
+    }
+
     const layers = VIEWING_SCENES.map((_, i) => document.getElementById('vl' + (i + 1)));
     vPrepareSceneAssets(0);
 
@@ -10203,16 +10287,58 @@
       }
     });
     gsap.set(vtxtinn, { opacity: 0, y: 18 });
+    vPositionDepthFrames();
+    vResetWriteCache();
 
     // Single master ScrollTrigger watching vfilm scroller
+    // The film is rendered from vRenderedProgress, which eases toward the
+    // scroll position on GSAP's ticker -- NOT directly from the scroll
+    // position itself.
+    //
+    // ScrollTrigger's own `scrub` only smooths the playhead of an animation
+    // passed as `animation:`; with a bare onUpdate like this one,
+    // self.progress is the raw scroll value, so `scrub` would do nothing
+    // here (measured: input and output raggedness identical). Wheels and
+    // trackpads emit wildly uneven deltas -- a 16x swing between steps is
+    // normal -- and mapping those straight onto the camera is what read as
+    // jitter rather than movement.
+    //
+    // Easing on the ticker instead means the film advances on its own
+    // clock at a steady rate, regardless of how ragged the input was, and
+    // still converges exactly on the scroll position rather than drifting
+    // or lagging behind.
     ScrollTrigger.create({
       scroller: vfilm,
       trigger:  canvas,
       start:    'top top',
       end:      'bottom bottom',
-      scrub:    true,
-      onUpdate: (self) => {
-        const prog = self.progress;             // 0..1 full scroll
+      onUpdate: (self) => { vTargetProgress = self.progress; }
+    });
+
+    // Time constant of the ease, in milliseconds. Low enough that the film
+    // still feels directly connected to the hand; high enough to absorb a
+    // ragged wheel.
+    const V_PROGRESS_TAU = 110;
+
+    gsap.ticker.add((time, deltaTime) => {
+      if (!voxEl || !voxEl.classList.contains('on')) return;
+      const diff = vTargetProgress - vRenderedProgress;
+      if (Math.abs(diff) < 1e-6) {
+        if (vRenderedProgress !== vTargetProgress) {
+          vRenderedProgress = vTargetProgress;
+          vRenderFilm(vRenderedProgress);
+        }
+        return;
+      }
+      // Frame-rate independent easing: the same physical settle time
+      // whether the display runs at 60Hz, 120Hz or drops frames.
+      const alpha = 1 - Math.exp(-(deltaTime || 16.7) / V_PROGRESS_TAU);
+      vRenderedProgress += diff * alpha;
+      vRenderFilm(vRenderedProgress);
+    });
+
+    function vRenderFilm(prog) {
+      {
         // Map scroll into TOTAL full scene ranges.
         // Previous version used TOTAL - 1, which meant scene 7 only existed
         // at the exact final pixel of scroll, so parts 6/7 felt missing.
@@ -10224,7 +10350,7 @@
 
         vSwitchScene(sceneIdx);
         vPrepareSceneAssets(sceneIdx);
-        if (vpfill) vpfill.style.width = (prog * 100) + '%';
+        if (vpfill) vSetNum(vpfill, 'pfill', 'scaleX', prog);
         vApplyTextProgress(sceneProg, sceneIdx);
 
         // ── Image crossfade + centred zoom-out camera ─────────
@@ -10247,16 +10373,25 @@
         } else if (vsceov) {
           vsceov.style.background = VIEWING_SCENES[sceneIdx]?.ov || 'none';
         }
-        if (voverlayGradient) gsap.set(voverlayGradient, { opacity: filmTreatment });
-        if (vsceov) gsap.set(vsceov, { opacity: filmTreatment });
-        if (vVignette) gsap.set(vVignette, { opacity: filmTreatment });
+        vSetNum(voverlayGradient, 'overlay', 'opacity', filmTreatment);
+        vSetNum(vsceov, 'sceov', 'opacity', filmTreatment);
+        vSetNum(vVignette, 'vignette', 'opacity', filmTreatment);
 
-        layers.forEach((l, i) => {
-          if (!l) return;
-          if (i < sceneIdx || i > sceneIdx + 1) {
-            vHideLayer(l, i);
-            return;
+        // Only the current scene and the one it is dissolving into are ever
+        // visible, so the frame touches those two plus whatever was visible
+        // last frame. The old version walked every layer on every frame --
+        // 41 iterations per frame on the largest project, purely to call a
+        // no-op hide on 39 of them.
+        for (const i of vVisibleLayers) {
+          if (i !== sceneIdx && i !== sceneIdx + 1) {
+            vHideLayer(layers[i], i);
+            vVisibleLayers.delete(i);
           }
+        }
+
+        for (let i = sceneIdx; i <= Math.min(sceneIdx + 1, TOTAL - 1); i += 1) {
+          const l = layers[i];
+          if (!l) continue;
 
           const isCurrent = i === sceneIdx;
           const isDocument = VIEWING_SCENES[i]?.fit === 'contain';
@@ -10264,42 +10399,53 @@
           const sceneOpacity = isCurrent ? (1 - fade) : fade;
           if (!isCurrent && sceneOpacity <= 0.001) {
             vHideLayer(l, i);
-            return;
+            vVisibleLayers.delete(i);
+            continue;
           }
           const zoom = isDocument
             ? 1
             : VIEWING_ZOOM_IN - (VIEWING_ZOOM_IN - VIEWING_ZOOM_OUT) * localP;
           vLayerHidden[i] = false;
-          l.classList.add('is-compositing');
+          vVisibleLayers.add(i);
+          if (!l.classList.contains('is-compositing')) l.classList.add('is-compositing');
 
+          // Only opacity and scale move; the layer is centred and never
+          // rotates, so those transforms are set once when the layer first
+          // becomes visible rather than rewritten every frame.
           gsap.set(l, {
             opacity: sceneOpacity,
             scale: isDocument ? 1 : zoom + (isCurrent ? 0 : 0.006 * (1 - fade)),
-            xPercent: 0,
-            yPercent: 0,
-            rotationZ: 0,
             force3D: true
           });
-        });
+        }
 
         // ── Architectural foreground pass / depth cue ───────
         // This fakes moving through an entrance, glass wall, or shaded terrace edge.
-        const transitionScenes = [1, 2, 3, 5];
-        const depthStrength = transitionScenes.includes(sceneIdx) ? Math.sin(sceneProg * Math.PI) * (1 - fade * 0.35) : 0;
-        if (vdepth) gsap.set(vdepth, { opacity: depthStrength * 0.72 });
-        if (vdfLeft)  gsap.set(vdfLeft,  { xPercent: -28, opacity: depthStrength * 0.42 });
-        if (vdfRight) gsap.set(vdfRight, { xPercent:  28, opacity: depthStrength * 0.34 });
-        if (vdfTop)   gsap.set(vdfTop,   { yPercent: -22, opacity: depthStrength * 0.26 });
+        // The depth frames' offsets are constant -- they are positioned once
+        // in vPositionDepthFrames() rather than rewritten on every frame.
+        const depthStrength = VIEWING_TRANSITION_SCENES.has(sceneIdx)
+          ? Math.sin(sceneProg * Math.PI) * (1 - fade * 0.35)
+          : 0;
+        vSetNum(vdepth,  'depth',  'opacity', depthStrength * 0.72);
+        vSetNum(vdfLeft,  'dfL',   'opacity', depthStrength * 0.42);
+        vSetNum(vdfRight, 'dfR',   'opacity', depthStrength * 0.34);
+        vSetNum(vdfTop,   'dfT',   'opacity', depthStrength * 0.26);
 
         // Slow sunlight sweep on brighter scenes; gives life without becoming flashy.
-        const lightScenes = [2, 3, 4];
-        const lightStrength = lightScenes.includes(sceneIdx) ? Math.sin(sceneProg * Math.PI) * (0.65 + fade * 0.25) : 0;
-        if (vlight) gsap.set(vlight, { opacity: lightStrength * 0.45, xPercent: -12 + sceneProg * 24 });
+        const lightStrength = VIEWING_LIGHT_SCENES.has(sceneIdx)
+          ? Math.sin(sceneProg * Math.PI) * (0.65 + fade * 0.25)
+          : 0;
+        vSetNum(vlight, 'lightO', 'opacity', lightStrength * 0.45);
+        vSetNum(vlight, 'lightX', 'xPercent', -12 + sceneProg * 24);
 
         // Text timing is handled by vSwitchScene() with a dedicated
         // scene-entry timeline. Do not drive readability with scroll progress.
       }
-    });
+    }
+
+    // Paint the opening frame immediately rather than waiting for the first
+    // ticker pass, so the film is never briefly blank on open.
+    vRenderFilm(0);
 
     ScrollTrigger.refresh();
   }
@@ -10341,6 +10487,11 @@
     ensureViewingMotion().then(() => setTimeout(() => {
         // Reset scroller to top
         vfilm.scrollTop = 0;
+        // Layer transforms are cleared on reset, so the per-frame write
+        // cache must be dropped too -- otherwise the first frame after
+        // reopening would skip writes it still needs to make.
+        vResetWriteCache();
+        vPositionDepthFrames();
         vSetGuidedUI(true, 'Geführt');
         vPrepareSceneAssets(0);
 
