@@ -313,12 +313,12 @@ function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
     dialog: `<dialog class="project-media-dialog" id="projectMediaDialog" aria-label="${esc(project.name)} media viewer">
       <div class="project-media-dialog-shell" data-media-dialog-shell>
         <button type="button" class="media-dialog-close" data-media-close aria-label="${t('media.close', locale)}">${t('media.close', locale)}</button>
-        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="${t('media.previousImage', locale)}">${isRtl(locale) ? '&#8594;' : '&#8592;'}</button>
+        <button type="button" class="media-dialog-nav media-dialog-prev" data-media-prev aria-label="${t('media.previousImage', locale)}">&#8592;</button>
         <figure class="media-dialog-figure">
           <img src="" alt="" width="1600" height="900" decoding="async" data-media-dialog-image>
           <figcaption><span data-media-dialog-count></span><strong data-media-dialog-caption></strong></figcaption>
         </figure>
-        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="${t('media.nextImage', locale)}">${isRtl(locale) ? '&#8592;' : '&#8594;'}</button>
+        <button type="button" class="media-dialog-nav media-dialog-next" data-media-next aria-label="${t('media.nextImage', locale)}">&#8594;</button>
         <div class="media-dialog-stack" data-media-dialog-stack hidden>
           <div class="media-dialog-stack-count" data-media-dialog-stack-count></div>
         </div>

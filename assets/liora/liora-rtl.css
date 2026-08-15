@@ -89,10 +89,6 @@
   text-align: right;
 }
 
-[dir="rtl"] .lang-switcher-caret {
-  transform: scaleX(-1);
-}
-
 /* ---------- Breadcrumb ---------- */
 [dir="rtl"] .breadcrumb-list {
   direction: rtl;
@@ -173,12 +169,27 @@
   margin: 0 auto 0 0;
 }
 
-[dir="rtl"] .media-dialog-prev {
-  left: auto;
+/* Image galleries do not mirror. A row of photographs has no reading order,
+   so flipping the controls for Arabic only produced a viewer whose "next"
+   sat on the left pointing left -- the reverse of every other language for
+   no gain. The dialog shell lays out left-to-right in every locale; only the
+   caption inside it follows the page direction. */
+[dir="rtl"] .project-media-dialog-shell {
+  direction: ltr;
 }
 
-[dir="rtl"] .media-dialog-next {
-  right: auto;
+[dir="rtl"] .media-dialog-figure figcaption {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Same for the card gallery: slide 1 is the leftmost slide everywhere, so a
+   swipe means the same thing in every language and the dots read in the same
+   order as the photos. The dot row still sits in the mirrored corner -- it is
+   the order inside it that stays fixed. */
+[dir="rtl"] .project-card-gallery-track,
+[dir="rtl"] .project-card-gallery-dots {
+  direction: ltr;
 }
 
 /* ---------- FAQ / accordion toggle icon space ---------- */
@@ -202,7 +213,6 @@
 [dir="rtl"] .hero-discovery-link svg,
 [dir="rtl"] .btn-arrow,
 [dir="rtl"] .project-media-card-cta > span[aria-hidden="true"],
-[dir="rtl"] .media-dialog-nav svg,
 [dir="rtl"] .cta-chevron {
   transform: scaleX(-1);
 }

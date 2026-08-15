@@ -227,9 +227,15 @@
 
     const width = () => track.clientWidth || 1;
 
+    // In an RTL page the flex row lays the slides out right-to-left: slide 0
+    // sits at the right edge and the rest run leftwards. Translating by a
+    // negative offset there walks off the end of the track and lands on blank
+    // space, so the sign of the base offset follows the writing direction.
+    const trackAxis = () => (getComputedStyle(track).direction === 'rtl' ? 1 : -1);
+
     const paint = (offset, animate) => {
       track.style.transition = animate ? 'transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1)' : 'none';
-      track.style.transform = `translate3d(${-index * width() + (offset || 0)}px, 0, 0)`;
+      track.style.transform = `translate3d(${trackAxis() * index * width() + (offset || 0)}px, 0, 0)`;
     };
 
     const setActiveDot = () => {
@@ -295,7 +301,9 @@
       pointerId = null;
       if (axis !== 'x') return;
       const commit = Math.abs(dx) > Math.max(width() * COMMIT_RATIO, COMMIT_MIN);
-      go(commit ? index + (dx < 0 ? 1 : -1) : index);
+      // Dragging content away from the reading direction advances: leftwards
+      // in LTR, rightwards in RTL, which is what the native scroller did.
+      go(commit ? index + (dx * trackAxis() > 0 ? 1 : -1) : index);
     };
 
     track.addEventListener('pointerup', finish);
