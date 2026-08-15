@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
   <link rel="stylesheet" href="assets/liora/liora-property.css?v=57f25ccc3e20">
-  <link rel="stylesheet" href="assets/liora/liora-rtl.css?v=b54fca81f9ae">
+  <link rel="stylesheet" href="assets/liora/liora-rtl.css?v=45167fbd5919">
   <script src="assets/liora/liora-property.js?v=14eb306909a6" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
@@ -1084,6 +1084,45 @@
       });
     });
   });
+
+  // On narrow screens the nav links collapse into the burger menu, which
+  // used to take the language switcher with them -- buried under the menu,
+  // and styled flat so its open panel read as a dark block. Lift it into
+  // the top bar instead, next to the shortlist heart, so it looks and
+  // behaves exactly as it does on desktop. The switcher already inside the
+  // mobile menu is removed so there is only ever one.
+  (function () {
+    var nav = document.querySelector('.site-nav, #nav');
+    var menu = document.querySelector('.mobile-menu');
+    if (!nav) return;
+    var inBar = nav.querySelector('[data-lang-switcher]');
+    var inMenu = menu ? menu.querySelector('[data-lang-switcher]') : null;
+    if (!inBar && !inMenu) return;
+
+    // Prefer the nav-bar copy; if the page only has the menu one, promote it.
+    var switcher = inBar || inMenu;
+    if (switcher === inMenu) nav.appendChild(switcher);
+    else if (inMenu && inMenu.parentNode) inMenu.parentNode.removeChild(inMenu);
+
+    var burger = nav.querySelector('.nav-burger, #burgerBtn');
+    var mq = window.matchMedia('(max-width: 1120px)');
+    var home = switcher.parentNode;
+    var homeNext = switcher.nextSibling;
+
+    function place() {
+      if (mq.matches) {
+        // Sit immediately before the burger, after the heart.
+        if (burger && switcher.nextElementSibling !== burger) nav.insertBefore(switcher, burger);
+        switcher.setAttribute('data-lang-switcher-compact', '');
+      } else {
+        if (switcher.parentNode !== home) home.insertBefore(switcher, homeNext);
+        switcher.removeAttribute('data-lang-switcher-compact');
+      }
+    }
+    place();
+    if (mq.addEventListener) mq.addEventListener('change', place);
+    else if (mq.addListener) mq.addListener(place);
+  })();
 </script>
 </body>
 </html>

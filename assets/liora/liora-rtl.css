@@ -31,15 +31,18 @@
   font-family: 'Cairo', 'Montserrat', Arial, sans-serif;
 }
 
-/* Cinzel has no Arabic coverage; display headings fall back to Cairo's
-   heavier weights instead of the Latin serif substituting broken glyphs. */
+/* Cinzel first, Cairo second. Font fallback resolves per character, and
+   Cairo's @font-face is unicode-range limited to Arabic, so Arabic text
+   gets Cairo while Latin inside the same heading -- brand names, place
+   names, "Costa del Sol" -- keeps the Cinzel it uses on every other
+   locale. Listing Cairo first meant Latin dropped to the sans fallback
+   and looked nothing like the rest of the site. */
 [dir="rtl"] .display-title,
 [dir="rtl"] .section-headline,
 [dir="rtl"] .hero-title,
 [dir="rtl"] h1:lang(ar),
 [dir="rtl"] h2:lang(ar) {
-  font-family: 'Cairo', 'Montserrat', Arial, sans-serif;
-  font-weight: 600;
+  font-family: 'Cinzel', 'Cairo', Georgia, serif;
   letter-spacing: 0;
 }
 
@@ -51,6 +54,23 @@
 [dir="rtl"] a[href^="tel:"],
 [dir="rtl"] a[href^="mailto:"] {
   unicode-bidi: isolate;
+}
+
+/* Phone numbers, emails and other Latin/numeric values shown as their own
+   line. `isolate` alone is not enough for a spaced number: the digit runs
+   are each left-to-right, but the spaces between them are neutral, so the
+   RTL paragraph orders the GROUPS right-to-left and "+34 645 44 66 24"
+   paints as "24 66 44 645 34+". Forcing the element itself to LTR keeps
+   the value exactly as written while it still sits in the RTL layout. */
+[dir="rtl"] .founder-contact strong,
+[dir="rtl"] .founder-contact a,
+[dir="rtl"] .contact-detail-value,
+[dir="rtl"] a[href^="tel:"],
+[dir="rtl"] a[href^="https://wa.me/"],
+[dir="rtl"] a[href^="mailto:"] {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: right;
 }
 
 /* ---------- Navigation ---------- */
