@@ -71,6 +71,24 @@ function fileVersion(file) {
 // rather than by hand-translating 200+ near-identical data rows. Anything
 // that does not match a known shape is returned untouched, so an unusual
 // value degrades to English rather than being mangled.
+// Unit size values are mostly bare figures ("155 m²") that need no
+// translation, but some carry English qualifiers -- "581.72 m² built /
+// 985.98 m² plot", "370 m², private pool". Those are re-composed through
+// strings.json templates so the numbers stay untouched while the words
+// follow the reader's language. Unrecognised shapes pass through as-is.
+function localizedUnitSize(value, locale = DEFAULT_LOCALE) {
+  if (!value || locale === DEFAULT_LOCALE) return value;
+  const raw = String(value).trim();
+
+  const builtPlot = /^([\d.,]+)\s*m²\s*built\s*\/\s*([\d.,]+)\s*m²\s*plot$/i.exec(raw);
+  if (builtPlot) return t('unit.builtPlot', locale, { built: builtPlot[1], plot: builtPlot[2] });
+
+  const pool = /^(.+?),\s*private pool$/i.exec(raw);
+  if (pool) return t('unit.withPrivatePool', locale, { size: localizedUnitSize(pool[1], locale) });
+
+  return raw;
+}
+
 function localizedUnitFloor(value, locale = DEFAULT_LOCALE) {
   if (!value || locale === DEFAULT_LOCALE) return value;
   return UNIT_FLOORS[String(value).trim()]?.[locale] || value;
@@ -342,7 +360,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
                 <td data-label="${t('availability.reference', locale)}"><strong>${esc(unit.reference)}</strong></td>${hasFloor ? `
                 <td data-label="${t('availability.floor', locale)}">${esc(localizedUnitFloor(unit.floor, locale))}</td>` : ''}
                 <td data-label="${t('availability.bedrooms', locale)}">${esc(localizedUnitBedrooms(unit.bedrooms, locale))}</td>${hasSize ? `
-                <td data-label="${t('availability.size', locale)}">${esc(unit.size)}</td>` : ''}
+                <td data-label="${t('availability.size', locale)}">${esc(localizedUnitSize(unit.size, locale))}</td>` : ''}
                 <td data-label="${t('availability.price', locale)}"><strong>${esc(unit.price)}</strong></td>
                 <td data-label="${t('availability.status', locale)}"><span class="availability-status">${t('availability.available', locale)}</span></td>${hasFloorplans ? `
                 <td data-label="${t('availability.floorplan', locale)}">${unit.floorplan ? `<a class="availability-floorplan-link" href="${esc(unit.floorplan)}" target="_blank" rel="noopener">${t('availability.viewPdf', locale)}</a>` : ''}</td>` : ''}
