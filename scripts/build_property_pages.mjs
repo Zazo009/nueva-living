@@ -16,6 +16,7 @@ import {
   renderLanguageSwitcher,
   LANG_SWITCHER_SCRIPT
 } from './lib/i18n.mjs';
+import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 
 const {
   DEFAULT_PROPERTY_WEBHOOK_URL,
@@ -62,6 +63,45 @@ function defaultFaqs(locale = DEFAULT_LOCALE) {
 
 function fileVersion(file) {
   return createHash('sha256').update(readFileSync(path.resolve(file))).digest('hex').slice(0, 12);
+}
+
+// Availability-table bedroom values are formulaic data strings ("3 bedrooms",
+// "Apartment · 2 bed / 2 bath", "5 bed / 6 bath"), not prose -- so they are
+// localized by re-formatting the numbers through strings.json templates
+// rather than by hand-translating 200+ near-identical data rows. Anything
+// that does not match a known shape is returned untouched, so an unusual
+// value degrades to English rather than being mangled.
+function localizedUnitFloor(value, locale = DEFAULT_LOCALE) {
+  if (!value || locale === DEFAULT_LOCALE) return value;
+  return UNIT_FLOORS[String(value).trim()]?.[locale] || value;
+}
+
+function localizedUnitBedrooms(value, locale = DEFAULT_LOCALE) {
+  if (!value || locale === DEFAULT_LOCALE) return value;
+  const raw = String(value).trim();
+
+  const typePrefix = /^(Apartment|Villa|Penthouse|Townhouse)\s*·\s*(.+)$/i.exec(raw);
+  if (typePrefix) {
+    const typeKey = `unit.type${typePrefix[1][0].toUpperCase()}${typePrefix[1].slice(1).toLowerCase()}`;
+    const type = t(typeKey, locale);
+    const rest = localizedUnitBedrooms(typePrefix[2], locale);
+    return `${type === typeKey ? typePrefix[1] : type} · ${rest}`;
+  }
+
+  const bedBath = /^(\d+)\s*bed\s*\/\s*(\d+)\s*bath$/i.exec(raw);
+  if (bedBath) return t('unit.bedBath', locale, { b: bedBath[1], ba: bedBath[2] });
+
+  const bedroomsBath = /^(\d+)\s*bedrooms?\s*\/\s*(\d+)\s*bathrooms?$/i.exec(raw);
+  if (bedroomsBath) return t('unit.bedroomsBathrooms', locale, { n: bedroomsBath[1], m: bedroomsBath[2] });
+
+  const plain = /^(\d+)\s*bedrooms?$/i.exec(raw);
+  if (plain) {
+    return Number(plain[1]) === 1
+      ? t('unit.bedroomCount', locale, { n: plain[1] })
+      : t('unit.bedroomsCount', locale, { n: plain[1] });
+  }
+
+  return raw;
 }
 
 function esc(value = '') {
@@ -300,8 +340,8 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
 
   const rows = units.map((unit) => `<tr>
                 <td data-label="${t('availability.reference', locale)}"><strong>${esc(unit.reference)}</strong></td>${hasFloor ? `
-                <td data-label="${t('availability.floor', locale)}">${esc(unit.floor)}</td>` : ''}
-                <td data-label="${t('availability.bedrooms', locale)}">${esc(unit.bedrooms)}</td>${hasSize ? `
+                <td data-label="${t('availability.floor', locale)}">${esc(localizedUnitFloor(unit.floor, locale))}</td>` : ''}
+                <td data-label="${t('availability.bedrooms', locale)}">${esc(localizedUnitBedrooms(unit.bedrooms, locale))}</td>${hasSize ? `
                 <td data-label="${t('availability.size', locale)}">${esc(unit.size)}</td>` : ''}
                 <td data-label="${t('availability.price', locale)}"><strong>${esc(unit.price)}</strong></td>
                 <td data-label="${t('availability.status', locale)}"><span class="availability-status">${t('availability.available', locale)}</span></td>${hasFloorplans ? `

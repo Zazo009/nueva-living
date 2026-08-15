@@ -209,6 +209,13 @@ const PAGE_ENTRIES_TAIL = [
   { find: '<h2 class="cta-title">Ask for the latest project list and documents.</h2>', es: '<h2 class="cta-title">Solicita la lista de proyectos y documentación actualizada.</h2>', fr: '<h2 class="cta-title">Demandez la liste des projets et les documents à jour.</h2>', de: '<h2 class="cta-title">Fordern Sie die aktuelle Projektliste und Unterlagen an.</h2>', ru: '<h2 class="cta-title">Запросите актуальный список проектов и документы.</h2>', ar: '<h2 class="cta-title">اطلب أحدث قائمة للمشاريع والمستندات.</h2>' },
   { find: '>Get Project Information</a>', es: '>Solicitar Información</a>', fr: '>Obtenir des Informations</a>', de: '>Projektinformationen Anfordern</a>', ru: '>Получить Информацию</a>', ar: '>الحصول على معلومات المشروع</a>' },
 
+];
+
+// Nav, mobile menu and footer chrome shared by every hand-authored static
+// page (developments.html, compare.html, thank-you.html, 404.html) whose
+// locale variants are produced by clone-and-replace rather than a
+// locale-aware render function.
+export const CHROME_ENTRIES = [
   // Nav / mobile menu
   { find: '>Buying Guides</a>', es: '>Guías de Compra</a>', fr: '>Guides d’Achat</a>', de: '>Kaufratgeber</a>', ru: '>Покупателям</a>', ar: '>أدلة الشراء</a>' },
   { find: '>Why Nueva</a>', es: '>Por Qué Nueva</a>', fr: '>Pourquoi Nueva</a>', de: '>Warum Nueva</a>', ru: '>Почему Nueva</a>', ar: '>لماذا نويفا</a>' },
@@ -240,7 +247,8 @@ const PAGE_ENTRIES_TAIL = [
 export const DEVELOPMENTS_PAGE_ENTRIES = [
   ...PAGE_ENTRIES_HEAD,
   ...PROJECT_CARD_ENTRIES,
-  ...PAGE_ENTRIES_TAIL
+  ...PAGE_ENTRIES_TAIL,
+  ...CHROME_ENTRIES
 ];
 
 // "Show image N of M" gallery-dot aria-labels, translated as templates

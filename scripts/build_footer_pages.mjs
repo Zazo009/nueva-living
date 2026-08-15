@@ -14,6 +14,7 @@ import {
   localizeProject
 } from './lib/i18n.mjs';
 import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
+import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
 
 // Applies FOOTER_PAGE_ENTRIES (translated body prose for footer pages) as
 // literal string replacement over already-rendered HTML -- the `pages`
@@ -28,7 +29,7 @@ import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
 // Longest find first: a short entry ("Areas" -> "Zonas") must never fire
 // inside a longer string ("Areas We Cover") before that string's own
 // entry has had its chance to match.
-const SORTED_FOOTER_PAGE_ENTRIES = [...FOOTER_PAGE_ENTRIES].sort((a, b) => b.find.length - a.find.length);
+const SORTED_FOOTER_PAGE_ENTRIES = [...FOOTER_PAGE_ENTRIES, ...EDITORIAL_ALT_ENTRIES].sort((a, b) => b.find.length - a.find.length);
 
 function applyFooterPageTranslations(html, locale) {
   if (locale === DEFAULT_LOCALE) return html;
@@ -354,19 +355,19 @@ function areaForm(area, locale = DEFAULT_LOCALE) {
     <input type="hidden" name="subject" data-remove-prefix value="New Nueva Living ${esc(area.name)} enquiry">
     <input type="hidden" name="request_context" value="${esc(area.name)} area enquiry">
     <div class="form-grid">
-      <div class="field"><label for="${esc(area.slug)}-first-name">First Name</label><input id="${esc(area.slug)}-first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div>
-      <div class="field"><label for="${esc(area.slug)}-last-name">Last Name</label><input id="${esc(area.slug)}-last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div>
-      <div class="field"><label for="${esc(area.slug)}-email">Email Address</label><input id="${esc(area.slug)}-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div>
-      <div class="field"><label for="${esc(area.slug)}-phone">Phone Number</label><input id="${esc(area.slug)}-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div>
-      <div class="field"><label for="${esc(area.slug)}-area">Preferred Area</label><select id="${esc(area.slug)}-area" name="preferred_area">${areaOptions}<option value="Open to all areas">${t('form.openToAllAreas', locale)}</option></select></div>
-      <div class="field"><label for="${esc(area.slug)}-property-type">Property Type</label><select id="${esc(area.slug)}-property-type" name="property_type_interest"><option value="">Select type...</option><option>Apartments</option><option>Penthouses</option><option>Villas</option><option>Townhouses</option><option>Mixed / Open</option></select></div>
-      <div class="field"><label for="${esc(area.slug)}-budget">Budget Range</label><select id="${esc(area.slug)}-budget" name="budget_range"><option value="">Select budget...</option><option>&euro;300,000 - &euro;500,000</option><option>&euro;500,000 - &euro;900,000</option><option>&euro;900,000 - &euro;1,500,000</option><option>&euro;1,500,000+</option></select></div>
-      <div class="field"><label for="${esc(area.slug)}-bedrooms">Minimum Bedrooms</label><select id="${esc(area.slug)}-bedrooms" name="bedrooms_min"><option value="">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></div>
-      <div class="field full"><label for="${esc(area.slug)}-message">Message</label><textarea id="${esc(area.slug)}-message" name="message">${esc(area.formMessage)}</textarea></div>
-      <label class="consent-row field full" for="${esc(area.slug)}-consent"><input id="${esc(area.slug)}-consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored.</span></label>
-      <label class="consent-row field full" for="${esc(area.slug)}-marketing"><input id="${esc(area.slug)}-marketing" name="marketing_opt_in" type="checkbox"><span>I would also like to receive occasional project updates from Nueva Living.</span></label>
+      <div class="field"><label for="${esc(area.slug)}-first-name">${t('form.firstName', locale)}</label><input id="${esc(area.slug)}-first-name" name="first_name" autocomplete="given-name" placeholder="${t('form.firstNamePlaceholder', locale)}" required></div>
+      <div class="field"><label for="${esc(area.slug)}-last-name">${t('form.lastName', locale)}</label><input id="${esc(area.slug)}-last-name" name="last_name" autocomplete="family-name" placeholder="${t('form.lastNamePlaceholder', locale)}" required></div>
+      <div class="field"><label for="${esc(area.slug)}-email">${t('form.email', locale)}</label><input id="${esc(area.slug)}-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div>
+      <div class="field"><label for="${esc(area.slug)}-phone">${t('form.phone', locale)}</label><input id="${esc(area.slug)}-phone" name="phone" type="tel" autocomplete="tel" placeholder="${t('form.phonePlaceholder', locale)}"></div>
+      <div class="field"><label for="${esc(area.slug)}-area">${t('form.preferredArea', locale)}</label><select id="${esc(area.slug)}-area" name="preferred_area">${areaOptions}<option value="Open to all areas">${t('form.openToAllAreas', locale)}</option></select></div>
+      <div class="field"><label for="${esc(area.slug)}-property-type">${t('form.propertyType', locale)}</label><select id="${esc(area.slug)}-property-type" name="property_type_interest"><option value="">${t('form.selectType', locale)}</option><option value="Apartments">${t('form.apartments', locale)}</option><option value="Penthouses">${t('form.penthouses', locale)}</option><option value="Villas">${t('form.villas', locale)}</option><option value="Townhouses">${t('form.townhouses', locale)}</option><option value="Mixed / Open">${t('form.mixedOpen', locale)}</option></select></div>
+      <div class="field"><label for="${esc(area.slug)}-budget">${t('form.budgetRange', locale)}</label><select id="${esc(area.slug)}-budget" name="budget_range"><option value="">${t('form.selectBudget', locale)}</option><option>&euro;300,000 - &euro;500,000</option><option>&euro;500,000 - &euro;900,000</option><option>&euro;900,000 - &euro;1,500,000</option><option>&euro;1,500,000+</option></select></div>
+      <div class="field"><label for="${esc(area.slug)}-bedrooms">${t('area.minimumBedrooms', locale)}</label><select id="${esc(area.slug)}-bedrooms" name="bedrooms_min"><option value="">${t('form.any', locale)}</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option></select></div>
+      <div class="field full"><label for="${esc(area.slug)}-message">${t('form.message', locale)}</label><textarea id="${esc(area.slug)}-message" name="message">${esc(area.formMessage)}</textarea></div>
+      <label class="consent-row field full" for="${esc(area.slug)}-consent"><input id="${esc(area.slug)}-consent" name="consent" type="checkbox" required><span>${t('form.consentContact', locale)}</span></label>
+      <label class="consent-row field full" for="${esc(area.slug)}-marketing"><input id="${esc(area.slug)}-marketing" name="marketing_opt_in" type="checkbox"><span>${t('form.consentMarketing', locale)}</span></label>
     </div>
-    <div class="form-actions"><button class="btn" type="submit">Send Enquiry</button><span class="form-response"></span></div>
+    <div class="form-actions"><button class="btn" type="submit">${t('form.sendEnquiry', locale)}</button><span class="form-response"></span></div>
   </form>`;
 }
 

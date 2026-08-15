@@ -24,6 +24,8 @@ import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 
 import path from 'node:path';
 import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl } from './lib/i18n.mjs';
 import { loadProjects, renderViewingBlocks } from './lib/viewing.mjs';
+import { BESPOKE_SCENE_ENTRIES } from './lib/bespoke_scene_translations.mjs';
+import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
 
 // Regenerates the cinematic-presentation viewer's VIEWING_PROJECTS /
 // PROJECT_VIEWING_SCENE_SETS blocks for a given locale. Without this, the
@@ -288,7 +290,7 @@ const HOMEPAGE_CONTENT_ENTRIES = [
 // Longest find first, so a short entry can never fire inside a longer
 // string before that string's own entry has matched.
 function homepageContentReplacements(locale) {
-  return HOMEPAGE_CONTENT_ENTRIES
+  return [...HOMEPAGE_CONTENT_ENTRIES, ...BESPOKE_SCENE_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
     .filter((entry) => entry[locale])
     .sort((a, b) => b.find.length - a.find.length)
     .map((entry) => [entry.find, entry[locale]]);
@@ -315,6 +317,32 @@ function projectCardTaglineReplacements(locale) {
     const translatedTagline = project.i18n?.[locale]?.card?.description;
     if (!enTagline || !translatedTagline || enTagline === translatedTagline) continue;
     replacements.push([`<p class="dev-tagline">${enTagline}</p>`, `<p class="dev-tagline">${translatedTagline}</p>`]);
+  }
+  return replacements;
+}
+
+// Homepage card gallery image alt text. Same root cause as the taglines:
+// the cards are generated once in English by build_property_pages.mjs, so
+// their alt attributes need mapping to each project's already-translated
+// media items by index.
+function projectCardAltReplacements(locale) {
+  if (locale === DEFAULT_LOCALE) return [];
+  const projectsDir = path.join(root, 'content/liora-projects');
+  if (!existsSync(projectsDir)) return [];
+  const replacements = [];
+  for (const slug of readdirSync(projectsDir)) {
+    const projectPath = path.join(projectsDir, slug, 'project.json');
+    if (!existsSync(projectPath)) continue;
+    const project = JSON.parse(readFileSync(projectPath, 'utf8'));
+    const english = project.media?.items || [];
+    const localized = project.i18n?.[locale]?.media?.items || [];
+    if (localized.length !== english.length) continue;
+    english.forEach((item, index) => {
+      const en = item.alt;
+      const translated = localized[index]?.alt;
+      if (!en || !translated || en === translated) return;
+      replacements.push([`alt="${en}"`, `alt="${translated}"`]);
+    });
   }
   return replacements;
 }
@@ -413,6 +441,13 @@ for (const meta of LOCALES) {
     '<a href="contact.html" onclick="closeMobile()">Contact Us</a>\n  </div>',
     `<a href="contact.html" onclick="closeMobile()">Contact Us</a>\n    ${renderSwitcherHtml(locale, true)}\n  </div>`
   );
+
+  // Card image alts run before the text tables: some alts contain area
+  // names that those tables rewrite, which would stop the full-alt match
+  // from ever firing.
+  for (const [find, replace] of projectCardAltReplacements(locale)) {
+    html = html.split(find).join(replace);
+  }
 
   // Nav / footer chrome
   for (const [find, replace] of navFooterReplacements(locale)) {

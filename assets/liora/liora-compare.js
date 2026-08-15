@@ -2,6 +2,12 @@
   const root = document.querySelector('[data-compare-root]');
   if (!root) return;
 
+  // Locale pages carry a data-i18n JSON blob on [data-compare-root];
+  // English pages carry none and use the literal fallbacks below.
+  let i18n = {};
+  try { i18n = JSON.parse(root.dataset.i18n || '{}'); } catch { i18n = {}; }
+  const tt = (key, fallback) => i18n[key] || fallback;
+
   const storageKey = 'nueva-living-shortlist-v1';
 
   function readShortlist() {
@@ -21,48 +27,57 @@
       .replace(/"/g, '&quot;');
   }
 
+  const onRequest = () => tt('onRequest', 'On request');
+
   function formatPrice(min, max) {
     const fmt = (value) => `€${Math.round(value).toLocaleString('en-US')}`;
     if (min && max && min !== max) return `${fmt(min)} - ${fmt(max)}`;
-    if (min) return `From ${fmt(min)}`;
-    return 'On request';
+    if (min) return tt('priceFrom', 'From {price}').replace('{price}', fmt(min));
+    return onRequest();
   }
 
   function formatBedrooms(min, max) {
-    if (!min && !max) return 'On request';
-    if (min && max && min !== max) return `${min}-${max} bedrooms`;
-    return `${min || max} bedrooms`;
+    if (!min && !max) return onRequest();
+    if (min && max && min !== max) return tt('bedroomsRange', '{min}-{max} bedrooms').replace('{min}', min).replace('{max}', max);
+    return tt('bedroomsOne', '{n} bedrooms').replace('{n}', min || max);
   }
 
   function formatStatus(value) {
-    if (!value) return 'On request';
+    if (!value) return onRequest();
+    const mapped = (i18n.statusMap || {})[value];
+    if (mapped) return mapped;
     return value.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
   }
 
   function formatDelivery(value) {
-    if (!value) return 'To be confirmed';
+    if (!value) return tt('toBeConfirmed', 'To be confirmed');
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return value;
-    return date.toLocaleDateString('en-GB', { year: 'numeric', month: 'short' });
+    return date.toLocaleDateString(tt('dateLocale', 'en-GB'), { year: 'numeric', month: 'short' });
+  }
+
+  function localizedType(value) {
+    const mapped = (i18n.typeMap || {})[value];
+    return mapped || value.charAt(0).toUpperCase() + value.slice(1);
   }
 
   function emptyState(message) {
     root.innerHTML = `<div class="compare-empty">
       <p class="body-copy">${message}</p>
-      <a class="btn" href="developments.html">Browse Developments</a>
+      <a class="btn" href="developments.html">${tt('browse', 'Browse Developments')}</a>
     </div>`;
   }
 
   const ROWS = [
-    ['Price', (p) => formatPrice(p.priceMin, p.priceMax)],
-    ['Bedrooms', (p) => formatBedrooms(p.bedroomsMin, p.bedroomsMax)],
-    ['Property types', (p) => (p.propertyTypes || []).map((t) => t.charAt(0).toUpperCase() + t.slice(1)).join(', ') || 'On request'],
-    ['Status', (p) => formatStatus(p.constructionStatus)],
-    ['Delivery', (p) => formatDelivery(p.deliveryDate)],
-    ['Total units', (p) => p.totalUnits ?? 'On request'],
-    ['Available units', (p) => p.availableUnits ?? 'On request'],
-    ['Area', (p) => p.area ? p.area.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) : 'On request'],
-    ['Amenities', (p) => (p.amenities || []).slice(0, 6).map((a) => a.charAt(0).toUpperCase() + a.slice(1)).join(', ') || 'On request']
+    [tt('rowPrice', 'Price'), (p) => formatPrice(p.priceMin, p.priceMax)],
+    [tt('rowBedrooms', 'Bedrooms'), (p) => formatBedrooms(p.bedroomsMin, p.bedroomsMax)],
+    [tt('rowPropertyTypes', 'Property types'), (p) => (p.propertyTypes || []).map(localizedType).join(', ') || onRequest()],
+    [tt('rowStatus', 'Status'), (p) => formatStatus(p.constructionStatus)],
+    [tt('rowDelivery', 'Delivery'), (p) => formatDelivery(p.deliveryDate)],
+    [tt('rowTotalUnits', 'Total units'), (p) => p.totalUnits ?? onRequest()],
+    [tt('rowAvailableUnits', 'Available units'), (p) => p.availableUnits ?? onRequest()],
+    [tt('rowArea', 'Area'), (p) => p.area ? p.area.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) : onRequest()],
+    [tt('rowAmenities', 'Amenities'), (p) => (p.amenities || []).slice(0, 6).map((a) => (i18n.amenityMap || {})[a] || a.charAt(0).toUpperCase() + a.slice(1)).join(', ') || onRequest()]
   ];
 
   function render(projects) {
@@ -87,12 +102,12 @@
         </tbody>
       </table>
     </div>
-    <p class="compare-note">Prices, availability and delivery dates are indicative and reconfirmed by Nueva Living before any reservation.</p>`;
+    <p class="compare-note">${tt('note', 'Prices, availability and delivery dates are indicative and reconfirmed by Nueva Living before any reservation.')}</p>`;
   }
 
   const shortlist = readShortlist();
   if (!shortlist.length) {
-    emptyState('You have not saved any developments yet. Save a project from its page or card to compare it here.');
+    emptyState(tt('emptyNotSaved', 'You have not saved any developments yet. Save a project from its page or card to compare it here.'));
     return;
   }
 
@@ -102,12 +117,12 @@
       const byId = new Map(catalog.map((p) => [p.slug, p]));
       const matched = shortlist.map((item) => byId.get(item.id)).filter(Boolean);
       if (!matched.length) {
-        emptyState('We could not find your saved developments. They may have been updated -- try browsing again.');
+        emptyState(tt('emptyNotFound', 'We could not find your saved developments. They may have been updated -- try browsing again.'));
         return;
       }
       render(matched);
     })
     .catch(() => {
-      emptyState('Comparison data is unavailable right now. Please try again shortly.');
+      emptyState(tt('emptyError', 'Comparison data is unavailable right now. Please try again shortly.'));
     });
 })();

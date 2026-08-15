@@ -179,12 +179,25 @@ function crmPayload(lead, event) {
   });
 }
 
-function successResponse(crmResult, origin, browserFormSubmission) {
+// Locale prefix (es/fr/de/ru/ar) of the page the form was submitted from,
+// so browser submissions land on that locale's thank-you page.
+function refererLocalePrefix(event) {
+  const referer = cleanString(event.headers.referer || event.headers.Referer);
+  if (!referer) return '';
+  try {
+    const match = new URL(referer).pathname.match(/^\/(es|fr|de|ru|ar)\//);
+    return match ? `${match[1]}/` : '';
+  } catch {
+    return '';
+  }
+}
+
+function successResponse(crmResult, origin, browserFormSubmission, localePrefix = '') {
   if (browserFormSubmission) {
     return {
       statusCode: 303,
       headers: {
-        Location: '/thank-you.html',
+        Location: `/${localePrefix}thank-you.html`,
         'Cache-Control': 'no-store',
       },
       body: '',
@@ -261,7 +274,7 @@ exports.handler = async (event) => {
       // A successful CRM response may not include a JSON body.
     }
 
-    return successResponse(crmResult, origin, browserFormSubmission);
+    return successResponse(crmResult, origin, browserFormSubmission, refererLocalePrefix(event));
   } catch (error) {
     console.error('CRM webhook request failed', { message: error.message || 'Unknown error' });
     return response(502, { ok: false, error: 'CRM webhook request failed' }, origin);

@@ -14,6 +14,7 @@ import {
   LANG_SWITCHER_SCRIPT
 } from './lib/i18n.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
+import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
 import { PROJECT_CARD_ENTRIES } from './lib/developments_page_translations.mjs';
 
 // Same approach as applyFooterPageTranslations() in build_footer_pages.mjs:
@@ -27,7 +28,7 @@ import { PROJECT_CARD_ENTRIES } from './lib/developments_page_translations.mjs';
 // the shared project-card meta labels/values and CTA (same set used on
 // developments.html); per-project card descriptions come from each
 // project.json's own i18n overlay.
-const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...PROJECT_CARD_ENTRIES]
+const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...PROJECT_CARD_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
   .sort((a, b) => b.find.length - a.find.length);
 
 function cardDescriptionReplacements(locale) {
@@ -41,9 +42,34 @@ function cardDescriptionReplacements(locale) {
   return replacements;
 }
 
+// Project-card gallery alt text. The cards embedded on segment pages come
+// from the same English-only card markup as developments.html, so their alt
+// attributes are mapped here to each project's translated media items.
+function cardImageAltReplacements(locale) {
+  const replacements = [];
+  for (const project of projects) {
+    const english = project.media?.items || [];
+    const localized = project.i18n?.[locale]?.media?.items || [];
+    if (localized.length !== english.length) continue;
+    english.forEach((item, index) => {
+      const en = item.alt;
+      const translated = localized[index]?.alt;
+      if (!en || !translated || en === translated) return;
+      replacements.push([`alt="${en}"`, `alt="${translated}"`]);
+    });
+  }
+  return replacements;
+}
+
 function applySegmentPageTranslations(html, locale) {
   if (locale === DEFAULT_LOCALE) return html;
   let result = html;
+  // Card alts first: some contain area names ("...its wider Marbella East
+  // setting...") that the entry table below rewrites, which would stop the
+  // full-alt match from ever firing.
+  for (const [find, replace] of cardImageAltReplacements(locale)) {
+    result = result.split(find).join(replace);
+  }
   for (const entry of SORTED_SEGMENT_PAGE_ENTRIES) {
     const replacement = entry[locale];
     if (!replacement) continue;

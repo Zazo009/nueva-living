@@ -382,7 +382,6 @@ const htmlFiles = [
   // below (no pageMeta entry) since their canonical/hreflang/OG tags are
   // already fully authored per-locale at render time.
   ...nonDefaultLocales.flatMap((locale) => baseHtmlFiles
-    .filter((file) => file !== '404.html' && file !== 'thank-you.html' && file !== 'compare.html')
     .map((file) => localizedPath(file, locale.code))
     .filter((file) => fs.existsSync(path.join(root, file))))
 ];
@@ -703,16 +702,41 @@ const gtmBodySnippet = `<!-- Google Tag Manager (noscript) -->
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->`;
 
+// Google Analytics 4, alongside GTM. Both are Google tags but separate
+// products: GTM is the container, GA4 the analytics property. Loading
+// gtag.js directly means GA4 reports even if no GA4 tag is configured
+// inside the GTM container. They share window.dataLayer safely -- gtag()
+// pushes onto the same queue GTM already created.
+const GA4_ID = 'G-5WMQ4FZQCM';
+const ga4HeadSnippet = `<!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_ID}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '${GA4_ID}');
+  </script>
+  <!-- End Google tag (gtag.js) -->`;
+
 function injectGtm(html) {
-  if (html.includes(`id=${GTM_ID}`) || html.includes(`'${GTM_ID}'`)) return html;
   let next = html;
+  const hasGtm = next.includes(`id=${GTM_ID}`) || next.includes(`'${GTM_ID}'`);
+  const hasGa4 = next.includes(GA4_ID);
+  if (hasGtm && hasGa4) return next;
+
+  const headBlock = [hasGtm ? '' : gtmHeadSnippet, hasGa4 ? '' : ga4HeadSnippet]
+    .filter(Boolean)
+    .join('\n  ');
+
   const charsetMatch = next.match(/<meta charset=[^>]*>/i);
   if (charsetMatch) {
-    next = next.replace(charsetMatch[0], `${charsetMatch[0]}\n  ${gtmHeadSnippet}`);
+    next = next.replace(charsetMatch[0], `${charsetMatch[0]}\n  ${headBlock}`);
   } else {
-    next = next.replace(/<head>/i, `<head>\n  ${gtmHeadSnippet}`);
+    next = next.replace(/<head>/i, `<head>\n  ${headBlock}`);
   }
-  next = next.replace(/<body([^>]*)>/i, (m) => `${m}\n  ${gtmBodySnippet}`);
+  if (!hasGtm) {
+    next = next.replace(/<body([^>]*)>/i, (m) => `${m}\n  ${gtmBodySnippet}`);
+  }
   return next;
 }
 
@@ -1104,7 +1128,12 @@ const legacyRedirects = [
   '/liora-cookie-policy.html /cookie-policy.html 301',
 ];
 
-fs.writeFileSync(path.join(dist, '_redirects'), `${legacyRedirects.join('\n')}\n/* /404.html 404\n`);
+// Locale-scoped 404s before the global catch-all, so a missing /es/...
+// URL gets the Spanish 404 page rather than the English one.
+const locale404Redirects = nonDefaultLocales
+  .filter((locale) => fs.existsSync(path.join(root, locale.urlPrefix, '404.html')))
+  .map((locale) => `/${locale.urlPrefix}/* /${locale.urlPrefix}/404.html 404`);
+fs.writeFileSync(path.join(dist, '_redirects'), `${legacyRedirects.join('\n')}\n${locale404Redirects.join('\n')}\n/* /404.html 404\n`);
 
 fs.writeFileSync(path.join(dist, '_headers'), `/*.html
   Cache-Control: public, max-age=0, must-revalidate

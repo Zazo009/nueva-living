@@ -99,6 +99,33 @@ function applyCardDescriptions(html, locale) {
   return next;
 }
 
+// Project-card gallery image alt text. The cards are generated once, in
+// English, by build_property_pages.mjs (renderProjectCard has no locale
+// argument -- it writes into the shared developments.html markers), so the
+// alt attributes arrive here as English regardless of locale. Each project's
+// media items are already translated in project.json, so this maps each
+// English alt to its localized counterpart by index.
+function applyCardImageAlts(html, locale) {
+  const projectsDir = path.join(root, 'content/liora-projects');
+  if (!existsSync(projectsDir)) return html;
+  let next = html;
+  for (const slug of readdirSync(projectsDir)) {
+    const projectPath = path.join(projectsDir, slug, 'project.json');
+    if (!existsSync(projectPath)) continue;
+    const project = JSON.parse(readFileSync(projectPath, 'utf8'));
+    const english = project.media?.items || [];
+    const localized = project.i18n?.[locale]?.media?.items || [];
+    if (localized.length !== english.length) continue;
+    english.forEach((item, index) => {
+      const en = item.alt;
+      const translated = localized[index]?.alt;
+      if (!en || !translated || en === translated) return;
+      next = next.split(`alt="${en}"`).join(`alt="${translated}"`);
+    });
+  }
+  return next;
+}
+
 function applyDiscoveryRuntimeStrings(html, locale) {
   const strings = DISCOVERY_RUNTIME_STRINGS[locale];
   if (!strings) return html;
@@ -153,6 +180,9 @@ for (const meta of LOCALES) {
 
   // Page copy, filter UI, cards, footer. Longest find first so a short
   // entry can never corrupt a longer string before its own entry matches.
+  // Card alts before the entry table: some alts contain area names that the
+  // table rewrites, which would break the full-alt match.
+  html = applyCardImageAlts(html, locale);
   for (const entry of SORTED_ENTRIES) {
     const replacement = entry[locale];
     if (!replacement) continue;
