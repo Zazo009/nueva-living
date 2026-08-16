@@ -1871,6 +1871,34 @@ img {
   color: rgba(251, 247, 239, 0.76);
 }
 
+/* The band sets `color: var(--ivory)` on itself, but that only reaches text
+   which inherits. Anything declaring its own colour keeps it -- links, the
+   "read more" spans, metric values, counters -- and those are all dark ink,
+   which lands around 1.4 against the brown and is simply invisible. These
+   are the defaults for the dark context, so content dropped into a band is
+   readable without anyone remembering to restyle it. Buttons keep their own
+   treatment. */
+.quiet-band a:not([class*="btn"]) {
+  color: var(--nueva-gold-light, #c7a36b);
+}
+
+.quiet-band a:not([class*="btn"]):hover,
+.quiet-band a:not([class*="btn"]):focus-visible {
+  color: #faf6ee;
+}
+
+.quiet-band .project-link,
+.quiet-band .meta strong,
+.quiet-band .card strong {
+  color: #faf6ee;
+}
+
+.quiet-band .meta span,
+.quiet-band .guide-checklist-count,
+.quiet-band .card small {
+  color: rgba(251, 247, 239, 0.74);
+}
+
 .quiet-band .card,
 .quiet-band .legal-card {
   background: rgba(255, 253, 248, 0.045);
@@ -3072,6 +3100,33 @@ li,
   margin-top: 4px;
 }
 
+/* The same guide card is used on the light guides list and again on the dark
+   band below it. The heading and the description were given light colours for
+   the dark version; the metrics, the price and the "read the guide" link were
+   not, so they inherited the dark ink and rendered at 1.41 against the brown
+   -- invisible. The gold kicker sat at 4.34, just under the line, so it takes
+   the lighter gold used elsewhere on dark. */
+/* The brand bronze lands at 4.34 on the dark band -- just under the line.
+   The lighter gold used elsewhere on dark takes every kicker to 6.4. */
+.quiet-band .label,
+.quiet-band .section-kicker,
+.quiet-band .fine-label {
+  color: var(--nueva-gold-light, #c7a36b);
+}
+
+.quiet-band .guide-card-body .meta span {
+  color: rgba(251, 247, 239, 0.72);
+}
+
+.quiet-band .guide-card-body .meta strong,
+.quiet-band .guide-card-body .project-link {
+  color: #faf6ee;
+}
+
+.quiet-band .guide-card-body .project-link::after {
+  border-color: currentColor;
+}
+
 /* Affordability calculator (shared: property pages + guides.html) */
 .calculator-panel {
   display: grid;
@@ -4128,4 +4183,50 @@ li,
   font-size: 11.5px;
   line-height: 1.7;
   color: var(--muted);
+}
+
+
+/* The checklist's progress count and reset button sit directly on the dark
+   band and inherited the light-article ink -- 1.24 and 4.34 against the
+   brown. They need `.guide-article-page` in the selector to outrank the
+   article rules that set them.
+
+   The checklist ITEMS are not in this group: each sits on its own near-white
+   card inside the band, so their dark text is correct. Lightening those too
+   took them to 1.01 -- invisible the other way round. */
+.guide-article-page .quiet-band .guide-checklist-count {
+  color: rgba(251, 247, 239, 0.74);
+}
+
+.guide-article-page .quiet-band .guide-checklist-reset {
+  color: var(--nueva-gold-light, #c7a36b);
+}
+
+/* The affordability calculator's labels and figures were set light enough to
+   read as "quiet" but land at 3.97 and 3.44 on its near-white panel, both
+   under the 4.5 line for text this size. The bronze goes a shade deeper --
+   the same one used for the card links -- and the labels gain opacity. The
+   calculator is shared by the property pages and the guides page, so this
+   covers both, in every language. */
+.calculator-panel label > span,
+.calculator-panel .calculator-field-label > span,
+.calculator-panel .calculator-field-hint,
+.calculator-panel .calculator-input-suffix-label,
+.calculator-panel .calculator-rate-toggle button {
+  color: rgba(74, 59, 40, 0.9);
+}
+
+.calculator-panel .calculator-result span,
+.calculator-panel .calculator-result-grid span {
+  color: rgba(74, 59, 40, 0.9);
+}
+
+.calculator-panel .calculator-field-label em {
+  color: #7a5e30;
+}
+
+/* White on the bronze pill is 3.49; the near-black used on the badges takes
+   it to 5.6 without touching the brand colour. */
+.calculator-panel .calculator-rate-toggle button.is-active {
+  color: #241b10;
 }
