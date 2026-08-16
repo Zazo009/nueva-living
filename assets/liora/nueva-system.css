@@ -619,7 +619,7 @@ input[type="radio"] {
   .nueva-home .footer-copy {
     max-width: 100%;
     white-space: normal;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
   }
 }
 
@@ -1162,11 +1162,17 @@ figcaption,
   overflow-wrap: break-word;
 }
 
+/* No automatic hyphenation on display type. It was added as a long-word
+   safety net, but on a serif heading it breaks ordinary words mid-line --
+   "Good deci-sions take more" -- which looks like a typesetting fault
+   rather than a considered break. overflow-wrap above still rescues a
+   genuinely unbreakable string, and it does so without inserting a
+   hyphen. */
 h1, h2, h3, h4,
 .display-title,
 .section-headline,
 .hero-title {
-  hyphens: auto;
+  hyphens: manual;
 }
 
 
@@ -1174,6 +1180,29 @@ h1, h2, h3, h4,
    (1.43 / 1.4 / 1.25 by breakpoint); the old 3:2 override on the track
    fought it. */
 
+
+/* Buttons are `white-space: nowrap` (liora-pages.css) so short English
+   labels never break awkwardly. German and Russian labels are far longer --
+   "Projektinformationen Anfordern" measures 311px at 11px with 0.17em
+   tracking, inside a 280px container on a 320px screen -- and nowrap pushed
+   it 31px past the edge, scrolling the whole page sideways. Below 480px the
+   label may wrap; the button's 52px min-height already fits two lines, so
+   nothing else moves. */
+@media (max-width: 480px) {
+  :is(
+    .btn,
+    .project-btn,
+    .home-contact-action,
+    .dev-viewing-btn,
+    .dev-material-btn,
+    .footer-newsletter-submit,
+    .nueva-shortlist-browse,
+    .nueva-shortlist-submit,
+    .media-show-all
+  ) {
+    white-space: normal;
+  }
+}
 
 /* ═══════════════════════════════════════════════════════════════════════
 LISTING CARD
@@ -1537,9 +1566,10 @@ are all valid. */
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--card-label);
-  /* German runs long -- wrap rather than clip. */
+  /* German runs long -- wrap rather than clip. No hyphenation: these are
+     uppercase and letter-spaced, where a break-hyphen reads as damage. */
   overflow-wrap: break-word;
-  hyphens: auto;
+  hyphens: manual;
 }
 
 .dev-card .dev-fact-value {

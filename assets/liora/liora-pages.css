@@ -2395,7 +2395,9 @@ footer {
   .legal-card h3 {
     font-size: clamp(17px, 5.2vw, 20px);
     line-height: 1.34;
-    overflow-wrap: anywhere;
+    /* break-word, not anywhere: only split a word that cannot fit a line
+       on its own. `anywhere` splits words that would have wrapped fine. */
+    overflow-wrap: break-word;
   }
 
   .section {
