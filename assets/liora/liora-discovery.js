@@ -260,8 +260,16 @@
     const beds = rangeState.bedrooms || { min: 0, max: Infinity };
     const priceBounds = rangeControllers.find((item) => item.key === 'price')?.bounds;
     const bedsBounds = rangeControllers.find((item) => item.key === 'bedrooms')?.bounds;
+    // A slider parked at either end means "no limit", not a filter. Only the
+    // top end was treated that way, so anything priced below the slider's
+    // floor was hidden before the visitor touched a control -- Golf Valley
+    // starts at EUR450,000 against a EUR500,000 floor, so the cheapest
+    // project on the site never appeared and no slider position could
+    // reveal it. Both ends now open up when parked.
     const priceMax = priceBounds && price.max >= priceBounds.max ? Infinity : price.max;
+    const priceMin = priceBounds && price.min <= priceBounds.min ? 0 : price.min;
     const bedsMax = bedsBounds && beds.max >= bedsBounds.max ? Infinity : beds.max;
+    const bedsMin = bedsBounds && beds.min <= bedsBounds.min ? 0 : beds.min;
 
     const visible = cards.filter((card) => {
       if (aiMatchedSlugs) return aiMatchedSlugs.has(card.id);
@@ -278,11 +286,11 @@
       }
 
       const cardPrice = numeric(card.dataset.price, 0);
-      if (cardPrice < price.min || cardPrice > priceMax) return false;
+      if (cardPrice < priceMin || cardPrice > priceMax) return false;
 
       const bedroomsMin = numeric(card.dataset.bedroomsMin, 0);
       const bedroomsMax = numeric(card.dataset.bedroomsMax, 999);
-      if (bedroomsMax < beds.min || bedroomsMin > bedsMax) return false;
+      if (bedroomsMax < bedsMin || bedroomsMin > bedsMax) return false;
 
       return true;
     });

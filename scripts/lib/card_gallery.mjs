@@ -92,15 +92,18 @@ export function renderProjectCardGallery(project, options = {}) {
     : '';
 
   // Share and fullscreen sit with the shortlist heart in one corner cluster;
-  // nueva-shortlist.js drops the heart in at the top of this container. Labels
-  // are set at runtime from the gallery script's own dictionary, so every
-  // locale gets them without touching the page translation tables.
+  // nueva-shortlist.js drops the heart in at the top of this container.
+  //
+  // The labels are written here in English and replaced at runtime with the
+  // reader's language by the gallery script's own dictionary. Emitting them
+  // rather than leaving the naming entirely to JS means the buttons are never
+  // anonymous to a screen reader, including before the script runs.
   const actions = `
               <div class="project-card-actions" data-card-actions>
-                <button type="button" class="project-card-action" data-card-share>
+                <button type="button" class="project-card-action" data-card-share aria-label="Share this project" title="Share this project">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"></path></svg>
                 </button>${allImages.length > 1 ? `
-                <button type="button" class="project-card-action" data-card-expand>
+                <button type="button" class="project-card-action" data-card-expand aria-label="View all photos" title="View all photos">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4H4v5M15 4h5v5M15 20h5v-5M9 20H4v-5"></path></svg>
                 </button>` : ''}
               </div>`;

@@ -1195,3 +1195,30 @@ body.card-lightbox-open {
   right: auto;
   left: 20px;
 }
+
+/* ---------- Long words ----------
+   German compounds are long enough to break a phone layout: on the property
+   page "Projektinformationen" at 30px wants 400px inside a 332px column, and
+   pushed the whole document to 421px so the page scrolled sideways. Let words
+   break only when they genuinely do not fit -- ordinary text is untouched --
+   and hyphenate where the browser knows the language, which every page
+   declares. */
+h1, h2, h3, h4,
+.display-title,
+.section-headline,
+.hero-title,
+.project-card h3,
+.dev-name,
+p, li, dd, dt,
+figcaption,
+.availability-table td,
+.card-lightbox-item figcaption {
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4,
+.display-title,
+.section-headline,
+.hero-title {
+  hyphens: auto;
+}
