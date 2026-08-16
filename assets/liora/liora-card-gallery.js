@@ -296,7 +296,11 @@
     let travelled = 0;
     let pointerId = null;
 
+    // Pointer events cover mouse and pen. Touch is handled separately below:
+    // on a phone the browser arbitrates the gesture itself, and the moment it
+    // decides to scroll it fires pointercancel and the swipe dies mid-drag.
     track.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'touch') return;
       if (!event.isPrimary || slideCount < 2) return;
       startX = event.clientX;
       startY = event.clientY;
@@ -308,6 +312,7 @@
     });
 
     track.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'touch') return;
       if (pointerId !== event.pointerId) return;
       const dx = event.clientX - startX;
       const dy = event.clientY - startY;
@@ -356,6 +361,71 @@
       if (pointerId !== event.pointerId) return;
       pointerId = null;
       if (axis === 'x') go(index);
+    });
+
+    // --- Touch ---
+    //
+    // `touch-action: pan-y` is supposed to reserve horizontal drags for the
+    // page, and on real phones it does not reliably do so: the browser takes
+    // the gesture, scrolls, and cancels our pointer stream. The only
+    // dependable way to claim a horizontal swipe is to listen for touchmove
+    // non-passively and preventDefault as soon as the direction is known.
+    // Vertical is released immediately so the page scrolls exactly as before.
+    let touchX = 0;
+    let touchY = 0;
+    let touchAxis = null;
+    let touchId = null;
+
+    track.addEventListener('touchstart', (event) => {
+      if (slideCount < 2 || event.touches.length !== 1) { touchId = null; return; }
+      const touch = event.changedTouches[0];
+      touchId = touch.identifier;
+      touchX = touch.clientX;
+      touchY = touch.clientY;
+      touchAxis = null;
+      travelled = 0;
+      ensureLoaded(index);
+    }, { passive: true });
+
+    const activeTouch = (event) => Array.prototype.find.call(
+      event.changedTouches,
+      (touch) => touch.identifier === touchId
+    );
+
+    track.addEventListener('touchmove', (event) => {
+      if (touchId === null) return;
+      const touch = activeTouch(event);
+      if (!touch) return;
+      const dx = touch.clientX - touchX;
+      const dy = touch.clientY - touchY;
+      travelled = Math.max(travelled, Math.abs(dx), Math.abs(dy));
+
+      if (touchAxis === null) {
+        if (Math.max(Math.abs(dx), Math.abs(dy)) < AXIS_THRESHOLD) return;
+        touchAxis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+        // Vertical: hand the gesture straight back to the page.
+        if (touchAxis === 'y') { touchId = null; return; }
+      }
+
+      event.preventDefault();
+      paint(dx, false);
+    }, { passive: false });
+
+    const endTouch = (event) => {
+      if (touchId === null) return;
+      const touch = activeTouch(event);
+      touchId = null;
+      if (touchAxis !== 'x' || !touch) return;
+      const dx = touch.clientX - touchX;
+      const { width: trackWidth, axis: trackAxis } = readMetrics();
+      const commit = Math.abs(dx) > Math.max(trackWidth * COMMIT_RATIO, COMMIT_MIN);
+      go(commit ? index + (dx * trackAxis > 0 ? 1 : -1) : index);
+    };
+
+    track.addEventListener('touchend', endTouch);
+    track.addEventListener('touchcancel', () => {
+      if (touchAxis === 'x') go(index);
+      touchId = null;
     });
 
     dots.forEach((dot, i) => {
