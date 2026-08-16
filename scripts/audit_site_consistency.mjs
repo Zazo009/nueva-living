@@ -121,6 +121,45 @@ for (const name of htmlFiles) {
   }
 }
 
+// Indexable pages and sitemap URLs must be the same set.
+//
+// These drifted once already: the five locale copies of each legal page
+// carried no robots meta while their English original was noindex, so 15
+// pages were indexable but deliberately absent from the sitemap -- Google
+// told to ignore them by intent and to find them in practice. Comparing
+// the two sets catches either half of that going wrong: a page excluded
+// from the sitemap but left indexable, or a sitemap URL that turns out to
+// be noindex.
+{
+  const sitemapPath = path.join(dist, 'sitemap.xml');
+  if (fs.existsSync(sitemapPath)) {
+    const xml = fs.readFileSync(sitemapPath, 'utf8');
+    const listed = new Set(
+      [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)]
+        .map((match) => match[1].replace(/^https?:\/\/[^/]+\//, '').replace(/\/$/, '/index.html') || 'index.html')
+    );
+
+    const indexable = [];
+    for (const file of everyHtmlFile(dist)) {
+      const html = fs.readFileSync(file, 'utf8');
+      if (/<meta name="robots" content="[^"]*noindex/i.test(html)) continue;
+      indexable.push(path.relative(dist, file));
+    }
+
+    for (const page of indexable) {
+      if (!listed.has(page)) {
+        fail(page, 'is indexable but not listed in sitemap.xml -- either add it or mark it noindex');
+      }
+    }
+    for (const url of listed) {
+      const target = path.join(dist, url);
+      if (fs.existsSync(target) && /<meta name="robots" content="[^"]*noindex/i.test(fs.readFileSync(target, 'utf8'))) {
+        fail(url, 'is listed in sitemap.xml but is noindex');
+      }
+    }
+  }
+}
+
 // Every in-page link must land on a section that exists, in every language.
 // The property pages' sub-nav is the reason: its entries are conditional
 // (media only when there are images, payment terms only when the project has

@@ -1038,12 +1038,33 @@ function externalizeHomepageController(html, publicName) {
   );
 }
 
+// A locale copy inherits its English page's robots directive.
+//
+// pageMeta is keyed by the English filename, so es/privacy-policy.html and
+// its four siblings matched nothing and shipped with no robots meta at all
+// -- indexable, while the English original they are translated from is
+// noindex,follow and while the sitemap deliberately omits them. That is a
+// contradictory instruction to Google: excluded from the index by intent,
+// discoverable in practice. Inheriting the directive makes the whole
+// cluster agree, and brings the indexable-page count back in line with the
+// 198 URLs the sitemap lists.
+function inheritLocaleRobots(html, publicName) {
+  const prefix = publicName.includes('/') ? publicName.split('/')[0] : '';
+  if (!LOCALES.some((locale) => locale.urlPrefix === prefix)) return html;
+  const robots = pageMeta[publicName.slice(prefix.length + 1)]?.robots;
+  if (!robots || /<meta name="robots"/i.test(html)) return html;
+  return html.replace(
+    /(<meta name="description" content="[^"]*"\s*\/?>)/i,
+    `$1\n  <meta name="robots" content="${escapeHtml(robots)}">`
+  );
+}
+
 function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const locale = localeFromPublicName(publicName);
   const productionHtml = externalizeHomepageController(
-    stampAssetVersions(clampMetaDescriptions(injectGtm(injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(injectSeo(html, publicName))), locale))))))),
+    stampAssetVersions(clampMetaDescriptions(injectGtm(injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(inheritLocaleRobots(injectSeo(html, publicName), publicName))), locale))))))),
     publicName
   );
   fs.writeFileSync(target, optimizeHtml(productionHtml));
