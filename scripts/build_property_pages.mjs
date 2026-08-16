@@ -18,6 +18,7 @@ import {
 } from './lib/i18n.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
+import { realEstateAgentSchema } from './lib/brand.mjs';
 // The homepage and developments grids are rendered in English and then
 // localized by find/replace entry tables, so the card resolves its strings
 // against English here and card_chrome_translations.mjs swaps them later.
@@ -1212,16 +1213,12 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     } : {}),
     areaServed: { '@type': 'Place', name: project.schema?.areaServed || project.hero.location }
   };
-  const agentSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'RealEstateAgent',
-    name: 'Nueva Living',
-    legalName: 'LIORA LIVING SL.',
-    taxID: 'B88827472',
-    url: `${siteUrl}/`,
-    email: 'contact@nuevaliving.com',
-    areaServed: 'Costa del Sol'
-  };
+  // Same entity facts as every other page, from lib/brand.mjs. These used
+  // to be written out again here and had already lost the address, phone
+  // and logo -- Google reads structured data as an assertion about the
+  // business, and 84 pages asserting a thinner version of it is worse than
+  // one consistent claim.
+  const agentSchema = realEstateAgentSchema(siteUrl, { areaServed: 'Costa del Sol' });
   const faqs = [...defaultFaqs(locale), ...(project.faq || [])];
   const faqSchema = {
     '@context': 'https://schema.org',

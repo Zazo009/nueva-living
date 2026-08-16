@@ -1,3 +1,4 @@
+import { realEstateAgentSchema, organizationSchema } from './lib/brand.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -91,41 +92,11 @@ const basePageMeta = {
     path: '/',
     type: 'website',
     schema: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'RealEstateAgent',
-        name: 'Nueva Living',
-        legalName: 'LIORA LIVING SL.',
-        taxID: 'B88827472',
-        url: siteUrl,
-        email: 'contact@nuevaliving.com',
+      realEstateAgentSchema(siteUrl, {
         areaServed: ['Marbella', 'Estepona', 'Benahavis', 'Costa del Sol'],
         knowsAbout: ['New developments', 'Off-plan property', 'Luxury real estate advisory']
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: 'Nueva Living',
-        legalName: 'LIORA LIVING SL.',
-        url: siteUrl,
-        logo: `${siteUrl}/assets/liora/brand/nueva-living-lockup-espresso-transparent.png`,
-        email: 'contact@nuevaliving.com',
-        telephone: '+34645446624',
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: 'Avenida del Prado 71',
-          postalCode: '29660',
-          addressLocality: 'Marbella',
-          addressRegion: 'Malaga',
-          addressCountry: 'ES'
-        }
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'Nueva Living',
-        url: siteUrl
-      }
+      }),
+      organizationSchema(siteUrl)
     ]
   },
   'developments.html': {
