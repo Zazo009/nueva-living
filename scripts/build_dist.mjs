@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import vm from 'node:vm';
-import { LOCALES, DEFAULT_LOCALE, localizedPath, t } from './lib/i18n.mjs';
+import { LOCALES, DEFAULT_LOCALE, localizedPath, t, clampDescription} from './lib/i18n.mjs';
 
 // writeHtml() below is called once per output file across the whole site
 // (English root files, and every es/fr/de/ru/ar/*.html locale variant) --
@@ -353,11 +353,30 @@ function projectAreaLabel(project) {
 // rule: search results truncate around there, and the descriptive half
 // earns the click more than the brand suffix, which already shows in the
 // URL and breadcrumb. Keep the two in step.
+// Mirrors seoTitle() in build_property_pages: this one titles the English
+// property pages, that one the locale variants, and they have to agree.
 function projectSeoTitle(project) {
   const area = projectAreaLabel(project);
   const type = project.hero?.type || 'New Development';
-  const full = `${type} in ${area} — ${project.shortName || project.name} | Nueva Living`;
-  return full.length > 60 ? full.slice(0, -' | Nueva Living'.length) : full;
+  const brand = ' | Nueva Living';
+  const build = (t) => `${t} in ${area} — ${project.shortName || project.name}${brand}`;
+
+  const full = build(type);
+  if (full.length <= 60) return full;
+
+  const withoutBrand = full.slice(0, -brand.length);
+  if (withoutBrand.length <= 60) return withoutBrand;
+
+  // These overrun because the type is a list -- "Apartments, Penthouses &
+  // Garden Villas" is 38 characters before the area and the name even start.
+  const firstType = type.split(/\s*[,&]\s*/)[0].trim();
+  if (firstType && firstType !== type) {
+    const shortened = build(firstType);
+    if (shortened.length <= 60) return shortened;
+    const bare = shortened.slice(0, -brand.length);
+    if (bare.length <= 60) return bare;
+  }
+  return withoutBrand;
 }
 
 const projectPages = loadProjectPages();
@@ -828,6 +847,36 @@ function injectNavInteractions(html) {
 // blocking request. Pages already inline their critical CSS the same way.
 const systemStylesheetCss = fs.readFileSync(path.join(root, systemStylesheetPath), 'utf8');
 
+// Descriptions are translated by find/replace keyed on the English text, so
+// trimming them at the source would stop the entries matching and leave the
+// locale pages in English. Doing it here, on the finished page, works the
+// same for every language and every kind of page regardless of which builder
+// produced it. 85 pages were shipping descriptions past the point Google
+// shows, several of them cut mid-word.
+function clampMetaDescriptions(html) {
+  return html.replace(
+    /(<meta (?:name="description"|property="og:description"|name="twitter:description") content=")([^"]*)(")/g,
+    (match, head, body, tail) => `${head}${escapeAttribute(clampDescription(decodeAttribute(body)))}${tail}`
+  );
+}
+
+function decodeAttribute(value) {
+  return value
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+}
+
+function escapeAttribute(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 function injectSystemStyles(html) {
   if (html.includes(systemStylesheetPath) || html.includes('data-nueva-system')) return html;
   return html.replace(
@@ -990,7 +1039,7 @@ function writeHtml(source, target, publicName) {
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const locale = localeFromPublicName(publicName);
   const productionHtml = externalizeHomepageController(
-    injectGtm(injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(injectSeo(html, publicName))), locale))))),
+    clampMetaDescriptions(injectGtm(injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(injectSeo(html, publicName))), locale)))))),
     publicName
   );
   fs.writeFileSync(target, optimizeHtml(productionHtml));

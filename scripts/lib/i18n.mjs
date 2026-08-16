@@ -317,3 +317,27 @@ export const LANG_SWITCHER_SCRIPT = `<script>
     else if (mq.addListener) mq.addListener(place);
   })();
 </script>`;
+
+// Google truncates meta descriptions around 160 characters, so anything past
+// that is invisible -- and worse, it usually cuts mid-word. Trim to the last
+// sentence that fits; if a single sentence is already too long, fall back to
+// the last word boundary and mark the cut.
+export const SEO_DESCRIPTION_MAX = 160;
+
+export function clampDescription(text, max = SEO_DESCRIPTION_MAX) {
+  const value = String(text || '').replace(/\s+/g, ' ').trim();
+  if (value.length <= max) return value;
+
+  const sentenceEnd = /[.!?…](?=\s|$)/g;
+  let cut = 0;
+  let match;
+  while ((match = sentenceEnd.exec(value)) !== null) {
+    if (match.index + 1 > max) break;
+    cut = match.index + 1;
+  }
+  if (cut >= max * 0.6) return value.slice(0, cut).trim();
+
+  const slice = value.slice(0, max - 1);
+  const lastSpace = slice.lastIndexOf(' ');
+  return `${slice.slice(0, lastSpace > 0 ? lastSpace : slice.length).replace(/[,;:]$/, '')}…`;
+}

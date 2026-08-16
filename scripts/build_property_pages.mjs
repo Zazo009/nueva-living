@@ -277,8 +277,15 @@ function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
             </button>`;
   }).join('\n            ');
 
+  // The gallery dialog was loading the full-size masters -- over 1MB each on
+  // some projects, forty of them on Elviria. Hand it the WebP derivative
+  // where one exists and keep the master as the fallback.
   const mediaData = JSON.stringify(media.items.map((item) => ({
     src: item.src,
+    webp: (() => {
+      const match = String(item.src || '').match(/^(.*)\.(?:jpe?g)$/i);
+      return match && existsSync(`${match[1]}-960.webp`) ? `${match[1]}-960.webp` : '';
+    })(),
     alt: item.alt || '',
     width: item.width || 1600,
     height: item.height || 900,
@@ -824,9 +831,47 @@ const BRAND_SUFFIX = ' | Nueva Living';
 function seoTitle(project, locale = DEFAULT_LOCALE) {
   const area = projectArea(project, locale);
   const type = project.hero?.type || 'New Development';
-  const full = t('seo.titleTemplate', locale, { type, area: area.label, name: project.shortName || project.name });
-  if (full.length <= SEO_TITLE_MAX || !full.endsWith(BRAND_SUFFIX)) return full;
-  return full.slice(0, -BRAND_SUFFIX.length);
+  const build = (t2) => t('seo.titleTemplate', locale, { type: t2, area: area.label, name: project.shortName || project.name });
+
+  const full = build(type);
+  if (full.length <= SEO_TITLE_MAX) return full;
+
+  // First give up the brand suffix, which the domain already conveys.
+  const withoutBrand = full.endsWith(BRAND_SUFFIX) ? full.slice(0, -BRAND_SUFFIX.length) : full;
+  if (withoutBrand.length <= SEO_TITLE_MAX) return withoutBrand;
+
+  // Still long: these run over because the property type is a list --
+  // "Wohnungen, Penthäuser & Gartenvillen" is 36 characters before the area
+  // and the project name. Keep the first type; the rest is on the page. The
+  // separator is whatever the language uses to join a list, so the
+  // conjunctions are listed alongside the punctuation.
+  const firstType = type.split(/\s*[,&]\s*|\s+(?:&|and|y|et|und|и|و)\s+/i)[0].trim();
+  const strip = (value) => (value.endsWith(BRAND_SUFFIX) && value.length > SEO_TITLE_MAX
+    ? value.slice(0, -BRAND_SUFFIX.length)
+    : value);
+
+  if (firstType && firstType !== type) {
+    const trimmed = strip(build(firstType));
+    if (trimmed.length <= SEO_TITLE_MAX) return trimmed;
+  }
+
+  // Last resort: when the project name already carries the place -- "Marbella
+  // West Gardens" in Marbella -- naming the area again buys nothing but
+  // characters.
+  //
+  // The comparison uses the area slug, not the translated label: the project
+  // names stay in Latin script, so "Marbella West Gardens" never matches
+  // "Марбелья" or "ماربيا" and the Russian and Arabic titles kept overrunning.
+  const name = project.shortName || project.name;
+  const areaSlug = String(project.discovery?.area || '').split('-')[0];
+  const redundant = (areaSlug && name.toLowerCase().includes(areaSlug.toLowerCase()))
+    || (area.label && name.toLowerCase().includes(String(area.label).toLowerCase().split(/[\s(]/)[0]));
+  if (redundant) {
+    const withoutArea = `${firstType || type} — ${name}${BRAND_SUFFIX}`;
+    const trimmed = strip(withoutArea);
+    if (trimmed.length <= SEO_TITLE_MAX) return trimmed;
+  }
+  return withoutBrand;
 }
 
 function footer(project, locale = DEFAULT_LOCALE) {
@@ -1626,7 +1671,7 @@ function renderProjectCard(project) {
             ${renderProjectCardGallery(project, { fallback: responsiveCardImageTag(cardImage(project)) })}
             <div class="project-body">
               <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
-              <h3>${esc(project.name)}</h3>
+              <h2>${esc(project.name)}</h2>
               <p>${esc(project.card?.description || project.description)}</p>
               <div class="meta">${meta.map(([label, value]) => `<div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('')}</div>
               ${cardTags.length ? `<div class="project-tags">${renderDiscoveryTags(cardTags)}</div>` : ''}

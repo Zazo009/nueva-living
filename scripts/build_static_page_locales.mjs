@@ -60,7 +60,14 @@ function injectSwitcher(html, file, locale) {
 
 // hreflang goes after canonical when the page has one, else after the
 // meta description (compare.html carries no canonical).
+//
+// compare.html is noindex: it is a thin, near-duplicate tool page that only
+// makes sense with your own shortlist in it. Annotating a noindex page with
+// hreflang sends Google contradictory instructions -- "do not index this"
+// alongside "here are its language equivalents" -- so the cluster is simply
+// left off. The other two static pages keep theirs.
 function injectHreflang(html, file) {
+  if (file === 'compare.html') return html;
   const block = hreflangLinks(file, siteUrl);
   const canonical = `<link rel="canonical" href="${siteUrl}/${file}">`;
   if (html.includes(canonical)) {
@@ -93,12 +100,17 @@ for (const page of PAGES) {
     html = html.split(`<meta property="og:url" content="${siteUrl}/${page.file}">`)
       .join(`<meta property="og:url" content="${localeUrl}">`);
 
-    // hreflang (uses the locale-rewritten canonical as anchor when present)
+    // hreflang (uses the locale-rewritten canonical as anchor when present).
+    // compare.html is left out for the reason given on injectHreflang: it is
+    // noindex, and annotating a noindex page with a language cluster gives
+    // Google two contradictory instructions.
     const localeCanonical = `<link rel="canonical" href="${localeUrl}">`;
-    if (html.includes(localeCanonical)) {
-      html = html.replace(localeCanonical, `${localeCanonical}\n${hreflangLinks(page.file, siteUrl)}`);
-    } else {
-      html = html.replace(/(<meta name="description"[^\n]*)/, `$1\n${hreflangLinks(page.file, siteUrl)}`);
+    if (page.file !== 'compare.html') {
+      if (html.includes(localeCanonical)) {
+        html = html.replace(localeCanonical, `${localeCanonical}\n${hreflangLinks(page.file, siteUrl)}`);
+      } else {
+        html = html.replace(/(<meta name="description"[^\n]*)/, `$1\n${hreflangLinks(page.file, siteUrl)}`);
+      }
     }
 
     if (page.robots && !/<meta name="robots"/i.test(html)) {

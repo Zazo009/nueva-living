@@ -288,7 +288,8 @@
       if (!activeMediaItems.length || !dialogImage) return;
       activeMediaIndex = (index + activeMediaItems.length) % activeMediaItems.length;
       const item = activeMediaItems[activeMediaIndex];
-      dialogImage.src = item.src;
+      dialogImage.src = item.webp || item.src;
+      if (item.webp) dialogImage.addEventListener('error', () => { dialogImage.src = item.src; }, { once: true });
       dialogImage.alt = item.alt || '';
       dialogImage.width = Number(item.width) || 1600;
       dialogImage.height = Number(item.height) || 900;
@@ -312,7 +313,8 @@
         figure.dataset.stackIndex = String(index);
 
         const img = document.createElement('img');
-        img.src = item.src;
+        img.src = item.webp || item.src;
+        if (item.webp) img.addEventListener('error', () => { img.src = item.src; }, { once: true });
         img.alt = item.alt || '';
         img.width = Number(item.width) || 1600;
         img.height = Number(item.height) || 900;

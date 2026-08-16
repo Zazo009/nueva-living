@@ -759,7 +759,7 @@ const pages = [
         </div>
       </div>
       <div class="guide-callout g-reveal" style="max-width:820px;margin-left:auto;margin-right:auto;">
-        <h4>Does the bank guarantee cover everything I pay?</h4>
+        <h3>Does the bank guarantee cover everything I pay?</h3>
         <p>It covers payments made ahead of completion specifically. The exact scope and validity of the guarantee for a given project is something to confirm in writing before signing, not something to assume.</p>
       </div>
     </div></section>
