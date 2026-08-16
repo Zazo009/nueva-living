@@ -1,14 +1,50 @@
-// Translations for the chrome on the unified listing card (lib/project_card.mjs).
+// Translations for the chrome on the listing card (lib/project_card.mjs).
 //
-// These strings used to exist only in the homepage table, because only the
-// homepage card had a status badge, a price burned onto the image and the
-// lbl/val meta chips. Now every grid on the site renders that card, so the
-// same entries have to be applied by the developments, segment and area
-// locale builds too -- otherwise those pages would show translated prose
-// with an English "Off-Plan" badge and an English "From" over the price.
+// The homepage, developments and segment grids are rendered once in English
+// and turned into the other five languages by find/replace entry tables.
+// The area pages render per locale with t() directly and do not need these,
+// but they are harmless there.
 //
-// Each entry is keyed on the class-name prefix that immediately precedes the
-// text so it can never match the same words elsewhere in the page.
+// Two kinds of entry live here:
+//
+//   Static   fixed wording -- the column labels, "From", the CTA, the status
+//            badges. Written out once.
+//
+//   Derived  wording that contains numbers: "14 of 88 left", "2-4 bed", and
+//            the delivery strings, which differ per project. These cannot be
+//            hand-written because the numbers vary, so they are generated
+//            from the project files and the same i18n strings the area pages
+//            use. A new project needs no entry here.
+//
+// Every entry is keyed on the class name that immediately precedes the text
+// so it can never match the same words elsewhere in the page.
+
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
+import { t } from './i18n.mjs';
+
+const LOCALES = ['es', 'fr', 'de', 'ru', 'ar'];
+const PROJECT_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'content', 'liora-projects');
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// Build one entry from an i18n key: English is the `find`, each locale the
+// replacement, both wrapped in the class prefix that anchors the match.
+function entryFromKey(prefix, key, vars = {}) {
+  const entry = { find: `${prefix}${escapeHtml(t(key, 'en', vars))}<` };
+  for (const locale of LOCALES) {
+    entry[locale] = `${prefix}${escapeHtml(t(key, locale, vars))}<`;
+  }
+  return entry;
+}
 
 export const CARD_CHROME_ENTRIES = [
   // Status badge over the image
@@ -19,21 +55,74 @@ export const CARD_CHROME_ENTRIES = [
   { find: 'dev-badge">Sea View Collection', es: 'dev-badge">Colección con Vistas al Mar', fr: 'dev-badge">Collection Vue Mer', de: 'dev-badge">Kollektion mit Meerblick', ru: 'dev-badge">Коллекция с Видом на Море', ar: 'dev-badge">مجموعة بإطلالة على البحر' },
   { find: 'dev-badge">Under Construction', es: 'dev-badge">En Construcción', fr: 'dev-badge">En Construction', de: 'dev-badge">Im Bau', ru: 'dev-badge">В Стадии Строительства', ar: 'dev-badge">قيد الإنشاء' },
 
-  // "From EUR 1,250,000" burned onto the bottom corner of the image
-  { find: 'dev-price-overlay">From ', es: 'dev-price-overlay">Desde ', fr: 'dev-price-overlay">À partir de ', de: 'dev-price-overlay">Ab ', ru: 'dev-price-overlay">От ', ar: 'dev-price-overlay">ابتداءً من ' },
-
-  // Meta chips
-  { find: '"lbl">Delivery<', es: '"lbl">Entrega<', fr: '"lbl">Livraison<', de: '"lbl">Übergabe<', ru: '"lbl">Сдача<', ar: '"lbl">التسليم<' },
-  { find: '"lbl">From<', es: '"lbl">Desde<', fr: '"lbl">À Partir de<', de: '"lbl">Ab<', ru: '"lbl">От<', ar: '"lbl">ابتداءً من<' },
-  { find: '"lbl">Status<', es: '"lbl">Estado<', fr: '"lbl">Statut<', de: '"lbl">Status<', ru: '"lbl">Статус<', ar: '"lbl">الحالة<' },
-  { find: '"lbl">Type<', es: '"lbl">Tipo<', fr: '"lbl">Type<', de: '"lbl">Typ<', ru: '"lbl">Тип<', ar: '"lbl">النوع<' },
-  { find: '"val">Completed<', es: '"val">Finalizado<', fr: '"val">Terminé<', de: '"val">Fertiggestellt<', ru: '"val">Завершено<', ar: '"val">مكتمل<' },
-  { find: '"val">Current release<', es: '"val">Fase actual<', fr: '"val">Phase actuelle<', de: '"val">Aktuelle Phase<', ru: '"val">Текущая очередь<', ar: '"val">المرحلة الحالية<' },
-  { find: '"val">Under construction<', es: '"val">En construcción<', fr: '"val">En construction<', de: '"val">Im Bau<', ru: '"val">В стадии строительства<', ar: '"val">قيد الإنشاء<' },
-  { find: '"val">On request<', es: '"val">Bajo consulta<', fr: '"val">Sur demande<', de: '"val">Auf Anfrage<', ru: '"val">По запросу<', ar: '"val">عند الطلب<' },
-
-  // CTA -- the card says "Explore Project" everywhere now (the homepage used
-  // to say "Discover Project"). Keyed on the closing tag so it cannot match
-  // the same words in body copy.
-  { find: '>Explore Project</a>', es: '>Explorar Proyecto</a>', fr: '>Découvrir le Projet</a>', de: '>Projekt Entdecken</a>', ru: '>Смотреть Проект</a>', ar: '>استكشاف المشروع</a>' }
+  // Fixed card chrome
+  entryFromKey('dev-price-label">', 'card.from'),
+  entryFromKey('dev-fact-label">', 'card.delivery'),
+  entryFromKey('dev-fact-label">', 'card.homes'),
+  entryFromKey('dev-fact-label">', 'card.available'),
+  entryFromKey('dev-cta-label">', 'cta.exploreProject')
 ];
+
+// --- derived entries -------------------------------------------------------
+
+function projects() {
+  const out = [];
+  for (const slug of readdirSync(PROJECT_DIR)) {
+    const file = join(PROJECT_DIR, slug, 'project.json');
+    if (!existsSync(file)) continue;
+    out.push(JSON.parse(readFileSync(file, 'utf8')));
+  }
+  return out;
+}
+
+const derived = [];
+const seen = new Set();
+const push = (entry) => {
+  if (seen.has(entry.find)) return;
+  seen.add(entry.find);
+  derived.push(entry);
+};
+
+for (const project of projects()) {
+  const crm = project.crm || {};
+
+  // "14 of 88 left" on the badge
+  const available = Number.isFinite(crm.availableUnits)
+    ? crm.availableUnits
+    : (project.availability?.units || []).length;
+  const total = crm.totalUnits;
+  if (available > 0 && Number.isFinite(total) && total > 0) {
+    push(entryFromKey('dev-badge-units">', 'card.unitsLeft', { available, total }));
+    push(entryFromKey('dev-fact-value">', 'card.unitsOf', { available, total }));
+  }
+
+  // "2-4 bed" in the Homes column
+  const min = crm.bedroomsMin;
+  const max = crm.bedroomsMax;
+  if (Number.isFinite(min) || Number.isFinite(max)) {
+    const lo = Number.isFinite(min) ? min : max;
+    const hi = Number.isFinite(max) ? max : min;
+    push(lo === hi
+      ? entryFromKey('dev-fact-value">', 'card.bedSingle', { n: lo })
+      : entryFromKey('dev-fact-value">', 'card.bedRange', { min: lo, max: hi }));
+  }
+
+  // Delivery is prose and already translated in each project's i18n
+  // overlay, so the translation comes from the project rather than a string
+  // key. Skipped when the locale has no overlay for it.
+  const english = project.hero?.delivery;
+  if (english) {
+    const entry = { find: `dev-fact-value">${escapeHtml(english)}<` };
+    let translated = false;
+    for (const locale of LOCALES) {
+      const value = project.i18n?.[locale]?.hero?.delivery;
+      entry[locale] = `dev-fact-value">${escapeHtml(value || english)}<`;
+      if (value && value !== english) translated = true;
+    }
+    if (translated) push(entry);
+  }
+}
+
+// Longest first so a short string cannot eat the opening of a longer one.
+derived.sort((a, b) => b.find.length - a.find.length);
+CARD_CHROME_ENTRIES.push(...derived);

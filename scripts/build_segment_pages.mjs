@@ -233,6 +233,7 @@ function segmentProjectCard(project) {
     || (project.hero?.startingPrice || '').replace(/^From\s+/i, '')
     || '';
   return renderUnifiedCard({
+    project,
     gallery: renderProjectCardGallery(project),
     href: project.output,
     name: project.name,
@@ -240,8 +241,8 @@ function segmentProjectCard(project) {
     price: priceValue,
     location: card.label || card.locExtended || project.hero?.location || 'New Development',
     description: card.description || project.description,
-    meta,
-    cta: 'Explore Project',
+    type: project.hero?.type || '',
+    t: (key, vars) => t(key, 'en', vars),
     className: 'area-project-card',
     attrs: ' data-project-card',
     heading: 'h3',

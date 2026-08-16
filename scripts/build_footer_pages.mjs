@@ -300,6 +300,7 @@ function areaProjectCard(sourceProject, locale = DEFAULT_LOCALE) {
     || (project.hero?.startingPrice || '').replace(/^From\s+/i, '')
     || '';
   return renderUnifiedCard({
+    project,
     gallery: renderProjectCardGallery(project),
     href: project.output,
     name: project.name,
@@ -307,8 +308,8 @@ function areaProjectCard(sourceProject, locale = DEFAULT_LOCALE) {
     price: priceValue,
     location: card.label || card.locExtended || project.hero?.location || t('common.newDevelopment', locale),
     description: card.description || project.description,
-    meta,
-    cta: t('cta.exploreProject', locale),
+    type: project.hero?.type || '',
+    t: (key, vars) => t(key, locale, vars),
     className: 'area-project-card',
     attrs: ' data-project-card',
     heading: 'h3',

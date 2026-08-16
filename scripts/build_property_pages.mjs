@@ -18,6 +18,10 @@ import {
 } from './lib/i18n.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
+// The homepage and developments grids are rendered in English and then
+// localized by find/replace entry tables, so the card resolves its strings
+// against English here and card_chrome_translations.mjs swaps them later.
+const enT = (key, vars) => t(key, 'en', vars);
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 
 const {
@@ -1749,6 +1753,7 @@ function renderProjectCard(project) {
   const dataAttrs = `${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', crm.constructionStatus)}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}`;
 
   return '          ' + renderUnifiedCard({
+    project,
     gallery: renderProjectCardGallery(project, { fallback: responsiveCardImageTag(cardImage(project)) }),
     href: project.output,
     name: project.name,
@@ -1756,8 +1761,8 @@ function renderProjectCard(project) {
     price: priceValue,
     location: card.label || card.locExtended || project.hero?.location || 'New Development',
     description: card.description || project.description,
-    meta,
-    cta: 'Explore Project',
+    type: project.hero?.type || '',
+    t: enT,
     id: project.slug,
     attrs: ' data-project-card' + dataAttrs,
     indent: '          '
@@ -1784,6 +1789,7 @@ function renderHomeCard(project, index) {
   const picture = renderProjectCardGallery(project, { fallback: responsiveCardImageTag(cardImage(project)) });
 
   return '      ' + renderUnifiedCard({
+    project,
     gallery: picture,
     href: project.output,
     name: project.name,
@@ -1791,8 +1797,8 @@ function renderHomeCard(project, index) {
     price: priceValue,
     location: loc,
     description: card.description || project.description,
-    meta,
-    cta: 'Explore Project',
+    type: project.hero?.type || '',
+    t: enT,
     className: 'reveal',
     style: `transition-delay:${(0.2 + index * 0.05).toFixed(2)}s`,
     indent: '      '

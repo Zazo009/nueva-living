@@ -1133,109 +1133,13 @@ body.card-lightbox-open {
 }
 
 
-/* On the homepage cards the gallery sits inside .dev-img-wrap alongside a
-   badge (z-index 3) and a gradient (z-index 2). The gallery's own z-index
-   made it a stacking context, trapping the action cluster underneath the
-   badge -- with a long badge like "OFF-PLAN, PRIVATE AVAILABILITY" the
-   heart disappeared behind it. Dropping the gallery to z-auto lets the
-   cluster's z-index compete with the badge directly, while the gradient
-   still paints over the photo. */
-.dev-img-wrap .project-card-gallery {
-  z-index: auto;
-}
+/* The card's overlay geometry, badge, dots and price live in the LISTING
+   CARD block below. What used to sit here was the previous design's
+   four-corner layout -- badge bottom-left, dots top-left with their own
+   ring, price bottom-right -- at a specificity that outranked the new
+   rules and kept the dots round and the badges wrapping. Removed with the
+   redesign rather than left to fight it. */
 
-/* Four things share a 331px image on a phone: promo badge, action buttons,
-   dot indicators and price. Any two of them on the same row collide -- the
-   badge alone needs 214px and the buttons 134px -- so each gets its own
-   corner, and the badge, the only element whose width is content-driven, is
-   allowed to wrap onto a second line rather than truncate or push into the
-   price. Nothing is dropped: the price stays exactly where it was. */
-.dev-img-wrap .dev-badge {
-  top: auto;
-  bottom: 18px;
-  /* Reserve room for the price in the opposite corner. An eight-figure
-     price ("From EUR 11,500,000") is the widest the inventory produces and
-     needs 141px including its inset, so 178px leaves a clear gap. */
-  max-width: calc(100% - 178px);
-  white-space: normal;
-  line-height: 1.5;
-}
-
-/* The dots move to the free top-left corner. They carry their own dark ring
-   and shadow (below), so they no longer depend on the bottom gradient to be
-   legible. */
-.dev-img-wrap .project-card-gallery-dots {
-  top: 22px;
-  bottom: auto;
-  left: 20px;
-  right: auto;
-  justify-content: flex-start;
-}
-
-[dir="rtl"] .dev-img-wrap .project-card-gallery-dots {
-  left: auto;
-  right: 20px;
-}
-
-/* The dots were 6px at 50% white with a hairline ring -- on a bright sky they
-   disappeared. Bigger, near-opaque, and carrying a dark ring plus a shadow so
-   they hold their edge against any photo. The higher-specificity selector is
-   deliberate: the base rules exist in both liora-pages.css and the homepage's
-   own inline styles, and this has to win over whichever loads last. */
-/* The dot is 7px, which is a fine size to look at and far too small to hit --
-   the tap target guidance is 24px. So the button becomes a 24px transparent
-   hit area and the dot itself moves to a pseudo-element: same appearance,
-   three times the target. Row gap goes to zero because the padding now
-   provides the visual spacing. */
-.project-card-gallery .project-card-gallery-dot {
-  width: 24px;
-  height: 24px;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  display: grid;
-  place-items: center;
-}
-
-.project-card-gallery .project-card-gallery-dot::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(255, 253, 248, 0.92);
-  box-shadow: 0 0 0 1px rgba(20, 14, 8, 0.42), 0 1px 4px rgba(20, 14, 8, 0.45);
-  transition: background 0.24s ease, transform 0.24s ease;
-}
-
-.project-card-gallery .project-card-gallery-dot.is-active {
-  background: none;
-  box-shadow: none;
-  transform: none;
-}
-
-.project-card-gallery .project-card-gallery-dot.is-active::before {
-  background: var(--nueva-gold-light, #c9a35f);
-  box-shadow: 0 0 0 1px rgba(20, 14, 8, 0.5), 0 1px 5px rgba(20, 14, 8, 0.5);
-  transform: scale(1.35);
-}
-
-.project-card-gallery .project-card-gallery-dots {
-  gap: 0;
-}
-
-/* The badge and price are positioned with physical left/right in the
-   homepage's own styles, so they stayed put in Arabic while the dots and the
-   button cluster mirrored -- the corners ended up in a mix of both
-   directions. Flip them too, so RTL is a clean mirror of LTR. */
-[dir="rtl"] .dev-img-wrap .dev-badge {
-  left: auto;
-  right: 20px;
-}
-
-[dir="rtl"] .dev-img-wrap .dev-price-overlay {
-  right: auto;
-  left: 20px;
-}
 
 /* ---------- Long words ----------
    German compounds are long enough to break a phone layout: on the property
@@ -1266,273 +1170,431 @@ h1, h2, h3, h4,
 }
 
 
-/* ---------- Card galleries in landscape ----------
-   The image strip had a fixed height (300px, 200px on narrow screens) while
-   its width followed the card. That is fine in portrait, but a phone turned
-   sideways is wide and very short: the 980px breakpoint drops the grid to one
-   column, so the card becomes 751px wide while the strip stays 300px tall --
-   a 2.5:1 frame holding a 3:2 photograph, which crops away 36% of every image
-   and still fills three quarters of the screen.
-
-   Height now follows the width, so the crop is the same at every size, and
-   landscape phones keep two columns so the cards stay a sensible shape. */
-.project-card-gallery-track,
-.dev-img-wrap .project-card-gallery-track {
-  height: auto;
-  aspect-ratio: 3 / 2;
-}
-
-.project-card-gallery-track img {
-  height: 100%;
-}
-
-@media (max-width: 640px) {
-  .project-card-gallery-track,
-  .project-card-gallery-track img {
-    height: auto;
-  }
-
-  .project-card-gallery-track {
-    aspect-ratio: 3 / 2;
-  }
-
-  .project-card-gallery-track img {
-    height: 100%;
-  }
-}
-
-/* Landscape phone: wide but short. Keep two columns so a card is not the
-   full width of the screen. */
-@media (max-width: 980px) and (orientation: landscape) and (max-height: 560px) {
-  .project-grid,
-  .dev-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
+/* The image ratio is set on .dev-img-wrap in the LISTING CARD block
+   (1.43 / 1.4 / 1.25 by breakpoint); the old 3:2 override on the track
+   fought it. */
 
 
 /* ═══════════════════════════════════════════════════════════════════════
-   UNIFIED LISTING CARD
+LISTING CARD
 
-   Every grid on the site -- homepage, /developments, the area pages and the
-   segment pages -- now renders the same card (scripts/lib/project_card.mjs).
-   These rules used to live only in the homepage's inline <style>, so the
-   other grids had no way to reach them. nueva-system.css is inlined into
-   every page, so this is where they belong.
+   One card,
+used by every grid on the site: the homepage,
+/developments,
+the area pages and the segment pages. Rendered by
+   scripts/lib/project_card.mjs; these rules are the whole of its
+   presentation. nueva-system.css is inlined into every page,
+so this is
+   the only place the card is styled -- the homepage used to keep its own
+   copy and the divergence caused two shipped bugs.
 
-   The homepage still carries its own identical copy plus its #developments
-   overrides and the featured-walkthrough variant; those are scoped to that
-   page and untouched. The variable fallbacks are for the pages that do not
-   declare the homepage's palette.
+   Direction-sensitive properties are logical (inline-start/end,
+padding-inline) so the Arabic build mirrors without a second ruleset.
    ═══════════════════════════════════════════════════════════════════════ */
 
-.dev-card {
-  background: var(--white, #fffaf3);
-  overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.4s ease;
+:root {
+  --card-ground: #EAE3D7;
+  --card-surface: #F7F3EC;
+  --card-ink: #2E2A24;
+  --card-body: #6B6259;
+  --card-muted: #8B8279;
+  --card-label: #9A9188;
+  --card-rule: #DED4C3;
+  --card-gold: #A9834E;
+  /* The brand espresso. The CTA bar was near-black, which read as a hole in
+     a warm sand palette; this is the same brown used across the site. */
+  --card-brown: #4A3B28;
 }
 
-.dev-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 20px 60px rgba(47, 51, 43, 0.12);
-  z-index: 2;
-  position: relative;
+.dev-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-surface);
+  border: 1px solid var(--card-rule);
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
 }
+
+/* Cards in a row end level regardless of how long the copy runs in any
+given language -- the body grows,
+the CTA is pinned to the bottom. */
+.dev-grid > .dev-card,
+.project-grid > .dev-card { height: 100%; }
+
+/* ---------- image ---------- */
 
 .dev-img-wrap {
   position: relative;
-  height: 310px;
+  aspect-ratio: 1.43;
   overflow: hidden;
 }
 
-/* Only the single-image fallback sits directly in the wrap. Gallery slides
-   are wrapped in <picture> too, and those must stay display:contents so the
-   <img> remains the flex item of the scroll track -- a block picture makes
-   every slide collapse to its intrinsic width and the swipe dies. The
-   three-class selector outranks the homepage's own inline copy of the
-   block rule regardless of source order. */
 .dev-img-wrap > picture { display: block; width: 100%; height: 100%; }
 
+/* Gallery slides must stay display:contents so the <img> remains the flex
+item of the scroll track. A block picture collapses all six slides into
+   one and the swipe dies. */
 .dev-img-wrap .project-card-gallery-track picture { display: contents; }
 
 .dev-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.dev-card:hover .dev-img-wrap img { transform: scale(1.05); }
-
-.dev-img-overlay {
+.dev-img-wrap .project-card-gallery {
   position: absolute;
   inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: linear-gradient(to top, rgba(20, 27, 18, 0.65) 0%, rgba(20, 27, 18, 0.1) 45%, transparent 70%);
-}
-
-.dev-badge {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 3;
-  pointer-events: none;
-  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
-  font-size: 8px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  background: var(--gold, #a8834a);
-  /* var(--forest) on the gold is 4.34 -- a shade darker clears 4.5. */
-  color: #241b10;
-  padding: 5px 14px;
-  font-weight: 500;
-}
-
-.dev-price-overlay {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  font-family: "Cinzel", Georgia, serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: rgba(250, 247, 242, 0.95);
-  letter-spacing: 0.02em;
-  z-index: 3;
-  pointer-events: none;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  z-index: auto;
 }
 
 .dev-img-wrap .project-card-gallery,
 .dev-img-wrap .project-card-gallery-track,
 .dev-img-wrap .project-card-gallery-track img { height: 100%; }
 
-.dev-img-wrap .project-card-gallery {
+/* One scrim doing all the legibility work: dark enough at the top for the
+action icons,
+clear through the middle so the render shows,
+and heavy at
+   the bottom where the badges,
+location and price sit. */
+.dev-scrim {
   position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(30, 24, 16, 0.28) 0%,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(30, 24, 16, 0.14) 54%,
+    rgba(24, 19, 13, 0.74) 100%);
 }
 
-.dev-img-wrap .project-card-gallery-dots { z-index: 4; }
+/* ---------- actions ---------- */
 
-.dev-body { padding: 32px 32px 28px; }
-
-.dev-loc {
-  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
-  font-size: 8.5px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  /* The homepage gold reads 2.9 on the near-white card body; the deeper
-     bronze is the same family and clears 4.5. */
-  color: #7a5e30;
-  margin-bottom: 10px;
-}
-
-.dev-name {
-  font-family: "Cinzel", Georgia, serif;
-  font-size: 19px;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  margin: 0 0 6px;
-  color: var(--charcoal, #483c28);
-  line-height: 1.3;
-}
-
-.dev-tagline {
-  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
-  font-size: 11.5px;
-  font-weight: 300;
-  color: var(--muted, #695e4c);
-  margin: 0 0 22px;
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-}
-
-.dev-meta {
+.project-card-actions {
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  z-index: 5;
   display: flex;
-  gap: 24px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(213, 199, 180, 0.6);
+  gap: 1px;
 }
 
-.dev-meta-item .lbl {
-  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted, #695e4c);
-  display: block;
-}
-
-.dev-meta-item .val {
-  display: block;
-  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
-  font-size: 12.5px;
-  line-height: 1.4;
-  color: var(--charcoal, #483c28);
-  margin-top: 4px;
-  font-weight: 400;
-}
-
-.dev-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.dev-cta-link {
-  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
-  font-size: 9px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  /* The pale gold reads 2.21 against the card body; this deeper bronze
-     clears 4.5 while staying in the same family. */
-  color: #7a5e30;
+.project-card-action,
+.dev-img-wrap .nueva-favorite-button {
+  width: 38px;
+  height: 38px;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 500;
-  transition: gap 0.28s ease, color 0.22s;
-  background: none;
+  justify-content: center;
   border: none;
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
+  border-radius: 0;
+  background: rgba(247, 243, 236, 0.92);
+  color: var(--card-ink);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.dev-cta-link::after { content: "→"; font-size: 11px; }
-.dev-cta-link:hover { gap: 18px; color: var(--charcoal, #483c28); }
-[dir="rtl"] .dev-cta-link::after { content: "←"; }
+.project-card-action svg,
+.dev-img-wrap .nueva-favorite-button svg {
+  width: 17px;
+  height: 17px;
+}
 
-.dev-type-tag {
+.project-card-action:hover,
+.project-card-action:focus-visible,
+.dev-img-wrap .nueva-favorite-button:hover,
+.dev-img-wrap .nueva-favorite-button:focus-visible {
+  background: var(--card-gold);
+  color: #fff;
+}
+
+.project-card-action:focus-visible,
+.dev-img-wrap .nueva-favorite-button:focus-visible,
+.dev-card .dev-cta-link:focus-visible {
+  outline: 2px solid var(--card-gold);
+  outline-offset: 2px;
+}
+
+/* Track geometry. The scroll behaviour is defined further up, scoped to
+.is-swipe; this is the layout the slides need in order to be a strip at
+   all. It lives here rather than in liora-pages.css because the homepage
+   does not load that stylesheet. */
+.project-card-gallery-track {
+  display: flex;
+  width: 100%;
+}
+
+.project-card-gallery-track img {
+  flex: 0 0 100%;
+  min-width: 0;
+  object-fit: cover;
+}
+
+/* ---------- carousel indicator: ticks, not dots ---------- */
+
+.dev-card .project-card-gallery-dots {
+  position: absolute;
+  top: 14px;
+  /* The base rule in liora-pages.css pins left:0 AND right:0 and centres its
+     content. Left alone the tick row spans the whole image and the ticks sit
+     in the middle, drifting under the action buttons. Releasing both physical
+     edges first, then anchoring the logical start, keeps the ticks in their
+     own corner -- opposite the buttons, and mirrored under RTL. */
+  left: auto;
+  right: auto;
+  inset-inline-start: 14px;
+  inset-inline-end: auto;
+  bottom: auto;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  /* Never grow into the buttons, whatever the slide count. */
+  max-width: calc(100% - 150px);
+  gap: 4px;
+}
+
+.project-card-gallery-dot {
+  width: 6px;
+  height: 2px;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: rgba(247, 243, 236, 0.55);
+  box-shadow: none;
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.project-card-gallery-dot.is-active {
+  width: 21px;
+  background: var(--card-surface);
+}
+
+/* The tick itself is 2px tall; the touch target must not be. */
+.project-card-gallery-dot::before {
+  content: "";
+  position: absolute;
+  inset-block: -14px;
+  inset-inline: -3px;
+}
+
+.project-card-gallery-dot { position: relative; }
+
+/* ---------- overlay block ---------- */
+
+.dev-card .dev-overlay {
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 18px;
+  padding-inline-end: 18px;
+  pointer-events: none;
+  text-align: start;
+}
+
+.dev-card .dev-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+}
+
+.dev-card .dev-badge,
+.dev-card .dev-badge-units {
   font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
-  font-size: 8px;
+  font-size: 9px;
+  font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--muted, #695e4c);
-  border: 1px solid var(--sand, #e8dfcd);
-  padding: 4px 10px;
+  padding: 6px 11px;
   white-space: nowrap;
 }
 
-/* The card body is the link target -- clicking the text anywhere opens the
-   project. This replaces the .project-link::before overlay the old
-   developments card used.
+.dev-card .dev-badge {
+  background: var(--card-gold);
+  color: #fff;
+}
 
-   Crucially the overlay stops at the photo. Stretched across the whole card
-   (inset:0 against .project-card) it sat on top of the gallery, so a finger
-   dragging across the image met an anchor instead of the scroller and the
-   swipe did nothing -- which is why the developments, area and segment cards
-   would not swipe while the homepage ones, having no [data-project-card] and
-   so no overlay, always did. Making .dev-body the containing block keeps the
-   generous click target on the text and leaves the image to the gallery,
-   whose own handler already navigates on a tap and ignores a swipe. */
+.dev-card .dev-badge-units {
+  background: rgba(247, 243, 236, 0.92);
+  color: var(--card-ink);
+}
+
+.dev-card .dev-loc {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(247, 243, 236, 0.82);
+}
+
+.dev-card .dev-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  /* Latin numerals and the euro sign keep their order inside an RTL block
+     rather than being reordered by the bidi algorithm. */
+  direction: ltr;
+}
+
+.dev-card .dev-price-label {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 243, 236, 0.82);
+}
+
+.dev-card .dev-price-amount {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--card-surface);
+}
+
+/* ---------- body ---------- */
+
+.dev-card .dev-body {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 21px;
+  flex: 1 1 auto;
+}
+
+.dev-card .dev-name {
+  margin: 0;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0;
+  color: var(--card-gold);
+  overflow-wrap: break-word;
+}
+
+.dev-card .dev-tagline {
+  margin: 0;
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--card-body);
+  text-wrap: pretty;
+  /* Three lines everywhere so cards in a row stay level across languages. */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ---------- fact block ---------- */
+
+.dev-card .dev-facts {
+  display: grid;
+  grid-template-columns: repeat(var(--fact-columns, 3), minmax(0, 1fr));
+  border-block: 1px solid var(--card-rule);
+}
+
+/* A column with no data is never rendered, so the survivors split the
+width -- two columns,
+or one,
+are all valid. */
+.dev-facts[data-fact-count="1"] { --fact-columns: 1; }
+.dev-card .dev-facts[data-fact-count="2"] { --fact-columns: 2; }
+
+.dev-card .dev-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 11px 12px;
+  min-width: 0;
+}
+
+.dev-card .dev-fact + .dev-fact {
+  border-inline-start: 1px solid var(--card-rule);
+}
+
+.dev-card .dev-fact:first-child { padding-inline-start: 0; }
+.dev-card .dev-fact:last-child { padding-inline-end: 0; }
+
+.dev-card .dev-fact-label {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--card-label);
+  /* German runs long -- wrap rather than clip. */
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.dev-card .dev-fact-value {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--card-ink);
+  overflow-wrap: break-word;
+}
+
+.dev-fact--gold .dev-fact-value { color: var(--card-gold); }
+
+.dev-card .dev-fact-sub {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--card-muted);
+}
+
+/* ---------- CTA ---------- */
+
+.dev-card .dev-cta-link {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px 17px;
+  background: var(--card-brown);
+  color: var(--card-surface);
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.dev-card .dev-cta-link:hover,
+.dev-card .dev-cta-link:focus-visible { background: var(--card-gold); }
+
+.dev-card .dev-cta-label { overflow-wrap: break-word; }
+
+.dev-card .dev-cta-arrow {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+/* The whole body is the link target. The overlay stops at the photo:
+stretched over the gallery it intercepts the swipe. */
 .project-card[data-project-card] { position: relative; cursor: pointer; }
-
 .project-card[data-project-card] .dev-body { position: relative; }
 
 .project-card[data-project-card] .dev-cta-link::before {
@@ -1542,26 +1604,85 @@ h1, h2, h3, h4,
   z-index: 1;
 }
 
-/* The action cluster, dots and arrows must stay clickable above it. */
-.project-card-actions,
-.project-card-gallery-dots,
-.project-card-gallery-arrow { z-index: 5; }
+/* ---------- grids ---------- */
 
-/* The developments/area/segment grids were 18px apart on a tinted page; the
-   homepage grid is a 3px hairline on sand. One look. */
+.dev-grid,
 .project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 3px;
-  background: var(--sand, #e8dfcd);
+  background: var(--card-ground);
+  align-items: stretch;
 }
 
-@media (max-width: 640px) {
-  .dev-img-wrap { height: 260px; }
-  .dev-body { padding: 24px 22px 20px; }
-  .dev-name { font-size: 17px; margin-bottom: 4px; }
-  .dev-tagline { font-size: 11px; margin-bottom: 16px; }
-  .dev-meta { gap: 16px; }
-  .dev-meta-item .val { font-size: 12px; }
-  .dev-badge { padding: 4px 11px; }
-  .dev-price-overlay { font-size: 15px; bottom: 14px; right: 14px; }
-  .dev-card:hover { transform: none; box-shadow: none; }
+/* ---------- breakpoints ---------- */
+
+@media (max-width: 1024px) {
+.dev-img-wrap { aspect-ratio: 1.4; }
+.project-card-action,
+.dev-img-wrap .nueva-favorite-button { width: 40px; height: 40px; }
 }
+
+@media (max-width: 767px) {
+.dev-grid,
+.project-grid { grid-template-columns: 1fr; }
+
+.dev-img-wrap { aspect-ratio: 1.25; }
+
+/* 44px touch targets on mobile,
+all three actions kept. */
+  .project-card-action,
+.dev-img-wrap .nueva-favorite-button { width: 44px; height: 44px; }
+
+.dev-card .dev-price-amount { font-size: 28px; }
+.dev-card .dev-name { font-size: 24px; }
+.dev-card .dev-body { padding: 18px; gap: 12px; }
+.dev-card .dev-overlay { padding: 15px; }
+}
+
+/* Landscape phone: wide but short, so two columns keep a sane card shape. */
+@media (max-width: 980px) and (orientation: landscape) and (max-height: 560px) {
+.dev-grid,
+.project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---------- Arabic ---------- */
+
+/* Tracking breaks Arabic letter joining and there is no uppercase, so
+hierarchy comes from weight and size instead. Scoped to the Arabic
+   build,
+never applied to the Latin languages. */
+[lang="ar"] .dev-badge,
+[lang="ar"] .dev-badge-units,
+[lang="ar"] .dev-loc,
+[lang="ar"] .dev-price-label,
+[lang="ar"] .dev-fact-label,
+[lang="ar"] .dev-cta-label {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+[lang="ar"] .dev-loc,
+[lang="ar"] .dev-fact-label { font-weight: 600; }
+
+/* Cinzel has no Arabic glyphs; Cairo is already self-hosted and
+unicode-range scoped,
+so Latin numerals in the price still render in
+   Cinzel while any Arabic text falls through to Cairo. */
+[lang="ar"] .dev-name {
+  font-family: "Cairo", "Montserrat", Arial, sans-serif;
+  font-weight: 600;
+}
+
+/* The tick row carries `direction: ltr` (set in liora-rtl.css) so the ticks
+   stay in slide order, matching the track, which is also kept LTR so a swipe
+   moves the same way in every language. That makes logical inset properties
+   resolve against LTR even on an Arabic page, so the corner has to be
+   mirrored physically. */
+[dir="rtl"] .dev-card .project-card-gallery-dots {
+  left: auto;
+  right: 14px;
+}
+
+/* The arrow points the way the reader travels. */
+[dir="rtl"] .dev-cta-arrow { transform: scaleX(-1); }

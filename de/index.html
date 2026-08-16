@@ -492,255 +492,11 @@
         color: #f4ead9;
       }
     }
-    .dev-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 3px;
-      background: var(--sand);
-    }
-    .dev-card {
-      background: var(--white);
-      overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
-                  box-shadow 0.4s ease;
-    }
-    .dev-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 60px rgba(47,51,43,0.12);
-      z-index: 2;
-      position: relative;
-    }
-    .dev-img-wrap {
-      position: relative;
-      height: 310px;
-      overflow: hidden;
-    }
-    .dev-img-wrap picture {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-    .dev-img-wrap img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-    .dev-card:hover .dev-img-wrap img { transform: scale(1.05); }
-    .dev-img-overlay {
-      position: absolute; inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      background:
-        linear-gradient(to top, rgba(20,27,18,0.65) 0%, rgba(20,27,18,0.1) 45%, transparent 70%);
-    }
-    .dev-badge {
-      position: absolute;
-      top: 20px; left: 20px;
-      z-index: 3;
-      pointer-events: none;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 8px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      background: var(--gold);
-      /* var(--forest) on the gold is 4.34 -- a shade darker clears 4.5. */
-      color: #241b10;
-      padding: 5px 14px;
-      font-weight: 500;
-    }
-    .dev-price-overlay {
-      position: absolute;
-      bottom: 20px; right: 20px;
-      font-family: 'Cinzel', serif;
-      font-size: 18px;
-      font-weight: 400;
-      color: rgba(250,247,242,0.95);
-      letter-spacing: 0.02em;
-      z-index: 3;
-      pointer-events: none;
-      text-shadow: 0 1px 8px rgba(0,0,0,0.3);
-    }
-    .project-card-gallery {
-      position: relative;
-      z-index: 2;
-      cursor: pointer;
-    }
-    .project-card-gallery-track {
-      display: flex;
-      width: 100%;
-      height: 300px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      overscroll-behavior-x: contain;
-      /* Touch gestures on the gallery must only scroll the page -- see
-         the matching note in liora-pages.css. */
-      touch-action: pan-y;
-    }
-    .project-card-gallery-track::-webkit-scrollbar { display: none; }
-    /* See liora-pages.css: keeps the <img> as the flex item. */
-    .project-card-gallery-track picture { display: contents; }
-    .project-card-gallery-track img {
-      flex: 0 0 100%;
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-    }
-    .project-card-gallery-dots {
-      position: absolute;
-      left: 0; right: 0; bottom: 16px;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      pointer-events: none;
-    }
-    .project-card-gallery-dot {
-      width: 6px; height: 6px;
-      padding: 0; border: 0;
-      border-radius: 50%;
-      background: rgba(255, 253, 248, 0.5);
-      box-shadow: 0 0 0 1px rgba(41, 36, 27, 0.18);
-      cursor: pointer;
-      pointer-events: auto;
-      transition: background 0.24s ease, transform 0.24s ease;
-    }
-    .project-card-gallery-dot.is-active {
-      background: var(--gold, #c9a35f);
-      transform: scale(1.25);
-    }
-    .project-card-gallery-arrow {
-      position: absolute;
-      top: 50%;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px; height: 34px;
-      padding: 0; border: 0;
-      border-radius: 50%;
-      background: rgba(27, 24, 18, 0.42);
-      color: #fffaf3;
-      font-size: 20px;
-      line-height: 1;
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(-50%);
-      transition: opacity 0.2s ease, background 0.2s ease;
-    }
-    .project-card-gallery:hover .project-card-gallery-arrow {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .project-card-gallery-arrow:hover { background: rgba(27, 24, 18, 0.68); }
-    .project-card-gallery-arrow--prev { left: 12px; }
-    .project-card-gallery-arrow--next { right: 12px; }
-    @media (hover: none) {
-      .project-card-gallery-arrow { display: none; }
-    }
-    .dev-img-wrap .project-card-gallery,
-    .dev-img-wrap .project-card-gallery-track,
-    .dev-img-wrap .project-card-gallery-track img {
-      height: 100%;
-    }
-    .dev-img-wrap .project-card-gallery {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-    }
-    .dev-img-wrap .project-card-gallery-dots {
-      z-index: 4;
-    }
-    .dev-body { padding: 32px 32px 28px; }
-    .dev-loc {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 8.5px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 10px;
-    }
-    .dev-name {
-      font-family: 'Cinzel', serif;
-      font-size: 19px;
-      font-style: normal;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      margin-bottom: 6px;
-      color: var(--charcoal);
-      line-height: 1.3;
-    }
-    .dev-tagline {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11.5px;
-      font-weight: 300;
-      color: var(--muted);
-      margin-bottom: 22px;
-      line-height: 1.6;
-      letter-spacing: 0.01em;
-    }
-    .dev-meta {
-      display: flex; gap: 24px;
-      padding-bottom: 20px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid rgba(213,199,180,0.6);
-    }
-    .dev-meta-item .lbl {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 8px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: block;
-    }
-    .dev-meta-item .val {
-      display: block;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12.5px;
-      line-height: 1.4;
-      color: var(--charcoal);
-      margin-top: 4px;
-      font-weight: 400;
-    }
-    #developments .dev-card:not(.featured-walkthrough-card) .dev-meta-item .val {
-      min-height: calc(1.4em * 2);
-    }
-    .dev-footer {
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .dev-cta-link {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 500;
-      transition: gap 0.28s ease, color 0.22s;
-      background: none;
-      border: none;
-      padding: 0;
-    }
-    .dev-cta-link::after { content: '→'; font-size: 11px; }
-    /* The pale gold reads at 2.21 against the card's near-white body; this
-       deeper bronze clears 4.5 while staying in the same family. */
-    .dev-cta-link { color: #7a5e30; }
-    .dev-cta-link:hover { gap: 18px; color: var(--charcoal); }
-    .dev-type-tag {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 8px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      border: 1px solid var(--sand);
-      padding: 4px 10px;
-    }
+    /* The listing card is styled once, in nueva-system.css, which is inlined
+       into every page. Its rules used to be duplicated here and the two
+       copies drifted -- that divergence caused the collapsed gallery slides
+       and the dead swipe. The featured-walkthrough variant below is a
+       different, hero-sized card and keeps its own rules. */
 
     /* ═══════════════════════════════════════════════════════════
        SECTION — WHY
@@ -1294,7 +1050,6 @@
 
     /* DEV CARD hover */
     .dev-card { cursor: pointer; }
-    .dev-card:hover .dev-cta-link { gap: 16px; color: var(--gold-light); }
 
         /* ═══════════════════════════════════════════════════════════
        COPY TONE
@@ -2579,9 +2334,6 @@
       flex-wrap: wrap;
     }
 
-    .dev-cta-link {
-      min-height: 36px;
-    }
 
     .featured-walkthrough-card {
       border-color: rgba(201, 168, 103, 0.34);
@@ -3104,7 +2856,6 @@
 
     .approach-num,
     .stat-value,
-    .dev-cta-link,
     .section-eyebrow {
       color: #a8834a;
     }
@@ -3705,7 +3456,6 @@
     .mobile-menu a,
     .btn,
     .dev-loc,
-    .dev-cta-link,
     .dev-type-tag,
     .footer-col-title,
     .form-row label,
@@ -3788,7 +3538,6 @@
       .hero-eyebrow,
       .btn,
       .dev-loc,
-      .dev-cta-link,
       .dev-type-tag,
       .footer-col-title,
       .form-row label,
@@ -4187,7 +3936,6 @@
 
     .label,
     .dev-loc,
-    .dev-cta-link,
     .btn-ghost-dark,
     .section-title:not(.title-dark) em {
       color: #76562f;
@@ -5255,10 +5003,9 @@
     <div class="dev-grid">
 
       <!-- NUEVA GENERATED HOME PROJECTS START -->
-      <article class="project-card dev-card reveal" style="transition-delay:0.20s" data-card-url="property-elviria-hills-residences.html">
+      <article class="project-card dev-card reveal" style="transition-delay:0.20s" data-card-url="property-elviria-hills-residences.html" data-card-price="€690,000" data-card-type="Apartments, Penthouses &amp; Garden Villas">
               <div class="dev-img-wrap">
-                <span class="dev-badge">Off-Plan, Private Verfügbarkeit</span>
-              <div class="project-card-gallery" data-project-card-gallery data-card-url="property-elviria-hills-residences.html" data-card-name="Elviria Hills Residences">
+                <div class="project-card-gallery" data-project-card-gallery data-card-url="property-elviria-hills-residences.html" data-card-name="Elviria Hills Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
                       <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/exterior-facade-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/exterior-facade-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
@@ -5298,24 +5045,33 @@
                     </div>
                     <template data-card-images><img data-src="assets/liora/projects/elviria-hills-residences/media/exterior-facade.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/exterior-facade-960.webp" alt="Geschwungenes zeitgenössisches Wohngebäude mit begrünten Terrassen"><img data-src="assets/liora/projects/elviria-hills-residences/media/main-pool.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/main-pool-960.webp" alt="Gemeinschaftspool und Rasenfläche mit den Wohngebäuden im Hintergrund"><img data-src="assets/liora/projects/elviria-hills-residences/media/spa-pool.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/spa-pool-960.webp" alt="Innen-Spa-Pool mit Sauna und Loungebereich"><img data-src="assets/liora/projects/elviria-hills-residences/media/gym.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/gym-960.webp" alt="Voll ausgestattetes Fitnessstudio mit Meerblick"><img data-src="assets/liora/projects/elviria-hills-residences/media/coworking.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/coworking-960.webp" alt="Coworking-Lounge im Innenbereich mit Gartenblick"><img data-src="assets/liora/projects/elviria-hills-residences/media/bedroom.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/bedroom-960.webp" alt="Schlafzimmer der Musterwohnung mit Terrassenzugang"><img data-src="assets/liora/projects/elviria-hills-residences/media/exterior-facade-street.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/exterior-facade-street-960.webp" alt="Terrassierte Wohngebäude entlang einer landschaftlich gestalteten Straße mit Palmen"><img data-src="assets/liora/projects/elviria-hills-residences/media/exterior-facade-detail.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/exterior-facade-detail-960.webp" alt="Nahansicht der terrassierten Fassaden mit Zypressen und Palmen"><img data-src="assets/liora/projects/elviria-hills-residences/media/exterior-aerial-sunset.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/exterior-aerial-sunset-960.webp" alt="Luftaufnahme der Anlage bei Sonnenuntergang mit der Küste in der Ferne"><img data-src="assets/liora/projects/elviria-hills-residences/media/exterior-aerial-wide.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/exterior-aerial-wide-960.webp" alt="Weite Luftaufnahme der terrassierten Residenzen inmitten von Gärten und Bergen"><img data-src="assets/liora/projects/elviria-hills-residences/media/exterior-dusk.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/exterior-dusk-960.webp" alt="Beleuchtete Wohngebäude in der Abenddämmerung mit einem Fußgängerüberweg im Vordergrund"><img data-src="assets/liora/projects/elviria-hills-residences/media/living-room-open-plan.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/living-room-open-plan-960.webp" alt="Offenes Wohnzimmer der Musterwohnung mit Sofa und Sessel"><img data-src="assets/liora/projects/elviria-hills-residences/media/living-room-lounge.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/living-room-lounge-960.webp" alt="Wohnbereich der Musterwohnung mit Esstisch und Gartenblick"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-chill-out.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-chill-out-960.webp" alt="Überdachte Chill-out-Lounge mit Sofas zum Garten hin"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-spa-interior.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-spa-interior-960.webp" alt="Beheizter Innen-Spa-Pool mit Liegen und Gartenblick"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-gym-covered.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-gym-covered-960.webp" alt="Überdachter Außen-Fitnessbereich mit Cardio- und Kraftgeräten"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-gym-outdoor.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-gym-outdoor-960.webp" alt="Fitnessbereich im Freien mit trainierenden Bewohnern inmitten gestalteter Bepflanzung"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-restaurant-interior.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-restaurant-interior-960.webp" alt="Restaurantinnenraum mit Esstischen und behaglicher Einrichtung"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-restaurant-terrace.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-restaurant-terrace-960.webp" alt="Restaurantterrasse mit Esstischen im Schatten einer Pergola"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-coworking-lounge.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-coworking-lounge-960.webp" alt="Coworking-Lounge im Freien mit Blick auf Pool und Gärten"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-lounge-sea-view.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-lounge-sea-view-960.webp" alt="Überdachte Loungeterrasse mit Meerblick in der Ferne"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-penthouse-terrace-1.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-penthouse-terrace-1-960.webp" alt="Private Penthouse-Terrasse mit Sitzbereich im Freien"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-penthouse-terrace-2.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-penthouse-terrace-2-960.webp" alt="Private Penthouse-Terrasse mit Essbereich"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-garden-lounge.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-garden-lounge-960.webp" alt="Loungebereich im angelegten Garten mit entspannenden Bewohnern"><img data-src="assets/liora/projects/elviria-hills-residences/media/amenity-pool-sunset.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/amenity-pool-sunset-960.webp" alt="Gemeinschaftspool und Sonnenliegen zwischen den Residenzen bei Sonnenuntergang"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-3b-kitchen.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-3b-kitchen-960.webp" alt="Küche der Musterwohnung mit Kochinsel und Barplätzen, Typ 3B"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-3b-living.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-3b-living-960.webp" alt="Wohnzimmer der Musterwohnung, Typ 3B"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-3b-bathroom.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-3b-bathroom-960.webp" alt="En-suite-Badezimmer der Musterwohnung, Typ 3B"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-3b-dressing.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-3b-dressing-960.webp" alt="Begehbarer Ankleidebereich der Musterwohnung, Typ 3B"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-3b-bedroom.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-3b-bedroom-960.webp" alt="Schlafzimmer der Musterwohnung, Typ 3B"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-3b-terrace-dining.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-3b-terrace-dining-960.webp" alt="Terrasse der Musterwohnung mit Essplatz im Freien, Typ 3B"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-corner-kitchen.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-corner-kitchen-960.webp" alt="Küche der Musterwohnung, Eckresidenz"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-corner-living.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-corner-living-960.webp" alt="Wohnzimmer der Musterwohnung, Eckresidenz"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-corner-bathroom.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-corner-bathroom-960.webp" alt="Badezimmer der Musterwohnung, Eckresidenz"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-corner-bedroom.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-corner-bedroom-960.webp" alt="Schlafzimmer der Musterwohnung, Eckresidenz"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-corner-terrace.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-corner-terrace-960.webp" alt="Terrasse der Musterwohnung mit Essplatz im Freien, Eckresidenz"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-penthouse-living.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-penthouse-living-960.webp" alt="Wohnzimmer der Penthouse-Musterwohnung"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-penthouse-kitchen.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-penthouse-kitchen-960.webp" alt="Küche der Penthouse-Musterwohnung mit Barplätzen"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-penthouse-bedroom.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-penthouse-bedroom-960.webp" alt="Schlafzimmer der Penthouse-Musterwohnung"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-penthouse-bathroom.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-penthouse-bathroom-960.webp" alt="Badezimmer der Penthouse-Musterwohnung"><img data-src="assets/liora/projects/elviria-hills-residences/media/residence-penthouse-solarium-seaview.jpg" data-webp="assets/liora/projects/elviria-hills-residences/media/residence-penthouse-solarium-seaview-960.webp" alt="Privates Penthouse-Solarium mit Jacuzzi und freiem Meerblick"></template>
                   </div>
-                <div class="dev-img-overlay"></div>
-                <div class="dev-price-overlay">Ab €690,000</div>
+                <div class="dev-scrim" aria-hidden="true"></div>
+                <div class="dev-overlay">
+                  <div class="dev-badges"><span class="dev-badge">Off-Plan, Private Verfügbarkeit</span><span class="dev-badge-units">36 von 88 frei</span></div>
+                  <div class="dev-loc">Elviria West</div>
+                  <div class="dev-price"><span class="dev-price-label">Ab</span><span class="dev-price-amount">€690,000</span></div>
+                </div>
               </div>
               <div class="dev-body">
-                <div class="dev-loc">Elviria West</div>
                 <h2 class="dev-name">Elviria Hills Residences</h2>
                 <p class="dev-tagline">88 Apartments, Penthouses und Gartenvillen in einer erhöhten Lage von Elviria West, mit Spa, Fitnessstudio und Coworking-Bereich.</p>
-                <div class="dev-meta"><div class="dev-meta-item"><span class="lbl">Ab</span><span class="val">€690,000</span></div><div class="dev-meta-item"><span class="lbl">Typ</span><span class="val">Apartments, Penthouses &amp; Villas</span></div><div class="dev-meta-item"><span class="lbl">Status</span><span class="val">Off-Plan</span></div></div>
-                <div class="dev-footer">
-                  <a class="dev-cta-link" href="de/property-elviria-hills-residences.html">Projekt Entdecken</a>
+                <div class="dev-facts" data-fact-count="2">
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Wohnungen</span>
+                    <span class="dev-fact-value">2–4 Zi.</span>
+                  </div>
+                  <div class="dev-fact dev-fact--gold">
+                    <span class="dev-fact-label">Verfügbar</span>
+                    <span class="dev-fact-value">36 von 88</span>
+                  </div>
                 </div>
+                <a class="dev-cta-link" href="de/property-elviria-hills-residences.html"><span class="dev-cta-label">Projekt Entdecken</span><svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
               </div>
             </article>
 
-      <article class="project-card dev-card reveal" style="transition-delay:0.25s" data-card-url="property-rio-real-townhouses.html">
+      <article class="project-card dev-card reveal" style="transition-delay:0.25s" data-card-url="property-rio-real-townhouses.html" data-card-price="€1,890,000" data-card-type="Semi-Detached Houses">
               <div class="dev-img-wrap">
-                <span class="dev-badge">Fertiggestellt, Bezugsfertig</span>
-              <div class="project-card-gallery" data-project-card-gallery data-card-url="property-rio-real-townhouses.html" data-card-name="Rio Real Townhouses">
+                <div class="project-card-gallery" data-project-card-gallery data-card-url="property-rio-real-townhouses.html" data-card-name="Rio Real Townhouses">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
                       <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/aerial-view-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/aerial-view-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
@@ -5355,24 +5111,34 @@
                     </div>
                     <template data-card-images><img data-src="assets/liora/projects/rio-real-townhouses/media/aerial-view.jpg" data-webp="assets/liora/projects/rio-real-townhouses/media/aerial-view-960.webp" alt="Luftaufnahme der fertiggestellten Anlage an einem Hang oberhalb von Marbella"><img data-src="assets/liora/projects/rio-real-townhouses/media/exterior-facade.jpg" data-webp="assets/liora/projects/rio-real-townhouses/media/exterior-facade-960.webp" alt="Zeitgenössische Doppelhaushälften mit offenen, verglasten Wohnbereichen"><img data-src="assets/liora/projects/rio-real-townhouses/media/twilight-terrace.jpg" data-webp="assets/liora/projects/rio-real-townhouses/media/twilight-terrace-960.webp" alt="Terrasse und Garten des Hauses in der Abenddämmerung"><img data-src="assets/liora/projects/rio-real-townhouses/media/communal-pool.jpg" data-webp="assets/liora/projects/rio-real-townhouses/media/communal-pool-960.webp" alt="Gemeinschaftspool mit den Residenzen im Hintergrund"><img data-src="assets/liora/projects/rio-real-townhouses/media/solarium-terrace.jpg" data-webp="assets/liora/projects/rio-real-townhouses/media/solarium-terrace-960.webp" alt="Essterrasse im Dachsolarium mit freiem Meerblick"><img data-src="assets/liora/projects/rio-real-townhouses/media/living-room.jpg" data-webp="assets/liora/projects/rio-real-townhouses/media/living-room-960.webp" alt="Doppelhohes Wohnzimmer des Musterhauses mit raumhoher Verglasung"><img data-src="assets/liora/projects/rio-real-townhouses/media/bedroom.jpg" data-webp="assets/liora/projects/rio-real-townhouses/media/bedroom-960.webp" alt="Schlafzimmer des Musterhauses mit gartenseitiger Terrasse"><img data-src="assets/liora/projects/rio-real-townhouses/media/bathroom.jpg" data-webp="assets/liora/projects/rio-real-townhouses/media/bathroom-960.webp" alt="Badezimmer des Musterhauses mit freistehender Badewanne und begehbarer Dusche"></template>
                   </div>
-                <div class="dev-img-overlay"></div>
-                <div class="dev-price-overlay">Ab €1,890,000</div>
+                <div class="dev-scrim" aria-hidden="true"></div>
+                <div class="dev-overlay">
+                  <div class="dev-badges"><span class="dev-badge">Fertiggestellt, Bezugsfertig</span><span class="dev-badge-units">4 von 27 frei</span></div>
+                  <div class="dev-loc">Rio Real</div>
+                  <div class="dev-price"><span class="dev-price-label">Ab</span><span class="dev-price-amount">€1,890,000</span></div>
+                </div>
               </div>
               <div class="dev-body">
-                <div class="dev-loc">Rio Real</div>
                 <h2 class="dev-name">Rio Real Townhouses</h2>
                 <p class="dev-tagline">27 fertiggestellte Doppelhaushälften mit 4 und 5 Schlafzimmern in Rio Real, jede mit privatem Dachsolarium und Pool.</p>
-                <div class="dev-meta"><div class="dev-meta-item"><span class="lbl">Ab</span><span class="val">€1,890,000</span></div><div class="dev-meta-item"><span class="lbl">Typ</span><span class="val">Semi-Detached Houses</span></div><div class="dev-meta-item"><span class="lbl">Status</span><span class="val">Fertiggestellt</span></div></div>
-                <div class="dev-footer">
-                  <a class="dev-cta-link" href="de/property-rio-real-townhouses.html">Projekt Entdecken</a>
+                <div class="dev-facts" data-fact-count="2">
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Wohnungen</span>
+                    <span class="dev-fact-value">4–6 Zi.</span>
+                    <span class="dev-fact-sub">1–456 m²</span>
+                  </div>
+                  <div class="dev-fact dev-fact--gold">
+                    <span class="dev-fact-label">Verfügbar</span>
+                    <span class="dev-fact-value">4 von 27</span>
+                  </div>
                 </div>
+                <a class="dev-cta-link" href="de/property-rio-real-townhouses.html"><span class="dev-cta-label">Projekt Entdecken</span><svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
               </div>
             </article>
 
-      <article class="project-card dev-card reveal" style="transition-delay:0.30s" data-card-url="property-altos-de-marbella.html">
+      <article class="project-card dev-card reveal" style="transition-delay:0.30s" data-card-url="property-altos-de-marbella.html" data-card-price="€1,050,000" data-card-type="Penthouses &amp; Villas">
               <div class="dev-img-wrap">
-                <span class="dev-badge">Kollektion mit Meerblick</span>
-              <div class="project-card-gallery" data-project-card-gallery data-card-url="property-altos-de-marbella.html" data-card-name="Altos de Marbella Residences">
+                <div class="project-card-gallery" data-project-card-gallery data-card-url="property-altos-de-marbella.html" data-card-name="Altos de Marbella Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
                       <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool-640.webp 640w, assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
@@ -5412,24 +5178,37 @@
                     </div>
                     <template data-card-images><img data-src="assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool-960.webp" alt="Luftbild-Visualisierung des Bauträgers von Altos de Marbella in der Dämmerung mit Poolterrasse und Hanglage"><img data-src="assets/liora/projects/altos-de-marbella/media/exterior-entrance-dusk.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/exterior-entrance-dusk-960.webp" alt="Bauträger-Visualisierung der Zufahrt und des Eingangsbereichs in der Dämmerung"><img data-src="assets/liora/projects/altos-de-marbella/media/villa-facade-detail.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/villa-facade-detail-960.webp" alt="Bauträger-Visualisierung der niedrigen Fassade mit Holz- und Steindetails"><img data-src="assets/liora/projects/altos-de-marbella/media/aerial-twilight-overview.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/aerial-twilight-overview-960.webp" alt="Luftbild-Visualisierung des Bauträgers von Altos de Marbella in seiner Umgebung in Marbella Ost in der Abenddämmerung"><img data-src="assets/liora/projects/altos-de-marbella/media/rooftop-pool-aerial.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/rooftop-pool-aerial-960.webp" alt="Luftbild-Visualisierung des Bauträgers der privaten Dachpool-Terrassen"><img data-src="assets/liora/projects/altos-de-marbella/media/rooftop-infinity-pool.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/rooftop-infinity-pool-960.webp" alt="Bauträger-Visualisierung eines privaten Infinity-Dachpools bei Sonnenaufgang"><img data-src="assets/liora/projects/altos-de-marbella/media/rooftop-pergola-lawn.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/rooftop-pergola-lawn-960.webp" alt="Bauträger-Visualisierung einer Dachterrasse mit Pergola und Rasenfläche"><img data-src="assets/liora/projects/altos-de-marbella/media/living-terrace-open.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/living-terrace-open-960.webp" alt="Bauträger-Visualisierung eines offenen Wohnbereichs mit Übergang zur Terrasse"><img data-src="assets/liora/projects/altos-de-marbella/media/living-terrace-sea-view.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/living-terrace-sea-view-960.webp" alt="Bauträger-Visualisierung einer Wohnterrasse mit Meerblick"><img data-src="assets/liora/projects/altos-de-marbella/media/living-room-kitchen.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/living-room-kitchen-960.webp" alt="Bauträger-Visualisierung einer offenen Küche mit Wohnbereich"><img data-src="assets/liora/projects/altos-de-marbella/media/living-room-open-plan.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/living-room-open-plan-960.webp" alt="Bauträger-Visualisierung eines offenen Wohnzimmers mit Kamin"><img data-src="assets/liora/projects/altos-de-marbella/media/dressing-room.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/dressing-room-960.webp" alt="Bauträger-Visualisierung eines begehbaren Ankleidezimmers"><img data-src="assets/liora/projects/altos-de-marbella/media/bedroom-suite.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/bedroom-suite-960.webp" alt="Bauträger-Visualisierung der Hauptschlafzimmer-Suite mit Terrassenzugang"><img data-src="assets/liora/projects/altos-de-marbella/media/bathroom-ensuite.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/bathroom-ensuite-960.webp" alt="Bauträger-Visualisierung eines En-suite-Badezimmers mit begehbarer Dusche"><img data-src="assets/liora/projects/altos-de-marbella/media/wellness-pool.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/wellness-pool-960.webp" alt="Bauträger-Visualisierung des Wellnessbereichs für Bewohner mit beheiztem Pool und Sauna"><img data-src="assets/liora/projects/altos-de-marbella/media/outdoor-gym.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/outdoor-gym-960.webp" alt="Bauträger-Visualisierung des Fitnessstudios und Trainingsbereichs für Bewohner"><img data-src="assets/liora/projects/altos-de-marbella/media/golf-simulator.jpg" data-webp="assets/liora/projects/altos-de-marbella/media/golf-simulator-960.webp" alt="Bauträger-Visualisierung des Golfsimulator-Raums für Bewohner"></template>
                   </div>
-                <div class="dev-img-overlay"></div>
-                <div class="dev-price-overlay">Ab €1,050,000</div>
+                <div class="dev-scrim" aria-hidden="true"></div>
+                <div class="dev-overlay">
+                  <div class="dev-badges"><span class="dev-badge">Kollektion mit Meerblick</span><span class="dev-badge-units">11 von 11 frei</span></div>
+                  <div class="dev-loc">Marbella East</div>
+                  <div class="dev-price"><span class="dev-price-label">Ab</span><span class="dev-price-amount">€1,050,000</span></div>
+                </div>
               </div>
               <div class="dev-body">
-                <div class="dev-loc">Marbella East</div>
                 <h2 class="dev-name">Altos de Marbella Residences</h2>
                 <p class="dev-tagline">Eine kleine Auswahl erhöht gelegener Wohnungen mit offenen Terrassen, Meerblick und einer ruhigeren Küstenlage.</p>
-                <div class="dev-meta"><div class="dev-meta-item"><span class="lbl">Ab</span><span class="val">€1,050,000</span></div><div class="dev-meta-item"><span class="lbl">Typ</span><span class="val">Penthouses &amp; Villas</span></div><div class="dev-meta-item"><span class="lbl">Übergabe</span><span class="val">Q4 2027</span></div></div>
-                <div class="dev-footer">
-                  <a class="dev-cta-link" href="de/property-altos-de-marbella.html">Projekt Entdecken</a>
+                <div class="dev-facts" data-fact-count="3">
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Übergabe</span>
+                    <span class="dev-fact-value">Q4 2027</span>
+                  </div>
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Wohnungen</span>
+                    <span class="dev-fact-value">2–5 Zi.</span>
+                  </div>
+                  <div class="dev-fact dev-fact--gold">
+                    <span class="dev-fact-label">Verfügbar</span>
+                    <span class="dev-fact-value">11 von 11</span>
+                  </div>
                 </div>
+                <a class="dev-cta-link" href="de/property-altos-de-marbella.html"><span class="dev-cta-label">Projekt Entdecken</span><svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
               </div>
             </article>
 
-      <article class="project-card dev-card reveal" style="transition-delay:0.35s" data-card-url="property-bel-air-villa-collection.html">
+      <article class="project-card dev-card reveal" style="transition-delay:0.35s" data-card-url="property-bel-air-villa-collection.html" data-card-price="€2,400,000" data-card-type="Independent Villas">
               <div class="dev-img-wrap">
-                <span class="dev-badge">Aktuelle Phase</span>
-              <div class="project-card-gallery" data-project-card-gallery data-card-url="property-bel-air-villa-collection.html" data-card-name="Bel Air Villa Collection">
+                <div class="project-card-gallery" data-project-card-gallery data-card-url="property-bel-air-villa-collection.html" data-card-name="Bel Air Villa Collection">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
                       <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
@@ -5469,24 +5248,29 @@
                     </div>
                     <template data-card-images><img data-src="assets/liora/projects/bel-air-villa-collection/media/exterior-frontview.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-960.webp" alt="Zeitgenössische Villenfassade mit Poolterrasse und Landschaftsgarten"><img data-src="assets/liora/projects/bel-air-villa-collection/media/exterior-pool-terrace.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/exterior-pool-terrace-960.webp" alt="Privater Pool und überdachte Terrasse mit Anbindung an die offene Küche"><img data-src="assets/liora/projects/bel-air-villa-collection/media/exterior-facade-night.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/exterior-facade-night-960.webp" alt="Nachts beleuchtete Villenfassade über dem Pool"><img data-src="assets/liora/projects/bel-air-villa-collection/media/exterior-entrance.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/exterior-entrance-960.webp" alt="Eingangsfassade der Villa mit dekorativer Verkleidung und überdachtem Stellplatz"><img data-src="assets/liora/projects/bel-air-villa-collection/media/exterior-facade-side.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/exterior-facade-side-960.webp" alt="Seitenansicht der Villa mit den überdachten Terrassen"><img data-src="assets/liora/projects/bel-air-villa-collection/media/exterior-garden-lounge.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/exterior-garden-lounge-960.webp" alt="Außenlounge neben Pool und Landschaftsgarten"><img data-src="assets/liora/projects/bel-air-villa-collection/media/exterior-pool-bar-area.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/exterior-pool-bar-area-960.webp" alt="Überdachte Poolbar und Essbereich im Freien auf der Erdgeschossterrasse"><img data-src="assets/liora/projects/bel-air-villa-collection/media/exterior-pool-bar.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/exterior-pool-bar-960.webp" alt="Überdachte Poolbar mit Vorbereitung für eine Außenküche"><img data-src="assets/liora/projects/bel-air-villa-collection/media/living-kitchen-open-plan.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/living-kitchen-open-plan-960.webp" alt="Offener Wohn- und Küchenbereich mit doppelter Deckenhöhe"><img data-src="assets/liora/projects/bel-air-villa-collection/media/living-room-views.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/living-room-views-960.webp" alt="Hauptwohnraum mit raumhoher Verglasung zum Garten"><img data-src="assets/liora/projects/bel-air-villa-collection/media/dining-room-views.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/dining-room-views-960.webp" alt="Essbereich mit Gartenblick durch die raumhohe Verglasung"><img data-src="assets/liora/projects/bel-air-villa-collection/media/dining-room.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/dining-room-960.webp" alt="Essbereich neben der Insel der offenen Küche"><img data-src="assets/liora/projects/bel-air-villa-collection/media/kitchen-island.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/kitchen-island-960.webp" alt="Offene Küche mit Kochinsel und integrierten Geräten"><img data-src="assets/liora/projects/bel-air-villa-collection/media/kitchen-detail.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/kitchen-detail-960.webp" alt="Küchendetail mit Naturholz und lackierten Fronten"><img data-src="assets/liora/projects/bel-air-villa-collection/media/master-bedroom.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/master-bedroom-960.webp" alt="Hauptschlafzimmer, das einen ganzen Flügel des Obergeschosses einnimmt"><img data-src="assets/liora/projects/bel-air-villa-collection/media/dressing-room.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/dressing-room-960.webp" alt="Maßgefertigtes Ankleidezimmer neben dem Hauptschlafzimmer"><img data-src="assets/liora/projects/bel-air-villa-collection/media/dressing-room-detail.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/dressing-room-detail-960.webp" alt="Ankleidezimmer-Detail mit Eichenregalen und bronzefarbenen Kleiderstangen"><img data-src="assets/liora/projects/bel-air-villa-collection/media/dressing-room-island.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/dressing-room-island-960.webp" alt="Ankleidezimmer mit Mittelinsel und integrierter Beleuchtung"><img data-src="assets/liora/projects/bel-air-villa-collection/media/master-bathroom.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/master-bathroom-960.webp" alt="En-suite-Hauptbadezimmer mit Doppelwaschtisch und begehbarer Dusche"><img data-src="assets/liora/projects/bel-air-villa-collection/media/guest-bathroom.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/guest-bathroom-960.webp" alt="En-suite-Gästebadezimmer mit Aufsatzwaschbecken"><img data-src="assets/liora/projects/bel-air-villa-collection/media/solarium-sunset-views.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/solarium-sunset-views-960.webp" alt="Dachsolarium mit freiem Blick auf die Umgebung bei Sonnenuntergang"><img data-src="assets/liora/projects/bel-air-villa-collection/media/solarium-dining-sunset.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/solarium-dining-sunset-960.webp" alt="Essbereich im Freien auf dem Solarium bei Sonnenuntergang"><img data-src="assets/liora/projects/bel-air-villa-collection/media/solarium-pool-views.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/solarium-pool-views-960.webp" alt="Privater Tauchpool auf dem Dachsolarium mit freier Aussicht"><img data-src="assets/liora/projects/bel-air-villa-collection/media/solarium-terrace.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/solarium-terrace-960.webp" alt="Dachsolarium-Terrasse mit Sitzbereich"><img data-src="assets/liora/projects/bel-air-villa-collection/media/basement-lounge.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/basement-lounge-960.webp" alt="Offene Lounge im Untergeschoss mit Tageslicht aus einem englischen Lichthof"><img data-src="assets/liora/projects/bel-air-villa-collection/media/basement-sitting-area.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/basement-sitting-area-960.webp" alt="Sitzbereich im Untergeschoss neben dem Weinschrank"><img data-src="assets/liora/projects/bel-air-villa-collection/media/basement-billiards.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/basement-billiards-960.webp" alt="Spielbereich im Untergeschoss mit Billardtisch"><img data-src="assets/liora/projects/bel-air-villa-collection/media/basement-gym.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/basement-gym-960.webp" alt="Privater Fitnessraum im Untergeschoss"><img data-src="assets/liora/projects/bel-air-villa-collection/media/basement-gym-wine.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/basement-gym-wine-960.webp" alt="Fitnessraum im Untergeschoss neben dem Weinkeller"><img data-src="assets/liora/projects/bel-air-villa-collection/media/basement-wine-cellar.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/basement-wine-cellar-960.webp" alt="Klimatisierter Weinkeller im Untergeschoss"><img data-src="assets/liora/projects/bel-air-villa-collection/media/basement-kitchen-area.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/basement-kitchen-area-960.webp" alt="Zweitküche und Barbereich im Untergeschoss"><img data-src="assets/liora/projects/bel-air-villa-collection/media/basement-kitchen.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/basement-kitchen-960.webp" alt="Küche im Untergeschoss mit integriertem Stauraum"><img data-src="assets/liora/projects/bel-air-villa-collection/media/basement-bedroom.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/basement-bedroom-960.webp" alt="Gästeschlafzimmer im Untergeschoss mit englischem Lichthof"><img data-src="assets/liora/projects/bel-air-villa-collection/media/basement-make-up-room.jpg" data-webp="assets/liora/projects/bel-air-villa-collection/media/basement-make-up-room-960.webp" alt="Schmink- und Vorbereitungsbereich im Untergeschoss"></template>
                   </div>
-                <div class="dev-img-overlay"></div>
-                <div class="dev-price-overlay">Ab €2,400,000</div>
+                <div class="dev-scrim" aria-hidden="true"></div>
+                <div class="dev-overlay">
+                  <div class="dev-badges"><span class="dev-badge">Aktuelle Phase</span></div>
+                  <div class="dev-loc">Bel Air / New Golden Mile</div>
+                  <div class="dev-price"><span class="dev-price-label">Ab</span><span class="dev-price-amount">€2,400,000</span></div>
+                </div>
               </div>
               <div class="dev-body">
-                <div class="dev-loc">Bel Air / New Golden Mile</div>
                 <h2 class="dev-name">Bel Air Villa Collection</h2>
                 <p class="dev-tagline">15 freistehende Villen mit vier Schlafzimmern in Bel Air an der New Golden Mile, jeweils mit privatem Pool, Poolbar und einem Wohnraum mit fast sechs Metern Deckenhöhe.</p>
-                <div class="dev-meta"><div class="dev-meta-item"><span class="lbl">Ab</span><span class="val">€2,400,000 + VAT</span></div><div class="dev-meta-item"><span class="lbl">Typ</span><span class="val">Independent Villas</span></div><div class="dev-meta-item"><span class="lbl">Status</span><span class="val">Off-Plan</span></div></div>
-                <div class="dev-footer">
-                  <a class="dev-cta-link" href="de/property-bel-air-villa-collection.html">Projekt Entdecken</a>
+                <div class="dev-facts" data-fact-count="1">
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Übergabe</span>
+                    <span class="dev-fact-value">18 Monate ab Vertrag</span>
+                  </div>
                 </div>
+                <a class="dev-cta-link" href="de/property-bel-air-villa-collection.html"><span class="dev-cta-label">Projekt Entdecken</span><svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
               </div>
             </article>
 
-      <article class="project-card dev-card reveal" style="transition-delay:0.40s" data-card-url="property-cancelada-park.html">
+      <article class="project-card dev-card reveal" style="transition-delay:0.40s" data-card-url="property-cancelada-park.html" data-card-price="€799,000" data-card-type="Apartments &amp; Penthouses">
               <div class="dev-img-wrap">
-                <span class="dev-badge">Aktuelle Phase</span>
-              <div class="project-card-gallery" data-project-card-gallery data-card-url="property-cancelada-park.html" data-card-name="Cancelada Park">
+                <div class="project-card-gallery" data-project-card-gallery data-card-url="property-cancelada-park.html" data-card-name="Cancelada Park">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
                       <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/aerial-courtyard-640.webp 640w, assets/liora/projects/cancelada-park/media/aerial-courtyard-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
@@ -5526,24 +5310,37 @@
                     </div>
                     <template data-card-images><img data-src="assets/liora/projects/cancelada-park/media/aerial-courtyard.jpg" data-webp="assets/liora/projects/cancelada-park/media/aerial-courtyard-960.webp" alt="Bauträger-Visualisierung aus der Luft von Cancelada Park und den angelegten Poolgärten"><img data-src="assets/liora/projects/cancelada-park/media/pool-garden.jpg" data-webp="assets/liora/projects/cancelada-park/media/pool-garden-960.webp" alt="Bauträger-Visualisierung des Pools und der zum Garten ausgerichteten Residenzen in Cancelada Park"><img data-src="assets/liora/projects/cancelada-park/media/garden-terrace-lounge.jpg" data-webp="assets/liora/projects/cancelada-park/media/garden-terrace-lounge-960.webp" alt="Bauträger-Visualisierung einer privaten Gartenterrasse in Cancelada Park"><img data-src="assets/liora/projects/cancelada-park/media/penthouse-terrace-one.jpg" data-webp="assets/liora/projects/cancelada-park/media/penthouse-terrace-one-960.webp" alt="Bauträger-Visualisierung einer Penthouse-Terrasse in Cancelada Park"><img data-src="assets/liora/projects/cancelada-park/media/new-golden-mile-aerial.jpg" data-webp="assets/liora/projects/cancelada-park/media/new-golden-mile-aerial-960.webp" alt="Bauträger-Visualisierung aus der Luft mit der Lage an der New Golden Mile rund um Cancelada Park"><img data-src="assets/liora/projects/cancelada-park/media/resort-wellness.jpg" data-webp="assets/liora/projects/cancelada-park/media/resort-wellness-960.webp" alt="Unverbindliche Bauträger-Visualisierung des Spa- und Wellnessangebots im geplanten Resort"><img data-src="assets/liora/projects/cancelada-park/media/resort-padel.jpg" data-webp="assets/liora/projects/cancelada-park/media/resort-padel-960.webp" alt="Bauträger-Visualisierung aus der Luft des weiteren Resort-Umfelds von Cancelada Park"><img data-src="assets/liora/projects/cancelada-park/media/resort-dining-terrace.jpg" data-webp="assets/liora/projects/cancelada-park/media/resort-dining-terrace-960.webp" alt="Unverbindliche Bauträger-Visualisierung der Restaurantterrasse im geplanten Resort"><img data-src="assets/liora/projects/cancelada-park/media/exterior-dusk.jpg" data-webp="assets/liora/projects/cancelada-park/media/exterior-dusk-960.webp" alt="Abendliche Bauträger-Visualisierung von Cancelada Park und dem Pool"><img data-src="assets/liora/projects/cancelada-park/media/architecture-corner.jpg" data-webp="assets/liora/projects/cancelada-park/media/architecture-corner-960.webp" alt="Bauträger-Visualisierung der Eckgebäude und begrünten Terrassen von Cancelada Park"><img data-src="assets/liora/projects/cancelada-park/media/private-garden-pool.jpg" data-webp="assets/liora/projects/cancelada-park/media/private-garden-pool-960.webp" alt="Bauträger-Visualisierung eines Zuhauses mit privatem Garten am Pool in Cancelada Park"><img data-src="assets/liora/projects/cancelada-park/media/garden-terrace-dining.jpg" data-webp="assets/liora/projects/cancelada-park/media/garden-terrace-dining-960.webp" alt="Bauträger-Visualisierung einer überdachten Essterrasse in Cancelada Park"><img data-src="assets/liora/projects/cancelada-park/media/private-garden.jpg" data-webp="assets/liora/projects/cancelada-park/media/private-garden-960.webp" alt="Bauträger-Visualisierung einer Residenz mit privatem Garten in Cancelada Park"><img data-src="assets/liora/projects/cancelada-park/media/penthouse-terrace-two.jpg" data-webp="assets/liora/projects/cancelada-park/media/penthouse-terrace-two-960.webp" alt="Bauträger-Visualisierung einer zweiten Penthouse-Terrassenvariante in Cancelada Park"><img data-src="assets/liora/projects/cancelada-park/media/resort-fitness.jpg" data-webp="assets/liora/projects/cancelada-park/media/resort-fitness-960.webp" alt="Unverbindliche Bauträger-Visualisierung der Outdoor-Fitnessanlagen im geplanten Resort"><img data-src="assets/liora/projects/cancelada-park/media/resort-gym.jpg" data-webp="assets/liora/projects/cancelada-park/media/resort-gym-960.webp" alt="Unverbindliche Bauträger-Visualisierung des Open-Air-Gyms im geplanten Resort"><img data-src="assets/liora/projects/cancelada-park/media/terrace-lounge-corner.jpg" data-webp="assets/liora/projects/cancelada-park/media/terrace-lounge-corner-960.webp" alt="Bauträger-Visualisierung einer Indoor-Outdoor-Loungeecke mit Übergang zur Terrasse einer Residenz"><img data-src="assets/liora/projects/cancelada-park/media/garden-outdoor-kitchen.jpg" data-webp="assets/liora/projects/cancelada-park/media/garden-outdoor-kitchen-960.webp" alt="Bauträger-Visualisierung eines privaten Gartens mit Außenküche und Loungebereich"><img data-src="assets/liora/projects/cancelada-park/media/resort-restaurant.jpg" data-webp="assets/liora/projects/cancelada-park/media/resort-restaurant-960.webp" alt="Bauträger-Visualisierung der Restaurantterrasse des Resorts"><img data-src="assets/liora/projects/cancelada-park/media/resort-chill-out.jpg" data-webp="assets/liora/projects/cancelada-park/media/resort-chill-out-960.webp" alt="Bauträger-Visualisierung einer Chill-out-Lounge im Resort"></template>
                   </div>
-                <div class="dev-img-overlay"></div>
-                <div class="dev-price-overlay">Ab €799,000</div>
+                <div class="dev-scrim" aria-hidden="true"></div>
+                <div class="dev-overlay">
+                  <div class="dev-badges"><span class="dev-badge">Aktuelle Phase</span><span class="dev-badge-units">30 von 57 frei</span></div>
+                  <div class="dev-loc">Cancelada / New Golden Mile</div>
+                  <div class="dev-price"><span class="dev-price-label">Ab</span><span class="dev-price-amount">€799,000</span></div>
+                </div>
               </div>
               <div class="dev-body">
-                <div class="dev-loc">Cancelada / New Golden Mile</div>
                 <h2 class="dev-name">Cancelada Park</h2>
                 <p class="dev-tagline">Niedrig gebaute Apartments und Penthouses mit großen Terrassen, Gartenoption und Zugang zu einer weitläufigen Resort-Anlage.</p>
-                <div class="dev-meta"><div class="dev-meta-item"><span class="lbl">Ab</span><span class="val">€799,000</span></div><div class="dev-meta-item"><span class="lbl">Typ</span><span class="val">Apartments &amp; Penthouses</span></div><div class="dev-meta-item"><span class="lbl">Status</span><span class="val">Aktuelle Phase</span></div></div>
-                <div class="dev-footer">
-                  <a class="dev-cta-link" href="de/property-cancelada-park.html">Projekt Entdecken</a>
+                <div class="dev-facts" data-fact-count="3">
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Übergabe</span>
+                    <span class="dev-fact-value">Wird noch bestätigt</span>
+                  </div>
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Wohnungen</span>
+                    <span class="dev-fact-value">2–4 Zi.</span>
+                  </div>
+                  <div class="dev-fact dev-fact--gold">
+                    <span class="dev-fact-label">Verfügbar</span>
+                    <span class="dev-fact-value">30 von 57</span>
+                  </div>
                 </div>
+                <a class="dev-cta-link" href="de/property-cancelada-park.html"><span class="dev-cta-label">Projekt Entdecken</span><svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
               </div>
             </article>
 
-      <article class="project-card dev-card reveal" style="transition-delay:0.45s" data-card-url="property-marbella-west-garden-residences.html">
+      <article class="project-card dev-card reveal" style="transition-delay:0.45s" data-card-url="property-marbella-west-garden-residences.html" data-card-price="€595,200" data-card-type="1-4 Bedroom Residences">
               <div class="dev-img-wrap">
-                <span class="dev-badge">Im Bau</span>
-              <div class="project-card-gallery" data-project-card-gallery data-card-url="property-marbella-west-garden-residences.html" data-card-name="Marbella West Garden Residences">
+                <div class="project-card-gallery" data-project-card-gallery data-card-url="property-marbella-west-garden-residences.html" data-card-name="Marbella West Garden Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
                       <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/exterior-4-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/exterior-4-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
@@ -5583,24 +5380,37 @@
                     </div>
                     <template data-card-images><img data-src="assets/liora/projects/marbella-west-garden-residences/media/exterior-4.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/exterior-4-960.webp" alt="Bauträger-Visualisierung des angelegten zentralen Gartens mit Außenpool in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/amenities-3.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/amenities-3-960.webp" alt="Bauträger-Visualisierung des Infinity-Pools auf dem Dach mit Meerblick in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/living-3.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/living-3-960.webp" alt="Bauträger-Visualisierung eines Wohnbereichs mit Blick aufs Meer in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/terrace-5.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/terrace-5-960.webp" alt="Bauträger-Visualisierung einer Dachterrasse mit Pool in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/exterior-1.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/exterior-1-960.webp" alt="Bauträger-Visualisierung der begrünten Straßenfassade von Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/amenities-7.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/amenities-7-960.webp" alt="Bauträger-Visualisierung des Indoor-Sportpools mit Lounge in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/terrace-1.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/terrace-1-960.webp" alt="Bauträger-Visualisierung einer Terrasse mit Außenküche und privatem Pool in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/bedroom-1.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/bedroom-1-960.webp" alt="Bauträger-Visualisierung eines Schlafzimmers mit Zugang zur Terrasse in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/exterior-2.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/exterior-2-960.webp" alt="Bauträger-Visualisierung der geschwungenen Eckfassade von Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/amenities-1.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/amenities-1-960.webp" alt="Bauträger-Visualisierung des Yoga-Decks auf dem Dach mit Blick auf La Concha in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/living.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/living-960.webp" alt="Bauträger-Visualisierung des Übergangs zwischen Wohnbereich und Terrasse in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/terrace-2.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/terrace-2-960.webp" alt="Bauträger-Visualisierung einer möblierten Terrasse am Abend in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/amenities-2.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/amenities-2-960.webp" alt="Bauträger-Visualisierung des Kinderspielzimmers in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/exterior-3.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/exterior-3-960.webp" alt="Bauträger-Visualisierung eines begrünten Innenhofs mit privaten Pools in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/kitchen-1.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/kitchen-1-960.webp" alt="Bauträger-Visualisierung einer offenen Küche in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/terrace-3.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/terrace-3-960.webp" alt="Bauträger-Visualisierung einer Panoramaterrasse mit privatem Pool in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/amenities-4.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/amenities-4-960.webp" alt="Bauträger-Visualisierung des Fitnessstudios in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/bathroom-1.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/bathroom-1-960.webp" alt="Bauträger-Visualisierung der Materialpalette des Badezimmers in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/terrace-4.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/terrace-4-960.webp" alt="Bauträger-Visualisierung einer überdachten Essterrasse in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/amenities-5.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/amenities-5-960.webp" alt="Bauträger-Visualisierung des Kraft- und Cardio-Bereichs in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/bedroom-2.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/bedroom-2-960.webp" alt="Bauträger-Visualisierung einer Master-Suite in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/exterior-5.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/exterior-5-960.webp" alt="Bauträger-Visualisierung des Haupteingangs in der Abenddämmerung in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/amenities-6.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/amenities-6-960.webp" alt="Bauträger-Visualisierung des Wellnessbereichs mit Thermalpool in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/living-2.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/living-2-960.webp" alt="Bauträger-Visualisierung eines Wohn- und Essbereichs in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/terrace-6.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/terrace-6-960.webp" alt="Bauträger-Visualisierung einer Terrasse mit Außenküche und Essplatz in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/amenities-8.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/amenities-8-960.webp" alt="Bauträger-Visualisierung der Gemeinschaftslounge mit Spielbereich in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/bathroom-2.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/bathroom-2-960.webp" alt="Bauträger-Visualisierung eines Badezimmers in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/terrace-7.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/terrace-7-960.webp" alt="Bauträger-Visualisierung einer Poolterrasse bei Sonnenuntergang in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/amenities-9.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/amenities-9-960.webp" alt="Bauträger-Visualisierung des Business-Bereichs in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/bedroom-3.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/bedroom-3-960.webp" alt="Bauträger-Visualisierung eines Schlafzimmers in Marbella West Garden Residences"><img data-src="assets/liora/projects/marbella-west-garden-residences/media/living-4.jpg" data-webp="assets/liora/projects/marbella-west-garden-residences/media/living-4-960.webp" alt="Bauträger-Visualisierung eines Wohnzimmers in Marbella West Garden Residences"></template>
                   </div>
-                <div class="dev-img-overlay"></div>
-                <div class="dev-price-overlay">Ab €595,200</div>
+                <div class="dev-scrim" aria-hidden="true"></div>
+                <div class="dev-overlay">
+                  <div class="dev-badges"><span class="dev-badge">Im Bau</span><span class="dev-badge-units">24 von 139 frei</span></div>
+                  <div class="dev-loc">Marbella West</div>
+                  <div class="dev-price"><span class="dev-price-label">Ab</span><span class="dev-price-amount">€595,200</span></div>
+                </div>
               </div>
               <div class="dev-body">
-                <div class="dev-loc">Marbella West</div>
                 <h2 class="dev-name">Marbella West Garden Residences</h2>
                 <p class="dev-tagline">Ein urbanes Resort mit 139 Wohnungen nahe San Pedro und Puerto Banús, mit vier Pools, einem umfassenden Wellnessbereich und dem Strand in Gehweite.</p>
-                <div class="dev-meta"><div class="dev-meta-item"><span class="lbl">Ab</span><span class="val">€595,200</span></div><div class="dev-meta-item"><span class="lbl">Typ</span><span class="val">1-4 Bedroom Homes</span></div><div class="dev-meta-item"><span class="lbl">Übergabe</span><span class="val">Est. Q2 2029</span></div></div>
-                <div class="dev-footer">
-                  <a class="dev-cta-link" href="de/property-marbella-west-garden-residences.html">Projekt Entdecken</a>
+                <div class="dev-facts" data-fact-count="3">
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Übergabe</span>
+                    <span class="dev-fact-value">Fertigstellung voraussichtlich Q2 2029</span>
+                  </div>
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Wohnungen</span>
+                    <span class="dev-fact-value">1–4 Zi.</span>
+                  </div>
+                  <div class="dev-fact dev-fact--gold">
+                    <span class="dev-fact-label">Verfügbar</span>
+                    <span class="dev-fact-value">24 von 139</span>
+                  </div>
                 </div>
+                <a class="dev-cta-link" href="de/property-marbella-west-garden-residences.html"><span class="dev-cta-label">Projekt Entdecken</span><svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
               </div>
             </article>
 
-      <article class="project-card dev-card reveal" style="transition-delay:0.50s" data-card-url="property-vega-verde-residences.html">
+      <article class="project-card dev-card reveal" style="transition-delay:0.50s" data-card-url="property-vega-verde-residences.html" data-card-price="€785,000" data-card-type="Apartments &amp; Penthouses">
               <div class="dev-img-wrap">
-                <span class="dev-badge">Aktuelle Phase</span>
-              <div class="project-card-gallery" data-project-card-gallery data-card-url="property-vega-verde-residences.html" data-card-name="Vega Verde Residences">
+                <div class="project-card-gallery" data-project-card-gallery data-card-url="property-vega-verde-residences.html" data-card-name="Vega Verde Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
                       <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/exterior-pool-gardens-640.webp 640w, assets/liora/projects/vega-verde-residences/media/exterior-pool-gardens-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
@@ -5640,24 +5450,38 @@
                     </div>
                     <template data-card-images><img data-src="assets/liora/projects/vega-verde-residences/media/exterior-pool-gardens.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/exterior-pool-gardens-960.webp" alt="Bauträger-Visualisierung des Außenpools und der Landschaftsgärten"><img data-src="assets/liora/projects/vega-verde-residences/media/exterior-pool-day.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/exterior-pool-day-960.webp" alt="Bauträger-Visualisierung der Außenpool-Terrasse bei Tag"><img data-src="assets/liora/projects/vega-verde-residences/media/aerial-sunset.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/aerial-sunset-960.webp" alt="Luftbild-Visualisierung des Bauträgers von Vega Verde Residences im Golf Valley von Nueva Andalucía bei Sonnenuntergang"><img data-src="assets/liora/projects/vega-verde-residences/media/bedroom-suite.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/bedroom-suite-960.webp" alt="Bauträger-Visualisierung der Hauptschlafzimmer-Suite mit Ankleidebereich"><img data-src="assets/liora/projects/vega-verde-residences/media/residence-garden-terrace.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/residence-garden-terrace-960.webp" alt="Bauträger-Visualisierung der Gartenterrasse einer Erdgeschosswohnung"><img data-src="assets/liora/projects/vega-verde-residences/media/bathroom-ensuite.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/bathroom-ensuite-960.webp" alt="Bauträger-Visualisierung eines En-suite-Badezimmers mit begehbarer Dusche"><img data-src="assets/liora/projects/vega-verde-residences/media/living-room-multiuse.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/living-room-multiuse-960.webp" alt="Bauträger-Visualisierung eines offenen Mehrzweck-Wohn- und Essbereichs"><img data-src="assets/liora/projects/vega-verde-residences/media/living-room-penthouse.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/living-room-penthouse-960.webp" alt="Bauträger-Visualisierung des Penthouse-Wohnzimmers mit Meer- und Küstenblick"><img data-src="assets/liora/projects/vega-verde-residences/media/living-room-garden.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/living-room-garden-960.webp" alt="Bauträger-Visualisierung des Wohnzimmers einer Erdgeschosswohnung mit Gartenzugang"><img data-src="assets/liora/projects/vega-verde-residences/media/terrace-sunset.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/terrace-sunset-960.webp" alt="Bauträger-Visualisierung der Terrasse einer Residenz bei Sonnenuntergang"><img data-src="assets/liora/projects/vega-verde-residences/media/resort-gym.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/resort-gym-960.webp" alt="Bauträger-Visualisierung des Fitnessstudios für Bewohner"><img data-src="assets/liora/projects/vega-verde-residences/media/resort-gym-private.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/resort-gym-private-960.webp" alt="Bauträger-Visualisierung eines privaten Trainingsstudios innerhalb des Fitnessstudios"><img data-src="assets/liora/projects/vega-verde-residences/media/resort-indoor-pool-spa.jpg" data-webp="assets/liora/projects/vega-verde-residences/media/resort-indoor-pool-spa-960.webp" alt="Bauträger-Visualisierung des beheizten Innenpools und Spa-Bereichs"></template>
                   </div>
-                <div class="dev-img-overlay"></div>
-                <div class="dev-price-overlay">Ab €785,000</div>
+                <div class="dev-scrim" aria-hidden="true"></div>
+                <div class="dev-overlay">
+                  <div class="dev-badges"><span class="dev-badge">Aktuelle Phase</span><span class="dev-badge-units">59 von 114 frei</span></div>
+                  <div class="dev-loc">Nueva Andalucia / Golf Valley</div>
+                  <div class="dev-price"><span class="dev-price-label">Ab</span><span class="dev-price-amount">€785,000</span></div>
+                </div>
               </div>
               <div class="dev-body">
-                <div class="dev-loc">Nueva Andalucia / Golf Valley</div>
                 <h2 class="dev-name">Vega Verde Residences</h2>
                 <p class="dev-tagline">Avantgardistische Residenzen im Golf Valley von Marbella, mit resortartigem Pool, Spa, Kino und Golfsimulator.</p>
-                <div class="dev-meta"><div class="dev-meta-item"><span class="lbl">Ab</span><span class="val">€785,000</span></div><div class="dev-meta-item"><span class="lbl">Typ</span><span class="val">Apartments &amp; Penthouses</span></div><div class="dev-meta-item"><span class="lbl">Übergabe</span><span class="val">Q4 2028</span></div></div>
-                <div class="dev-footer">
-                  <a class="dev-cta-link" href="de/property-vega-verde-residences.html">Projekt Entdecken</a>
+                <div class="dev-facts" data-fact-count="3">
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Übergabe</span>
+                    <span class="dev-fact-value">4. Quartal 2028 (voraussichtlich)</span>
+                  </div>
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Wohnungen</span>
+                    <span class="dev-fact-value">2–4 Zi.</span>
+                    <span class="dev-fact-sub">81–375 m²</span>
+                  </div>
+                  <div class="dev-fact dev-fact--gold">
+                    <span class="dev-fact-label">Verfügbar</span>
+                    <span class="dev-fact-value">59 von 114</span>
+                  </div>
                 </div>
+                <a class="dev-cta-link" href="de/property-vega-verde-residences.html"><span class="dev-cta-label">Projekt Entdecken</span><svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
               </div>
             </article>
 
-      <article class="project-card dev-card reveal" style="transition-delay:0.55s" data-card-url="property-alisios-residences.html">
+      <article class="project-card dev-card reveal" style="transition-delay:0.55s" data-card-url="property-alisios-residences.html" data-card-price="€690,000" data-card-type="Apartments &amp; Penthouses">
               <div class="dev-img-wrap">
-                <span class="dev-badge">Im Bau</span>
-              <div class="project-card-gallery" data-project-card-gallery data-card-url="property-alisios-residences.html" data-card-name="Alisios Residences">
+                <div class="project-card-gallery" data-project-card-gallery data-card-url="property-alisios-residences.html" data-card-name="Alisios Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
                       <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/aerial-golf-sea-view-640.webp 640w, assets/liora/projects/alisios-residences/media/aerial-golf-sea-view-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
@@ -5697,24 +5521,38 @@
                     </div>
                     <template data-card-images><img data-src="assets/liora/projects/alisios-residences/media/aerial-golf-sea-view.jpg" data-webp="assets/liora/projects/alisios-residences/media/aerial-golf-sea-view-960.webp" alt="Luftbild-Visualisierung des Bauträgers von Alisios Residences, eingerahmt vom Golfplatz Guadalmina und dem Meer"><img data-src="assets/liora/projects/alisios-residences/media/exterior-dusk.jpg" data-webp="assets/liora/projects/alisios-residences/media/exterior-dusk-960.webp" alt="Bauträger-Visualisierung der zeitgenössischen Fassade in der Dämmerung mit Landschaftsgärten"><img data-src="assets/liora/projects/alisios-residences/media/aerial-rooftop-pools.jpg" data-webp="assets/liora/projects/alisios-residences/media/aerial-rooftop-pools-960.webp" alt="Luftbild-Visualisierung des Bauträgers der Dachpools entlang des Golfplatzes"><img data-src="assets/liora/projects/alisios-residences/media/rooftop-terrace-lounge.jpg" data-webp="assets/liora/projects/alisios-residences/media/rooftop-terrace-lounge-960.webp" alt="Bauträger-Visualisierung einer beschatteten Dachterrassen-Lounge mit Essbereich"><img data-src="assets/liora/projects/alisios-residences/media/terrace-golf-sea-view.jpg" data-webp="assets/liora/projects/alisios-residences/media/terrace-golf-sea-view-960.webp" alt="Bauträger-Visualisierung einer privaten Terrasse mit Blick über den Golfplatz zum Meer"><img data-src="assets/liora/projects/alisios-residences/media/living-room-golf-view.jpg" data-webp="assets/liora/projects/alisios-residences/media/living-room-golf-view-960.webp" alt="Bauträger-Visualisierung eines offenen Wohnbereichs mit Zugang zur Terrasse mit Golfblick"><img data-src="assets/liora/projects/alisios-residences/media/dining-kitchen.jpg" data-webp="assets/liora/projects/alisios-residences/media/dining-kitchen-960.webp" alt="Bauträger-Visualisierung eines offenen Ess- und Küchenbereichs"><img data-src="assets/liora/projects/alisios-residences/media/living-room-sea-view.jpg" data-webp="assets/liora/projects/alisios-residences/media/living-room-sea-view-960.webp" alt="Bauträger-Visualisierung eines Wohnbereichs mit Balkon und Meerblick"><img data-src="assets/liora/projects/alisios-residences/media/resort-gym.jpg" data-webp="assets/liora/projects/alisios-residences/media/resort-gym-960.webp" alt="Bauträger-Visualisierung des Fitnessstudios für Bewohner"><img data-src="assets/liora/projects/alisios-residences/media/resort-coworking-lounge.jpg" data-webp="assets/liora/projects/alisios-residences/media/resort-coworking-lounge-960.webp" alt="Bauträger-Visualisierung des Coworking- und Loungebereichs für Bewohner"><img data-src="assets/liora/projects/alisios-residences/media/bathroom.jpg" data-webp="assets/liora/projects/alisios-residences/media/bathroom-960.webp" alt="Bauträger-Visualisierung eines En-suite-Badezimmers mit begehbarer Regendusche"></template>
                   </div>
-                <div class="dev-img-overlay"></div>
-                <div class="dev-price-overlay">Ab €690,000</div>
+                <div class="dev-scrim" aria-hidden="true"></div>
+                <div class="dev-overlay">
+                  <div class="dev-badges"><span class="dev-badge">Im Bau</span><span class="dev-badge-units">4 von 34 frei</span></div>
+                  <div class="dev-loc">Guadalmina Golf, Marbella</div>
+                  <div class="dev-price"><span class="dev-price-label">Ab</span><span class="dev-price-amount">€690,000</span></div>
+                </div>
               </div>
               <div class="dev-body">
-                <div class="dev-loc">Guadalmina Golf, Marbella</div>
                 <h2 class="dev-name">Alisios Residences</h2>
                 <p class="dev-tagline">34 Apartments und Penthouses im Guadalmina Golf Valley in Marbella, nur wenige Minuten von San Pedro und Puerto Banús entfernt.</p>
-                <div class="dev-meta"><div class="dev-meta-item"><span class="lbl">Ab</span><span class="val">€690,000</span></div><div class="dev-meta-item"><span class="lbl">Typ</span><span class="val">Apartments &amp; Penthouses</span></div><div class="dev-meta-item"><span class="lbl">Übergabe</span><span class="val">Q4 2026</span></div></div>
-                <div class="dev-footer">
-                  <a class="dev-cta-link" href="de/property-alisios-residences.html">Projekt Entdecken</a>
+                <div class="dev-facts" data-fact-count="3">
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Übergabe</span>
+                    <span class="dev-fact-value">Q4 2026</span>
+                  </div>
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Wohnungen</span>
+                    <span class="dev-fact-value">2–4 Zi.</span>
+                    <span class="dev-fact-sub">103–201 m²</span>
+                  </div>
+                  <div class="dev-fact dev-fact--gold">
+                    <span class="dev-fact-label">Verfügbar</span>
+                    <span class="dev-fact-value">4 von 34</span>
+                  </div>
                 </div>
+                <a class="dev-cta-link" href="de/property-alisios-residences.html"><span class="dev-cta-label">Projekt Entdecken</span><svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
               </div>
             </article>
 
-      <article class="project-card dev-card reveal" style="transition-delay:0.60s" data-card-url="property-los-olivos-residences.html">
+      <article class="project-card dev-card reveal" style="transition-delay:0.60s" data-card-url="property-los-olivos-residences.html" data-card-price="€1,237,625" data-card-type="Apartments &amp; Penthouses">
               <div class="dev-img-wrap">
-                <span class="dev-badge">Im Bau</span>
-              <div class="project-card-gallery" data-project-card-gallery data-card-url="property-los-olivos-residences.html" data-card-name="Los Olivos Residences">
+                <div class="project-card-gallery" data-project-card-gallery data-card-url="property-los-olivos-residences.html" data-card-name="Los Olivos Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
                       <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/aerial-development-golf-valley-640.webp 640w, assets/liora/projects/los-olivos-residences/media/aerial-development-golf-valley-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
@@ -5754,24 +5592,38 @@
                     </div>
                     <template data-card-images><img data-src="assets/liora/projects/los-olivos-residences/media/aerial-development-golf-valley.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/aerial-development-golf-valley-960.webp" alt="Luftaufnahme der Anlage im Golf Valley von Marbella"><img data-src="assets/liora/projects/los-olivos-residences/media/aerial-phase-overview.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/aerial-phase-overview-960.webp" alt="Luftaufnahme des Baufortschritts von Phase I neben dem Grundstück von Phase II"><img data-src="assets/liora/projects/los-olivos-residences/media/terrace-dining-la-concha.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/terrace-dining-la-concha-960.webp" alt="Essbereich auf der privaten Terrasse mit Blick auf den Berg La Concha"><img data-src="assets/liora/projects/los-olivos-residences/media/terrace-lounge.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/terrace-lounge-960.webp" alt="Sitzbereich auf der Terrasse mit Blick auf den umliegenden Hang"><img data-src="assets/liora/projects/los-olivos-residences/media/dining-terrace-view.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/dining-terrace-view-960.webp" alt="Essterrasse mit Pendelleuchten und Bergblick"><img data-src="assets/liora/projects/los-olivos-residences/media/kitchen-marble-island.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/kitchen-marble-island-960.webp" alt="Küche der Musterwohnung mit Marmorinsel im Wasserfall-Design"><img data-src="assets/liora/projects/los-olivos-residences/media/living-dining-mountain-view.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/living-dining-mountain-view-960.webp" alt="Offener Wohn- und Essbereich mit Bergblick durch breite Verglasung"><img data-src="assets/liora/projects/los-olivos-residences/media/kitchen-bar-seating.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/kitchen-bar-seating-960.webp" alt="Kücheninsel mit Barbestuhlung und Eichenfronten"><img data-src="assets/liora/projects/los-olivos-residences/media/living-room-media-wall.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/living-room-media-wall-960.webp" alt="Wohnzimmer mit Lamellen-Medienwand aus Holz und Sofas in Naturtönen"><img data-src="assets/liora/projects/los-olivos-residences/media/bedroom-mountain-view.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/bedroom-mountain-view-960.webp" alt="Hauptschlafzimmer mit Terrassenzugang und Bergblick"><img data-src="assets/liora/projects/los-olivos-residences/media/second-bedroom-suite.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/second-bedroom-suite-960.webp" alt="Zweite Schlafzimmer-Suite mit offenem En-suite-Bad"><img data-src="assets/liora/projects/los-olivos-residences/media/dressing-room.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/dressing-room-960.webp" alt="Maßgefertigtes Ankleidezimmer mit LED-Beleuchtung und Einbauschränken"><img data-src="assets/liora/projects/los-olivos-residences/media/bathroom-walk-in-shower.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/bathroom-walk-in-shower-960.webp" alt="Badezimmer mit großer begehbarer Regendusche und Naturstein-Oberflächen"><img data-src="assets/liora/projects/los-olivos-residences/media/primary-bathroom-tub.jpg" data-webp="assets/liora/projects/los-olivos-residences/media/primary-bathroom-tub-960.webp" alt="Hauptbadezimmer mit freistehender Badewanne und Doppelwaschtisch"></template>
                   </div>
-                <div class="dev-img-overlay"></div>
-                <div class="dev-price-overlay">Ab €1,237,625</div>
+                <div class="dev-scrim" aria-hidden="true"></div>
+                <div class="dev-overlay">
+                  <div class="dev-badges"><span class="dev-badge">Im Bau</span><span class="dev-badge-units">8 von 16 frei</span></div>
+                  <div class="dev-loc">Golf Valley</div>
+                  <div class="dev-price"><span class="dev-price-label">Ab</span><span class="dev-price-amount">€1,237,625</span></div>
+                </div>
               </div>
               <div class="dev-body">
-                <div class="dev-loc">Golf Valley</div>
                 <h2 class="dev-name">Los Olivos Residences</h2>
                 <p class="dev-tagline">Apartments und Penthouses in einer bewachten Anlage im Golf Valley von Marbella, nahe Puerto Banús und der Golden Mile.</p>
-                <div class="dev-meta"><div class="dev-meta-item"><span class="lbl">Ab</span><span class="val">€1,237,625</span></div><div class="dev-meta-item"><span class="lbl">Typ</span><span class="val">Apartments &amp; Penthouses</span></div><div class="dev-meta-item"><span class="lbl">Status</span><span class="val">Im Bau</span></div></div>
-                <div class="dev-footer">
-                  <a class="dev-cta-link" href="de/property-los-olivos-residences.html">Projekt Entdecken</a>
+                <div class="dev-facts" data-fact-count="3">
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Übergabe</span>
+                    <span class="dev-fact-value">Phase I — 2026</span>
+                  </div>
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Wohnungen</span>
+                    <span class="dev-fact-value">2–3 Zi.</span>
+                    <span class="dev-fact-sub">152–370 m²</span>
+                  </div>
+                  <div class="dev-fact dev-fact--gold">
+                    <span class="dev-fact-label">Verfügbar</span>
+                    <span class="dev-fact-value">8 von 16</span>
+                  </div>
                 </div>
+                <a class="dev-cta-link" href="de/property-los-olivos-residences.html"><span class="dev-cta-label">Projekt Entdecken</span><svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
               </div>
             </article>
 
-      <article class="project-card dev-card reveal" style="transition-delay:0.65s" data-card-url="property-jardin-del-mar-residences.html">
+      <article class="project-card dev-card reveal" style="transition-delay:0.65s" data-card-url="property-jardin-del-mar-residences.html" data-card-price="€720,000" data-card-type="Apartments &amp; Penthouses">
               <div class="dev-img-wrap">
-                <span class="dev-badge">Off-Plan</span>
-              <div class="project-card-gallery" data-project-card-gallery data-card-url="property-jardin-del-mar-residences.html" data-card-name="Jardin del Mar Residences">
+                <div class="project-card-gallery" data-project-card-gallery data-card-url="property-jardin-del-mar-residences.html" data-card-name="Jardin del Mar Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
                       <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
@@ -5811,17 +5663,28 @@
                     </div>
                     <template data-card-images><img data-src="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day-960.webp" alt="Außenvisualisierung der Anlage mit palmengesäumtem Gemeinschaftspool bei Tag"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/aerial-coastline.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/aerial-coastline-960.webp" alt="Luftaufnahme der Küste von Estepona"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-night.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-night-960.webp" alt="Außenvisualisierung der Anlage mit palmengesäumtem Gemeinschaftspool bei Nacht"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/courtyard-facade.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/courtyard-facade-960.webp" alt="Innenhoffassade mit Pergola und Palmen"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/courtyard-walkway.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/courtyard-walkway-960.webp" alt="Begrünter Weg zwischen zwei Wohngebäuden"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/restaurant-bar.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/restaurant-bar-960.webp" alt="Hauseigenes Restaurant und Bar mit Gartenblick"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/restaurant-dining.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/restaurant-dining-960.webp" alt="Restaurant-Essbereich mit Meerblick"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/spa-indoor-pool.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/spa-indoor-pool-960.webp" alt="Privater Spa mit Innenpool, Sauna und Hamam"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/gym.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/gym-960.webp" alt="Voll ausgestattetes Fitnessstudio mit holzvertäfelten Wänden"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/terrace-lounge.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/terrace-lounge-960.webp" alt="Private Terrassen-Lounge mit Pergola-Beschattung"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/dining-terrace-sea-view.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/dining-terrace-sea-view-960.webp" alt="Dachterrasse mit Essbereich und Meerblick"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/living-room.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/living-room-960.webp" alt="Wohnzimmer der Musterwohnung mit Raumteiler-Regal"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/bedroom-sea-view.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/bedroom-sea-view-960.webp" alt="Hauptschlafzimmer mit Meerblick durch raumhohe Verglasung"><img data-src="assets/liora/projects/jardin-del-mar-residences/media/dressing-room.jpg" data-webp="assets/liora/projects/jardin-del-mar-residences/media/dressing-room-960.webp" alt="Ausgestattetes Ankleidezimmer mit Einbauschränken"></template>
                   </div>
-                <div class="dev-img-overlay"></div>
-                <div class="dev-price-overlay">Ab €720,000</div>
+                <div class="dev-scrim" aria-hidden="true"></div>
+                <div class="dev-overlay">
+                  <div class="dev-badges"><span class="dev-badge">Off-Plan</span><span class="dev-badge-units">19 von 23 frei</span></div>
+                  <div class="dev-loc">Estepona</div>
+                  <div class="dev-price"><span class="dev-price-label">Ab</span><span class="dev-price-amount">€720,000</span></div>
+                </div>
               </div>
               <div class="dev-body">
-                <div class="dev-loc">Estepona</div>
                 <h2 class="dev-name">Jardin del Mar Residences</h2>
                 <p class="dev-tagline">Apartments und Penthouses in einer bewachten Anlage im Zentrum von Estepona, mit privatem Spa, Fitnessstudio, Kino und Coworking-Lounge.</p>
-                <div class="dev-meta"><div class="dev-meta-item"><span class="lbl">Ab</span><span class="val">€720,000</span></div><div class="dev-meta-item"><span class="lbl">Typ</span><span class="val">Apartments &amp; Penthouses</span></div><div class="dev-meta-item"><span class="lbl">Status</span><span class="val">Off-plan</span></div></div>
-                <div class="dev-footer">
-                  <a class="dev-cta-link" href="de/property-jardin-del-mar-residences.html">Projekt Entdecken</a>
+                <div class="dev-facts" data-fact-count="2">
+                  <div class="dev-fact">
+                    <span class="dev-fact-label">Wohnungen</span>
+                    <span class="dev-fact-value">2–3 Zi.</span>
+                    <span class="dev-fact-sub">154–306 m²</span>
+                  </div>
+                  <div class="dev-fact dev-fact--gold">
+                    <span class="dev-fact-label">Verfügbar</span>
+                    <span class="dev-fact-value">19 von 23</span>
+                  </div>
                 </div>
+                <a class="dev-cta-link" href="de/property-jardin-del-mar-residences.html"><span class="dev-cta-label">Projekt Entdecken</span><svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg></a>
               </div>
             </article>
       <!-- NUEVA GENERATED HOME PROJECTS END -->

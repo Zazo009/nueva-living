@@ -1,34 +1,32 @@
 // The listing card -- one definition, used by every grid on the site.
 //
-// There used to be two visually different cards. The homepage rendered a
-// `.dev-card`: status badge over the image, "From EUR x" burned into the
-// bottom corner, location / name / tagline / meta / CTA. The developments,
-// area and segment pages rendered a `.project-card`: no badge, no price on
-// the image, a tag row instead of a type chip. Same projects, same data --
-// two looks, so a visitor moving from the homepage to /developments saw the
-// same thirteen properties presented as if they came from different sites.
+// There used to be two visually different cards, one on the homepage and one
+// on every other grid. They were consolidated into this partial; this is the
+// redesign of that single card.
 //
-// This renders the richer homepage card everywhere. The outer element keeps
-// the `project-card` class and the `data-project-card` filter attributes so
-// discovery filtering, the shortlist heart and the dark-band overrides all
-// keep working untouched; the inner structure is the homepage's.
+// WHAT OTHER CODE DEPENDS ON  (changing any of these breaks live behaviour)
 //
-// The class names on the chrome (`dev-badge`, `dev-price-overlay`, `lbl`,
-// `val`) are deliberately unchanged: the locale builds translate those
-// strings with find/replace entries keyed on exactly those class prefixes
-// (see lib/card_chrome_translations.mjs), so keeping the names means the
-// badge and price prefix arrive already translated on every page that now
-// shows them for the first time.
+//   .dev-card, [data-project-card]   nueva-shortlist, liora-discovery,
+//                                    nueva-tracking, liora-conversion
+//   .dev-img-wrap                    nueva-shortlist (heart placement)
+//   .dev-loc                         nueva-shortlist (saved location)
+//   .dev-name                        nueva-shortlist, tracking, conversion
+//   .dev-cta-link[href*=property-]   nueva-shortlist, conversion
+//   [data-card-actions]              nueva-shortlist injects the heart here
+//   .project-card-actions            liora-card-gallery (click passthrough)
+//   data-card-url                    liora-card-gallery, nueva-shortlist
+//   data-card-price / data-card-type nueva-shortlist reads these instead of
+//                                    counting fact columns positionally
+//
+// The old design carried a FROM / TYPE / STATUS grid and nueva-shortlist
+// read it by index -- metaValues[0] as the price, metaValues[1] as the type.
+// The redesign replaces that grid with Delivery / Homes / Available, so the
+// indexes would have silently started saving a delivery date as the price
+// and sending it to the CRM. The two data attributes above replace the
+// positional read; nueva-shortlist prefers them and falls back to the old
+// selectors, so nothing regresses on pages built before this change.
 
-// The price sits in the bottom corner of the photo with the status badge in
-// the opposite corner. "From EUR 2,400,000" fits; "From EUR 2,400,000 + VAT"
-// runs into the badge on a phone. The suffix is dropped from the overlay
-// only -- the meta row directly below still carries the full price, so
-// nothing is hidden from the buyer.
-//
-// Area and segment pages render the already-translated price, so every
-// language's form of the suffix has to be recognised here.
-const TAX_SUFFIX = /\s*(?:\+\s*(?:VAT|IVA|TVA|НДС|ضريبة)\.?|zzgl\.\s*MwSt\.?)\s*$/iu;
+import { cardFacts } from './card_facts.mjs';
 
 function esc(value) {
   return String(value ?? '')
@@ -38,54 +36,81 @@ function esc(value) {
     .replace(/"/g, '&quot;');
 }
 
+// The price sits over the photo. "From EUR 2,400,000 + VAT" collides with
+// the badge on a phone, so the tax suffix is dropped here only -- the full
+// price stays on the project page. Every language's form is listed because
+// the area and segment pages render an already-translated price.
+const TAX_SUFFIX = /\s*(?:\+\s*(?:VAT|IVA|TVA|НДС|ضريبة)\.?|zzgl\.\s*MwSt\.?)\s*$/iu;
+
+const ARROW = '<svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>';
+
 /**
  * @param {object}   card
- * @param {string}   card.gallery     rendered gallery/image markup
+ * @param {object}   card.project     the (already localized) project, for facts
+ * @param {string}   card.gallery     rendered gallery markup
  * @param {string}   card.href        project URL
  * @param {string}   card.name        project name
- * @param {string}   card.badge       status chip over the image
- * @param {string}   card.price       price shown bottom-right, without the "From"
- * @param {string}   card.pricePrefix localized "From" (default English)
- * @param {string}   card.location    eyebrow above the name
- * @param {string}   card.description tagline
- * @param {[string,string][]} card.meta   label/value pairs (max 3 shown)
- * @param {string}   card.cta         CTA text
- * @param {string}   [card.id]        element id
- * @param {string}   [card.className] extra classes on the article
- * @param {string}   [card.style]     inline style (reveal transition delay)
+ * @param {string}   card.badge       status badge over the image
+ * @param {string}   card.price       price, without the "From"
+ * @param {string}   card.location    eyebrow above the price
+ * @param {string}   card.description tagline, clamped to 3 lines in CSS
+ * @param {string}   card.type        property type -- not displayed, carried
+ *                                    on data-card-type for the shortlist
+ * @param {function} card.t           (key, vars) => localized string
+ * @param {string}   [card.id]
+ * @param {string}   [card.className]
+ * @param {string}   [card.style]
  * @param {string}   [card.attrs]     pre-escaped data-* attribute string
- * @param {string}   [card.heading]   'h2' | 'h3' (default h2)
- * @param {string}   [card.indent]    leading whitespace for the markup
+ * @param {string}   [card.heading]   'h2' | 'h3'
+ * @param {string}   [card.indent]
  */
 export function renderUnifiedCard(card) {
   const {
-    gallery, href, name, badge, price, pricePrefix = 'From', location, description,
-    meta = [], cta = 'Explore Project', id, className = '', style = '',
-    attrs = '', heading = 'h2', indent = ''
+    project = {}, gallery, href, name, badge, price, location, description, type = '',
+    t, id, className = '', style = '', attrs = '', heading = 'h2', indent = ''
   } = card;
 
   const classes = ['project-card', 'dev-card', className].filter(Boolean).join(' ');
-  const badgeMarkup = badge ? `<span class="dev-badge">${esc(badge)}</span>\n        ` : '';
-  const priceMarkup = price
-    ? `\n          <div class="dev-price-overlay">${esc(pricePrefix)} ${esc(String(price).replace(TAX_SUFFIX, ''))}</div>`
-    : '';
-  const metaMarkup = meta.slice(0, 3)
-    .map(([label, value]) => `<div class="dev-meta-item"><span class="lbl">${esc(label)}</span><span class="val">${esc(value)}</span></div>`)
-    .join('');
+  const cleanPrice = String(price ?? '').replace(TAX_SUFFIX, '');
 
-  return `<article class="${classes}"${id ? ` id="${esc(id)}"` : ''}${style ? ` style="${style}"` : ''} data-card-url="${esc(href)}"${attrs}>
+  // Badge row: status, plus the unit count when the project has one.
+  const crm = project.crm || {};
+  const available = Number.isFinite(crm.availableUnits)
+    ? crm.availableUnits
+    : (project.availability?.units || []).length;
+  const total = crm.totalUnits;
+  const hasUnits = available > 0 && Number.isFinite(total) && total > 0;
+  const badges = [
+    badge ? `<span class="dev-badge">${esc(badge)}</span>` : '',
+    hasUnits ? `<span class="dev-badge-units">${esc(t('card.unitsLeft', { available, total }))}</span>` : ''
+  ].filter(Boolean).join('');
+
+  const facts = cardFacts(project, { badge, t });
+  const factsMarkup = facts.length
+    ? `<div class="dev-facts" data-fact-count="${facts.length}">${facts.map((fact) => `
+            <div class="dev-fact${fact.tone === 'gold' ? ' dev-fact--gold' : ''}">
+              <span class="dev-fact-label">${esc(fact.label)}</span>
+              <span class="dev-fact-value">${esc(fact.value)}</span>${fact.sub ? `
+              <span class="dev-fact-sub">${esc(fact.sub)}</span>` : ''}
+            </div>`).join('')}
+          </div>`
+    : '';
+
+  return `<article class="${classes}"${id ? ` id="${esc(id)}"` : ''}${style ? ` style="${style}"` : ''} data-card-url="${esc(href)}"${attrs}${price ? ` data-card-price="${esc(cleanPrice)}"` : ''}${type ? ` data-card-type="${esc(type)}"` : ''}>
         <div class="dev-img-wrap">
-          ${badgeMarkup}${gallery}
-          <div class="dev-img-overlay"></div>${priceMarkup}
+          ${gallery}
+          <div class="dev-scrim" aria-hidden="true"></div>
+          <div class="dev-overlay">
+            ${badges ? `<div class="dev-badges">${badges}</div>` : ''}
+            ${location ? `<div class="dev-loc">${esc(location)}</div>` : ''}
+            ${cleanPrice ? `<div class="dev-price"><span class="dev-price-label">${esc(t('card.from'))}</span><span class="dev-price-amount">${esc(cleanPrice)}</span></div>` : ''}
+          </div>
         </div>
         <div class="dev-body">
-          <div class="dev-loc">${esc(location)}</div>
           <${heading} class="dev-name">${esc(name)}</${heading}>
           <p class="dev-tagline">${esc(description)}</p>
-          <div class="dev-meta">${metaMarkup}</div>
-          <div class="dev-footer">
-            <a class="dev-cta-link" href="${esc(href)}">${esc(cta)}</a>
-          </div>
+          ${factsMarkup}
+          <a class="dev-cta-link" href="${esc(href)}"><span class="dev-cta-label">${esc(t('cta.exploreProject'))}</span>${ARROW}</a>
         </div>
       </article>`.replace(/\n/g, `\n${indent}`);
 }

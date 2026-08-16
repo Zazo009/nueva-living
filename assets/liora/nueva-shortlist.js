@@ -161,8 +161,13 @@
       url,
       location: card.querySelector('.dev-loc, .project-body > .label')?.textContent,
       image: image?.getAttribute('src'),
-      price: metaValues[0],
-      type: metaValues[1]
+      // The card carries these explicitly. The redesign replaced the old
+      // FROM / TYPE / STATUS grid with Delivery / Homes / Available, so
+      // reading the fact columns by index would now save a delivery date
+      // as the price. metaValues stays as the fallback so cards rendered
+      // before that change still resolve correctly.
+      price: card.dataset.cardPrice || metaValues[0],
+      type: card.dataset.cardType || metaValues[1]
     });
   }
 

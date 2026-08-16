@@ -77,6 +77,24 @@ const CSS_INVARIANTS = [
     why: 'the gallery track must stay a native horizontal scroller'
   },
   {
+    // The track must also be a flex strip. These rules used to live only in
+    // liora-pages.css and the homepage's inline copy -- and the homepage
+    // does not load liora-pages.css, so losing them here stacks the slides
+    // vertically on the one page that cannot fall back.
+    pattern: /\.project-card-gallery-track\s*\{[^}]*display:\s*flex/,
+    why: 'the gallery track must stay display:flex or the slides stop being a strip'
+  },
+  {
+    pattern: /\.project-card-gallery-track\s+img\s*\{[^}]*flex:\s*0\s+0\s+100%/,
+    why: 'each slide must be exactly one track width, or the carousel mistracks'
+  },
+  {
+    // The scrim is the only thing making the overlay text legible; without
+    // it a bright render leaves white-on-white.
+    pattern: /\.dev-scrim\s*\{[^}]*linear-gradient/,
+    why: 'the image scrim must stay, or the badges, location and price lose contrast'
+  },
+  {
     // A mandatory snap type plus scroll-snap-stop:always traps the gesture.
     pattern: /scroll-snap-type:\s*x\s+proximity/,
     why: 'snap must stay `proximity`; `mandatory` combined with scroll-snap-stop '
