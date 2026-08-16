@@ -76,7 +76,11 @@ function stripPriorInjections(html) {
 }
 
 const source = stripPriorInjections(readFileSync(sourcePath, 'utf8'));
-const rtlCssVersion = existsSync(path.join(root, 'assets/liora/liora-rtl.css')) ? '1' : '1';
+// Deliberately a placeholder: build_dist stamps every local asset link with a
+// content hash on the finished page. This used to read `? '1' : '1'`, which
+// looked like versioning but never changed, so the RTL stylesheet was frozen
+// in visitors' caches.
+const rtlCssVersion = 'stamped-by-build-dist';
 
 // Exact-string replacements for the homepage's own hand-authored nav/
 // footer copy (verified against the current markup). Applied globally so

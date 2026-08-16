@@ -877,6 +877,39 @@ function escapeAttribute(value) {
     .replace(/"/g, '&quot;');
 }
 
+// Cache-busting, applied to the finished page rather than trusted to each
+// builder. Several of them emitted `liora-rtl.css` with no ?v= at all, and
+// the homepage builder had one hardcoded to '1' -- so on 24 pages the URL
+// never changed and browsers kept serving whatever they had cached. A fix
+// would land on the property pages, whose links are versioned, and appear
+// "reverted" everywhere else until the visitor cleared their cache. Stamping
+// every local asset link here means it cannot depend on which builder wrote
+// the page.
+const assetVersionCache = new Map();
+
+function versionFor(relativePath) {
+  if (!assetVersionCache.has(relativePath)) {
+    try {
+      assetVersionCache.set(relativePath, contentVersion(relativePath));
+    } catch (error) {
+      assetVersionCache.set(relativePath, null);
+    }
+  }
+  return assetVersionCache.get(relativePath);
+}
+
+function stampAssetVersions(html) {
+  return html.replace(
+    /(<(?:link|script)\b[^>]*?(?:href|src)=")((?:\.\.\/)*assets\/[^"?]+\.(?:css|js))(\?v=[^"]*)?(")/g,
+    (match, head, url, existing, tail) => {
+      const relative = url.replace(/^(?:\.\.\/)+/, '');
+      const version = versionFor(relative);
+      if (!version) return match;
+      return `${head}${url}?v=${version}${tail}`;
+    }
+  );
+}
+
 function injectSystemStyles(html) {
   if (html.includes(systemStylesheetPath) || html.includes('data-nueva-system')) return html;
   return html.replace(
@@ -1039,7 +1072,7 @@ function writeHtml(source, target, publicName) {
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const locale = localeFromPublicName(publicName);
   const productionHtml = externalizeHomepageController(
-    clampMetaDescriptions(injectGtm(injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(injectSeo(html, publicName))), locale)))))),
+    stampAssetVersions(clampMetaDescriptions(injectGtm(injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(injectSeo(html, publicName))), locale))))))),
     publicName
   );
   fs.writeFileSync(target, optimizeHtml(productionHtml));
