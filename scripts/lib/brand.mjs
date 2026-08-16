@@ -14,11 +14,15 @@ export const SAME_AS = [
   // firm called "Nuva Living" ranking for the brand query.
   //
   // Anything left out is simply not claimed; add URLs as they exist.
-  'https://www.instagram.com/nuevaliving'
-  // Still to add:
-  //   the Google Business Profile URL -- the strongest of these for a local
-  //   business, because it ties the entity to the verified Marbella address
-  //   already asserted below
+  'https://www.instagram.com/nuevaliving',
+  // Google Business Profile. This is the share link as supplied; it
+  // resolves only in a real browser session, so it could not be expanded
+  // to its canonical Maps form here. A canonical
+  // `https://www.google.com/maps/place/?q=place_id:<id>` would be a
+  // stronger claim -- a redirector asks Google to follow a hop before it
+  // can corroborate anything. Worth swapping when the place_id is to hand.
+  'https://share.google/p0Qtg4bQZHgNzHxdH'
+  // Still unclaimed:
   //   'https://www.linkedin.com/company/<slug>/',
   //   'https://www.facebook.com/<page>/'
 ];
