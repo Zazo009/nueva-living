@@ -121,6 +121,36 @@ for (const name of htmlFiles) {
   }
 }
 
+// Every in-page link must land on a section that exists, in every language.
+// The property pages' sub-nav is the reason: its entries are conditional
+// (media only when there are images, payment terms only when the project has
+// a construction timeline), so a link and its section can drift apart and
+// the tab then silently scrolls nowhere. This walks the locale directories
+// too, which the checks above do not.
+function everyHtmlFile(dir) {
+  const out = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isDirectory()) {
+      if (entry.name === 'assets' || entry.name === 'content') continue;
+      out.push(...everyHtmlFile(path.join(dir, entry.name)));
+    } else if (entry.name.endsWith('.html')) {
+      out.push(path.join(dir, entry.name));
+    }
+  }
+  return out;
+}
+
+for (const file of everyHtmlFile(dist)) {
+  const html = fs.readFileSync(file, 'utf8');
+  const ids = new Set([...html.matchAll(/id="([^"]+)"/g)].map((match) => match[1]));
+  const targets = new Set([...html.matchAll(/href="#([^"]+)"/g)].map((match) => match[1]));
+  for (const target of targets) {
+    if (target && !ids.has(target)) {
+      fail(path.relative(dist, file), `in-page link #${target} has no matching element`);
+    }
+  }
+}
+
 const cssFile = path.join(dist, 'assets/liora/nueva-system.css');
 if (!fs.existsSync(cssFile)) {
   fail('assets/liora/nueva-system.css', 'missing from dist');
