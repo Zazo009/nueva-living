@@ -56,6 +56,18 @@
   unicode-bidi: isolate;
 }
 
+/* Prices carry a trailing tax note -- "EUR890,000 + IVA" -- and the "+" is a
+   neutral character, so an RTL paragraph reorders the two groups and paints
+   it as "IVA + EUR890,000". Same cause as the phone numbers below: pin the
+   value to LTR and let it sit right-aligned in the RTL column. */
+[dir="rtl"] .unit-card-price,
+[dir="rtl"] .availability-table td[data-label] strong,
+[dir="rtl"] .availability-release-stats strong {
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: right;
+}
+
 /* Phone numbers, emails and other Latin/numeric values shown as their own
    line. `isolate` alone is not enough for a spaced number: the digit runs
    are each left-to-right, but the spaces between them are neutral, so the

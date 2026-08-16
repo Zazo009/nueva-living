@@ -439,13 +439,21 @@
 (function () {
   document.querySelectorAll('[data-availability-filters]').forEach((panel) => {
     const release = panel.closest('.availability-release');
+    // A release renders either as a table of rows or, where the project has
+    // floorplans for its units, as a grid of cards. Both carry the same
+    // data-beds/data-price, so the filter only needs to know which set of
+    // elements it is hiding.
     const table = release?.querySelector('.availability-table');
+    const grid = release?.querySelector('.unit-card-grid');
+    const container = table || grid;
     const empty = release?.querySelector('[data-availability-empty]');
     const countEl = panel.querySelector('[data-availability-count]');
     const clearBtn = panel.querySelector('[data-availability-clear]');
-    if (!table) return;
+    if (!container) return;
 
-    const rows = Array.from(table.querySelectorAll('tbody tr'));
+    const rows = Array.from(
+      table ? table.querySelectorAll('tbody tr') : grid.querySelectorAll('[data-unit]')
+    );
     const template = panel.getAttribute('data-count-template') || '';
     const active = { beds: 'all', price: 'all' };
 
@@ -477,8 +485,9 @@
       }
       if (clearBtn) clearBtn.hidden = !filtered;
       if (empty) empty.hidden = shown > 0;
-      // A header over nothing reads as a broken table.
-      table.hidden = shown === 0;
+      // A header over nothing reads as a broken table; an empty grid is just
+      // an empty box. Either way, hide the container when nothing matches.
+      container.hidden = shown === 0;
     };
 
     panel.querySelectorAll('[data-filter-group]').forEach((button) => {

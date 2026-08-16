@@ -498,6 +498,74 @@ function renderAvailabilityFilters(units, locale) {
             <p class="availability-empty" data-availability-empty hidden>${t('availability.filterNone', locale)}</p>`;
 }
 
+// A floorplan is worth showing as a picture rather than a link, but most of
+// them are PDFs. generate_floorplan_thumbnails renders page one of each to a
+// sibling `-thumb.jpg`; where a plan is already an image it is its own thumb.
+function floorplanThumb(floorplan) {
+  if (!floorplan) return '';
+  const asImage = String(floorplan).match(/\.(jpe?g|png)$/i);
+  const candidate = asImage ? floorplan : String(floorplan).replace(/\.pdf$/i, '-thumb.jpg');
+  return existsSync(candidate) ? candidate : '';
+}
+
+// Cards only where the project can actually fill them: a grid of mostly empty
+// frames is worse than the table it replaced.
+const UNIT_CARD_MIN_COVERAGE = 0.75;
+
+function usesUnitCards(units) {
+  if (units.length < 2) return false;
+  const withThumb = units.filter((unit) => floorplanThumb(unit.floorplan)).length;
+  return withThumb / units.length >= UNIT_CARD_MIN_COVERAGE;
+}
+
+function responsiveThumb(src, alt) {
+  const base = String(src).replace(/\.(jpe?g|png)$/i, '');
+  const candidates = [[`${base}-640.webp`, 640], [`${base}-960.webp`, 960]]
+    .filter(([file]) => existsSync(file))
+    .map(([file, width]) => `${esc(file)} ${width}w`);
+  const img = `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async">`;
+  if (!candidates.length) return img;
+  return `<picture>
+                    <source type="image/webp" srcset="${candidates.join(', ')}" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                    ${img}
+                  </picture>`;
+}
+
+function renderUnitCard(unit, project, locale) {
+  const beds = unitBedCount(unit);
+  const price = unitPriceValue(unit);
+  const thumb = floorplanThumb(unit.floorplan);
+  const reference = esc(unit.reference);
+
+  const media = thumb
+    ? `<a class="unit-card-plan" href="${esc(unit.floorplan)}" target="_blank" rel="noopener" aria-label="${t('availability.floorplanOf', locale, { reference })}">
+                  ${responsiveThumb(thumb, t('availability.floorplanOf', locale, { reference }))}
+                  <span class="unit-card-plan-hint">${t('availability.viewFloorplan', locale)}</span>
+                </a>`
+    : '';
+
+  const facts = [
+    [t('availability.bedrooms', locale), localizedUnitBedrooms(unit.bedrooms, locale)],
+    unit.size ? [t('availability.size', locale), localizedUnitSize(unit.size, locale)] : null,
+    unit.floor ? [t('availability.floor', locale), localizedUnitFloor(unit.floor, locale)] : null
+  ].filter(Boolean);
+
+  return `<article class="unit-card" data-unit${beds === null ? '' : ` data-beds="${beds}"`}${price === null ? '' : ` data-price="${price}"`}>
+                ${media}
+                <div class="unit-card-body">
+                  <div class="unit-card-head">
+                    <strong class="unit-card-ref">${reference}</strong>
+                    <span class="availability-status">${t('availability.available', locale)}</span>
+                  </div>
+                  <dl class="unit-card-facts">
+                    ${facts.map(([label, value]) => `<div><dt>${label}</dt><dd>${esc(value)}</dd></div>`).join('\n                    ')}
+                  </dl>
+                  <p class="unit-card-price">${esc(unit.price)}</p>
+                  <a class="unit-card-cta" href="contact.html?intent=${encodeURIComponent(`${project.name} - ${unit.reference}`)}">${t('availability.askAboutUnit', locale, { reference })}</a>
+                </div>
+              </article>`;
+}
+
 function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   const availability = project.availability || {};
   const units = availability.units || [];
@@ -507,6 +575,11 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   const hasSize = units.some((unit) => unit.size);
   const hasFloor = units.some((unit) => unit.floor);
   const filters = renderAvailabilityFilters(units, locale);
+  const cardGrid = usesUnitCards(units)
+    ? `<div class="unit-card-grid" role="list" aria-label="${t('aria.availableUnits', locale)}">
+              ${units.map((unit) => renderUnitCard(unit, project, locale)).join('\n              ')}
+            </div>`
+    : '';
 
   const rows = units.map((unit) => {
     const beds = unitBedCount(unit);
@@ -535,7 +608,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
             ${filters}
-            <div class="availability-table-wrap">
+            ${cardGrid || `<div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">${t('availability.tableCaption', locale, { project: esc(project.name) })}</caption>
                 <thead><tr><th scope="col">${t('availability.reference', locale)}</th>${hasFloor ? `<th scope="col">${t('availability.floor', locale)}</th>` : ''}<th scope="col">${t('availability.bedrooms', locale)}</th>${hasSize ? `<th scope="col">${t('availability.size', locale)}</th>` : ''}<th scope="col">${t('availability.price', locale)}</th><th scope="col">${t('availability.status', locale)}</th>${hasFloorplans ? `<th scope="col">${t('availability.floorplan', locale)}</th>` : ''}</tr></thead>
@@ -543,7 +616,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
               ${rows}
                 </tbody>
               </table>
-            </div>
+            </div>`}
           </details>
           <p class="availability-source-note">${esc(availability.sourceNote || '')}</p>
         </div>`;
