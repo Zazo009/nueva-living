@@ -25,6 +25,15 @@
 // A column with no data is dropped entirely and the survivors split the
 // width -- never an empty column, never a dash.
 
+// CRM numbers arrive as numbers on thirteen projects and as strings on one
+// ("4", "15"). Number.isFinite rejects a string, so that project silently
+// lost its Homes and Available columns and its unit badge -- no error, just
+// a card with one fact instead of three. Coerce rather than trust the type.
+function toNumber(value) {
+  const n = typeof value === 'string' ? Number(value.trim()) : value;
+  return Number.isFinite(n) ? n : undefined;
+}
+
 /**
  * The delivery string duplicates the status badge on 6 of 14 projects: the
  * badge reads "Off-Plan" and hero.delivery reads "Off-plan". Printing both
@@ -70,11 +79,11 @@ export function cardFacts(project, { badge, t }) {
     columns.push({ label: t('card.delivery'), value: delivery, sub: '' });
   }
 
-  const min = crm.bedroomsMin;
-  const max = crm.bedroomsMax;
-  if (Number.isFinite(min) || Number.isFinite(max)) {
-    const lo = Number.isFinite(min) ? min : max;
-    const hi = Number.isFinite(max) ? max : min;
+  const min = toNumber(crm.bedroomsMin);
+  const max = toNumber(crm.bedroomsMax);
+  if (min !== undefined || max !== undefined) {
+    const lo = min !== undefined ? min : max;
+    const hi = max !== undefined ? max : min;
     columns.push({
       label: t('card.homes'),
       value: lo === hi ? t('card.bedSingle', { n: lo }) : t('card.bedRange', { min: lo, max: hi }),
@@ -84,11 +93,9 @@ export function cardFacts(project, { badge, t }) {
 
   // availableUnits is missing on one project but its units[] list is the
   // available list, so its length is the same number.
-  const available = Number.isFinite(crm.availableUnits)
-    ? crm.availableUnits
-    : (project.availability?.units || []).length;
-  const total = crm.totalUnits;
-  if (available > 0 && Number.isFinite(total) && total > 0) {
+  const available = toNumber(crm.availableUnits) ?? (project.availability?.units || []).length;
+  const total = toNumber(crm.totalUnits);
+  if (available > 0 && total !== undefined && total > 0) {
     columns.push({
       label: t('card.available'),
       value: t('card.unitsOf', { available, total }),

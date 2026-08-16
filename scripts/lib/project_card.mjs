@@ -28,6 +28,15 @@
 
 import { cardFacts } from './card_facts.mjs';
 
+// CRM numbers arrive as numbers on thirteen projects and as strings on one
+// ("4", "15"). Number.isFinite rejects a string, so that project silently
+// lost its Homes and Available columns and its unit badge -- no error, just
+// a card with one fact instead of three. Coerce rather than trust the type.
+function toNumber(value) {
+  const n = typeof value === 'string' ? Number(value.trim()) : value;
+  return Number.isFinite(n) ? n : undefined;
+}
+
 function esc(value) {
   return String(value ?? '')
     .replace(/&/g, '&amp;')
@@ -75,11 +84,9 @@ export function renderUnifiedCard(card) {
 
   // Badge row: status, plus the unit count when the project has one.
   const crm = project.crm || {};
-  const available = Number.isFinite(crm.availableUnits)
-    ? crm.availableUnits
-    : (project.availability?.units || []).length;
-  const total = crm.totalUnits;
-  const hasUnits = available > 0 && Number.isFinite(total) && total > 0;
+  const available = toNumber(crm.availableUnits) ?? (project.availability?.units || []).length;
+  const total = toNumber(crm.totalUnits);
+  const hasUnits = available > 0 && total !== undefined && total > 0;
   const badges = [
     badge ? `<span class="dev-badge">${esc(badge)}</span>` : '',
     hasUnits ? `<span class="dev-badge-units">${esc(t('card.unitsLeft', { available, total }))}</span>` : ''

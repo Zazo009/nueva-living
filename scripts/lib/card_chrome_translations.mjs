@@ -28,6 +28,15 @@ import { t } from './i18n.mjs';
 const LOCALES = ['es', 'fr', 'de', 'ru', 'ar'];
 const PROJECT_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'content', 'liora-projects');
 
+// CRM numbers arrive as numbers on thirteen projects and as strings on one
+// ("4", "15"). Number.isFinite rejects a string, so that project silently
+// lost its Homes and Available columns and its unit badge -- no error, just
+// a card with one fact instead of three. Coerce rather than trust the type.
+function toNumber(value) {
+  const n = typeof value === 'string' ? Number(value.trim()) : value;
+  return Number.isFinite(n) ? n : undefined;
+}
+
 function escapeHtml(value) {
   return String(value ?? '')
     .replace(/&/g, '&amp;')
@@ -87,21 +96,19 @@ for (const project of projects()) {
   const crm = project.crm || {};
 
   // "14 of 88 left" on the badge
-  const available = Number.isFinite(crm.availableUnits)
-    ? crm.availableUnits
-    : (project.availability?.units || []).length;
-  const total = crm.totalUnits;
-  if (available > 0 && Number.isFinite(total) && total > 0) {
+  const available = toNumber(crm.availableUnits) ?? (project.availability?.units || []).length;
+  const total = toNumber(crm.totalUnits);
+  if (available > 0 && total !== undefined && total > 0) {
     push(entryFromKey('dev-badge-units">', 'card.unitsLeft', { available, total }));
     push(entryFromKey('dev-fact-value">', 'card.unitsOf', { available, total }));
   }
 
   // "2-4 bed" in the Homes column
-  const min = crm.bedroomsMin;
-  const max = crm.bedroomsMax;
-  if (Number.isFinite(min) || Number.isFinite(max)) {
-    const lo = Number.isFinite(min) ? min : max;
-    const hi = Number.isFinite(max) ? max : min;
+  const min = toNumber(crm.bedroomsMin);
+  const max = toNumber(crm.bedroomsMax);
+  if (min !== undefined || max !== undefined) {
+    const lo = min !== undefined ? min : max;
+    const hi = max !== undefined ? max : min;
     push(lo === hi
       ? entryFromKey('dev-fact-value">', 'card.bedSingle', { n: lo })
       : entryFromKey('dev-fact-value">', 'card.bedRange', { min: lo, max: hi }));
