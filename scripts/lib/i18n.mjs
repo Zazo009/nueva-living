@@ -216,14 +216,20 @@ export function localizeInternalLinks(html, locale) {
   if (!meta.urlPrefix) return html;
   const prefix = meta.urlPrefix;
 
-  return html.replace(/href="([^"]+)"/g, (whole, url) => {
+  // data-card-url is rewritten alongside href because it is a page link in
+  // every sense that matters -- the card gallery navigates to it when the
+  // photo is clicked, and the shortlist stores it as the saved project's
+  // URL. Left unlocalized it sent an Arabic or Spanish reader to the
+  // English project page, but only when they clicked the image rather than
+  // the button, which is why it went unnoticed: the visible link was right.
+  return html.replace(/(href|data-card-url)="([^"]+)"/g, (whole, attribute, url) => {
     if (/^(?:[a-z][a-z0-9+.-]*:|\/\/|\/|#)/i.test(url)) return whole;
     if (url.startsWith(`${prefix}/`)) return whole;
     // Only page links: must be an .html file at the top level, optionally
     // followed by a query string and/or fragment. Asset paths (which live
     // under assets/…) never match because of the leading-directory check.
     if (!/^[A-Za-z0-9._-]+\.html(?:[?#].*)?$/.test(url)) return whole;
-    return `href="${prefix}/${url}"`;
+    return `${attribute}="${prefix}/${url}"`;
   });
 }
 

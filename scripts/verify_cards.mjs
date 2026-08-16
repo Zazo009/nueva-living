@@ -25,6 +25,20 @@ import path from 'node:path';
 
 import { CARD_CHROME_ENTRIES } from './lib/card_chrome_translations.mjs';
 
+// Every project's English card description and its per-locale translation,
+// used to catch the case where a locale page renders the English one.
+const PROJECT_DIR = path.join(process.cwd(), 'content', 'liora-projects');
+const cardDescriptions = [];
+if (fs.existsSync(PROJECT_DIR)) {
+  for (const slug of fs.readdirSync(PROJECT_DIR)) {
+    const file = path.join(PROJECT_DIR, slug, 'project.json');
+    if (!fs.existsSync(file)) continue;
+    const project = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const english = project.card?.description || project.description;
+    if (english) cardDescriptions.push({ slug, english, i18n: project.i18n || {} });
+  }
+}
+
 const dist = path.join(process.cwd(), 'dist');
 const failures = [];
 
@@ -192,6 +206,35 @@ for (const file of pages) {
       }
     }
     if (slides === 0) fail(where, 'has no image at all');
+
+    // The card must not send the reader out of their language. data-card-url
+    // is how the gallery navigates when the photo is clicked, so an
+    // unlocalized one drops an Arabic reader onto the English project page
+    // -- and only on that click, which is why it survived unnoticed while
+    // the visible button was correct.
+    const cardUrl = card.match(/data-card-url="([^"]+)"/)?.[1];
+    if (cardUrl && !/^(?:[a-z][a-z0-9+.-]*:|\/\/|\/|#)/i.test(cardUrl)) {
+      if (isTranslated && !cardUrl.startsWith(`${locale}/`)) {
+        fail(where, `data-card-url "${cardUrl}" is not inside /${locale}/ -- clicking the `
+                  + 'card image would switch the reader to English');
+      }
+      if (!isTranslated && /^(?:es|fr|de|ru|ar)\//.test(cardUrl)) {
+        fail(where, `data-card-url "${cardUrl}" points into a locale directory on an English page`);
+      }
+    }
+
+    // The description is translated by a find/replace keyed on the card's
+    // markup, so a change to the tagline element silently stops it matching
+    // and five languages quietly fall back to English with no error.
+    if (isTranslated) {
+      for (const { slug, english, i18n } of cardDescriptions) {
+        const translated = i18n[locale]?.card?.description;
+        if (translated && translated !== english && card.includes(`>${english}<`)) {
+          fail(where, `${slug} renders its English description on a ${locale} page -- `
+                    + 'the card description replacement stopped matching');
+        }
+      }
+    }
 
     // Translation. The card chrome is localized by find/replace entries in
     // lib/card_chrome_translations.mjs; a new badge or a reworded CTA that

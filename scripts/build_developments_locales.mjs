@@ -88,6 +88,7 @@ function applyCardDescriptions(html, locale) {
   const projectsDir = path.join(root, 'content/liora-projects');
   if (!existsSync(projectsDir)) return html;
   let next = html;
+  const missed = [];
   for (const slug of readdirSync(projectsDir)) {
     const projectPath = path.join(projectsDir, slug, 'project.json');
     if (!existsSync(projectPath)) continue;
@@ -95,7 +96,22 @@ function applyCardDescriptions(html, locale) {
     const en = project.card?.description || project.description;
     const translated = project.i18n?.[locale]?.card?.description;
     if (!en || !translated || en === translated) continue;
-    next = next.split(`<p>${en}</p>`).join(`<p>${translated}</p>`);
+    // Keyed on the card's tagline class rather than a bare <p>. The bare
+    // form silently stopped matching the moment the card gained a class on
+    // that paragraph, and the only symptom was English descriptions on five
+    // translated pages -- no error, no failed build. Both forms are handled
+    // so neither markup shape can break it again, and a miss is reported
+    // rather than passing quietly.
+    const before = next;
+    next = next
+      .split(`<p class="dev-tagline">${en}</p>`).join(`<p class="dev-tagline">${translated}</p>`)
+      .split(`<p>${en}</p>`).join(`<p>${translated}</p>`);
+    if (before === next && next.includes(en)) {
+      missed.push(`${slug}: card description present but not replaced for ${locale}`);
+    }
+  }
+  if (missed.length) {
+    throw new Error(`Card description translation failed:\n  ${missed.join('\n  ')}`);
   }
   return next;
 }

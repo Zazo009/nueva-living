@@ -41,6 +41,9 @@ function cardDescriptionReplacements(locale) {
     const en = project.card?.description || project.description;
     const translated = project.i18n?.[locale]?.card?.description;
     if (!en || !translated || en === translated) continue;
+    // Both markup shapes: the card's paragraph carries a class now, and a
+    // bare-<p> key silently stopped matching when it gained one.
+    replacements.push([`<p class="dev-tagline">${en}</p>`, `<p class="dev-tagline">${translated}</p>`]);
     replacements.push([`<p>${en}</p>`, `<p>${translated}</p>`]);
   }
   return replacements;
