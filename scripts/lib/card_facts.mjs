@@ -15,10 +15,12 @@
 //   Available  crm.availableUnits     14/14
 //              / crm.totalUnits
 //
-// There is no phase field anywhere in the data, so the phase sub-line the
-// design calls for cannot render on any card and is not emitted. Adding it
-// later means adding `phase` to each project.json; this file is where it
-// would be read.
+// The phase sub-line under Available reads `availability.phase`. That field
+// now exists on every project but is empty -- the values are real facts
+// about real releases ("Phase 2"), so they have to be filled in from the
+// developer's material, not invented here. Fill any of them in and the line
+// appears on that card with no further code change; leave it empty and the
+// line stays absent.
 //
 // A column with no data is dropped entirely and the survivors split the
 // width -- never an empty column, never a dash.
@@ -90,7 +92,7 @@ export function cardFacts(project, { badge, t }) {
     columns.push({
       label: t('card.available'),
       value: t('card.unitsOf', { available, total }),
-      sub: '',
+      sub: project.availability?.phase || '',
       tone: 'gold'
     });
   }

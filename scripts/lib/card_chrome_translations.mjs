@@ -107,6 +107,21 @@ for (const project of projects()) {
       : entryFromKey('dev-fact-value">', 'card.bedRange', { min: lo, max: hi }));
   }
 
+  // The release phase, same shape as delivery: prose, per project,
+  // translated through the i18n overlay. Empty on every project today, so
+  // this generates nothing until the values are filled in.
+  const phase = project.availability?.phase;
+  if (phase) {
+    const entry = { find: `dev-fact-sub">${escapeHtml(phase)}<` };
+    let translated = false;
+    for (const locale of LOCALES) {
+      const value = project.i18n?.[locale]?.availability?.phase;
+      entry[locale] = `dev-fact-sub">${escapeHtml(value || phase)}<`;
+      if (value && value !== phase) translated = true;
+    }
+    if (translated) push(entry);
+  }
+
   // Delivery is prose and already translated in each project's i18n
   // overlay, so the translation comes from the project rather than a string
   // key. Skipped when the locale has no overlay for it.

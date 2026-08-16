@@ -45,11 +45,15 @@ const htmlFiles = fs.readdirSync(dist)
 for (const name of htmlFiles) {
   const file = path.join(dist, name);
   const html = fs.readFileSync(file, 'utf8');
-  const systemLinks = html.match(/assets\/liora\/nueva-system\.css\?v=[a-z0-9]+/gi) || [];
+  // The system stylesheet is inlined into a <style data-nueva-system> block
+  // by build_dist rather than linked, so there is no versioned href to count.
+  // The intent of this check is unchanged: exactly one copy of it, and it
+  // must win the cascade against the linked stylesheets (asserted below).
+  const systemStyles = html.match(/<style data-nueva-system>/g) || [];
   const trackingScripts = html.match(/assets\/liora\/nueva-tracking\.js\?v=[a-z0-9]+/gi) || [];
 
-  if (systemLinks.length !== 1) {
-    fail(name, `expected one versioned Nueva system stylesheet, found ${systemLinks.length}`);
+  if (systemStyles.length !== 1) {
+    fail(name, `expected one inlined Nueva system stylesheet, found ${systemStyles.length}`);
   }
   if (trackingScripts.length !== 1) {
     fail(name, `expected one versioned Nueva tracking script, found ${trackingScripts.length}`);
@@ -58,9 +62,12 @@ for (const name of htmlFiles) {
     fail(name, 'Nueva tracking script is not loaded from the document head');
   }
 
-  const stylesheetOrder = [...html.matchAll(/<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"/gi)]
-    .map((match) => match[1]);
-  if (!stylesheetOrder.at(-1)?.includes('nueva-system.css')) {
+  // The inlined block must come after every linked stylesheet, or the linked
+  // sheets override it on equal specificity -- which is exactly how the card
+  // CTA silently lost its colour during the redesign.
+  const lastLink = html.lastIndexOf('rel="stylesheet"');
+  const systemStyleAt = html.indexOf('<style data-nueva-system>');
+  if (systemStyleAt !== -1 && lastLink !== -1 && systemStyleAt < lastLink) {
     fail(name, 'Nueva system stylesheet is not the final stylesheet');
   }
 
