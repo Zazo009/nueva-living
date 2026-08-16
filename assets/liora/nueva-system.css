@@ -1165,21 +1165,45 @@ body.card-lightbox-open {
    they hold their edge against any photo. The higher-specificity selector is
    deliberate: the base rules exist in both liora-pages.css and the homepage's
    own inline styles, and this has to win over whichever loads last. */
+/* The dot is 7px, which is a fine size to look at and far too small to hit --
+   the tap target guidance is 24px. So the button becomes a 24px transparent
+   hit area and the dot itself moves to a pseudo-element: same appearance,
+   three times the target. Row gap goes to zero because the padding now
+   provides the visual spacing. */
 .project-card-gallery .project-card-gallery-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  display: grid;
+  place-items: center;
+}
+
+.project-card-gallery .project-card-gallery-dot::before {
+  content: "";
   width: 7px;
   height: 7px;
+  border-radius: 50%;
   background: rgba(255, 253, 248, 0.92);
   box-shadow: 0 0 0 1px rgba(20, 14, 8, 0.42), 0 1px 4px rgba(20, 14, 8, 0.45);
+  transition: background 0.24s ease, transform 0.24s ease;
 }
 
 .project-card-gallery .project-card-gallery-dot.is-active {
+  background: none;
+  box-shadow: none;
+  transform: none;
+}
+
+.project-card-gallery .project-card-gallery-dot.is-active::before {
   background: var(--nueva-gold-light, #c9a35f);
   box-shadow: 0 0 0 1px rgba(20, 14, 8, 0.5), 0 1px 5px rgba(20, 14, 8, 0.5);
   transform: scale(1.35);
 }
 
 .project-card-gallery .project-card-gallery-dots {
-  gap: 7px;
+  gap: 0;
 }
 
 /* The badge and price are positioned with physical left/right in the

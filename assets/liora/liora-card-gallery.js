@@ -225,31 +225,70 @@
     // reliably stop it on real phones.
     gallery.classList.add('is-swipe');
 
-    const width = () => track.clientWidth || 1;
-
+    // Track width and writing direction were read on every paint -- so once per
+    // gallery at startup, immediately after a class had just been written, and
+    // again on every single pointermove of a drag. Reading layout after a write
+    // forces the browser to reflow synchronously; with fourteen galleries on
+    // the developments page that was the largest blocking cost on the page.
+    // Measure once, reuse, and drop the cache when the viewport changes.
+    //
     // In an RTL page the flex row lays the slides out right-to-left: slide 0
     // sits at the right edge and the rest run leftwards. Translating by a
     // negative offset there walks off the end of the track and lands on blank
     // space, so the sign of the base offset follows the writing direction.
-    const trackAxis = () => (getComputedStyle(track).direction === 'rtl' ? 1 : -1);
+    let metrics = null;
+    const measure = () => {
+      metrics = {
+        width: track.clientWidth || 1,
+        axis: getComputedStyle(track).direction === 'rtl' ? 1 : -1
+      };
+      return metrics;
+    };
+    const readMetrics = () => metrics || measure();
 
     const paint = (offset, animate) => {
       track.style.transition = animate ? 'transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1)' : 'none';
-      track.style.transform = `translate3d(${trackAxis() * index * width() + (offset || 0)}px, 0, 0)`;
+      // Resting on the first slide is always zero, whatever the width or the
+      // writing direction -- so startup needs no measurement at all.
+      if (!index && !offset) {
+        track.style.transform = 'translate3d(0px, 0, 0)';
+        return;
+      }
+      const { width, axis } = readMetrics();
+      track.style.transform = `translate3d(${axis * index * width + (offset || 0)}px, 0, 0)`;
     };
 
     const setActiveDot = () => {
       dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
     };
 
+    // Every slide ships `loading="lazy"`, which worked while the track was a
+    // native scroller: the slides sat inside a scrollable box and the browser
+    // fetched them as they came near. Driving the track with a transform under
+    // `overflow: hidden` puts them outside the clip box instead, where that
+    // heuristic never fires -- so slides three onward stayed at zero bytes and
+    // swiping past the second image landed on an empty frame. Promote the
+    // neighbours by hand: switching `loading` back to eager starts the fetch.
+    const slides = Array.from(track.querySelectorAll('img'));
+    const ensureLoaded = (target) => {
+      for (const i of [target - 1, target, target + 1]) {
+        const img = slides[i];
+        if (img && img.loading === 'lazy') img.loading = 'eager';
+      }
+    };
+
     const go = (next, animate = true) => {
       index = Math.min(Math.max(next, 0), slideCount - 1);
+      ensureLoaded(index);
       paint(0, animate);
       setActiveDot();
     };
 
     go(0, false);
-    window.addEventListener('resize', () => paint(0, false));
+    window.addEventListener('resize', () => {
+      metrics = null;
+      paint(0, false);
+    });
 
     let startX = 0;
     let startY = 0;
@@ -264,6 +303,8 @@
       axis = null;
       travelled = 0;
       pointerId = event.pointerId;
+      // A drag could go either way, so warm both neighbours as it begins.
+      ensureLoaded(index);
     });
 
     track.addEventListener('pointermove', (event) => {
@@ -300,10 +341,14 @@
       const dx = event.clientX - startX;
       pointerId = null;
       if (axis !== 'x') return;
-      const commit = Math.abs(dx) > Math.max(width() * COMMIT_RATIO, COMMIT_MIN);
+      // Named apart from the gesture's `axis` above: destructuring a second
+      // `axis` into this block put the first one in the temporal dead zone,
+      // so every release threw and the track stayed stranded between slides.
+      const { width: trackWidth, axis: trackAxis } = readMetrics();
+      const commit = Math.abs(dx) > Math.max(trackWidth * COMMIT_RATIO, COMMIT_MIN);
       // Dragging content away from the reading direction advances: leftwards
       // in LTR, rightwards in RTL, which is what the native scroller did.
-      go(commit ? index + (dx * trackAxis() > 0 ? 1 : -1) : index);
+      go(commit ? index + (dx * trackAxis > 0 ? 1 : -1) : index);
     };
 
     track.addEventListener('pointerup', finish);

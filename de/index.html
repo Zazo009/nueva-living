@@ -95,7 +95,7 @@
       --white:      #fffaf3;
       --charcoal:   #483c28;
       --mid:        #5f5545;
-      --muted:      #746854;
+      --muted:      #695E4C; /* darkened from #746854: 4.06 -> 4.8 on the sand background */
       --gold:       #a8834a;
       --gold-light: #c9a35f;
       --gold-pale:  #efe2c8;
@@ -476,11 +476,20 @@
         text-transform: uppercase;
         cursor: pointer;
       }
-      #why .mobile-expand-btn,
+      /* #areas and #journey sit on the light sand. #why is on the dark band
+         and needs the opposite treatment -- it was grouped here and painted
+         dark-brown on dark-brown, contrast 1.41, effectively invisible.
+         `color: inherit` is not enough because the band inherits dark text
+         from the body. */
       #areas .mobile-expand-btn,
       #journey .mobile-expand-btn {
         border-color: rgba(74,59,40,0.28);
         color: var(--charcoal, #2f2417);
+      }
+
+      #why .mobile-expand-btn {
+        border-color: rgba(244,234,217,0.34);
+        color: #f4ead9;
       }
     }
     .dev-grid {
@@ -534,7 +543,8 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       background: var(--gold);
-      color: var(--forest);
+      /* var(--forest) on the gold is 4.34 -- a shade darker clears 4.5. */
+      color: #241b10;
       padding: 5px 14px;
       font-weight: 500;
     }
@@ -718,6 +728,9 @@
       padding: 0;
     }
     .dev-cta-link::after { content: '→'; font-size: 11px; }
+    /* The pale gold reads at 2.21 against the card's near-white body; this
+       deeper bronze clears 4.5 while staying in the same family. */
+    .dev-cta-link { color: #7a5e30; }
     .dev-cta-link:hover { gap: 18px; color: var(--charcoal); }
     .dev-type-tag {
       font-family: 'Montserrat', sans-serif;
@@ -3520,7 +3533,7 @@
       --white: #FAF6EE;
       --charcoal: #4A3B28;
       --mid: #5f5545;
-      --muted: #756956;
+      --muted: #695E4C; /* was #756956: 4.06 on the sand background, now 4.8 */
       --gold: #A8834A;
       --gold-light: #C9A877;
       --gold-pale: #F4EAD9;
@@ -4982,6 +4995,12 @@
       background: var(--forest);
       padding: 72px 24px;
       text-align: center;
+    }
+
+    /* The bronze kicker reads at 2.27 against this dark band; the lighter
+       gold used elsewhere on dark takes it to 6.3. */
+    #referral-band .label {
+      color: #c7a36b;
     }
 
     #referral-band .gold-rule {
