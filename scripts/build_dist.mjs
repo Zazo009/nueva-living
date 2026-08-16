@@ -1283,3 +1283,9 @@ fs.writeFileSync(path.join(dist, '_headers'), `/*.html
 `);
 
 console.log(`Created clean deploy folder: ${dist}`);
+
+// The listing card is shared by every grid on the site and has broken
+// silently more than once -- markup fine, stacking wrong, nothing visible in
+// a screenshot. Verify the built output before anyone deploys it. A failure
+// exits non-zero, so a broken card stops the build rather than shipping.
+await import('./verify_cards.mjs');
