@@ -1261,3 +1261,48 @@ h1, h2, h3, h4,
 .hero-title {
   hyphens: auto;
 }
+
+
+/* ---------- Card galleries in landscape ----------
+   The image strip had a fixed height (300px, 200px on narrow screens) while
+   its width followed the card. That is fine in portrait, but a phone turned
+   sideways is wide and very short: the 980px breakpoint drops the grid to one
+   column, so the card becomes 751px wide while the strip stays 300px tall --
+   a 2.5:1 frame holding a 3:2 photograph, which crops away 36% of every image
+   and still fills three quarters of the screen.
+
+   Height now follows the width, so the crop is the same at every size, and
+   landscape phones keep two columns so the cards stay a sensible shape. */
+.project-card-gallery-track,
+.dev-img-wrap .project-card-gallery-track {
+  height: auto;
+  aspect-ratio: 3 / 2;
+}
+
+.project-card-gallery-track img {
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  .project-card-gallery-track,
+  .project-card-gallery-track img {
+    height: auto;
+  }
+
+  .project-card-gallery-track {
+    aspect-ratio: 3 / 2;
+  }
+
+  .project-card-gallery-track img {
+    height: 100%;
+  }
+}
+
+/* Landscape phone: wide but short. Keep two columns so a card is not the
+   full width of the screen. */
+@media (max-width: 980px) and (orientation: landscape) and (max-height: 560px) {
+  .project-grid,
+  .dev-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
