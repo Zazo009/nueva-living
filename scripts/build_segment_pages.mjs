@@ -15,6 +15,7 @@ import {
   localizeInternalLinks,
   seoTags
 } from './lib/i18n.mjs';
+import { renderUnifiedCard } from './lib/project_card.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -227,16 +228,25 @@ function segmentProjectCard(project) {
     ['Type', project.hero?.type || 'Residences'],
     ['Delivery', project.hero?.delivery || 'On request']
   ];
-  return `<article class="project-card area-project-card" data-project-card>
-    ${renderProjectCardGallery(project)}
-    <div class="project-body">
-      <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
-      <h3>${esc(project.name)}</h3>
-      <p>${esc(project.card?.description || project.description)}</p>
-      <div class="meta">${meta.slice(0, 3).map(([label, value]) => `<div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('')}</div>
-      <a class="project-link" href="${esc(project.output)}">Explore Project</a>
-    </div>
-  </article>`;
+  const card = project.card || {};
+  const priceValue = (meta.find(([label]) => /^from$/i.test(label)) || [])[1]
+    || (project.hero?.startingPrice || '').replace(/^From\s+/i, '')
+    || '';
+  return renderUnifiedCard({
+    gallery: renderProjectCardGallery(project),
+    href: project.output,
+    name: project.name,
+    badge: card.badge || '',
+    price: priceValue,
+    location: card.label || card.locExtended || project.hero?.location || 'New Development',
+    description: card.description || project.description,
+    meta,
+    cta: 'Explore Project',
+    className: 'area-project-card',
+    attrs: ' data-project-card',
+    heading: 'h3',
+    indent: '    '
+  });
 }
 
 function matchProjects(segment) {

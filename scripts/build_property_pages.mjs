@@ -17,6 +17,7 @@ import {
   LANG_SWITCHER_SCRIPT
 } from './lib/i18n.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
+import { renderUnifiedCard } from './lib/project_card.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 
 const {
@@ -1740,17 +1741,27 @@ function renderProjectCard(project) {
   const crm = project.crm || {};
   const propertyTypes = normaliseCardList(crm.propertyTypes);
 
-  return `          <article class="project-card" id="${esc(project.slug)}" data-project-card${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', crm.constructionStatus)}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}>
-            ${renderProjectCardGallery(project, { fallback: responsiveCardImageTag(cardImage(project)) })}
-            <div class="project-body">
-              <span class="label">${esc(project.card?.label || project.hero?.location || 'New Development')}</span>
-              <h2>${esc(project.name)}</h2>
-              <p>${esc(project.card?.description || project.description)}</p>
-              <div class="meta">${meta.map(([label, value]) => `<div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('')}</div>
-              ${cardTags.length ? `<div class="project-tags">${renderDiscoveryTags(cardTags)}</div>` : ''}
-              <a class="project-link" href="${esc(project.output)}">Explore Project</a>
-            </div>
-          </article>`;
+  const card = project.card || {};
+  const badge = card.badge || titleCase(discovery.status || 'Current Release');
+  const priceValue = (meta.find(([label]) => /^from$/i.test(label)) || [])[1]
+    || project.hero?.startingPrice?.replace(/^From\s+/i, '')
+    || 'On request';
+  const dataAttrs = `${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', crm.constructionStatus)}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}`;
+
+  return '          ' + renderUnifiedCard({
+    gallery: renderProjectCardGallery(project, { fallback: responsiveCardImageTag(cardImage(project)) }),
+    href: project.output,
+    name: project.name,
+    badge,
+    price: priceValue,
+    location: card.label || card.locExtended || project.hero?.location || 'New Development',
+    description: card.description || project.description,
+    meta,
+    cta: 'Explore Project',
+    id: project.slug,
+    attrs: ' data-project-card' + dataAttrs,
+    indent: '          '
+  });
 }
 
 function titleCase(value = '') {
@@ -1769,30 +1780,23 @@ function renderHomeCard(project, index) {
     || project.hero?.startingPrice?.replace(/^From\s+/i, '')
     || 'On request';
   const badge = card.badge || titleCase(discovery.status || 'Current Release');
-  const loc = card.locExtended || card.label || project.hero?.location || '';
-  const typeTag = card.typeTag || (discovery.locationTags || [])[0] || card.label || '';
+  const loc = card.label || card.locExtended || project.hero?.location || '';
   const picture = renderProjectCardGallery(project, { fallback: responsiveCardImageTag(cardImage(project)) });
 
-  return `      <div class="dev-card reveal" style="transition-delay:${(0.2 + index * 0.05).toFixed(2)}s" data-card-url="${esc(project.output)}">
-        <div class="dev-img-wrap">
-          <span class="dev-badge">${esc(badge)}</span>
-          ${picture}
-          <div class="dev-img-overlay"></div>
-          <div class="dev-price-overlay">From ${esc(priceValue)}</div>
-        </div>
-        <div class="dev-body">
-          <div class="dev-loc">${esc(loc)}</div>
-          <div class="dev-name">${esc(project.name)}</div>
-          <p class="dev-tagline">${esc(card.description || project.description)}</p>
-          <div class="dev-meta">
-            ${meta.map(([label, value]) => `<div class="dev-meta-item"><span class="lbl">${esc(label)}</span><span class="val">${esc(value)}</span></div>`).join('\n            ')}
-          </div>
-          <div class="dev-footer">
-            <a class="dev-cta-link" href="${esc(project.output)}">Discover Project</a>
-            <span class="dev-type-tag">${esc(typeTag)}</span>
-          </div>
-        </div>
-      </div>`;
+  return '      ' + renderUnifiedCard({
+    gallery: picture,
+    href: project.output,
+    name: project.name,
+    badge,
+    price: priceValue,
+    location: loc,
+    description: card.description || project.description,
+    meta,
+    cta: 'Explore Project',
+    className: 'reveal',
+    style: `transition-delay:${(0.2 + index * 0.05).toFixed(2)}s`,
+    indent: '      '
+  });
 }
 
 const AREA_DISPLAY_NAMES = {

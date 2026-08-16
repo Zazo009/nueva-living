@@ -1153,7 +1153,10 @@ body.card-lightbox-open {
 .dev-img-wrap .dev-badge {
   top: auto;
   bottom: 18px;
-  max-width: calc(100% - 162px);
+  /* Reserve room for the price in the opposite corner. An eight-figure
+     price ("From EUR 11,500,000") is the widest the inventory produces and
+     needs 141px including its inset, so 178px leaves a clear gap. */
+  max-width: calc(100% - 178px);
   white-space: normal;
   line-height: 1.5;
 }
@@ -1305,4 +1308,260 @@ h1, h2, h3, h4,
   .dev-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   UNIFIED LISTING CARD
+
+   Every grid on the site -- homepage, /developments, the area pages and the
+   segment pages -- now renders the same card (scripts/lib/project_card.mjs).
+   These rules used to live only in the homepage's inline <style>, so the
+   other grids had no way to reach them. nueva-system.css is inlined into
+   every page, so this is where they belong.
+
+   The homepage still carries its own identical copy plus its #developments
+   overrides and the featured-walkthrough variant; those are scoped to that
+   page and untouched. The variable fallbacks are for the pages that do not
+   declare the homepage's palette.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.dev-card {
+  background: var(--white, #fffaf3);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s ease;
+}
+
+.dev-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 60px rgba(47, 51, 43, 0.12);
+  z-index: 2;
+  position: relative;
+}
+
+.dev-img-wrap {
+  position: relative;
+  height: 310px;
+  overflow: hidden;
+}
+
+/* Only the single-image fallback sits directly in the wrap. Gallery slides
+   are wrapped in <picture> too, and those must stay display:contents so the
+   <img> remains the flex item of the scroll track -- a block picture makes
+   every slide collapse to its intrinsic width and the swipe dies. The
+   three-class selector outranks the homepage's own inline copy of the
+   block rule regardless of source order. */
+.dev-img-wrap > picture { display: block; width: 100%; height: 100%; }
+
+.dev-img-wrap .project-card-gallery-track picture { display: contents; }
+
+.dev-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.dev-card:hover .dev-img-wrap img { transform: scale(1.05); }
+
+.dev-img-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(20, 27, 18, 0.65) 0%, rgba(20, 27, 18, 0.1) 45%, transparent 70%);
+}
+
+.dev-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  pointer-events: none;
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--gold, #a8834a);
+  /* var(--forest) on the gold is 4.34 -- a shade darker clears 4.5. */
+  color: #241b10;
+  padding: 5px 14px;
+  font-weight: 500;
+}
+
+.dev-price-overlay {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(250, 247, 242, 0.95);
+  letter-spacing: 0.02em;
+  z-index: 3;
+  pointer-events: none;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dev-img-wrap .project-card-gallery,
+.dev-img-wrap .project-card-gallery-track,
+.dev-img-wrap .project-card-gallery-track img { height: 100%; }
+
+.dev-img-wrap .project-card-gallery {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.dev-img-wrap .project-card-gallery-dots { z-index: 4; }
+
+.dev-body { padding: 32px 32px 28px; }
+
+.dev-loc {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 8.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  /* The homepage gold reads 2.9 on the near-white card body; the deeper
+     bronze is the same family and clears 4.5. */
+  color: #7a5e30;
+  margin-bottom: 10px;
+}
+
+.dev-name {
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin: 0 0 6px;
+  color: var(--charcoal, #483c28);
+  line-height: 1.3;
+}
+
+.dev-tagline {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 11.5px;
+  font-weight: 300;
+  color: var(--muted, #695e4c);
+  margin: 0 0 22px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.dev-meta {
+  display: flex;
+  gap: 24px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(213, 199, 180, 0.6);
+}
+
+.dev-meta-item .lbl {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted, #695e4c);
+  display: block;
+}
+
+.dev-meta-item .val {
+  display: block;
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--charcoal, #483c28);
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.dev-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.dev-cta-link {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  /* The pale gold reads 2.21 against the card body; this deeper bronze
+     clears 4.5 while staying in the same family. */
+  color: #7a5e30;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  transition: gap 0.28s ease, color 0.22s;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.dev-cta-link::after { content: "→"; font-size: 11px; }
+.dev-cta-link:hover { gap: 18px; color: var(--charcoal, #483c28); }
+[dir="rtl"] .dev-cta-link::after { content: "←"; }
+
+.dev-type-tag {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted, #695e4c);
+  border: 1px solid var(--sand, #e8dfcd);
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+/* The card body is the link target -- clicking the text anywhere opens the
+   project. This replaces the .project-link::before overlay the old
+   developments card used.
+
+   Crucially the overlay stops at the photo. Stretched across the whole card
+   (inset:0 against .project-card) it sat on top of the gallery, so a finger
+   dragging across the image met an anchor instead of the scroller and the
+   swipe did nothing -- which is why the developments, area and segment cards
+   would not swipe while the homepage ones, having no [data-project-card] and
+   so no overlay, always did. Making .dev-body the containing block keeps the
+   generous click target on the text and leaves the image to the gallery,
+   whose own handler already navigates on a tap and ignores a swipe. */
+.project-card[data-project-card] { position: relative; cursor: pointer; }
+
+.project-card[data-project-card] .dev-body { position: relative; }
+
+.project-card[data-project-card] .dev-cta-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* The action cluster, dots and arrows must stay clickable above it. */
+.project-card-actions,
+.project-card-gallery-dots,
+.project-card-gallery-arrow { z-index: 5; }
+
+/* The developments/area/segment grids were 18px apart on a tinted page; the
+   homepage grid is a 3px hairline on sand. One look. */
+.project-grid {
+  gap: 3px;
+  background: var(--sand, #e8dfcd);
+}
+
+@media (max-width: 640px) {
+  .dev-img-wrap { height: 260px; }
+  .dev-body { padding: 24px 22px 20px; }
+  .dev-name { font-size: 17px; margin-bottom: 4px; }
+  .dev-tagline { font-size: 11px; margin-bottom: 16px; }
+  .dev-meta { gap: 16px; }
+  .dev-meta-item .val { font-size: 12px; }
+  .dev-badge { padding: 4px 11px; }
+  .dev-price-overlay { font-size: 15px; bottom: 14px; right: 14px; }
+  .dev-card:hover { transform: none; box-shadow: none; }
 }

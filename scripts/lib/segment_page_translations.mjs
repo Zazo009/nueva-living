@@ -1,3 +1,5 @@
+import { CARD_CHROME_ENTRIES } from './card_chrome_translations.mjs';
+
 // Literal find/replace translations for the body prose of the 3 segment
 // pages (new-build-apartments-penthouses-{marbella,estepona,nueva-andalucia}.html)
 // and the guides.html listing page, applied by applySegmentPageTranslations()
@@ -13,6 +15,7 @@
 // <title>) fragment.
 
 export const SEGMENT_PAGE_ENTRIES = [
+  ...CARD_CHROME_ENTRIES,
   // ---------- shared GENERAL_FAQS / faqSection(GENERAL_FAQS) on guides.html ----------
   // Same bug as the footer pages' generalFaqSection(): called as
   // ${faqSection(GENERAL_FAQS)} with GENERAL_FAQS a hardcoded English

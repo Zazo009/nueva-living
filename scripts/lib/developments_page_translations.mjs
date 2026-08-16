@@ -1,3 +1,5 @@
+import { CARD_CHROME_ENTRIES } from './card_chrome_translations.mjs';
+
 // Translations for developments.html's own hand-authored page copy,
 // applied by build_developments_locales.mjs as literal find/replace over
 // the rendered English page (same proven pattern as the homepage's
@@ -162,6 +164,7 @@ const PAGE_ENTRIES_HEAD = [
 // Project-card meta labels, meta values and CTA shared by every page that
 // renders generated project cards (developments.html, segment pages).
 export const PROJECT_CARD_ENTRIES = [
+  ...CARD_CHROME_ENTRIES,
   { find: '<div><span>From</span><strong>', es: '<div><span>Desde</span><strong>', fr: '<div><span>À Partir de</span><strong>', de: '<div><span>Ab</span><strong>', ru: '<div><span>От</span><strong>', ar: '<div><span>ابتداءً من</span><strong>' },
   { find: '<div><span>Type</span><strong>', es: '<div><span>Tipo</span><strong>', fr: '<div><span>Type</span><strong>', de: '<div><span>Typ</span><strong>', ru: '<div><span>Тип</span><strong>', ar: '<div><span>النوع</span><strong>' },
   { find: '<div><span>Status</span><strong>', es: '<div><span>Estado</span><strong>', fr: '<div><span>Statut</span><strong>', de: '<div><span>Status</span><strong>', ru: '<div><span>Статус</span><strong>', ar: '<div><span>الحالة</span><strong>' },

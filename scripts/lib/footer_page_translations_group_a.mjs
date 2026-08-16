@@ -381,6 +381,40 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     ru: `Мы организуем просмотры, предоставляем документацию по проекту и объясняем процесс резервации.`,
     ar: `ننظم المعاينات، ونشارككم مستندات المشروع، ونشرح لكم عملية الحجز.`,
   },
+  // "Who We Are" block linking Why Nueva and Advisory to the About page --
+  // About was previously reachable only from the footer on those two pages.
+  {
+    find: `Who We Are`,
+    es: `Quiénes Somos`,
+    fr: `Qui Nous Sommes`,
+    de: `Wer Wir Sind`,
+    ru: `Кто мы`,
+    ar: `من نحن`,
+  },
+  {
+    find: `The people <em>behind the advice</em>`,
+    es: `Las personas <em>detrás del asesoramiento</em>`,
+    fr: `Les personnes <em>derrière les conseils</em>`,
+    de: `Die Menschen <em>hinter der Beratung</em>`,
+    ru: `Люди <em>за нашими советами</em>`,
+    ar: `الأشخاص <em>وراء المشورة</em>`,
+  },
+  {
+    find: `We work only with new and off-plan homes on the Costa del Sol, which is why we know the developers, the projects and the questions worth asking.`,
+    es: `Trabajamos únicamente con obra nueva y sobre plano en la Costa del Sol, y por eso conocemos a las promotoras, los proyectos y las preguntas que conviene hacer.`,
+    fr: `Nous travaillons exclusivement avec des biens neufs et sur plan sur la Costa del Sol, ce qui nous permet de connaître les promoteurs, les programmes et les questions qu'il faut poser.`,
+    de: `Wir arbeiten ausschließlich mit Neubauten und Off-Plan-Objekten an der Costa del Sol – deshalb kennen wir die Bauträger, die Projekte und die Fragen, die man stellen sollte.`,
+    ru: `Мы работаем только с новостройками и объектами на этапе строительства на Коста-дель-Соль — поэтому знаем застройщиков, проекты и вопросы, которые стоит задать.`,
+    ar: `نعمل حصريًا مع المنازل الجديدة والمشاريع على المخطط في كوستا ديل سول، ولهذا نعرف المطوّرين والمشاريع والأسئلة التي تستحق أن تُطرح.`,
+  },
+  {
+    find: `>About Nueva Living</a>`,
+    es: `>Sobre Nueva Living</a>`,
+    fr: `>À Propos de Nueva Living</a>`,
+    de: `>Über Nueva Living</a>`,
+    ru: `>О Nueva Living</a>`,
+    ar: `>عن Nueva Living</a>`,
+  },
   {
     find: `Know Someone Looking?`,
     es: `¿Conoce a Alguien Que Esté Buscando?`,

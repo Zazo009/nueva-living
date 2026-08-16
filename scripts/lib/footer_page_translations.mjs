@@ -1,3 +1,5 @@
+import { CARD_CHROME_ENTRIES } from './card_chrome_translations.mjs';
+
 // Translated body prose for footer pages (why-nueva, advisory, guides,
 // legal, about, contact, referrals) -- see the comment above
 // applyFooterPageTranslations() in build_footer_pages.mjs for how this is
@@ -14,6 +16,7 @@ import { FOOTER_PAGE_ENTRIES_GROUP_C } from './footer_page_translations_group_c.
 import { FOOTER_PAGE_ENTRIES_GROUP_D } from './footer_page_translations_group_d.mjs';
 
 export const FOOTER_PAGE_ENTRIES = [
+  ...CARD_CHROME_ENTRIES,
   ...FOOTER_PAGE_ENTRIES_GROUP_A,
   ...FOOTER_PAGE_ENTRIES_GROUP_B,
   ...FOOTER_PAGE_ENTRIES_GROUP_C,

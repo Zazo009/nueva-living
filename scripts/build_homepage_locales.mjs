@@ -20,6 +20,7 @@
 // non-default-locale homepage is a real, complete page (not a
 // placeholder): untranslated sections simply render their existing English
 // content, which is honest fallback behaviour, not a broken or empty route.
+import { CARD_CHROME_ENTRIES } from './lib/card_chrome_translations.mjs';
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, localizeInternalLinks, seoTags, pageSchema, LANG_SWITCHER_SCRIPT } from './lib/i18n.mjs';
@@ -121,6 +122,7 @@ function navFooterReplacements(locale) {
 // translation for a given locale is filtered out, so that string keeps the
 // existing, documented English fallback rather than crashing.
 const HOMEPAGE_CONTENT_ENTRIES = [
+  ...CARD_CHROME_ENTRIES,
   // Hero
   { find: 'Costa del Sol · New Development Specialist', es: 'Costa del Sol · Especialistas en Nueva Construcción', fr: 'Costa del Sol · Spécialiste des Programmes Neufs', de: 'Costa del Sol · Spezialist für Neubauprojekte', ru: 'Коста-дель-Соль · Специалист по Новостройкам', ar: 'كوستا ديل سول · متخصصون في المشاريع الجديدة' },
   { find: 'New Homes Worth Seeing on the <em>Costa del Sol</em>', es: 'Viviendas Nuevas que Merece la Pena Ver en la <em>Costa del Sol</em>', fr: 'Des Maisons Neuves qui Valent le Détour sur la <em>Costa del Sol</em>', de: 'Neubauten, die einen Besuch wert sind an der <em>Costa del Sol</em>', ru: 'Новые Дома, которые Стоит Увидеть на <em>Коста-дель-Соль</em>', ar: 'منازل جديدة تستحق المشاهدة في <em>كوستا ديل سول</em>' },
@@ -137,25 +139,6 @@ const HOMEPAGE_CONTENT_ENTRIES = [
   // Developments section chrome
   { find: '<span class="label">Selected Residences</span>', es: '<span class="label">Viviendas Seleccionadas</span>', fr: '<span class="label">Résidences Sélectionnées</span>', de: '<span class="label">Ausgewählte Residenzen</span>', ru: '<span class="label">Избранные Резиденции</span>', ar: '<span class="label">مساكن مختارة</span>' },
   { find: '<h2 class="section-title">Selected New<br><em>Residences</em></h2>', es: '<h2 class="section-title">Nuevas Viviendas<br><em>Seleccionadas</em></h2>', fr: '<h2 class="section-title">Résidences Neuves<br><em>Sélectionnées</em></h2>', de: '<h2 class="section-title">Ausgewählte Neue<br><em>Residenzen</em></h2>', ru: '<h2 class="section-title">Избранные Новые<br><em>Резиденции</em></h2>', ar: '<h2 class="section-title">مساكن جديدة<br><em>مختارة</em></h2>' },
-  { find: 'dev-badge">Completed, Ready To Move In', es: 'dev-badge">Finalizado, Listo para Entrar', fr: 'dev-badge">Terminé, Prêt à Emménager', de: 'dev-badge">Fertiggestellt, Bezugsfertig', ru: 'dev-badge">Завершено, Готово к Заселению', ar: 'dev-badge">مكتمل، جاهز للسكن' },
-  { find: 'dev-badge">Current Release', es: 'dev-badge">Fase Actual', fr: 'dev-badge">Phase Actuelle', de: 'dev-badge">Aktuelle Phase', ru: 'dev-badge">Текущая Очередь', ar: 'dev-badge">المرحلة الحالية' },
-  { find: 'dev-badge">Off-Plan', es: 'dev-badge">Sobre Plano', fr: 'dev-badge">Sur Plan', de: 'dev-badge">Off-Plan', ru: 'dev-badge">На Этапе Строительства', ar: 'dev-badge">على المخطط' },
-  { find: 'dev-badge">Off-plan, Private Availability', es: 'dev-badge">Sobre Plano, Disponibilidad Privada', fr: 'dev-badge">Sur Plan, Disponibilité Privée', de: 'dev-badge">Off-Plan, Private Verfügbarkeit', ru: 'dev-badge">На Этапе Строительства, Закрытая Продажа', ar: 'dev-badge">على المخطط، إتاحة حصرية' },
-  { find: 'dev-badge">Sea View Collection', es: 'dev-badge">Colección con Vistas al Mar', fr: 'dev-badge">Collection Vue Mer', de: 'dev-badge">Kollektion mit Meerblick', ru: 'dev-badge">Коллекция с Видом на Море', ar: 'dev-badge">مجموعة بإطلالة على البحر' },
-  { find: 'dev-badge">Under Construction', es: 'dev-badge">En Construcción', fr: 'dev-badge">En Construction', de: 'dev-badge">Im Bau', ru: 'dev-badge">В Стадии Строительства', ar: 'dev-badge">قيد الإنشاء' },
-  { find: '"lbl">Delivery<', es: '"lbl">Entrega<', fr: '"lbl">Livraison<', de: '"lbl">Übergabe<', ru: '"lbl">Сдача<', ar: '"lbl">التسليم<' },
-  { find: '"lbl">From<', es: '"lbl">Desde<', fr: '"lbl">À Partir de<', de: '"lbl">Ab<', ru: '"lbl">От<', ar: '"lbl">ابتداءً من<' },
-  { find: '"lbl">Status<', es: '"lbl">Estado<', fr: '"lbl">Statut<', de: '"lbl">Status<', ru: '"lbl">Статус<', ar: '"lbl">الحالة<' },
-  { find: '"lbl">Type<', es: '"lbl">Tipo<', fr: '"lbl">Type<', de: '"lbl">Typ<', ru: '"lbl">Тип<', ar: '"lbl">النوع<' },
-  { find: '"val">Completed<', es: '"val">Finalizado<', fr: '"val">Terminé<', de: '"val">Fertiggestellt<', ru: '"val">Завершено<', ar: '"val">مكتمل<' },
-  { find: '"val">Current release<', es: '"val">Fase actual<', fr: '"val">Phase actuelle<', de: '"val">Aktuelle Phase<', ru: '"val">Текущая очередь<', ar: '"val">المرحلة الحالية<' },
-  { find: '"val">Under construction<', es: '"val">En construcción<', fr: '"val">En construction<', de: '"val">Im Bau<', ru: '"val">В стадии строительства<', ar: '"val">قيد الإنشاء<' },
-  { find: '>Apartments, Penthouses &amp; Villas<', es: '>Apartamentos, Áticos y Villas<', fr: '>Appartements, Penthouses et Villas<', de: '>Wohnungen, Penthäuser & Villen<', ru: '>Апартаменты, Пентхаусы и Виллы<', ar: '>شقق وبنتهاوس وفلل<' },
-  { find: '>Semi-Detached Houses<', es: '>Casas Adosadas<', fr: '>Maisons Jumelées<', de: '>Doppelhaushälften<', ru: '>Дома на Две Семьи<', ar: '>منازل شبه منفصلة<' },
-  { find: '>Penthouses &amp; Villas<', es: '>Áticos y Villas<', fr: '>Penthouses et Villas<', de: '>Penthäuser & Villen<', ru: '>Пентхаусы и Виллы<', ar: '>بنتهاوس وفلل<' },
-  { find: '>Apartments &amp; Penthouses<', es: '>Apartamentos y Áticos<', fr: '>Appartements et Penthouses<', de: '>Wohnungen & Penthäuser<', ru: '>Апартаменты и Пентхаусы<', ar: '>شقق وبنتهاوس<' },
-  { find: '>1-4 Bedroom Homes<', es: '>Viviendas de 1 a 4 Dormitorios<', fr: '>Logements de 1 à 4 Chambres<', de: '>Wohnungen mit 1–4 Schlafzimmern<', ru: '>Дома с 1–4 Спальнями<', ar: '>مساكن من غرفة إلى 4 غرف نوم<' },
-  { find: '>Discover Project<', es: '>Descubrir Proyecto<', fr: '>Découvrir le Projet<', de: '>Projekt Entdecken<', ru: '>Узнать о Проекте<', ar: '>اكتشف المشروع<' },
   // Why section
   { find: 'Why New Development</span>', es: 'Por Qué Comprar Obra Nueva</span>', fr: 'Pourquoi un Bien Neuf</span>', de: 'Warum ein Neubau</span>', ru: 'Почему Новостройка</span>', ar: 'لماذا المشروع الجديد</span>' },
   { find: 'The Advantages of<br><em>Buying New</em>', es: 'Las Ventajas de<br><em>Comprar Nuevo</em>', fr: "Les Avantages d'<br><em>Acheter Neuf</em>", de: 'Die Vorteile des<br><em>Neubaukaufs</em>', ru: 'Преимущества<br><em>Покупки Новостройки</em>', ar: 'مزايا<br><em>شراء العقار الجديد</em>' },
@@ -282,9 +265,6 @@ const HOMEPAGE_CONTENT_ENTRIES = [
   { find: '<p>Get the latest brochure, master plan, floorplans, availability and prices.</p>', es: '<p>Recibe el último dosier, master plan, planos, disponibilidad y precios.</p>', fr: '<p>Recevez la brochure la plus récente, le plan de masse, les plans, la disponibilité et les prix.</p>', de: '<p>Erhalten Sie die aktuelle Broschüre, den Masterplan, Grundrisse, Verfügbarkeit und Preise.</p>', ru: '<p>Получите актуальную брошюру, генеральный план, планировки, информацию о наличии и цены.</p>', ar: '<p>احصل على أحدث كتيب، والمخطط الرئيسي، ومخططات الوحدات، والتوفر، والأسعار.</p>' },
   // Selected Residences card extras: price overlay prefix and the two
   // non-place-name type tags.
-  { find: 'dev-price-overlay">From ', es: 'dev-price-overlay">Desde ', fr: 'dev-price-overlay">À partir de ', de: 'dev-price-overlay">Ab ', ru: 'dev-price-overlay">От ', ar: 'dev-price-overlay">ابتداءً من ' },
-  { find: 'dev-type-tag">Sea View<', es: 'dev-type-tag">Vistas al Mar<', fr: 'dev-type-tag">Vue Mer<', de: 'dev-type-tag">Meerblick<', ru: 'dev-type-tag">Вид на Море<', ar: 'dev-type-tag">إطلالة على البحر<' },
-  { find: 'dev-type-tag">Urban Resort<', es: 'dev-type-tag">Resort Urbano<', fr: 'dev-type-tag">Resort Urbain<', de: 'dev-type-tag">Urbanes Resort<', ru: 'dev-type-tag">Городской Курорт<', ar: 'dev-type-tag">منتجع حضري<' },
   { find: '>Explore All Residences<', es: '>Ver Todas las Viviendas<', fr: '>Voir Toutes les Résidences<', de: '>Alle Residenzen Ansehen<', ru: '>Смотреть Все Резиденции<', ar: '>عرض جميع المساكن<' },
   // Head: page title + meta description
   { find: '<title>Nueva Living | Costa del Sol New Developments</title>', es: '<title>Nueva Living | Obra Nueva en la Costa del Sol</title>', fr: '<title>Nueva Living | Programmes Neufs sur la Costa del Sol</title>', de: '<title>Nueva Living | Neubauprojekte an der Costa del Sol</title>', ru: '<title>Nueva Living | Новостройки на Коста-дель-Соль</title>', ar: '<title>Nueva Living | مشاريع جديدة في كوستا ديل سول</title>' },

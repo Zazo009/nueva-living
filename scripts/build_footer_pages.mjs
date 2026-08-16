@@ -16,6 +16,7 @@ import {
   seoTags,
   pageSchema
 } from './lib/i18n.mjs';
+import { renderUnifiedCard } from './lib/project_card.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -294,18 +295,25 @@ function localizedMeta(project, meta, locale) {
 function areaProjectCard(sourceProject, locale = DEFAULT_LOCALE) {
   const project = localizeProject(sourceProject, locale);
   const meta = localizedMeta(project, project.card?.meta || [], locale);
-  const projectType = project.hero?.type || project.quickFacts?.find(([label]) => label === 'Property type')?.[1] || t('common.newDevelopment', locale);
-  return `<article class="project-card area-project-card" data-project-card>
-    ${renderProjectCardGallery(project)}
-    <div class="project-body">
-      <span class="label">${esc(project.card?.label || project.hero?.location || t('common.newDevelopment', locale))}</span>
-      <h3>${esc(project.name)}</h3>
-      <p>${esc(project.card?.description || project.description)}</p>
-      <div class="meta">${meta.slice(0, 3).map(([label, value]) => `<div><span>${esc(label)}</span><strong>${esc(value)}</strong></div>`).join('')}</div>
-      <div class="project-tags"><span>${esc(projectType)}</span><span>${t('common.currentAvailability', locale)}</span></div>
-      <a class="project-link" href="${esc(project.output)}">${t('cta.exploreProject', locale)}</a>
-    </div>
-  </article>`;
+  const card = project.card || {};
+  const priceValue = (meta.find(([label]) => /^(from|desde|à partir de|ab|от|ابتداءً من)$/i.test(label)) || [])[1]
+    || (project.hero?.startingPrice || '').replace(/^From\s+/i, '')
+    || '';
+  return renderUnifiedCard({
+    gallery: renderProjectCardGallery(project),
+    href: project.output,
+    name: project.name,
+    badge: card.badge || '',
+    price: priceValue,
+    location: card.label || card.locExtended || project.hero?.location || t('common.newDevelopment', locale),
+    description: card.description || project.description,
+    meta,
+    cta: t('cta.exploreProject', locale),
+    className: 'area-project-card',
+    attrs: ' data-project-card',
+    heading: 'h3',
+    indent: '    '
+  });
 }
 
 function areaProjects(area, locale = DEFAULT_LOCALE) {
@@ -417,6 +425,7 @@ const pages = [
       <article class="card"><div class="card-number">3</div><h3>View and Decide</h3><p>We arrange viewings, share the project documents and explain the reservation process.</p></article>
     </div></div></section>
     <section class="section quiet-band"><div class="section-inner"><div class="section-head center"><span class="label">Know Someone Looking?</span><div class="rule"></div><h2 class="section-title">Introduce someone, <em>get rewarded</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">If someone in your life is thinking about a home on the Costa del Sol, our <a href="referrals.html">Referral &amp; Ambassador Program</a> lets you introduce them and receive a share of our commission when their purchase completes.</p></div></div></section>
+    <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Who We Are</span><div class="rule"></div><h2 class="section-title">The people <em>behind the advice</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">We work only with new and off-plan homes on the Costa del Sol, which is why we know the developers, the projects and the questions worth asking.</p><a class="btn ghost" href="about.html">About Nueva Living</a></div></div></section>
     <section class="cta-band"><div class="cta-inner"><div><span class="label">Ready When You Are</span><h2 class="cta-title">Bring us your wish list. We will bring back the options worth your time.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>`,
   },
   {
@@ -448,6 +457,7 @@ const pages = [
     <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">How We Help</span><div class="rule"></div><h2 class="section-title">The details we help you <em>compare</em></h2></div><div class="cards"><article class="card"><h3>Compare Projects</h3><p>We compare prices, orientation, amenities, completion dates and nearby alternatives side by side.</p></article><article class="card"><h3>Plan the Purchase</h3><p>We talk through how you will use the home, rental plans, financing and what you may want later.</p></article><article class="card"><h3>Reserve with Clarity</h3><p>We organise project documents, viewings, reservation details and an introduction to an independent lawyer.</p></article></div></div></section>
     <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Our Promise</span><div class="rule"></div><h2 class="section-title">Straight answers, <em>no pressure</em></h2></div><div class="cards two"><article class="card"><h3>A Shorter, Better List</h3><p>We would rather show you three suitable projects than thirty generic options.</p></article><article class="card"><h3>Real Urgency Only</h3><p>We only flag urgency when availability, pricing or a reservation deadline genuinely changes.</p></article></div></div></section>
     ${generalFaqSection()}
+    <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Who We Are</span><div class="rule"></div><h2 class="section-title">The people <em>behind the advice</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">We work only with new and off-plan homes on the Costa del Sol, which is why we know the developers, the projects and the questions worth asking.</p><a class="btn ghost" href="about.html">About Nueva Living</a></div></div></section>
     <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Talk through the options before you reserve.</h2><a class="btn" href="contact.html">Talk to an Advisor</a></div></section>`,
   },
   {
