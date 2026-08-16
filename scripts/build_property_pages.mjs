@@ -340,6 +340,52 @@ function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
   };
 }
 
+// The project page used to carry two fact panels: the quick-facts band under
+// the hero (starting price, location, type, bedrooms, delivery, status,
+// project type, availability) and a second four-card grid beside the
+// overview copy (collection, outdoor living, orientation, design). They said
+// overlapping things -- on ten of the fourteen projects the overview's
+// "Collection: 88 residences" simply restated the band's "Project type:
+// Gated resort-style community, 88 residences" -- and cost two blocks of
+// page height to do it.
+//
+// One panel now carries both. A metric is dropped when the band already
+// covers it, either by label or because its value is already contained in
+// one of the band's values.
+function mergedProjectFacts(project, sourceProject = project) {
+  const facts = quickFacts(project);
+  const metrics = project.overview?.metrics || [];
+
+  // The decision about which metrics are duplicates is made once, against
+  // the untranslated project, and then applied by index to every language.
+  // Deciding it per locale meant the same project showed a different number
+  // of facts in each one: German kept a metric English dropped because the
+  // translated wording no longer matched, and Arabic dropped all four
+  // because a Latin-only normaliser reduced every Arabic label to an empty
+  // string, which then matched everything.
+  const sourceFacts = quickFacts(sourceProject);
+  const sourceMetrics = sourceProject.overview?.metrics || [];
+
+  const key = (value) => String(value ?? '').toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+
+  const covered = (label, value) => sourceFacts.some(([factLabel, factValue]) => {
+    if (key(factLabel) && key(factLabel) === key(label)) return true;
+    const needle = key(value);
+    // Short values ("Villas", "2-4") collide by accident; only treat a
+    // substring match as duplication when there is enough of it to mean
+    // something.
+    return needle.length > 6 && key(factValue).includes(needle);
+  });
+
+  const keep = sourceMetrics.map(([label, value]) => !covered(label, value));
+
+  // If a locale overlay has a different number of metrics than the source,
+  // the indexes no longer line up -- keep them all rather than drop the
+  // wrong one.
+  const aligned = metrics.length === sourceMetrics.length;
+  return [...facts, ...metrics.filter((_, index) => (aligned ? keep[index] : true))];
+}
+
 function quickFacts(project) {
   return project.quickFacts || [
     ['Starting price', project.hero?.startingPrice || 'On request'],
@@ -1105,7 +1151,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     [t('common.propertyType', locale), project.hero.type],
     [t('common.delivery', locale), project.hero.delivery]
   ];
-  const quickFactItems = quickFacts(project);
+  const quickFactItems = mergedProjectFacts(project, sourceProject);
   const why = project.why || {
     headlineHtml: `Why ${esc(project.shortName || project.name)} <em>matters</em>`,
     copy: project.description,
@@ -1277,15 +1323,12 @@ ${hasPublishedAvailability ? '' : `          ${availabilityBrowseAction}\n`}    
     </section>
 
     <section class="project-section" id="overview">
-      <div class="project-inner overview-grid">
+      <div class="project-inner overview-grid overview-grid--prose">
         <div class="reveal-soft">
           <span class="section-kicker">${t('section.overview', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-headline">${project.overview.headlineHtml}</h2>
           ${project.overview.copy.map((item) => `<p class="project-lead">${esc(item)}</p>`).join('\n          ')}
-        </div>
-        <div class="metrics-grid reveal-soft">
-          ${pairs(project.overview.metrics, 'metric')}
         </div>
       </div>
     </section>

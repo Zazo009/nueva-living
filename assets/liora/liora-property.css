@@ -629,6 +629,15 @@ body {
   align-items: start;
 }
 
+/* The overview's metric cards moved into the quick-facts band, so this
+   section is prose only. A single full-width column would run the lead
+   paragraphs to a 1200px measure, which is unreadable -- hold them to a
+   comfortable line length instead. */
+.overview-grid--prose {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 78ch;
+}
+
 .metrics-grid,
 .residence-grid,
 .distance-grid,
