@@ -935,27 +935,41 @@ html[lang="ru"] #nav .nav-links a {
    not load that stylesheet, and the cards are on the homepage too. Build
    inlines this file into every page. */
 
-/* Once the script takes over, the horizontal scroller stops being a
-   scroller. A vertical swipe that starts on a card image was being
-   swallowed by this element -- mandatory snapping plus snap-stop holds the
-   gesture until it lands on the next slide, so the page froze while the
-   photo slid sideways. `touch-action: pan-y` was supposed to prevent that
-   and does in desktop emulation, but it was not holding on real phones.
-   Removing the scroll entirely and moving a transform instead means there
-   is no horizontal scroller left to capture anything: the script decides
-   the axis on the first 10px and only claims the gesture if it is sideways.
-   The plain scroller stays in the markup for the no-JS case. */
+/* The gallery scrolls natively. The original "stuck on mobile" bug was not
+   native scrolling -- it was `scroll-snap-type: x mandatory` together with
+   `scroll-snap-stop: always`, which makes the scroller seize any gesture
+   that begins on it and hold on until it lands on the next slide, so a
+   vertical swipe froze the page while the photo slid sideways. Proximity
+   snapping with no snap-stop lets the browser arbitrate as it normally
+   does: sideways scrolls the strip, vertical scrolls the page.
+
+   Driving the strip by transform instead meant re-implementing that
+   arbitration in JavaScript, and `touch-action` does not reliably reserve
+   horizontal drags on a real phone -- the swipe died mid-gesture. The
+   platform does this properly; we just read and set scrollLeft. */
 .project-card-gallery.is-swipe .project-card-gallery-track {
-  overflow: hidden;
-  scroll-snap-type: none;
-  touch-action: pan-y;
-  will-change: transform;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
+}
+
+.project-card-gallery.is-swipe .project-card-gallery-track::-webkit-scrollbar {
+  display: none;
 }
 
 .project-card-gallery.is-swipe .project-card-gallery-track img {
-  scroll-snap-align: none;
-  scroll-snap-stop: normal;
+  scroll-snap-align: start;
+  /* Stops a hard fling from coasting past several photos: the scroller may
+     not travel over a snap point. This is safe to pair with `proximity` --
+     what used to trap vertical gestures was `mandatory` snapping, which
+     makes the scroller claim the gesture outright. */
+  scroll-snap-stop: always;
   -webkit-user-drag: none;
+  -webkit-touch-callout: none;
   user-select: none;
 }
 

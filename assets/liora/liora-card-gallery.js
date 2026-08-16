@@ -217,216 +217,106 @@
         }))
       : [];
 
-    let index = 0;
-    // The native scroll container stays in the markup so the gallery still
-    // works with no JS. Once we take over we turn scrolling off entirely and
-    // move a transform instead: a horizontally scrollable element is exactly
-    // what was swallowing vertical swipes, and `touch-action` alone did not
-    // reliably stop it on real phones.
+    // Marks the gallery as script-enhanced; the CSS behind it relaxes the
+    // snapping that used to trap vertical gestures.
     gallery.classList.add('is-swipe');
 
-    // Track width and writing direction were read on every paint -- so once per
-    // gallery at startup, immediately after a class had just been written, and
-    // again on every single pointermove of a drag. Reading layout after a write
-    // forces the browser to reflow synchronously; with fourteen galleries on
-    // the developments page that was the largest blocking cost on the page.
-    // Measure once, reuse, and drop the cache when the viewport changes.
-    //
-    // In an RTL page the flex row lays the slides out right-to-left: slide 0
-    // sits at the right edge and the rest run leftwards. Translating by a
-    // negative offset there walks off the end of the track and lands on blank
-    // space, so the sign of the base offset follows the writing direction.
-    let metrics = null;
-    const measure = () => {
-      metrics = {
-        width: track.clientWidth || 1,
-        axis: getComputedStyle(track).direction === 'rtl' ? 1 : -1
-      };
-      return metrics;
-    };
-    const readMetrics = () => metrics || measure();
+    const slides = Array.from(track.querySelectorAll('img'));
 
-    const paint = (offset, animate) => {
-      track.style.transition = animate ? 'transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1)' : 'none';
-      // Resting on the first slide is always zero, whatever the width or the
-      // writing direction -- so startup needs no measurement at all.
-      if (!index && !offset) {
-        track.style.transform = 'translate3d(0px, 0, 0)';
-        return;
+    // Slides past the first sit outside the viewport, so the browser defers
+    // them -- and a swipe brings one into view only for the download to start
+    // then, which is a blank frame for as long as it takes. Flipping
+    // `loading` to eager is not enough on its own: engines do not reliably
+    // start an already-deferred fetch when only the attribute changes. So the
+    // attribute is removed AND the same candidate the <picture> would choose
+    // is fetched separately, which puts it in the HTTP cache; the element
+    // then paints from cache the instant it is asked for.
+    const warmSlide = (img) => {
+      if (!img || img.dataset.warmed === '1') return;
+      img.dataset.warmed = '1';
+      img.removeAttribute('loading');
+
+      const picture = img.closest('picture');
+      const source = picture && picture.querySelector('source[srcset]');
+      const preload = new Image();
+      if (source) {
+        preload.srcset = source.getAttribute('srcset') || '';
+        preload.sizes = source.getAttribute('sizes') || '';
       }
-      const { width, axis } = readMetrics();
-      track.style.transform = `translate3d(${axis * index * width + (offset || 0)}px, 0, 0)`;
+      const fallback = img.getAttribute('src');
+      if (fallback) preload.src = fallback;
     };
+
+    const ensureLoaded = (target) => {
+      for (const i of [target - 1, target, target + 1]) warmSlide(slides[i]);
+    };
+
+    // Warm the whole gallery once the card is near the viewport rather than
+    // waiting for a swipe: six card-sized WebP files, and only for galleries
+    // the visitor actually scrolls to.
+    const warmAll = () => slides.forEach(warmSlide);
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        warmAll();
+        observer.disconnect();
+      }, { rootMargin: '400px' });
+      observer.observe(gallery);
+    } else {
+      warmAll();
+    }
+
+    // The browser is better at this than any gesture code I can write. The
+    // original bug was never native scrolling -- it was `scroll-snap-type: x
+    // mandatory` plus `scroll-snap-stop: always`, which makes the scroller
+    // seize any gesture that starts on it and refuse to let go until it lands
+    // on the next slide, so a vertical swipe froze the page. With proximity
+    // snapping and no snap-stop the browser arbitrates normally: a sideways
+    // drag scrolls the strip, a vertical one scrolls the page.
+    //
+    // Driving it by transform instead meant re-implementing that arbitration
+    // in JS, and losing: `touch-action` does not reliably reserve horizontal
+    // drags on a real phone, so the swipe died mid-gesture. Everything below
+    // now just reads or sets scrollLeft.
+
+    const slideWidth = () => track.clientWidth || 1;
+
+    const currentIndex = () => Math.round(Math.abs(track.scrollLeft) / slideWidth());
 
     const setActiveDot = () => {
-      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+      const active = currentIndex();
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === active));
     };
 
-    // Every slide ships `loading="lazy"`, which worked while the track was a
-    // native scroller: the slides sat inside a scrollable box and the browser
-    // fetched them as they came near. Driving the track with a transform under
-    // `overflow: hidden` puts them outside the clip box instead, where that
-    // heuristic never fires -- so slides three onward stayed at zero bytes and
-    // swiping past the second image landed on an empty frame. Promote the
-    // neighbours by hand: switching `loading` back to eager starts the fetch.
-    const slides = Array.from(track.querySelectorAll('img'));
-    const ensureLoaded = (target) => {
-      for (const i of [target - 1, target, target + 1]) {
-        const img = slides[i];
-        if (img && img.loading === 'lazy') img.loading = 'eager';
-      }
-    };
-
-    const go = (next, animate = true) => {
-      index = Math.min(Math.max(next, 0), slideCount - 1);
-      ensureLoaded(index);
-      paint(0, animate);
+    // Jumps are instant rather than smooth: `scroll-snap-stop: always` fights
+    // a smooth programmatic scroll, and the first click of every pair was
+    // being cancelled and snapped back, so arrows and dots only ever took
+    // effect on the second press.
+    const go = (next) => {
+      const target = Math.min(Math.max(next, 0), slideCount - 1);
+      ensureLoaded(target);
+      track.scrollTo({ left: target * slideWidth(), behavior: 'auto' });
       setActiveDot();
     };
 
-    go(0, false);
-    window.addEventListener('resize', () => {
-      metrics = null;
-      paint(0, false);
-    });
+    // One gesture moves one image: `scroll-snap-stop: always` in the CSS
+    // stops a fling from coasting over snap points, so no JavaScript has to
+    // police the momentum. This listener only keeps the dots honest and warms
+    // the neighbours.
+    let pressScrollLeft = 0;
+    track.addEventListener('pointerdown', () => { pressScrollLeft = track.scrollLeft; }, { passive: true });
+    track.addEventListener('touchstart', () => { pressScrollLeft = track.scrollLeft; }, { passive: true });
 
-    let startX = 0;
-    let startY = 0;
-    let axis = null;
-    let travelled = 0;
-    let pointerId = null;
-
-    // Pointer events cover mouse and pen. Touch is handled separately below:
-    // on a phone the browser arbitrates the gesture itself, and the moment it
-    // decides to scroll it fires pointercancel and the swipe dies mid-drag.
-    track.addEventListener('pointerdown', (event) => {
-      if (event.pointerType === 'touch') return;
-      if (!event.isPrimary || slideCount < 2) return;
-      startX = event.clientX;
-      startY = event.clientY;
-      axis = null;
-      travelled = 0;
-      pointerId = event.pointerId;
-      // A drag could go either way, so warm both neighbours as it begins.
-      ensureLoaded(index);
-    });
-
-    track.addEventListener('pointermove', (event) => {
-      if (event.pointerType === 'touch') return;
-      if (pointerId !== event.pointerId) return;
-      const dx = event.clientX - startX;
-      const dy = event.clientY - startY;
-      travelled = Math.max(travelled, Math.abs(dx), Math.abs(dy));
-
-      if (axis === null) {
-        if (Math.max(Math.abs(dx), Math.abs(dy)) < AXIS_THRESHOLD) return;
-        // Vertical intent: let go completely. The page scrolls, the image
-        // does not move, and nothing about this gesture is ours any more.
-        axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
-        if (axis === 'y') {
-          pointerId = null;
-          return;
-        }
-        // Throws if the pointer has already been released mid-gesture.
-        try {
-          track.setPointerCapture(event.pointerId);
-        } catch (error) {
-          /* capture is an optimisation, not a requirement */
-        }
-      }
-
-      if (axis === 'x') {
-        event.preventDefault();
-        paint(dx, false);
-      }
-    });
-
-    const finish = (event) => {
-      if (pointerId !== event.pointerId) return;
-      const dx = event.clientX - startX;
-      pointerId = null;
-      if (axis !== 'x') return;
-      // Named apart from the gesture's `axis` above: destructuring a second
-      // `axis` into this block put the first one in the temporal dead zone,
-      // so every release threw and the track stayed stranded between slides.
-      const { width: trackWidth, axis: trackAxis } = readMetrics();
-      const commit = Math.abs(dx) > Math.max(trackWidth * COMMIT_RATIO, COMMIT_MIN);
-      // Dragging content away from the reading direction advances: leftwards
-      // in LTR, rightwards in RTL, which is what the native scroller did.
-      go(commit ? index + (dx * trackAxis > 0 ? 1 : -1) : index);
-    };
-
-    track.addEventListener('pointerup', finish);
-    track.addEventListener('pointercancel', (event) => {
-      if (pointerId !== event.pointerId) return;
-      pointerId = null;
-      if (axis === 'x') go(index);
-    });
-
-    // --- Touch ---
-    //
-    // `touch-action: pan-y` is supposed to reserve horizontal drags for the
-    // page, and on real phones it does not reliably do so: the browser takes
-    // the gesture, scrolls, and cancels our pointer stream. The only
-    // dependable way to claim a horizontal swipe is to listen for touchmove
-    // non-passively and preventDefault as soon as the direction is known.
-    // Vertical is released immediately so the page scrolls exactly as before.
-    let touchX = 0;
-    let touchY = 0;
-    let touchAxis = null;
-    let touchId = null;
-
-    track.addEventListener('touchstart', (event) => {
-      if (slideCount < 2 || event.touches.length !== 1) { touchId = null; return; }
-      const touch = event.changedTouches[0];
-      touchId = touch.identifier;
-      touchX = touch.clientX;
-      touchY = touch.clientY;
-      touchAxis = null;
-      travelled = 0;
-      ensureLoaded(index);
+    let scrollTimer = null;
+    track.addEventListener('scroll', () => {
+      window.clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(() => {
+        setActiveDot();
+        ensureLoaded(currentIndex());
+      }, 80);
     }, { passive: true });
 
-    const activeTouch = (event) => Array.prototype.find.call(
-      event.changedTouches,
-      (touch) => touch.identifier === touchId
-    );
-
-    track.addEventListener('touchmove', (event) => {
-      if (touchId === null) return;
-      const touch = activeTouch(event);
-      if (!touch) return;
-      const dx = touch.clientX - touchX;
-      const dy = touch.clientY - touchY;
-      travelled = Math.max(travelled, Math.abs(dx), Math.abs(dy));
-
-      if (touchAxis === null) {
-        if (Math.max(Math.abs(dx), Math.abs(dy)) < AXIS_THRESHOLD) return;
-        touchAxis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
-        // Vertical: hand the gesture straight back to the page.
-        if (touchAxis === 'y') { touchId = null; return; }
-      }
-
-      event.preventDefault();
-      paint(dx, false);
-    }, { passive: false });
-
-    const endTouch = (event) => {
-      if (touchId === null) return;
-      const touch = activeTouch(event);
-      touchId = null;
-      if (touchAxis !== 'x' || !touch) return;
-      const dx = touch.clientX - touchX;
-      const { width: trackWidth, axis: trackAxis } = readMetrics();
-      const commit = Math.abs(dx) > Math.max(trackWidth * COMMIT_RATIO, COMMIT_MIN);
-      go(commit ? index + (dx * trackAxis > 0 ? 1 : -1) : index);
-    };
-
-    track.addEventListener('touchend', endTouch);
-    track.addEventListener('touchcancel', () => {
-      if (touchAxis === 'x') go(index);
-      touchId = null;
-    });
+    setActiveDot();
 
     dots.forEach((dot, i) => {
       dot.addEventListener('click', (event) => {
@@ -437,11 +327,11 @@
 
     gallery.querySelector('[data-gallery-prev]')?.addEventListener('click', (event) => {
       event.stopPropagation();
-      go(index - 1);
+      go(currentIndex() - 1);
     });
     gallery.querySelector('[data-gallery-next]')?.addEventListener('click', (event) => {
       event.stopPropagation();
-      go(index + 1);
+      go(currentIndex() + 1);
     });
 
     const shareButton = gallery.querySelector('[data-card-share]');
@@ -464,7 +354,7 @@
         expandButton.addEventListener('click', (event) => {
           event.preventDefault();
           event.stopPropagation();
-          viewer.open(images, index, name);
+          viewer.open(images, currentIndex(), name);
         });
       }
     }
@@ -472,10 +362,9 @@
     if (!url) return;
     gallery.addEventListener('click', (event) => {
       // A swipe that ends on the image would otherwise navigate away.
-      if (travelled > CLICK_SLOP) {
+      if (Math.abs(track.scrollLeft - pressScrollLeft) > CLICK_SLOP) {
         event.preventDefault();
         event.stopPropagation();
-        travelled = 0;
         return;
       }
       if (event.target.closest('[data-gallery-dot], [data-gallery-prev], [data-gallery-next], .project-card-actions')) return;
