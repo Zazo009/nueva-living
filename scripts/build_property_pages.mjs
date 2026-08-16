@@ -356,17 +356,26 @@ function mergedProjectFacts(project, sourceProject = project) {
   const facts = quickFacts(project);
   const metrics = project.overview?.metrics || [];
 
-  // The decision about which metrics are duplicates is made once, against
-  // the untranslated project, and then applied by index to every language.
-  // Deciding it per locale meant the same project showed a different number
-  // of facts in each one: German kept a metric English dropped because the
-  // translated wording no longer matched, and Arabic dropped all four
-  // because a Latin-only normaliser reduced every Arabic label to an empty
-  // string, which then matched everything.
+  // Every duplicate decision is made once, against the untranslated
+  // project, and applied by index to each language. Deciding per locale
+  // gave the same project a different number of facts in each: German kept
+  // a metric English dropped because the translated wording no longer
+  // matched, and Arabic dropped all four, because a Latin-only normaliser
+  // reduced every Arabic label to an empty string that matched anything.
   const sourceFacts = quickFacts(sourceProject);
   const sourceMetrics = sourceProject.overview?.metrics || [];
 
   const key = (value) => String(value ?? '').toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+
+  // The hero panel already states these four, immediately above the band.
+  const heroValues = [
+    sourceProject.hero?.location,
+    sourceProject.hero?.startingPrice,
+    sourceProject.hero?.type,
+    sourceProject.hero?.delivery
+  ].map(key).filter(Boolean);
+
+  const inHero = (value) => heroValues.includes(key(value));
 
   const covered = (label, value) => sourceFacts.some(([factLabel, factValue]) => {
     if (key(factLabel) && key(factLabel) === key(label)) return true;
@@ -377,13 +386,19 @@ function mergedProjectFacts(project, sourceProject = project) {
     return needle.length > 6 && key(factValue).includes(needle);
   });
 
-  const keep = sourceMetrics.map(([label, value]) => !covered(label, value));
+  const keepFact = sourceFacts.map(([, value]) => !inHero(value));
+  const keepMetric = sourceMetrics.map(([label, value]) => !covered(label, value) && !inHero(value));
 
-  // If a locale overlay has a different number of metrics than the source,
+  // If a locale overlay has a different number of entries than the source,
   // the indexes no longer line up -- keep them all rather than drop the
   // wrong one.
-  const aligned = metrics.length === sourceMetrics.length;
-  return [...facts, ...metrics.filter((_, index) => (aligned ? keep[index] : true))];
+  const factsAligned = facts.length === sourceFacts.length;
+  const metricsAligned = metrics.length === sourceMetrics.length;
+
+  return [
+    ...facts.filter((_, index) => (factsAligned ? keepFact[index] : true)),
+    ...metrics.filter((_, index) => (metricsAligned ? keepMetric[index] : true))
+  ];
 }
 
 function quickFacts(project) {
