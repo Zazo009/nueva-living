@@ -2213,6 +2213,17 @@ function validateProject(project) {
       }
     });
   }
+  // privateViewing.href is the destination of both "Cinematic Presentation"
+  // buttons (the hero ghost action and the section CTA). It must launch the
+  // cinematic player on the homepage; pointing it at an in-page anchor sends a
+  // visitor who asked for the presentation to the enquiry form instead.
+  const privateHref = project.privateViewing?.href;
+  if (privateHref !== undefined) {
+    const expected = `index.html?private-viewing=1&project=${project.slug}`;
+    if (privateHref !== expected) {
+      throw new Error(`${label}: "privateViewing.href" is "${privateHref}" but the Cinematic Presentation buttons must open the player: "${expected}".`);
+    }
+  }
   if (project.media?.items?.length) {
     if (typeof project.media.headlineHtml !== 'string' || !project.media.headlineHtml.trim()) {
       throw new Error(`${label}: "media.headlineHtml" is missing -- required whenever media.items is set.`);
