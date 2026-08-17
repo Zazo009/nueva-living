@@ -11097,8 +11097,24 @@
 
   const TOTAL = VIEWING_SCENES.length;
   const VIEWING_SCENE_SCROLL_VH = 124;
-  const VIEWING_GUIDED_SECONDS = 132;
-  const VIEWING_GUIDED_MIN_SECONDS = 34;
+  // Guided playback used to spend a flat 132s on the reel however many scenes
+  // it held, which made the pace depend entirely on the image count: a 55-scene
+  // project raced past at 2.4s per scene while a 5-scene one crawled at 26.4s.
+  // Pace per scene instead, so the scroll runs at one speed on every project
+  // and adding photos lengthens the tour rather than speeding it up.
+  const VIEWING_GUIDED_SCENE_SECONDS = 4.2;
+  // Guided playback ends partway into the final scene rather than past it, so it
+  // travels (TOTAL - 1 + this) scene heights, not TOTAL. The runtime has to come
+  // from the distance actually covered: billing it as TOTAL scenes stretched the
+  // same seconds over a shorter journey, leaving a 5-scene reel ~14% slower per
+  // scene than a 55-scene one.
+  const VIEWING_GUIDED_FINAL_SCENE_PROGRESS = 0.34;
+  const VIEWING_GUIDED_SCENE_SPAN = Math.max(1, TOTAL - 1 + VIEWING_GUIDED_FINAL_SCENE_PROGRESS);
+  const VIEWING_GUIDED_SECONDS = VIEWING_GUIDED_SCENE_SPAN * VIEWING_GUIDED_SCENE_SECONDS;
+  // Floor for a resumed tour, so picking guided back up near the end still eases
+  // rather than snapping. Capped at the full runtime -- on a short reel an
+  // unclamped floor would outlast the whole tour and slow it back down.
+  const VIEWING_GUIDED_MIN_SECONDS = Math.min(34, VIEWING_GUIDED_SECONDS);
   const VIEWING_MANUAL_SECONDS = 3.9;
   const VIEWING_ZOOM_IN = 1.092;
   const VIEWING_ZOOM_OUT = 1.035;
@@ -11479,7 +11495,7 @@
     vSetGuidedUI(true, 'Guiado');
     vProgrammaticScroll = true;
 
-    const finalReadableScroll = vSceneTarget(TOTAL - 1, 0.34);
+    const finalReadableScroll = vSceneTarget(TOTAL - 1, VIEWING_GUIDED_FINAL_SCENE_PROGRESS);
     const remaining = Math.max(0, finalReadableScroll - vfilm.scrollTop);
     const progressLeft = finalReadableScroll ? remaining / finalReadableScroll : 0;
     const duration = Math.max(VIEWING_GUIDED_MIN_SECONDS, VIEWING_GUIDED_SECONDS * progressLeft);
