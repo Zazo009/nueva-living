@@ -224,7 +224,14 @@ async function measureOne(site, candidate, cache) {
   }
 
   let chosen = { ...drive, mode: 'drive' };
-  if (WALKABLE_CATEGORIES.has(candidate.category) && drive.metres <= WALK_CONSIDER_METRES) {
+  // Whether to try the walking network is decided on straight-line distance,
+  // not on the drive. Jardin del Mar's beach is 550m away but 3.4km by car,
+  // because the N-340 forces a detour a pedestrian simply walks under -- gating
+  // on the drive meant the foot profile was never consulted and a beach across
+  // the road was published as a seven-minute drive.
+  const crowMetres = crowKm(site, candidate.ll) * 1000;
+  if (WALKABLE_CATEGORIES.has(candidate.category)
+    && (drive.metres <= WALK_CONSIDER_METRES || crowMetres <= WALK_CONSIDER_METRES)) {
     const walkKey = `${site.join(',')}->${candidate.key}#foot`;
     let walk = REFRESH ? null : cache[walkKey];
     if (!walk) {
