@@ -32,6 +32,10 @@
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
   <link rel="stylesheet" href="assets/liora/liora-property.css?v=307a2b02b19e">
+  <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=0121ef25a588">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
+  <script src="assets/liora/nueva-location-map.js?v=d0ccd33dc57e" defer></script>
   <script src="assets/liora/liora-property.js?v=0808a159c1b2" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
@@ -1248,78 +1252,49 @@
     </section>
 
     <section class="project-section" id="location">
-      <div class="project-inner location-layout">
+      <div class="project-inner location-stack">
         <div class="reveal-soft">
           <span class="section-kicker">Расположение</span>
           <div class="rule"></div>
           <h2 class="section-headline">Канселада на <em>New Golden Mile</em></h2>
           <p class="project-lead">Канселада расположена между Эстепоной и Марбельей, с прямым выходом на прибрежную дорогу и пляжем в непосредственной близости. Это спокойная жилая база, при этом основные направления западного побережья Коста-дель-Соль остаются в пределах досягаемости.</p>
-          <div class="distance-grid" style="margin-top:32px;">
-            <div class="distance"><span>Пляж</span><strong>Прибл. 10 минут пешком</strong></div>
-<div class="distance"><span>Эстепона</span><strong>12 км</strong></div>
-<div class="distance"><span>Пуэрто-Банус</span><strong>12 км</strong></div>
-<div class="distance"><span>Марбелья</span><strong>21 км</strong></div>
-<div class="distance"><span>Аэропорт Малаги</span><strong>65 км</strong></div>
-<div class="distance"><span>Аэропорт Гибралтара</span><strong>58 км</strong></div>
-          </div>
         </div>
-        <div class="map-panel reveal-soft" aria-label="Ориентировочная карта расположения Cancelada Park">
-          <div class="location-map-card">
-            <svg class="location-map-svg" viewBox="0 0 1200 620" role="img" aria-labelledby="cancelada-park-map-title cancelada-park-map-desc" focusable="false">
-              <title id="cancelada-park-map-title">Cancelada Park location map</title>
-              <desc id="cancelada-park-map-desc">Indicative map showing Cancelada Park in Канселада / New Golden Mile, relative to Puerto Banús, Центр Марбельи, Аэропорт Малаги.</desc>
-              <defs>
-                <linearGradient id="mapSeaGradient" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0" stop-color="#BFDCE0"/>
-                  <stop offset="1" stop-color="#5C8E98"/>
-                </linearGradient>
-                <radialGradient id="mapProjectGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0" stop-color="#A8834A" stop-opacity="0.34"/>
-                  <stop offset="0.58" stop-color="#A8834A" stop-opacity="0.12"/>
-                  <stop offset="1" stop-color="#A8834A" stop-opacity="0"/>
-                </radialGradient>
-                <filter id="mapSoftShadow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2F2417" flood-opacity="0.14"/>
-                </filter>
-              </defs>
-              <rect class="map-paper" width="1200" height="620"/>
-              <path class="map-hills" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232 L1200 0 L0 0 Z"/>
-              <path class="map-sea" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232 L1200 620 L0 620 Z"/>
-              <path class="map-coast" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232"/>
-              <path class="map-road map-road-secondary" d="M100 210 C270 176 425 182 585 156 C775 126 940 114 1115 74"/>
-              <text x="140" y="188" class="map-road-label">AP-7</text>
-              <path class="map-road map-road-main" d="M95 300 C245 272 390 282 535 258 C695 232 845 214 1098 168"/>
-              <text x="850" y="248" class="map-road-label">Прибрежная дорога A-7</text>
-              <g class="map-node" transform="translate(560 255)">
-                <circle r="6"/>
-                <text x="-12" y="-18" text-anchor="end">Puerto Banús</text>
-              </g>
-              <g class="map-node map-node-muted" transform="translate(800 218)">
-                <circle r="5"/>
-                <text x="-12" y="4" text-anchor="end">Центр Марбельи</text>
-              </g>
-              <g class="map-node map-node-muted" transform="translate(1080 165)">
-                <circle r="5"/>
-                <text x="-12" y="4" text-anchor="end">Аэропорт Малаги</text>
-              </g>
-              <g class="map-marker" transform="translate(310 278)" filter="url(#mapSoftShadow)">
-                <circle class="map-marker-glow" r="58"/>
-                <circle class="map-marker-disc" r="34"/>
-                <circle class="map-marker-dot" r="5"/>
-              </g>
-              <text class="map-project-label" x="310" y="340" text-anchor="middle">
-                <tspan x="310">Канселада</tspan>
-                <tspan x="310" dy="18">New Golden Mile</tspan>
-              </text>
-              <text class="map-water-label" x="150" y="502">Средиземное море</text>
-              <text class="map-note" x="60" y="52">Ориентировочное расположение</text>
-            </svg>
-            <div class="map-legend" aria-hidden="true">
-              <span><i class="legend-pin"></i> Зона проекта</span>
-              <span><i class="legend-road"></i> Доступ к побережью</span>
-              <span><i class="legend-sea"></i> Средиземноморье</span>
+        <div class="reveal-soft">
+        <div class="locmap" lang="ru">
+          <div class="locmap-map" id="locmap-cancelada-park" data-locmap='{&quot;site&quot;:[36.46159,-5.05237],&quot;sea&quot;:[36.43459,-5.05237],&quot;seaLabel&quot;:&quot;Средиземное море&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.4889,-4.95295],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Banús&quot;,&quot;sub&quot;:&quot;11 км · 12 мин&quot;},{&quot;ll&quot;:[36.48715,-4.98985],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;San Pedro&quot;,&quot;sub&quot;:&quot;9,2 км · 11 мин&quot;},{&quot;ll&quot;:[36.47464,-5.05389],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Гольф-клуб Los Flamingos&quot;,&quot;sub&quot;:&quot;3,3 км · 7 мин&quot;},{&quot;ll&quot;:[36.45518,-5.04741],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Пляж&quot;,&quot;sub&quot;:&quot;2,2 км · 5 мин&quot;}]}' role="img" aria-label="Ориентировочная карта расположения Cancelada Park"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Примерное расположение</span>
+            <h3 class="locmap-name">Cancelada Park</h3>
+            <p class="locmap-place">Канселада / New Golden Mile</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Пляж</span>
+              <span class="locmap-row-figure"><bdi>2,2 км</bdi> <em><bdi>5 мин</bdi></em></span>
             </div>
-          </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto Banús</span>
+              <span class="locmap-row-figure"><bdi>11 км</bdi> <em><bdi>12 мин</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Центр San Pedro de Alcántara</span>
+              <span class="locmap-row-figure"><bdi>9,2 км</bdi> <em><bdi>11 мин</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Гольф-клуб Los Flamingos</span>
+              <span class="locmap-row-figure"><bdi>3,3 км</bdi> <em><bdi>7 мин</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Гольф-клуб Marbella Club</span>
+              <span class="locmap-row-figure"><bdi>5,6 км</bdi> <em><bdi>10 мин</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Аэропорт Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>55 км</bdi> <em><bdi>48 мин</bdi></em></span>
+            </div>
+            </div>
+            <p class="locmap-note">Расстояния измерены по дорогам от границы участка. Карта только для ориентирования; границы примерные.</p>
+          </aside>
+        </div>
         </div>
       </div>
     </section>

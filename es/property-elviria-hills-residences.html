@@ -32,6 +32,10 @@
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
   <link rel="stylesheet" href="assets/liora/liora-property.css?v=307a2b02b19e">
+  <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=0121ef25a588">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
+  <script src="assets/liora/nueva-location-map.js?v=d0ccd33dc57e" defer></script>
   <script src="assets/liora/liora-property.js?v=0808a159c1b2" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
@@ -952,73 +956,49 @@
     </section>
 
     <section class="project-section" id="location">
-      <div class="project-inner location-layout">
+      <div class="project-inner location-stack">
         <div class="reveal-soft">
           <span class="section-kicker">Ubicación</span>
           <div class="rule"></div>
           <h2 class="section-headline">Elviria West, <em>este de Marbella</em></h2>
           <p class="project-lead">Elviria Hills Residences se sitúa en una zona elevada de Elviria West, un área en crecimiento del este de Marbella cerca de campos de golf, beach clubs y las propias tiendas y restaurantes de Elviria.</p>
-          <div class="distance-grid" style="margin-top:32px;">
-            <div class="distance"><span>Tiendas y playas de Elviria</span><strong>5 minutos</strong></div>
-<div class="distance"><span>Centro de Marbella</span><strong>15 minutos</strong></div>
-<div class="distance"><span>Puerto Banús</span><strong>25 minutos</strong></div>
-<div class="distance"><span>Aeropuerto de Málaga</span><strong>30 minutos</strong></div>
-<div class="distance"><span>Golf</span><strong>Rio Real Golf y Santa María Golf cerca</strong></div>
-          </div>
         </div>
-        <div class="map-panel reveal-soft" aria-label="Mapa orientativo de ubicación de Elviria Hills Residences">
-          <div class="location-map-card">
-            <svg class="location-map-svg" viewBox="0 0 1200 620" role="img" aria-labelledby="elviria-hills-residences-map-title elviria-hills-residences-map-desc" focusable="false">
-              <title id="elviria-hills-residences-map-title">Elviria Hills Residences location map</title>
-              <desc id="elviria-hills-residences-map-desc">Indicative map showing Elviria Hills Residences in Elviria West, Marbella, relative to Estepona, Puerto Banús.</desc>
-              <defs>
-                <linearGradient id="mapSeaGradient" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0" stop-color="#BFDCE0"/>
-                  <stop offset="1" stop-color="#5C8E98"/>
-                </linearGradient>
-                <radialGradient id="mapProjectGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0" stop-color="#A8834A" stop-opacity="0.34"/>
-                  <stop offset="0.58" stop-color="#A8834A" stop-opacity="0.12"/>
-                  <stop offset="1" stop-color="#A8834A" stop-opacity="0"/>
-                </radialGradient>
-                <filter id="mapSoftShadow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2F2417" flood-opacity="0.14"/>
-                </filter>
-              </defs>
-              <rect class="map-paper" width="1200" height="620"/>
-              <path class="map-hills" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232 L1200 0 L0 0 Z"/>
-              <path class="map-sea" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232 L1200 620 L0 620 Z"/>
-              <path class="map-coast" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232"/>
-              <path class="map-road map-road-secondary" d="M100 210 C270 176 425 182 585 156 C775 126 940 114 1115 74"/>
-              <text x="140" y="188" class="map-road-label">AP-7</text>
-              <path class="map-road map-road-main" d="M95 300 C245 272 390 282 535 258 C695 232 845 214 1098 168"/>
-              <text x="850" y="248" class="map-road-label">Carretera de la Costa A-7</text>
-              <g class="map-node" transform="translate(150 295)">
-                <circle r="6"/>
-                <text x="16" y="-18">Estepona</text>
-              </g>
-              <g class="map-node map-node-muted" transform="translate(560 255)">
-                <circle r="5"/>
-                <text x="16" y="4">Puerto Banús</text>
-              </g>
-              <g class="map-marker" transform="translate(950 195)" filter="url(#mapSoftShadow)">
-                <circle class="map-marker-glow" r="58"/>
-                <circle class="map-marker-disc" r="34"/>
-                <circle class="map-marker-dot" r="5"/>
-              </g>
-              <text class="map-project-label" x="950" y="257" text-anchor="middle">
-                <tspan x="950">Elviria</tspan>
-                <tspan x="950" dy="18">West</tspan>
-              </text>
-              <text class="map-water-label" x="150" y="502">Mar Mediterráneo</text>
-              <text class="map-note" x="60" y="52">Ubicación orientativa</text>
-            </svg>
-            <div class="map-legend" aria-hidden="true">
-              <span><i class="legend-pin"></i> Zona del proyecto</span>
-              <span><i class="legend-road"></i> Acceso a la costa</span>
-              <span><i class="legend-sea"></i> Mediterráneo</span>
+        <div class="reveal-soft">
+        <div class="locmap" lang="es">
+          <div class="locmap-map" id="locmap-elviria-hills-residences" data-locmap='{&quot;site&quot;:[36.50101,-4.78361],&quot;sea&quot;:[36.47401,-4.78361],&quot;seaLabel&quot;:&quot;Mediterráneo&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.51023,-4.88499],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centro de Marbella&quot;,&quot;sub&quot;:&quot;10 km · 14 min&quot;},{&quot;ll&quot;:[36.50673,-4.8227],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Santa Clara&quot;,&quot;sub&quot;:&quot;4,4 km · 5 min&quot;},{&quot;ll&quot;:[36.50574,-4.88898],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:-92,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Marbella&quot;,&quot;sub&quot;:&quot;12 km · 17 min&quot;},{&quot;ll&quot;:[36.49001,-4.77178],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Playa&quot;,&quot;sub&quot;:&quot;3,6 km · 7 min&quot;}]}' role="img" aria-label="Mapa orientativo de ubicación de Elviria Hills Residences"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Ubicación indicativa</span>
+            <h3 class="locmap-name">Elviria Hills Residences</h3>
+            <p class="locmap-place">Elviria West, Marbella</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Playa</span>
+              <span class="locmap-row-figure"><bdi>3,6 km</bdi> <em><bdi>7 min</bdi></em></span>
             </div>
-          </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto Deportivo de Marbella</span>
+              <span class="locmap-row-figure"><bdi>12 km</bdi> <em><bdi>17 min</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centro de Marbella</span>
+              <span class="locmap-row-figure"><bdi>10 km</bdi> <em><bdi>14 min</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Santa Clara</span>
+              <span class="locmap-row-figure"><bdi>4,4 km</bdi> <em><bdi>5 min</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Río Real</span>
+              <span class="locmap-row-figure"><bdi>7,2 km</bdi> <em><bdi>10 min</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aeropuerto de Málaga</span>
+              <span class="locmap-row-figure"><bdi>46 km</bdi> <em><bdi>43 min</bdi></em></span>
+            </div>
+            </div>
+            <p class="locmap-note">Distancias medidas por carretera desde el límite de la parcela. Mapa solo para orientación; los límites son indicativos.</p>
+          </aside>
+        </div>
         </div>
       </div>
     </section>

@@ -36,8 +36,16 @@ const GEOCODE_GAP_MS = 1200;
 const ROUTE_GAP_MS = 350;
 
 // A reference point past this road distance stops being a selling point and
-// starts being noise -- except airports, which are always worth stating.
-const MAX_RELEVANT_KM = { beach: 6, marina: 12, centre: 15, golf: 12, airport: Infinity };
+// starts being noise. The beach and the airport are exempt: both are mandatory
+// ledger rows, and cutting the beach at 6km simply deleted the row for a
+// project whose nearest sand is 6.2km away, leaving a five-row ledger.
+const MAX_RELEVANT_KM = { beach: Infinity, marina: 12, centre: 15, golf: 20, airport: Infinity };
+
+// Golf is judged on the drive, not the map distance: a course 16km away at 21
+// minutes up the coast road is a real amenity, while one 12km away through town
+// may not be. A flat 15km cap left central Estepona with a single course and a
+// five-row ledger even though its second is a 21-minute drive.
+const MAX_RELEVANT_MIN = { golf: 22 };
 
 // The ledger is six rows in this order. One beach, one marina, one town centre,
 // the two nearest golf courses, one airport -- the spec's fixed shape, resolved
@@ -261,8 +269,18 @@ async function measureCandidates(site, catalogue, cache, beach) {
       console.warn(`  ! could not route to ${candidate.key} -- skipped`);
       continue;
     }
+    const minuteLimit = MAX_RELEVANT_MIN[candidate.category];
     const limit = MAX_RELEVANT_KM[candidate.category] ?? 12;
-    if (result.km > limit) continue;
+    if (minuteLimit ? result.min > minuteLimit : result.km > limit) continue;
+    // A plot that routes to nothing is sitting on the landmark: the geocode
+    // resolved to the reference point itself, not to the project. Los Olivos
+    // matched "Aloha Golf Club" and would have published "Aloha golf -- 0 m".
+    // Drop it and let the next nearest fill the slot; the site coordinate is
+    // the thing at fault and gets reported.
+    if (result.metres < 120) {
+      console.warn(`  ! ${candidate.key} routes to ${result.metres}m -- location.site appears to sit on this landmark; row dropped`);
+      continue;
+    }
     measured.push(result);
   }
   return measured;
@@ -274,7 +292,12 @@ function selectLedger(measured) {
     if (!byCategory.has(item.category)) byCategory.set(item.category, []);
     byCategory.get(item.category).push(item);
   }
-  for (const list of byCategory.values()) list.sort((a, b) => a.metres - b.metres);
+  // Airports rank by drive time, not distance. Gibraltar is a kilometre or two
+  // nearer than Malaga from the western projects while being a slower drive and
+  // far less use to a buyer, and sorting on metres alone put it on five ledgers.
+  for (const [category, list] of byCategory) {
+    list.sort((a, b) => (category === 'airport' ? a.min - b.min || a.metres - b.metres : a.metres - b.metres));
+  }
 
   const rows = [];
   const missing = [];
