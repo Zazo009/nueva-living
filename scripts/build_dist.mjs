@@ -442,7 +442,11 @@ const assetDirectories = [
   'assets/liora/viewing',
   'assets/nueva/advantages',
   'assets/nueva/journey',
-  'content',
+  // 'content' is deliberately NOT published. It was, and that put every
+  // project.json on the public web: crm.realName ("ZEW"), crm.realDeveloper
+  // ("ConceptHomes"), internal price floors and ceilings -- the exact
+  // information the anonymised listings exist to withhold. Nothing on the
+  // site ever fetched it; the AI search function bundles its own catalog.
 ];
 
 function copyFile(source, target) {
