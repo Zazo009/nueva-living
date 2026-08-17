@@ -23,14 +23,18 @@ const project = {
     propertyTypes: ['villa'],
     totalUnits: 12,
     availableUnits: 8,
-    deliveryDate: '2026-06-01',
     constructionStatus: 'off_plan',
     brochureUrl: 'https://nuevaliving.com/assets/sunset-villas-brochure.pdf',
     amenities: ['pool', 'gym', 'parking']
   },
   images: {
     hero: { src: 'assets/sunset-villas/hero.jpg' }
-  }
+  },
+  // delivery_date is derived from the site's own data now, not from a
+  // hand-kept crm.deliveryDate -- so the CRM always holds what the site
+  // shows. completionSort is what the move-in filter uses.
+  hero: { delivery: 'Q2 2026' },
+  discovery: { completionSort: '2026-2' }
 };
 
 const payload = propertySync.projectToPropertyPayload(project);
@@ -48,7 +52,7 @@ assert.deepEqual(payload, {
   property_types: ['villa'],
   total_units: 12,
   available_units: 8,
-  delivery_date: '2026-06-01',
+  delivery_date: '2026-04-01',
   construction_status: 'off_plan',
   brochure_url: 'https://nuevaliving.com/assets/sunset-villas-brochure.pdf',
   website_url: 'https://nuevaliving.com/property-sunset-villas.html',
