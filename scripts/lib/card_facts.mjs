@@ -34,21 +34,6 @@ function toNumber(value) {
   return Number.isFinite(n) ? n : undefined;
 }
 
-/**
- * The delivery string duplicates the status badge on 6 of 14 projects: the
- * badge reads "Off-Plan" and hero.delivery reads "Off-plan". Printing both
- * reintroduces exactly the repetition the redesign removes, so the column
- * is dropped when it says the same thing as the badge.
- */
-function duplicatesBadge(delivery, badge) {
-  const normalise = (value) => String(value ?? '')
-    .toLowerCase()
-    .replace(/[\s\-–—,.]/g, '');
-  const a = normalise(delivery);
-  const b = normalise(badge);
-  if (!a || !b) return false;
-  return a === b || b.includes(a) || a.includes(b);
-}
 
 // Unit sizes are strings on the unit records ("141 m²"), and only 8 of the
 // 14 projects carry them. Pull the numbers out and keep the range.
@@ -65,17 +50,21 @@ function sizeRange(project) {
 /**
  * @param {object} project   the (already localized) project
  * @param {object} options
- * @param {string} options.badge      status badge text, to detect duplication
  * @param {function} options.t        (key, vars) => localized string
  * @returns {{label: string, value: string, sub: string, tone?: string}[]}
  *          between 0 and 3 columns, in display order
  */
-export function cardFacts(project, { badge, t }) {
+export function cardFacts(project, { t }) {
   const crm = project.crm || {};
   const columns = [];
 
+  // Delivery shows on every card, even when it echoes the status badge
+  // above it ("Completed" under "Completed, Ready To Move In"). A column
+  // that appears on twelve cards and silently vanishes on two reads as a
+  // gap in the data rather than as tidiness, and a buyer scanning the grid
+  // is comparing the same three facts across every project.
   const delivery = project.hero?.delivery;
-  if (delivery && !duplicatesBadge(delivery, badge)) {
+  if (delivery) {
     columns.push({ label: t('card.delivery'), value: delivery, sub: '' });
   }
 
