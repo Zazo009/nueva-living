@@ -154,9 +154,51 @@
     };
   }
 
+  // GA4 receives the same events.
+  //
+  // Every business event on the site -- project_click, form_submit_success,
+  // whatsapp_click, private_viewing_request, shortlist_send -- was posted to
+  // our own endpoint and nowhere else. GA4 was loaded and configured, so it
+  // recorded page views and enhanced measurement, but not one of the events
+  // that actually says whether the site is working. Nothing to mark as a key
+  // event, nothing to build an audience on.
+  //
+  // Sent with gtag rather than pushed to the dataLayer: gtag('config') is
+  // already on the page, so this needs no tag configured in the GTM
+  // container and cannot double-count against one.
+  //
+  // GA4 rejects a parameter whose name is over 40 characters or whose value
+  // is over 100, and caps an event at 25 parameters, so the payload is
+  // trimmed rather than sent whole -- an oversized parameter is dropped
+  // silently, which is the worst way to lose data.
+  const GA4_SKIP = new Set(['event_id', 'timestamp', 'page_title', 'referrer']);
+
+  function sendToGa4(type, payload) {
+    if (typeof window.gtag !== 'function') return;
+
+    const params = {};
+    let count = 0;
+    for (const [key, rawValue] of Object.entries(payload)) {
+      if (count >= 24 || GA4_SKIP.has(key) || rawValue == null || rawValue === '') continue;
+      if (key.length > 40) continue;
+      const value = typeof rawValue === 'number' || typeof rawValue === 'boolean'
+        ? rawValue
+        : String(rawValue).slice(0, 100);
+      params[key] = value;
+      count += 1;
+    }
+
+    try {
+      window.gtag('event', type, params);
+    } catch {
+      // Analytics must never interrupt the visitor experience.
+    }
+  }
+
   function send(type, details = {}, options = {}) {
     storageSet(sessionTimestampKey, String(Date.now()));
     const payload = basePayload(type, details);
+    sendToGa4(type, payload);
     const body = JSON.stringify(payload);
 
     if (options.beacon && navigator.sendBeacon) {
