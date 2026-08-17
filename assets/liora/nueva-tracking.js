@@ -173,13 +173,24 @@
   // silently, which is the worst way to lose data.
   const GA4_SKIP = new Set(['event_id', 'timestamp', 'page_title', 'referrer']);
 
+  // Never send personal data to GA4. Google's terms prohibit it and an
+  // account can be terminated for it, with the collected data unrecoverable.
+  // Nothing sends these today -- the lead payload with the name, email and
+  // phone goes to the CRM webhook and is deliberately kept out of the
+  // tracking context -- but this forwards whatever it is given, so the rule
+  // belongs here rather than in the memory of whoever adds the next field.
+  const GA4_NEVER = new Set([
+    'email', 'phone', 'telephone', 'whatsapp', 'first_name', 'last_name',
+    'name', 'full_name', 'nationality', 'message', 'consent_text', 'address'
+  ]);
+
   function sendToGa4(type, payload) {
     if (typeof window.gtag !== 'function') return;
 
     const params = {};
     let count = 0;
     for (const [key, rawValue] of Object.entries(payload)) {
-      if (count >= 24 || GA4_SKIP.has(key) || rawValue == null || rawValue === '') continue;
+      if (count >= 24 || GA4_SKIP.has(key) || GA4_NEVER.has(key) || rawValue == null || rawValue === '') continue;
       if (key.length > 40) continue;
       const value = typeof rawValue === 'number' || typeof rawValue === 'boolean'
         ? rawValue
