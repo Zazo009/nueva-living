@@ -1330,10 +1330,10 @@ ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
     <nav class="project-nav" aria-label="${t('aria.projectSections', locale)}">
       <div class="project-nav-inner">
         <a href="#overview">${t('navInPage.overview', locale)}</a>
-${project.media?.items?.length ? `        <a href="#media">${t('navInPage.media', locale)}</a>\n` : ''}${constructionTimeline ? `        <a href="#construction-timeline">${t('timeline.paymentTerms', locale)}</a>\n` : ''}        <a href="#residences">${t('navInPage.residences', locale)}</a>
+${project.media?.items?.length ? `        <a href="#media">${t('navInPage.media', locale)}</a>\n` : ''}        <a href="#location">${t('navInPage.location', locale)}</a>
+${constructionTimeline ? `        <a href="#construction-timeline">${t('timeline.paymentTerms', locale)}</a>\n` : ''}        <a href="#residences">${t('navInPage.residences', locale)}</a>
         <a href="#availability">${t('navInPage.availability', locale)}</a>
         <a href="#calculator">${t('navInPage.affordability', locale)}</a>
-        <a href="#location">${t('navInPage.location', locale)}</a>
         <a href="#why-this-project">${t('navInPage.why', locale)}</a>
         <a href="#architecture">${t('navInPage.architecture', locale)}</a>
         <a href="#project-file">${t('navInPage.projectInfo', locale)}</a>
@@ -1366,7 +1366,26 @@ ${hasPublishedAvailability ? '' : `          ${availabilityBrowseAction}\n`}    
       </div>
     </section>
 
-${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}${constructionTimeline}    <section class="project-section" id="residences">
+${projectMedia.section ? `    ${projectMedia.section}\n\n` : ''}    <section class="project-section" id="location">
+      <div class="project-inner${liveLocationMap ? ' location-stack' : ' location-layout'}">
+        <div class="reveal-soft">
+          <span class="section-kicker">${t('section.location', locale)}</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">${project.location.headlineHtml}</h2>
+          <p class="project-lead">${esc(project.location.copy)}</p>${liveLocationMap ? '' : `
+          <div class="distance-grid" style="margin-top:32px;">
+            ${pairs(project.location.distances, 'distance')}
+          </div>`}
+        </div>${liveLocationMap ? `
+        <div class="reveal-soft">${renderLocationCard(project, locale)}
+        </div>` : `
+        <div class="map-panel reveal-soft" aria-label="${t('aria.indicativeLocationMap', locale, { name: esc(project.name) })}">
+          ${locationMap(project, locale)}
+        </div>`}
+      </div>
+    </section>
+
+${constructionTimeline}    <section class="project-section" id="residences">
       <div class="project-inner">
         <div class="reveal-soft">
           <span class="section-kicker">${t('section.residences', locale)}</span>
@@ -1488,25 +1507,6 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="project-section" id="location">
-      <div class="project-inner${liveLocationMap ? ' location-stack' : ' location-layout'}">
-        <div class="reveal-soft">
-          <span class="section-kicker">${t('section.location', locale)}</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">${project.location.headlineHtml}</h2>
-          <p class="project-lead">${esc(project.location.copy)}</p>${liveLocationMap ? '' : `
-          <div class="distance-grid" style="margin-top:32px;">
-            ${pairs(project.location.distances, 'distance')}
-          </div>`}
-        </div>${liveLocationMap ? `
-        <div class="reveal-soft">${renderLocationCard(project, locale)}
-        </div>` : `
-        <div class="map-panel reveal-soft" aria-label="${t('aria.indicativeLocationMap', locale, { name: esc(project.name) })}">
-          ${locationMap(project, locale)}
-        </div>`}
       </div>
     </section>
 
