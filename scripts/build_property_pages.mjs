@@ -741,8 +741,18 @@ function resolveMapArea(project) {
   return 'marbellaCentre';
 }
 
+// The second map label line falls back to hero.location when mapLabelHtml
+// carries no <br>. For a project whose label already reads "Area, Town"
+// that fallback is the *same* string, which rendered the location twice
+// under the marker. Drop the second line when it repeats the first.
+function sameMapLine(a, b) {
+  const norm = (value) => String(value).toLowerCase().replace(/[\s,._-]+/g, ' ').trim();
+  return norm(a) === norm(b);
+}
+
 function locationMap(project, locale = DEFAULT_LOCALE) {
-  const [mapLineOne = project.name, mapLineTwo = project.hero?.location || 'Costa del Sol'] = mapLabelLines(project.location?.mapLabelHtml);
+  const [mapLineOne = project.name, mapLineTwoRaw = project.hero?.location || 'Costa del Sol'] = mapLabelLines(project.location?.mapLabelHtml);
+  const mapLineTwo = sameMapLine(mapLineOne, mapLineTwoRaw) ? '' : mapLineTwoRaw;
   const titleId = `${project.slug}-map-title`;
   const descId = `${project.slug}-map-desc`;
 
@@ -795,8 +805,8 @@ function locationMap(project, locale = DEFAULT_LOCALE) {
                 <circle class="map-marker-dot" r="5"/>
               </g>
               <text class="map-project-label" x="${marker.x}" y="${marker.y + 62}" text-anchor="middle">
-                <tspan x="${marker.x}">${esc(mapLineOne)}</tspan>
-                <tspan x="${marker.x}" dy="18">${esc(mapLineTwo)}</tspan>
+                <tspan x="${marker.x}">${esc(mapLineOne)}</tspan>${mapLineTwo ? `
+                <tspan x="${marker.x}" dy="18">${esc(mapLineTwo)}</tspan>` : ''}
               </text>
               <text class="map-water-label" x="150" y="502">${esc(t('map.mediterraneanSea', locale))}</text>
               <text class="map-note" x="60" y="52">${esc(t('map.indicativeLocation', locale))}</text>
@@ -2154,6 +2164,54 @@ function validateProject(project) {
   }
   if (!project.trustDossier?.cards?.length) {
     throw new Error(`${label}: "trustDossier.cards" is missing or empty -- it feeds the merged Why This Project grid.`);
+  }
+  // The residence card reads item.name / item.meta / item.features. An array
+  // of [label, body] pairs passes every other check and renders as a grid of
+  // completely empty cards with only the floorplans button in them.
+  for (const item of project.residences?.items || []) {
+    if (Array.isArray(item) || typeof item !== 'object' || item === null || !String(item.name || '').trim()) {
+      throw new Error(`${label}: every "residences.items" entry must be an object with a non-empty "name" (plus optional "meta" and "features") -- otherwise the residence cards render empty.`);
+    }
+  }
+  // When a residence card is named after a specific released unit ("Villa 01")
+  // rather than a type ("Independent Villa"), the availability table is the
+  // single source of truth for that unit's price and areas. Nothing else stops
+  // the two from drifting apart, or from being swapped between two cards --
+  // which reads as a real price on the wrong house.
+  const unitsByRef = new Map((project.availability?.units || [])
+    .filter((unit) => unit?.reference)
+    .map((unit) => [String(unit.reference).trim(), unit]));
+  for (const item of project.residences?.items || []) {
+    const unit = unitsByRef.get(String(item.name).trim());
+    if (!unit) continue;
+    const values = (item.meta || []).map(([, value]) => String(value));
+    if (unit.price && !values.includes(String(unit.price))) {
+      throw new Error(`${label}: residence card "${item.name}" does not carry that unit's availability price ("${unit.price}") -- its "meta" reads ${JSON.stringify(values)}. A residence card named after a unit must agree with the availability table.`);
+    }
+    for (const area of values.filter((value) => /m²/.test(value))) {
+      if (unit.size && !String(unit.size).includes(area.replace(/\s*m²$/, ''))) {
+        throw new Error(`${label}: residence card "${item.name}" states an area ("${area}") that does not appear in that unit's availability size ("${unit.size}").`);
+      }
+    }
+  }
+  // Locale overlays replace the whole items array, so a translation could
+  // reorder the cards and silently attach one villa's figures to the other.
+  // Residence *type* names are translated ("Apartment" -> "Apartamento"), so
+  // only cards named after a unit reference can be compared by name -- those
+  // are identifiers and must read identically in every locale.
+  const englishNames = (project.residences?.items || []).map((item) => String(item.name));
+  const englishRefs = englishNames.map((name) => (unitsByRef.has(name.trim()) ? name : null));
+  for (const [locale, overlay] of Object.entries(project.i18n || {})) {
+    const names = (overlay?.residences?.items || []).map((item) => String(item?.name));
+    if (!names.length) continue;
+    if (names.length !== englishNames.length) {
+      throw new Error(`${label}: "i18n.${locale}.residences.items" has ${names.length} cards but English has ${englishNames.length} -- the arrays are positional, so a different length shifts figures onto the wrong residence.`);
+    }
+    englishRefs.forEach((ref, index) => {
+      if (ref && names[index] !== ref) {
+        throw new Error(`${label}: "i18n.${locale}.residences.items[${index}].name" is "${names[index]}" but English has the unit reference "${ref}" -- unit references must not be translated or reordered, or the translated figures land on the wrong residence.`);
+      }
+    });
   }
   if (project.media?.items?.length) {
     if (typeof project.media.headlineHtml !== 'string' || !project.media.headlineHtml.trim()) {
