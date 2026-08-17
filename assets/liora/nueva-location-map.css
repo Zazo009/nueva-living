@@ -317,3 +317,35 @@
 .location-stack > .reveal-soft + .reveal-soft {
   margin-top: clamp(28px, 4vw, 44px);
 }
+
+/* Zoom control, shown only on touch/narrow viewports where the map is
+   explorable. Squared and cream like the rest of the card's furniture. */
+.locmap-map .leaflet-control-zoom {
+  border: 1px solid var(--locmap-line);
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0 0 14px 14px;
+}
+
+.locmap-map .leaflet-control-zoom a {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 0;
+  background: rgba(246, 241, 231, .94);
+  color: var(--locmap-ink);
+  border-bottom: 1px solid var(--locmap-line);
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 300;
+}
+
+.locmap-map .leaflet-control-zoom a:last-child { border-bottom: 0; }
+.locmap-map .leaflet-control-zoom a:hover { background: #F6F1E7; color: var(--locmap-gold); }
+
+/* Plates shrink with the frame so three still read cleanly at 330px. */
+@media (max-width: 420px) {
+  .locmap-poi-plate { padding: 4px 7px; }
+  .locmap-poi-name { font-size: 10px; letter-spacing: .08em; }
+  .locmap-poi-sub { font-size: 9px; }
+  .locmap-sea span { font-size: 16px; letter-spacing: .2em; }
+}
