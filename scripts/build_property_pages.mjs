@@ -25,6 +25,7 @@ import { realEstateAgentSchema } from './lib/brand.mjs';
 // against English here and card_chrome_translations.mjs swaps them later.
 const enT = (key, vars) => t(key, 'en', vars);
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
+import { hasLiveLocationMap, renderLocationCard, leafletHead } from './lib/location_map.mjs';
 
 const {
   DEFAULT_PROPERTY_WEBHOOK_URL,
@@ -51,6 +52,8 @@ const fontPreloadBlock = (p = '', locale = 'en') => `  <link rel="preload" href=
 const propertyCssVersion = fileVersion('assets/liora/liora-property.css');
 const rtlCssVersion = existsSync('assets/liora/liora-rtl.css') ? fileVersion('assets/liora/liora-rtl.css') : '1';
 const propertyJsVersion = fileVersion('assets/liora/liora-property.js');
+const locationMapCssVersion = fileVersion('assets/liora/nueva-location-map.css');
+const locationMapJsVersion = fileVersion('assets/liora/nueva-location-map.js');
 const calculatorJsVersion = fileVersion('assets/liora/liora-calculator.js');
 
 // General buyer-process questions that apply to every development. A
@@ -1159,6 +1162,10 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const privateHref = locale === DEFAULT_LOCALE
     ? privateHrefRaw
     : privateHrefRaw.replace(/^index\.html/, localizedPath('index.html', locale));
+  // A project only gets the real map once its plot coordinate has been routed
+  // by build_location_maps.mjs. Until then it keeps the stylised SVG map, so
+  // this cannot blank out the location section on a project without geo data.
+  const liveLocationMap = hasLiveLocationMap(project.slug);
   const privateHeroCta = project.privateViewing?.heroCta || t('cta.cinematicPresentation', locale);
   const privateCta = project.privateViewing?.ctaLabel || t('cta.cinematicPresentation', locale);
   const projectMedia = renderProjectMedia(project, locale);
@@ -1272,7 +1279,10 @@ ${fontPreloadBlock(p, locale)}
   <link rel="stylesheet" href="${p}assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="${p}assets/liora/liora-pages.css?v=9">
   <link rel="stylesheet" href="${p}assets/liora/liora-property.css?v=${propertyCssVersion}">${rtl ? `
-  <link rel="stylesheet" href="${p}assets/liora/liora-rtl.css?v=${rtlCssVersion}">` : ''}
+  <link rel="stylesheet" href="${p}assets/liora/liora-rtl.css?v=${rtlCssVersion}">` : ''}${liveLocationMap ? `
+  <link rel="stylesheet" href="${p}assets/liora/nueva-location-map.css?v=${locationMapCssVersion}">
+${leafletHead()}
+  <script src="${p}assets/liora/nueva-location-map.js?v=${locationMapJsVersion}" defer></script>` : ''}
   <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>
   <script src="${p}assets/liora/liora-calculator.js?v=${calculatorJsVersion}" defer></script>
   <script type="application/ld+json">
@@ -1482,19 +1492,21 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
     </section>
 
     <section class="project-section" id="location">
-      <div class="project-inner location-layout">
+      <div class="project-inner${liveLocationMap ? ' location-stack' : ' location-layout'}">
         <div class="reveal-soft">
           <span class="section-kicker">${t('section.location', locale)}</span>
           <div class="rule"></div>
           <h2 class="section-headline">${project.location.headlineHtml}</h2>
-          <p class="project-lead">${esc(project.location.copy)}</p>
+          <p class="project-lead">${esc(project.location.copy)}</p>${liveLocationMap ? '' : `
           <div class="distance-grid" style="margin-top:32px;">
             ${pairs(project.location.distances, 'distance')}
-          </div>
-        </div>
+          </div>`}
+        </div>${liveLocationMap ? `
+        <div class="reveal-soft">${renderLocationCard(project, locale)}
+        </div>` : `
         <div class="map-panel reveal-soft" aria-label="${t('aria.indicativeLocationMap', locale, { name: esc(project.name) })}">
           ${locationMap(project, locale)}
-        </div>
+        </div>`}
       </div>
     </section>
 
@@ -2212,6 +2224,12 @@ function validateProject(project) {
         throw new Error(`${label}: "i18n.${locale}.residences.items[${index}].name" is "${names[index]}" but English has the unit reference "${ref}" -- unit references must not be translated or reordered, or the translated figures land on the wrong residence.`);
       }
     });
+  }
+  // Adding location.site is the whole per-project input for the live map, so a
+  // coordinate that has never been routed must not silently fall back to the
+  // old SVG map -- the author would reasonably assume the new map was live.
+  if (Array.isArray(project.location?.site) && !hasLiveLocationMap(project.slug)) {
+    throw new Error(`${label}: "location.site" is set but ${project.slug} has no routed map data. Run: node scripts/build_location_maps.mjs --project=${project.slug}`);
   }
   // location.mapArea is a MAP_LANDMARKS key, not prose. resolveMapArea() falls
   // back to marbellaCentre for anything it does not recognise, so a descriptive

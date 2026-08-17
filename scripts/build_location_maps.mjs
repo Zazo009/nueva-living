@@ -56,6 +56,9 @@ const LEDGER_SHAPE = [
 // never a map label: it sits 45 minutes away and would blow the frame open.
 const MAP_LABEL_PRIORITY = ['beach', 'marina', 'centre', 'golf'];
 const MAX_MAP_LABELS = 4;
+// Rendered height of a label plate (two lines plus padding), used to offset
+// plates that would otherwise share a pixel row.
+const PLATE_HEIGHT_PX = 46;
 
 const args = process.argv.slice(2);
 const REFRESH = args.includes('--refresh');
@@ -228,6 +231,7 @@ async function measureOne(site, candidate, cache) {
     key: candidate.key,
     category: candidate.category,
     proper: candidate.proper,
+    short: candidate.short || null,
     ll: candidate.ll,
     metres: Math.round(chosen.metres),
     km: Number((chosen.metres / 1000).toFixed(2)),
@@ -307,8 +311,11 @@ function selectMapLabels(rows, site) {
   const bySide = { left: [], right: [] };
   for (const item of placed.sort((a, b) => b.ll[0] - a.ll[0])) {
     const stack = bySide[item.side];
-    const clash = stack.find((other) => Math.abs(other.ll[0] - item.ll[0]) < 0.004);
-    item.dy = clash ? -16 : 0;
+    // A nudge has to clear a whole plate, not soften the overlap. Guadalmina
+    // golf and San Pedro centre sit 19m apart in latitude, landed on the same
+    // pixel row, and a -16px offset still left one printed over the other.
+    const clashes = stack.filter((other) => Math.abs(other.ll[0] - item.ll[0]) < 0.006);
+    item.dy = clashes.length ? -PLATE_HEIGHT_PX * clashes.length : 0;
     stack.push(item);
   }
   return placed;

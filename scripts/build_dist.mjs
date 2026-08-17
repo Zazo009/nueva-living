@@ -413,6 +413,8 @@ const assetFiles = [
   'assets/liora/nueva-nav-interactions.css',
   'assets/liora/nueva-shortlist.css',
   'assets/liora/nueva-shortlist.js',
+  'assets/liora/nueva-location-map.css',
+  'assets/liora/nueva-location-map.js',
   'assets/liora/liora-compare.css',
   'assets/liora/liora-compare.js',
   'assets/liora/nueva-system.css',

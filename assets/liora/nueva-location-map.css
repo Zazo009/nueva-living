@@ -1,0 +1,319 @@
+/* Project location card: real map left, distance ledger right.
+   Loaded only on pages that actually render one. */
+
+.locmap {
+  --locmap-ground: #F6F1E7;
+  --locmap-line: #DED3BE;
+  --locmap-ink: #2E2A26;
+  --locmap-ink-60: rgba(46, 42, 38, 0.6);
+  --locmap-gold: #A9834A;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  background: var(--locmap-ground);
+  border: 1px solid var(--locmap-line);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Arabic mirrors the whole card: panel to the left of the map. That needs no
+   override -- under dir="rtl" the first grid column is laid out on the right,
+   so "1fr 380px" already puts the map right and the panel left. Restating the
+   columns reversed (380px 1fr) flips it back the wrong way, and border-inline-
+   start resolves to the correct edge on its own. */
+
+.locmap-map {
+  position: relative;
+  height: 600px;
+  /* Shows through until the first tiles paint, so the frame is never white. */
+  background: #9FC3CE;
+}
+
+/* Leaflet's own fade can leave tiles stuck transparent; this is the belt to
+   fadeAnimation:false's braces. */
+.locmap-map .leaflet-tile { opacity: 1 !important; }
+.locmap-tiles { filter: saturate(.6) brightness(1.05) contrast(.9); }
+
+.locmap-veil,
+.locmap-veil-2 {
+  position: absolute;
+  inset: 0;
+  z-index: 399;
+  pointer-events: none;
+}
+.locmap-veil { background: rgba(104, 142, 74, .28); mix-blend-mode: multiply; }
+.locmap-veil-2 { background: rgba(247, 243, 232, .16); }
+
+/* -- panel ---------------------------------------------------------------- */
+
+.locmap-panel {
+  padding: 34px 32px;
+  border-inline-start: 1px solid var(--locmap-line);
+  display: flex;
+  flex-direction: column;
+}
+
+.locmap-kicker {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--locmap-gold);
+}
+
+.locmap-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 14px 0 6px;
+  color: var(--locmap-ink);
+}
+
+.locmap-place {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--locmap-ink-60);
+  margin: 0 0 26px;
+}
+
+.locmap-ledger { border-top: 1px solid var(--locmap-line); }
+
+.locmap-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--locmap-line);
+}
+
+.locmap-row-label {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--locmap-ink);
+}
+
+.locmap-row-figure {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19px;
+  color: var(--locmap-gold);
+  white-space: nowrap;
+  /* Without isolation Arabic renders "km6 2.5" -- the number and unit runs
+     reorder around each other. */
+  unicode-bidi: isolate;
+}
+
+.locmap-row-figure em {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-style: normal;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--locmap-ink-60);
+  margin-inline-start: 7px;
+  unicode-bidi: isolate;
+}
+
+.locmap-note {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--locmap-ink-60);
+  margin: auto 0 0;
+  padding-top: 26px;
+}
+
+/* -- map furniture -------------------------------------------------------- */
+
+.locmap-pin { position: relative; }
+
+.locmap-pin-dot,
+.locmap-pin-ring {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.locmap-pin-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--locmap-gold);
+  box-shadow: 0 0 0 7px #F6F1E7, 0 2px 10px rgba(46, 42, 38, .28);
+}
+
+.locmap-pin-ring {
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--locmap-gold);
+  opacity: 0;
+  animation: locmap-pulse 3.4s ease-out infinite;
+}
+
+@keyframes locmap-pulse {
+  0% { opacity: .9; transform: translate(-50%, -50%) scale(.35); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+}
+
+.locmap-poi { position: relative; }
+
+.locmap-poi-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--locmap-ink);
+  transform: translate(-50%, -50%);
+}
+
+.locmap-poi-dot.is-golf {
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  border: 1px solid var(--locmap-gold);
+}
+
+.locmap-poi-plate {
+  position: absolute;
+  top: 0;
+  display: block;
+  padding: 5px 9px;
+  background: rgba(246, 241, 231, .94);
+  box-shadow: 0 1px 0 rgba(46, 42, 38, .06);
+  white-space: nowrap;
+  transform: translateY(-50%);
+  /* The reveal is enhancement: if the observer never fires, or in print, the
+     label must still be legible, so full opacity is the default state. */
+  opacity: 1;
+}
+
+.locmap-poi.is-left .locmap-poi-plate { right: 12px; }
+.locmap-poi.is-right .locmap-poi-plate { left: 12px; }
+
+.locmap-poi-name,
+.locmap-poi-sub { display: block; }
+
+.locmap-poi-name {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--locmap-ink);
+}
+
+.locmap-poi-sub {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  color: var(--locmap-gold);
+  unicode-bidi: isolate;
+}
+
+.locmap-sea span {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: .26em;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(60, 90, 95, .55);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Leaflet chrome, restyled to the card: squared corners, cream ground. */
+.locmap-map .leaflet-control-scale-line {
+  border-radius: 0;
+  border: 1px solid var(--locmap-line);
+  border-top: 0;
+  background: rgba(246, 241, 231, .9);
+  font-family: 'Jost', system-ui, sans-serif;
+  font-size: 10px;
+  letter-spacing: .08em;
+  color: var(--locmap-ink);
+}
+
+.locmap-map .leaflet-control-attribution {
+  background: rgba(246, 241, 231, .88);
+  border-radius: 0;
+  font-family: 'Jost', system-ui, sans-serif;
+  font-size: 10px;
+  color: var(--locmap-ink-60);
+}
+.locmap-map .leaflet-control-attribution a { color: var(--locmap-ink-60); }
+
+/* -- Russian: Jost carries no Cyrillic, and letterspaced Cyrillic caps wrap
+      the 380px panel. Sentence case, Noto Sans. ----------------------------- */
+
+.locmap[lang="ru"] .locmap-row-label,
+.locmap[lang="ru"] .locmap-place,
+.locmap[lang="ru"] .locmap-kicker,
+.locmap[lang="ru"] .locmap-poi-name {
+  font-family: 'Noto Sans', system-ui, sans-serif;
+  text-transform: none;
+  letter-spacing: .04em;
+}
+.locmap[lang="ru"] .locmap-row-figure em { text-transform: none; letter-spacing: .04em; }
+
+/* -- Arabic: no uppercase, no letterspacing, Naskh, roomier heading -------- */
+
+.locmap-rtl .locmap-kicker,
+.locmap-rtl .locmap-place,
+.locmap-rtl .locmap-row-label,
+.locmap-rtl .locmap-row-figure em,
+.locmap-rtl .locmap-note,
+.locmap-rtl .locmap-poi-name,
+.locmap-rtl .locmap-poi-sub {
+  font-family: 'Noto Naskh Arabic', 'Noto Sans', serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.locmap-rtl .locmap-name {
+  font-family: 'Noto Naskh Arabic', 'Noto Sans', serif;
+  font-size: 26px;
+  line-height: 1.5;
+}
+
+.locmap-rtl .locmap-row-figure { text-align: left; }
+
+/* -- stacked ------------------------------------------------------------- */
+
+@media (max-width: 960px) {
+  .locmap,
+  .locmap-rtl { grid-template-columns: 1fr; }
+  .locmap-map { height: 420px; order: 1; }
+  .locmap-panel {
+    order: 2;
+    border-inline-start: 0;
+    border-inline-end: 0;
+    border-top: 1px solid var(--locmap-line);
+    padding: 28px 22px;
+  }
+}
+
+@media print {
+  .locmap-poi-plate { opacity: 1 !important; }
+  .locmap-pin-ring { animation: none; }
+}
+
+/* The location section is normally a two-column grid (copy | map panel). The
+   live card carries its own two columns, so nesting it inside that grid
+   squeezed the map to ~100px. Stack instead: intro across the top, card full
+   width beneath it. */
+.location-stack {
+  display: block;
+}
+
+.location-stack > .reveal-soft + .reveal-soft {
+  margin-top: clamp(28px, 4vw, 44px);
+}
