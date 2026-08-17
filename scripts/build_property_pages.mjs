@@ -2213,6 +2213,14 @@ function validateProject(project) {
       }
     });
   }
+  // location.mapArea is a MAP_LANDMARKS key, not prose. resolveMapArea() falls
+  // back to marbellaCentre for anything it does not recognise, so a descriptive
+  // string ("Cortijo Blanco, San Pedro de Alcantara, Marbella") silently plants
+  // the marker in the wrong town rather than failing.
+  const mapArea = project.location?.mapArea;
+  if (mapArea !== undefined && !Object.prototype.hasOwnProperty.call(MAP_LANDMARKS, mapArea)) {
+    throw new Error(`${label}: "location.mapArea" is "${mapArea}", which is not a MAP_LANDMARKS key -- the marker would fall back to marbellaCentre. Use one of: ${Object.keys(MAP_LANDMARKS).join(', ')}.`);
+  }
   // privateViewing.href is the destination of both "Cinematic Presentation"
   // buttons (the hero ghost action and the section CTA). It must launch the
   // cinematic player on the homepage; pointing it at an in-page anchor sends a
