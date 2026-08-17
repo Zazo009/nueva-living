@@ -64,6 +64,13 @@ function isPlainObject(value) {
 // Arrays (quickFacts, media.items, why.points, ...) and primitives are
 // replaced wholesale when present, since a translated array must stand on
 // its own (partial-array merging has no sane semantics here).
+// Whether a string key exists in the dictionary. Used by build-time guards:
+// t() falls back to returning the key itself, so a missing entry renders as
+// literal "mediaCategory.Solarium" on the page rather than failing loudly.
+export function hasString(key) {
+  return Object.prototype.hasOwnProperty.call(strings, key);
+}
+
 export function localizeProject(project, locale) {
   if (locale === DEFAULT_LOCALE) return project;
   const overlay = project.i18n?.[locale];

@@ -9,6 +9,7 @@ import {
   isRtl,
   t,
   localizeProject,
+  hasString,
   localizedPath,
   hreflangLinks,
   rootPrefix,
@@ -2163,6 +2164,14 @@ function validateProject(project) {
     }
     if (!project.media.items.some((item) => item.category)) {
       throw new Error(`${label}: no media.items have a "category" -- the preview grid groups by category, so without one it renders as an empty gap above the "View all" button.`);
+    }
+    // Category labels are translated through the strings dictionary, and t()
+    // falls back to the key, so a new category with no entry silently renders
+    // the literal "mediaCategory.Foo" as the tile label in every locale.
+    const undeclared = [...new Set(project.media.items.map((item) => item.category).filter(Boolean))]
+      .filter((category) => !hasString(`mediaCategory.${category}`));
+    if (undeclared.length) {
+      throw new Error(`${label}: media category ${undeclared.map((c) => `"${c}"`).join(', ')} has no "mediaCategory.<name>" entry in content/i18n/strings.json -- the gallery tile would show the raw key as its label.`);
     }
   }
 }

@@ -66,6 +66,16 @@ export const TAG_LABELS = {
   'Private Spa': { es: 'Spa Privado', fr: 'Spa Privé', de: 'Privates Spa', ru: 'Частный Спа', ar: 'سبا خاص' },
   'Cinema &amp; Coworking': { es: 'Cine y Coworking', fr: 'Cinéma et Coworking', de: 'Kino & Co-Working', ru: 'Кинозал и Коворкинг', ar: 'سينما ومساحة عمل' },
   'Boutique Collection': { es: 'Colección Boutique', fr: 'Collection Boutique', de: 'Boutique-Kollektion', ru: 'Бутик-Коллекция', ar: 'مجموعة بوتيكية' },
+  'Private Pool': { es: 'Piscina Privada', fr: 'Piscine Privée', de: 'Privater Pool', ru: 'Частный Бассейн', ar: 'مسبح خاص' },
+  'Entertaining': { es: 'Para Recibir', fr: 'Recevoir', de: 'Gastfreundschaft', ru: 'Для Приёмов', ar: 'الاستضافة' },
+  'Contemporary': { es: 'Contemporáneo', fr: 'Contemporain', de: 'Zeitgenössisch', ru: 'Современный Стиль', ar: 'معاصر' },
+  'Double-Height Living': { es: 'Salón a Doble Altura', fr: 'Séjour Double Hauteur', de: 'Wohnen in Doppelhöhe', ru: 'Двусветная Гостиная', ar: 'معيشة مزدوجة الارتفاع' },
+  'Rooftop Solarium': { es: 'Solárium en Azotea', fr: 'Solarium en Toiture', de: 'Dachsolarium', ru: 'Солярий на Крыше', ar: 'سطح شمسي' },
+  'Walk to Puerto Banús': { es: 'A Pie a Puerto Banús', fr: 'À Pied de Puerto Banús', de: 'Zu Fuß nach Puerto Banús', ru: 'Пешком до Пуэрто-Бануса', ar: 'سيرًا إلى بويرتو بانوس' },
+  'Insurance-Backed Payments': { es: 'Pagos Avalados por Seguro', fr: 'Paiements Assurés', de: 'Versicherte Zahlungen', ru: 'Платежи под Страховкой', ar: 'دفعات مضمونة بالتأمين' },
+  'Staged Payment Plan': { es: 'Pago Escalonado', fr: 'Paiement Échelonné', de: 'Gestaffelter Zahlungsplan', ru: 'Поэтапная Оплата', ar: 'خطة دفع مرحلية' },
+  'Lift': { es: 'Ascensor', fr: 'Ascenseur', de: 'Aufzug', ru: 'Лифт', ar: 'مصعد' },
+  'EV Charging': { es: 'Carga para Vehículo Eléctrico', fr: 'Recharge Véhicule Électrique', de: 'E-Auto-Ladestation', ru: 'Зарядка Электромобиля', ar: 'شاحن سيارات كهربائية' },
   'Flex Living': { es: 'Flex Living', fr: 'Flex Living', de: 'Flex Living', ru: 'Гибкое Владение', ar: 'سكن مرن' }
 };
 
