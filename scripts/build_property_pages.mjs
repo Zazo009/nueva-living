@@ -931,8 +931,10 @@ function renderDiscoveryTags(tags = []) {
   return normaliseCardList(tags).slice(0, 5).map((tag) => `<span>${esc(tag)}</span>`).join('');
 }
 
-function renderDocumentRows(items = [], hasPublishedAvailability = false, hasFloorplans = false) {
-  return items.map(([title, body, action], index) => `<article class="document-row reveal-soft">
+function renderDocumentRows(items = [], hasPublishedAvailability = false, hasFloorplans = false, allUnitsHaveFloorplans = false) {
+  return items
+    .filter(([, , action]) => !(allUnitsHaveFloorplans && /floorplan/i.test(action || '')))
+    .map(([title, body, action], index) => `<article class="document-row reveal-soft">
             <div class="document-index">${String(index + 1).padStart(2, '0')}</div>
             <div>
               <h3>${esc(title)}</h3>
@@ -1251,6 +1253,13 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const availabilityRelease = renderAvailabilityRelease(project, locale);
   const hasPublishedAvailability = Boolean(project.availability?.units?.length);
   const hasFloorplans = Boolean(project.availability?.units?.some((unit) => unit.floorplan));
+  // Every unit already carries its own downloadable floorplan (visible right
+  // in the availability section), so the generic "Request Floorplans" row in
+  // Project Info would just be asking the visitor to request something they
+  // can already see -- drop it rather than leave a dead-end CTA next to a
+  // section that already delivers.
+  const allUnitsHaveFloorplans = Boolean(project.availability?.units?.length)
+    && project.availability.units.every((unit) => unit.floorplan);
   const availabilityBrowseAction = hasPublishedAvailability
     ? actionLink(t('cta.viewAvailableHomes', locale), '#availability')
     : actionLink(t('common.onRequest', locale));
@@ -1648,7 +1657,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
           ${projectFile.image.caption ? `<figcaption>${esc(projectFile.image.caption)}</figcaption>` : ''}
         </figure>` : ''}
         <div class="document-center">
-          ${renderDocumentRows(projectFile.documents, hasPublishedAvailability, hasFloorplans)}
+          ${renderDocumentRows(projectFile.documents, hasPublishedAvailability, hasFloorplans, allUnitsHaveFloorplans)}
         </div>
       </div>
     </section>

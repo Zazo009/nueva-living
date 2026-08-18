@@ -6417,7 +6417,7 @@
               </div>
               <div class="v7row" id="v7row" style="display:none">
                 <button class="v7cta" type="button" onclick="vAccess()">Get Project Information</button>
-                <button class="v7exit" type="button" onclick="vClose()">Exit Viewing</button>
+                <button class="v7exit" type="button" onclick="vExitViewing()">Exit Viewing</button>
               </div>
             </div>
           </div>
@@ -12271,7 +12271,7 @@
       "bedrooms": "5-6 bedrooms",
       "builtSize": "",
       "terraceSize": "",
-      "completion": "On request",
+      "completion": "Phase 1: Summer 2027 / Phase 2: Q4 2027",
       "status": "Off-plan",
       "lifestyle": "A collection of 14 detached villas at El Campanario, on the New Golden Mile, with golf and country club membership included.",
       "overview": "Fairway Grove Villas is a collection of 14 detached villas at El Campanario, on the New Golden Mile between Puerto Banus and Estepona. The villas are arranged in three sizes -- Premium, Deluxe and Superior -- sharing the same contemporary design language of travertine-clad volumes, white render and full-height glazing.",
@@ -13230,6 +13230,41 @@
     });
   }
 
+  // The cinematic viewer always runs on top of this homepage template --
+  // reached via "index.html?private-viewing=1&project=<slug>" from a
+  // property page's "Cinematic Presentation" button -- so a plain vClose()
+  // only ever reveals the homepage underneath, never the property page the
+  // visitor actually came from. Exiting should return them to that page.
+  // Same-origin document.referrer + history.back() is the real fix (it also
+  // restores scroll position); the property-page URL built from the
+  // "project" query param is a fallback for a direct/shared viewing link
+  // with no such referrer, so exiting never strands the visitor on the
+  // generic homepage.
+  function vExitViewing() {
+    try {
+      const ref = document.referrer;
+      if (ref && new URL(ref).origin === window.location.origin && window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+    } catch (error) { /* fall through to the constructed-URL fallback below */ }
+
+    const slug = VIEWING_PROJECT_ID;
+    if (slug && slug !== DEFAULT_VIEWING_PROJECT_ID || (slug && VIEWING_PROJECTS[slug])) {
+      const localeMatch = window.location.pathname.match(/^\/(es|fr|de|ru|ar)\//);
+      const prefix = localeMatch ? `/${localeMatch[1]}/` : '/';
+      window.location.href = `${prefix}property-${slug}.html`;
+      return;
+    }
+
+    vClose();
+  }
+  // The v7 template's exit button calls this via an inline onclick="", which
+  // runs in global scope and cannot see a name declared inside this
+  // DOMContentLoaded closure -- exposing it on window is what makes that
+  // markup able to find it at all.
+  window.vExitViewing = vExitViewing;
+
   function vClose() {
     vSetProjectInfoOpen(false);
     vStopGuided('Manual');
@@ -13296,7 +13331,7 @@
   const vexitBtn = document.getElementById('vexit');
   if (vexitBtn) vexitBtn.addEventListener('click', event => {
     vHandleControlTap(event);
-    vClose();
+    vExitViewing();
   });
   if (vinfoToggle) vinfoToggle.addEventListener('click', event => {
     vHandleControlTap(event);
@@ -13323,7 +13358,7 @@
     if (!voxEl.classList.contains('on')) return;
     if (e.key === 'Escape') {
       if (vInfoOpen) vSetProjectInfoOpen(false);
-      else vClose();
+      else vExitViewing();
       return;
     }
     if (vInfoOpen) return;
