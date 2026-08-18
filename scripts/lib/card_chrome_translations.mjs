@@ -61,6 +61,7 @@ export const CARD_CHROME_ENTRIES = [
   { find: 'dev-badge">Current Release', es: 'dev-badge">Fase Actual', fr: 'dev-badge">Phase Actuelle', de: 'dev-badge">Aktuelle Phase', ru: 'dev-badge">Текущая Очередь', ar: 'dev-badge">المرحلة الحالية' },
   { find: 'dev-badge">Off-plan, Private Availability', es: 'dev-badge">Sobre Plano, Disponibilidad Privada', fr: 'dev-badge">Sur Plan, Disponibilité Privée', de: 'dev-badge">Off-Plan, Private Verfügbarkeit', ru: 'dev-badge">На Этапе Строительства, Закрытая Продажа', ar: 'dev-badge">على المخطط، إتاحة حصرية' },
   { find: 'dev-badge">Off-Plan', es: 'dev-badge">Sobre Plano', fr: 'dev-badge">Sur Plan', de: 'dev-badge">Off-Plan', ru: 'dev-badge">На Этапе Строительства', ar: 'dev-badge">على المخطط' },
+  { find: 'dev-badge">Key Ready', es: 'dev-badge">Listo para Entrar', fr: 'dev-badge">Prêt à Emménager', de: 'dev-badge">Bezugsfertig', ru: 'dev-badge">Готово к Заселению', ar: 'dev-badge">جاهز للسكن' },
   { find: 'dev-badge">Sea View Collection', es: 'dev-badge">Colección con Vistas al Mar', fr: 'dev-badge">Collection Vue Mer', de: 'dev-badge">Kollektion mit Meerblick', ru: 'dev-badge">Коллекция с Видом на Море', ar: 'dev-badge">مجموعة بإطلالة على البحر' },
   { find: 'dev-badge">Under Construction', es: 'dev-badge">En Construcción', fr: 'dev-badge">En Construction', de: 'dev-badge">Im Bau', ru: 'dev-badge">В Стадии Строительства', ar: 'dev-badge">قيد الإنشاء' },
 
