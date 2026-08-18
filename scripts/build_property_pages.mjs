@@ -100,6 +100,38 @@ function localizedUnitSize(value, locale = DEFAULT_LOCALE) {
   return raw;
 }
 
+// "705.15 sqm built, 128.45 sqm terrace, 70.00 sqm garden" reads as one
+// wrapped sentence when it lands in a single card stat -- three numbers
+// competing for the reader's eye with no separation. Split it into its own
+// [label, value] pair per segment so each figure gets its own stat cell;
+// falls back to the raw string (as one "Size" fact) for anything that
+// doesn't match the "number unit label" shape, e.g. a plain "103 m2".
+function unitSizeFacts(value, locale = DEFAULT_LOCALE) {
+  const raw = String(value || '').trim();
+  if (!raw) return [];
+  const segments = raw.split(/,\s*/);
+  if (segments.length < 2) return [[t('availability.size', locale), localizedUnitSize(raw, locale)]];
+
+  const parts = [];
+  for (const segment of segments) {
+    const match = /^([\d.,]+)\s*(sqm|m²)\s+(.+)$/i.exec(segment.trim());
+    if (!match) return [[t('availability.size', locale), localizedUnitSize(raw, locale)]];
+    const [, num, unit, label] = match;
+    const capitalised = label.trim().replace(/^\p{L}/u, (c) => c.toUpperCase());
+    parts.push([capitalised, `${num} ${unit}`]);
+  }
+  return parts;
+}
+
+// Same multi-part size, rendered for the table's single Size cell: one
+// figure per line instead of one comma-run sentence, so the column stays
+// scannable both on desktop and in the mobile label/value stack.
+function renderSizeCell(value, locale = DEFAULT_LOCALE) {
+  const facts = unitSizeFacts(value, locale);
+  if (facts.length <= 1) return esc(localizedUnitSize(value, locale));
+  return facts.map(([label, val]) => `<span class="unit-size-part"><strong>${esc(val)}</strong> <em>${esc(label)}</em></span>`).join('');
+}
+
 function localizedUnitFloor(value, locale = DEFAULT_LOCALE) {
   if (!value || locale === DEFAULT_LOCALE) return value;
   return UNIT_FLOORS[String(value).trim()]?.[locale] || value;
@@ -656,7 +688,7 @@ function renderUnitCard(unit, project, locale) {
 
   const facts = [
     [t('availability.bedrooms', locale), localizedUnitBedrooms(unit.bedrooms, locale)],
-    unit.size ? [t('availability.size', locale), localizedUnitSize(unit.size, locale)] : null,
+    ...unitSizeFacts(unit.size, locale),
     unit.floor ? [t('availability.floor', locale), localizedUnitFloor(unit.floor, locale)] : null
   ].filter(Boolean);
 
@@ -698,7 +730,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
                 <td data-label="${t('availability.reference', locale)}"><strong>${esc(unit.reference)}</strong></td>${hasFloor ? `
                 <td data-label="${t('availability.floor', locale)}">${esc(localizedUnitFloor(unit.floor, locale))}</td>` : ''}
                 <td data-label="${t('availability.bedrooms', locale)}">${esc(localizedUnitBedrooms(unit.bedrooms, locale))}</td>${hasSize ? `
-                <td data-label="${t('availability.size', locale)}">${esc(localizedUnitSize(unit.size, locale))}</td>` : ''}
+                <td data-label="${t('availability.size', locale)}">${renderSizeCell(unit.size, locale)}</td>` : ''}
                 <td data-label="${t('availability.price', locale)}"><strong>${esc(unit.price)}</strong></td>
                 <td data-label="${t('availability.status', locale)}"><span class="availability-status">${t('availability.available', locale)}</span></td>${hasFloorplans ? `
                 <td data-label="${t('availability.floorplan', locale)}">${unit.floorplan ? `<a class="availability-floorplan-link" href="${esc(unit.floorplan)}" target="_blank" rel="noopener">${t('availability.viewPdf', locale)}</a>` : ''}</td>` : ''}
@@ -2208,6 +2240,13 @@ const REQUIRED_SECTIONS = [
 
 function validateProject(project) {
   const label = path.relative(process.cwd(), project.sourceFile);
+  // "EUR2,400,000" reads as one fused word; the house style is "EUR
+  // 2,400,000" with a space. Catches the mistake at build time instead of
+  // relying on every future project remembering the rule by hand.
+  const euroNoSpace = JSON.stringify(project).match(/EUR(?=[0-9])/);
+  if (euroNoSpace) {
+    throw new Error(`${label}: found "EUR" fused directly to a digit (no space) -- house style is "EUR 1,234,567". Search the file for "EUR" followed by a number and add the space.`);
+  }
   for (const key of REQUIRED_SECTIONS) {
     const section = project[key];
     if (!section || typeof section.headlineHtml !== 'string' || !section.headlineHtml.trim()) {

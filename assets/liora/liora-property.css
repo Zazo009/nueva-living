@@ -1870,6 +1870,32 @@ body {
   font-weight: 500;
 }
 
+/* A multi-part size ("705.15 sqm built, 128.45 sqm terrace, 70.00 sqm
+   garden") reads as a run-on sentence in a single table cell. Each part
+   gets its own line so the figures stay scannable. */
+.unit-size-part {
+  display: block;
+}
+
+.unit-size-part + .unit-size-part {
+  margin-top: 3px;
+}
+
+.unit-size-part strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.unit-size-part em {
+  font-style: normal;
+  color: rgba(74, 59, 40, 0.55);
+  font-family: var(--ui-font);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-inline-start: 5px;
+}
+
 .availability-status {
   display: inline-flex;
   align-items: center;
