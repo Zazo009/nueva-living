@@ -746,6 +746,7 @@ function mapLabelLines(html = 'Project<br>Area') {
 // every project sharing one hardcoded position (see history of this file
 // for the Cancelada Park bug this replaces).
 const MAP_LANDMARKS = {
+  casares: { x: 60, y: 320, label: 'Casares' },
   estepona: { x: 150, y: 295, label: 'Estepona' },
   newGoldenMile: { x: 310, y: 278, label: 'New Golden Mile', key: 'map.newGoldenMile' },
   sanPedro: { x: 420, y: 268, label: 'San Pedro' },
