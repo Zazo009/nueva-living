@@ -617,11 +617,13 @@ function floorplanThumb(floorplan) {
 }
 
 // Cards only where the project can actually fill them: a grid of mostly empty
-// frames is worse than the table it replaced.
+// frames is worse than the table it replaced. A single unit with its own
+// floorplan still earns a card -- one populated card reads better than a
+// table row for showing off a single resale's layout.
 const UNIT_CARD_MIN_COVERAGE = 0.75;
 
 function usesUnitCards(units) {
-  if (units.length < 2) return false;
+  if (!units.length) return false;
   const withThumb = units.filter((unit) => floorplanThumb(unit.floorplan)).length;
   return withThumb / units.length >= UNIT_CARD_MIN_COVERAGE;
 }
