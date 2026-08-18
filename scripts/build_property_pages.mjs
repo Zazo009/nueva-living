@@ -235,6 +235,19 @@ function featureList(items = []) {
   return `<ul class="feature-list">\n${items.map((item) => `            <li>${esc(item)}</li>`).join('\n')}\n          </ul>`;
 }
 
+// Matterport embeds accept flags that strip their chrome. title=0 removes the
+// model title -- which is the developer's own project name, not the name this
+// site publishes -- and brand=0 removes Matterport's branding. Both are forced
+// on regardless of how the URL was stored, so a pasted share link cannot leak
+// the name back onto the page.
+function tourEmbedUrl(rawUrl) {
+  const url = new URL(String(rawUrl));
+  url.searchParams.set('title', '0');
+  url.searchParams.set('brand', '0');
+  url.searchParams.set('help', '0');
+  return url.toString();
+}
+
 function localizedCategory(category, locale) {
   const key = `mediaCategory.${category}`;
   return category ? t(key, locale) : category;
@@ -267,6 +280,29 @@ function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
             <span>${t('media.film', locale)}</span>
             <strong>${esc(video.title || '')}</strong>
             <p>${esc(video.caption || '')}</p>
+          </figcaption>
+        </figure>` : '';
+
+  /* A 360 tour is a third-party embed weighing several megabytes, so it loads
+     only when asked: the poster is a still from the project, and the iframe
+     replaces it on click. Matterport's own title bar and branding are switched
+     off (title=0&brand=0) because the tour is titled with the developer's
+     project name, which this site does not publish. */
+  const tour = media.tour;
+  const tourBlock = tour?.url ? `<figure class="project-tour reveal-soft" data-project-tour>
+          <div class="project-tour-frame">
+            <button type="button" class="project-tour-launch" data-tour-launch data-tour-src="${esc(tourEmbedUrl(tour.url))}" aria-label="${esc(t('media.openVirtualTour', locale))}">
+              ${tour.poster ? pictureTag({ src: tour.poster, alt: tour.alt || '', width: tour.width || 1600, height: tour.height || 900 }, '', 'lazy', { sizes: MEDIA_TILE_SIZES }) : ''}
+              <span class="project-tour-cta">
+                <span class="project-tour-cta-icon" aria-hidden="true"></span>
+                <span>${t('media.openVirtualTour', locale)}</span>
+              </span>
+            </button>
+          </div>
+          <figcaption>
+            <span>${t('media.virtualTour', locale)}</span>
+            <strong>${esc(tour.title || '')}</strong>
+            <p>${esc(tour.caption || t('media.tourLoads', locale))}</p>
           </figcaption>
         </figure>` : '';
 
@@ -318,6 +354,7 @@ function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
         </div>
         ${facts ? `<div class="media-facts reveal-soft">${facts}</div>` : ''}
         ${videoBlock}
+        ${tourBlock}
         <div class="project-media-grid project-media-grid--categories" data-media-grid>
           ${cards}
         </div>
@@ -2230,6 +2267,21 @@ function validateProject(project) {
   // old SVG map -- the author would reasonably assume the new map was live.
   if (Array.isArray(project.location?.site) && !hasLiveLocationMap(project.slug)) {
     throw new Error(`${label}: "location.site" is set but ${project.slug} has no routed map data. Run: node scripts/build_location_maps.mjs --project=${project.slug}`);
+  }
+  // A tour URL is embedded in an iframe, so it is the one field on a project
+  // that can execute third-party code on the page. Only Matterport's own show
+  // URLs are accepted -- not a shortener, not a redirect, not http.
+  const tourUrl = project.media?.tour?.url;
+  if (tourUrl !== undefined) {
+    let parsed = null;
+    try { parsed = new URL(String(tourUrl)); } catch { parsed = null; }
+    const ok = parsed && parsed.protocol === 'https:'
+      && /(^|\.)matterport\.com$/.test(parsed.hostname)
+      && parsed.pathname.startsWith('/show')
+      && parsed.searchParams.get('m');
+    if (!ok) {
+      throw new Error(`${label}: "media.tour.url" must be an https Matterport show link with an "m" model id (got ${JSON.stringify(tourUrl)}).`);
+    }
   }
   // location.mapArea is a MAP_LANDMARKS key, not prose. resolveMapArea() falls
   // back to marbellaCentre for anything it does not recognise, so a descriptive

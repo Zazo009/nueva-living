@@ -517,3 +517,25 @@
     apply();
   });
 })();
+
+/* 360 virtual tour: click to load.
+   The embed is several megabytes of third-party JavaScript, so it is not in the
+   page until a visitor asks for it -- the poster stands in until then, which
+   also means the tour costs nothing to the visitors who never open it. */
+(() => {
+  document.querySelectorAll('[data-tour-launch]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const src = button.getAttribute('data-tour-src');
+      if (!src) return;
+      const frame = document.createElement('iframe');
+      frame.src = src;
+      frame.title = button.getAttribute('aria-label') || '360 tour';
+      frame.loading = 'lazy';
+      frame.allowFullscreen = true;
+      frame.setAttribute('allow', 'xr-spatial-tracking; fullscreen; accelerometer; gyroscope; magnetometer');
+      frame.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+      frame.className = 'project-tour-embed';
+      button.replaceWith(frame);
+    }, { once: true });
+  });
+})();

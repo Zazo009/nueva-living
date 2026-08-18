@@ -3363,3 +3363,110 @@ body.media-dialog-open {
     grid-template-columns: 1fr;
   }
 }
+
+/* -- 360 virtual tour ------------------------------------------------------ */
+
+.project-tour { margin: 0 0 clamp(28px, 4vw, 44px); }
+
+.project-tour-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--sand);
+}
+
+.project-tour-launch {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: block;
+}
+
+.project-tour-launch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-tour-cta {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: #fff;
+  background: rgba(30, 26, 22, 0.34);
+  font-family: 'Jost', system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  transition: background .3s ease;
+}
+
+.project-tour-launch:hover .project-tour-cta { background: rgba(30, 26, 22, 0.46); }
+
+.project-tour-cta-icon {
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(255, 255, 255, .8);
+  border-radius: 50%;
+  position: relative;
+}
+
+.project-tour-cta-icon::before,
+.project-tour-cta-icon::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, .85);
+  border-radius: 50%;
+}
+.project-tour-cta-icon::before { width: 26px; height: 26px; }
+/* The flattened ellipse reads as an orbit, so the mark says "look around"
+   rather than "play a video" -- this is a tour, not a film. */
+.project-tour-cta-icon::after { width: 40px; height: 15px; }
+
+.project-tour-embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.project-tour figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 14px;
+}
+
+.project-tour figcaption span {
+  font-family: 'Jost', system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold, #a9834a);
+}
+
+.project-tour figcaption strong {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.project-tour figcaption p {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(46, 42, 38, .62);
+}
