@@ -1248,6 +1248,35 @@ ${paymentTerms.length ? `      <div class="project-inner timeline-payment-terms 
 `;
 }
 
+function renderFurniturePackages(project, locale = DEFAULT_LOCALE) {
+  const section = project.furniturePackages;
+  if (!section?.items?.length) return '';
+
+  const cards = section.items.map((item) => `<article class="furniture-package-card reveal-soft">
+            <h3>${esc(item.name)}</h3>
+            <p>${esc(item.description)}</p>
+            <strong class="furniture-package-price"><span>${t('furniture.priceFrom', locale)}</span>${esc(item.price)}</strong>
+            <a class="btn ghost project-btn" href="${esc(item.pdf)}" target="_blank" rel="noopener">${t('furniture.downloadBrochure', locale)}</a>
+          </article>`).join('\n          ');
+
+  return `    <section class="project-section" id="furniture-packages">
+      <div class="project-inner">
+        <div class="reveal-soft">
+          <span class="section-kicker">${t('section.furniturePackages', locale)}</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">${section.headlineHtml}</h2>
+          <p class="project-lead">${esc(section.copy)}</p>
+        </div>
+        <div class="furniture-package-grid">
+          ${cards}
+        </div>
+        ${section.sourceNote ? `<p class="availability-source-note">${esc(section.sourceNote)}</p>` : ''}
+      </div>
+    </section>
+
+`;
+}
+
 function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const project = localizeProject(sourceProject, locale);
   const rtl = isRtl(locale);
@@ -1268,6 +1297,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const privateCta = project.privateViewing?.ctaLabel || t('cta.cinematicPresentation', locale);
   const projectMedia = renderProjectMedia(project, locale);
   const constructionTimeline = renderConstructionTimeline(project, locale);
+  const furniturePackagesSection = renderFurniturePackages(project, locale);
   const availabilityRelease = renderAvailabilityRelease(project, locale);
   const hasPublishedAvailability = Boolean(project.availability?.units?.length);
   const hasFloorplans = Boolean(project.availability?.units?.some((unit) => unit.floorplan));
@@ -1437,7 +1467,7 @@ ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
         <a href="#overview">${t('navInPage.overview', locale)}</a>
 ${project.media?.items?.length ? `        <a href="#media">${t('navInPage.media', locale)}</a>\n` : ''}        <a href="#location">${t('navInPage.location', locale)}</a>
 ${constructionTimeline ? `        <a href="#construction-timeline">${t('timeline.paymentTerms', locale)}</a>\n` : ''}        <a href="#residences">${t('navInPage.residences', locale)}</a>
-        <a href="#availability">${t('navInPage.availability', locale)}</a>
+${project.furniturePackages?.items?.length ? `        <a href="#furniture-packages">${t('navInPage.furniture', locale)}</a>\n` : ''}        <a href="#availability">${t('navInPage.availability', locale)}</a>
         <a href="#calculator">${t('navInPage.affordability', locale)}</a>
         <a href="#why-this-project">${t('navInPage.why', locale)}</a>
         <a href="#architecture">${t('navInPage.architecture', locale)}</a>
@@ -1521,6 +1551,8 @@ ${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}  
         </div>
       </div>
     </section>
+
+${furniturePackagesSection}
 
     <section class="project-section" id="availability">
       <div class="project-inner">
