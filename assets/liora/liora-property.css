@@ -1634,6 +1634,68 @@ body {
   font-weight: 400;
 }
 
+.availability-sitemaps {
+  padding: 24px clamp(18px, 2.5vw, 30px);
+  border-bottom: 1px solid var(--line);
+}
+
+.availability-sitemaps-title {
+  margin: 0 0 16px;
+  color: rgba(74, 59, 40, 0.62);
+  font-family: var(--ui-font);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.availability-sitemap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.availability-sitemap-tile {
+  display: block;
+  border: 1px solid var(--line);
+  background: #fff;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.availability-sitemap-tile:hover,
+.availability-sitemap-tile:focus-visible {
+  border-color: var(--ink);
+}
+
+.availability-sitemap-tile img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.availability-sitemap-caption {
+  display: block;
+  padding: 10px clamp(12px, 2vw, 16px) 14px;
+  color: var(--ink);
+  font-family: var(--body-font);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .availability-sitemap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .availability-sitemap-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .availability-disclosure summary {
   min-height: 64px;
   padding: 18px clamp(20px, 3vw, 32px);

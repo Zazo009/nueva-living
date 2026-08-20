@@ -32,7 +32,7 @@
   <link rel="preload" href="assets/fonts/arabic/SLXVc1nY6HkvangtZmpQdkhzfH5lkSscQyyS4J0.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=4a17757f1f82">
+  <link rel="stylesheet" href="assets/liora/liora-property.css?v=f743aac8a0d3">
   <link rel="stylesheet" href="assets/liora/liora-rtl.css?v=5c5c8fb3f754">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
@@ -309,7 +309,10 @@
 
   <main>
     <section class="project-hero" id="top">
-      <img class="project-hero-img" src="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.jpg" alt="Aerial view of the staggered terraced complex with driveway and sea views" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+      <picture>
+        <source type="image/webp" srcset="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway-640.webp 640w, assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway-960.webp 960w, assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.webp 1920w" sizes="100vw">
+        <img class="project-hero-img" src="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.jpg" alt="Aerial view of the staggered terraced complex with driveway and sea views" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+      </picture>
       <div class="project-hero-inner">
         <div class="hero-copy reveal-soft">
           <span class="project-eyebrow">مشروع جديد / مجمع سكني مغلق</span>
@@ -385,11 +388,37 @@
           <p class="project-lead">صور حاسوبية مقدمة من المطور. الأثاث والتصميم الداخلي والنباتات إرشادية وغير مشمولة في البيع.</p>
         </div>
         
-        
+        <figure class="project-media-film reveal-soft" data-project-video-shell>
+          <div class="project-media-film-frame">
+            <video
+              playsinline
+              preload="none"
+              poster="assets/liora/projects/laurel-hill-residences/media/laurel-hill-interiors-poster.jpg"
+              data-project-video
+              data-video-desktop="assets/liora/projects/laurel-hill-residences/video/laurel-hill-interiors-desktop.mp4"
+              data-video-mobile="assets/liora/projects/laurel-hill-residences/video/laurel-hill-interiors-mobile.mp4"
+              data-poster-desktop="assets/liora/projects/laurel-hill-residences/media/laurel-hill-interiors-poster.jpg"
+              data-poster-mobile="assets/liora/projects/laurel-hill-residences/media/laurel-hill-interiors-poster-mobile.jpg"
+              aria-label="فيلم تعريفي لمشروع Laurel Hill Residences يعرض المجمع المتدرج ومركز العافية ومنزلاً مفروشاً"
+            ></video>
+            <button type="button" class="project-media-film-play" data-project-video-play aria-label="تشغيل الفيلم Laurel Hill Residences، بالفيديو">
+              <span class="project-media-film-play-icon" aria-hidden="true"></span>
+              <span>تشغيل الفيلم</span>
+            </button>
+          </div>
+          <figcaption>
+            <span>الفيلم</span>
+            <strong>Laurel Hill Residences، بالفيديو</strong>
+            <p>فيلم قصير مقدم من المطور يعرض المجمع المتدرج ومركز العافية ومنزلاً نموذجياً مفروشاً. قد تختلف الوحدات والتشطيبات وتنسيق الحدائق والإطلالات النهائية.</p>
+          </figcaption>
+        </figure>
         
         <div class="project-media-grid project-media-grid--categories" data-media-grid>
           <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="عرض 8 صور في الواجهات الخارجية">
-              <img src="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.jpg" alt="منظر جوي للمجمع المتدرج بممر سيارات وإطلالة على البحر" width="1920" height="1080" loading="lazy" decoding="async">
+              <picture>
+        <source type="image/webp" srcset="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway-640.webp 640w, assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway-960.webp 960w, assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
+        <img src="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.jpg" alt="منظر جوي للمجمع المتدرج بممر سيارات وإطلالة على البحر" width="1920" height="1080" loading="lazy" decoding="async">
+      </picture>
               <span class="project-media-caption">
                 <small>الواجهات الخارجية</small>
                 <strong>منظر جوي للمجمع وممر السيارات</strong>
@@ -397,7 +426,10 @@
               </span>
             </button>
             <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="عرض 5 صور في المرافق">
-              <img src="assets/liora/projects/laurel-hill-residences/media/outdoor-infinity-pool-cliff.jpg" alt="مسبح لا نهائي خارجي على حافة المنحدر بإطلالة بانورامية على البحر" width="1920" height="1080" loading="lazy" decoding="async">
+              <picture>
+        <source type="image/webp" srcset="assets/liora/projects/laurel-hill-residences/media/outdoor-infinity-pool-cliff-640.webp 640w, assets/liora/projects/laurel-hill-residences/media/outdoor-infinity-pool-cliff-960.webp 960w, assets/liora/projects/laurel-hill-residences/media/outdoor-infinity-pool-cliff.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
+        <img src="assets/liora/projects/laurel-hill-residences/media/outdoor-infinity-pool-cliff.jpg" alt="مسبح لا نهائي خارجي على حافة المنحدر بإطلالة بانورامية على البحر" width="1920" height="1080" loading="lazy" decoding="async">
+      </picture>
               <span class="project-media-caption">
                 <small>المرافق</small>
                 <strong>مسبح لا نهائي خارجي بإطلالة بانورامية على البحر</strong>
@@ -405,7 +437,10 @@
               </span>
             </button>
             <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="عرض 5 صور في الداخل">
-              <img src="assets/liora/projects/laurel-hill-residences/media/open-plan-living-dining.jpg" alt="صالة معيشة وطعام ومطبخ بتصميم مفتوح بتشطيبات خشب طبيعي" width="1920" height="1084" loading="lazy" decoding="async">
+              <picture>
+        <source type="image/webp" srcset="assets/liora/projects/laurel-hill-residences/media/open-plan-living-dining-640.webp 640w, assets/liora/projects/laurel-hill-residences/media/open-plan-living-dining-960.webp 960w, assets/liora/projects/laurel-hill-residences/media/open-plan-living-dining.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
+        <img src="assets/liora/projects/laurel-hill-residences/media/open-plan-living-dining.jpg" alt="صالة معيشة وطعام ومطبخ بتصميم مفتوح بتشطيبات خشب طبيعي" width="1920" height="1084" loading="lazy" decoding="async">
+      </picture>
               <span class="project-media-caption">
                 <small>الداخل</small>
                 <strong>صالة معيشة وطعام ومطبخ بتصميم مفتوح</strong>
@@ -516,6 +551,7 @@
             <div><span>نطاق السعر</span><strong>850,000 يورو - 1,450,000 يورو</strong></div>
             <div><span>تم التحقق</span><strong>أغسطس 2026</strong></div>
           </div>
+          
           <details class="availability-disclosure">
             <summary>
               <span>عرض جميع الوحدات المتاحة (87)</span>

@@ -708,6 +708,22 @@ function renderUnitCard(unit, project, locale) {
               </article>`;
 }
 
+function renderAvailabilitySiteMaps(availability, locale = DEFAULT_LOCALE) {
+  const maps = availability.siteMaps || [];
+  if (!maps.length) return '';
+  const tiles = maps.map((map) => `<a class="availability-sitemap-tile" href="${esc(map.src)}" target="_blank" rel="noopener" aria-label="${esc(map.caption || t('availability.viewFullSize', locale))}">
+              ${pictureTag(map, '', 'lazy', { sizes: '(max-width: 760px) 92vw, (max-width: 1100px) 44vw, 30vw' })}
+              <span class="availability-sitemap-caption">${esc(map.caption || '')}</span>
+            </a>`).join('\n            ');
+  return `<div class="availability-sitemaps reveal-soft">
+            <h3 class="availability-sitemaps-title">${t('availability.sitePlans', locale)}</h3>
+            <div class="availability-sitemap-grid">
+            ${tiles}
+            </div>
+            ${availability.siteMapsNote ? `<p class="availability-source-note">${esc(availability.siteMapsNote)}</p>` : ''}
+          </div>`;
+}
+
 function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   const availability = project.availability || {};
   const units = availability.units || [];
@@ -744,6 +760,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
             <div><span>${t('availability.priceRange', locale)}</span><strong>${esc(availability.priceRange || '')}</strong></div>
             <div><span>${t('availability.checked', locale)}</span><strong>${esc(localizeMonthDate(availability.checkedDate, locale) || '')}</strong></div>
           </div>
+          ${renderAvailabilitySiteMaps(availability, locale)}
           <details class="availability-disclosure">
             <summary>
               <span>${t('availability.viewAll', locale, { count: units.length })}</span>

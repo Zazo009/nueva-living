@@ -31,7 +31,7 @@
   <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="assets/liora/liora-property.css?v=4a17757f1f82">
+  <link rel="stylesheet" href="assets/liora/liora-property.css?v=f743aac8a0d3">
   <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
@@ -307,7 +307,10 @@
 
   <main>
     <section class="project-hero" id="top">
-      <img class="project-hero-img" src="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.jpg" alt="Aerial view of the staggered terraced complex with driveway and sea views" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+      <picture>
+        <source type="image/webp" srcset="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway-640.webp 640w, assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway-960.webp 960w, assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.webp 1920w" sizes="100vw">
+        <img class="project-hero-img" src="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.jpg" alt="Aerial view of the staggered terraced complex with driveway and sea views" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+      </picture>
       <div class="project-hero-inner">
         <div class="hero-copy reveal-soft">
           <span class="project-eyebrow">Nouvelle Promotion / Residence Fermee</span>
@@ -383,11 +386,37 @@
           <p class="project-lead">Images de synthese fournies par le promoteur. Le mobilier, la decoration et les plantations sont indicatifs et ne sont pas inclus dans la vente.</p>
         </div>
         
-        
+        <figure class="project-media-film reveal-soft" data-project-video-shell>
+          <div class="project-media-film-frame">
+            <video
+              playsinline
+              preload="none"
+              poster="assets/liora/projects/laurel-hill-residences/media/laurel-hill-interiors-poster.jpg"
+              data-project-video
+              data-video-desktop="assets/liora/projects/laurel-hill-residences/video/laurel-hill-interiors-desktop.mp4"
+              data-video-mobile="assets/liora/projects/laurel-hill-residences/video/laurel-hill-interiors-mobile.mp4"
+              data-poster-desktop="assets/liora/projects/laurel-hill-residences/media/laurel-hill-interiors-poster.jpg"
+              data-poster-mobile="assets/liora/projects/laurel-hill-residences/media/laurel-hill-interiors-poster-mobile.jpg"
+              aria-label="Film de présentation de Laurel Hill Residences montrant l'ensemble étagé, le centre de bien-être et un logement meublé"
+            ></video>
+            <button type="button" class="project-media-film-play" data-project-video-play aria-label="Lire le film Laurel Hill Residences, présenté">
+              <span class="project-media-film-play-icon" aria-hidden="true"></span>
+              <span>Lire le film</span>
+            </button>
+          </div>
+          <figcaption>
+            <span>Film</span>
+            <strong>Laurel Hill Residences, présenté</strong>
+            <p>Un court film fourni par le promoteur montrant l'ensemble étagé, le centre de bien-être et un logement témoin meublé. Les logements, finitions, aménagements paysagers et vues définitifs peuvent varier.</p>
+          </figcaption>
+        </figure>
         
         <div class="project-media-grid project-media-grid--categories" data-media-grid>
           <button type="button" class="project-media-card project-media-card--category" data-media-category="Exteriors" aria-label="Voir 8 images dans Extérieurs">
-              <img src="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.jpg" alt="Vue aerienne du complexe etage avec allee et vue sur la mer" width="1920" height="1080" loading="lazy" decoding="async">
+              <picture>
+        <source type="image/webp" srcset="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway-640.webp 640w, assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway-960.webp 960w, assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
+        <img src="assets/liora/projects/laurel-hill-residences/media/aerial-view-complex-driveway.jpg" alt="Vue aerienne du complexe etage avec allee et vue sur la mer" width="1920" height="1080" loading="lazy" decoding="async">
+      </picture>
               <span class="project-media-caption">
                 <small>Extérieurs</small>
                 <strong>Vue aerienne du complexe et de l'allee</strong>
@@ -395,7 +424,10 @@
               </span>
             </button>
             <button type="button" class="project-media-card project-media-card--category" data-media-category="Amenities" aria-label="Voir 5 images dans Équipements">
-              <img src="assets/liora/projects/laurel-hill-residences/media/outdoor-infinity-pool-cliff.jpg" alt="Piscine exterieure a debordement au bord du coteau avec vue panoramique sur la mer" width="1920" height="1080" loading="lazy" decoding="async">
+              <picture>
+        <source type="image/webp" srcset="assets/liora/projects/laurel-hill-residences/media/outdoor-infinity-pool-cliff-640.webp 640w, assets/liora/projects/laurel-hill-residences/media/outdoor-infinity-pool-cliff-960.webp 960w, assets/liora/projects/laurel-hill-residences/media/outdoor-infinity-pool-cliff.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
+        <img src="assets/liora/projects/laurel-hill-residences/media/outdoor-infinity-pool-cliff.jpg" alt="Piscine exterieure a debordement au bord du coteau avec vue panoramique sur la mer" width="1920" height="1080" loading="lazy" decoding="async">
+      </picture>
               <span class="project-media-caption">
                 <small>Équipements</small>
                 <strong>Piscine exterieure a debordement avec vue panoramique sur la mer</strong>
@@ -403,7 +435,10 @@
               </span>
             </button>
             <button type="button" class="project-media-card project-media-card--category" data-media-category="Interiors" aria-label="Voir 5 images dans Intérieurs">
-              <img src="assets/liora/projects/laurel-hill-residences/media/open-plan-living-dining.jpg" alt="Sejour, salle a manger et cuisine en plan ouvert avec finitions en bois naturel" width="1920" height="1084" loading="lazy" decoding="async">
+              <picture>
+        <source type="image/webp" srcset="assets/liora/projects/laurel-hill-residences/media/open-plan-living-dining-640.webp 640w, assets/liora/projects/laurel-hill-residences/media/open-plan-living-dining-960.webp 960w, assets/liora/projects/laurel-hill-residences/media/open-plan-living-dining.webp 1920w" sizes="(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw">
+        <img src="assets/liora/projects/laurel-hill-residences/media/open-plan-living-dining.jpg" alt="Sejour, salle a manger et cuisine en plan ouvert avec finitions en bois naturel" width="1920" height="1084" loading="lazy" decoding="async">
+      </picture>
               <span class="project-media-caption">
                 <small>Intérieurs</small>
                 <strong>Sejour, salle a manger et cuisine en plan ouvert</strong>
@@ -514,6 +549,7 @@
             <div><span>Fourchette de Prix</span><strong>850 000 EUR - 1 450 000 EUR</strong></div>
             <div><span>Vérifié</span><strong>Aout 2026</strong></div>
           </div>
+          
           <details class="availability-disclosure">
             <summary>
               <span>Voir les 87 Biens Disponibles</span>
