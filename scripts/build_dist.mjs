@@ -313,6 +313,10 @@ function projectAreaLabel(project) {
   if (location.includes('benahav')) return 'Benahavis';
   if (location.includes('estepona') || location.includes('new golden mile')) return 'Estepona';
   if (location.includes('mijas') || location.includes('fuengirola')) return 'Mijas & Fuengirola';
+  // Benalmadena has no area page of its own; group it with Mijas & Fuengirola
+  // rather than falling through to the Marbella default (see the matching
+  // branch in build_property_pages.mjs's projectArea()).
+  if (location.includes('benalmad')) return 'Mijas & Fuengirola';
   // Kept in step with projectArea() in build_property_pages.mjs. That file
   // titles the locale variants and this one the English page, so a branch
   // added there and not here silently gives a project two different areas.

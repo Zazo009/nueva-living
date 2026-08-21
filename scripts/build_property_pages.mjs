@@ -1031,6 +1031,12 @@ function projectArea(project, locale = DEFAULT_LOCALE) {
   if (location.includes('mijas') || location.includes('fuengirola')) {
     return { label: t('area.mijasFuengirola', locale), href: 'area-mijas-fuengirola.html' };
   }
+  // Benalmadena has no area page of its own; it sits between Fuengirola and
+  // Torremolinos, so it belongs with the Mijas & Fuengirola page rather than
+  // falling through to the Marbella default.
+  if (location.includes('benalmad')) {
+    return { label: t('area.mijasFuengirola', locale), href: 'area-mijas-fuengirola.html' };
+  }
   // Casares has no area page of its own; it sits west of Estepona and belongs
   // with that page. Without this branch it fell through to the Marbella default
   // and a Casares project was breadcrumbed, titled and schema-tagged as Marbella.
