@@ -8,22 +8,22 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   // programmatically from content/i18n/strings.json's faq.* keys so the
   // text stays identical to what property pages already show.
   { find: 'Can foreigners buy property in Spain?', es: '¿Pueden los extranjeros comprar propiedades en España?', fr: 'Les étrangers peuvent-ils acheter un bien immobilier en Espagne ?', de: 'Können Ausländer in Spanien Immobilien kaufen?', ru: 'Могут ли иностранцы покупать недвижимость в Испании?', ar: 'هل يمكن للأجانب شراء عقار في إسبانيا؟', nl: 'Kunnen buitenlanders onroerend goed kopen in Spanje?', pl: 'Czy cudzoziemcy mogą kupować nieruchomości w Hiszpanii?', sv: 'Kan utlänningar köpa fastigheter i Spanien?', no: 'Kan utlendinger kjøpe eiendom i Spania?' },
-  { find: 'Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident.', es: 'Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes.', fr: 'Oui. Il n\'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu\'ils soient résidents ou non-résidents.', de: 'Ja. Es gibt keine Einschränkungen für nicht-spanische Staatsangehörige beim Immobilienkauf in Spanien, ob als Resident oder Nicht-Resident.', ru: 'Да. Для граждан других стран не существует ограничений на покупку недвижимости в Испании, будь то резиденты или нерезиденты.', ar: 'نعم. لا توجد قيود على شراء غير المواطنين الإسبان للعقارات في إسبانيا، سواء كانوا مقيمين أو غير مقيمين.', nl: 'Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.', pl: 'Tak. Nie ma żadnych ograniczeń dla obywateli innych krajów niż Hiszpania kupujących nieruchomości w Hiszpanii, niezależnie od tego, czy są rezydentami, czy nierezydentami.', sv: 'Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastighet i Spanien, vare sig som bosatt eller icke bosatt.', no: 'Ja. Det er ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, verken som fastboende eller ikke-fastboende.' },
+  { find: 'Yes. There are no restrictions on non-Spanish nationals buying property in Spain, whether as a resident or non-resident.', es: 'Sí. No existen restricciones para que ciudadanos no españoles compren propiedades en España, ya sean residentes o no residentes.', fr: 'Oui. Il n\'existe aucune restriction pour les ressortissants non espagnols souhaitant acheter un bien en Espagne, qu\'ils soient résidents ou non-résidents.', de: 'Ja. Es gibt keine Einschränkungen für nicht-spanische Staatsangehörige beim Immobilienkauf in Spanien, ob als Resident oder Nicht-Resident.', ru: 'Да. Для граждан других стран не существует ограничений на покупку недвижимости в Испании, будь то резиденты или нерезиденты.', ar: 'نعم. لا توجد قيود على شراء غير المواطنين الإسبان للعقارات في إسبانيا، سواء كانوا مقيمين أو غير مقيمين.', nl: 'Ja. Er gelden geen beperkingen voor niet-Spaanse onderdanen die onroerend goed kopen in Spanje, ongeacht of zij ingezetene of niet-ingezetene zijn.', pl: 'Tak. Nie ma żadnych ograniczeń dotyczących zakupu nieruchomości w Hiszpanii przez cudzoziemców, niezależnie od tego, czy są rezydentami, czy nierezydentami.', sv: 'Ja. Det finns inga restriktioner för icke-spanska medborgare som köper fastighet i Spanien, vare sig som bosatt eller icke bosatt.', no: 'Ja. Det er ingen restriksjoner for ikke-spanske statsborgere som kjøper eiendom i Spania, verken som fastboende eller ikke-fastboende.' },
   { find: 'What is an NIE number and do I need one?', es: '¿Qué es el número de NIE y lo necesito?', fr: 'Qu\'est-ce que le numéro NIE et en ai-je besoin ?', de: 'Was ist eine NIE-Nummer und benötige ich eine?', ru: 'Что такое номер NIE и нужен ли он мне?', ar: 'ما هو رقم NIE وهل أحتاج إليه؟', nl: 'Wat is een NIE-nummer en heb ik er een nodig?', pl: 'Czym jest numer NIE i czy jest mi potrzebny?', sv: 'Vad är ett NIE-nummer och behöver jag ett?', no: 'Hva er et NIE-nummer, og trenger jeg et?' },
   { find: 'An NIE (Numero de Identificacion de Extranjero) is a tax ID number required for any property purchase in Spain by a non-Spanish national. Nueva Living can guide you through obtaining one before you reserve.', es: 'El NIE (Número de Identificación de Extranjero) es un número de identificación fiscal necesario para que cualquier ciudadano no español compre una propiedad en España. Nueva Living puede ayudarte a obtenerlo antes de reservar.', fr: 'Le NIE (Numéro d\'Identification d\'Étranger) est un numéro fiscal requis pour tout achat immobilier en Espagne par un ressortissant non espagnol. Nueva Living peut vous accompagner dans son obtention avant la réservation.', de: 'Die NIE (Numero de Identificacion de Extranjero) ist eine Steuer-ID, die für jeden Immobilienkauf in Spanien durch eine nicht-spanische Person erforderlich ist. Nueva Living begleitet Sie bei der Beantragung vor der Reservierung.', ru: 'NIE (Numero de Identificacion de Extranjero) — это налоговый идентификационный номер, необходимый для покупки недвижимости в Испании гражданином другой страны. Nueva Living поможет вам получить его перед бронированием.', ar: 'رقم NIE (رقم تعريف الأجنبي) هو رقم تعريف ضريبي مطلوب لأي عملية شراء عقار في إسبانيا من قبل غير المواطنين الإسبان. يمكن لفريق Nueva Living مساعدتك في الحصول عليه قبل الحجز.', nl: 'Een NIE (Número de Identificación de Extranjero) is een fiscaal identificatienummer dat vereist is voor elke aankoop van onroerend goed in Spanje door een niet-Spaans onderdaan. Nueva Living begeleidt u graag bij het aanvragen ervan voordat u reserveert.', pl: 'NIE (Número de Identificación de Extranjero) to numer identyfikacji podatkowej wymagany przy każdym zakupie nieruchomości w Hiszpanii przez obywatela innego kraju. Nueva Living pomoże Państwu go uzyskać przed dokonaniem rezerwacji.', sv: 'Ett NIE (Número de Identificación de Extranjero) är ett skatteregistreringsnummer som krävs vid alla fastighetsköp i Spanien av en icke-spansk medborgare. Nueva Living kan hjälpa er att skaffa ett innan ni bokar.', no: 'Et NIE (Número de Identificación de Extranjero) er et skatte-ID-nummer som kreves ved ethvert eiendomskjøp i Spania av en ikke-spansk statsborger. Nueva Living kan veilede deg gjennom å skaffe et før du reserverer.' },
   { find: 'What costs should I budget for on top of the purchase price?', es: '¿Qué gastos adicionales debo prever además del precio de compra?', fr: 'Quels frais dois-je prévoir en plus du prix d\'achat ?', de: 'Mit welchen zusätzlichen Kosten muss ich neben dem Kaufpreis rechnen?', ru: 'Какие расходы стоит заложить сверх стоимости покупки?', ar: 'ما هي التكاليف التي يجب أن أضعها في ميزانيتي إضافة إلى سعر الشراء؟', nl: 'Met welke kosten moet ik naast de aankoopprijs rekening houden?', pl: 'Jakie dodatkowe koszty powinienem uwzględnić poza ceną zakupu?', sv: 'Vilka kostnader bör jag budgetera för utöver köpeskillingen?', no: 'Hvilke kostnader bør jeg budsjettere med i tillegg til kjøpesummen?' },
   { find: 'Buyers typically budget for transfer tax or VAT, notary fees, land registry fees and legal fees on top of the purchase price. Nueva Living provides a full, current cost breakdown for your chosen residence before you reserve.', es: 'Los compradores suelen prever el impuesto de transmisiones o el IVA, los honorarios de notaría, del registro de la propiedad y los gastos legales, además del precio de compra. Nueva Living te facilita un desglose completo y actualizado de los costes antes de reservar.', fr: 'Les acheteurs prévoient généralement les droits de mutation ou la TVA, les frais de notaire, les frais d\'enregistrement et les honoraires juridiques en plus du prix d\'achat. Nueva Living vous fournit une répartition complète et actuelle des coûts avant la réservation.', de: 'Käufer sollten neben dem Kaufpreis in der Regel Grunderwerbsteuer bzw. Mehrwertsteuer, Notarkosten, Grundbuchgebühren und Anwaltskosten einplanen. Nueva Living stellt Ihnen vor der Reservierung eine vollständige, aktuelle Kostenaufstellung zur Verfügung.', ru: 'Помимо стоимости покупки, покупателям обычно следует заложить налог на переход права собственности или НДС, нотариальные расходы, регистрационные сборы и юридические услуги. Nueva Living предоставит полную и актуальную разбивку расходов перед бронированием.', ar: 'عادةً ما يضع المشترون في ميزانيتهم ضريبة النقل أو ضريبة القيمة المضافة ورسوم التوثيق ورسوم التسجيل العقاري والأتعاب القانونية، إضافة إلى سعر الشراء. تزودك Nueva Living بتفصيل كامل وحديث للتكاليف قبل الحجز.', nl: 'Kopers houden doorgaans rekening met overdrachtsbelasting of btw, notariskosten, kosten van het kadaster en juridische kosten bovenop de aankoopprijs. Nueva Living verstrekt een volledig, actueel kostenoverzicht voor uw gekozen woning voordat u reserveert.', pl: 'Kupujący powinni zwykle uwzględnić podatek od czynności cywilnoprawnych lub VAT, opłaty notarialne, opłaty za wpis do księgi wieczystej oraz honoraria prawne, poza ceną zakupu. Nueva Living przedstawia pełne, aktualne zestawienie kosztów dla wybranej przez Państwa nieruchomości przed dokonaniem rezerwacji.', sv: 'Köpare bör vanligtvis budgetera för överlåtelseskatt eller moms, notarieavgifter, avgifter till fastighetsregistret och juridiska kostnader utöver köpeskillingen. Nueva Living tillhandahåller en fullständig, aktuell kostnadsspecifikation för er valda bostad innan ni bokar.', no: 'Kjøpere bør vanligvis budsjettere med overdragelsesskatt eller moms, notargebyrer, tinglysningsgebyrer og advokatkostnader i tillegg til kjøpesummen. Nueva Living gir deg en fullstendig, oppdatert kostnadsoversikt for boligen du har valgt, før du reserverer.' },
   { find: 'Can I get a mortgage in Spain as a non-resident?', es: '¿Puedo conseguir una hipoteca en España siendo no residente?', fr: 'Puis-je obtenir un prêt hypothécaire en Espagne en tant que non-résident ?', de: 'Kann ich als Nicht-Resident eine Hypothek in Spanien erhalten?', ru: 'Могу ли я получить ипотеку в Испании, будучи нерезидентом?', ar: 'هل يمكنني الحصول على قرض عقاري في إسبانيا كغير مقيم؟', nl: 'Kan ik als niet-ingezetene een hypotheek krijgen in Spanje?', pl: 'Czy jako nierezydent mogę uzyskać kredyt hipoteczny w Hiszpanii?', sv: 'Kan jag få bolån i Spanien som icke bosatt?', no: 'Kan jeg få boliglån i Spania som ikke-fastboende?' },
   { find: 'Many Spanish banks offer mortgages to non-resident buyers, typically financing a portion of the purchase price. Exact terms depend on the bank and your personal financial profile.', es: 'Muchos bancos españoles ofrecen hipotecas a compradores no residentes, financiando normalmente una parte del precio de compra. Las condiciones exactas dependen del banco y de tu perfil financiero personal.', fr: 'De nombreuses banques espagnoles proposent des prêts hypothécaires aux acheteurs non-résidents, finançant généralement une partie du prix d\'achat. Les conditions exactes dépendent de la banque et de votre profil financier personnel.', de: 'Viele spanische Banken bieten Hypotheken für nicht ansässige Käufer an und finanzieren dabei in der Regel einen Teil des Kaufpreises. Die genauen Konditionen hängen von der Bank und Ihrem persönlichen finanziellen Profil ab.', ru: 'Многие испанские банки предлагают ипотеку нерезидентам, обычно финансируя часть стоимости покупки. Точные условия зависят от банка и вашего личного финансового профиля.', ar: 'تقدّم العديد من البنوك الإسبانية قروضًا عقارية للمشترين غير المقيمين، وعادةً ما تموّل جزءًا من سعر الشراء. تعتمد الشروط الدقيقة على البنك وملفك المالي الشخصي.', nl: 'Veel Spaanse banken bieden hypotheken aan niet-ingezeten kopers, waarbij doorgaans een deel van de aankoopprijs wordt gefinancierd. De exacte voorwaarden zijn afhankelijk van de bank en uw persoonlijke financiële profiel.', pl: 'Wiele hiszpańskich banków oferuje kredyty hipoteczne kupującym nierezydentom, zazwyczaj finansując część ceny zakupu. Dokładne warunki zależą od banku oraz Państwa indywidualnej sytuacji finansowej.', sv: 'Många spanska banker erbjuder bolån till icke bosatta köpare och finansierar vanligtvis en del av köpeskillingen. De exakta villkoren beror på banken och er personliga ekonomiska profil.', no: 'Mange spanske banker tilbyr boliglån til ikke-fastboende kjøpere, og finansierer vanligvis en del av kjøpesummen. De nøyaktige vilkårene avhenger av banken og din personlige økonomiske profil.' },
-  { find: 'What is the difference between off-plan and completed properties?', es: '¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?', fr: 'Quelle est la différence entre un bien sur plan et un bien achevé ?', de: 'Was ist der Unterschied zwischen einer Off-Plan-Immobilie und einer fertiggestellten Immobilie?', ru: 'В чём разница между недвижимостью на этапе строительства и готовой недвижимостью?', ar: 'ما الفرق بين العقار على المخطط والعقار الجاهز؟', nl: 'Wat is het verschil tussen een woning op plan en een afgewerkte woning?', pl: 'Jaka jest różnica między nieruchomością na etapie budowy a nieruchomością gotową?', sv: 'Vad är skillnaden mellan projekt under uppförande och färdigställda bostäder?', no: 'Hva er forskjellen mellom prosjekter under bygging og ferdigstilte boliger?' },
-  { find: 'Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now.', es: 'Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato.', fr: 'Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu\'à l\'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement.', de: 'Off-Plan bedeutet, dass sich das Projekt noch im Bau befindet und in der Regel mit gestaffelten Zahlungen bis zur Fertigstellung verkauft wird. Eine fertiggestellte Immobilie kann sofort besichtigt und bezogen werden.', ru: 'Недвижимость на этапе строительства означает, что проект ещё строится и обычно продаётся с поэтапными платежами до завершения. Готовая недвижимость доступна для просмотра и заселения уже сейчас.', ar: 'يعني الشراء على المخطط أن المشروع لا يزال قيد الإنشاء ويُباع عادة بدفعات مجدولة حتى الانتهاء. أما العقار الجاهز فهو متاح للمعاينة والانتقال إليه فورًا.', nl: 'Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een afgewerkte woning is klaar om te bezichtigen en direct te betrekken.', pl: 'Zakup na etapie budowy oznacza, że inwestycja jest jeszcze w trakcie realizacji i zwykle sprzedawana jest z płatnościami etapowymi aż do zakończenia budowy. Nieruchomość gotowa jest dostępna do obejrzenia i wprowadzenia się od razu.', sv: 'Att köpa under uppförande innebär att projektet fortfarande byggs och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är klar att visas och flytta in i direkt.', no: 'Under bygging betyr at prosjektet fortsatt er under oppføring og vanligvis selges med trinnvise betalinger frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang.' },
+  { find: 'What is the difference between off-plan and completed properties?', es: '¿Cuál es la diferencia entre una propiedad sobre plano y una ya terminada?', fr: 'Quelle est la différence entre un bien sur plan et un bien achevé ?', de: 'Was ist der Unterschied zwischen einer Off-Plan-Immobilie und einer fertiggestellten Immobilie?', ru: 'В чём разница между недвижимостью на этапе строительства и готовой недвижимостью?', ar: 'ما الفرق بين العقار على المخطط والعقار الجاهز؟', nl: 'Wat is het verschil tussen een woning op plan en een opgeleverde woning?', pl: 'Jaka jest różnica między nieruchomością na etapie budowy a nieruchomością gotową?', sv: 'Vad är skillnaden mellan projekt under uppförande och färdigställda bostäder?', no: 'Hva er forskjellen mellom prosjekter under bygging og ferdigstilte boliger?' },
+  { find: 'Off-plan means the development is still under construction and is usually sold with staged payments through to completion. A completed property is ready to view and move into now.', es: 'Sobre plano significa que la promoción sigue en construcción y suele venderse con pagos escalonados hasta la entrega. Una propiedad terminada está lista para visitar y para mudarse de inmediato.', fr: 'Sur plan signifie que le programme est encore en construction et se vend généralement avec des paiements échelonnés jusqu\'à l\'achèvement. Un bien achevé est prêt à visiter et à habiter immédiatement.', de: 'Off-Plan bedeutet, dass sich das Projekt noch im Bau befindet und in der Regel mit gestaffelten Zahlungen bis zur Fertigstellung verkauft wird. Eine fertiggestellte Immobilie kann sofort besichtigt und bezogen werden.', ru: 'Недвижимость на этапе строительства означает, что проект ещё строится и обычно продаётся с поэтапными платежами до завершения. Готовая недвижимость доступна для просмотра и заселения уже сейчас.', ar: 'يعني الشراء على المخطط أن المشروع لا يزال قيد الإنشاء ويُباع عادة بدفعات مجدولة حتى الانتهاء. أما العقار الجاهز فهو متاح للمعاينة والانتقال إليه فورًا.', nl: 'Op plan betekent dat het project nog in aanbouw is en meestal wordt verkocht met gefaseerde betalingen tot aan de oplevering. Een opgeleverde woning is klaar om te bezichtigen en direct te betrekken.', pl: 'Zakup na etapie budowy oznacza, że inwestycja jest jeszcze w trakcie realizacji i zwykle sprzedawana jest z płatnościami etapowymi aż do zakończenia budowy. Nieruchomość gotowa jest dostępna do obejrzenia i wprowadzenia się od razu.', sv: 'Att köpa under uppförande innebär att projektet fortfarande byggs och vanligtvis säljs med etappvisa betalningar fram till färdigställandet. En färdigställd bostad är klar att visas och flytta in i direkt.', no: 'Under bygging betyr at prosjektet fortsatt er under oppføring og vanligvis selges med trinnvise betalinger frem til ferdigstillelse. En ferdigstilt bolig er klar til visning og innflytting med en gang.' },
   { find: 'How does the reservation and payment process work?', es: '¿Cómo funciona el proceso de reserva y pago?', fr: 'Comment fonctionne le processus de réservation et de paiement ?', de: 'Wie funktioniert der Reservierungs- und Zahlungsprozess?', ru: 'Как проходит процесс бронирования и оплаты?', ar: 'كيف تتم عملية الحجز والدفع؟', nl: 'Hoe verloopt het reserverings- en betalingsproces?', pl: 'Jak przebiega proces rezerwacji i płatności?', sv: 'Hur går boknings- och betalningsprocessen till?', no: 'Hvordan fungerer reservasjons- og betalingsprosessen?' },
   { find: 'Reservation and payment structures vary by development and are set out in full before you reserve. Nueva Living reconfirms the current schedule for your chosen residence at every step.', es: 'La estructura de reserva y pago varía según la promoción y se detalla por completo antes de reservar. Nueva Living reconfirma el calendario actual de tu vivienda elegida en cada paso.', fr: 'Les modalités de réservation et de paiement varient selon le programme et sont détaillées intégralement avant la réservation. Nueva Living reconfirme le calendrier en vigueur pour votre logement à chaque étape.', de: 'Reservierungs- und Zahlungsstrukturen variieren je nach Projekt und werden vor der Reservierung vollständig dargelegt. Nueva Living bestätigt den aktuellen Zeitplan für Ihre gewählte Wohnung bei jedem Schritt erneut.', ru: 'Условия бронирования и оплаты зависят от конкретного проекта и подробно разъясняются перед бронированием. Nueva Living подтверждает актуальный график для выбранной вами резиденции на каждом этапе.', ar: 'تختلف هياكل الحجز والدفع حسب المشروع ويتم توضيحها بالكامل قبل الحجز. تعيد Nueva Living تأكيد الجدول الزمني الحالي لوحدتك المختارة في كل خطوة.', nl: 'Reserverings- en betalingsstructuren variëren per project en worden volledig toegelicht voordat u reserveert. Nueva Living bevestigt bij elke stap opnieuw het actuele schema voor uw gekozen woning.', pl: 'Struktury rezerwacji i płatności różnią się w zależności od inwestycji i są w pełni przedstawiane przed dokonaniem rezerwacji. Nueva Living na każdym etapie ponownie potwierdza aktualny harmonogram dla wybranej przez Państwa nieruchomości.', sv: 'Bokning- och betalningsstrukturer varierar mellan projekt och redovisas fullständigt innan ni bokar. Nueva Living bekräftar det aktuella schemat för er valda bostad i varje steg.', no: 'Reservasjons- og betalingsstrukturer varierer fra prosjekt til prosjekt og redegjøres fullt ut for før du reserverer. Nueva Living bekrefter den gjeldende tidsplanen for boligen du har valgt, ved hvert steg.' },
   { find: 'Can I rent out the property after purchase?', es: '¿Puedo alquilar la propiedad después de comprarla?', fr: 'Puis-je louer le bien après l\'achat ?', de: 'Kann ich die Immobilie nach dem Kauf vermieten?', ru: 'Могу ли я сдавать недвижимость в аренду после покупки?', ar: 'هل يمكنني تأجير العقار بعد الشراء؟', nl: 'Kan ik de woning na aankoop verhuren?', pl: 'Czy mogę wynajmować nieruchomość po zakupie?', sv: 'Kan jag hyra ut bostaden efter köpet?', no: 'Kan jeg leie ut boligen etter kjøpet?' },
   { find: 'This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve.', es: 'Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserves.', fr: 'Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation.', de: 'Dies hängt vom jeweiligen Projekt und den lokalen Vorschriften ab, die sich je nach Gemeinschaft und Gemeinde unterscheiden können. Nueva Living bestätigt die spezifischen Regeln für ein Projekt vor Ihrer Reservierung.', ru: 'Это зависит от конкретного проекта и местных нормативов, которые могут различаться в зависимости от сообщества и муниципалитета. Nueva Living подтвердит конкретные правила проекта перед бронированием.', ar: 'يعتمد ذلك على المشروع تحديدًا واللوائح المحلية التي قد تختلف حسب المجتمع السكني والبلدية. ستؤكد Nueva Living القواعد المحددة للمشروع قبل الحجز.', nl: 'Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.', pl: 'Zależy to od konkretnej inwestycji i lokalnych przepisów, które mogą się różnić w zależności od wspólnoty i gminy. Nueva Living potwierdzi konkretne zasady dotyczące danej inwestycji przed dokonaniem rezerwacji.', sv: 'Detta beror på det enskilda projektet och lokala bestämmelser, som kan variera mellan samfälligheter och kommuner. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.', no: 'Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere fra sameie til sameie og fra kommune til kommune. Nueva Living bekrefter de spesifikke reglene for et prosjekt før du reserverer.' },
   { find: 'Do I need a lawyer?', es: '¿Necesito un abogado?', fr: 'Ai-je besoin d\'un avocat ?', de: 'Benötige ich einen Anwalt?', ru: 'Нужен ли мне юрист?', ar: 'هل أحتاج إلى محامٍ؟', nl: 'Heb ik een advocaat nodig?', pl: 'Czy potrzebuję prawnika?', sv: 'Behöver jag en advokat?', no: 'Trenger jeg advokat?' },
   { find: 'Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property.', es: 'Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerte en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol.', fr: 'Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol.', de: 'Ja, wir empfehlen dringend eine unabhängige rechtliche Vertretung für jeden Immobilienkauf in Spanien. Nueva Living kann Sie mit unabhängigen Anwälten mit Erfahrung im Immobilienrecht der Costa del Sol in Kontakt bringen.', ru: 'Да, мы настоятельно рекомендуем независимое юридическое сопровождение при любой покупке недвижимости в Испании. Nueva Living может связать вас с независимыми юристами, специализирующимися на недвижимости Коста-дель-Соль.', ar: 'نعم، نوصي بشدة بالاستعانة بتمثيل قانوني مستقل لأي عملية شراء عقار في إسبانيا. يمكن لفريق Nueva Living أن يوصلك بمحامين مستقلين ذوي خبرة في عقارات كوستا ديل سول.', nl: 'Ja, wij raden onafhankelijke juridische bijstand sterk aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.', pl: 'Tak, zdecydowanie zalecamy niezależną obsługę prawną przy każdym zakupie nieruchomości w Hiszpanii. Nueva Living może skontaktować Państwa z niezależnymi prawnikami mającymi doświadczenie w nieruchomościach na Costa del Sol.', sv: 'Ja, vi rekommenderar starkt oberoende juridisk representation vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende advokater med erfarenhet av fastigheter på Costa del Sol.', no: 'Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved ethvert eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol.' },
-  { find: 'FAQ', es: 'Preguntas Frecuentes', fr: 'FAQ', de: 'Häufige Fragen', ru: 'Частые вопросы', ar: 'الأسئلة الشائعة', nl: 'Veelgestelde Vragen', pl: 'Najczęściej zadawane pytania', sv: 'Vanliga frågor', no: 'Ofte stilte spørsmål' },
+  { find: 'FAQ', es: 'Preguntas Frecuentes', fr: 'FAQ', de: 'Häufige Fragen', ru: 'Частые вопросы', ar: 'الأسئلة الشائعة', nl: 'Veelgestelde vragen', pl: 'Najczęściej zadawane pytania', sv: 'Vanliga frågor', no: 'Ofte stilte spørsmål' },
   { find: 'Common <em>buyer questions</em>', es: 'Preguntas <em>frecuentes de compradores</em>', fr: 'Questions <em>fréquentes des acheteurs</em>', de: 'Häufige <em>Fragen von Käufern</em>', ru: 'Частые <em>вопросы покупателей</em>', ar: 'أسئلة <em>شائعة من المشترين</em>', nl: 'Veelgestelde <em>vragen van kopers</em>', pl: 'Najczęstsze <em>pytania kupujących</em>', sv: 'Vanliga <em>frågor från köpare</em>', no: 'Vanlige <em>spørsmål fra kjøpere</em>' },
   // ---------- areas.html (was missed in the original assignment) ----------
   // Scoped to the breadcrumb: a bare "Areas" find also fired inside longer
@@ -62,7 +62,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Trouvez le secteur qui <em>vous convient</em>`,
     de: `Finden Sie das Gebiet, <em>das zu Ihnen passt</em>`,
     ru: `Найдите район, <em>который подходит именно вам</em>`,
-    ar: `اعثر على المنطقة <em>التي تناسبك</em>`, nl: `Vind het gebied dat <em>bij u past</em>`, pl: `Znajdź okolicę, która <em>Ci odpowiada</em>`, sv: `Hitta området som <em>passar er</em>`, no: `Finn området som <em>passer deg</em>`,
+    ar: `اعثر على المنطقة <em>التي تناسبك</em>`, nl: `Vind het gebied dat <em>bij u past</em>`, pl: `Znajdź okolicę, która <em>Państwu odpowiada</em>`, sv: `Hitta området som <em>passar er</em>`, no: `Finn området som <em>passer deg</em>`,
   },
   {
     find: `We look at what it is actually like to live there, how easy it is to get around and what supports long-term demand.`,
@@ -121,16 +121,16 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     ru: `Эта часть побережья предлагает хорошие услуги, удобное сообщение с Малагой и более широкий диапазон цен.`,
     ar: `يوفر هذا الجزء من الساحل خدمات جيدة، وروابط سهلة مع مالقة، ونطاقًا أوسع من الأسعار.`, nl: `Dit deel van de kust biedt goede voorzieningen, gemakkelijke verbindingen naar Málaga en een breder scala aan prijzen.`, pl: `Ta część wybrzeża oferuje dobre usługi, łatwe połączenia z Malagą i szerszy zakres cen.`, sv: `Den här delen av kusten erbjuder bra service, goda förbindelser till Málaga och ett bredare prisspann.`, no: `Denne delen av kysten tilbyr god service, enkle forbindelser til Málaga og et bredere prisspenn.`,
   },
-  { find: `Explore Mijas &amp; Fuengirola`, es: `Explorar Mijas y Fuengirola`, fr: `Découvrir Mijas et Fuengirola`, de: `Mijas & Fuengirola Entdecken`, ru: `Смотреть Михас и Фуэнхиролу`, ar: `استكشف ميخاس وفوينخيرولا`, nl: `Ontdek Mijas &amp; Fuengirola`, pl: `Poznaj Mijas i Fuengirolę`, sv: `Utforska Mijas &amp; Fuengirola`, no: `Utforsk Mijas &amp; Fuengirola` },
+  { find: `Explore Mijas &amp; Fuengirola`, es: `Explorar Mijas y Fuengirola`, fr: `Découvrir Mijas et Fuengirola`, de: `Mijas & Fuengirola Entdecken`, ru: `Смотреть Михас и Фуэнхиролу`, ar: `استكشف ميخاس وفوينخيرولا`, nl: `Ontdek Mijas &amp; Fuengirola`, pl: `Poznaj Mijas i Fuengirolę`, sv: `Utforska Mijas och Fuengirola`, no: `Utforsk Mijas &amp; Fuengirola` },
   {
     find: `Not sure where to start? Tell us what matters to you.`,
     es: `¿No sabe por dónde empezar? Cuéntenos qué es importante para usted.`,
     fr: `Vous ne savez pas par où commencer ? Dites-nous ce qui compte pour vous.`,
     de: `Nicht sicher, wo Sie anfangen sollen? Sagen Sie uns, was Ihnen wichtig ist.`,
     ru: `Не знаете, с чего начать? Расскажите, что для вас важно.`,
-    ar: `لست متأكدًا من أين تبدأ؟ أخبرنا بما يهمك.`, nl: `Weet u niet waar u moet beginnen? Vertel ons wat voor u belangrijk is.`, pl: `Nie wiesz, od czego zacząć? Powiedz nam, co jest dla Ciebie ważne.`, sv: `Osäker på var ni ska börja? Berätta för oss vad som är viktigt för er.`, no: `Usikker på hvor du skal begynne? Fortell oss hva som betyr noe for deg.`,
+    ar: `لست متأكدًا من أين تبدأ؟ أخبرنا بما يهمك.`, nl: `Weet u niet waar u moet beginnen? Vertel ons wat voor u belangrijk is.`, pl: `Nie wiesz, od czego zacząć? Powiedz nam, co jest dla Państwa ważne.`, sv: `Osäker på var ni ska börja? Berätta för oss vad som är viktigt för er.`, no: `Usikker på hvor du skal begynne? Fortell oss hva som betyr noe for deg.`,
   },
-  { find: `Ask About Areas`, es: `Consultar sobre Zonas`, fr: `Se Renseigner sur les Secteurs`, de: `Fragen zu Gebieten`, ru: `Спросить о районах`, ar: `استفسر عن المناطق`, nl: `Vraag naar Gebieden`, pl: `Zapytaj o Lokalizacje`, sv: `Fråga om Områden`, no: `Spør om Områder` },
+  { find: `Ask About Areas`, es: `Consultar sobre Zonas`, fr: `Se Renseigner sur les Secteurs`, de: `Fragen zu Gebieten`, ru: `Спросить о районах`, ar: `استفسر عن المناطق`, nl: `Vraag naar Gebieden`, pl: `Zapytaj o lokalizacje`, sv: `Fråga om områden`, no: `Spør om Områder` },
 
   // ---------- why-nueva.html ----------
   {
@@ -139,7 +139,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Pourquoi Choisir Nueva Living`,
     de: `Warum Nueva Living Wählen`,
     ru: `Почему выбирают Nueva Living`,
-    ar: `لماذا تختار نويفا ليفينغ`, nl: `Waarom Kiezen voor Nueva Living`, pl: `Dlaczego Warto Wybrać Nueva Living`, sv: `Varför Välja Nueva Living`, no: `Hvorfor Velge Nueva Living`,
+    ar: `لماذا تختار نويفا ليفينغ`, nl: `Waarom Kiezen voor Nueva Living`, pl: `Dlaczego warto wybrać Nueva Living`, sv: `Varför välja Nueva Living`, no: `Hvorfor Velge Nueva Living`,
   },
   {
     find: `Why international buyers choose Nueva Living for local insight, honest advice and a smoother Costa del Sol property search.`,
@@ -171,7 +171,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Nous connaissons la côte, posons les questions que les brochures glacées laissent de côté et restons proches de vous, de la première conversation jusqu'au jour où vous recevez les clés.`,
     de: `Wir kennen die Küste, stellen die Fragen, die Hochglanzbroschüren auslassen, und bleiben Ihnen nah – vom ersten Gespräch bis zum Tag der Schlüsselübergabe.`,
     ru: `Мы знаем побережье, задаём вопросы, которые обходят стороной глянцевые брошюры, и остаёмся рядом с вами с первого разговора до дня получения ключей.`,
-    ar: `نعرف الساحل جيدًا، ونطرح الأسئلة التي تتجاهلها الكتيبات الفاخرة، ونبقى بجانبكم من أول محادثة وحتى يوم استلام المفاتيح.`, nl: `Wij kennen de kust, stellen de vragen die glossy brochures achterwege laten en blijven dicht bij u, van het eerste gesprek tot de dag dat u de sleutels ontvangt.`, pl: `Znamy wybrzeże, zadajemy pytania, których nie znajdziecie Państwo w błyszczących broszurach, i towarzyszymy od pierwszej rozmowy aż do dnia odbioru kluczy.`, sv: `Vi känner kusten, ställer de frågor som glansiga broschyrer utelämnar och finns nära er från det första samtalet till den dag ni får nycklarna.`, no: `Vi kjenner kysten, stiller spørsmålene som de glansede brosjyrene utelater, og er tett på deg fra den første samtalen til dagen du får nøklene.`,
+    ar: `نعرف الساحل جيدًا، ونطرح الأسئلة التي تتجاهلها الكتيبات الفاخرة، ونبقى بجانبكم من أول محادثة وحتى يوم استلام المفاتيح.`, nl: `Wij kennen de kust, stellen de vragen die glossy brochures achterwege laten en blijven dicht bij u, van het eerste gesprek tot de dag dat u de sleutels ontvangt.`, pl: `Znamy wybrzeże, zadajemy pytania, których nie znajdą Państwo w błyszczących broszurach, i towarzyszymy od pierwszej rozmowy aż do dnia odbioru kluczy.`, sv: `Vi känner kusten, ställer de frågor som glansiga broschyrer utelämnar och finns nära er från det första samtalet till den dag ni får nycklarna.`, no: `Vi kjenner kysten, stiller spørsmålene som de glansede brosjyrene utelater, og er tett på deg fra den første samtalen til dagen du får nøklene.`,
   },
   {
     find: `What Sets Us Apart`,
@@ -179,7 +179,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Ce Qui Nous Distingue`,
     de: `Was Uns Auszeichnet`,
     ru: `Что нас отличает`,
-    ar: `ما الذي يميزنا`, nl: `Wat Ons Onderscheidt`, pl: `Co Nas Wyróżnia`, sv: `Vad Som Skiljer Oss Åt`, no: `Hva Som Skiller Oss Ut`,
+    ar: `ما الذي يميزنا`, nl: `Wat ons onderscheidt`, pl: `Co nas wyróżnia`, sv: `Vad som skiljer oss åt`, no: `Hva Som Skiller Oss Ut`,
   },
   {
     find: `Beautiful brochures are easy. <em>Good decisions take more.</em>`,
@@ -203,7 +203,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Pourquoi les Acheteurs Nous Choisissent`,
     de: `Warum Käufer Uns Wählen`,
     ru: `Почему покупатели выбирают нас`,
-    ar: `لماذا يختارنا المشترون`, nl: `Waarom Kopers Voor Ons Kiezen`, pl: `Dlaczego Kupujący Wybierają Nas`, sv: `Varför Köpare Väljer Oss`, no: `Hvorfor Kjøpere Velger Oss`,
+    ar: `لماذا يختارنا المشترون`, nl: `Waarom kopers voor ons kiezen`, pl: `Dlaczego kupujący wybierają nas`, sv: `Varför köpare väljer oss`, no: `Hvorfor Kjøpere Velger Oss`,
   },
   {
     find: `Useful at the moments <em>that matter</em>`,
@@ -219,7 +219,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Locaux, Jusqu'au Niveau de la Rue`,
     de: `Lokal, Bis Auf Straßenebene`,
     ru: `Локальная экспертиза до мельчайших деталей`,
-    ar: `خبرة محلية حتى مستوى الشارع`, nl: `Lokaal, Tot op Straatniveau`, pl: `Lokalna Znajomość, Aż do Poziomu Ulicy`, sv: `Lokal, Ner till Gatunivå`, no: `Lokal, Helt Ned til Gatenivå`,
+    ar: `خبرة محلية حتى مستوى الشارع`, nl: `Lokaal, Tot op Straatniveau`, pl: `Lokalna znajomość, aż do poziomu ulicy`, sv: `Lokal, ner till gatunivå`, no: `Lokal, Helt Ned til Gatenivå`,
   },
   {
     find: `Years on the Costa del Sol mean we understand how neighbouring communities can differ in access, atmosphere and long-term appeal.`,
@@ -235,7 +235,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Au-delà des Annonces Publiques`,
     de: `Über die Öffentlichen Angebote Hinaus`,
     ru: `За пределами публичных объявлений`,
-    ar: `أبعد من الإعلانات العامة`, nl: `Verder dan de Openbare Aanbiedingen`, pl: `Poza Publicznymi Ofertami`, sv: `Bortom de Offentliga Listningarna`, no: `Utover de Offentlige Annonsene`,
+    ar: `أبعد من الإعلانات العامة`, nl: `Verder dan de Openbare Aanbiedingen`, pl: `Poza publicznymi ofertami`, sv: `Bortom de offentliga listningarna`, no: `Utover de Offentlige Annonsene`,
   },
   {
     find: `When private releases or off-market availability open up, we can bring the relevant opportunities into your search.`,
@@ -251,7 +251,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Un Fil Conducteur, du Début à la Fin`,
     de: `Ein Roter Faden, von Anfang bis Ende`,
     ru: `Единая линия сопровождения от начала до конца`,
-    ar: `خيط واحد يربط الرحلة من البداية إلى النهاية`, nl: `Eén Rode Draad, van Begin tot Eind`, pl: `Jedna Nić Przewodnia, od Początku do Końca`, sv: `En Röd Tråd, från Start till Mål`, no: `En Rød Tråd, fra Start til Slutt`,
+    ar: `خيط واحد يربط الرحلة من البداية إلى النهاية`, nl: `Eén Rode Draad, van Begin tot Eind`, pl: `Jedna nić przewodnia, od początku do końca`, sv: `En röd tråd, från start till mål`, no: `En Rød Tråd, fra Start til Slutt`,
   },
   {
     find: `From your brief and viewings to negotiation and handover, we keep the moving parts together and coordinate with your independent lawyer.`,
@@ -267,7 +267,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Trois Langues, Une Seule Conversation`,
     de: `Drei Sprachen, Ein Gespräch`,
     ru: `Три языка — один разговор`,
-    ar: `ثلاث لغات، محادثة واحدة`, nl: `Drie Talen, Eén Gesprek`, pl: `Trzy Języki, Jedna Rozmowa`, sv: `Tre Språk, Ett Samtal`, no: `Tre Språk, Én Samtale`,
+    ar: `ثلاث لغات، محادثة واحدة`, nl: `Drie talen, één gesprek`, pl: `Trzy języki, jedna rozmowa`, sv: `Tre språk, ett samtal`, no: `Tre Språk, Én Samtale`,
   },
   {
     find: `Speak with us in English, Spanish or Swedish. The details stay clear, whichever language feels most natural.`,
@@ -283,7 +283,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Honnêtes Sur les Compromis`,
     de: `Ehrlich Bei den Kompromissen`,
     ru: `Честны в отношении компромиссов`,
-    ar: `صراحة تامة بشأن المفاضلات`, nl: `Eerlijk Over de Afwegingen`, pl: `Szczerze o Kompromisach`, sv: `Ärliga Om Avvägningarna`, no: `Ærlige Om Avveiningene`,
+    ar: `صراحة تامة بشأن المفاضلات`, nl: `Eerlijk Over de Afwegingen`, pl: `Szczerze o kompromisach`, sv: `Ärliga om avvägningarna`, no: `Ærlige Om Avveiningene`,
   },
   {
     find: `If a location is noisy, a terrace is overlooked or the price feels ambitious, we say so. A good decision matters more than a quick one.`,
@@ -299,7 +299,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Toujours Présents Après la Remise des Clés`,
     de: `Auch Nach der Schlüsselübergabe Für Sie Da`,
     ru: `Мы остаёмся рядом и после получения ключей`,
-    ar: `نبقى معكم حتى بعد استلام المفاتيح`, nl: `Nog Steeds Aanwezig Na de Sleuteloverdracht`, pl: `Wciąż Obecni Po Odbiorze Kluczy`, sv: `Fortfarande Här Efter Nyckelöverlämningen`, no: `Fortsatt Her Etter Nøkkeloverleveringen`,
+    ar: `نبقى معكم حتى بعد استلام المفاتيح`, nl: `Nog Steeds Aanwezig Na de Sleuteloverdracht`, pl: `Wciąż obecni po odbiorze kluczy`, sv: `Fortfarande här efter nyckelöverlämningen`, no: `Fortsatt Her Etter Nøkkeloverleveringen`,
   },
   {
     find: `Handover is not the end of the relationship. We remain available and connect you with trusted local services when needed.`,
@@ -339,7 +339,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Dites-Nous Ce Dont Vous Avez Besoin`,
     de: `Sagen Sie Uns, Was Sie Brauchen`,
     ru: `Расскажите, что вам нужно`,
-    ar: `أخبرونا بما تحتاجونه`, nl: `Vertel Ons Wat U Nodig Heeft`, pl: `Powiedz Nam, Czego Potrzebujesz`, sv: `Berätta Vad Ni Behöver`, no: `Fortell Oss Hva Du Trenger`,
+    ar: `أخبرونا بما تحتاجونه`, nl: `Vertel ons wat u nodig heeft`, pl: `Powiedz nam, czego potrzebujesz`, sv: `Berätta vad ni behöver`, no: `Fortell Oss Hva Du Trenger`,
   },
   {
     find: `We talk through your budget, timing, preferred areas and must-haves.`,
@@ -355,7 +355,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Recevez Votre Sélection`,
     de: `Erhalten Sie Ihre Auswahlliste`,
     ru: `Получите свой шорт-лист`,
-    ar: `احصلوا على قائمتكم المختصرة`, nl: `Ontvang Uw Shortlist`, pl: `Otrzymaj Swoją Listę Wyboru`, sv: `Få Er Urvalslista`, no: `Motta Din Utvalgsliste`,
+    ar: `احصلوا على قائمتكم المختصرة`, nl: `Ontvang uw shortlist`, pl: `Otrzymaj swoją listę wyboru`, sv: `Få er urvalslista`, no: `Motta Din Utvalgsliste`,
   },
   {
     find: `You get a focused selection with current prices and availability.`,
@@ -363,7 +363,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Vous recevez une sélection ciblée avec les prix et disponibilités actuels.`,
     de: `Sie erhalten eine gezielte Auswahl mit aktuellen Preisen und Verfügbarkeiten.`,
     ru: `Вы получаете точную подборку с актуальными ценами и наличием.`,
-    ar: `تحصلون على اختيار مركّز يتضمن الأسعار والتوافر الحالي.`, nl: `U ontvangt een gerichte selectie met actuele prijzen en beschikbaarheid.`, pl: `Otrzymujecie Państwo dopracowany wybór z aktualnymi cenami i dostępnością.`, sv: `Ni får ett fokuserat urval med aktuella priser och tillgänglighet.`, no: `Du får et fokusert utvalg med gjeldende priser og tilgjengelighet.`,
+    ar: `تحصلون على اختيار مركّز يتضمن الأسعار والتوافر الحالي.`, nl: `U ontvangt een gerichte selectie met actuele prijzen en beschikbaarheid.`, pl: `Otrzymają Państwo dopracowany wybór z aktualnymi cenami i dostępnością.`, sv: `Ni får ett fokuserat urval med aktuella priser och tillgänglighet.`, no: `Du får et fokusert utvalg med gjeldende priser og tilgjengelighet.`,
   },
   {
     find: `View and Decide`,
@@ -371,7 +371,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Visitez et Décidez`,
     de: `Besichtigen und Entscheiden`,
     ru: `Посмотрите и примите решение`,
-    ar: `عاينوا واتخذوا القرار`, nl: `Bezichtigen en Beslissen`, pl: `Obejrzyj i Zdecyduj`, sv: `Visa och Besluta`, no: `Se og Bestem`,
+    ar: `عاينوا واتخذوا القرار`, nl: `Bezichtigen en Beslissen`, pl: `Obejrzyj i zdecyduj`, sv: `Visa och besluta`, no: `Se og Bestem`,
   },
   {
     find: `We arrange viewings, share the project documents and explain the reservation process.`,
@@ -389,7 +389,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Qui Nous Sommes`,
     de: `Wer Wir Sind`,
     ru: `Кто мы`,
-    ar: `من نحن`, nl: `Wie Wij Zijn`, pl: `Kim Jesteśmy`, sv: `Vilka Vi Är`, no: `Hvem Vi Er`,
+    ar: `من نحن`, nl: `Wie wij zijn`, pl: `Kim jesteśmy`, sv: `Vilka vi är`, no: `Hvem Vi Er`,
   },
   {
     find: `The people <em>behind the advice</em>`,
@@ -421,7 +421,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Connaissez-Vous Quelqu'un Qui Cherche ?`,
     de: `Kennen Sie Jemanden, Der Sucht?`,
     ru: `Знаете кого-то, кто ищет недвижимость?`,
-    ar: `هل تعرفون شخصًا يبحث عن عقار؟`, nl: `Kent U Iemand Die Zoekt?`, pl: `Znasz Kogoś, Kto Szuka?`, sv: `Känner Ni Någon Som Söker?`, no: `Kjenner Du Noen Som Ser?`,
+    ar: `هل تعرفون شخصًا يبحث عن عقار؟`, nl: `Kent u iemand die zoekt?`, pl: `Znasz kogoś, kto szuka?`, sv: `Känner ni någon som söker?`, no: `Kjenner Du Noen Som Ser?`,
   },
   {
     find: `Introduce someone, <em>get rewarded</em>`,
@@ -445,7 +445,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Prêts Quand Vous Le Serez`,
     de: `Bereit, Wenn Sie Es Sind`,
     ru: `Мы готовы, когда готовы вы`,
-    ar: `جاهزون عندما تكونون مستعدين`, nl: `Klaar Wanneer U Dat Bent`, pl: `Gotowi, Gdy Ty Jesteś Gotowy`, sv: `Redo När Ni Är Det`, no: `Klare Når Du Er Klar`,
+    ar: `جاهزون عندما تكونون مستعدين`, nl: `Klaar wanneer u dat bent`, pl: `Gotowi, gdy Państwo są gotowi`, sv: `Redo när ni är det`, no: `Klare Når Du Er Klar`,
   },
   {
     find: `Bring us your wish list. We will bring back the options worth your time.`,
@@ -453,7 +453,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Apportez-nous votre liste de souhaits. Nous vous rapporterons les options qui méritent votre temps.`,
     de: `Bringen Sie uns Ihre Wunschliste. Wir bringen Ihnen die Optionen, die Ihre Zeit wert sind.`,
     ru: `Поделитесь с нами своим списком пожеланий. Мы подберём варианты, которые действительно стоят вашего времени.`,
-    ar: `شاركونا قائمة رغباتكم، وسنعود إليكم بالخيارات التي تستحق وقتكم.`, nl: `Deel uw wensenlijst met ons. Wij brengen de opties terug die uw tijd waard zijn.`, pl: `Przedstaw nam swoją listę życzeń. My przedstawimy Ci opcje warte Twojego czasu.`, sv: `Kom till oss med er önskelista. Vi tar fram alternativen som är värda er tid.`, no: `Kom til oss med ønskelisten din. Vi kommer tilbake med alternativene som er verdt tiden din.`,
+    ar: `شاركونا قائمة رغباتكم، وسنعود إليكم بالخيارات التي تستحق وقتكم.`, nl: `Deel uw wensenlijst met ons. Wij brengen de opties terug die uw tijd waard zijn.`, pl: `Przedstaw nam swoją listę życzeń. My przedstawimy Państwu opcje warte Państwa czasu.`, sv: `Kom till oss med er önskelista. Vi tar fram alternativen som är värda er tid.`, no: `Kom til oss med ønskelisten din. Vi kommer tilbake med alternativene som er verdt tiden din.`,
   },
   {
     find: `Start Your Search`,
@@ -461,7 +461,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Commencez Votre Recherche`,
     de: `Starten Sie Ihre Suche`,
     ru: `Начните поиск`,
-    ar: `ابدأوا بحثكم`, nl: `Start Uw Zoektocht`, pl: `Rozpocznij Poszukiwania`, sv: `Starta Er Sökning`, no: `Start Søket Ditt`,
+    ar: `ابدأوا بحثكم`, nl: `Start uw zoektocht`, pl: `Rozpocznij poszukiwania`, sv: `Starta er sökning`, no: `Start Søket Ditt`,
   },
 
   // ---------- advisory.html ----------
@@ -503,7 +503,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Un Regard Indépendant`,
     de: `Eine Unabhängige Sichtweise`,
     ru: `Независимый взгляд`,
-    ar: `رؤية مستقلة`, nl: `Een Onafhankelijke Kijk`, pl: `Niezależne Spojrzenie`, sv: `En Oberoende Syn`, no: `Et Uavhengig Blikk`,
+    ar: `رؤية مستقلة`, nl: `Een onafhankelijke kijk`, pl: `Niezależne spojrzenie`, sv: `En oberoende syn`, no: `Et Uavhengig Blikk`,
   },
   {
     find: `Clear advice for <em>the buyer</em>`,
@@ -527,7 +527,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Comment Nous Vous Aidons`,
     de: `Wie Wir Helfen`,
     ru: `Как мы помогаем`,
-    ar: `كيف نساعدكم`, nl: `Hoe Wij Helpen`, pl: `Jak Pomagamy`, sv: `Hur Vi Hjälper`, no: `Hvordan Vi Hjelper`,
+    ar: `كيف نساعدكم`, nl: `Hoe wij helpen`, pl: `Jak pomagamy`, sv: `Hur vi hjälper`, no: `Hvordan Vi Hjelper`,
   },
   {
     find: `The details we help you <em>compare</em>`,
@@ -543,7 +543,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Comparer les Programmes`,
     de: `Projekte Vergleichen`,
     ru: `Сравнение проектов`,
-    ar: `مقارنة المشاريع`, nl: `Projecten Vergelijken`, pl: `Porównaj Projekty`, sv: `Jämför Projekt`, no: `Sammenlign Prosjekter`,
+    ar: `مقارنة المشاريع`, nl: `Projecten vergelijken`, pl: `Porównaj projekty`, sv: `Jämför projekt`, no: `Sammenlign Prosjekter`,
   },
   {
     find: `We compare prices, orientation, amenities, completion dates and nearby alternatives side by side.`,
@@ -559,7 +559,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Planifier l'Achat`,
     de: `Den Kauf Planen`,
     ru: `Планирование покупки`,
-    ar: `التخطيط للشراء`, nl: `De Aankoop Plannen`, pl: `Zaplanuj Zakup`, sv: `Planera Köpet`, no: `Planlegg Kjøpet`,
+    ar: `التخطيط للشراء`, nl: `De aankoop plannen`, pl: `Zaplanuj zakup`, sv: `Planera köpet`, no: `Planlegg Kjøpet`,
   },
   {
     find: `We talk through how you will use the home, rental plans, financing and what you may want later.`,
@@ -575,7 +575,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Réserver en Toute Clarté`,
     de: `Reservieren mit Klarheit`,
     ru: `Прозрачное резервирование`,
-    ar: `الحجز بوضوح تام`, nl: `Reserveren met Duidelijkheid`, pl: `Rezerwuj z Pełną Jasnością`, sv: `Boka med Tydlighet`, no: `Reserver med Klarhet`,
+    ar: `الحجز بوضوح تام`, nl: `Reserveren met Duidelijkheid`, pl: `Rezerwuj z pełną jasnością`, sv: `Boka med tydlighet`, no: `Reserver med Klarhet`,
   },
   {
     find: `We organise project documents, viewings, reservation details and an introduction to an independent lawyer.`,
@@ -591,7 +591,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Notre Engagement`,
     de: `Unser Versprechen`,
     ru: `Наше обещание`,
-    ar: `التزامنا`, nl: `Onze Belofte`, pl: `Nasza Obietnica`, sv: `Vårt Löfte`, no: `Vårt Løfte`,
+    ar: `التزامنا`, nl: `Onze belofte`, pl: `Nasza obietnica`, sv: `Vårt löfte`, no: `Vårt Løfte`,
   },
   {
     find: `Straight answers, <em>no pressure</em>`,
@@ -607,7 +607,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Une Liste Plus Courte et Meilleure`,
     de: `Eine Kürzere, Bessere Liste`,
     ru: `Короче — значит лучше`,
-    ar: `قائمة أقصر وأفضل`, nl: `Een Kortere, Betere Lijst`, pl: `Krótsza i Lepsza Lista`, sv: `En Kortare, Bättre Lista`, no: `En Kortere, Bedre Liste`,
+    ar: `قائمة أقصر وأفضل`, nl: `Een kortere, betere lijst`, pl: `Krótsza i lepsza lista`, sv: `En kortare, bättre lista`, no: `En Kortere, Bedre Liste`,
   },
   {
     find: `We would rather show you three suitable projects than thirty generic options.`,
@@ -623,7 +623,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Uniquement l'Urgence Réelle`,
     de: `Nur Echte Dringlichkeit`,
     ru: `Только реальная срочность`,
-    ar: `الاستعجال الحقيقي فقط`, nl: `Alleen Echte Urgentie`, pl: `Tylko Realna Pilność`, sv: `Endast Verklig Brådska`, no: `Kun Reell Hast`,
+    ar: `الاستعجال الحقيقي فقط`, nl: `Alleen echte urgentie`, pl: `Tylko realna pilność`, sv: `Endast verklig brådska`, no: `Kun Reell Hast`,
   },
   {
     find: `We only flag urgency when availability, pricing or a reservation deadline genuinely changes.`,
@@ -639,7 +639,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Discutons des options avant de réserver.`,
     de: `Besprechen Sie die Optionen, bevor Sie reservieren.`,
     ru: `Обсудите все варианты, прежде чем резервировать.`,
-    ar: `ناقشوا الخيارات قبل الحجز.`, nl: `Bespreek de opties voordat u reserveert.`, pl: `Omów opcje, zanim dokonasz rezerwacji.`, sv: `Gå igenom alternativen innan ni bokar.`, no: `Gå gjennom alternativene før du reserverer.`,
+    ar: `ناقشوا الخيارات قبل الحجز.`, nl: `Bespreek de opties voordat u reserveert.`, pl: `Omów opcje, zanim dokonają Państwo rezerwacji.`, sv: `Gå igenom alternativen innan ni bokar.`, no: `Gå gjennom alternativene før du reserverer.`,
   },
   {
     find: `Talk to an Advisor`,
@@ -647,7 +647,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Parlez à un Conseiller`,
     de: `Sprechen Sie mit einem Berater`,
     ru: `Поговорить с консультантом`,
-    ar: `تحدثوا مع مستشار`, nl: `Spreek met een Adviseur`, pl: `Porozmawiaj z Doradcą`, sv: `Prata med en Rådgivare`, no: `Snakk med en Rådgiver`,
+    ar: `تحدثوا مع مستشار`, nl: `Spreek met een Adviseur`, pl: `Porozmawiaj z doradcą`, sv: `Prata med en rådgivare`, no: `Snakk med en Rådgiver`,
   },
 
   // ---------- referrals.html ----------
@@ -657,7 +657,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Programme de Parrainage et d'Ambassadeurs`,
     de: `Empfehlungs- und Botschafterprogramm`,
     ru: `Программа рекомендаций и амбассадоров`,
-    ar: `برنامج الإحالة والسفراء`, nl: `Verwijzings- en Ambassadeursprogramma`, pl: `Program Poleceń i Ambasadorów`, sv: `Rekommendations- och Ambassadörsprogram`, no: `Anbefalings- og Ambassadørprogram`,
+    ar: `برنامج الإحالة والسفراء`, nl: `Aanbevelingsprogramma`, pl: `Program Poleceń i Ambasadorów`, sv: `Rekommendations- och ambassadörsprogram`, no: `Anbefalings- og Ambassadørprogram`,
   },
   {
     find: `Introduce someone to Nueva Living and receive a share of our commission when their Costa del Sol purchase completes.`,
@@ -673,7 +673,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Votre recommandation mérite <em>bien plus qu'un merci</em>`,
     de: `Ihre Empfehlung verdient <em>mehr als ein Dankeschön</em>`,
     ru: `Ваша рекомендация заслуживает <em>большего, чем просто «спасибо»</em>`,
-    ar: `توصيتكم تستحق <em>أكثر من مجرد الشكر</em>`, nl: `Uw introductie verdient <em>meer dan een bedankje</em>`, pl: `Twoje polecenie zasługuje na <em>coś więcej niż podziękowanie</em>`, sv: `Er introduktion förtjänar <em>mer än ett tack</em>`, no: `Introduksjonen din fortjener <em>mer enn en takk</em>`,
+    ar: `توصيتكم تستحق <em>أكثر من مجرد الشكر</em>`, nl: `Uw introductie verdient <em>meer dan een bedankje</em>`, pl: `Państwa polecenie zasługuje na <em>coś więcej niż podziękowanie</em>`, sv: `Er introduktion förtjänar <em>mer än ett tack</em>`, no: `Introduksjonen din fortjener <em>mer enn en takk</em>`,
   },
   {
     find: `The people you introduce to Nueva Living get the same private, unhurried search every client receives. When their search ends in a home, yours ends in a genuine reward.`,
@@ -681,7 +681,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Les personnes que vous présentez à Nueva Living bénéficient de la même recherche privée et sans précipitation que chaque client. Lorsque leur recherche aboutit à un logement, la vôtre aboutit à une véritable récompense.`,
     de: `Die Personen, die Sie an Nueva Living empfehlen, erhalten dieselbe private, unaufgeregte Suche wie jeder unserer Kunden. Wenn ihre Suche in einem Zuhause endet, endet Ihre in einer echten Belohnung.`,
     ru: `Люди, которых вы порекомендуете Nueva Living, получат такой же приватный, неторопливый поиск, как и любой другой наш клиент. Когда их поиск завершится домом, ваш — реальным вознаграждением.`,
-    ar: `الأشخاص الذين تقدمونهم إلى نويفا ليفينغ يحصلون على نفس تجربة البحث الخاصة والهادئة التي يحظى بها كل عميل. وعندما ينتهي بحثهم بامتلاك منزل، تنتهي مساهمتكم بمكافأة حقيقية.`, nl: `De mensen die u bij Nueva Living introduceert, krijgen dezelfde persoonlijke, ontspannen zoektocht als elke andere klant. Wanneer hun zoektocht eindigt in een woning, eindigt de uwe in een echte beloning.`, pl: `Osoby, które polecicie Państwo Nueva Living, otrzymują takie samo prywatne, niespieszne poszukiwanie, jakie otrzymuje każdy klient. Kiedy ich poszukiwania kończą się domem, Państwa kończą się prawdziwą nagrodą.`, sv: `De personer ni introducerar för Nueva Living får samma privata, lugna sökning som alla andra kunder. När deras sökning slutar i ett hem, slutar er i en verklig belöning.`, no: `Personene du introduserer for Nueva Living, får det samme private, uhastede søket som alle andre klienter. Når søket deres ender i et hjem, ender ditt i en ekte belønning.`,
+    ar: `الأشخاص الذين تقدمونهم إلى نويفا ليفينغ يحصلون على نفس تجربة البحث الخاصة والهادئة التي يحظى بها كل عميل. وعندما ينتهي بحثهم بامتلاك منزل، تنتهي مساهمتكم بمكافأة حقيقية.`, nl: `De mensen die u bij Nueva Living introduceert, krijgen dezelfde persoonlijke, ontspannen zoektocht als elke andere klant. Wanneer hun zoektocht eindigt in een woning, eindigt de uwe in een echte beloning.`, pl: `Osoby, które polecą Państwo Nueva Living, otrzymują takie samo prywatne, niespieszne poszukiwanie, jakie otrzymuje każdy klient. Kiedy ich poszukiwania kończą się domem, Państwa kończą się prawdziwą nagrodą.`, sv: `De personer ni introducerar för Nueva Living får samma privata, lugna sökning som alla andra kunder. När deras sökning slutar i ett hem, slutar er i en verklig belöning.`, no: `Personene du introduserer for Nueva Living, får det samme private, uhastede søket som alle andre klienter. Når søket deres ender i et hjem, ender ditt i en ekte belønning.`,
   },
   {
     find: `How It Works`,
@@ -689,7 +689,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Comment Ça Marche`,
     de: `So Funktioniert Es`,
     ru: `Как это работает`,
-    ar: `كيف تعمل`, nl: `Hoe Het Werkt`, pl: `Jak To Działa`, sv: `Hur Det Fungerar`, no: `Hvordan Det Fungerer`,
+    ar: `كيف تعمل`, nl: `Hoe het werkt`, pl: `Jak to działa`, sv: `Hur det fungerar`, no: `Hvordan Det Fungerer`,
   },
   {
     find: `A simple way to <em>say thank you</em>`,
@@ -705,7 +705,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Dites-Nous Qui`,
     de: `Sagen Sie Uns, Wer`,
     ru: `Расскажите нам, кого`,
-    ar: `أخبرونا بمن`, nl: `Vertel Ons Wie`, pl: `Powiedz Nam Kogo`, sv: `Berätta Vem`, no: `Fortell Oss Hvem`,
+    ar: `أخبرونا بمن`, nl: `Vertel ons wie`, pl: `Powiedz nam kogo`, sv: `Berätta vem`, no: `Fortell Oss Hvem`,
   },
   {
     find: `Share their details in the form below.`,
@@ -721,7 +721,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Nous Confirmons Que C'est Sincère`,
     de: `Wir Bestätigen Die Echtheit`,
     ru: `Мы подтверждаем подлинность рекомендации`,
-    ar: `نتأكد من صحة الأمر`, nl: `Wij Bevestigen dat Het Echt Is`, pl: `Potwierdzamy Autentyczność`, sv: `Vi Bekräftar Att Det Är Äkta`, no: `Vi Bekrefter At Det Er Ekte`,
+    ar: `نتأكد من صحة الأمر`, nl: `Wij Bevestigen dat Het Echt Is`, pl: `Potwierdzamy autentyczność`, sv: `Vi bekräftar att det är äkta`, no: `Vi Bekrefter At Det Er Ekte`,
   },
   {
     find: `We check honestly, either way.`,
@@ -737,7 +737,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Nous Prenons Soin d'Eux`,
     de: `Wir Kümmern Uns Um Sie`,
     ru: `Мы заботимся о них`,
-    ar: `نعتني بهم`, nl: `Wij Zorgen Voor Hen`, pl: `Dbamy o Nich`, sv: `Vi Tar Hand om Dem`, no: `Vi Tar Vare på Dem`,
+    ar: `نعتني بهم`, nl: `Wij zorgen voor hen`, pl: `Dbamy o nich`, sv: `Vi tar hand om dem`, no: `Vi Tar Vare på Dem`,
   },
   {
     find: `The same private process, every client.`,
@@ -753,7 +753,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Vous Êtes Récompensé`,
     de: `Sie Werden Belohnt`,
     ru: `Вы получаете вознаграждение`,
-    ar: `تحصلون على مكافأتكم`, nl: `U Wordt Beloond`, pl: `Otrzymujesz Nagrodę`, sv: `Ni Blir Belönade`, no: `Du Blir Belønnet`,
+    ar: `تحصلون على مكافأتكم`, nl: `U wordt beloond`, pl: `Otrzymują Państwo nagrodę`, sv: `Ni blir belönade`, no: `Du Blir Belønnet`,
   },
   {
     find: `A share of our commission, in writing.`,
@@ -777,7 +777,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `La Récompense`,
     de: `Die Belohnung`,
     ru: `Вознаграждение`,
-    ar: `المكافأة`, nl: `De Beloning`, pl: `Nagroda`, sv: `Belöningen`, no: `Belønningen`,
+    ar: `المكافأة`, nl: `De beloning`, pl: `Nagroda`, sv: `Belöningen`, no: `Belønningen`,
   },
   {
     find: `Simple, honest <em>terms</em>`,
@@ -825,7 +825,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Questions Fréquentes`,
     de: `Häufige Fragen`,
     ru: `Частые вопросы`,
-    ar: `الأسئلة الشائعة`, nl: `Veelgestelde Vragen`, pl: `Najczęściej Zadawane Pytania`, sv: `Vanliga Frågor`, no: `Vanlige Spørsmål`,
+    ar: `الأسئلة الشائعة`, nl: `Veelgestelde vragen`, pl: `Najczęściej zadawane pytania`, sv: `Vanliga frågor`, no: `Vanlige Spørsmål`,
   },
   {
     find: `What ambassadors usually <em>ask us</em>`,
@@ -905,7 +905,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Présentez Quelqu'un`,
     de: `Jemanden Empfehlen`,
     ru: `Порекомендуйте кого-то`,
-    ar: `قدّموا شخصًا`, nl: `Introduceer Iemand`, pl: `Poleć Kogoś`, sv: `Introducera Någon`, no: `Introduser Noen`,
+    ar: `قدّموا شخصًا`, nl: `Introduceer iemand`, pl: `Poleć kogoś`, sv: `Introducera någon`, no: `Introduser Noen`,
   },
   {
     find: `Introduce them <em>today</em>`,
@@ -929,7 +929,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Votre Prénom`,
     de: `Ihr Vorname`,
     ru: `Ваше имя`,
-    ar: `اسمكم الأول`, nl: `Uw Voornaam`, pl: `Twoje Imię`, sv: `Ert Förnamn`, no: `Ditt Fornavn`,
+    ar: `اسمكم الأول`, nl: `Uw voornaam`, pl: `Państwa imię`, sv: `Ert förnamn`, no: `Ditt Fornavn`,
   },
   {
     find: `Your Last Name`,
@@ -937,7 +937,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Votre Nom`,
     de: `Ihr Nachname`,
     ru: `Ваша фамилия`,
-    ar: `اسم العائلة`, nl: `Uw Achternaam`, pl: `Twoje Nazwisko`, sv: `Ert Efternamn`, no: `Ditt Etternavn`,
+    ar: `اسم العائلة`, nl: `Uw achternaam`, pl: `Państwa nazwisko`, sv: `Ert efternamn`, no: `Ditt Etternavn`,
   },
   {
     find: `Your Email Address`,
@@ -945,7 +945,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Votre Adresse E-mail`,
     de: `Ihre E-Mail-Adresse`,
     ru: `Ваш адрес электронной почты`,
-    ar: `بريدكم الإلكتروني`, nl: `Uw E-mailadres`, pl: `Twój Adres E-mail`, sv: `Er E-postadress`, no: `Din E-postadresse`,
+    ar: `بريدكم الإلكتروني`, nl: `Uw e-mailadres`, pl: `Państwa adres e-mail`, sv: `Er e-postadress`, no: `Din E-postadresse`,
   },
   {
     find: `Your Phone Number`,
@@ -953,7 +953,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Votre Numéro de Téléphone`,
     de: `Ihre Telefonnummer`,
     ru: `Ваш номер телефона`,
-    ar: `رقم هاتفكم`, nl: `Uw Telefoonnummer`, pl: `Twój Numer Telefonu`, sv: `Ert Telefonnummer`, no: `Ditt Telefonnummer`,
+    ar: `رقم هاتفكم`, nl: `Uw telefoonnummer`, pl: `Państwa numer telefonu`, sv: `Ert telefonnummer`, no: `Ditt Telefonnummer`,
   },
   {
     find: `Their Name`,
@@ -961,7 +961,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Son Nom`,
     de: `Name der Person`,
     ru: `Имя человека`,
-    ar: `اسم الشخص`, nl: `Naam van de Persoon`, pl: `Imię i Nazwisko Tej Osoby`, sv: `Personens Namn`, no: `Personens Navn`,
+    ar: `اسم الشخص`, nl: `Naam van de Persoon`, pl: `Imię i nazwisko tej osoby`, sv: `Personens namn`, no: `Personens Navn`,
   },
   {
     find: `Their Email or Phone`,
@@ -969,7 +969,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Son E-mail ou Téléphone`,
     de: `E-Mail oder Telefonnummer der Person`,
     ru: `Email или телефон этого человека`,
-    ar: `بريده الإلكتروني أو هاتفه`, nl: `E-mail of Telefoon van de Persoon`, pl: `E-mail lub Telefon Tej Osoby`, sv: `Personens E-post eller Telefon`, no: `Personens E-post eller Telefon`,
+    ar: `بريده الإلكتروني أو هاتفه`, nl: `E-mail of Telefoon van de Persoon`, pl: `E-mail lub telefon tej osoby`, sv: `Personens e-post eller telefon`, no: `Personens E-post eller Telefon`,
   },
   {
     find: `What Are They Looking For?`,
@@ -977,7 +977,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Que Recherche-t-elle ?`,
     de: `Wonach Sucht Die Person?`,
     ru: `Что этот человек ищет?`,
-    ar: `ماذا يبحث؟`, nl: `Waar Zijn Zij Naar Op Zoek?`, pl: `Czego Ta Osoba Szuka?`, sv: `Vad Söker Personen?`, no: `Hva Ser Personen Etter?`,
+    ar: `ماذا يبحث؟`, nl: `Waar zijn zij naar op zoek?`, pl: `Czego ta osoba szuka?`, sv: `Vad söker personen?`, no: `Hva Ser Personen Etter?`,
   },
   {
     find: `I agree to be contacted and for my data to be stored.`,
@@ -993,14 +993,14 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Envoyer le Parrainage`,
     de: `Empfehlung Absenden`,
     ru: `Отправить рекомендацию`,
-    ar: `إرسال الإحالة`, nl: `Verwijzing Versturen`, pl: `Wyślij Polecenie`, sv: `Skicka Rekommendation`, no: `Send Anbefaling`,
+    ar: `إرسال الإحالة`, nl: `Verwijzing versturen`, pl: `Wyślij polecenie`, sv: `Skicka rekommendation`, no: `Send Anbefaling`,
   },
 
   // ===== SEO <title> and meta description.
   // Scoped to the tags themselves so a short title like "Areas" can never
   // fire inside body prose. These shipped untranslated, which also left
   // five locales sharing one identical title.
-  { find: '<title>Areas | Nueva Living</title>', es: '<title>Guía de Zonas de la Costa del Sol | Nueva Living</title>', fr: '<title>Guide des Secteurs de la Costa del Sol | Nueva Living</title>', de: '<title>Costa-del-Sol-Gebietsguide | Nueva Living</title>', ru: '<title>Путеводитель по районам Коста-дель-Соль | Nueva Living</title>', ar: '<title>دليل مناطق كوستا ديل سول | Nueva Living</title>', nl: '<title>Gebiedsgids Costa del Sol | Nueva Living</title>', pl: '<title>Przewodnik po Lokalizacjach Costa del Sol | Nueva Living</title>', sv: '<title>Områdesguide för Costa del Sol | Nueva Living</title>', no: '<title>Områdeguide for Costa del Sol | Nueva Living</title>' },
-  { find: '<title>Referral &amp; Ambassador Program | Nueva Living</title>', es: '<title>Programa de Recomendación y Embajadores | Nueva Living</title>', fr: '<title>Programme de Parrainage et Ambassadeurs | Nueva Living</title>', de: '<title>Empfehlungs- und Botschafterprogramm | Nueva Living</title>', ru: '<title>Реферальная и амбассадорская программа | Nueva Living</title>', ar: '<title>برنامج التوصية والسفراء | Nueva Living</title>', nl: '<title>Verwijzings- en Ambassadeursprogramma | Nueva Living</title>', pl: '<title>Program Poleceń i Ambasadorów | Nueva Living</title>', sv: '<title>Rekommendations- och Ambassadörsprogram | Nueva Living</title>', no: '<title>Anbefalings- og Ambassadørprogram | Nueva Living</title>' },
+  { find: '<title>Areas | Nueva Living</title>', es: '<title>Guía de Zonas de la Costa del Sol | Nueva Living</title>', fr: '<title>Guide des Secteurs de la Costa del Sol | Nueva Living</title>', de: '<title>Costa-del-Sol-Gebietsguide | Nueva Living</title>', ru: '<title>Путеводитель по районам Коста-дель-Соль | Nueva Living</title>', ar: '<title>دليل مناطق كوستا ديل سول | Nueva Living</title>', nl: '<title>Gebiedsgids Costa del Sol | Nueva Living</title>', pl: '<title>Przewodnik po lokalizacjach Costa del Sol | Nueva Living</title>', sv: '<title>Områdesguide för Costa del Sol | Nueva Living</title>', no: '<title>Områdeguide for Costa del Sol | Nueva Living</title>' },
+  { find: '<title>Referral &amp; Ambassador Program | Nueva Living</title>', es: '<title>Programa de Recomendación y Embajadores | Nueva Living</title>', fr: '<title>Programme de Parrainage et Ambassadeurs | Nueva Living</title>', de: '<title>Empfehlungs- und Botschafterprogramm | Nueva Living</title>', ru: '<title>Реферальная и амбассадорская программа | Nueva Living</title>', ar: '<title>برنامج التوصية والسفراء | Nueva Living</title>', nl: '<title>Aanbevelingsprogramma | Nueva Living</title>', pl: '<title>Program Poleceń i Ambasadorów | Nueva Living</title>', sv: '<title>Rekommendations- och ambassadörsprogram | Nueva Living</title>', no: '<title>Anbefalings- og Ambassadørprogram | Nueva Living</title>' },
   { find: 'content="Costa del Sol area guide for new development buyers."', es: 'content="Guía de zonas de la Costa del Sol para compradores de obra nueva: Marbella, Estepona, Benahavís, Nueva Andalucía y Mijas."', fr: 'content="Guide des secteurs de la Costa del Sol pour les acquéreurs de programmes neufs : Marbella, Estepona, Benahavís, Nueva Andalucía et Mijas."', de: 'content="Gebietsguide der Costa del Sol für Neubaukäufer: Marbella, Estepona, Benahavís, Nueva Andalucía und Mijas."', ru: 'content="Путеводитель по районам Коста-дель-Соль для покупателей новостроек: Марбелья, Эстепона, Бенаавис, Нуэва-Андалусия и Михас."', ar: 'content="دليل مناطق كوستا ديل سول لمشتري المشاريع الجديدة: ماربيا وإستيبونا وبيناهافيس ونويفا أندلوسيا وميخاس."', nl: 'content="Gebiedsgids van de Costa del Sol voor kopers van nieuwbouw: Marbella, Estepona, Benahavís, Nueva Andalucía en Mijas."', pl: 'content="Przewodnik po lokalizacjach Costa del Sol dla kupujących nowe inwestycje: Marbella, Estepona, Benahavís, Nueva Andalucía i Mijas."', sv: 'content="Områdesguide för Costa del Sol för köpare av nyproduktion: Marbella, Estepona, Benahavís, Nueva Andalucía och Mijas."', no: 'content="Områdeguide for Costa del Sol for kjøpere av nybygg: Marbella, Estepona, Benahavís, Nueva Andalucía og Mijas."' }
 ];
