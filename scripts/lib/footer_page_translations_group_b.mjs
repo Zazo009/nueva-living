@@ -10,7 +10,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     es: 'Cómo funciona la compra',
     fr: 'Comment se déroule l’achat',
     de: 'So läuft der Kauf ab',
-    ru: 'Как Проходит Покупка',
+    ru: 'Как проходит покупка',
     ar: 'كيف تتم عملية الشراء',
     nl: 'Hoe kopen werkt',
     pl: 'Jak przebiega zakup',
