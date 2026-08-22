@@ -130,7 +130,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     ru: `Не знаете, с чего начать? Расскажите, что для вас важно.`,
     ar: `لست متأكدًا من أين تبدأ؟ أخبرنا بما يهمك.`, nl: `Weet u niet waar u moet beginnen? Vertel ons wat voor u belangrijk is.`, pl: `Nie wiesz, od czego zacząć? Powiedz nam, co jest dla Państwa ważne.`, sv: `Osäker på var ni ska börja? Berätta för oss vad som är viktigt för er.`, no: `Usikker på hvor du skal begynne? Fortell oss hva som betyr noe for deg.`,
   },
-  { find: `Ask About Areas`, es: `Consultar sobre Zonas`, fr: `Se Renseigner sur les Secteurs`, de: `Fragen zu Gebieten`, ru: `Спросить о районах`, ar: `استفسر عن المناطق`, nl: `Vraag naar Gebieden`, pl: `Zapytaj o lokalizacje`, sv: `Fråga om områden`, no: `Spør om Områder` },
+  { find: `Ask About Areas`, es: `Consultar sobre Zonas`, fr: `Se Renseigner sur les Secteurs`, de: `Fragen zu Gebieten`, ru: `Спросить о районах`, ar: `استفسر عن المناطق`, nl: `Vraag naar Gebieden`, pl: `Zapytaj o lokalizacje`, sv: `Fråga om områden`, no: `Spør om områder` },
 
   // ---------- why-nueva.html ----------
   {
@@ -139,7 +139,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Pourquoi Choisir Nueva Living`,
     de: `Warum Nueva Living Wählen`,
     ru: `Почему выбирают Nueva Living`,
-    ar: `لماذا تختار نويفا ليفينغ`, nl: `Waarom Kiezen voor Nueva Living`, pl: `Dlaczego warto wybrać Nueva Living`, sv: `Varför välja Nueva Living`, no: `Hvorfor Velge Nueva Living`,
+    ar: `لماذا تختار نويفا ليفينغ`, nl: `Waarom Kiezen voor Nueva Living`, pl: `Dlaczego warto wybrać Nueva Living`, sv: `Varför välja Nueva Living`, no: `Hvorfor velge Nueva Living`,
   },
   {
     find: `Why international buyers choose Nueva Living for local insight, honest advice and a smoother Costa del Sol property search.`,
@@ -179,7 +179,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Ce Qui Nous Distingue`,
     de: `Was Uns Auszeichnet`,
     ru: `Что нас отличает`,
-    ar: `ما الذي يميزنا`, nl: `Wat ons onderscheidt`, pl: `Co nas wyróżnia`, sv: `Vad som skiljer oss åt`, no: `Hva Som Skiller Oss Ut`,
+    ar: `ما الذي يميزنا`, nl: `Wat ons onderscheidt`, pl: `Co nas wyróżnia`, sv: `Vad som skiljer oss åt`, no: `Hva som skiller oss ut`,
   },
   {
     find: `Beautiful brochures are easy. <em>Good decisions take more.</em>`,
@@ -203,7 +203,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Pourquoi les Acheteurs Nous Choisissent`,
     de: `Warum Käufer Uns Wählen`,
     ru: `Почему покупатели выбирают нас`,
-    ar: `لماذا يختارنا المشترون`, nl: `Waarom kopers voor ons kiezen`, pl: `Dlaczego kupujący wybierają nas`, sv: `Varför köpare väljer oss`, no: `Hvorfor Kjøpere Velger Oss`,
+    ar: `لماذا يختارنا المشترون`, nl: `Waarom kopers voor ons kiezen`, pl: `Dlaczego kupujący wybierają nas`, sv: `Varför köpare väljer oss`, no: `Hvorfor kjøpere velger oss`,
   },
   {
     find: `Useful at the moments <em>that matter</em>`,
@@ -219,7 +219,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Locaux, Jusqu'au Niveau de la Rue`,
     de: `Lokal, Bis Auf Straßenebene`,
     ru: `Локальная экспертиза до мельчайших деталей`,
-    ar: `خبرة محلية حتى مستوى الشارع`, nl: `Lokaal, Tot op Straatniveau`, pl: `Lokalna znajomość, aż do poziomu ulicy`, sv: `Lokal, ner till gatunivå`, no: `Lokal, Helt Ned til Gatenivå`,
+    ar: `خبرة محلية حتى مستوى الشارع`, nl: `Lokaal, Tot op Straatniveau`, pl: `Lokalna znajomość, aż do poziomu ulicy`, sv: `Lokal, ner till gatunivå`, no: `Lokal, helt ned til gatenivå`,
   },
   {
     find: `Years on the Costa del Sol mean we understand how neighbouring communities can differ in access, atmosphere and long-term appeal.`,
@@ -235,7 +235,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Au-delà des Annonces Publiques`,
     de: `Über die Öffentlichen Angebote Hinaus`,
     ru: `За пределами публичных объявлений`,
-    ar: `أبعد من الإعلانات العامة`, nl: `Verder dan de Openbare Aanbiedingen`, pl: `Poza publicznymi ofertami`, sv: `Bortom de offentliga listningarna`, no: `Utover de Offentlige Annonsene`,
+    ar: `أبعد من الإعلانات العامة`, nl: `Verder dan de Openbare Aanbiedingen`, pl: `Poza publicznymi ofertami`, sv: `Bortom de offentliga listningarna`, no: `Utover de offentlige annonsene`,
   },
   {
     find: `When private releases or off-market availability open up, we can bring the relevant opportunities into your search.`,
@@ -251,7 +251,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Un Fil Conducteur, du Début à la Fin`,
     de: `Ein Roter Faden, von Anfang bis Ende`,
     ru: `Единая линия сопровождения от начала до конца`,
-    ar: `خيط واحد يربط الرحلة من البداية إلى النهاية`, nl: `Eén Rode Draad, van Begin tot Eind`, pl: `Jedna nić przewodnia, od początku do końca`, sv: `En röd tråd, från start till mål`, no: `En Rød Tråd, fra Start til Slutt`,
+    ar: `خيط واحد يربط الرحلة من البداية إلى النهاية`, nl: `Eén Rode Draad, van Begin tot Eind`, pl: `Jedna nić przewodnia, od początku do końca`, sv: `En röd tråd, från start till mål`, no: `En rød tråd, fra start til slutt`,
   },
   {
     find: `From your brief and viewings to negotiation and handover, we keep the moving parts together and coordinate with your independent lawyer.`,
@@ -267,7 +267,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Trois Langues, Une Seule Conversation`,
     de: `Drei Sprachen, Ein Gespräch`,
     ru: `Три языка — один разговор`,
-    ar: `ثلاث لغات، محادثة واحدة`, nl: `Drie talen, één gesprek`, pl: `Trzy języki, jedna rozmowa`, sv: `Tre språk, ett samtal`, no: `Tre Språk, Én Samtale`,
+    ar: `ثلاث لغات، محادثة واحدة`, nl: `Drie talen, één gesprek`, pl: `Trzy języki, jedna rozmowa`, sv: `Tre språk, ett samtal`, no: `Tre språk, én samtale`,
   },
   {
     find: `Speak with us in English, Spanish or Swedish. The details stay clear, whichever language feels most natural.`,
@@ -283,7 +283,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Honnêtes Sur les Compromis`,
     de: `Ehrlich Bei den Kompromissen`,
     ru: `Честны в отношении компромиссов`,
-    ar: `صراحة تامة بشأن المفاضلات`, nl: `Eerlijk Over de Afwegingen`, pl: `Szczerze o kompromisach`, sv: `Ärliga om avvägningarna`, no: `Ærlige Om Avveiningene`,
+    ar: `صراحة تامة بشأن المفاضلات`, nl: `Eerlijk Over de Afwegingen`, pl: `Szczerze o kompromisach`, sv: `Ärliga om avvägningarna`, no: `Ærlige om avveiningene`,
   },
   {
     find: `If a location is noisy, a terrace is overlooked or the price feels ambitious, we say so. A good decision matters more than a quick one.`,
@@ -299,7 +299,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Toujours Présents Après la Remise des Clés`,
     de: `Auch Nach der Schlüsselübergabe Für Sie Da`,
     ru: `Мы остаёмся рядом и после получения ключей`,
-    ar: `نبقى معكم حتى بعد استلام المفاتيح`, nl: `Nog Steeds Aanwezig Na de Sleuteloverdracht`, pl: `Wciąż obecni po odbiorze kluczy`, sv: `Fortfarande här efter nyckelöverlämningen`, no: `Fortsatt Her Etter Nøkkeloverleveringen`,
+    ar: `نبقى معكم حتى بعد استلام المفاتيح`, nl: `Nog Steeds Aanwezig Na de Sleuteloverdracht`, pl: `Wciąż obecni po odbiorze kluczy`, sv: `Fortfarande här efter nyckelöverlämningen`, no: `Fortsatt her etter nøkkeloverleveringen`,
   },
   {
     find: `Handover is not the end of the relationship. We remain available and connect you with trusted local services when needed.`,
@@ -339,7 +339,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Dites-Nous Ce Dont Vous Avez Besoin`,
     de: `Sagen Sie Uns, Was Sie Brauchen`,
     ru: `Расскажите, что вам нужно`,
-    ar: `أخبرونا بما تحتاجونه`, nl: `Vertel ons wat u nodig heeft`, pl: `Powiedz nam, czego potrzebujesz`, sv: `Berätta vad ni behöver`, no: `Fortell Oss Hva Du Trenger`,
+    ar: `أخبرونا بما تحتاجونه`, nl: `Vertel ons wat u nodig heeft`, pl: `Powiedz nam, czego potrzebujesz`, sv: `Berätta vad ni behöver`, no: `Fortell oss hva du trenger`,
   },
   {
     find: `We talk through your budget, timing, preferred areas and must-haves.`,
@@ -355,7 +355,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Recevez Votre Sélection`,
     de: `Erhalten Sie Ihre Auswahlliste`,
     ru: `Получите свой шорт-лист`,
-    ar: `احصلوا على قائمتكم المختصرة`, nl: `Ontvang uw shortlist`, pl: `Otrzymaj swoją listę wyboru`, sv: `Få er urvalslista`, no: `Motta Din Utvalgsliste`,
+    ar: `احصلوا على قائمتكم المختصرة`, nl: `Ontvang uw shortlist`, pl: `Otrzymaj swoją listę wyboru`, sv: `Få er urvalslista`, no: `Motta din utvalgsliste`,
   },
   {
     find: `You get a focused selection with current prices and availability.`,
@@ -371,7 +371,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Visitez et Décidez`,
     de: `Besichtigen und Entscheiden`,
     ru: `Посмотрите и примите решение`,
-    ar: `عاينوا واتخذوا القرار`, nl: `Bezichtigen en Beslissen`, pl: `Obejrzyj i zdecyduj`, sv: `Visa och besluta`, no: `Se og Bestem`,
+    ar: `عاينوا واتخذوا القرار`, nl: `Bezichtigen en Beslissen`, pl: `Obejrzyj i zdecyduj`, sv: `Visa och besluta`, no: `Se og bestem`,
   },
   {
     find: `We arrange viewings, share the project documents and explain the reservation process.`,
@@ -389,7 +389,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Qui Nous Sommes`,
     de: `Wer Wir Sind`,
     ru: `Кто мы`,
-    ar: `من نحن`, nl: `Wie wij zijn`, pl: `Kim jesteśmy`, sv: `Vilka vi är`, no: `Hvem Vi Er`,
+    ar: `من نحن`, nl: `Wie wij zijn`, pl: `Kim jesteśmy`, sv: `Vilka vi är`, no: `Hvem vi er`,
   },
   {
     find: `The people <em>behind the advice</em>`,
@@ -421,7 +421,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Connaissez-Vous Quelqu'un Qui Cherche ?`,
     de: `Kennen Sie Jemanden, Der Sucht?`,
     ru: `Знаете кого-то, кто ищет недвижимость?`,
-    ar: `هل تعرفون شخصًا يبحث عن عقار؟`, nl: `Kent u iemand die zoekt?`, pl: `Znasz kogoś, kto szuka?`, sv: `Känner ni någon som söker?`, no: `Kjenner Du Noen Som Ser?`,
+    ar: `هل تعرفون شخصًا يبحث عن عقار؟`, nl: `Kent u iemand die zoekt?`, pl: `Znasz kogoś, kto szuka?`, sv: `Känner ni någon som söker?`, no: `Kjenner du noen som søker?`,
   },
   {
     find: `Introduce someone, <em>get rewarded</em>`,
@@ -445,7 +445,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Prêts Quand Vous Le Serez`,
     de: `Bereit, Wenn Sie Es Sind`,
     ru: `Мы готовы, когда готовы вы`,
-    ar: `جاهزون عندما تكونون مستعدين`, nl: `Klaar wanneer u dat bent`, pl: `Gotowi, gdy Państwo są gotowi`, sv: `Redo när ni är det`, no: `Klare Når Du Er Klar`,
+    ar: `جاهزون عندما تكونون مستعدين`, nl: `Klaar wanneer u dat bent`, pl: `Gotowi, gdy Państwo są gotowi`, sv: `Redo när ni är det`, no: `Klare når du er klar`,
   },
   {
     find: `Bring us your wish list. We will bring back the options worth your time.`,
@@ -461,7 +461,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Commencez Votre Recherche`,
     de: `Starten Sie Ihre Suche`,
     ru: `Начните поиск`,
-    ar: `ابدأوا بحثكم`, nl: `Start uw zoektocht`, pl: `Rozpocznij poszukiwania`, sv: `Starta er sökning`, no: `Start Søket Ditt`,
+    ar: `ابدأوا بحثكم`, nl: `Start uw zoektocht`, pl: `Rozpocznij poszukiwania`, sv: `Starta er sökning`, no: `Start søket ditt`,
   },
 
   // ---------- advisory.html ----------
@@ -503,7 +503,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Un Regard Indépendant`,
     de: `Eine Unabhängige Sichtweise`,
     ru: `Независимый взгляд`,
-    ar: `رؤية مستقلة`, nl: `Een onafhankelijke kijk`, pl: `Niezależne spojrzenie`, sv: `En oberoende syn`, no: `Et Uavhengig Blikk`,
+    ar: `رؤية مستقلة`, nl: `Een onafhankelijke kijk`, pl: `Niezależne spojrzenie`, sv: `En oberoende syn`, no: `Et uavhengig blikk`,
   },
   {
     find: `Clear advice for <em>the buyer</em>`,
@@ -527,7 +527,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Comment Nous Vous Aidons`,
     de: `Wie Wir Helfen`,
     ru: `Как мы помогаем`,
-    ar: `كيف نساعدكم`, nl: `Hoe wij helpen`, pl: `Jak pomagamy`, sv: `Hur vi hjälper`, no: `Hvordan Vi Hjelper`,
+    ar: `كيف نساعدكم`, nl: `Hoe wij helpen`, pl: `Jak pomagamy`, sv: `Hur vi hjälper`, no: `Hvordan vi hjelper`,
   },
   {
     find: `The details we help you <em>compare</em>`,
@@ -543,7 +543,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Comparer les Programmes`,
     de: `Projekte Vergleichen`,
     ru: `Сравнение проектов`,
-    ar: `مقارنة المشاريع`, nl: `Projecten vergelijken`, pl: `Porównaj projekty`, sv: `Jämför projekt`, no: `Sammenlign Prosjekter`,
+    ar: `مقارنة المشاريع`, nl: `Projecten vergelijken`, pl: `Porównaj projekty`, sv: `Jämför projekt`, no: `Sammenlign prosjekter`,
   },
   {
     find: `We compare prices, orientation, amenities, completion dates and nearby alternatives side by side.`,
@@ -559,7 +559,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Planifier l'Achat`,
     de: `Den Kauf Planen`,
     ru: `Планирование покупки`,
-    ar: `التخطيط للشراء`, nl: `De aankoop plannen`, pl: `Zaplanuj zakup`, sv: `Planera köpet`, no: `Planlegg Kjøpet`,
+    ar: `التخطيط للشراء`, nl: `De aankoop plannen`, pl: `Zaplanuj zakup`, sv: `Planera köpet`, no: `Planlegg kjøpet`,
   },
   {
     find: `We talk through how you will use the home, rental plans, financing and what you may want later.`,
@@ -575,7 +575,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Réserver en Toute Clarté`,
     de: `Reservieren mit Klarheit`,
     ru: `Прозрачное резервирование`,
-    ar: `الحجز بوضوح تام`, nl: `Reserveren met Duidelijkheid`, pl: `Rezerwuj z pełną jasnością`, sv: `Boka med tydlighet`, no: `Reserver med Klarhet`,
+    ar: `الحجز بوضوح تام`, nl: `Reserveren met Duidelijkheid`, pl: `Rezerwuj z pełną jasnością`, sv: `Boka med tydlighet`, no: `Reserver med klarhet`,
   },
   {
     find: `We organise project documents, viewings, reservation details and an introduction to an independent lawyer.`,
@@ -591,7 +591,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Notre Engagement`,
     de: `Unser Versprechen`,
     ru: `Наше обещание`,
-    ar: `التزامنا`, nl: `Onze belofte`, pl: `Nasza obietnica`, sv: `Vårt löfte`, no: `Vårt Løfte`,
+    ar: `التزامنا`, nl: `Onze belofte`, pl: `Nasza obietnica`, sv: `Vårt löfte`, no: `Vårt løfte`,
   },
   {
     find: `Straight answers, <em>no pressure</em>`,
@@ -607,7 +607,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Une Liste Plus Courte et Meilleure`,
     de: `Eine Kürzere, Bessere Liste`,
     ru: `Короче — значит лучше`,
-    ar: `قائمة أقصر وأفضل`, nl: `Een kortere, betere lijst`, pl: `Krótsza i lepsza lista`, sv: `En kortare, bättre lista`, no: `En Kortere, Bedre Liste`,
+    ar: `قائمة أقصر وأفضل`, nl: `Een kortere, betere lijst`, pl: `Krótsza i lepsza lista`, sv: `En kortare, bättre lista`, no: `En kortere, bedre liste`,
   },
   {
     find: `We would rather show you three suitable projects than thirty generic options.`,
@@ -623,7 +623,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Uniquement l'Urgence Réelle`,
     de: `Nur Echte Dringlichkeit`,
     ru: `Только реальная срочность`,
-    ar: `الاستعجال الحقيقي فقط`, nl: `Alleen echte urgentie`, pl: `Tylko realna pilność`, sv: `Endast verklig brådska`, no: `Kun Reell Hast`,
+    ar: `الاستعجال الحقيقي فقط`, nl: `Alleen echte urgentie`, pl: `Tylko realna pilność`, sv: `Endast verklig brådska`, no: `Kun reell hast`,
   },
   {
     find: `We only flag urgency when availability, pricing or a reservation deadline genuinely changes.`,
@@ -647,7 +647,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Parlez à un Conseiller`,
     de: `Sprechen Sie mit einem Berater`,
     ru: `Поговорить с консультантом`,
-    ar: `تحدثوا مع مستشار`, nl: `Spreek met een Adviseur`, pl: `Porozmawiaj z doradcą`, sv: `Prata med en rådgivare`, no: `Snakk med en Rådgiver`,
+    ar: `تحدثوا مع مستشار`, nl: `Spreek met een Adviseur`, pl: `Porozmawiaj z doradcą`, sv: `Prata med en rådgivare`, no: `Snakk med en rådgiver`,
   },
 
   // ---------- referrals.html ----------
@@ -657,7 +657,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Programme de Parrainage et d'Ambassadeurs`,
     de: `Empfehlungs- und Botschafterprogramm`,
     ru: `Программа рекомендаций и амбассадоров`,
-    ar: `برنامج الإحالة والسفراء`, nl: `Aanbevelingsprogramma`, pl: `Program Poleceń i Ambasadorów`, sv: `Rekommendations- och ambassadörsprogram`, no: `Anbefalings- og Ambassadørprogram`,
+    ar: `برنامج الإحالة والسفراء`, nl: `Aanbevelingsprogramma`, pl: `Program Poleceń i Ambasadorów`, sv: `Rekommendations- och ambassadörsprogram`, no: `Anbefalings- og ambassadørprogram`,
   },
   {
     find: `Introduce someone to Nueva Living and receive a share of our commission when their Costa del Sol purchase completes.`,
@@ -689,7 +689,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Comment Ça Marche`,
     de: `So Funktioniert Es`,
     ru: `Как это работает`,
-    ar: `كيف تعمل`, nl: `Hoe het werkt`, pl: `Jak to działa`, sv: `Hur det fungerar`, no: `Hvordan Det Fungerer`,
+    ar: `كيف تعمل`, nl: `Hoe het werkt`, pl: `Jak to działa`, sv: `Hur det fungerar`, no: `Hvordan det fungerer`,
   },
   {
     find: `A simple way to <em>say thank you</em>`,
@@ -705,7 +705,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Dites-Nous Qui`,
     de: `Sagen Sie Uns, Wer`,
     ru: `Расскажите нам, кого`,
-    ar: `أخبرونا بمن`, nl: `Vertel ons wie`, pl: `Powiedz nam kogo`, sv: `Berätta vem`, no: `Fortell Oss Hvem`,
+    ar: `أخبرونا بمن`, nl: `Vertel ons wie`, pl: `Powiedz nam kogo`, sv: `Berätta vem`, no: `Fortell oss hvem`,
   },
   {
     find: `Share their details in the form below.`,
@@ -721,7 +721,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Nous Confirmons Que C'est Sincère`,
     de: `Wir Bestätigen Die Echtheit`,
     ru: `Мы подтверждаем подлинность рекомендации`,
-    ar: `نتأكد من صحة الأمر`, nl: `Wij Bevestigen dat Het Echt Is`, pl: `Potwierdzamy autentyczność`, sv: `Vi bekräftar att det är äkta`, no: `Vi Bekrefter At Det Er Ekte`,
+    ar: `نتأكد من صحة الأمر`, nl: `Wij Bevestigen dat Het Echt Is`, pl: `Potwierdzamy autentyczność`, sv: `Vi bekräftar att det är äkta`, no: `Vi bekrefter at det er ekte`,
   },
   {
     find: `We check honestly, either way.`,
@@ -737,7 +737,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Nous Prenons Soin d'Eux`,
     de: `Wir Kümmern Uns Um Sie`,
     ru: `Мы заботимся о них`,
-    ar: `نعتني بهم`, nl: `Wij zorgen voor hen`, pl: `Dbamy o nich`, sv: `Vi tar hand om dem`, no: `Vi Tar Vare på Dem`,
+    ar: `نعتني بهم`, nl: `Wij zorgen voor hen`, pl: `Dbamy o nich`, sv: `Vi tar hand om dem`, no: `Vi tar vare på dem`,
   },
   {
     find: `The same private process, every client.`,
@@ -753,7 +753,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Vous Êtes Récompensé`,
     de: `Sie Werden Belohnt`,
     ru: `Вы получаете вознаграждение`,
-    ar: `تحصلون على مكافأتكم`, nl: `U wordt beloond`, pl: `Otrzymują Państwo nagrodę`, sv: `Ni blir belönade`, no: `Du Blir Belønnet`,
+    ar: `تحصلون على مكافأتكم`, nl: `U wordt beloond`, pl: `Otrzymują Państwo nagrodę`, sv: `Ni blir belönade`, no: `Du blir belønnet`,
   },
   {
     find: `A share of our commission, in writing.`,
@@ -825,7 +825,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Questions Fréquentes`,
     de: `Häufige Fragen`,
     ru: `Частые вопросы`,
-    ar: `الأسئلة الشائعة`, nl: `Veelgestelde vragen`, pl: `Najczęściej zadawane pytania`, sv: `Vanliga frågor`, no: `Vanlige Spørsmål`,
+    ar: `الأسئلة الشائعة`, nl: `Veelgestelde vragen`, pl: `Najczęściej zadawane pytania`, sv: `Vanliga frågor`, no: `Vanlige spørsmål`,
   },
   {
     find: `What ambassadors usually <em>ask us</em>`,
@@ -905,7 +905,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Présentez Quelqu'un`,
     de: `Jemanden Empfehlen`,
     ru: `Порекомендуйте кого-то`,
-    ar: `قدّموا شخصًا`, nl: `Introduceer iemand`, pl: `Poleć kogoś`, sv: `Introducera någon`, no: `Introduser Noen`,
+    ar: `قدّموا شخصًا`, nl: `Introduceer iemand`, pl: `Poleć kogoś`, sv: `Introducera någon`, no: `Tips noen`,
   },
   {
     find: `Introduce them <em>today</em>`,
@@ -929,7 +929,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Votre Prénom`,
     de: `Ihr Vorname`,
     ru: `Ваше имя`,
-    ar: `اسمكم الأول`, nl: `Uw voornaam`, pl: `Państwa imię`, sv: `Ert förnamn`, no: `Ditt Fornavn`,
+    ar: `اسمكم الأول`, nl: `Uw voornaam`, pl: `Państwa imię`, sv: `Ert förnamn`, no: `Ditt fornavn`,
   },
   {
     find: `Your Last Name`,
@@ -937,7 +937,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Votre Nom`,
     de: `Ihr Nachname`,
     ru: `Ваша фамилия`,
-    ar: `اسم العائلة`, nl: `Uw achternaam`, pl: `Państwa nazwisko`, sv: `Ert efternamn`, no: `Ditt Etternavn`,
+    ar: `اسم العائلة`, nl: `Uw achternaam`, pl: `Państwa nazwisko`, sv: `Ert efternamn`, no: `Ditt etternavn`,
   },
   {
     find: `Your Email Address`,
@@ -945,7 +945,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Votre Adresse E-mail`,
     de: `Ihre E-Mail-Adresse`,
     ru: `Ваш адрес электронной почты`,
-    ar: `بريدكم الإلكتروني`, nl: `Uw e-mailadres`, pl: `Państwa adres e-mail`, sv: `Er e-postadress`, no: `Din E-postadresse`,
+    ar: `بريدكم الإلكتروني`, nl: `Uw e-mailadres`, pl: `Państwa adres e-mail`, sv: `Er e-postadress`, no: `Din e-postadresse`,
   },
   {
     find: `Your Phone Number`,
@@ -953,7 +953,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Votre Numéro de Téléphone`,
     de: `Ihre Telefonnummer`,
     ru: `Ваш номер телефона`,
-    ar: `رقم هاتفكم`, nl: `Uw telefoonnummer`, pl: `Państwa numer telefonu`, sv: `Ert telefonnummer`, no: `Ditt Telefonnummer`,
+    ar: `رقم هاتفكم`, nl: `Uw telefoonnummer`, pl: `Państwa numer telefonu`, sv: `Ert telefonnummer`, no: `Ditt telefonnummer`,
   },
   {
     find: `Their Name`,
@@ -961,7 +961,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Son Nom`,
     de: `Name der Person`,
     ru: `Имя человека`,
-    ar: `اسم الشخص`, nl: `Naam van de Persoon`, pl: `Imię i nazwisko tej osoby`, sv: `Personens namn`, no: `Personens Navn`,
+    ar: `اسم الشخص`, nl: `Naam van de Persoon`, pl: `Imię i nazwisko tej osoby`, sv: `Personens namn`, no: `Personens navn`,
   },
   {
     find: `Their Email or Phone`,
@@ -969,7 +969,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Son E-mail ou Téléphone`,
     de: `E-Mail oder Telefonnummer der Person`,
     ru: `Email или телефон этого человека`,
-    ar: `بريده الإلكتروني أو هاتفه`, nl: `E-mail of Telefoon van de Persoon`, pl: `E-mail lub telefon tej osoby`, sv: `Personens e-post eller telefon`, no: `Personens E-post eller Telefon`,
+    ar: `بريده الإلكتروني أو هاتفه`, nl: `E-mail of Telefoon van de Persoon`, pl: `E-mail lub telefon tej osoby`, sv: `Personens e-post eller telefon`, no: `Personens e-post eller telefon`,
   },
   {
     find: `What Are They Looking For?`,
@@ -977,7 +977,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Que Recherche-t-elle ?`,
     de: `Wonach Sucht Die Person?`,
     ru: `Что этот человек ищет?`,
-    ar: `ماذا يبحث؟`, nl: `Waar zijn zij naar op zoek?`, pl: `Czego ta osoba szuka?`, sv: `Vad söker personen?`, no: `Hva Ser Personen Etter?`,
+    ar: `ماذا يبحث؟`, nl: `Waar zijn zij naar op zoek?`, pl: `Czego ta osoba szuka?`, sv: `Vad söker personen?`, no: `Hva ser personen etter?`,
   },
   {
     find: `I agree to be contacted and for my data to be stored.`,
@@ -993,7 +993,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Envoyer le Parrainage`,
     de: `Empfehlung Absenden`,
     ru: `Отправить рекомендацию`,
-    ar: `إرسال الإحالة`, nl: `Verwijzing versturen`, pl: `Wyślij polecenie`, sv: `Skicka rekommendation`, no: `Send Anbefaling`,
+    ar: `إرسال الإحالة`, nl: `Verwijzing versturen`, pl: `Wyślij polecenie`, sv: `Skicka rekommendation`, no: `Send anbefaling`,
   },
 
   // ===== SEO <title> and meta description.
@@ -1001,6 +1001,6 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   // fire inside body prose. These shipped untranslated, which also left
   // five locales sharing one identical title.
   { find: '<title>Areas | Nueva Living</title>', es: '<title>Guía de Zonas de la Costa del Sol | Nueva Living</title>', fr: '<title>Guide des Secteurs de la Costa del Sol | Nueva Living</title>', de: '<title>Costa-del-Sol-Gebietsguide | Nueva Living</title>', ru: '<title>Путеводитель по районам Коста-дель-Соль | Nueva Living</title>', ar: '<title>دليل مناطق كوستا ديل سول | Nueva Living</title>', nl: '<title>Gebiedsgids Costa del Sol | Nueva Living</title>', pl: '<title>Przewodnik po lokalizacjach Costa del Sol | Nueva Living</title>', sv: '<title>Områdesguide för Costa del Sol | Nueva Living</title>', no: '<title>Områdeguide for Costa del Sol | Nueva Living</title>' },
-  { find: '<title>Referral &amp; Ambassador Program | Nueva Living</title>', es: '<title>Programa de Recomendación y Embajadores | Nueva Living</title>', fr: '<title>Programme de Parrainage et Ambassadeurs | Nueva Living</title>', de: '<title>Empfehlungs- und Botschafterprogramm | Nueva Living</title>', ru: '<title>Реферальная и амбассадорская программа | Nueva Living</title>', ar: '<title>برنامج التوصية والسفراء | Nueva Living</title>', nl: '<title>Aanbevelingsprogramma | Nueva Living</title>', pl: '<title>Program Poleceń i Ambasadorów | Nueva Living</title>', sv: '<title>Rekommendations- och ambassadörsprogram | Nueva Living</title>', no: '<title>Anbefalings- og Ambassadørprogram | Nueva Living</title>' },
+  { find: '<title>Referral &amp; Ambassador Program | Nueva Living</title>', es: '<title>Programa de Recomendación y Embajadores | Nueva Living</title>', fr: '<title>Programme de Parrainage et Ambassadeurs | Nueva Living</title>', de: '<title>Empfehlungs- und Botschafterprogramm | Nueva Living</title>', ru: '<title>Реферальная и амбассадорская программа | Nueva Living</title>', ar: '<title>برنامج التوصية والسفراء | Nueva Living</title>', nl: '<title>Aanbevelingsprogramma | Nueva Living</title>', pl: '<title>Program Poleceń i Ambasadorów | Nueva Living</title>', sv: '<title>Rekommendations- och ambassadörsprogram | Nueva Living</title>', no: '<title>Anbefalings- og ambassadørprogram | Nueva Living</title>' },
   { find: 'content="Costa del Sol area guide for new development buyers."', es: 'content="Guía de zonas de la Costa del Sol para compradores de obra nueva: Marbella, Estepona, Benahavís, Nueva Andalucía y Mijas."', fr: 'content="Guide des secteurs de la Costa del Sol pour les acquéreurs de programmes neufs : Marbella, Estepona, Benahavís, Nueva Andalucía et Mijas."', de: 'content="Gebietsguide der Costa del Sol für Neubaukäufer: Marbella, Estepona, Benahavís, Nueva Andalucía und Mijas."', ru: 'content="Путеводитель по районам Коста-дель-Соль для покупателей новостроек: Марбелья, Эстепона, Бенаавис, Нуэва-Андалусия и Михас."', ar: 'content="دليل مناطق كوستا ديل سول لمشتري المشاريع الجديدة: ماربيا وإستيبونا وبيناهافيس ونويفا أندلوسيا وميخاس."', nl: 'content="Gebiedsgids van de Costa del Sol voor kopers van nieuwbouw: Marbella, Estepona, Benahavís, Nueva Andalucía en Mijas."', pl: 'content="Przewodnik po lokalizacjach Costa del Sol dla kupujących nowe inwestycje: Marbella, Estepona, Benahavís, Nueva Andalucía i Mijas."', sv: 'content="Områdesguide för Costa del Sol för köpare av nyproduktion: Marbella, Estepona, Benahavís, Nueva Andalucía och Mijas."', no: 'content="Områdeguide for Costa del Sol for kjøpere av nybygg: Marbella, Estepona, Benahavís, Nueva Andalucía og Mijas."' }
 ];
