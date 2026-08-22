@@ -23,7 +23,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   { find: 'This depends on the individual development and local regulations, which can vary by community and municipality. Nueva Living will confirm the specific rules for a development before you reserve.', es: 'Depende de cada promoción y de la normativa local, que puede variar según la comunidad y el municipio. Nueva Living confirmará las normas específicas de la promoción antes de que reserves.', fr: 'Cela dépend du programme concerné et de la réglementation locale, qui peut varier selon la copropriété et la commune. Nueva Living confirmera les règles spécifiques du programme avant votre réservation.', de: 'Dies hängt vom jeweiligen Projekt und den lokalen Vorschriften ab, die sich je nach Gemeinschaft und Gemeinde unterscheiden können. Nueva Living bestätigt die spezifischen Regeln für ein Projekt vor Ihrer Reservierung.', ru: 'Это зависит от конкретного проекта и местных нормативов, которые могут различаться в зависимости от сообщества и муниципалитета. Nueva Living подтвердит конкретные правила проекта перед бронированием.', ar: 'يعتمد ذلك على المشروع تحديدًا واللوائح المحلية التي قد تختلف حسب المجتمع السكني والبلدية. ستؤكد Nueva Living القواعد المحددة للمشروع قبل الحجز.', nl: 'Dit hangt af van het specifieke project en de lokale regelgeving, die kan verschillen per gemeenschap en gemeente. Nueva Living bevestigt de specifieke regels voor een project voordat u reserveert.', pl: 'Zależy to od konkretnej inwestycji i lokalnych przepisów, które mogą się różnić w zależności od wspólnoty i gminy. Nueva Living potwierdzi konkretne zasady dotyczące danej inwestycji przed dokonaniem rezerwacji.', sv: 'Detta beror på det enskilda projektet och lokala bestämmelser, som kan variera mellan samfälligheter och kommuner. Nueva Living bekräftar de specifika reglerna för ett projekt innan ni bokar.', no: 'Dette avhenger av det enkelte prosjektet og lokale forskrifter, som kan variere fra sameie til sameie og fra kommune til kommune. Nueva Living bekrefter de spesifikke reglene for et prosjekt før du reserverer.' },
   { find: 'Do I need a lawyer?', es: '¿Necesito un abogado?', fr: 'Ai-je besoin d\'un avocat ?', de: 'Benötige ich einen Anwalt?', ru: 'Нужен ли мне юрист?', ar: 'هل أحتاج إلى محامٍ؟', nl: 'Heb ik een advocaat nodig?', pl: 'Czy potrzebuję prawnika?', sv: 'Behöver jag en advokat?', no: 'Trenger jeg advokat?' },
   { find: 'Yes, we strongly recommend independent legal representation for any property purchase in Spain. Nueva Living can put you in touch with independent lawyers experienced in Costa del Sol property.', es: 'Sí, recomendamos encarecidamente contar con representación legal independiente para cualquier compra de propiedad en España. Nueva Living puede ponerte en contacto con abogados independientes con experiencia en propiedades de la Costa del Sol.', fr: 'Oui, nous recommandons vivement une représentation juridique indépendante pour tout achat immobilier en Espagne. Nueva Living peut vous mettre en relation avec des avocats indépendants expérimentés en immobilier sur la Costa del Sol.', de: 'Ja, wir empfehlen dringend eine unabhängige rechtliche Vertretung für jeden Immobilienkauf in Spanien. Nueva Living kann Sie mit unabhängigen Anwälten mit Erfahrung im Immobilienrecht der Costa del Sol in Kontakt bringen.', ru: 'Да, мы настоятельно рекомендуем независимое юридическое сопровождение при любой покупке недвижимости в Испании. Nueva Living может связать вас с независимыми юристами, специализирующимися на недвижимости Коста-дель-Соль.', ar: 'نعم، نوصي بشدة بالاستعانة بتمثيل قانوني مستقل لأي عملية شراء عقار في إسبانيا. يمكن لفريق Nueva Living أن يوصلك بمحامين مستقلين ذوي خبرة في عقارات كوستا ديل سول.', nl: 'Ja, wij raden onafhankelijke juridische bijstand sterk aan bij elke aankoop van onroerend goed in Spanje. Nueva Living kan u in contact brengen met onafhankelijke advocaten met ervaring in onroerend goed aan de Costa del Sol.', pl: 'Tak, zdecydowanie zalecamy niezależną obsługę prawną przy każdym zakupie nieruchomości w Hiszpanii. Nueva Living może skontaktować Państwa z niezależnymi prawnikami mającymi doświadczenie w nieruchomościach na Costa del Sol.', sv: 'Ja, vi rekommenderar starkt oberoende juridisk representation vid alla fastighetsköp i Spanien. Nueva Living kan förmedla kontakt med oberoende advokater med erfarenhet av fastigheter på Costa del Sol.', no: 'Ja, vi anbefaler på det sterkeste uavhengig juridisk representasjon ved ethvert eiendomskjøp i Spania. Nueva Living kan sette deg i kontakt med uavhengige advokater med erfaring fra eiendom på Costa del Sol.' },
-  { find: 'FAQ', es: 'Preguntas Frecuentes', fr: 'FAQ', de: 'Häufige Fragen', ru: 'Частые вопросы', ar: 'الأسئلة الشائعة', nl: 'Veelgestelde vragen', pl: 'Najczęściej zadawane pytania', sv: 'Vanliga frågor', no: 'Ofte stilte spørsmål' },
+  { find: 'FAQ', es: 'Preguntas frecuentes', fr: 'FAQ', de: 'Häufige Fragen', ru: 'Частые вопросы', ar: 'الأسئلة الشائعة', nl: 'Veelgestelde vragen', pl: 'Najczęściej zadawane pytania', sv: 'Vanliga frågor', no: 'Ofte stilte spørsmål' },
   { find: 'Common <em>buyer questions</em>', es: 'Preguntas <em>frecuentes de compradores</em>', fr: 'Questions <em>fréquentes des acheteurs</em>', de: 'Häufige <em>Fragen von Käufern</em>', ru: 'Частые <em>вопросы покупателей</em>', ar: 'أسئلة <em>شائعة من المشترين</em>', nl: 'Veelgestelde <em>vragen van kopers</em>', pl: 'Najczęstsze <em>pytania kupujących</em>', sv: 'Vanliga <em>frågor från köpare</em>', no: 'Vanlige <em>spørsmål fra kjøpere</em>' },
   // ---------- areas.html (was missed in the original assignment) ----------
   // Scoped to the breadcrumb: a bare "Areas" find also fired inside longer
@@ -49,16 +49,16 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Every area feels different. We help you compare daily life, travel times, views, prices and future resale demand.`,
-    es: `Cada zona tiene su propio carácter. Le ayudamos a comparar la vida diaria, los tiempos de desplazamiento, las vistas, los precios y la futura demanda de reventa.`,
+    es: `Cada zona tiene su propio carácter. Te ayudamos a comparar la vida diaria, los tiempos de desplazamiento, las vistas, los precios y la futura demanda de reventa.`,
     fr: `Chaque secteur a son propre caractère. Nous vous aidons à comparer la vie quotidienne, les temps de trajet, les vues, les prix et la future demande de revente.`,
     de: `Jedes Gebiet hat seinen eigenen Charakter. Wir helfen Ihnen, Alltag, Fahrzeiten, Ausblicke, Preise und die künftige Wiederverkaufsnachfrage zu vergleichen.`,
     ru: `Каждый район уникален. Мы поможем сравнить повседневную жизнь, время в пути, виды, цены и будущий спрос при перепродаже.`,
     ar: `تختلف كل منطقة عن الأخرى. نساعدك على مقارنة الحياة اليومية وأوقات التنقل والإطلالات والأسعار والطلب المستقبلي عند إعادة البيع.`, nl: `Elk gebied voelt anders aan. Wij helpen u het dagelijks leven, reistijden, uitzichten, prijzen en de toekomstige vraag bij doorverkoop te vergelijken.`, pl: `Każda okolica ma inny charakter. Pomagamy Państwu porównać codzienne życie, czas dojazdu, widoki, ceny oraz przyszły popyt przy odsprzedaży.`, sv: `Varje område känns annorlunda. Vi hjälper er att jämföra vardagsliv, restider, utsikt, priser och framtida efterfrågan vid vidareförsäljning.`, no: `Hvert område føles annerledes. Vi hjelper deg med å sammenligne dagligliv, reisetid, utsikt, priser og fremtidig etterspørsel ved videresalg.`,
   },
-  { find: `Area Guide`, es: `Guía de Zonas`, fr: `Guide des Secteurs`, de: `Gebietsführer`, ru: `Путеводитель по районам`, ar: `دليل المناطق`, nl: `Gebiedsgids`, pl: `Przewodnik po lokalizacjach`, sv: `Områdesguide`, no: `Områdeguide` },
+  { find: `Area Guide`, es: `Guía de zonas`, fr: `Guide des Secteurs`, de: `Gebietsführer`, ru: `Путеводитель по районам`, ar: `دليل المناطق`, nl: `Gebiedsgids`, pl: `Przewodnik po lokalizacjach`, sv: `Områdesguide`, no: `Områdeguide` },
   {
     find: `Find the area that <em>fits you</em>`,
-    es: `Encuentre la zona que <em>se adapte a usted</em>`,
+    es: `Encuentra la zona que <em>se adapte a ti</em>`,
     fr: `Trouvez le secteur qui <em>vous convient</em>`,
     de: `Finden Sie das Gebiet, <em>das zu Ihnen passt</em>`,
     ru: `Найдите район, <em>который подходит именно вам</em>`,
@@ -124,18 +124,18 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   { find: `Explore Mijas &amp; Fuengirola`, es: `Explorar Mijas y Fuengirola`, fr: `Découvrir Mijas et Fuengirola`, de: `Mijas & Fuengirola Entdecken`, ru: `Смотреть Михас и Фуэнхиролу`, ar: `استكشف ميخاس وفوينخيرولا`, nl: `Ontdek Mijas &amp; Fuengirola`, pl: `Poznaj Mijas i Fuengirolę`, sv: `Utforska Mijas och Fuengirola`, no: `Utforsk Mijas &amp; Fuengirola` },
   {
     find: `Not sure where to start? Tell us what matters to you.`,
-    es: `¿No sabe por dónde empezar? Cuéntenos qué es importante para usted.`,
+    es: `¿No sabes por dónde empezar? Cuéntanos qué es importante para ti.`,
     fr: `Vous ne savez pas par où commencer ? Dites-nous ce qui compte pour vous.`,
     de: `Nicht sicher, wo Sie anfangen sollen? Sagen Sie uns, was Ihnen wichtig ist.`,
     ru: `Не знаете, с чего начать? Расскажите, что для вас важно.`,
     ar: `لست متأكدًا من أين تبدأ؟ أخبرنا بما يهمك.`, nl: `Weet u niet waar u moet beginnen? Vertel ons wat voor u belangrijk is.`, pl: `Nie wiesz, od czego zacząć? Powiedz nam, co jest dla Państwa ważne.`, sv: `Osäker på var ni ska börja? Berätta för oss vad som är viktigt för er.`, no: `Usikker på hvor du skal begynne? Fortell oss hva som betyr noe for deg.`,
   },
-  { find: `Ask About Areas`, es: `Consultar sobre Zonas`, fr: `Se Renseigner sur les Secteurs`, de: `Fragen zu Gebieten`, ru: `Спросить о районах`, ar: `استفسر عن المناطق`, nl: `Vraag naar Gebieden`, pl: `Zapytaj o lokalizacje`, sv: `Fråga om områden`, no: `Spør om områder` },
+  { find: `Ask About Areas`, es: `Consultar sobre zonas`, fr: `Se Renseigner sur les Secteurs`, de: `Fragen zu Gebieten`, ru: `Спросить о районах`, ar: `استفسر عن المناطق`, nl: `Vraag naar Gebieden`, pl: `Zapytaj o lokalizacje`, sv: `Fråga om områden`, no: `Spør om områder` },
 
   // ---------- why-nueva.html ----------
   {
     find: `Why Choose Nueva Living`,
-    es: `Por Qué Elegir Nueva Living`,
+    es: `Por qué elegir Nueva Living`,
     fr: `Pourquoi Choisir Nueva Living`,
     de: `Warum Nueva Living Wählen`,
     ru: `Почему выбирают Nueva Living`,
@@ -151,7 +151,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Why Nueva Living`,
-    es: `Por Qué Nueva Living`,
+    es: `Por qué Nueva Living`,
     fr: `Pourquoi Nueva Living`,
     de: `Warum Nueva Living`,
     ru: `Почему Nueva Living`,
@@ -167,7 +167,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `We know the coast, ask the questions that glossy brochures leave out and stay close from the first conversation to the day you get the keys.`,
-    es: `Conocemos la costa, hacemos las preguntas que los folletos no responden y le acompañamos desde la primera conversación hasta el día en que recibe las llaves.`,
+    es: `Conocemos la costa, hacemos las preguntas que los folletos no responden y te acompañamos desde la primera conversación hasta el día en que recibes las llaves.`,
     fr: `Nous connaissons la côte, posons les questions que les brochures glacées laissent de côté et restons proches de vous, de la première conversation jusqu'au jour où vous recevez les clés.`,
     de: `Wir kennen die Küste, stellen die Fragen, die Hochglanzbroschüren auslassen, und bleiben Ihnen nah – vom ersten Gespräch bis zum Tag der Schlüsselübergabe.`,
     ru: `Мы знаем побережье, задаём вопросы, которые обходят стороной глянцевые брошюры, и остаёмся рядом с вами с первого разговора до дня получения ключей.`,
@@ -175,7 +175,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `What Sets Us Apart`,
-    es: `Lo Que Nos Distingue`,
+    es: `Lo que nos distingue`,
     fr: `Ce Qui Nous Distingue`,
     de: `Was Uns Auszeichnet`,
     ru: `Что нас отличает`,
@@ -191,7 +191,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `A sea-view render can make almost any development look perfect. We look past the presentation: the exact setting, the developer, the payment terms, the compromises and whether the property will still suit you years from now.`,
-    es: `Una imagen con vistas al mar puede hacer que casi cualquier promoción parezca perfecta. Nosotros vamos más allá de la presentación: el entorno exacto, el promotor, las condiciones de pago, los compromisos y si la propiedad seguirá siéndole adecuada dentro de unos años.`,
+    es: `Una imagen con vistas al mar puede hacer que casi cualquier promoción parezca perfecta. Nosotros vamos más allá de la presentación: el entorno exacto, el promotor, las condiciones de pago, los compromisos y si la propiedad seguirá siéndote adecuada dentro de unos años.`,
     fr: `Un rendu avec vue sur mer peut faire paraître presque n'importe quel programme parfait. Nous regardons au-delà de la présentation : l'emplacement exact, le promoteur, les conditions de paiement, les compromis, et si le bien vous conviendra toujours dans plusieurs années.`,
     de: `Ein Rendering mit Meerblick kann fast jedes Projekt perfekt aussehen lassen. Wir schauen hinter die Präsentation: die genaue Lage, den Bauträger, die Zahlungsbedingungen, die Kompromisse und ob die Immobilie auch in einigen Jahren noch zu Ihnen passt.`,
     ru: `Визуализация с видом на море может сделать почти любой проект идеальным на вид. Мы смотрим глубже презентации: точное расположение, застройщика, условия оплаты, компромиссы и то, будет ли эта недвижимость подходить вам и через несколько лет.`,
@@ -199,7 +199,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Why Buyers Choose Us`,
-    es: `Por Qué Nos Eligen los Compradores`,
+    es: `Por qué nos eligen los compradores`,
     fr: `Pourquoi les Acheteurs Nous Choisissent`,
     de: `Warum Käufer Uns Wählen`,
     ru: `Почему покупатели выбирают нас`,
@@ -215,7 +215,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Local, Down to Street Level`,
-    es: `Locales, Hasta el Último Detalle`,
+    es: `Locales, hasta el último detalle`,
     fr: `Locaux, Jusqu'au Niveau de la Rue`,
     de: `Lokal, Bis Auf Straßenebene`,
     ru: `Локальная экспертиза до мельчайших деталей`,
@@ -231,7 +231,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Beyond the Public Listings`,
-    es: `Más Allá de los Anuncios Públicos`,
+    es: `Más allá de los anuncios públicos`,
     fr: `Au-delà des Annonces Publiques`,
     de: `Über die Öffentlichen Angebote Hinaus`,
     ru: `За пределами публичных объявлений`,
@@ -239,7 +239,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `When private releases or off-market availability open up, we can bring the relevant opportunities into your search.`,
-    es: `Cuando se abren lanzamientos privados o disponibilidad fuera de mercado, podemos incorporar esas oportunidades relevantes a su búsqueda.`,
+    es: `Cuando se abren lanzamientos privados o disponibilidad fuera de mercado, podemos incorporar esas oportunidades relevantes a tu búsqueda.`,
     fr: `Lorsque des lancements privés ou des disponibilités hors marché s'ouvrent, nous pouvons intégrer ces opportunités pertinentes à votre recherche.`,
     de: `Wenn private Neuveröffentlichungen oder nicht öffentlich vermarktete Verfügbarkeiten entstehen, können wir diese relevanten Gelegenheiten in Ihre Suche einbeziehen.`,
     ru: `Когда открываются закрытые релизы или предложения вне публичного рынка, мы включаем эти релевантные возможности в ваш поиск.`,
@@ -247,7 +247,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `One Thread, Start to Finish`,
-    es: `Un Solo Hilo Conductor, de Principio a Fin`,
+    es: `Un solo hilo conductor, de principio a fin`,
     fr: `Un Fil Conducteur, du Début à la Fin`,
     de: `Ein Roter Faden, von Anfang bis Ende`,
     ru: `Единая линия сопровождения от начала до конца`,
@@ -255,7 +255,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `From your brief and viewings to negotiation and handover, we keep the moving parts together and coordinate with your independent lawyer.`,
-    es: `Desde su briefing y las visitas hasta la negociación y la entrega, mantenemos unidas todas las partes del proceso y coordinamos con su abogado independiente.`,
+    es: `Desde tu briefing y las visitas hasta la negociación y la entrega, mantenemos unidas todas las partes del proceso y coordinamos con tu abogado independiente.`,
     fr: `De votre cahier des charges et des visites jusqu'à la négociation et la remise des clés, nous coordonnons chaque étape avec votre avocat indépendant.`,
     de: `Von Ihrem Anforderungsprofil und den Besichtigungen bis zur Verhandlung und Übergabe halten wir alle beweglichen Teile zusammen und stimmen uns mit Ihrem unabhängigen Anwalt ab.`,
     ru: `От формирования запроса и просмотров до переговоров и передачи ключей — мы удерживаем все части процесса вместе и координируем работу с вашим независимым юристом.`,
@@ -263,7 +263,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Three Languages, One Conversation`,
-    es: `Tres Idiomas, Una Sola Conversación`,
+    es: `Tres idiomas, una sola conversación`,
     fr: `Trois Langues, Une Seule Conversation`,
     de: `Drei Sprachen, Ein Gespräch`,
     ru: `Три языка — один разговор`,
@@ -271,7 +271,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Speak with us in English, Spanish or Swedish. The details stay clear, whichever language feels most natural.`,
-    es: `Hable con nosotros en inglés, español o sueco. Los detalles se mantienen claros, sea cual sea el idioma que le resulte más natural.`,
+    es: `Habla con nosotros en inglés, español o sueco. Los detalles se mantienen claros, sea cual sea el idioma que te resulte más natural.`,
     fr: `Parlez-nous en anglais, en espagnol ou en suédois. Les détails restent clairs, quelle que soit la langue qui vous semble la plus naturelle.`,
     de: `Sprechen Sie mit uns auf Englisch, Spanisch oder Schwedisch. Die Details bleiben klar, unabhängig davon, welche Sprache sich für Sie am natürlichsten anfühlt.`,
     ru: `Общайтесь с нами на английском, испанском или шведском языке. Все детали остаются понятными, на каком бы языке вам ни было удобнее говорить.`,
@@ -279,7 +279,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Honest About the Trade-offs`,
-    es: `Sinceros Sobre las Contrapartidas`,
+    es: `Sinceros sobre las contrapartidas`,
     fr: `Honnêtes Sur les Compromis`,
     de: `Ehrlich Bei den Kompromissen`,
     ru: `Честны в отношении компромиссов`,
@@ -295,7 +295,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Still Here After the Keys`,
-    es: `Seguimos Aquí Después de la Entrega de Llaves`,
+    es: `Seguimos aquí después de la entrega de llaves`,
     fr: `Toujours Présents Après la Remise des Clés`,
     de: `Auch Nach der Schlüsselübergabe Für Sie Da`,
     ru: `Мы остаёмся рядом и после получения ключей`,
@@ -303,7 +303,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Handover is not the end of the relationship. We remain available and connect you with trusted local services when needed.`,
-    es: `La entrega no es el final de la relación. Seguimos disponibles y le ponemos en contacto con servicios locales de confianza cuando lo necesite.`,
+    es: `La entrega no es el final de la relación. Seguimos disponibles y te ponemos en contacto con servicios locales de confianza cuando lo necesites.`,
     fr: `La remise des clés ne marque pas la fin de notre relation. Nous restons disponibles et vous mettons en contact avec des prestataires locaux de confiance en cas de besoin.`,
     de: `Die Übergabe ist nicht das Ende unserer Beziehung. Wir bleiben für Sie erreichbar und vermitteln bei Bedarf vertrauenswürdige lokale Dienstleister.`,
     ru: `Передача ключей — не конец нашего сотрудничества. Мы остаёмся на связи и при необходимости знакомим вас с надёжными местными службами.`,
@@ -335,7 +335,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Tell Us What You Need`,
-    es: `Cuéntenos Lo Que Necesita`,
+    es: `Cuéntanos lo que necesitas`,
     fr: `Dites-Nous Ce Dont Vous Avez Besoin`,
     de: `Sagen Sie Uns, Was Sie Brauchen`,
     ru: `Расскажите, что вам нужно`,
@@ -343,7 +343,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `We talk through your budget, timing, preferred areas and must-haves.`,
-    es: `Hablamos sobre su presupuesto, plazos, zonas preferidas y requisitos imprescindibles.`,
+    es: `Hablamos sobre tu presupuesto, plazos, zonas preferidas y requisitos imprescindibles.`,
     fr: `Nous discutons de votre budget, de vos délais, des zones préférées et de vos critères indispensables.`,
     de: `Wir besprechen Ihr Budget, den Zeitrahmen, bevorzugte Lagen und unverzichtbare Kriterien.`,
     ru: `Мы обсуждаем ваш бюджет, сроки, предпочитаемые районы и обязательные требования.`,
@@ -351,7 +351,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Receive Your Shortlist`,
-    es: `Reciba Su Lista Preseleccionada`,
+    es: `Recibe tu lista preseleccionada`,
     fr: `Recevez Votre Sélection`,
     de: `Erhalten Sie Ihre Auswahlliste`,
     ru: `Получите свой шорт-лист`,
@@ -359,7 +359,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `You get a focused selection with current prices and availability.`,
-    es: `Recibirá una selección precisa con precios y disponibilidad actualizados.`,
+    es: `Recibirás una selección precisa con precios y disponibilidad actualizados.`,
     fr: `Vous recevez une sélection ciblée avec les prix et disponibilités actuels.`,
     de: `Sie erhalten eine gezielte Auswahl mit aktuellen Preisen und Verfügbarkeiten.`,
     ru: `Вы получаете точную подборку с актуальными ценами и наличием.`,
@@ -367,7 +367,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `View and Decide`,
-    es: `Visite y Decida`,
+    es: `Visita y decide`,
     fr: `Visitez et Décidez`,
     de: `Besichtigen und Entscheiden`,
     ru: `Посмотрите и примите решение`,
@@ -375,7 +375,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `We arrange viewings, share the project documents and explain the reservation process.`,
-    es: `Organizamos las visitas, compartimos la documentación del proyecto y le explicamos el proceso de reserva.`,
+    es: `Organizamos las visitas, compartimos la documentación del proyecto y te explicamos el proceso de reserva.`,
     fr: `Nous organisons les visites, partageons les documents du projet et vous expliquons le processus de réservation.`,
     de: `Wir organisieren Besichtigungen, stellen die Projektunterlagen zur Verfügung und erklären Ihnen den Reservierungsprozess.`,
     ru: `Мы организуем просмотры, предоставляем документацию по проекту и объясняем процесс резервации.`,
@@ -385,7 +385,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   // About was previously reachable only from the footer on those two pages.
   {
     find: `Who We Are`,
-    es: `Quiénes Somos`,
+    es: `Quiénes somos`,
     fr: `Qui Nous Sommes`,
     de: `Wer Wir Sind`,
     ru: `Кто мы`,
@@ -417,7 +417,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Know Someone Looking?`,
-    es: `¿Conoce a Alguien Que Esté Buscando?`,
+    es: `¿Conoces a alguien que esté buscando?`,
     fr: `Connaissez-Vous Quelqu'un Qui Cherche ?`,
     de: `Kennen Sie Jemanden, Der Sucht?`,
     ru: `Знаете кого-то, кто ищет недвижимость?`,
@@ -425,7 +425,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Introduce someone, <em>get rewarded</em>`,
-    es: `Presente a alguien y <em>reciba una recompensa</em>`,
+    es: `Presenta a alguien y <em>recibe una recompensa</em>`,
     fr: `Présentez quelqu'un et <em>soyez récompensé</em>`,
     de: `Empfehlen Sie jemanden und <em>werden Sie belohnt</em>`,
     ru: `Порекомендуйте нас и <em>получите вознаграждение</em>`,
@@ -433,7 +433,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `If someone in your life is thinking about a home on the Costa del Sol, our <a href="referrals.html">Referral &amp; Ambassador Program</a> lets you introduce them and receive a share of our commission when their purchase completes.`,
-    es: `Si alguien en su vida está pensando en comprar una vivienda en la Costa del Sol, nuestro <a href="referrals.html">Programa de Referidos y Embajadores</a> le permite presentarlo y recibir una parte de nuestra comisión cuando su compra se complete.`,
+    es: `Si alguien en tu vida está pensando en comprar una vivienda en la Costa del Sol, nuestro <a href="referrals.html">Programa de referidos y embajadores</a> te permite presentarlo y recibir una parte de nuestra comisión cuando tu compra se complete.`,
     fr: `Si une personne de votre entourage envisage d'acheter un bien sur la Costa del Sol, notre <a href="referrals.html">Programme de Parrainage et d'Ambassadeurs</a> vous permet de la présenter et de recevoir une part de notre commission une fois son achat finalisé.`,
     de: `Wenn jemand aus Ihrem Umfeld über den Kauf einer Immobilie an der Costa del Sol nachdenkt, können Sie ihn über unser <a href="referrals.html">Empfehlungs- und Botschafterprogramm</a> vorstellen und einen Anteil unserer Provision erhalten, sobald der Kauf abgeschlossen ist.`,
     ru: `Если кто-то из ваших знакомых задумывается о покупке дома на Коста-дель-Соль, наша <a href="referrals.html">Программа рекомендаций и амбассадоров</a> позволяет вам представить их нам и получить часть нашей комиссии после завершения сделки.`,
@@ -441,7 +441,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Ready When You Are`,
-    es: `Listos Cuando Usted Lo Esté`,
+    es: `Listos cuando tú lo estés`,
     fr: `Prêts Quand Vous Le Serez`,
     de: `Bereit, Wenn Sie Es Sind`,
     ru: `Мы готовы, когда готовы вы`,
@@ -449,7 +449,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Bring us your wish list. We will bring back the options worth your time.`,
-    es: `Tráiganos su lista de deseos. Nosotros le traeremos las opciones que merecen su tiempo.`,
+    es: `Tráenos tu lista de deseos. Nosotros te traeremos las opciones que merecen tu tiempo.`,
     fr: `Apportez-nous votre liste de souhaits. Nous vous rapporterons les options qui méritent votre temps.`,
     de: `Bringen Sie uns Ihre Wunschliste. Wir bringen Ihnen die Optionen, die Ihre Zeit wert sind.`,
     ru: `Поделитесь с нами своим списком пожеланий. Мы подберём варианты, которые действительно стоят вашего времени.`,
@@ -457,7 +457,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Start Your Search`,
-    es: `Comience Su Búsqueda`,
+    es: `Comienza tu búsqueda`,
     fr: `Commencez Votre Recherche`,
     de: `Starten Sie Ihre Suche`,
     ru: `Начните поиск`,
@@ -491,7 +491,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `We help you check the location, developer, finishes, payment plan and future resale appeal before you choose a home.`,
-    es: `Le ayudamos a comprobar la ubicación, el promotor, los acabados, el plan de pagos y el atractivo de reventa futuro antes de elegir una vivienda.`,
+    es: `Te ayudamos a comprobar la ubicación, el promotor, los acabados, el plan de pagos y el atractivo de reventa futuro antes de elegir una vivienda.`,
     fr: `Nous vous aidons à vérifier l'emplacement, le promoteur, les finitions, le plan de paiement et l'attrait de revente futur avant de choisir un bien.`,
     de: `Wir helfen Ihnen, Lage, Bauträger, Ausstattung, Zahlungsplan und den künftigen Wiederverkaufswert zu prüfen, bevor Sie sich für eine Immobilie entscheiden.`,
     ru: `Мы помогаем вам проверить расположение, застройщика, отделку, план платежей и перспективы будущей перепродажи, прежде чем выбрать дом.`,
@@ -499,7 +499,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `An Independent View`,
-    es: `Una Visión Independiente`,
+    es: `Una visión independiente`,
     fr: `Un Regard Indépendant`,
     de: `Eine Unabhängige Sichtweise`,
     ru: `Независимый взгляд`,
@@ -515,7 +515,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `A developer brochure shows the project at its best. We help you look beyond it and understand what is genuinely strong, what is fairly standard and what needs a closer check.`,
-    es: `El folleto de un promotor muestra el proyecto en su mejor versión. Nosotros le ayudamos a ir más allá y entender qué es realmente destacable, qué es bastante estándar y qué merece una revisión más detallada.`,
+    es: `El folleto de un promotor muestra el proyecto en su mejor versión. Nosotros te ayudamos a ir más allá y entender qué es realmente destacable, qué es bastante estándar y qué merece una revisión más detallada.`,
     fr: `La brochure d'un promoteur présente toujours le projet sous son meilleur jour. Nous vous aidons à aller au-delà et à comprendre ce qui est réellement remarquable, ce qui est assez standard et ce qui mérite un examen plus approfondi.`,
     de: `Eine Bauträgerbroschüre zeigt das Projekt von seiner besten Seite. Wir helfen Ihnen, darüber hinauszublicken und zu verstehen, was wirklich überzeugt, was eher Standard ist und was eine genauere Prüfung verdient.`,
     ru: `Брошюра застройщика показывает проект в самом выгодном свете. Мы помогаем вам заглянуть глубже и понять, что действительно является преимуществом, что вполне стандартно, а что требует более тщательной проверки.`,
@@ -523,7 +523,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `How We Help`,
-    es: `Cómo Le Ayudamos`,
+    es: `Cómo te ayudamos`,
     fr: `Comment Nous Vous Aidons`,
     de: `Wie Wir Helfen`,
     ru: `Как мы помогаем`,
@@ -531,7 +531,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `The details we help you <em>compare</em>`,
-    es: `Los detalles que le ayudamos a <em>comparar</em>`,
+    es: `Los detalles que te ayudamos a <em>comparar</em>`,
     fr: `Les détails que nous vous aidons à <em>comparer</em>`,
     de: `Die Details, die wir Ihnen beim <em>Vergleichen</em> helfen`,
     ru: `Детали, которые мы помогаем вам <em>сравнить</em>`,
@@ -539,7 +539,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Compare Projects`,
-    es: `Comparar Proyectos`,
+    es: `Comparar proyectos`,
     fr: `Comparer les Programmes`,
     de: `Projekte Vergleichen`,
     ru: `Сравнение проектов`,
@@ -555,7 +555,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Plan the Purchase`,
-    es: `Planificar la Compra`,
+    es: `Planificar la compra`,
     fr: `Planifier l'Achat`,
     de: `Den Kauf Planen`,
     ru: `Планирование покупки`,
@@ -563,7 +563,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `We talk through how you will use the home, rental plans, financing and what you may want later.`,
-    es: `Hablamos sobre cómo utilizará la vivienda, sus planes de alquiler, la financiación y lo que podría necesitar más adelante.`,
+    es: `Hablamos sobre cómo utilizarás la vivienda, tus planes de alquiler, la financiación y lo que podrías necesitar más adelante.`,
     fr: `Nous discutons de l'usage que vous ferez du bien, de vos projets de location, du financement et de ce dont vous pourriez avoir besoin plus tard.`,
     de: `Wir besprechen, wie Sie die Immobilie nutzen möchten, Vermietungspläne, die Finanzierung und was Sie später möglicherweise brauchen.`,
     ru: `Мы обсуждаем, как вы будете использовать дом, планы по аренде, финансирование и то, что может понадобиться вам в будущем.`,
@@ -571,7 +571,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Reserve with Clarity`,
-    es: `Reservar con Total Claridad`,
+    es: `Reservar con total claridad`,
     fr: `Réserver en Toute Clarté`,
     de: `Reservieren mit Klarheit`,
     ru: `Прозрачное резервирование`,
@@ -587,7 +587,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Our Promise`,
-    es: `Nuestro Compromiso`,
+    es: `Nuestro compromiso`,
     fr: `Notre Engagement`,
     de: `Unser Versprechen`,
     ru: `Наше обещание`,
@@ -603,7 +603,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `A Shorter, Better List`,
-    es: `Una Lista Más Corta y Mejor`,
+    es: `Una lista más corta y mejor`,
     fr: `Une Liste Plus Courte et Meilleure`,
     de: `Eine Kürzere, Bessere Liste`,
     ru: `Короче — значит лучше`,
@@ -611,7 +611,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `We would rather show you three suitable projects than thirty generic options.`,
-    es: `Preferimos mostrarle tres proyectos realmente adecuados antes que treinta opciones genéricas.`,
+    es: `Preferimos mostrarte tres proyectos realmente adecuados antes que treinta opciones genéricas.`,
     fr: `Nous préférons vous présenter trois programmes réellement adaptés plutôt que trente options génériques.`,
     de: `Wir zeigen Ihnen lieber drei passende Projekte als dreißig beliebige Optionen.`,
     ru: `Мы предпочитаем показать вам три подходящих проекта, а не тридцать безликих вариантов.`,
@@ -619,7 +619,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Real Urgency Only`,
-    es: `Solo Urgencia Real`,
+    es: `Solo urgencia real`,
     fr: `Uniquement l'Urgence Réelle`,
     de: `Nur Echte Dringlichkeit`,
     ru: `Только реальная срочность`,
@@ -627,7 +627,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `We only flag urgency when availability, pricing or a reservation deadline genuinely changes.`,
-    es: `Solo le señalamos urgencia cuando la disponibilidad, el precio o un plazo de reserva cambian de verdad.`,
+    es: `Solo te señalamos urgencia cuando la disponibilidad, el precio o un plazo de reserva cambian de verdad.`,
     fr: `Nous ne signalons une urgence que lorsque la disponibilité, le prix ou un délai de réservation change réellement.`,
     de: `Wir weisen nur dann auf Dringlichkeit hin, wenn sich Verfügbarkeit, Preis oder eine Reservierungsfrist tatsächlich ändern.`,
     ru: `Мы сообщаем о срочности только тогда, когда действительно меняются наличие, цена или срок резервации.`,
@@ -643,7 +643,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Talk to an Advisor`,
-    es: `Hable con un Asesor`,
+    es: `Habla con un asesor`,
     fr: `Parlez à un Conseiller`,
     de: `Sprechen Sie mit einem Berater`,
     ru: `Поговорить с консультантом`,
@@ -653,7 +653,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   // ---------- referrals.html ----------
   {
     find: `Referral & Ambassador Program`,
-    es: `Programa de Referidos y Embajadores`,
+    es: `Programa de referidos y embajadores`,
     fr: `Programme de Parrainage et d'Ambassadeurs`,
     de: `Empfehlungs- und Botschafterprogramm`,
     ru: `Программа рекомендаций и амбассадоров`,
@@ -661,7 +661,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Introduce someone to Nueva Living and receive a share of our commission when their Costa del Sol purchase completes.`,
-    es: `Presente a alguien a Nueva Living y reciba una parte de nuestra comisión cuando su compra en la Costa del Sol se complete.`,
+    es: `Presenta a alguien a Nueva Living y recibe una parte de nuestra comisión cuando tu compra en la Costa del Sol se complete.`,
     fr: `Présentez quelqu'un à Nueva Living et recevez une part de notre commission une fois son achat sur la Costa del Sol finalisé.`,
     de: `Empfehlen Sie jemanden an Nueva Living und erhalten Sie einen Anteil unserer Provision, sobald dessen Kauf an der Costa del Sol abgeschlossen ist.`,
     ru: `Порекомендуйте Nueva Living кому-либо и получите часть нашей комиссии после завершения их сделки на Коста-дель-Соль.`,
@@ -669,7 +669,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Your introduction deserves <em>more than a thank you</em>`,
-    es: `Su presentación merece <em>más que un simple gracias</em>`,
+    es: `Tu presentación merece <em>más que un simple gracias</em>`,
     fr: `Votre recommandation mérite <em>bien plus qu'un merci</em>`,
     de: `Ihre Empfehlung verdient <em>mehr als ein Dankeschön</em>`,
     ru: `Ваша рекомендация заслуживает <em>большего, чем просто «спасибо»</em>`,
@@ -677,7 +677,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `The people you introduce to Nueva Living get the same private, unhurried search every client receives. When their search ends in a home, yours ends in a genuine reward.`,
-    es: `Las personas que presente a Nueva Living reciben la misma búsqueda privada y sin prisas que todos nuestros clientes. Cuando su búsqueda termina en un hogar, la suya termina en una recompensa real.`,
+    es: `Las personas que presentes a Nueva Living reciben la misma búsqueda privada y sin prisas que todos nuestros clientes. Cuando tu búsqueda termina en un hogar, la tuya termina en una recompensa real.`,
     fr: `Les personnes que vous présentez à Nueva Living bénéficient de la même recherche privée et sans précipitation que chaque client. Lorsque leur recherche aboutit à un logement, la vôtre aboutit à une véritable récompense.`,
     de: `Die Personen, die Sie an Nueva Living empfehlen, erhalten dieselbe private, unaufgeregte Suche wie jeder unserer Kunden. Wenn ihre Suche in einem Zuhause endet, endet Ihre in einer echten Belohnung.`,
     ru: `Люди, которых вы порекомендуете Nueva Living, получат такой же приватный, неторопливый поиск, как и любой другой наш клиент. Когда их поиск завершится домом, ваш — реальным вознаграждением.`,
@@ -685,7 +685,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `How It Works`,
-    es: `Cómo Funciona`,
+    es: `Cómo funciona`,
     fr: `Comment Ça Marche`,
     de: `So Funktioniert Es`,
     ru: `Как это работает`,
@@ -701,7 +701,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Tell Us Who`,
-    es: `Díganos Quién`,
+    es: `Dinos quién`,
     fr: `Dites-Nous Qui`,
     de: `Sagen Sie Uns, Wer`,
     ru: `Расскажите нам, кого`,
@@ -709,7 +709,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Share their details in the form below.`,
-    es: `Comparta sus datos en el formulario a continuación.`,
+    es: `Comparte tus datos en el formulario a continuación.`,
     fr: `Partagez ses coordonnées dans le formulaire ci-dessous.`,
     de: `Teilen Sie uns die Kontaktdaten im untenstehenden Formular mit.`,
     ru: `Укажите их данные в форме ниже.`,
@@ -717,7 +717,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `We Confirm It&rsquo;s Genuine`,
-    es: `Confirmamos Que Es Genuino`,
+    es: `Confirmamos que es genuino`,
     fr: `Nous Confirmons Que C'est Sincère`,
     de: `Wir Bestätigen Die Echtheit`,
     ru: `Мы подтверждаем подлинность рекомендации`,
@@ -733,7 +733,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `We Look After Them`,
-    es: `Cuidamos de Ellos`,
+    es: `Cuidamos de ellos`,
     fr: `Nous Prenons Soin d'Eux`,
     de: `Wir Kümmern Uns Um Sie`,
     ru: `Мы заботимся о них`,
@@ -749,7 +749,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `You Get Rewarded`,
-    es: `Usted Recibe Su Recompensa`,
+    es: `Tú recibes tu recompensa`,
     fr: `Vous Êtes Récompensé`,
     de: `Sie Werden Belohnt`,
     ru: `Вы получаете вознаграждение`,
@@ -773,7 +773,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `The Reward`,
-    es: `La Recompensa`,
+    es: `La recompensa`,
     fr: `La Récompense`,
     de: `Die Belohnung`,
     ru: `Вознаграждение`,
@@ -797,7 +797,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Paid once their purchase legally completes.`,
-    es: `Se abona una vez que su compra se formaliza legalmente.`,
+    es: `Se abona una vez que tu compra se formaliza legalmente.`,
     fr: `Versée une fois l'achat juridiquement finalisé.`,
     de: `Auszahlung, sobald der Kauf rechtlich abgeschlossen ist.`,
     ru: `Выплачивается после юридического завершения сделки.`,
@@ -805,7 +805,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `No limit &mdash; refer as many people as you like.`,
-    es: `Sin límite: presente a tantas personas como desee.`,
+    es: `Sin límite: presenta a tantas personas como desees.`,
     fr: `Sans limite : recommandez autant de personnes que vous le souhaitez.`,
     de: `Kein Limit – empfehlen Sie so viele Personen, wie Sie möchten.`,
     ru: `Без ограничений — рекомендуйте сколько угодно людей.`,
@@ -821,7 +821,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Common Questions`,
-    es: `Preguntas Frecuentes`,
+    es: `Preguntas frecuentes`,
     fr: `Questions Fréquentes`,
     de: `Häufige Fragen`,
     ru: `Частые вопросы`,
@@ -845,7 +845,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `The moment you submit the form below, we record the introduction against your details before reaching out to them.`,
-    es: `En el momento en que envía el formulario a continuación, registramos la presentación asociada a sus datos antes de contactar con esa persona.`,
+    es: `En el momento en que envías el formulario a continuación, registramos la presentación asociada a tus datos antes de contactar con esa persona.`,
     fr: `Dès que vous soumettez le formulaire ci-dessous, nous enregistrons la présentation associée à vos coordonnées avant de contacter la personne.`,
     de: `Sobald Sie das untenstehende Formular absenden, erfassen wir die Empfehlung unter Ihren Angaben, bevor wir die Person kontaktieren.`,
     ru: `В момент отправки формы ниже мы регистрируем рекомендацию на ваше имя, прежде чем связаться с этим человеком.`,
@@ -877,7 +877,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Submitting the introduction yourself, before they reach out independently, is what establishes it as your referral.`,
-    es: `Enviar usted mismo la presentación, antes de que ellos contacten de forma independiente, es lo que establece que se trata de su referido.`,
+    es: `Enviar tú mismo la presentación, antes de que ellos contacten de forma independiente, es lo que establece que se trata de tu referido.`,
     fr: `C'est le fait de soumettre vous-même la présentation, avant qu'ils ne prennent contact de manière indépendante, qui établit qu'il s'agit de votre parrainage.`,
     de: `Wenn Sie die Empfehlung selbst einreichen, bevor die Person unabhängig Kontakt aufnimmt, wird sie als Ihre Empfehlung anerkannt.`,
     ru: `Именно самостоятельная отправка рекомендации до того, как человек свяжется с нами напрямую, закрепляет её как вашу рекомендацию.`,
@@ -893,7 +893,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `We keep you updated on progress, within the bounds of their privacy, and confirm directly once a reward is due.`,
-    es: `Le mantenemos informado del progreso, dentro de los límites de la privacidad de esa persona, y le confirmamos directamente cuando corresponda una recompensa.`,
+    es: `Te mantenemos informado del progreso, dentro de los límites de la privacidad de esa persona, y te confirmamos directamente cuando corresponda una recompensa.`,
     fr: `Nous vous tenons informé de l'avancement, dans le respect de la confidentialité de la personne, et vous confirmons directement dès qu'une récompense est due.`,
     de: `Wir halten Sie über den Fortschritt auf dem Laufenden, im Rahmen der Privatsphäre der Person, und bestätigen Ihnen direkt, sobald eine Belohnung fällig ist.`,
     ru: `Мы держим вас в курсе прогресса, соблюдая конфиденциальность этого человека, и напрямую подтверждаем, когда вознаграждение становится положенным.`,
@@ -901,7 +901,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Introduce Someone`,
-    es: `Presente a Alguien`,
+    es: `Presenta a alguien`,
     fr: `Présentez Quelqu'un`,
     de: `Jemanden Empfehlen`,
     ru: `Порекомендуйте кого-то`,
@@ -909,7 +909,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Introduce them <em>today</em>`,
-    es: `Preséntelo <em>hoy mismo</em>`,
+    es: `Preséntalo <em>hoy mismo</em>`,
     fr: `Présentez-le <em>dès aujourd'hui</em>`,
     de: `Empfehlen Sie noch <em>heute</em>`,
     ru: `Порекомендуйте <em>уже сегодня</em>`,
@@ -917,7 +917,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Share your details and theirs. We will take it from there.`,
-    es: `Comparta sus datos y los de esa persona. Nosotros nos encargamos del resto.`,
+    es: `Comparte tus datos y los de esa persona. Nosotros nos encargamos del resto.`,
     fr: `Partagez vos coordonnées et les siennes. Nous nous occupons du reste.`,
     de: `Teilen Sie uns Ihre Daten und die der anderen Person mit. Den Rest übernehmen wir.`,
     ru: `Оставьте свои данные и данные этого человека. Остальное мы возьмём на себя.`,
@@ -925,7 +925,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Your First Name`,
-    es: `Su Nombre`,
+    es: `Tu nombre`,
     fr: `Votre Prénom`,
     de: `Ihr Vorname`,
     ru: `Ваше имя`,
@@ -933,7 +933,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Your Last Name`,
-    es: `Sus Apellidos`,
+    es: `Tus apellidos`,
     fr: `Votre Nom`,
     de: `Ihr Nachname`,
     ru: `Ваша фамилия`,
@@ -941,7 +941,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Your Email Address`,
-    es: `Su Correo Electrónico`,
+    es: `Tu correo electrónico`,
     fr: `Votre Adresse E-mail`,
     de: `Ihre E-Mail-Adresse`,
     ru: `Ваш адрес электронной почты`,
@@ -949,7 +949,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Your Phone Number`,
-    es: `Su Número de Teléfono`,
+    es: `Tu número de teléfono`,
     fr: `Votre Numéro de Téléphone`,
     de: `Ihre Telefonnummer`,
     ru: `Ваш номер телефона`,
@@ -957,7 +957,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Their Name`,
-    es: `Nombre de la Persona`,
+    es: `Nombre de la persona`,
     fr: `Son Nom`,
     de: `Name der Person`,
     ru: `Имя человека`,
@@ -965,7 +965,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Their Email or Phone`,
-    es: `Correo o Teléfono de la Persona`,
+    es: `Correo o teléfono de la persona`,
     fr: `Son E-mail ou Téléphone`,
     de: `E-Mail oder Telefonnummer der Person`,
     ru: `Email или телефон этого человека`,
@@ -973,7 +973,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `What Are They Looking For?`,
-    es: `¿Qué Está Buscando?`,
+    es: `¿Qué estás buscando?`,
     fr: `Que Recherche-t-elle ?`,
     de: `Wonach Sucht Die Person?`,
     ru: `Что этот человек ищет?`,
@@ -989,7 +989,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   },
   {
     find: `Submit Referral`,
-    es: `Enviar Referido`,
+    es: `Enviar referido`,
     fr: `Envoyer le Parrainage`,
     de: `Empfehlung Absenden`,
     ru: `Отправить рекомендацию`,
@@ -1000,7 +1000,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   // Scoped to the tags themselves so a short title like "Areas" can never
   // fire inside body prose. These shipped untranslated, which also left
   // five locales sharing one identical title.
-  { find: '<title>Areas | Nueva Living</title>', es: '<title>Guía de Zonas de la Costa del Sol | Nueva Living</title>', fr: '<title>Guide des Secteurs de la Costa del Sol | Nueva Living</title>', de: '<title>Costa-del-Sol-Gebietsguide | Nueva Living</title>', ru: '<title>Путеводитель по районам Коста-дель-Соль | Nueva Living</title>', ar: '<title>دليل مناطق كوستا ديل سول | Nueva Living</title>', nl: '<title>Gebiedsgids Costa del Sol | Nueva Living</title>', pl: '<title>Przewodnik po lokalizacjach Costa del Sol | Nueva Living</title>', sv: '<title>Områdesguide för Costa del Sol | Nueva Living</title>', no: '<title>Områdeguide for Costa del Sol | Nueva Living</title>' },
-  { find: '<title>Referral &amp; Ambassador Program | Nueva Living</title>', es: '<title>Programa de Recomendación y Embajadores | Nueva Living</title>', fr: '<title>Programme de Parrainage et Ambassadeurs | Nueva Living</title>', de: '<title>Empfehlungs- und Botschafterprogramm | Nueva Living</title>', ru: '<title>Реферальная и амбассадорская программа | Nueva Living</title>', ar: '<title>برنامج التوصية والسفراء | Nueva Living</title>', nl: '<title>Aanbevelingsprogramma | Nueva Living</title>', pl: '<title>Program Poleceń i Ambasadorów | Nueva Living</title>', sv: '<title>Rekommendations- och ambassadörsprogram | Nueva Living</title>', no: '<title>Anbefalings- og ambassadørprogram | Nueva Living</title>' },
+  { find: '<title>Areas | Nueva Living</title>', es: '<title>Guía de zonas de la Costa del Sol | Nueva Living</title>', fr: '<title>Guide des Secteurs de la Costa del Sol | Nueva Living</title>', de: '<title>Costa-del-Sol-Gebietsguide | Nueva Living</title>', ru: '<title>Путеводитель по районам Коста-дель-Соль | Nueva Living</title>', ar: '<title>دليل مناطق كوستا ديل سول | Nueva Living</title>', nl: '<title>Gebiedsgids Costa del Sol | Nueva Living</title>', pl: '<title>Przewodnik po lokalizacjach Costa del Sol | Nueva Living</title>', sv: '<title>Områdesguide för Costa del Sol | Nueva Living</title>', no: '<title>Områdeguide for Costa del Sol | Nueva Living</title>' },
+  { find: '<title>Referral &amp; Ambassador Program | Nueva Living</title>', es: '<title>Programa de recomendación y embajadores | Nueva Living</title>', fr: '<title>Programme de Parrainage et Ambassadeurs | Nueva Living</title>', de: '<title>Empfehlungs- und Botschafterprogramm | Nueva Living</title>', ru: '<title>Реферальная и амбассадорская программа | Nueva Living</title>', ar: '<title>برنامج التوصية والسفراء | Nueva Living</title>', nl: '<title>Aanbevelingsprogramma | Nueva Living</title>', pl: '<title>Program Poleceń i Ambasadorów | Nueva Living</title>', sv: '<title>Rekommendations- och ambassadörsprogram | Nueva Living</title>', no: '<title>Anbefalings- og ambassadørprogram | Nueva Living</title>' },
   { find: 'content="Costa del Sol area guide for new development buyers."', es: 'content="Guía de zonas de la Costa del Sol para compradores de obra nueva: Marbella, Estepona, Benahavís, Nueva Andalucía y Mijas."', fr: 'content="Guide des secteurs de la Costa del Sol pour les acquéreurs de programmes neufs : Marbella, Estepona, Benahavís, Nueva Andalucía et Mijas."', de: 'content="Gebietsguide der Costa del Sol für Neubaukäufer: Marbella, Estepona, Benahavís, Nueva Andalucía und Mijas."', ru: 'content="Путеводитель по районам Коста-дель-Соль для покупателей новостроек: Марбелья, Эстепона, Бенаавис, Нуэва-Андалусия и Михас."', ar: 'content="دليل مناطق كوستا ديل سول لمشتري المشاريع الجديدة: ماربيا وإستيبونا وبيناهافيس ونويفا أندلوسيا وميخاس."', nl: 'content="Gebiedsgids van de Costa del Sol voor kopers van nieuwbouw: Marbella, Estepona, Benahavís, Nueva Andalucía en Mijas."', pl: 'content="Przewodnik po lokalizacjach Costa del Sol dla kupujących nowe inwestycje: Marbella, Estepona, Benahavís, Nueva Andalucía i Mijas."', sv: 'content="Områdesguide för Costa del Sol för köpare av nyproduktion: Marbella, Estepona, Benahavís, Nueva Andalucía och Mijas."', no: 'content="Områdeguide for Costa del Sol for kjøpere av nybygg: Marbella, Estepona, Benahavís, Nueva Andalucía og Mijas."' }
 ];
