@@ -9,7 +9,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     find: 'How Buying Works',
     es: 'Cómo funciona la compra',
     fr: 'Comment se déroule l’achat',
-    de: 'So Läuft der Kauf Ab',
+    de: 'So läuft der Kauf ab',
     ru: 'Как Проходит Покупка',
     ar: 'كيف تتم عملية الشراء',
     nl: 'Hoe kopen werkt',
@@ -79,8 +79,8 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'Nybyggnation och köp av projekt under uppförande följer en annan ordning än ett andrahandsköp: etappvisa betalningar, ett privat köpekontrakt och byggherrens byggtidsplan i stället för ett omedelbart inflyttningsdatum. Sju steg, från start till mål.',
     no: 'Nybygg og kjøp under bygging følger en annen rekkefølge enn et bruktkjøp: trinnvise betalinger, en privat kjøpekontrakt og utbyggerens byggetidsplan i stedet for en umiddelbar innflyttingsdato. Syv trinn, fra start til slutt.'
   },
-  { find: 'See the Full Journey', es: 'Ver el recorrido completo', fr: 'Voir le parcours complet', de: 'Den Gesamten Ablauf Ansehen', ru: 'Смотреть весь путь', ar: 'عرض الرحلة الكاملة', nl: 'Bekijk het Volledige Traject', pl: 'Zobacz cały przebieg', sv: 'Se hela resan', no: 'Se hele reisen' },
-  { find: 'Speak With an Advisor', es: 'Habla con un asesor', fr: 'Parler à un conseiller', de: 'Mit Einem Berater Sprechen', ru: 'Поговорить с консультантом', ar: 'تحدث مع مستشار', nl: 'Spreek met een Adviseur', pl: 'Porozmawiaj z doradcą', sv: 'Prata med en rådgivare', no: 'Snakk med en rådgiver' },
+  { find: 'See the Full Journey', es: 'Ver el recorrido completo', fr: 'Voir le parcours complet', de: 'Den gesamten Ablauf ansehen', ru: 'Смотреть весь путь', ar: 'عرض الرحلة الكاملة', nl: 'Bekijk het Volledige Traject', pl: 'Zobacz cały przebieg', sv: 'Se hela resan', no: 'Se hele reisen' },
+  { find: 'Speak With an Advisor', es: 'Habla con un asesor', fr: 'Parler à un conseiller', de: 'Mit einem Berater sprechen', ru: 'Поговорить с консультантом', ar: 'تحدث مع مستشار', nl: 'Spreek met een Adviseur', pl: 'Porozmawiaj z doradcą', sv: 'Prata med en rådgivare', no: 'Snakk med en rådgiver' },
   { find: 'Steps, Reservation to Keys', es: 'Pasos, de la reserva a las llaves', fr: 'Étapes, de la réservation aux clés', de: 'Schritte, von der Reservierung bis zum Schlüssel', ru: 'Шагов от резервирования до ключей', ar: 'خطوات، من الحجز إلى المفاتيح', nl: 'Stappen, van Reservering tot Sleutels', pl: 'Kroków, od rezerwacji do kluczy', sv: 'Steg, från bokning till nycklar', no: 'Trinn, fra reservasjon til nøkler' },
   { find: 'People Involved: You, Nueva Living, Your Lawyer', es: 'Personas involucradas: tú, Nueva Living, tu abogado', fr: 'Personnes impliquées : vous, Nueva Living, votre avocat', de: 'Beteiligte Personen: Sie, Nueva Living, Ihr Anwalt', ru: 'Участника: вы, Nueva Living, ваш юрист', ar: 'أطراف معنية: أنت، Nueva Living، محاميك', nl: 'Betrokken partijen: u, Nueva Living, uw advocaat', pl: 'Zaangażowane osoby: Państwo, Nueva Living, Państwa prawnik', sv: 'Inblandade parter: du, Nueva Living, din advokat', no: 'Involverte parter: deg, Nueva Living, din advokat' },
   { find: 'Needed Before You Sign', es: 'Necesario antes de firmar', fr: 'Nécessaire avant de signer', de: 'Erforderlich vor der Unterschrift', ru: 'Требуется до подписания', ar: 'مطلوب قبل التوقيع', nl: 'Benodigd vóór ondertekening', pl: 'Potrzebne przed podpisaniem', sv: 'Behövs innan du skriver under', no: 'Nødvendig før du signerer' },
@@ -102,7 +102,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 1 ---
-  { find: 'Work Out What You Actually Want', es: 'Define lo que realmente quieres', fr: 'Déterminez ce que vous voulez vraiment', de: 'Klären Sie, Was Sie Wirklich Wollen', ru: 'Определите, чего вы на самом деле хотите', ar: 'حدّد ما تريده فعلاً', nl: 'Bepaal wat u werkelijk wilt', pl: 'Ustal, czego naprawdę Państwo chcą', sv: 'Klargör vad du verkligen vill ha', no: 'Finn ut hva du egentlig vil ha' },
+  { find: 'Work Out What You Actually Want', es: 'Define lo que realmente quieres', fr: 'Déterminez ce que vous voulez vraiment', de: 'Klären Sie, was Sie wirklich wollen', ru: 'Определите, чего вы на самом деле хотите', ar: 'حدّد ما تريده فعلاً', nl: 'Bepaal wat u werkelijk wilt', pl: 'Ustal, czego naprawdę Państwo chcą', sv: 'Klargör vad du verkligen vill ha', no: 'Finn ut hva du egentlig vil ha' },
   {
     find: 'Be clear on budget, area, property type and timing before looking at a single project. Off-plan homes can be sold years before delivery, so timing matters here more than for a resale purchase.',
     es: 'Ten claro tu presupuesto, la zona, el tipo de vivienda y el calendario antes de mirar un solo proyecto. Las viviendas sobre plano pueden venderse años antes de su entrega, por lo que el momento importa más aquí que en una compra de reventa.',
@@ -115,7 +115,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'Var tydlig med budget, område, bostadstyp och tidsplan innan du ens tittar på ett enda projekt. Bostäder under uppförande kan säljas flera år före tillträde, så timing spelar större roll här än vid ett andrahandsköp.',
     no: 'Vær tydelig på budsjett, område, boligtype og timing før du ser på et eneste prosjekt. Boliger under bygging kan selges flere år før overlevering, så timing betyr mer her enn ved et bruktkjøp.'
   },
-  { find: 'What You Do', es: 'Lo que haces tú', fr: 'Ce que vous faites', de: 'Was Sie Tun', ru: 'Что делаете вы', ar: 'ما تقوم به', nl: 'Wat u doet', pl: 'Co robią Państwo', sv: 'Vad du gör', no: 'Hva du gjør' },
+  { find: 'What You Do', es: 'Lo que haces tú', fr: 'Ce que vous faites', de: 'Was Sie tun', ru: 'Что делаете вы', ar: 'ما تقوم به', nl: 'Wat u doet', pl: 'Co robią Państwo', sv: 'Vad du gör', no: 'Hva du gjør' },
   {
     find: 'Decide your budget, preferred areas, property type and rough timing.',
     es: 'Decide tu presupuesto, las zonas preferidas, el tipo de vivienda y un calendario aproximado.',
@@ -128,7 +128,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'Bestäm din budget, önskade områden, bostadstyp och en ungefärlig tidsplan.',
     no: 'Bestem budsjettet ditt, foretrukne områder, boligtype og en omtrentlig tidsplan.'
   },
-  { find: 'What Nueva Living Does', es: 'Lo que hace Nueva Living', fr: 'Ce que fait Nueva Living', de: 'Was Nueva Living Tut', ru: 'Что делает Nueva Living', ar: 'ما تقوم به Nueva Living', nl: 'Wat Nueva Living doet', pl: 'Co robi Nueva Living', sv: 'Vad Nueva Living gör', no: 'Hva Nueva Living gjør' },
+  { find: 'What Nueva Living Does', es: 'Lo que hace Nueva Living', fr: 'Ce que fait Nueva Living', de: 'Was Nueva Living tut', ru: 'Что делает Nueva Living', ar: 'ما تقوم به Nueva Living', nl: 'Wat Nueva Living doet', pl: 'Co robi Nueva Living', sv: 'Vad Nueva Living gör', no: 'Hva Nueva Living gjør' },
   {
     find: 'Helps you weigh off-plan against a completed, move-in-ready home for your situation.',
     es: 'Te ayuda a valorar la opción sobre plano frente a una vivienda terminada y lista para entrar, según tu situación.',
@@ -156,7 +156,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 2 ---
-  { find: 'Build a Real Shortlist', es: 'Elabora una preselección real', fr: 'Établissez une vraie présélection', de: 'Erstellen Sie Eine Echte Vorauswahl', ru: 'Составьте реальный шорт-лист', ar: 'أعدّ قائمة مختصرة حقيقية', nl: 'Stel een Echte Shortlist Samen', pl: 'Stwórz prawdziwą listę wyboru', sv: 'Skapa en riktig urvalslista', no: 'Lag en ekte shortliste' },
+  { find: 'Build a Real Shortlist', es: 'Elabora una preselección real', fr: 'Établissez une vraie présélection', de: 'Erstellen Sie eine echte Vorauswahl', ru: 'Составьте реальный шорт-лист', ar: 'أعدّ قائمة مختصرة حقيقية', nl: 'Stel een Echte Shortlist Samen', pl: 'Stwórz prawdziwą listę wyboru', sv: 'Skapa en riktig urvalslista', no: 'Lag en ekte shortliste' },
   {
     find: 'Property portals tend to show broad price ranges and renders rather than confirmed, current availability. A useful shortlist compares a small number of genuinely suitable projects on the details that matter.',
     es: 'Los portales inmobiliarios suelen mostrar rangos de precios amplios e imágenes renderizadas en lugar de disponibilidad confirmada y actual. Una preselección útil compara un número reducido de proyectos realmente adecuados en los detalles que importan.',
@@ -247,7 +247,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 4 ---
-  { find: 'Reserve Your Chosen Residence', es: 'Reserva la vivienda elegida', fr: 'Réservez le bien choisi', de: 'Reservieren Sie Ihre Gewählte Immobilie', ru: 'Зарезервируйте выбранное жильё', ar: 'احجز المسكن الذي اخترته', nl: 'Reserveer uw gekozen woning', pl: 'Zarezerwuj wybraną nieruchomość', sv: 'Boka din valda bostad', no: 'Reserver din valgte bolig' },
+  { find: 'Reserve Your Chosen Residence', es: 'Reserva la vivienda elegida', fr: 'Réservez le bien choisi', de: 'Reservieren Sie Ihre gewählte Immobilie', ru: 'Зарезервируйте выбранное жильё', ar: 'احجز المسكن الذي اخترته', nl: 'Reserveer uw gekozen woning', pl: 'Zarezerwuj wybraną nieruchomość', sv: 'Boka din valda bostad', no: 'Reserver din valgte bolig' },
   {
     find: 'A reservation takes the specific residence off the market while your private purchase contract is prepared, typically within two to four weeks.',
     es: 'Una reserva retira del mercado la vivienda concreta mientras se prepara tu contrato de compraventa privado, normalmente en un plazo de dos a cuatro semanas.',
@@ -299,7 +299,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 5 ---
-  { find: 'Sign the Private Purchase Contract', es: 'Firma el contrato de compraventa privado', fr: 'Signez le contrat de réservation privé', de: 'Unterzeichnen Sie den Privaten Kaufvertrag', ru: 'Подпишите частный договор купли-продажи', ar: 'وقّع عقد الشراء الخاص', nl: 'Onderteken het Particuliere Koopcontract', pl: 'Podpisz prywatną umowę kupna', sv: 'Skriv under det privata köpekontraktet', no: 'Signer den private kjøpekontrakten' },
+  { find: 'Sign the Private Purchase Contract', es: 'Firma el contrato de compraventa privado', fr: 'Signez le contrat de réservation privé', de: 'Unterzeichnen Sie den privaten Kaufvertrag', ru: 'Подпишите частный договор купли-продажи', ar: 'وقّع عقد الشراء الخاص', nl: 'Onderteken het Particuliere Koopcontract', pl: 'Podpisz prywatną umowę kupna', sv: 'Skriv under det privata köpekontraktet', no: 'Signer den private kjøpekontrakten' },
   {
     find: 'The binding agreement setting out price, payment schedule, specification and delivery terms. You will need an NIE before or shortly after this stage.',
     es: 'El acuerdo vinculante que establece el precio, el calendario de pagos, las especificaciones y las condiciones de entrega. Necesitarás tu NIE antes o poco después de esta etapa.',
@@ -336,7 +336,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'Samordnar pappersarbetet och tidsplanen med byggherren.',
     no: 'Koordinerer papirarbeidet og tidsplanen med utbyggeren.'
   },
-  { find: 'What Your Lawyer Does', es: 'Lo que hace tu abogado', fr: 'Ce que fait votre avocat', de: 'Was Ihr Anwalt Tut', ru: 'Что делает ваш юрист', ar: 'ما يقوم به محاميك', nl: 'Wat uw advocaat doet', pl: 'Co robi Państwa prawnik', sv: 'Vad din advokat gör', no: 'Hva din advokat gjør' },
+  { find: 'What Your Lawyer Does', es: 'Lo que hace tu abogado', fr: 'Ce que fait votre avocat', de: 'Was Ihr Anwalt tut', ru: 'Что делает ваш юрист', ar: 'ما يقوم به محاميك', nl: 'Wat uw advocaat doet', pl: 'Co robi Państwa prawnik', sv: 'Vad din advokat gör', no: 'Hva din advokat gjør' },
   {
     find: 'Reviews the contract terms and confirms the bank guarantee before you sign.',
     es: 'Revisa las condiciones del contrato y confirma el aval bancario antes de que firmes.',
@@ -364,7 +364,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 6 ---
-  { find: 'Legal Checks and Independent Representation', es: 'Comprobaciones legales y representación independiente', fr: 'Vérifications juridiques et représentation indépendante', de: 'Rechtsprüfungen und Unabhängige Vertretung', ru: 'Юридическая проверка и независимое представительство', ar: 'الفحوصات القانونية والتمثيل المستقل', nl: 'Juridische Controles en Onafhankelijke Vertegenwoordiging', pl: 'Kontrole prawne i niezależna reprezentacja', sv: 'Juridiska kontroller och oberoende representation', no: 'Juridiske kontroller og uavhengig representasjon' },
+  { find: 'Legal Checks and Independent Representation', es: 'Comprobaciones legales y representación independiente', fr: 'Vérifications juridiques et représentation indépendante', de: 'Rechtsprüfungen und unabhängige Vertretung', ru: 'Юридическая проверка и независимое представительство', ar: 'الفحوصات القانونية والتمثيل المستقل', nl: 'Juridische Controles en Onafhankelijke Vertegenwoordiging', pl: 'Kontrole prawne i niezależna reprezentacja', sv: 'Juridiska kontroller och oberoende representation', no: 'Juridiske kontroller og uavhengig representasjon' },
   {
     find: 'We strongly recommend independent legal representation -- a lawyer acting for you, not the developer or the selling agency.',
     es: 'Recomendamos encarecidamente contar con representación legal independiente -- un abogado que actúe para ti, no para el promotor ni para la agencia de venta.',
@@ -492,7 +492,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- checklist section ---
-  { find: 'Before You Start', es: 'Antes de empezar', fr: 'Avant de commencer', de: 'Bevor Sie Beginnen', ru: 'Прежде чем начать', ar: 'قبل أن تبدأ', nl: 'Voordat u begint', pl: 'Zanim zaczną Państwo', sv: 'Innan du börjar', no: 'Før du starter' },
+  { find: 'Before You Start', es: 'Antes de empezar', fr: 'Avant de commencer', de: 'Bevor Sie beginnen', ru: 'Прежде чем начать', ar: 'قبل أن تبدأ', nl: 'Voordat u begint', pl: 'Zanim zaczną Państwo', sv: 'Innan du börjar', no: 'Før du starter' },
   {
     find: 'A quick <em>checklist</em>',
     es: 'Una <em>lista rápida</em>',
@@ -512,7 +512,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Consider a Spanish bank account', es: 'Valora abrir una cuenta bancaria española', fr: 'Envisagez un compte bancaire espagnol', de: 'Erwägen Sie ein spanisches Bankkonto', ru: 'Рассмотрите открытие испанского банковского счёта', ar: 'فكّر في فتح حساب مصرفي إسباني', nl: 'Overweeg een Spaanse bankrekening', pl: 'Rozważ założenie hiszpańskiego konta bankowego', sv: 'Överväg ett spanskt bankkonto', no: 'Vurder en spansk bankkonto' },
   { find: 'Prepare proof of funds', es: 'Prepara la justificación de fondos', fr: 'Préparez votre justificatif de fonds', de: 'Bereiten Sie einen Herkunftsnachweis der Mittel vor', ru: 'Подготовьте подтверждение наличия средств', ar: 'جهّز إثبات توفر الأموال', nl: 'Bereid een bewijs van vermogen voor', pl: 'Przygotuj dowód posiadania środków', sv: 'Förbered ett bevis på tillgångar', no: 'Forbered dokumentasjon på finansiering' },
   { find: 'Clarify how you will use the property', es: 'Aclara cómo vas a usar la propiedad', fr: 'Clarifiez l’usage que vous ferez du bien', de: 'Klären Sie, wie Sie die Immobilie nutzen werden', ru: 'Определитесь с назначением использования недвижимости', ar: 'وضّح كيف ستستخدم العقار', nl: 'Verduidelijk hoe u de woning gaat gebruiken', pl: 'Ustal, w jaki sposób będą Państwo korzystać z nieruchomości', sv: 'Klargör hur du kommer att använda bostaden', no: 'Avklar hvordan du skal bruke boligen' },
-  { find: 'Reset Checklist', es: 'Reiniciar lista', fr: 'Réinitialiser la check-list', de: 'Checkliste Zurücksetzen', ru: 'Сбросить чек-лист', ar: 'إعادة تعيين قائمة التحقق', nl: 'Checklist resetten', pl: 'Zresetuj listę kontrolną', sv: 'Återställ checklistan', no: 'Tilbakestill sjekklisten' },
+  { find: 'Reset Checklist', es: 'Reiniciar lista', fr: 'Réinitialiser la check-list', de: 'Checkliste zurücksetzen', ru: 'Сбросить чек-лист', ar: 'إعادة تعيين قائمة التحقق', nl: 'Checklist resetten', pl: 'Zresetuj listę kontrolną', sv: 'Återställ checklistan', no: 'Tilbakestill sjekklisten' },
 
   // --- glossary section ---
   { find: 'Key Terms', es: 'Términos clave', fr: 'Termes clés', de: 'Wichtige Begriffe', ru: 'Ключевые термины', ar: 'مصطلحات أساسية', nl: 'Belangrijke termen', pl: 'Kluczowe terminy', sv: 'Viktiga termer', no: 'Viktige begreper' },
