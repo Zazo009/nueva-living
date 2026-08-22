@@ -494,18 +494,18 @@ function ghostAction(label, href = '#enquire') {
 }
 
 const MONTH_NAMES = {
-  January: { en: 'January', es: 'enero', fr: 'janvier', de: 'Januar', ru: 'января', ar: 'يناير' },
-  February: { en: 'February', es: 'febrero', fr: 'février', de: 'Februar', ru: 'февраля', ar: 'فبراير' },
-  March: { en: 'March', es: 'marzo', fr: 'mars', de: 'März', ru: 'марта', ar: 'مارس' },
-  April: { en: 'April', es: 'abril', fr: 'avril', de: 'April', ru: 'апреля', ar: 'أبريل' },
-  May: { en: 'May', es: 'mayo', fr: 'mai', de: 'Mai', ru: 'мая', ar: 'مايو' },
-  June: { en: 'June', es: 'junio', fr: 'juin', de: 'Juni', ru: 'июня', ar: 'يونيو' },
-  July: { en: 'July', es: 'julio', fr: 'juillet', de: 'Juli', ru: 'июля', ar: 'يوليو' },
-  August: { en: 'August', es: 'agosto', fr: 'août', de: 'August', ru: 'августа', ar: 'أغسطس' },
-  September: { en: 'September', es: 'septiembre', fr: 'septembre', de: 'September', ru: 'сентября', ar: 'سبتمبر' },
-  October: { en: 'October', es: 'octubre', fr: 'octobre', de: 'Oktober', ru: 'октября', ar: 'أكتوبر' },
-  November: { en: 'November', es: 'noviembre', fr: 'novembre', de: 'November', ru: 'ноября', ar: 'نوفمبر' },
-  December: { en: 'December', es: 'diciembre', fr: 'décembre', de: 'Dezember', ru: 'декабря', ar: 'ديسمبر' }
+  January: { en: 'January', es: 'enero', fr: 'janvier', de: 'Januar', ru: 'января', ar: 'يناير', nl: 'januari', pl: 'stycznia', sv: 'januari', no: 'januar' },
+  February: { en: 'February', es: 'febrero', fr: 'février', de: 'Februar', ru: 'февраля', ar: 'فبراير', nl: 'februari', pl: 'lutego', sv: 'februari', no: 'februar' },
+  March: { en: 'March', es: 'marzo', fr: 'mars', de: 'März', ru: 'марта', ar: 'مارس', nl: 'maart', pl: 'marca', sv: 'mars', no: 'mars' },
+  April: { en: 'April', es: 'abril', fr: 'avril', de: 'April', ru: 'апреля', ar: 'أبريل', nl: 'april', pl: 'kwietnia', sv: 'april', no: 'april' },
+  May: { en: 'May', es: 'mayo', fr: 'mai', de: 'Mai', ru: 'мая', ar: 'مايو', nl: 'mei', pl: 'maja', sv: 'maj', no: 'mai' },
+  June: { en: 'June', es: 'junio', fr: 'juin', de: 'Juni', ru: 'июня', ar: 'يونيو', nl: 'juni', pl: 'czerwca', sv: 'juni', no: 'juni' },
+  July: { en: 'July', es: 'julio', fr: 'juillet', de: 'Juli', ru: 'июля', ar: 'يوليو', nl: 'juli', pl: 'lipca', sv: 'juli', no: 'juli' },
+  August: { en: 'August', es: 'agosto', fr: 'août', de: 'August', ru: 'августа', ar: 'أغسطس', nl: 'augustus', pl: 'sierpnia', sv: 'augusti', no: 'august' },
+  September: { en: 'September', es: 'septiembre', fr: 'septembre', de: 'September', ru: 'сентября', ar: 'سبتمبر', nl: 'september', pl: 'września', sv: 'september', no: 'september' },
+  October: { en: 'October', es: 'octubre', fr: 'octobre', de: 'Oktober', ru: 'октября', ar: 'أكتوبر', nl: 'oktober', pl: 'października', sv: 'oktober', no: 'oktober' },
+  November: { en: 'November', es: 'noviembre', fr: 'novembre', de: 'November', ru: 'ноября', ar: 'نوفمبر', nl: 'november', pl: 'listopada', sv: 'november', no: 'november' },
+  December: { en: 'December', es: 'diciembre', fr: 'décembre', de: 'Dezember', ru: 'декабря', ar: 'ديسمبر', nl: 'december', pl: 'grudnia', sv: 'december', no: 'desember' }
 };
 
 function localizeMonthDate(value, locale) {

@@ -1795,6 +1795,33 @@
       document.querySelectorAll('[data-lang-switcher][open]').forEach((other) => {
         if (other !== el) other.open = false;
       });
+
+      // The panel's CSS anchors it to whichever edge of the toggle its
+      // language convention favors (right on LTR, left on RTL). That
+      // anchor is fine on desktop, but on a narrow phone the toggle can
+      // sit anywhere in the top bar (it gets moved next to the burger
+      // button below 1120px), so a fixed-width panel opening from it can
+      // run off either side of the screen. Clamp it back into view after
+      // layout settles, in viewport coordinates, so it works regardless
+      // of which edge it opened from.
+      var panel = el.querySelector('.lang-switcher-panel');
+      if (!panel) return;
+      requestAnimationFrame(() => {
+        panel.style.left = '';
+        panel.style.right = '';
+        var margin = 12;
+        var elRect = el.getBoundingClientRect();
+        var panelRect = panel.getBoundingClientRect();
+        var overflowRight = panelRect.right - (window.innerWidth - margin);
+        var overflowLeft = margin - panelRect.left;
+        if (overflowRight > 0) {
+          panel.style.right = 'auto';
+          panel.style.left = (panelRect.left - elRect.left - overflowRight) + 'px';
+        } else if (overflowLeft > 0) {
+          panel.style.right = 'auto';
+          panel.style.left = (panelRect.left - elRect.left + overflowLeft) + 'px';
+        }
+      });
     });
   });
 
