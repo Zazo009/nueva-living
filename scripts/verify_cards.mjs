@@ -138,7 +138,7 @@ const OLD_CARD_MARKUP = /<article class="project-card(?! dev-card)/;
 // and a hardcoded list would flag that forever. An entry counts as applied
 // when the rendered text differs from the English `find`, or when the table
 // says this locale uses the English wording on purpose.
-const LOCALES = ['es', 'fr', 'de', 'ru', 'ar'];
+const LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
 
 // Every badge wording the table knows about, per locale. A badge outside
 // this set is a new one nobody has translated -- exactly what happens when
@@ -171,7 +171,7 @@ for (const file of pages) {
   cardCount += cards.length;
 
   const locale = name.includes('/') ? name.split('/')[0] : 'en';
-  const isTranslated = ['es', 'fr', 'de', 'ru', 'ar'].includes(locale);
+  const isTranslated = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'].includes(locale);
 
   cards.forEach((card, index) => {
     const where = `${name} card ${index + 1}`;
@@ -218,7 +218,7 @@ for (const file of pages) {
         fail(where, `data-card-url "${cardUrl}" is not inside /${locale}/ -- clicking the `
                   + 'card image would switch the reader to English');
       }
-      if (!isTranslated && /^(?:es|fr|de|ru|ar)\//.test(cardUrl)) {
+      if (!isTranslated && /^(?:es|fr|de|ru|ar|nl|pl|sv|no)\//.test(cardUrl)) {
         fail(where, `data-card-url "${cardUrl}" points into a locale directory on an English page`);
       }
     }
