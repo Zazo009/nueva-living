@@ -2292,7 +2292,31 @@ so Latin numerals in the price still render in
   #hero .hero-overlay {
     background:
       linear-gradient(180deg, rgba(32, 24, 17, 0.8) 0%, rgba(32, 24, 17, 0.08) 20%, rgba(32, 24, 17, 0) 40%),
-      linear-gradient(0deg, rgba(26, 19, 13, 0.93) 0%, rgba(26, 19, 13, 0.68) 28%, rgba(26, 19, 13, 0.2) 52%, rgba(26, 19, 13, 0) 72%);
+      linear-gradient(0deg, rgba(26, 19, 13, 0.95) 0%, rgba(26, 19, 13, 0.88) 18%, rgba(26, 19, 13, 0.7) 34%, rgba(26, 19, 13, 0.44) 50%, rgba(26, 19, 13, 0.16) 66%, rgba(26, 19, 13, 0) 80%);
+  }
+
+  /* The scrim alone cannot carry the type: the footage cuts between a dark
+     cove and a sunlit white-and-sand town, and on the bright frames the
+     eyebrow and paragraph washed out completely. Each line gets its own
+     shadow pair -- a tight 1px edge that holds the letterforms against light
+     detail, plus a wide soft pool that lifts the block off the video. Warm
+     browns, never black, so it reads as depth rather than a drop shadow. */
+  #hero .hero-eyebrow,
+  #hero .hero-sub {
+    text-shadow: 0 1px 2px rgba(20, 13, 7, 0.55), 0 6px 22px rgba(20, 13, 7, 0.5);
+  }
+
+  #hero h1 {
+    text-shadow: 0 1px 2px rgba(20, 13, 7, 0.42), 0 10px 32px rgba(20, 13, 7, 0.55);
+  }
+
+  /* Both sat at 0.82 alpha, which the bright frames ate into. */
+  #hero .hero-sub {
+    color: rgba(247, 244, 238, 0.94);
+  }
+
+  #hero .hero-eyebrow {
+    color: rgba(226, 198, 136, 0.98);
   }
 }
 
