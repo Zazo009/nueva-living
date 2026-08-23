@@ -2048,10 +2048,13 @@ so Latin numerals in the price still render in
     background: none;
   }
 
-  .site-nav .nav-logo img,
-  #nav .nav-logo img,
-  .site-nav .nav-logo .nav-wordmark,
-  #nav .nav-logo .nav-wordmark {
+  /* The raster wordmark is hidden ONLY where the live-text one is present to
+     replace it. Guarding on :has() means a page whose nav markup lacks the
+     span keeps its image instead of ending up with no logo at all -- which is
+     exactly what happened to every non-homepage page when this rule hid the
+     image unconditionally. */
+  .site-nav .nav-logo:has(.nav-wordmark-text) img,
+  #nav .nav-logo:has(.nav-wordmark-text) img {
     display: none;
   }
 
@@ -2297,4 +2300,120 @@ so Latin numerals in the price still render in
    the opposite edge. The bottom-up scrim is symmetric and needs no mirror. */
 [dir="rtl"] #hero .hero-copy {
   text-align: right;
+}
+
+/* ---------- Wordmark, all pages ----------
+   The homepage renders its wordmark as live Cinzel; every other page still
+   carried the 420x100 raster, which was soft on sub-retina screens and gave
+   the header a different logo depending on which page you were on. One
+   treatment everywhere, matching the homepage's desktop metrics. */
+/* Applies at every width, not just mobile: the live-text wordmark now exists
+   on every page, so leaving the raster visible on desktop showed both. Still
+   guarded by :has() -- no span, no hide, so the logo can never vanish. */
+.site-nav .nav-logo:has(.nav-wordmark-text) img,
+#nav .nav-logo:has(.nav-wordmark-text) img {
+  display: none;
+}
+
+.site-nav .nav-logo .nav-wordmark-text {
+  display: block;
+  font-family: var(--nueva-display, 'Cinzel', serif);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--nueva-cream, #f7f4ee);
+  white-space: nowrap;
+  /* Offset by half the trailing letter-space so the tracking does not shift
+     the wordmark off its true optical centre. */
+  text-indent: 0.17em;
+}
+
+/* ---------- Transparent header over the hero, mobile ----------
+   The transparent treatment lived only inside the homepage's
+   `@media (min-width: 1121px)` block, so on phones the bar kept its solid
+   #2F2417 fill and sat on the video as an opaque slab. `#nav` is the
+   homepage's nav id -- every other page uses `.site-nav` and has no hero
+   behind the bar, so they correctly keep their fill. */
+@media (max-width: 1120px) {
+  #nav:not(.scrolled) {
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    /* The hero's own top scrim provides the separation while the bar floats;
+       the rule comes back with the fill on scroll. */
+    border-bottom-color: transparent;
+  }
+
+  #nav.scrolled {
+    background: rgba(47, 36, 23, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom-color: rgba(168, 131, 74, 0.22);
+  }
+}
+
+/* ---------- Drawer-open header ----------
+   The design's third frame swaps the bar: with the drawer open the three
+   control squares give way to the wordmark on the left and a close glyph on
+   the right, over the drawer's own fill rather than the video. Keyed off the
+   burger's aria-expanded so it needs no extra state class. */
+@media (max-width: 1120px) {
+  #nav:has(.nav-burger[aria-expanded="true"]),
+  .site-nav:has(.nav-burger[aria-expanded="true"]) {
+    background: #241b14;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: 1px solid rgba(247, 244, 238, 0.1);
+  }
+
+  /* Saved-homes and language belong to the hero bar, not the menu. */
+  #nav:has(.nav-burger[aria-expanded="true"]) .nueva-shortlist-mobile-trigger,
+  .site-nav:has(.nav-burger[aria-expanded="true"]) .nueva-shortlist-mobile-trigger,
+  #nav:has(.nav-burger[aria-expanded="true"]) [data-lang-switcher-compact],
+  .site-nav:has(.nav-burger[aria-expanded="true"]) [data-lang-switcher-compact] {
+    display: none;
+  }
+
+  #nav:has(.nav-burger[aria-expanded="true"]) .nav-logo,
+  .site-nav:has(.nav-burger[aria-expanded="true"]) .nav-logo {
+    order: 0;
+    justify-content: flex-start;
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+    padding-inline-start: 0;
+  }
+
+  /* The burger loses its box and becomes a hairline cross. */
+  #nav:has(.nav-burger[aria-expanded="true"]) .nav-burger,
+  .site-nav:has(.nav-burger[aria-expanded="true"]) .nav-burger {
+    order: 1;
+    border-color: transparent;
+    position: relative;
+  }
+
+  #nav .nav-burger[aria-expanded="true"] span,
+  .site-nav .nav-burger[aria-expanded="true"] span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 17px;
+    margin: 0;
+    transition: transform 0.25s ease, opacity 0.15s ease;
+  }
+
+  #nav .nav-burger[aria-expanded="true"] span:first-child,
+  .site-nav .nav-burger[aria-expanded="true"] span:first-child {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  #nav .nav-burger[aria-expanded="true"] span:nth-child(2),
+  .site-nav .nav-burger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  #nav .nav-burger[aria-expanded="true"] span:last-child,
+  .site-nav .nav-burger[aria-expanded="true"] span:last-child {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
 }

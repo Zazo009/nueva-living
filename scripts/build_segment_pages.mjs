@@ -147,7 +147,8 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
       ${links.slice(0, 3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
     </div>
     <a class="nav-logo" href="${home}" aria-label="${t('nav.home', locale)}">
-      <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
+      <img class="nav-wordmark" src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
+      <span class="nav-wordmark-text" aria-hidden="true">Nueva Living</span>
     </a>
     <div class="nav-links nav-links-right">
       ${links.slice(3, 4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
