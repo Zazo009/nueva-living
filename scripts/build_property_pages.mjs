@@ -15,6 +15,8 @@ import {
   rootPrefix,
   baseHrefTag,
   renderLanguageSwitcher,
+  renderGuidesMenu,
+  guidesMobileLinks,
   LANG_SWITCHER_SCRIPT
 } from './lib/i18n.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
@@ -997,7 +999,7 @@ function nav(project, locale = DEFAULT_LOCALE) {
     </a>
     <div class="nav-links nav-links-right">
       <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
-      <a href="${p}${localizedPath('guides.html', locale)}">${t('nav.guides', locale)}</a>
+      ${renderGuidesMenu(locale, p)}
       <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
       <span class="nav-divider" aria-hidden="true"></span>
       ${switcher}
@@ -1012,7 +1014,7 @@ function nav(project, locale = DEFAULT_LOCALE) {
     <a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a>
     <a href="${p}${localizedPath('about.html', locale)}">${t('nav.about', locale)}</a>
     <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
-    <a href="${p}${localizedPath('guides.html', locale)}">${t('nav.guides', locale)}</a>
+    ${guidesMobileLinks(locale, p)}
     <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
     ${renderLanguageSwitcher(outputPath, locale)}
   </div>`;

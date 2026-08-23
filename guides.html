@@ -155,7 +155,17 @@
     </a>
     <div class="nav-links nav-links-right">
       <a href="advisory.html">Advisory</a>
-      <a href="guides.html">Guides</a>
+      <details class="nav-dropdown" data-nav-dropdown>
+      <summary class="nav-dropdown-toggle">
+        <span>Guides</span>
+        <svg class="nav-dropdown-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="nav-dropdown-panel" role="menu">
+          <a class="nav-dropdown-option" href="guides.html">Buying Guides</a>
+          <a class="nav-dropdown-option" href="guides.html#mortgage-calculator">Mortgage Calculator</a>
+          <a class="nav-dropdown-option" href="referrals.html">Referral & Ambassador</a>
+      </div>
+    </details>
       <a href="contact.html">Contact</a>
       <span class="nav-divider" aria-hidden="true"></span>
       <details class="lang-switcher" data-lang-switcher>
@@ -189,7 +199,10 @@
     <a href="areas.html">Areas</a>
     <a href="about.html">About</a>
     <a href="advisory.html">Advisory</a>
-    <a href="guides.html">Guides</a>
+    <span class="mobile-menu-group-label">Guides</span>
+    <a class="mobile-menu-sublink" href="guides.html">Buying Guides</a>
+    <a class="mobile-menu-sublink" href="guides.html#mortgage-calculator">Mortgage Calculator</a>
+    <a class="mobile-menu-sublink" href="referrals.html">Referral & Ambassador</a>
     <a href="contact.html">Contact</a>
     <details class="lang-switcher" data-lang-switcher>
       <summary class="lang-switcher-toggle" aria-label="Language">
@@ -296,7 +309,7 @@
     </a>
       </div>
     </div></section>
-    <section class="section quiet-band guides-calculator"><div class="section-inner">
+    <section class="section quiet-band guides-calculator" id="mortgage-calculator"><div class="section-inner">
     <div class="section-head center"><span class="label">Affordability</span><div class="rule"></div><h2 class="section-title">How Spanish mortgages <em>work for you</em></h2>
     <p class="body-copy" style="margin-left:auto;margin-right:auto;">Spanish banks lend differently to non-resident buyers than to Spanish residents. Where a resident might get financing up to 80% of a property's value, non-residents are typically capped closer to 70%, and the exact rate, term and how much of your income counts all vary by bank and by your personal financial profile. On top of the mortgage itself, budget for taxes and purchase costs &mdash; transfer tax or VAT, notary, land registry and legal fees &mdash; which typically add another 10-13% on top of the purchase price in Spain.</p>
     <p class="body-copy" style="margin-left:auto;margin-right:auto;">Use the calculator below for a realistic starting estimate of your deposit, monthly payment and total cost of buying, based on typical non-resident lending terms. It is a planning tool, not a mortgage offer &mdash; Nueva Living and your mortgage broker will confirm the real numbers once you have a specific property in mind.</p>
@@ -472,6 +485,30 @@
     }
   </script>
   <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
   document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
     document.addEventListener('click', (event) => {
       if (!el.open) return;
@@ -480,7 +517,7 @@
     });
     el.addEventListener('toggle', () => {
       if (!el.open) return;
-      document.querySelectorAll('[data-lang-switcher][open]').forEach((other) => {
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
         if (other !== el) other.open = false;
       });
 

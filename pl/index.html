@@ -4963,6 +4963,37 @@
     #nav .lang-switcher-check, #nav .lang-switcher-check-spacer { flex: 0 0 12px; width: 12px; height: 12px; }
     #nav .lang-switcher-check path { stroke: #d8bd85; }
     #nav [data-lang-switcher-compact] .lang-switcher-panel { width: 354px; min-width: 354px; }
+    #nav [data-lang-switcher-compact] .lang-switcher-toggle {
+      width: 44px; height: 44px; padding: 0; display: inline-grid; place-items: center;
+      border: 1px solid rgba(216,189,133,0.5); background: rgba(255,250,242,0.05);
+      color: rgba(244,234,217,0.94);
+    }
+    #nav .nav-dropdown { position: relative; }
+    #nav .nav-dropdown-toggle {
+      display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
+      white-space: nowrap;
+    }
+    #nav .nav-dropdown-toggle::-webkit-details-marker { display: none; }
+    #nav .nav-dropdown-caret { width: 9px; height: 6px; flex: 0 0 9px; transition: transform 0.2s ease; }
+    #nav .nav-dropdown-caret path { stroke: currentColor; }
+    #nav .nav-dropdown[open] .nav-dropdown-caret { transform: rotate(180deg); }
+    #nav .nav-dropdown-panel {
+      position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+      min-width: 232px; display: flex; flex-direction: column; padding: 6px 0;
+      background: rgba(45,34,24,0.97); border: 1px solid rgba(247,244,238,0.18);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5); backdrop-filter: blur(12px); border-radius: 0; z-index: 40;
+    }
+    #nav .nav-dropdown-option {
+      display: block; padding: 10px 18px; color: rgba(247,244,238,0.78); font-size: 13px;
+      font-weight: 500; letter-spacing: 0.02em; text-transform: none; text-decoration: none;
+      white-space: nowrap; border-bottom: none;
+    }
+    #nav .nav-dropdown-option:hover { background: rgba(201,164,95,0.12); color: #f0dcb2; }
+    .mobile-menu .mobile-menu-group-label {
+      display: block; font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(247,244,238,0.4);
+    }
+    .mobile-menu .mobile-menu-sublink { padding-left: 14px; }
     .mobile-menu .lang-switcher-panel { position: static; margin-top: 8px; border: none; background: transparent; box-shadow: none; padding-left: 12px; display: block; }
     .mobile-menu .lang-switcher-option { color: inherit; }
 
@@ -4983,7 +5014,17 @@
     </a>
     <ul class="nav-links nav-links-right">
       <li><a href="pl/advisory.html">Doradztwo</a></li>
-      <li><a href="pl/guides.html">Poradniki</a></li>
+      <li><details class="nav-dropdown" data-nav-dropdown>
+        <summary class="nav-dropdown-toggle">
+          <span>Poradniki</span>
+          <svg class="nav-dropdown-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="nav-dropdown-panel" role="menu">
+          <a class="nav-dropdown-option" href="pl/guides.html">Poradniki zakupowe</a>
+          <a class="nav-dropdown-option" href="pl/guides.html#mortgage-calculator">Kalkulator kredytowy</a>
+          <a class="nav-dropdown-option" href="pl/referrals.html">Polecenia i ambasadorzy</a>
+        </div>
+      </details></li>
       <li><a href="pl/contact.html">Kontakt</a></li>
       <li class="nav-divider" aria-hidden="true"></li>
     <li><details class="lang-switcher" data-lang-switcher>
@@ -5017,7 +5058,10 @@
     <a href="pl/areas.html" onclick="closeMobile()">Okolice</a>
     <a href="pl/about.html" onclick="closeMobile()">O nas</a>
     <a href="pl/advisory.html" onclick="closeMobile()">Doradztwo</a>
-    <a href="pl/guides.html" onclick="closeMobile()">Poradniki</a>
+    <span class="mobile-menu-group-label">Poradniki</span>
+    <a class="mobile-menu-sublink" href="pl/guides.html" onclick="closeMobile()">Poradniki zakupowe</a>
+    <a class="mobile-menu-sublink" href="pl/guides.html#mortgage-calculator" onclick="closeMobile()">Kalkulator kredytowy</a>
+    <a class="mobile-menu-sublink" href="pl/referrals.html" onclick="closeMobile()">Polecenia i ambasadorzy</a>
     <a href="pl/contact.html" onclick="closeMobile()">Kontakt</a>
   </div>
 
@@ -15686,6 +15730,30 @@
 </script>
 <script src="assets/liora/liora-card-gallery.js" defer></script>
   <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
   document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
     document.addEventListener('click', (event) => {
       if (!el.open) return;
@@ -15694,7 +15762,112 @@
     });
     el.addEventListener('toggle', () => {
       if (!el.open) return;
-      document.querySelectorAll('[data-lang-switcher][open]').forEach((other) => {
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+
+      // The panel's CSS anchors it to whichever edge of the toggle its
+      // language convention favors (right on LTR, left on RTL). That
+      // anchor is fine on desktop, but on a narrow phone the toggle can
+      // sit anywhere in the top bar (it gets moved next to the burger
+      // button below 1120px), so a fixed-width panel opening from it can
+      // run off either side of the screen. Clamp it back into view after
+      // layout settles, in viewport coordinates, so it works regardless
+      // of which edge it opened from.
+      var panel = el.querySelector('.lang-switcher-panel');
+      if (!panel) return;
+      requestAnimationFrame(() => {
+        panel.style.left = '';
+        panel.style.right = '';
+        var margin = 12;
+        var elRect = el.getBoundingClientRect();
+        var panelRect = panel.getBoundingClientRect();
+        var overflowRight = panelRect.right - (window.innerWidth - margin);
+        var overflowLeft = margin - panelRect.left;
+        if (overflowRight > 0) {
+          panel.style.right = 'auto';
+          panel.style.left = (panelRect.left - elRect.left - overflowRight) + 'px';
+        } else if (overflowLeft > 0) {
+          panel.style.right = 'auto';
+          panel.style.left = (panelRect.left - elRect.left + overflowLeft) + 'px';
+        }
+      });
+    });
+  });
+
+  // On narrow screens the nav links collapse into the burger menu, which
+  // used to take the language switcher with them -- buried under the menu,
+  // and styled flat so its open panel read as a dark block. Lift it into
+  // the top bar instead, next to the shortlist heart, so it looks and
+  // behaves exactly as it does on desktop. The switcher already inside the
+  // mobile menu is removed so there is only ever one.
+  (function () {
+    var nav = document.querySelector('.site-nav, #nav');
+    var menu = document.querySelector('.mobile-menu');
+    if (!nav) return;
+    var inBar = nav.querySelector('[data-lang-switcher]');
+    var inMenu = menu ? menu.querySelector('[data-lang-switcher]') : null;
+    if (!inBar && !inMenu) return;
+
+    // Prefer the nav-bar copy; if the page only has the menu one, promote it.
+    var switcher = inBar || inMenu;
+    if (switcher === inMenu) nav.appendChild(switcher);
+    else if (inMenu && inMenu.parentNode) inMenu.parentNode.removeChild(inMenu);
+
+    var burger = nav.querySelector('.nav-burger, #burgerBtn');
+    var mq = window.matchMedia('(max-width: 1120px)');
+    var home = switcher.parentNode;
+    var homeNext = switcher.nextSibling;
+
+    function place() {
+      if (mq.matches) {
+        // Sit immediately before the burger, after the heart.
+        if (burger && switcher.nextElementSibling !== burger) nav.insertBefore(switcher, burger);
+        switcher.setAttribute('data-lang-switcher-compact', '');
+      } else {
+        if (switcher.parentNode !== home) home.insertBefore(switcher, homeNext);
+        switcher.removeAttribute('data-lang-switcher-compact');
+      }
+    }
+    place();
+    if (mq.addEventListener) mq.addEventListener('change', place);
+    else if (mq.addListener) mq.addListener(place);
+  })();
+</script>
+  <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
+  document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
         if (other !== el) other.open = false;
       });
 

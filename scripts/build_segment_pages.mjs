@@ -11,6 +11,8 @@ import {
   hreflangLinks,
   baseHrefTag,
   renderLanguageSwitcher,
+  renderGuidesMenu,
+  guidesMobileLinks,
   LANG_SWITCHER_SCRIPT,
   localizeInternalLinks,
   seoTags
@@ -132,7 +134,6 @@ function navLinks(locale) {
     [t('nav.areas', locale), 'areas.html'],
     [t('nav.about', locale), 'about.html'],
     [t('nav.advisory', locale), 'advisory.html'],
-    [t('nav.guides', locale), 'guides.html'],
     [t('nav.contactUs', locale), 'contact.html'],
   ];
 }
@@ -148,7 +149,9 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
       <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
     <div class="nav-links nav-links-right">
-      ${links.slice(3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${links.slice(3, 4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${renderGuidesMenu(locale)}
+      ${links.slice(4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
       <span class="nav-divider" aria-hidden="true"></span>
       ${switcher}
     </div>
@@ -157,7 +160,9 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
     </button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    ${links.map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${links.slice(0, 4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${guidesMobileLinks(locale)}
+    ${links.slice(4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
     ${renderLanguageSwitcher(currentOutputPath, locale)}
   </div>`;
 }
@@ -494,7 +499,7 @@ function lowestPriceAcrossSegments() {
 
 function guidesCalculatorSection() {
   const seedPrice = lowestPriceAcrossSegments();
-  return `<section class="section quiet-band guides-calculator"><div class="section-inner">
+  return `<section class="section quiet-band guides-calculator" id="mortgage-calculator"><div class="section-inner">
     <div class="section-head center"><span class="label">Affordability</span><div class="rule"></div><h2 class="section-title">How Spanish mortgages <em>work for you</em></h2>
     <p class="body-copy" style="margin-left:auto;margin-right:auto;">Spanish banks lend differently to non-resident buyers than to Spanish residents. Where a resident might get financing up to 80% of a property's value, non-residents are typically capped closer to 70%, and the exact rate, term and how much of your income counts all vary by bank and by your personal financial profile. On top of the mortgage itself, budget for taxes and purchase costs &mdash; transfer tax or VAT, notary, land registry and legal fees &mdash; which typically add another 10-13% on top of the purchase price in Spain.</p>
     <p class="body-copy" style="margin-left:auto;margin-right:auto;">Use the calculator below for a realistic starting estimate of your deposit, monthly payment and total cost of buying, based on typical non-resident lending terms. It is a planning tool, not a mortgage offer &mdash; Nueva Living and your mortgage broker will confirm the real numbers once you have a specific property in mind.</p>

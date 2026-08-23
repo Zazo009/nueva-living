@@ -156,7 +156,17 @@
     </a>
     <div class="nav-links nav-links-right">
       <a href="ru/advisory.html">Консультации</a>
-      <a href="ru/guides.html">Гиды</a>
+      <details class="nav-dropdown" data-nav-dropdown>
+      <summary class="nav-dropdown-toggle">
+        <span>Гиды</span>
+        <svg class="nav-dropdown-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="nav-dropdown-panel" role="menu">
+          <a class="nav-dropdown-option" href="ru/guides.html">Покупателям</a>
+          <a class="nav-dropdown-option" href="ru/guides.html#mortgage-calculator">Ипотечный калькулятор</a>
+          <a class="nav-dropdown-option" href="ru/referrals.html">Рефералы и амбассадоры</a>
+      </div>
+    </details>
       <a href="ru/contact.html">Контакты</a>
       <span class="nav-divider" aria-hidden="true"></span>
       <details class="lang-switcher" data-lang-switcher>
@@ -190,7 +200,10 @@
     <a href="ru/areas.html">Районы</a>
     <a href="ru/about.html">О нас</a>
     <a href="ru/advisory.html">Консультации</a>
-    <a href="ru/guides.html">Гиды</a>
+    <span class="mobile-menu-group-label">Гиды</span>
+    <a class="mobile-menu-sublink" href="ru/guides.html">Покупателям</a>
+    <a class="mobile-menu-sublink" href="ru/guides.html#mortgage-calculator">Ипотечный калькулятор</a>
+    <a class="mobile-menu-sublink" href="ru/referrals.html">Рефералы и амбассадоры</a>
     <a href="ru/contact.html">Контакты</a>
     <details class="lang-switcher" data-lang-switcher>
       <summary class="lang-switcher-toggle" aria-label="Язык">
@@ -297,7 +310,7 @@
     </a>
       </div>
     </div></section>
-    <section class="section quiet-band guides-calculator"><div class="section-inner">
+    <section class="section quiet-band guides-calculator" id="mortgage-calculator"><div class="section-inner">
     <div class="section-head center"><span class="label">Доступность</span><div class="rule"></div><h2 class="section-title">Как испанская ипотека <em>работает на вас</em></h2>
     <p class="body-copy" style="margin-left:auto;margin-right:auto;">Испанские банки кредитуют нерезидентов иначе, чем резидентов Испании. Если резидент может получить финансирование до 80% стоимости недвижимости, то для нерезидентов лимит обычно ближе к 70%, а точная ставка, срок и учитываемая доля дохода зависят от банка и вашего личного финансового профиля. Помимо самой ипотеки, заложите в бюджет налоги и расходы на покупку &mdash; налог на передачу имущества или НДС, нотариус, регистрация земли и юридические услуги &mdash;, которые обычно добавляют ещё 10-13% к цене покупки в Испании.</p>
     <p class="body-copy" style="margin-left:auto;margin-right:auto;">Используйте калькулятор ниже, чтобы получить реалистичную предварительную оценку первоначального взноса, ежемесячного платежа и общей стоимости покупки на основе типичных условий кредитования нерезидентов. Это инструмент планирования, а не ипотечное предложение &mdash; Nueva Living и ваш ипотечный брокер подтвердят реальные цифры, как только у вас появится конкретный объект недвижимости.</p>
@@ -473,6 +486,30 @@
     }
   </script>
   <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
   document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
     document.addEventListener('click', (event) => {
       if (!el.open) return;
@@ -481,7 +518,7 @@
     });
     el.addEventListener('toggle', () => {
       if (!el.open) return;
-      document.querySelectorAll('[data-lang-switcher][open]').forEach((other) => {
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
         if (other !== el) other.open = false;
       });
 

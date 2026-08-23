@@ -95,6 +95,11 @@ function navFooterReplacements(locale) {
     ['>About<', `>${t('nav.about', locale)}<`],
     ['>Advisory<', `>${t('nav.advisory', locale)}<`],
     ['>Guides<', `>${t('nav.guides', locale)}<`],
+    // Guides submenu. Longer labels first so ">Buying Guides<" cannot be
+    // partially rewritten by the ">Guides<" entry above it.
+    ['>Buying Guides</a>', `>${t('nav.buyingGuides', locale)}</a>`],
+    ['>Mortgage Calculator</a>', `>${t('nav.mortgageCalculator', locale)}</a>`],
+    ['>Referral &amp; Ambassador</a>', `>${t('nav.referralAmbassador', locale)}</a>`],
     ['>Contact<', `>${t('nav.contactUs', locale)}<`],
     ['aria-label="Nueva Living — Home"', `aria-label="${t('nav.home', locale)}"`],
     ['aria-label="Menu"', `aria-label="${t('nav.menu', locale)}"`],
@@ -384,6 +389,37 @@ const switcherCss = `
     #nav .lang-switcher-check, #nav .lang-switcher-check-spacer { flex: 0 0 12px; width: 12px; height: 12px; }
     #nav .lang-switcher-check path { stroke: #d8bd85; }
     #nav [data-lang-switcher-compact] .lang-switcher-panel { width: 354px; min-width: 354px; }
+    #nav [data-lang-switcher-compact] .lang-switcher-toggle {
+      width: 44px; height: 44px; padding: 0; display: inline-grid; place-items: center;
+      border: 1px solid rgba(216,189,133,0.5); background: rgba(255,250,242,0.05);
+      color: rgba(244,234,217,0.94);
+    }
+    #nav .nav-dropdown { position: relative; }
+    #nav .nav-dropdown-toggle {
+      display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
+      white-space: nowrap;
+    }
+    #nav .nav-dropdown-toggle::-webkit-details-marker { display: none; }
+    #nav .nav-dropdown-caret { width: 9px; height: 6px; flex: 0 0 9px; transition: transform 0.2s ease; }
+    #nav .nav-dropdown-caret path { stroke: currentColor; }
+    #nav .nav-dropdown[open] .nav-dropdown-caret { transform: rotate(180deg); }
+    #nav .nav-dropdown-panel {
+      position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+      min-width: 232px; display: flex; flex-direction: column; padding: 6px 0;
+      background: rgba(45,34,24,0.97); border: 1px solid rgba(247,244,238,0.18);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5); backdrop-filter: blur(12px); border-radius: 0; z-index: 40;
+    }
+    #nav .nav-dropdown-option {
+      display: block; padding: 10px 18px; color: rgba(247,244,238,0.78); font-size: 13px;
+      font-weight: 500; letter-spacing: 0.02em; text-transform: none; text-decoration: none;
+      white-space: nowrap; border-bottom: none;
+    }
+    #nav .nav-dropdown-option:hover { background: rgba(201,164,95,0.12); color: #f0dcb2; }
+    .mobile-menu .mobile-menu-group-label {
+      display: block; font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(247,244,238,0.4);
+    }
+    .mobile-menu .mobile-menu-sublink { padding-left: 14px; }
     .mobile-menu .lang-switcher-panel { position: static; margin-top: 8px; border: none; background: transparent; box-shadow: none; padding-left: 12px; display: block; }
     .mobile-menu .lang-switcher-option { color: inherit; }
 `;

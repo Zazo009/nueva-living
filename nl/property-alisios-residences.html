@@ -209,7 +209,17 @@
     </a>
     <div class="nav-links nav-links-right">
       <a href="nl/advisory.html">Advies</a>
-      <a href="nl/guides.html">Gidsen</a>
+      <details class="nav-dropdown" data-nav-dropdown>
+      <summary class="nav-dropdown-toggle">
+        <span>Gidsen</span>
+        <svg class="nav-dropdown-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="nav-dropdown-panel" role="menu">
+          <a class="nav-dropdown-option" href="nl/guides.html">Koopgidsen</a>
+          <a class="nav-dropdown-option" href="nl/guides.html#mortgage-calculator">Hypotheekcalculator</a>
+          <a class="nav-dropdown-option" href="nl/referrals.html">Aanbevelingen & ambassadeurs</a>
+      </div>
+    </details>
       <a href="nl/contact.html">Contact</a>
       <span class="nav-divider" aria-hidden="true"></span>
       <details class="lang-switcher" data-lang-switcher>
@@ -244,7 +254,10 @@
     <a href="nl/areas.html">Regio's</a>
     <a href="nl/about.html">Over ons</a>
     <a href="nl/advisory.html">Advies</a>
-    <a href="nl/guides.html">Gidsen</a>
+    <span class="mobile-menu-group-label">Gidsen</span>
+    <a class="mobile-menu-sublink" href="nl/guides.html">Koopgidsen</a>
+    <a class="mobile-menu-sublink" href="nl/guides.html#mortgage-calculator">Hypotheekcalculator</a>
+    <a class="mobile-menu-sublink" href="nl/referrals.html">Aanbevelingen & ambassadeurs</a>
     <a href="nl/contact.html">Contact</a>
     <details class="lang-switcher" data-lang-switcher>
       <summary class="lang-switcher-toggle" aria-label="Taal">
@@ -1053,7 +1066,7 @@
           <li><a href="nl/why-nueva.html">Waarom Nueva Living</a></li>
           <li><a href="nl/about.html">Over ons</a></li>
           <li><a href="nl/advisory.html">Advies</a></li>
-          <li><a href="nl/referrals.html">Doorverwijzingsprogramma</a></li>
+          <li><a href="nl/referrals.html">Aanbevelingsprogramma</a></li>
           <li><a href="nl/contact.html">Contact</a></li>
         </ul>
       </div>
@@ -1092,6 +1105,30 @@
     </div>
   </footer>
   <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
   document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
     document.addEventListener('click', (event) => {
       if (!el.open) return;
@@ -1100,7 +1137,7 @@
     });
     el.addEventListener('toggle', () => {
       if (!el.open) return;
-      document.querySelectorAll('[data-lang-switcher][open]').forEach((other) => {
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
         if (other !== el) other.open = false;
       });
 

@@ -10,6 +10,8 @@ import {
   hreflangLinks,
   baseHrefTag,
   renderLanguageSwitcher,
+  renderGuidesMenu,
+  guidesMobileLinks,
   LANG_SWITCHER_SCRIPT,
   localizeProject,
   localizeInternalLinks,
@@ -95,7 +97,6 @@ function navLinks(locale) {
     [t('nav.areas', locale), 'areas.html'],
     [t('nav.about', locale), 'about.html'],
     [t('nav.advisory', locale), 'advisory.html'],
-    [t('nav.guides', locale), 'guides.html'],
     [t('nav.contactUs', locale), 'contact.html'],
   ];
 }
@@ -138,7 +139,9 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
       <img src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
     <div class="nav-links nav-links-right">
-      ${links.slice(3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${links.slice(3, 4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${renderGuidesMenu(locale)}
+      ${links.slice(4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
       <span class="nav-divider" aria-hidden="true"></span>
       ${switcher}
     </div>
@@ -147,7 +150,9 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
     </button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    ${links.map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${links.slice(0, 4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${guidesMobileLinks(locale)}
+    ${links.slice(4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
     ${renderLanguageSwitcher(currentOutputPath, locale)}
   </div>`;
 }

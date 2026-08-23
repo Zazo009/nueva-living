@@ -278,11 +278,79 @@ export function renderLanguageSwitcher(outputPath, locale) {
     </details>`;
 }
 
+// The Guides nav item and its submenu, rendered once here so all five
+// nav-generating builders share one implementation rather than each
+// keeping its own copy (which is how the nav groupings drifted before).
+// Same <details> mechanism as the language switcher above: keyboard
+// accessible and functional with no JS, with the shared script below
+// adding click-outside dismissal.
+//
+// `prefix` is the builder's own root prefix (property pages sit one
+// directory deeper); pass '' where pages are written to the site root.
+function guidesMenuItems(locale) {
+  return [
+    [t('nav.buyingGuides', locale), localizedPath('guides.html', locale)],
+    [t('nav.mortgageCalculator', locale), `${localizedPath('guides.html', locale)}#mortgage-calculator`],
+    [t('nav.referralAmbassador', locale), localizedPath('referrals.html', locale)]
+  ];
+}
+
+// The same three destinations for the burger menu, which has no room for
+// a nested disclosure: they are listed flat, indented under a Guides
+// heading so the grouping still reads.
+export function guidesMobileLinks(locale, prefix = '') {
+  const items = guidesMenuItems(locale)
+    .map(([label, href]) => `<a class="mobile-menu-sublink" href="${prefix}${href}">${label}</a>`)
+    .join('\n    ');
+  return `<span class="mobile-menu-group-label">${t('nav.guides', locale)}</span>
+    ${items}`;
+}
+
+export function renderGuidesMenu(locale, prefix = '') {
+  const options = guidesMenuItems(locale)
+    .map(([label, href]) => `<a class="nav-dropdown-option" href="${prefix}${href}">${label}</a>`)
+    .join('\n          ');
+
+  return `<details class="nav-dropdown" data-nav-dropdown>
+      <summary class="nav-dropdown-toggle">
+        <span>${t('nav.guides', locale)}</span>
+        <svg class="nav-dropdown-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="nav-dropdown-panel" role="menu">
+          ${options}
+      </div>
+    </details>`;
+}
+
 // Shared close-on-outside-click / close-on-route-change behaviour for the
 // <details> based switcher -- kept tiny and dependency-free so it can be
 // safely inlined on every page type (property, footer, segment), including
 // pages that don't load the larger liora-property.js bundle.
 export const LANG_SWITCHER_SCRIPT = `<script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
   document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
     document.addEventListener('click', (event) => {
       if (!el.open) return;
@@ -291,7 +359,7 @@ export const LANG_SWITCHER_SCRIPT = `<script>
     });
     el.addEventListener('toggle', () => {
       if (!el.open) return;
-      document.querySelectorAll('[data-lang-switcher][open]').forEach((other) => {
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
         if (other !== el) other.open = false;
       });
 

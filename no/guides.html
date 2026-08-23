@@ -156,7 +156,17 @@
     </a>
     <div class="nav-links nav-links-right">
       <a href="no/advisory.html">Rådgivning</a>
-      <a href="no/guides.html">Guider</a>
+      <details class="nav-dropdown" data-nav-dropdown>
+      <summary class="nav-dropdown-toggle">
+        <span>Guider</span>
+        <svg class="nav-dropdown-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="nav-dropdown-panel" role="menu">
+          <a class="nav-dropdown-option" href="no/guides.html">Kjøpsguider</a>
+          <a class="nav-dropdown-option" href="no/guides.html#mortgage-calculator">Boliglånskalkulator</a>
+          <a class="nav-dropdown-option" href="no/referrals.html">Anbefalinger & ambassadører</a>
+      </div>
+    </details>
       <a href="no/contact.html">Kontakt</a>
       <span class="nav-divider" aria-hidden="true"></span>
       <details class="lang-switcher" data-lang-switcher>
@@ -190,7 +200,10 @@
     <a href="no/areas.html">Områder</a>
     <a href="no/about.html">Om oss</a>
     <a href="no/advisory.html">Rådgivning</a>
-    <a href="no/guides.html">Guider</a>
+    <span class="mobile-menu-group-label">Guider</span>
+    <a class="mobile-menu-sublink" href="no/guides.html">Kjøpsguider</a>
+    <a class="mobile-menu-sublink" href="no/guides.html#mortgage-calculator">Boliglånskalkulator</a>
+    <a class="mobile-menu-sublink" href="no/referrals.html">Anbefalinger & ambassadører</a>
     <a href="no/contact.html">Kontakt</a>
     <details class="lang-switcher" data-lang-switcher>
       <summary class="lang-switcher-toggle" aria-label="Språk">
@@ -297,7 +310,7 @@
     </a>
       </div>
     </div></section>
-    <section class="section quiet-band guides-calculator"><div class="section-inner">
+    <section class="section quiet-band guides-calculator" id="mortgage-calculator"><div class="section-inner">
     <div class="section-head center"><span class="label">Betalingsevne</span><div class="rule"></div><h2 class="section-title">Hvordan spanske boliglån <em>fungerer for deg</em></h2>
     <p class="body-copy" style="margin-left:auto;margin-right:auto;">Spanske banker låner ut annerledes til ikke-bosatte kjøpere enn til spanske bosatte. Der en bosatt kan få finansiering opp til 80 % av en eiendoms verdi, er ikke-bosatte vanligvis begrenset til nærmere 70 %, og den nøyaktige renten, løpetiden og hvor mye av inntekten din som teller, varierer etter bank og ditt personlige økonomiske profil. I tillegg til selve lånet bør du budsjettere for skatter og kjøpskostnader &mdash; overdragelsesskatt eller mva, notar, eiendomsregister og juridiske kostnader &mdash; som vanligvis legger til ytterligere 10-13 % på toppen av kjøpesummen i Spania.</p>
     <p class="body-copy" style="margin-left:auto;margin-right:auto;">Bruk kalkulatoren nedenfor for et realistisk startestimat av egenkapitalen din, den månedlige betalingen og den totale kostnaden ved kjøpet, basert på typiske lånevilkår for ikke-bosatte. Det er et planleggingsverktøy, ikke et lånetilbud &mdash; Nueva Living og din boliglånsmegler bekrefter de reelle tallene når du har en spesifikk eiendom i tankene.</p>
@@ -473,6 +486,30 @@
     }
   </script>
   <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
   document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
     document.addEventListener('click', (event) => {
       if (!el.open) return;
@@ -481,7 +518,7 @@
     });
     el.addEventListener('toggle', () => {
       if (!el.open) return;
-      document.querySelectorAll('[data-lang-switcher][open]').forEach((other) => {
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
         if (other !== el) other.open = false;
       });
 

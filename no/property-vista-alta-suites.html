@@ -265,7 +265,17 @@
     </a>
     <div class="nav-links nav-links-right">
       <a href="no/advisory.html">Rådgivning</a>
-      <a href="no/guides.html">Guider</a>
+      <details class="nav-dropdown" data-nav-dropdown>
+      <summary class="nav-dropdown-toggle">
+        <span>Guider</span>
+        <svg class="nav-dropdown-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="nav-dropdown-panel" role="menu">
+          <a class="nav-dropdown-option" href="no/guides.html">Kjøpsguider</a>
+          <a class="nav-dropdown-option" href="no/guides.html#mortgage-calculator">Boliglånskalkulator</a>
+          <a class="nav-dropdown-option" href="no/referrals.html">Anbefalinger & ambassadører</a>
+      </div>
+    </details>
       <a href="no/contact.html">Kontakt</a>
       <span class="nav-divider" aria-hidden="true"></span>
       <details class="lang-switcher" data-lang-switcher>
@@ -300,7 +310,10 @@
     <a href="no/areas.html">Områder</a>
     <a href="no/about.html">Om oss</a>
     <a href="no/advisory.html">Rådgivning</a>
-    <a href="no/guides.html">Guider</a>
+    <span class="mobile-menu-group-label">Guider</span>
+    <a class="mobile-menu-sublink" href="no/guides.html">Kjøpsguider</a>
+    <a class="mobile-menu-sublink" href="no/guides.html#mortgage-calculator">Boliglånskalkulator</a>
+    <a class="mobile-menu-sublink" href="no/referrals.html">Anbefalinger & ambassadører</a>
     <a href="no/contact.html">Kontakt</a>
     <details class="lang-switcher" data-lang-switcher>
       <summary class="lang-switcher-toggle" aria-label="Språk">
@@ -1264,6 +1277,30 @@
     </div>
   </footer>
   <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
   document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
     document.addEventListener('click', (event) => {
       if (!el.open) return;
@@ -1272,7 +1309,7 @@
     });
     el.addEventListener('toggle', () => {
       if (!el.open) return;
-      document.querySelectorAll('[data-lang-switcher][open]').forEach((other) => {
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
         if (other !== el) other.open = false;
       });
 

@@ -156,7 +156,17 @@
     </a>
     <div class="nav-links nav-links-right">
       <a href="fr/advisory.html">Conseil</a>
-      <a href="fr/guides.html">Guides</a>
+      <details class="nav-dropdown" data-nav-dropdown>
+      <summary class="nav-dropdown-toggle">
+        <span>Guides</span>
+        <svg class="nav-dropdown-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="nav-dropdown-panel" role="menu">
+          <a class="nav-dropdown-option" href="fr/guides.html">Guides d'achat</a>
+          <a class="nav-dropdown-option" href="fr/guides.html#mortgage-calculator">Simulateur de prêt</a>
+          <a class="nav-dropdown-option" href="fr/referrals.html">Parrainage et ambassadeurs</a>
+      </div>
+    </details>
       <a href="fr/contact.html">Contact</a>
       <span class="nav-divider" aria-hidden="true"></span>
       <details class="lang-switcher" data-lang-switcher>
@@ -190,7 +200,10 @@
     <a href="fr/areas.html">Secteurs</a>
     <a href="fr/about.html">À propos</a>
     <a href="fr/advisory.html">Conseil</a>
-    <a href="fr/guides.html">Guides</a>
+    <span class="mobile-menu-group-label">Guides</span>
+    <a class="mobile-menu-sublink" href="fr/guides.html">Guides d'achat</a>
+    <a class="mobile-menu-sublink" href="fr/guides.html#mortgage-calculator">Simulateur de prêt</a>
+    <a class="mobile-menu-sublink" href="fr/referrals.html">Parrainage et ambassadeurs</a>
     <a href="fr/contact.html">Contact</a>
     <details class="lang-switcher" data-lang-switcher>
       <summary class="lang-switcher-toggle" aria-label="Langue">
@@ -297,7 +310,7 @@
     </a>
       </div>
     </div></section>
-    <section class="section quiet-band guides-calculator"><div class="section-inner">
+    <section class="section quiet-band guides-calculator" id="mortgage-calculator"><div class="section-inner">
     <div class="section-head center"><span class="label">Capacité d’Achat</span><div class="rule"></div><h2 class="section-title">Comment les prêts hypothécaires espagnols <em>fonctionnent pour vous</em></h2>
     <p class="body-copy" style="margin-left:auto;margin-right:auto;">Les banques espagnoles prêtent différemment aux acheteurs non-résidents qu’aux résidents espagnols. Alors qu’un résident peut obtenir un financement allant jusqu’à 80 % de la valeur du bien, les non-résidents sont généralement plafonnés à environ 70 %, et le taux exact, la durée et la part de vos revenus prise en compte varient selon la banque et votre profil financier personnel. Outre le prêt lui-même, prévoyez un budget pour les taxes et frais d’achat &mdash; droits de mutation ou TVA, notaire, registre foncier et frais juridiques &mdash;, qui représentent généralement 10 à 13 % supplémentaires du prix d’achat en Espagne.</p>
     <p class="body-copy" style="margin-left:auto;margin-right:auto;">Utilisez la calculatrice ci-dessous pour obtenir une estimation initiale réaliste de votre apport, de votre mensualité et du coût total de l’achat, sur la base de conditions de financement habituelles pour les non-résidents. Il s’agit d’un outil de planification, non d’une offre de prêt &mdash; Nueva Living et votre courtier en crédit confirmeront les chiffres réels une fois que vous aurez un bien précis en tête.</p>
@@ -473,6 +486,30 @@
     }
   </script>
   <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
   document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
     document.addEventListener('click', (event) => {
       if (!el.open) return;
@@ -481,7 +518,7 @@
     });
     el.addEventListener('toggle', () => {
       if (!el.open) return;
-      document.querySelectorAll('[data-lang-switcher][open]').forEach((other) => {
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
         if (other !== el) other.open = false;
       });
 
