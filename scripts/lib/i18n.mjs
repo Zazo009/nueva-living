@@ -295,15 +295,10 @@ function guidesMenuItems(locale) {
   ];
 }
 
-// The same three destinations for the burger menu, which has no room for
-// a nested disclosure: they are listed flat, indented under a Guides
-// heading so the grouping still reads.
+// The burger menu uses the same disclosure component; only the CSS
+// differs, so the panel sits inline in the drawer rather than floating.
 export function guidesMobileLinks(locale, prefix = '') {
-  const items = guidesMenuItems(locale)
-    .map(([label, href]) => `<a class="mobile-menu-sublink" href="${prefix}${href}">${label}</a>`)
-    .join('\n    ');
-  return `<span class="mobile-menu-group-label">${t('nav.guides', locale)}</span>
-    ${items}`;
+  return renderGuidesMenu(locale, prefix);
 }
 
 export function renderGuidesMenu(locale, prefix = '') {

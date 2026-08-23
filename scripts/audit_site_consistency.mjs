@@ -23,6 +23,25 @@ function warn(file, message) {
   warnings.push(`${file}: ${message}`);
 }
 
+// The mobile menu now contains a nested <div> (the Guides submenu panel),
+// so a non-greedy match to the first </div> stops early and reports the
+// links after it as missing. Walk the tag stack to the real closing tag
+// instead.
+function extractMobileMenu(html) {
+  const open = html.match(/<div class="mobile-menu"[^>]*>/i);
+  if (!open) return '';
+  const start = open.index + open[0].length;
+  const tag = /<(\/?)div\b[^>]*>/gi;
+  tag.lastIndex = start;
+  let depth = 1;
+  let match;
+  while ((match = tag.exec(html))) {
+    depth += match[1] ? -1 : 1;
+    if (depth === 0) return html.slice(start, match.index);
+  }
+  return html.slice(start);
+}
+
 function localTarget(file, rawTarget) {
   const target = rawTarget.split('#')[0].split('?')[0];
   if (!target || /^(?:https?:|mailto:|tel:|data:|blob:|javascript:|#|\/\.netlify\/)/i.test(rawTarget)) {
@@ -101,7 +120,7 @@ for (const name of htmlFiles) {
     warn(name, 'does not use the shared secondary-page navigation');
   } else if (name !== 'index.html') {
     const desktopNav = html.match(/<nav class="site-nav">([\s\S]*?)<\/nav>/i)?.[1] || '';
-    const mobileNav = html.match(/<div class="mobile-menu"[^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
+    const mobileNav = extractMobileMenu(html);
     for (const target of expectedNavTargets) {
       if (!desktopNav.includes(`href="${target}"`)) {
         fail(name, `desktop navigation is missing ${target}`);

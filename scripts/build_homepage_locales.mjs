@@ -291,7 +291,7 @@ const HOMEPAGE_CONTENT_ENTRIES = [
   { find: '<p>Get the latest brochure, master plan, floorplans, availability and prices.</p>', es: '<p>Recibe el último dosier, master plan, planos, disponibilidad y precios.</p>', fr: '<p>Recevez la brochure la plus récente, le plan de masse, les plans, la disponibilité et les prix.</p>', de: '<p>Erhalten Sie die aktuelle Broschüre, den Masterplan, Grundrisse, Verfügbarkeit und Preise.</p>', ru: '<p>Получите актуальную брошюру, генеральный план, планировки, информацию о наличии и цены.</p>', ar: '<p>احصل على أحدث كتيب، والمخطط الرئيسي، ومخططات الوحدات، والتوفر، والأسعار.</p>', nl: '<p>Ontvang de nieuwste brochure, het masterplan, plattegronden, beschikbaarheid en prijzen.</p>', pl: '<p>Otrzymaj najnowszą broszurę, plan generalny, rzuty mieszkań, informacje o dostępności i cenach.</p>', sv: '<p>Få den senaste broschyren, generalplanen, planlösningar, tillgänglighet och priser.</p>', no: '<p>Få den nyeste brosjyren, reguleringsplanen, plantegninger, tilgjengelighet og priser.</p>' },
   // Selected Residences card extras: price overlay prefix and the two
   // non-place-name type tags.
-  { find: '>Explore All Residences<', es: '>Ver todas las viviendas<', fr: '>Voir toutes les résidences<', de: '>Alle Residenzen ansehen<', ru: '>Смотреть все резиденции<', ar: '>عرض جميع المساكن<', nl: '>Alle residenties bekijken<', pl: '>Zobacz wszystkie rezydencje<', sv: '>Utforska alla bostäder<', no: '>Utforsk alle residenser<' },
+  { find: '>Explore All Developments<', es: '>Ver todas las promociones<', fr: '>Voir tous les programmes<', de: '>Alle Neubauprojekte ansehen<', ru: '>Смотреть все новостройки<', ar: '>عرض جميع المشاريع<', nl: '>Alle projecten bekijken<', pl: '>Zobacz wszystkie inwestycje<', sv: '>Utforska alla projekt<', no: '>Utforsk alle prosjekter<' },
   // Head: page title + meta description
   { find: '<title>Nueva Living | Costa del Sol New Developments</title>', es: '<title>Nueva Living | Obra nueva en la Costa del Sol</title>', fr: '<title>Nueva Living | Programmes neufs sur la Costa del Sol</title>', de: '<title>Nueva Living | Neubauprojekte an der Costa del Sol</title>', ru: '<title>Nueva Living | Новостройки на Коста-дель-Соль</title>', ar: '<title>Nueva Living | مشاريع جديدة في كوستا ديل سول</title>', nl: '<title>Nueva Living | Nieuwbouwprojecten aan de Costa del Sol</title>', pl: '<title>Nueva Living | Nowe inwestycje na Costa del Sol</title>', sv: '<title>Nueva Living | Nybyggda bostäder på Costa del Sol</title>', no: '<title>Nueva Living | Nybygg på Costa del Sol</title>' },
   { find: 'Find and compare new-build homes across Marbella, Estepona, Benahavís and the wider Costa del Sol with personal buyer support.', es: 'Encuentra y compara viviendas de obra nueva en Marbella, Estepona, Benahavís y el resto de la Costa del Sol con acompañamiento personal al comprador.', fr: "Trouvez et comparez des logements neufs à Marbella, Estepona, Benahavís et sur l'ensemble de la Costa del Sol avec un accompagnement personnalisé.", de: 'Finden und vergleichen Sie Neubauimmobilien in Marbella, Estepona, Benahavís und an der gesamten Costa del Sol mit persönlicher Käuferbetreuung.', ru: 'Находите и сравнивайте новостройки в Марбелье, Эстепоне, Бенаависе и по всему побережью Коста-дель-Соль с персональным сопровождением покупателя.', ar: 'اعثر على منازل جديدة وقارن بينها في ماربيا واستيبونا وبيناهافيس وسائر كوستا ديل سول مع دعم شخصي للمشتري.', nl: 'Vind en vergelijk nieuwbouwwoningen in Marbella, Estepona, Benahavís en de rest van de Costa del Sol met persoonlijke begeleiding voor kopers.', pl: 'Znajdź i porównaj nowe domy w Marbelli, Esteponie, Benahavís i na całym wybrzeżu Costa del Sol z indywidualnym wsparciem dla kupujących.', sv: 'Hitta och jämför nybyggda bostäder i Marbella, Estepona, Benahavís och hela Costa del Sol med personlig köparservice.', no: 'Finn og sammenlign nybygg i Marbella, Estepona, Benahavís og resten av Costa del Sol med personlig kjøperoppfølging.' }
@@ -395,31 +395,57 @@ const switcherCss = `
       color: rgba(244,234,217,0.94);
     }
     #nav .nav-dropdown { position: relative; }
+    /* <summary> matches none of the #nav .nav-links a rules -- restate the
+       type treatment so Guides matches its siblings instead of falling
+       back to the inherited (near-black) body colour. */
     #nav .nav-dropdown-toggle {
       display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
-      white-space: nowrap;
+      white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 12px;
+      font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(247,244,238,0.85); text-shadow: 0 1px 10px rgba(20,13,7,0.6);
     }
     #nav .nav-dropdown-toggle::-webkit-details-marker { display: none; }
     #nav .nav-dropdown-caret { width: 9px; height: 6px; flex: 0 0 9px; transition: transform 0.2s ease; }
     #nav .nav-dropdown-caret path { stroke: currentColor; }
     #nav .nav-dropdown[open] .nav-dropdown-caret { transform: rotate(180deg); }
+    #nav .nav-dropdown[open] > .nav-dropdown-toggle { color: #d8bd85; }
     #nav .nav-dropdown-panel {
-      position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
-      min-width: 232px; display: flex; flex-direction: column; padding: 6px 0;
-      background: rgba(45,34,24,0.97); border: 1px solid rgba(247,244,238,0.18);
-      box-shadow: 0 20px 48px rgba(0,0,0,0.5); backdrop-filter: blur(12px); border-radius: 0; z-index: 40;
+      position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%);
+      min-width: 264px; display: flex; flex-direction: column; padding: 10px 0;
+      background: rgba(31,24,16,0.98); border: 1px solid rgba(247,244,238,0.1);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55); backdrop-filter: blur(12px); border-radius: 0; z-index: 40;
     }
-    #nav .nav-dropdown-option {
-      display: block; padding: 10px 18px; color: rgba(247,244,238,0.78); font-size: 13px;
-      font-weight: 500; letter-spacing: 0.02em; text-transform: none; text-decoration: none;
-      white-space: nowrap; border-bottom: none;
+    /* Panel-scoped: these sit inside .nav-links, so a bare class loses to
+       "#nav .nav-links a" and inherits that item's padding and colour. */
+    #nav .nav-dropdown-panel .nav-dropdown-option {
+      display: block; padding: 13px 26px; color: rgba(247,244,238,0.86); font-size: 11px;
+      font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+      line-height: 1.45; white-space: nowrap; border-bottom: none; text-shadow: none;
     }
-    #nav .nav-dropdown-option:hover { background: rgba(201,164,95,0.12); color: #f0dcb2; }
-    .mobile-menu .mobile-menu-group-label {
-      display: block; font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
-      color: rgba(247,244,238,0.4);
+    #nav .nav-dropdown-panel .nav-dropdown-option:hover { background: none; color: #d8bd85; }
+    .mobile-menu .nav-dropdown { position: static; }
+    /* <summary> inherits none of the .mobile-menu a rules -- restate them
+       so Guides matches its sibling links, with only the caret differing. */
+    .mobile-menu .nav-dropdown-toggle {
+      display: inline-flex; align-items: center; gap: 7px; cursor: pointer; list-style: none;
+      font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(250,247,242,0.7);
     }
-    .mobile-menu .mobile-menu-sublink { padding-left: 14px; }
+    .mobile-menu .nav-dropdown-toggle::-webkit-details-marker { display: none; }
+    .mobile-menu .nav-dropdown-caret { width: 9px; height: 6px; flex: 0 0 9px; transition: transform 0.2s ease; }
+    .mobile-menu .nav-dropdown-caret path { stroke: currentColor; }
+    .mobile-menu .nav-dropdown[open] .nav-dropdown-caret { transform: rotate(180deg); }
+    .mobile-menu .nav-dropdown-panel {
+      position: static; transform: none; min-width: 0; width: 100%; margin: 6px 0 2px;
+      padding: 0; background: none; border: none; box-shadow: none; backdrop-filter: none;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .mobile-menu .nav-dropdown-option {
+      padding: 0 0 0 16px; font-size: 10px; letter-spacing: 0.16em;
+      color: rgba(250,247,242,0.5); white-space: normal;
+      border-left: 1px solid rgba(250,247,242,0.14);
+    }
+    .mobile-menu .nav-dropdown-option:hover { color: #d8bd85; border-left-color: rgba(216,189,133,0.6); }
     .mobile-menu .lang-switcher-panel { position: static; margin-top: 8px; border: none; background: transparent; box-shadow: none; padding-left: 12px; display: block; }
     .mobile-menu .lang-switcher-option { color: inherit; }
 `;

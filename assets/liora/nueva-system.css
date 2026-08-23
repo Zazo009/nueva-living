@@ -662,6 +662,10 @@ input[type="radio"] {
   list-style: none;
 }
 
+/* <summary> matches none of the `.nav-links a` rules, so the type
+   treatment is restated here to keep Guides identical to its siblings --
+   without this it falls back to the inherited body colour and reads as
+   near-black against the header. */
 .nav-dropdown-toggle,
 #nav .nav-dropdown-toggle {
   display: inline-flex;
@@ -670,6 +674,12 @@ input[type="radio"] {
   cursor: pointer;
   list-style: none;
   white-space: nowrap;
+  font-family: var(--nueva-ui);
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--nueva-cream);
   transition: color var(--nueva-transition);
 }
 
@@ -697,61 +707,114 @@ input[type="radio"] {
   transform: rotate(180deg);
 }
 
+/* Open state tints the parent gold, so the bar shows which item the
+   panel belongs to. */
+.nav-dropdown[open] > .nav-dropdown-toggle,
+#nav .nav-dropdown[open] > .nav-dropdown-toggle {
+  color: #d8bd85;
+}
+
 .nav-dropdown-panel,
 #nav .nav-dropdown-panel {
   position: absolute;
-  top: calc(100% + 12px);
+  top: calc(100% + 16px);
   left: 50%;
   transform: translateX(-50%);
-  min-width: 232px;
+  min-width: 264px;
   display: flex;
   flex-direction: column;
-  padding: 6px 0;
-  background: rgba(45, 34, 24, 0.97);
-  border: 1px solid rgba(247, 244, 238, 0.18);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+  padding: 10px 0;
+  background: rgba(31, 24, 16, 0.98);
+  border: 1px solid rgba(247, 244, 238, 0.1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-radius: 0;
   z-index: 30010;
 }
 
-.nav-dropdown-option,
-#nav .nav-dropdown-option {
+/* The panel-scoped selector is deliberate: these links sit inside
+   `.nav-links`, so the bare class loses to `.site-nav .nav-links a` and
+   the options inherit the nav item's padding/colour instead of their
+   own. */
+.nav-dropdown-panel .nav-dropdown-option,
+#nav .nav-dropdown-panel .nav-dropdown-option,
+.site-nav .nav-dropdown-panel .nav-dropdown-option {
   display: block;
-  padding: 10px 18px;
-  color: rgba(247, 244, 238, 0.78);
+  padding: 13px 26px;
+  color: rgba(247, 244, 238, 0.86);
   font-family: var(--nueva-ui);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: none;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   text-decoration: none;
+  line-height: 1.45;
   white-space: nowrap;
   border-bottom: none;
-  transition: background var(--nueva-transition), color var(--nueva-transition);
+  transition: color var(--nueva-transition);
 }
 
-.nav-dropdown-option:hover,
-.nav-dropdown-option:focus-visible,
-#nav .nav-dropdown-option:hover,
-#nav .nav-dropdown-option:focus-visible {
-  background: rgba(201, 164, 95, 0.12);
-  color: #f0dcb2;
+.nav-dropdown-panel .nav-dropdown-option:hover,
+.nav-dropdown-panel .nav-dropdown-option:focus-visible,
+#nav .nav-dropdown-panel .nav-dropdown-option:hover,
+#nav .nav-dropdown-panel .nav-dropdown-option:focus-visible,
+.site-nav .nav-dropdown-panel .nav-dropdown-option:hover,
+.site-nav .nav-dropdown-panel .nav-dropdown-option:focus-visible {
+  background: none;
+  color: #d8bd85;
 }
 
-/* Burger-menu grouping label for the same three links. */
-.mobile-menu .mobile-menu-group-label {
-  display: block;
+/* Burger menu: the same disclosure, but the panel sits inline in the
+   drawer instead of floating, so opening it pushes the rest of the list
+   down rather than covering it. */
+.mobile-menu .nav-dropdown {
+  position: static;
+}
+
+/* The toggle is a <summary>, so it inherits none of the `.mobile-menu a`
+   rules above -- restate them here so Guides is visually identical to
+   its sibling links, with only the caret marking that it opens. */
+.mobile-menu .nav-dropdown-toggle {
   font-family: var(--nueva-ui);
-  font-size: 9px;
-  letter-spacing: 0.24em;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(247, 244, 238, 0.4);
+  color: var(--nueva-cream);
 }
 
-.mobile-menu .mobile-menu-sublink {
-  padding-left: 14px;
+.mobile-menu .nav-dropdown-panel {
+  position: static;
+  transform: none;
+  min-width: 0;
+  width: 100%;
+  margin: 6px 0 2px;
+  padding: 0;
+  gap: 14px;
+  background: none;
+  border: none;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+/* Sub-items read as a quieter, indented tier under their parent: same
+   type treatment, one step down in size and weight, with a hairline on
+   the left tying them to the Guides row above. */
+.mobile-menu .nav-dropdown-option {
+  padding: 0 0 0 16px;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  color: rgba(247, 244, 238, 0.62);
+  white-space: normal;
+  border-left: 1px solid rgba(247, 244, 238, 0.14);
+}
+
+.mobile-menu .nav-dropdown-option:hover,
+.mobile-menu .nav-dropdown-option:focus-visible {
+  color: #d8bd85;
+  border-left-color: rgba(216, 189, 133, 0.6);
 }
 
 /* --- Language switcher ------------------------------------------------
