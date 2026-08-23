@@ -139,6 +139,7 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
     </a>
     <div class="nav-links nav-links-right">
       ${links.slice(3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      <span class="nav-divider" aria-hidden="true"></span>
       ${switcher}
     </div>
     <button class="nav-burger" type="button" aria-label="${t('nav.menu', locale)}" aria-controls="mobileMenu" aria-expanded="false">

@@ -999,6 +999,7 @@ function nav(project, locale = DEFAULT_LOCALE) {
       <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
       <a href="${p}${localizedPath('guides.html', locale)}">${t('nav.guides', locale)}</a>
       <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
+      <span class="nav-divider" aria-hidden="true"></span>
       ${switcher}
     </div>
     <button class="nav-burger" type="button" aria-label="${t('nav.menu', locale)}" aria-controls="mobileMenu" aria-expanded="false">
