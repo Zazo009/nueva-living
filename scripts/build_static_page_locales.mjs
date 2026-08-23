@@ -45,15 +45,17 @@ function stripPriorInjections(html) {
     .replace(/\s*<script>\n\s*document\.querySelectorAll\('\[data-lang-switcher\]'\)[\s\S]*?<\/script>\n/g, '\n');
 }
 
+// Desktop switcher anchors on the nav divider, which exists only to
+// precede it, rather than on the Contact link -- that link's label was
+// renamed and a divider inserted after it, and each time the anchor
+// stopped matching the switcher vanished from the header silently.
 function injectSwitcher(html, file, locale) {
   const switcher = renderLanguageSwitcher(file, locale);
-  let next = html.replace(
-    '<a href="contact.html">Contact Us</a>\n    </div>',
-    `<a href="contact.html">Contact Us</a>\n      ${switcher}\n    </div>`
-  );
+  const divider = '<span class="nav-divider" aria-hidden="true"></span>';
+  let next = html.replace(divider, `${divider}\n      ${switcher}`);
   next = next.replace(
-    '<a href="contact.html">Contact Us</a>\n  </div>',
-    `<a href="contact.html">Contact Us</a>\n    ${switcher}\n  </div>`
+    /(<a href="contact\.html">[^<]*<\/a>)\n  <\/div>/,
+    `$1\n    ${switcher}\n  </div>`
   );
   return next.replace('</body>', `  ${LANG_SWITCHER_SCRIPT}\n</body>`);
 }

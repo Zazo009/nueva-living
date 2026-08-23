@@ -131,6 +131,23 @@ for (const name of htmlFiles) {
     }
   }
 
+  // Every page carries two language switchers: one in the desktop header,
+  // one in the burger menu. Both are injected by find/replace against
+  // anchors in hand-authored markup, so a nav edit can quietly stop an
+  // anchor matching and drop a switcher with no build error -- which is
+  // exactly how the desktop switcher disappeared from four pages and the
+  // mobile one from every locale homepage. Assert the count instead.
+  const switcherCount = (html.match(/class="lang-switcher"/g) || []).length;
+  if (switcherCount !== 2) {
+    fail(name, `expected 2 language switchers (desktop + mobile), found ${switcherCount}`);
+  }
+
+  // Likewise the Guides submenu, which shares the same injection risk.
+  const dropdownCount = (html.match(/<details class="nav-dropdown"/g) || []).length;
+  if (dropdownCount !== 2) {
+    fail(name, `expected 2 Guides submenus (desktop + mobile), found ${dropdownCount}`);
+  }
+
   const attributes = [...html.matchAll(/\s(?:href|src|poster)="([^"]+)"/gi)];
   for (const [, rawTarget] of attributes) {
     const target = localTarget(file, rawTarget);

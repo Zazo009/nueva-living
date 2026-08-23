@@ -106,7 +106,7 @@ function navFooterReplacements(locale) {
     ['>Buying Guides</a>', `>${t('nav.buyingGuides', locale)}</a>`],
     ['>Mortgage Calculator</a>', `>${t('nav.mortgageCalculator', locale)}</a>`],
     ['>Referral &amp; Ambassador</a>', `>${t('nav.referralAmbassador', locale)}</a>`],
-    ['>Contact<', `>${t('nav.contactUs', locale)}<`],
+    ['>Contact Us<', `>${t('nav.contactUs', locale)}<`],
     ['aria-label="Nueva Living — Home"', `aria-label="${t('nav.home', locale)}"`],
     ['aria-label="Menu"', `aria-label="${t('nav.menu', locale)}"`],
     ['New Development Advice', t('footer.about.tagline', locale)],
@@ -521,9 +521,12 @@ for (const meta of LOCALES) {
     '</ul>\n    <button class="nav-burger"',
     `${renderSwitcherHtml(locale, false)}\n    </ul>\n    <button class="nav-burger"`
   );
+  // Matched by pattern, not by the link's label: the label has been
+  // renamed twice, and each time this anchor stopped matching the mobile
+  // switcher silently vanished from every locale homepage.
   html = html.replace(
-    '<a href="contact.html" onclick="closeMobile()">Contact Us</a>\n  </div>',
-    `<a href="contact.html" onclick="closeMobile()">Contact Us</a>\n    ${renderSwitcherHtml(locale, true)}\n  </div>`
+    /(<a href="contact\.html" onclick="closeMobile\(\)">[^<]*<\/a>)\n  <\/div>/,
+    `$1\n    ${renderSwitcherHtml(locale, true)}\n  </div>`
   );
 
   // Card image alts run before the text tables: some alts contain area
@@ -589,8 +592,8 @@ if (!englishHtml.includes('data-lang-switcher')) {
     `${renderSwitcherHtml(DEFAULT_LOCALE, false)}\n    </ul>\n    <button class="nav-burger"`
   );
   englishHtml = englishHtml.replace(
-    '<a href="contact.html" onclick="closeMobile()">Contact</a>\n  </div>',
-    `<a href="contact.html" onclick="closeMobile()">Contact</a>\n    ${renderSwitcherHtml(DEFAULT_LOCALE, true)}\n  </div>`
+    /(<a href="contact\.html" onclick="closeMobile\(\)">[^<]*<\/a>)\n  <\/div>/,
+    `$1\n    ${renderSwitcherHtml(DEFAULT_LOCALE, true)}\n  </div>`
   );
   englishHtml = englishHtml.replace('</style>\n</head>', `${switcherCss}\n  </style>\n</head>`);
   englishHtml = englishHtml.replace(
