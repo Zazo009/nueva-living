@@ -1985,8 +1985,10 @@ so Latin numerals in the price still render in
 @media (max-width: 1120px) {
   .site-nav,
   #nav {
+    /* The desktop bar carries an explicit 66px height; mobile is 58. */
+    height: auto;
     min-height: 58px;
-    padding: 16px 18px;
+    padding-block: 9px;
     gap: 8px;
   }
 
@@ -2071,18 +2073,29 @@ so Latin numerals in the price still render in
    and stays put at 430px. The clamp is what the JS viewport nudge used to
    do by hand. */
 @media (max-width: 1120px) {
+  /* Matches the specificity of the base compact rule above (which is a
+     grouped `#nav ... , .site-nav ... , ...` selector), otherwise its
+     `left: -79px` -- a hand-tuned offset that only ever worked at 390px --
+     keeps winning and the panel hangs off the edge.
+
+     Fixed positioning is what makes this exact: the panel centres on the
+     viewport itself, so it clears both edges at any width without needing
+     to know where in the control cluster the EN square happens to sit. */
+  #nav [data-lang-switcher-compact] .lang-switcher-panel,
+  .site-nav [data-lang-switcher-compact] .lang-switcher-panel,
   [data-lang-switcher-compact] .lang-switcher-panel {
+    position: fixed;
+    inset-inline: auto;
     top: 47px;
+    left: 50%;
+    right: auto;
     width: min(354px, calc(100vw - 24px));
-    inset-inline-start: 0;
-    inset-inline-end: auto;
-    transform: translateX(calc(50vw - 18px - 20px - min(354px, 100vw - 24px) / 2));
+    min-width: 0;
+    transform: translateX(-50%);
   }
 
-  [dir="rtl"] [data-lang-switcher-compact] .lang-switcher-panel {
-    transform: translateX(calc(-1 * (50vw - 18px - 20px - min(354px, 100vw - 24px) / 2)));
-  }
-
+  #nav [data-lang-switcher-compact] .lang-switcher-option,
+  .site-nav [data-lang-switcher-compact] .lang-switcher-option,
   [data-lang-switcher-compact] .lang-switcher-option {
     min-height: 46px;
     padding: 0 16px;
@@ -2090,34 +2103,23 @@ so Latin numerals in the price still render in
   }
 }
 
-/* ---------- Drawer ----------
-   All six top-level items read as one list: the design stopped splitting
-   them into a Cinzel group and a small-caps group. */
-.mobile-menu {
-  background: #241b14;
+/* ---------- Drawer ---------- */
+
+/* The drawer was pinned at `top: 66px`, the old bar height, leaving a 7px
+   band of hero showing between the header and the drawer now the mobile bar
+   is 58px. It also sized to its content, so the page showed through below
+   the last item; it fills the viewport instead. */
+@media (max-width: 1120px) {
+  .mobile-menu {
+    top: 58px;
+    min-height: calc(100dvh - 58px);
+    background: #241b14;
+  }
 }
 
-.mobile-menu > a,
-.mobile-menu > .nav-dropdown > .nav-dropdown-toggle {
-  font-family: var(--nueva-display, 'Cinzel', serif);
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: none;
-  color: #f7f4ee;
-  padding: 9px 0;
-  border-bottom: 1px solid rgba(247, 244, 238, 0.1);
-}
-
-.mobile-menu > .nav-dropdown {
-  border-bottom: 1px solid rgba(247, 244, 238, 0.1);
-}
-
-.mobile-menu > .nav-dropdown > .nav-dropdown-toggle {
-  border-bottom: 0;
-  color: #d8bd85;
-}
-
+/* The handoff restyled every drawer item to Cinzel 18px. Left alone on
+   purpose: the menu choices keep the type they already had. Only the
+   dropdown affordance and the rule under the last item change here. */
 .mobile-menu > .nav-dropdown > .nav-dropdown-toggle .nav-dropdown-caret {
   width: 14px;
   height: 14px;
@@ -2145,22 +2147,24 @@ so Latin numerals in the price still render in
   display: flex;
   align-items: center;
   min-height: 40px;
-  font-family: var(--nueva-ui, 'Montserrat', sans-serif);
-  font-size: 12.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(247, 244, 238, 0.78);
 }
 
+/* No horizontal padding or negative margin of its own: the drawer's own
+   inline padding is what aligns the buttons with the nav items above them,
+   and guessing at that value pushed the second button past the viewport. */
 .mobile-menu-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
-  padding: 18px 20px 0;
-  margin-inline: -20px;
+  padding: 18px 0 0;
+  margin-inline: 0;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
-.mobile-menu-action {
+/* Scoped to .mobile-menu throughout: the drawer's own link rules carry
+   enough specificity to have been overriding the height and the colours. */
+.mobile-menu .mobile-menu-action {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2169,30 +2173,55 @@ so Latin numerals in the price still render in
   padding: 0 10px;
   border-radius: 0;
   font-family: var(--nueva-ui, 'Montserrat', sans-serif);
-  font-size: 12.5px;
+  /* "WhatsApp Us" is the widest label of the ten locales and wrapped to two
+     lines in a half-width column at 360px. Scaling with the viewport keeps
+     every locale on one line from 341px (where the pair stops stacking)
+     upward, without shrinking the label on roomier phones. */
+  font-size: clamp(9.5px, 2.8vw, 11px);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  border-bottom: 0 !important;
+  /* Resets the drawer's own item rule wholesale. An earlier
+     `border-bottom: 0 !important` here did the same job but also stripped the
+     outlined button's bottom edge, leaving it open at the base. */
+  border: 0;
 }
 
-.mobile-menu-action svg {
-  flex: 0 0 18px;
+.mobile-menu .mobile-menu-action svg {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
 }
 
-.mobile-menu-action--primary {
+.mobile-menu .mobile-menu-action span {
+  min-width: 0;
+}
+
+/* Below ~340px two half-width buttons leave too little room for the icon
+   and the label side by side, so they stack rather than crush. */
+@media (max-width: 340px) {
+  .mobile-menu-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Scoped to .mobile-menu so these beat the drawer's own `a` colour rule --
+   without it the dark label on the filled button inherited the drawer's
+   cream and all but vanished against the gold. */
+.mobile-menu .mobile-menu-action--primary {
   background: #d6c5a0;
   color: #1a1712;
 }
 
-.mobile-menu-action--secondary {
+.mobile-menu .mobile-menu-action--secondary {
   border: 1px solid rgba(216, 189, 133, 0.55);
   color: #d8bd85;
 }
 
-.mobile-menu-action:focus-visible {
+.mobile-menu .mobile-menu-action:focus-visible {
   outline: 2px solid #c9a45f;
   outline-offset: 2px;
 }
