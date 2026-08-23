@@ -13,8 +13,8 @@
   <link rel="alternate" hreflang="ar" href="https://nuevaliving.com/ar/">
   <link rel="alternate" hreflang="nl" href="https://nuevaliving.com/nl/">
   <link rel="alternate" hreflang="pl" href="https://nuevaliving.com/pl/">
-  <link rel="alternate" hreflang="sv" href="https://nuevaliving.com/sv/">
   <link rel="alternate" hreflang="no" href="https://nuevaliving.com/no/">
+  <link rel="alternate" hreflang="sv" href="https://nuevaliving.com/sv/">
   <link rel="alternate" hreflang="x-default" href="https://nuevaliving.com/">
   <link rel="canonical" href="https://nuevaliving.com/ru/">
   <meta property="og:site_name" content="Nueva Living">
@@ -218,6 +218,9 @@
       border-bottom-color: rgba(201,163,95,0.18);
     }
     .nav-logo { display: flex; align-items: center; line-height: 1; text-decoration: none; }
+    /* Desktop-only text wordmark; the raster logo covers every other
+       breakpoint. Shown by the >=1121px block further down. */
+    .nav-wordmark-text { display: none; }
     .nl {
       display: flex; flex-direction: column; align-items: center;
       gap: 0; user-select: none; text-decoration: none;
@@ -3598,8 +3601,11 @@
     @media (min-width: 1121px) {
       #nav {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-        column-gap: clamp(28px, 3.5vw, 72px);
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        column-gap: 28px;
+        padding: 22px 44px;
+        height: auto;
       }
 
       #nav .nav-logo {
@@ -3608,14 +3614,36 @@
         justify-self: center;
       }
 
-      #nav .nav-wordmark {
-        width: clamp(320px, 20vw, 380px);
+      /* The wordmark ships as a 420x100 PNG, which renders soft on any
+         retina screen at the ~66px display height the design calls for.
+         Set as live Cinzel text on desktop instead: infinitely crisp at
+         every DPR, and it drops the raster's fixed aspect ratio, which
+         was the thing inflating the header past its 66px spec height.
+         The image stays in the DOM (and stays visible below 1121px) so
+         the logo remains a real, cacheable asset for the mobile bar. */
+      #nav .nav-logo img.nav-wordmark {
+        display: none;
+      }
+
+      #nav .nav-wordmark-text {
+        display: block;
+        font-family: 'Cinzel', serif;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: #f7f4ee;
+        white-space: nowrap;
+        /* Indent by half the trailing letter-space so the tracking does
+           not push the wordmark visually off the grid's true center. */
+        text-indent: 0.34em;
+        text-shadow: 0 1px 12px rgba(20, 13, 7, 0.55);
       }
 
       #nav .nav-links {
         grid-row: 1;
         width: 100%;
-        gap: clamp(24px, 2.5vw, 52px);
+        gap: 30px;
       }
 
       #nav .nav-links-left {
@@ -3626,25 +3654,48 @@
       #nav .nav-links-right {
         grid-column: 3;
         justify-content: flex-end;
+        align-items: center;
+        gap: 24px;
       }
 
+      /* Weight 500 and a soft shadow rather than the design's flat
+         weight-400 / 0.8-alpha: the reference sits on a dark still,
+         while the live hero is a bright daylight video whose sky runs
+         directly behind the left-hand links. At 12px the design values
+         went illegible against it. */
       #nav .nav-links a {
-        padding: 12px 0;
-        color: #f4ead9;
-        font-size: clamp(13px, 0.95vw, 14px);
-        font-weight: 600;
-        letter-spacing: 0.10em;
+        padding: 0 0 3px;
+        color: rgba(247, 244, 238, 0.95);
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
         white-space: nowrap;
+        border-bottom: 1px solid transparent;
+        text-shadow: 0 1px 10px rgba(20, 13, 7, 0.6);
+      }
+
+      #nav .nav-links-right a {
+        color: rgba(247, 244, 238, 0.85);
+      }
+
+      #nav .lang-switcher-toggle {
+        color: rgba(247, 244, 238, 0.9);
+        text-shadow: 0 1px 10px rgba(20, 13, 7, 0.6);
       }
 
       #nav .nav-links a:hover,
       #nav .nav-links a:focus-visible {
-        color: #fffaf3;
+        color: #f0dcb2;
+      }
+
+      #nav .nav-links a[aria-current="page"] {
+        color: #f7f4ee;
+        border-bottom-color: #c9a45f;
       }
 
       #nav .nav-links a:focus-visible {
-        outline: 1px solid rgba(168, 131, 74, 0.72);
-        outline-offset: 5px;
+        outline: 2px solid #c9a45f;
+        outline-offset: 2px;
       }
     }
 
@@ -4700,12 +4751,16 @@
 
     @media (min-width: 1121px) {
       #nav {
-        background: linear-gradient(180deg, rgba(47, 36, 23, 0.72), rgba(47, 36, 23, 0.34));
-        border-bottom-color: rgba(244, 234, 217, 0.12);
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border-bottom-color: rgba(244, 234, 217, 0.14);
       }
 
       #nav.scrolled {
         background: rgba(47, 36, 23, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border-bottom-color: rgba(168, 131, 74, 0.22);
       }
     }
@@ -4873,22 +4928,34 @@
     #nav .lang-switcher, .mobile-menu .lang-switcher { position: relative; }
     #nav .lang-switcher-toggle, .mobile-menu .lang-switcher-toggle {
       display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
-      color: #f4ead9; font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(13px, 0.95vw, 14px);
-      font-weight: 600; letter-spacing: 0.10em; padding: 12px 0;
+      color: rgba(247,244,238,0.72); font-family: 'Montserrat', Arial, sans-serif; font-size: 12px;
+      font-weight: 600; letter-spacing: 0.14em; padding: 0; border: none; background: none;
+      transition: color 0.2s ease;
     }
+    #nav .lang-switcher-toggle:hover, #nav .lang-switcher[open] .lang-switcher-toggle { color: #f0dcb2; }
     #nav .lang-switcher-toggle::-webkit-details-marker { display: none; }
     #nav .lang-switcher-caret { width: 10px; height: 7px; }
     #nav .lang-switcher-caret path, .mobile-menu .lang-switcher-caret path { stroke: currentColor; }
     #nav .lang-switcher-panel {
-      position: absolute; top: 100%; right: 0; margin-top: 10px; min-width: 300px;
-      background: #2f2417; border: 1px solid rgba(201,163,95,0.28); box-shadow: 0 18px 50px rgba(0,0,0,0.35);
-      display: grid; grid-template-columns: repeat(2, 1fr); padding: 8px; z-index: 40;
+      position: absolute; top: calc(100% + 12px); right: -12px; width: 320px; min-width: 320px;
+      background: rgba(45,34,24,0.97); border: 1px solid rgba(247,244,238,0.18);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5); backdrop-filter: blur(12px); border-radius: 0;
+      padding: 0 0 10px; z-index: 40;
     }
+    #nav .lang-switcher-panel-label {
+      display: block; padding: 12px 14px 8px; font-size: 9px; letter-spacing: 0.24em;
+      text-transform: uppercase; color: rgba(247,244,238,0.4);
+    }
+    #nav .lang-switcher-panel-options { display: grid; grid-template-columns: repeat(2, 1fr); }
     #nav .lang-switcher-option {
-      display: block; padding: 9px 12px; color: #f4ead9; font-size: 13px; font-weight: 500;
-      letter-spacing: 0.02em; text-decoration: none; white-space: nowrap;
+      display: flex; align-items: center; gap: 8px; padding: 10px 14px; color: rgba(247,244,238,0.78);
+      font-size: 14px; font-weight: 500; letter-spacing: 0; text-decoration: none; white-space: nowrap;
     }
-    #nav .lang-switcher-option:hover, #nav .lang-switcher-option.is-active { background: rgba(201,163,95,0.16); color: #c9a35f; }
+    #nav .lang-switcher-option:hover { background: rgba(201,164,95,0.10); }
+    #nav .lang-switcher-option.is-active { background: rgba(201,164,95,0.16); color: #f7f4ee; }
+    #nav .lang-switcher-check, #nav .lang-switcher-check-spacer { flex: 0 0 12px; width: 12px; height: 12px; }
+    #nav .lang-switcher-check path { stroke: #d8bd85; }
+    #nav [data-lang-switcher-compact] .lang-switcher-panel { width: 354px; min-width: 354px; }
     .mobile-menu .lang-switcher-panel { position: static; margin-top: 8px; border: none; background: transparent; box-shadow: none; padding-left: 12px; display: block; }
     .mobile-menu .lang-switcher-option { color: inherit; }
 
@@ -4901,10 +4968,11 @@
     <ul class="nav-links nav-links-left">
       <li><a href="ru/developments.html">Новостройки</a></li>
       <li><a href="ru/areas.html">Районы</a></li>
-      <li><a href="ru/compare.html">Сравнение</a></li>
+      <li><a href="ru/about.html">О нас</a></li>
     </ul>
     <a href="ru/index.html" class="nav-logo" aria-label="Главная Nueva Living">
       <img class="nav-wordmark" src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" decoding="async" width="420" height="100" />
+      <span class="nav-wordmark-text" aria-hidden="true">Nueva Living</span>
     </a>
     <ul class="nav-links nav-links-right">
       <li><a href="ru/advisory.html">Консультации</a></li>
@@ -4917,16 +4985,19 @@
         <svg class="lang-switcher-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </summary>
       <div class="lang-switcher-panel" role="menu">
-              <a class="lang-switcher-option" href="/index.html" lang="en" >English</a>
-              <a class="lang-switcher-option" href="/es/index.html" lang="es" >Español</a>
-              <a class="lang-switcher-option" href="/fr/index.html" lang="fr" >Français</a>
-              <a class="lang-switcher-option" href="/de/index.html" lang="de" >Deutsch</a>
-              <a class="lang-switcher-option is-active" href="/ru/index.html" lang="ru" aria-current="true">Русский</a>
-              <a class="lang-switcher-option" href="/ar/index.html" lang="ar" >العربية</a>
-              <a class="lang-switcher-option" href="/nl/index.html" lang="nl" >Nederlands</a>
-              <a class="lang-switcher-option" href="/pl/index.html" lang="pl" >Polski</a>
-              <a class="lang-switcher-option" href="/sv/index.html" lang="sv" >Svenska</a>
-              <a class="lang-switcher-option" href="/no/index.html" lang="no" >Norsk</a>
+        <span class="lang-switcher-panel-label">Язык</span>
+        <div class="lang-switcher-panel-options">
+              <a class="lang-switcher-option" href="/index.html" lang="en" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>English</a>
+              <a class="lang-switcher-option" href="/es/index.html" lang="es" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Español</a>
+              <a class="lang-switcher-option" href="/fr/index.html" lang="fr" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Français</a>
+              <a class="lang-switcher-option" href="/de/index.html" lang="de" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Deutsch</a>
+              <a class="lang-switcher-option is-active" href="/ru/index.html" lang="ru" aria-current="true"><svg class="lang-switcher-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Русский</a>
+              <a class="lang-switcher-option" href="/ar/index.html" lang="ar" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>العربية</a>
+              <a class="lang-switcher-option" href="/nl/index.html" lang="nl" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Nederlands</a>
+              <a class="lang-switcher-option" href="/pl/index.html" lang="pl" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Polski</a>
+              <a class="lang-switcher-option" href="/no/index.html" lang="no" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Norsk</a>
+              <a class="lang-switcher-option" href="/sv/index.html" lang="sv" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Svenska</a>
+        </div>
       </div>
     </details></li>
     </ul>
@@ -4937,28 +5008,10 @@
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <a href="ru/developments.html" onclick="closeMobile()">Новостройки</a>
     <a href="ru/areas.html" onclick="closeMobile()">Районы</a>
-    <a href="ru/compare.html" onclick="closeMobile()">Сравнение</a>
+    <a href="ru/about.html" onclick="closeMobile()">О нас</a>
     <a href="ru/advisory.html" onclick="closeMobile()">Консультации</a>
     <a href="ru/guides.html" onclick="closeMobile()">Гиды</a>
     <a href="ru/contact.html" onclick="closeMobile()">Контакты</a>
-    <details class="lang-switcher" data-lang-switcher>
-      <summary class="lang-switcher-toggle" aria-label="Язык">
-        <span class="lang-switcher-code">RU</span>
-        <svg class="lang-switcher-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </summary>
-      <div class="lang-switcher-panel" role="menu">
-              <a class="lang-switcher-option" href="/index.html" lang="en" >English</a>
-              <a class="lang-switcher-option" href="/es/index.html" lang="es" >Español</a>
-              <a class="lang-switcher-option" href="/fr/index.html" lang="fr" >Français</a>
-              <a class="lang-switcher-option" href="/de/index.html" lang="de" >Deutsch</a>
-              <a class="lang-switcher-option is-active" href="/ru/index.html" lang="ru" aria-current="true">Русский</a>
-              <a class="lang-switcher-option" href="/ar/index.html" lang="ar" >العربية</a>
-              <a class="lang-switcher-option" href="/nl/index.html" lang="nl" >Nederlands</a>
-              <a class="lang-switcher-option" href="/pl/index.html" lang="pl" >Polski</a>
-              <a class="lang-switcher-option" href="/sv/index.html" lang="sv" >Svenska</a>
-              <a class="lang-switcher-option" href="/no/index.html" lang="no" >Norsk</a>
-      </div>
-    </details>
   </div>
 
   <script>
@@ -5052,8 +5105,8 @@
 	    <div class="hero-content">
         <div class="hero-copy">
 	        <div class="hero-eyebrow">Коста-дель-Соль · специалист по новостройкам</div>
-	        <h1><span class="hero-line hero-line-1">Ясный вид</span><span class="hero-line hero-line-2">на побережье</span></h1>
-          <p class="hero-sub">Независимая, сравнимая информация о каждой новостройке, достойной рассмотрения, — и прямой ответ о тех, что не стоят внимания.</p>
+	        <h1><span class="hero-line hero-line-1">Честный взгляд</span><span class="hero-line hero-line-2">на побережье</span></h1>
+          <p class="hero-sub">Независимая и сопоставимая информация о каждой стоящей новостройке — и прямой ответ о тех, на которые не стоит тратить время.</p>
         </div>
       </div>
         <form class="hero-search" id="hero-search" aria-label="Поиск">
@@ -5197,7 +5250,7 @@
         data-context="Nueva Living private buyer enquiry"
         data-intent="speak with an advisor"
       >Позвоните нам</a>
-      <a class="home-contact-action" href="ru/contact.html#contact-form">Контакты</a>
+      <a class="home-contact-action" href="ru/contact.html#contact-form">Contact Us</a>
     </div>
   </nav>
 
@@ -6556,7 +6609,7 @@
           <li><a href="ru/why-nueva.html">Почему Nueva Living</a></li>
           <li><a href="ru/about.html">О нас</a></li>
           <li><a href="ru/advisory.html">Консультации</a></li>
-          <li><a href="ru/contact.html">Контакты</a></li>
+          <li><a href="ru/contact.html">Contact Us</a></li>
           <li><a href="ru/privacy-policy.html">Политика конфиденциальности</a></li>
           <li><a href="ru/legal-notice.html">Юридическая информация</a></li>
           <li><a href="ru/cookie-policy.html">Политика использования файлов cookie</a></li>
@@ -6568,7 +6621,7 @@
           <li><a href="ru/developments.html">Все новостройки</a></li>
           <li><a href="ru/areas.html">Обзор районов</a></li>
         </ul>
-        <div class="footer-col-title" style="margin-top:22px;">Контакты</div>
+        <div class="footer-col-title" style="margin-top:22px;">Contact Us</div>
         <ul>
           <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
           <li><a href="https://wa.me/46707576709" target="_blank" rel="noopener" data-whatsapp-advisor data-context="Nueva Living" data-intent="speak with an advisor">+46 707 57 67 09 · WhatsApp</a></li>

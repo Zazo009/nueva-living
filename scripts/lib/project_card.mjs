@@ -49,7 +49,7 @@ function esc(value) {
 // the badge on a phone, so the tax suffix is dropped here only -- the full
 // price stays on the project page. Every language's form is listed because
 // the area and segment pages render an already-translated price.
-const TAX_SUFFIX = /\s*(?:\+\s*(?:VAT|IVA|TVA|НДС|ضريبة)\.?|zzgl\.\s*MwSt\.?)\s*$/iu;
+const TAX_SUFFIX = /\s*(?:\+\s*(?:VAT|IVA|TVA|НДС|ضريبة|skatt|mva)\.?|zzgl\.\s*MwSt\.?)\s*$/iu;
 
 const ARROW = '<svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>';
 

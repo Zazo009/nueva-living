@@ -23,7 +23,7 @@
 import { CARD_CHROME_ENTRIES } from './lib/card_chrome_translations.mjs';
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, localizeInternalLinks, seoTags, pageSchema, LANG_SWITCHER_SCRIPT } from './lib/i18n.mjs';
+import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, localizeInternalLinks, seoTags, pageSchema, LANG_SWITCHER_SCRIPT, LANG_CHECK_ICON, LANG_CHECK_SPACER } from './lib/i18n.mjs';
 import { loadProjects, renderViewingBlocks } from './lib/viewing.mjs';
 import { BESPOKE_SCENE_ENTRIES } from './lib/bespoke_scene_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -92,10 +92,10 @@ function navFooterReplacements(locale) {
   return [
     ['>Developments<', `>${t('nav.developments', locale)}<`],
     ['>Areas<', `>${t('nav.areas', locale)}<`],
-    ['>Compare<', `>${t('nav.compare', locale)}<`],
+    ['>About<', `>${t('nav.about', locale)}<`],
     ['>Advisory<', `>${t('nav.advisory', locale)}<`],
     ['>Guides<', `>${t('nav.guides', locale)}<`],
-    ['>Contact Us<', `>${t('nav.contactUs', locale)}<`],
+    ['>Contact<', `>${t('nav.contactUs', locale)}<`],
     ['aria-label="Nueva Living — Home"', `aria-label="${t('nav.home', locale)}"`],
     ['aria-label="Menu"', `aria-label="${t('nav.menu', locale)}"`],
     ['New Development Advice', t('footer.about.tagline', locale)],
@@ -126,9 +126,9 @@ const HOMEPAGE_CONTENT_ENTRIES = [
   ...CARD_CHROME_ENTRIES,
   // Hero
   { find: 'Costa del Sol · New Development Specialist', es: 'Costa del Sol · Especialistas en nueva construcción', fr: 'Costa del Sol · Spécialiste des programmes neufs', de: 'Costa del Sol · Spezialist für Neubauprojekte', ru: 'Коста-дель-Соль · специалист по новостройкам', ar: 'كوستا ديل سول · متخصصون في المشاريع الجديدة', nl: 'Costa del Sol · Specialist in nieuwbouwprojecten', pl: 'Costa del Sol · Specjalista ds. nowych inwestycji', sv: 'Costa del Sol · Specialist på nybyggda bostäder', no: 'Costa del Sol · Spesialist på nybygg' },
-  { find: '>A Clear View<', es: '>Una vista clara<', fr: '>Une vue claire<', de: '>Ein klarer Blick<', ru: '>Ясный вид<', ar: '>إطلالة واضحة<', nl: '>Een helder zicht<', pl: '>Wyraźny widok<', sv: '>En tydlig utsikt<', no: '>En tydelig utsikt<' },
+  { find: '>A Clear View<', es: '>Una vista clara<', fr: '>Une vue claire<', de: '>Ein klarer Blick<', ru: '>Честный взгляд<', ar: '>إطلالة واضحة<', nl: '>Een helder zicht<', pl: '>Wyraźny widok<', sv: '>En tydlig utsikt<', no: '>En tydelig utsikt<' },
   { find: '>Of the Coast<', es: '>de la costa<', fr: '>sur la côte<', de: '>auf die Küste<', ru: '>на побережье<', ar: '>على الساحل<', nl: '>op de kust<', pl: '>na wybrzeże<', sv: '>över kusten<', no: '>over kysten<' },
-  { find: 'Independent, comparable detail on every new-build worth considering — and a straight answer on the ones that aren\'t.', es: 'Información independiente y comparable sobre cada obra nueva que merece la pena considerar, y una respuesta clara sobre las que no.', fr: "Des informations indépendantes et comparables sur chaque programme neuf qui mérite d'être considéré — et une réponse franche sur ceux qui ne le méritent pas.", de: 'Unabhängige, vergleichbare Informationen zu jedem Neubauprojekt, das eine Überlegung wert ist – und eine klare Antwort zu denen, die es nicht sind.', ru: 'Независимая, сравнимая информация о каждой новостройке, достойной рассмотрения, — и прямой ответ о тех, что не стоят внимания.', ar: 'معلومات مستقلة وقابلة للمقارنة عن كل مشروع جديد يستحق النظر فيه — وإجابة صريحة عن تلك التي لا تستحق.', nl: 'Onafhankelijke, vergelijkbare informatie over elke nieuwbouwwoning die het overwegen waard is — en een eerlijk antwoord over de woningen die dat niet zijn.', pl: 'Niezależne, porównywalne informacje o każdej nowej inwestycji wartej rozważenia — i szczera odpowiedź w sprawie tych, które nie są warte uwagi.', sv: 'Oberoende, jämförbar information om varje nybygge värt att överväga — och ett rakt svar om dem som inte är det.', no: 'Uavhengig, sammenlignbar informasjon om hvert nybygg verdt å vurdere — og et ærlig svar om dem som ikke er det.' },
+  { find: 'Independent, comparable detail on every new-build worth considering — and a straight answer on the ones that aren\'t.', es: 'Información independiente y comparable sobre cada obra nueva que merece la pena considerar, y una respuesta clara sobre las que no.', fr: "Des informations indépendantes et comparables sur chaque programme neuf qui mérite d'être considéré — et une réponse franche sur ceux qui ne le méritent pas.", de: 'Unabhängige, vergleichbare Informationen zu jedem Neubauprojekt, das eine Überlegung wert ist – und eine klare Antwort zu denen, die es nicht sind.', ru: 'Независимая и сопоставимая информация о каждой стоящей новостройке — и прямой ответ о тех, на которые не стоит тратить время.', ar: 'معلومات مستقلة وقابلة للمقارنة عن كل مشروع جديد يستحق النظر فيه — وإجابة صريحة عن تلك التي لا تستحق.', nl: 'Onafhankelijke, vergelijkbare informatie over elke nieuwbouwwoning die het overwegen waard is — en een eerlijk antwoord over de woningen die dat niet zijn.', pl: 'Niezależne, porównywalne informacje o każdej nowej inwestycji wartej rozważenia — i szczera odpowiedź w sprawie tych, które nie są warte uwagi.', sv: 'Oberoende, jämförbar information om varje nybygge värt att överväga — och ett rakt svar om dem som inte är det.', no: 'Uavhengig, sammenlignbar informasjon om hvert nybygg verdt å vurdere — og et ærlig svar om dem som ikke er det.' },
   { find: '<span>Location</span>', es: `<span>${t('common.location', 'es')}</span>`, fr: `<span>${t('common.location', 'fr')}</span>`, de: `<span>${t('common.location', 'de')}</span>`, ru: `<span>${t('common.location', 'ru')}</span>`, ar: `<span>${t('common.location', 'ar')}</span>`, nl: `<span>${t('common.location', 'nl')}</span>`, pl: `<span>${t('common.location', 'pl')}</span>`, sv: `<span>${t('common.location', 'sv')}</span>`, no: `<span>${t('common.location', 'no')}</span>` },
   { find: '<span>Type</span>', es: `<span>${t('common.type', 'es')}</span>`, fr: `<span>${t('common.type', 'fr')}</span>`, de: `<span>${t('common.type', 'de')}</span>`, ru: `<span>${t('common.type', 'ru')}</span>`, ar: `<span>${t('common.type', 'ar')}</span>`, nl: `<span>${t('common.type', 'nl')}</span>`, pl: `<span>${t('common.type', 'pl')}</span>`, sv: `<span>${t('common.type', 'sv')}</span>`, no: `<span>${t('common.type', 'no')}</span>` },
   { find: '<span>Price</span>', es: `<span>${t('common.price', 'es')}</span>`, fr: `<span>${t('common.price', 'fr')}</span>`, de: `<span>${t('common.price', 'de')}</span>`, ru: `<span>${t('common.price', 'ru')}</span>`, ar: `<span>${t('common.price', 'ar')}</span>`, nl: `<span>${t('common.price', 'nl')}</span>`, pl: `<span>${t('common.price', 'pl')}</span>`, sv: `<span>${t('common.price', 'sv')}</span>`, no: `<span>${t('common.price', 'no')}</span>` },
@@ -356,22 +356,34 @@ const switcherCss = `
     #nav .lang-switcher, .mobile-menu .lang-switcher { position: relative; }
     #nav .lang-switcher-toggle, .mobile-menu .lang-switcher-toggle {
       display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
-      color: #f4ead9; font-family: 'Montserrat', Arial, sans-serif; font-size: clamp(13px, 0.95vw, 14px);
-      font-weight: 600; letter-spacing: 0.10em; padding: 12px 0;
+      color: rgba(247,244,238,0.72); font-family: 'Montserrat', Arial, sans-serif; font-size: 12px;
+      font-weight: 600; letter-spacing: 0.14em; padding: 0; border: none; background: none;
+      transition: color 0.2s ease;
     }
+    #nav .lang-switcher-toggle:hover, #nav .lang-switcher[open] .lang-switcher-toggle { color: #f0dcb2; }
     #nav .lang-switcher-toggle::-webkit-details-marker { display: none; }
     #nav .lang-switcher-caret { width: 10px; height: 7px; }
     #nav .lang-switcher-caret path, .mobile-menu .lang-switcher-caret path { stroke: currentColor; }
     #nav .lang-switcher-panel {
-      position: absolute; top: 100%; right: 0; margin-top: 10px; min-width: 300px;
-      background: #2f2417; border: 1px solid rgba(201,163,95,0.28); box-shadow: 0 18px 50px rgba(0,0,0,0.35);
-      display: grid; grid-template-columns: repeat(2, 1fr); padding: 8px; z-index: 40;
+      position: absolute; top: calc(100% + 12px); right: -12px; width: 320px; min-width: 320px;
+      background: rgba(45,34,24,0.97); border: 1px solid rgba(247,244,238,0.18);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5); backdrop-filter: blur(12px); border-radius: 0;
+      padding: 0 0 10px; z-index: 40;
     }
+    #nav .lang-switcher-panel-label {
+      display: block; padding: 12px 14px 8px; font-size: 9px; letter-spacing: 0.24em;
+      text-transform: uppercase; color: rgba(247,244,238,0.4);
+    }
+    #nav .lang-switcher-panel-options { display: grid; grid-template-columns: repeat(2, 1fr); }
     #nav .lang-switcher-option {
-      display: block; padding: 9px 12px; color: #f4ead9; font-size: 13px; font-weight: 500;
-      letter-spacing: 0.02em; text-decoration: none; white-space: nowrap;
+      display: flex; align-items: center; gap: 8px; padding: 10px 14px; color: rgba(247,244,238,0.78);
+      font-size: 14px; font-weight: 500; letter-spacing: 0; text-decoration: none; white-space: nowrap;
     }
-    #nav .lang-switcher-option:hover, #nav .lang-switcher-option.is-active { background: rgba(201,163,95,0.16); color: #c9a35f; }
+    #nav .lang-switcher-option:hover { background: rgba(201,164,95,0.10); }
+    #nav .lang-switcher-option.is-active { background: rgba(201,164,95,0.16); color: #f7f4ee; }
+    #nav .lang-switcher-check, #nav .lang-switcher-check-spacer { flex: 0 0 12px; width: 12px; height: 12px; }
+    #nav .lang-switcher-check path { stroke: #d8bd85; }
+    #nav [data-lang-switcher-compact] .lang-switcher-panel { width: 354px; min-width: 354px; }
     .mobile-menu .lang-switcher-panel { position: static; margin-top: 8px; border: none; background: transparent; box-shadow: none; padding-left: 12px; display: block; }
     .mobile-menu .lang-switcher-option { color: inherit; }
 `;
@@ -386,7 +398,7 @@ function renderSwitcherHtml(locale, forMobile) {
     // understand this page's <base href="../"> tag.
     const href = `/${meta.urlPrefix ? `${meta.urlPrefix}/` : ''}index.html`;
     const active = meta.code === locale;
-    return `<a class="lang-switcher-option${active ? ' is-active' : ''}" href="${href}" lang="${meta.htmlLang}" ${active ? 'aria-current="true"' : ''}>${meta.nativeLabel}</a>`;
+    return `<a class="lang-switcher-option${active ? ' is-active' : ''}" href="${href}" lang="${meta.htmlLang}" ${active ? 'aria-current="true"' : ''}>${active ? LANG_CHECK_ICON : LANG_CHECK_SPACER}${meta.nativeLabel}</a>`;
   }).join('\n              ');
   const inner = `<details class="lang-switcher" data-lang-switcher>
       <summary class="lang-switcher-toggle" aria-label="${t('lang.switcherLabel', locale)}">
@@ -394,7 +406,10 @@ function renderSwitcherHtml(locale, forMobile) {
         <svg class="lang-switcher-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </summary>
       <div class="lang-switcher-panel" role="menu">
+        <span class="lang-switcher-panel-label">${t('lang.switcherLabel', locale)}</span>
+        <div class="lang-switcher-panel-options">
               ${options}
+        </div>
       </div>
     </details>`;
   return forMobile ? inner : `<li>${inner}</li>`;

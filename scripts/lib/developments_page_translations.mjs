@@ -241,7 +241,7 @@ export const CHROME_ENTRIES = [
   // Nav / mobile menu
   { find: '>Developments</a>', es: '>Promociones</a>', fr: '>Programmes</a>', de: '>Neubauprojekte</a>', ru: '>Новостройки</a>', ar: '>المشاريع</a>', nl: '>Nieuwbouwprojecten</a>', pl: '>Inwestycje</a>', sv: '>Bostadsprojekt</a>', no: '>Boligprosjekter</a>'  },
   { find: '>Areas</a>', es: '>Zonas</a>', fr: '>Secteurs</a>', de: '>Lagen</a>', ru: '>Районы</a>', ar: '>المناطق</a>', nl: '>Gebieden</a>', pl: '>Lokalizacje</a>', sv: '>Områden</a>', no: '>Områder</a>'  },
-  { find: '>Compare</a>', es: '>Comparar</a>', fr: '>Comparer</a>', de: '>Vergleichen</a>', ru: '>Сравнение</a>', ar: '>مقارنة</a>', nl: '>Vergelijken</a>', pl: '>Porównaj</a>', sv: '>Jämför</a>', no: '>Sammenlign</a>'  },
+  { find: '>About</a>', es: '>Sobre nosotros</a>', fr: '>À propos</a>', de: '>Über uns</a>', ru: '>О нас</a>', ar: '>من نحن</a>', nl: '>Over ons</a>', pl: '>O nas</a>', sv: '>Om oss</a>', no: '>Om oss</a>'  },
   { find: '>Advisory</a>', es: '>Asesoramiento</a>', fr: '>Conseil</a>', de: '>Beratung</a>', ru: '>Консультации</a>', ar: '>الاستشارات</a>', nl: '>Advies</a>', pl: '>Doradztwo</a>', sv: '>Rådgivning</a>', no: '>Rådgivning</a>'  },
   { find: '>Guides</a>', es: '>Guías</a>', fr: '>Guides</a>', de: '>Ratgeber</a>', ru: '>Гиды</a>', ar: '>أدلة</a>', nl: '>Gidsen</a>', pl: '>Poradniki</a>', sv: '>Guider</a>', no: '>Guider</a>'  },
   { find: '>Contact Us</a>', es: '>Contacto</a>', fr: '>Contact</a>', de: '>Kontakt</a>', ru: '>Контакты</a>', ar: '>اتصل بنا</a>', nl: '>Contact</a>', pl: '>Kontakt</a>', sv: '>Kontakta oss</a>', no: '>Kontakt oss</a>'  },

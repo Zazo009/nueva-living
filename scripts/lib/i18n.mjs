@@ -246,6 +246,9 @@ export function localizeInternalLinks(html, locale) {
 // generic UI-library dropdown. `outputPath` is the current page's English
 // output filename (e.g. "developments.html"), used to compute each
 // locale's equivalent URL so switching language preserves the current page.
+export const LANG_CHECK_ICON = '<svg class="lang-switcher-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>';
+export const LANG_CHECK_SPACER = '<span class="lang-switcher-check-spacer" aria-hidden="true"></span>';
+
 export function renderLanguageSwitcher(outputPath, locale) {
   const current = localeMeta(locale);
   const options = LOCALES.map((meta) => {
@@ -258,7 +261,7 @@ export function renderLanguageSwitcher(outputPath, locale) {
     // path needs no resolution by anything, so it can't be mis-rewritten.
     const href = `/${localizedPath(outputPath, meta.code)}`;
     const active = meta.code === locale;
-    return `<a class="lang-switcher-option${active ? ' is-active' : ''}" href="${href}" lang="${meta.htmlLang}" ${active ? 'aria-current="true"' : ''}>${meta.nativeLabel}</a>`;
+    return `<a class="lang-switcher-option${active ? ' is-active' : ''}" href="${href}" lang="${meta.htmlLang}" ${active ? 'aria-current="true"' : ''}>${active ? LANG_CHECK_ICON : LANG_CHECK_SPACER}${meta.nativeLabel}</a>`;
   }).join('\n            ');
 
   return `<details class="lang-switcher" data-lang-switcher>
@@ -267,7 +270,10 @@ export function renderLanguageSwitcher(outputPath, locale) {
         <svg class="lang-switcher-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </summary>
       <div class="lang-switcher-panel" role="menu">
+        <span class="lang-switcher-panel-label">${t('lang.switcherLabel', locale)}</span>
+        <div class="lang-switcher-panel-options">
             ${options}
+        </div>
       </div>
     </details>`;
 }

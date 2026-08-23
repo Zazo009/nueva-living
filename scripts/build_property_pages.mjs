@@ -990,7 +990,7 @@ function nav(project, locale = DEFAULT_LOCALE) {
     <div class="nav-links nav-links-left">
       <a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a>
       <a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a>
-      <a href="${p}${localizedPath('compare.html', locale)}">${t('nav.compare', locale)}</a>
+      <a href="${p}${localizedPath('about.html', locale)}">${t('nav.about', locale)}</a>
     </div>
     <a class="nav-logo" href="${p}${localizedPath('index.html', locale)}" aria-label="${t('nav.home', locale)}">
       <img src="${p}assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
@@ -1010,7 +1010,7 @@ function nav(project, locale = DEFAULT_LOCALE) {
   <div class="mobile-menu" id="mobileMenu">
     <a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a>
     <a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a>
-    <a href="${p}${localizedPath('compare.html', locale)}">${t('nav.compare', locale)}</a>
+    <a href="${p}${localizedPath('about.html', locale)}">${t('nav.about', locale)}</a>
     <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
     <a href="${p}${localizedPath('guides.html', locale)}">${t('nav.guides', locale)}</a>
     <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
