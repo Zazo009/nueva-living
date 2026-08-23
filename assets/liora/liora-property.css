@@ -86,6 +86,9 @@ body {
   letter-spacing: 0.038em;
   color: #fffaf2;
   text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: manual;
 }
 
 .hero-title em {
@@ -2554,6 +2557,28 @@ body {
   font-family: var(--display-font) !important;
   font-weight: 400;
   letter-spacing: 0.055em;
+}
+
+/* Safety net for every heading a translation can lengthen: a long
+   compound word (German/Dutch/Swedish/Norwegian routinely produce one
+   where English had several short words) has no natural break point, and
+   without this a fixed-size heading overflows its column and gets clipped
+   by the page's overflow-x: hidden instead of wrapping -- exactly what
+   happened to a Swedish property title. overflow-x: hidden hides the
+   resulting horizontal scroll, but not the clipped text itself. */
+h1, h2, h3, h4,
+.hero-title,
+.section-heading,
+.project-section h2,
+.res-card h3,
+.dossier-card h3,
+.timeline-item h3,
+.clarity-card h3,
+.document-row h3,
+.availability-card h3,
+p, li {
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .project-eyebrow,
