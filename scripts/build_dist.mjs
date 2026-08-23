@@ -576,11 +576,20 @@ function injectFontPreloads(html) {
   );
 }
 
+// The @font-face block is 796 bytes but was costing a full round trip as a
+// render-blocking request, and it sat on the critical chain ahead of the LCP
+// element (the hero paragraph): PSI measured 930ms of blocking for it.
+//
+// This inlining was already written, but its pattern required a bare
+// `liora-fonts.css">` while the cache-busting rewrite had already turned the
+// href into `liora-fonts.css?v=<hash>">`, so the replace silently matched
+// nothing and every page shipped the extra request. The query string is now
+// optional in both patterns.
 function inlineFontStyles(html) {
   if (!html.includes('assets/fonts/google/liora-fonts.css')) return html;
   const inlined = fontCss.replace(/url\(\.\//g, 'url(assets/fonts/google/');
   return html.replace(
-    /<link rel="stylesheet" href="assets\/fonts\/google\/liora-fonts\.css">/i,
+    /<link rel="stylesheet" href="assets\/fonts\/google\/liora-fonts\.css(?:\?v=[a-z0-9]+)?">/i,
     `<style data-nueva-fonts>${inlined}</style>`
   );
 }
