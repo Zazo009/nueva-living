@@ -279,12 +279,26 @@
     // drags on a real phone, so the swipe died mid-gesture. Everything below
     // now just reads or sets scrollLeft.
 
-    const slideWidth = () => track.clientWidth || 1;
+    // clientWidth is a layout read. Called from the scroll handler, and
+    // interleaved with the dot class writes below, it forced a synchronous
+    // reflow on every scroll frame -- 36ms of it by PSI's measurement. The
+    // width only changes on resize, so it is cached.
+    let cachedSlideWidth = 0;
+    const slideWidth = () => {
+      if (!cachedSlideWidth) cachedSlideWidth = track.clientWidth || 1;
+      return cachedSlideWidth;
+    };
+    window.addEventListener('resize', () => { cachedSlideWidth = 0; }, { passive: true });
 
     const currentIndex = () => Math.round(Math.abs(track.scrollLeft) / slideWidth());
 
+    // Only write when the active slide actually changes; rewriting the same
+    // classes each scroll frame invalidated layout for no reason.
+    let lastActiveDot = -1;
     const setActiveDot = () => {
       const active = currentIndex();
+      if (active === lastActiveDot) return;
+      lastActiveDot = active;
       dots.forEach((dot, i) => dot.classList.toggle('is-active', i === active));
     };
 
