@@ -4915,32 +4915,68 @@
     #nav .lang-switcher-check, #nav .lang-switcher-check-spacer { flex: 0 0 12px; width: 12px; height: 12px; }
     #nav .lang-switcher-check path { stroke: #d8bd85; }
     #nav [data-lang-switcher-compact] .lang-switcher-panel { width: 354px; min-width: 354px; }
+    #nav [data-lang-switcher-compact] .lang-switcher-toggle {
+      width: 44px; height: 44px; padding: 0; display: inline-grid; place-items: center;
+      border: 1px solid rgba(216,189,133,0.5); background: rgba(255,250,242,0.05);
+      color: rgba(244,234,217,0.94);
+    }
     #nav .nav-dropdown { position: relative; }
-    #nav .nav-dropdown-toggle {
-      display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
-      white-space: nowrap;
+    /* <summary> matches none of the #nav .nav-links a rules, so the type
+       treatment is restated to keep Guides identical to its siblings.
+       Scoped through .nav-links (specificity 120) because the shared
+       nueva-system.css rule for the toggle is #nav-prefixed (110) and
+       loads later, so a plain #nav rule here loses to it -- which is
+       what left Guides a lighter weight, unshadowed and 4px shorter
+       than Advisory and Contact beside it. */
+    #nav .nav-links .nav-dropdown-toggle {
+      display: inline; cursor: pointer; list-style: none;
+      white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 11px;
+      font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 0 0 3px; color: #f4ead9;
+      text-shadow: 0 1px 10px rgba(20,13,7,0.6);
     }
     #nav .nav-dropdown-toggle::-webkit-details-marker { display: none; }
-    #nav .nav-dropdown-caret { width: 9px; height: 6px; flex: 0 0 9px; transition: transform 0.2s ease; }
+    #nav .nav-dropdown-caret { width: 9px; height: 6px; margin-left: 6px; vertical-align: middle; transition: transform 0.2s ease; }
     #nav .nav-dropdown-caret path { stroke: currentColor; }
     #nav .nav-dropdown[open] .nav-dropdown-caret { transform: rotate(180deg); }
+    #nav .nav-links .nav-dropdown[open] > .nav-dropdown-toggle { color: #d8bd85; }
     #nav .nav-dropdown-panel {
-      position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
-      min-width: 232px; display: flex; flex-direction: column; padding: 6px 0;
-      background: rgba(45,34,24,0.97); border: 1px solid rgba(247,244,238,0.18);
-      box-shadow: 0 20px 48px rgba(0,0,0,0.5); backdrop-filter: blur(12px); border-radius: 0; z-index: 40;
+      position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%);
+      min-width: 264px; display: flex; flex-direction: column; padding: 10px 0;
+      background: rgba(31,24,16,0.98); border: 1px solid rgba(247,244,238,0.1);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.55); backdrop-filter: blur(12px); border-radius: 0; z-index: 40;
     }
-    #nav .nav-dropdown-option {
-      display: block; padding: 10px 18px; color: rgba(247,244,238,0.78); font-size: 13px;
-      font-weight: 500; letter-spacing: 0.02em; text-transform: none; text-decoration: none;
-      white-space: nowrap; border-bottom: none;
+    /* Panel-scoped: these sit inside .nav-links, so a bare class loses to
+       "#nav .nav-links a" and inherits that item's padding and colour. */
+    #nav .nav-dropdown-panel .nav-dropdown-option {
+      display: block; padding: 13px 26px; color: rgba(247,244,238,0.86); font-size: 11px;
+      font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none;
+      line-height: 1.45; white-space: nowrap; border-bottom: none; text-shadow: none;
     }
-    #nav .nav-dropdown-option:hover { background: rgba(201,164,95,0.12); color: #f0dcb2; }
-    .mobile-menu .mobile-menu-group-label {
-      display: block; font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
-      color: rgba(247,244,238,0.4);
+    #nav .nav-dropdown-panel .nav-dropdown-option:hover { background: none; color: #d8bd85; }
+    .mobile-menu .nav-dropdown { position: static; }
+    /* <summary> inherits none of the .mobile-menu a rules -- restate them
+       so Guides matches its sibling links, with only the caret differing. */
+    .mobile-menu .nav-dropdown-toggle {
+      display: inline-flex; align-items: center; gap: 7px; cursor: pointer; list-style: none;
+      font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(250,247,242,0.7);
     }
-    .mobile-menu .mobile-menu-sublink { padding-left: 14px; }
+    .mobile-menu .nav-dropdown-toggle::-webkit-details-marker { display: none; }
+    .mobile-menu .nav-dropdown-caret { width: 9px; height: 6px; flex: 0 0 9px; transition: transform 0.2s ease; }
+    .mobile-menu .nav-dropdown-caret path { stroke: currentColor; }
+    .mobile-menu .nav-dropdown[open] .nav-dropdown-caret { transform: rotate(180deg); }
+    .mobile-menu .nav-dropdown-panel {
+      position: static; transform: none; min-width: 0; width: 100%; margin: 6px 0 2px;
+      padding: 0; background: none; border: none; box-shadow: none; backdrop-filter: none;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .mobile-menu .nav-dropdown-option {
+      padding: 0 0 0 16px; font-size: 10px; letter-spacing: 0.16em;
+      color: rgba(250,247,242,0.5); white-space: normal;
+      border-left: 1px solid rgba(250,247,242,0.14);
+    }
+    .mobile-menu .nav-dropdown-option:hover { color: #d8bd85; border-left-color: rgba(216,189,133,0.6); }
     .mobile-menu .lang-switcher-panel { position: static; margin-top: 8px; border: none; background: transparent; box-shadow: none; padding-left: 12px; display: block; }
     .mobile-menu .lang-switcher-option { color: inherit; }
 
@@ -5017,6 +5053,27 @@
       </div>
     </details>
     <a href="contact.html" onclick="closeMobile()">Contact</a>
+    <details class="lang-switcher" data-lang-switcher>
+      <summary class="lang-switcher-toggle" aria-label="Language">
+        <span class="lang-switcher-code">EN</span>
+        <svg class="lang-switcher-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </summary>
+      <div class="lang-switcher-panel" role="menu">
+        <span class="lang-switcher-panel-label">Language</span>
+        <div class="lang-switcher-panel-options">
+              <a class="lang-switcher-option is-active" href="/index.html" lang="en" aria-current="true"><svg class="lang-switcher-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>English</a>
+              <a class="lang-switcher-option" href="/es/index.html" lang="es" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Español</a>
+              <a class="lang-switcher-option" href="/fr/index.html" lang="fr" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Français</a>
+              <a class="lang-switcher-option" href="/de/index.html" lang="de" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Deutsch</a>
+              <a class="lang-switcher-option" href="/ru/index.html" lang="ru" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Русский</a>
+              <a class="lang-switcher-option" href="/ar/index.html" lang="ar" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>العربية</a>
+              <a class="lang-switcher-option" href="/nl/index.html" lang="nl" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Nederlands</a>
+              <a class="lang-switcher-option" href="/pl/index.html" lang="pl" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Polski</a>
+              <a class="lang-switcher-option" href="/no/index.html" lang="no" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Norsk</a>
+              <a class="lang-switcher-option" href="/sv/index.html" lang="sv" ><span class="lang-switcher-check-spacer" aria-hidden="true"></span>Svenska</a>
+        </div>
+      </div>
+    </details>
   </div>
 
   <script>

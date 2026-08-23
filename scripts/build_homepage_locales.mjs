@@ -74,7 +74,13 @@ function stripPriorInjections(html) {
     .replace(/\s*<details class="lang-switcher" data-lang-switcher>[\s\S]*?<\/details>\n(?=\s*<\/div>)/g, '\n')
     .replace(/\n\s*#nav \.lang-switcher, \.mobile-menu \.lang-switcher[\s\S]*?\.mobile-menu \.lang-switcher-option \{ color: inherit; \}\n/g, '\n')
     .replace(/\n\s*<link rel="stylesheet" href="\.\.\/assets\/liora\/liora-rtl\.css\?v=[^"]*">\n/g, '\n')
-    .replace(/\s*<script>\n\s*document\.querySelectorAll\('\[data-lang-switcher\]'\)[\s\S]*?<\/script>\n/g, '\n');
+    // Matches whichever <script> contains the switcher wiring, rather
+    // than anchoring on its first statement: the script gained a Guides
+    // dropdown block at the top, the old anchor stopped matching, and the
+    // stale copy left "data-lang-switcher" in the file -- which the
+    // already-injected guard below reads as "nothing to do", silently
+    // freezing every later change to this page's injected CSS.
+    .replace(/\s*<script>((?:(?!<\/script>)[\s\S])*?\[data-lang-switcher\](?:(?!<\/script>)[\s\S])*?)<\/script>\n/g, '\n');
 }
 
 const source = stripPriorInjections(readFileSync(sourcePath, 'utf8'));
@@ -395,20 +401,25 @@ const switcherCss = `
       color: rgba(244,234,217,0.94);
     }
     #nav .nav-dropdown { position: relative; }
-    /* <summary> matches none of the #nav .nav-links a rules -- restate the
-       type treatment so Guides matches its siblings instead of falling
-       back to the inherited (near-black) body colour. */
-    #nav .nav-dropdown-toggle {
-      display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
-      white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 12px;
+    /* <summary> matches none of the #nav .nav-links a rules, so the type
+       treatment is restated to keep Guides identical to its siblings.
+       Scoped through .nav-links (specificity 120) because the shared
+       nueva-system.css rule for the toggle is #nav-prefixed (110) and
+       loads later, so a plain #nav rule here loses to it -- which is
+       what left Guides a lighter weight, unshadowed and 4px shorter
+       than Advisory and Contact beside it. */
+    #nav .nav-links .nav-dropdown-toggle {
+      display: inline; cursor: pointer; list-style: none;
+      white-space: nowrap; font-family: 'Montserrat', sans-serif; font-size: 11px;
       font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(247,244,238,0.85); text-shadow: 0 1px 10px rgba(20,13,7,0.6);
+      padding: 0 0 3px; color: #f4ead9;
+      text-shadow: 0 1px 10px rgba(20,13,7,0.6);
     }
     #nav .nav-dropdown-toggle::-webkit-details-marker { display: none; }
-    #nav .nav-dropdown-caret { width: 9px; height: 6px; flex: 0 0 9px; transition: transform 0.2s ease; }
+    #nav .nav-dropdown-caret { width: 9px; height: 6px; margin-left: 6px; vertical-align: middle; transition: transform 0.2s ease; }
     #nav .nav-dropdown-caret path { stroke: currentColor; }
     #nav .nav-dropdown[open] .nav-dropdown-caret { transform: rotate(180deg); }
-    #nav .nav-dropdown[open] > .nav-dropdown-toggle { color: #d8bd85; }
+    #nav .nav-links .nav-dropdown[open] > .nav-dropdown-toggle { color: #d8bd85; }
     #nav .nav-dropdown-panel {
       position: absolute; top: calc(100% + 16px); left: 50%; transform: translateX(-50%);
       min-width: 264px; display: flex; flex-direction: column; padding: 10px 0;
@@ -578,8 +589,8 @@ if (!englishHtml.includes('data-lang-switcher')) {
     `${renderSwitcherHtml(DEFAULT_LOCALE, false)}\n    </ul>\n    <button class="nav-burger"`
   );
   englishHtml = englishHtml.replace(
-    '<a href="contact.html" onclick="closeMobile()">Contact Us</a>\n  </div>',
-    `<a href="contact.html" onclick="closeMobile()">Contact Us</a>\n    ${renderSwitcherHtml(DEFAULT_LOCALE, true)}\n  </div>`
+    '<a href="contact.html" onclick="closeMobile()">Contact</a>\n  </div>',
+    `<a href="contact.html" onclick="closeMobile()">Contact</a>\n    ${renderSwitcherHtml(DEFAULT_LOCALE, true)}\n  </div>`
   );
   englishHtml = englishHtml.replace('</style>\n</head>', `${switcherCss}\n  </style>\n</head>`);
   englishHtml = englishHtml.replace(

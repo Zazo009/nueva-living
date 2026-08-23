@@ -668,19 +668,44 @@ input[type="radio"] {
    near-black against the header. */
 .nav-dropdown-toggle,
 #nav .nav-dropdown-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  /* Deliberately `inline`, not inline-flex: the sibling nav items are
+     inline anchors, whose line box comes from the font's own metrics.
+     An inline-flex box is sized by its content instead, which left the
+     toggle a fraction shorter and its text off the shared baseline. As
+     a plain inline box it lays out by exactly the same rules they do,
+     so the text lands on the same line by construction rather than by
+     a hand-tuned line-height. The caret is aligned on its own below. */
+  display: inline;
   cursor: pointer;
   list-style: none;
   white-space: nowrap;
   font-family: var(--nueva-ui);
   font-size: 11px;
-  line-height: 1.2;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--nueva-cream);
   transition: color var(--nueva-transition);
+}
+
+/* Secondary pages give their nav links a heavier weight and vertical
+   padding (`.site-nav .nav-links a`). The padding and line-height have
+   to sit on the <details> rather than the <summary>: the details is the
+   flex item the row centres, and an inline summary's vertical padding
+   does not contribute to its height -- so styling the summary left the
+   details box 18px shorter than its siblings and its text 2.35px low. */
+.site-nav .nav-dropdown {
+  padding: 12px 0;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.site-nav .nav-dropdown-toggle {
+  font-weight: 600;
+}
+
+/* Re-tightened because the panel now measures from the padded box. */
+.site-nav .nav-dropdown-panel {
+  top: calc(100% + 4px);
 }
 
 .nav-dropdown-toggle::-webkit-details-marker,
@@ -695,7 +720,8 @@ input[type="radio"] {
 .nav-dropdown-caret {
   width: 9px;
   height: 6px;
-  flex: 0 0 9px;
+  margin-left: 6px;
+  vertical-align: middle;
   transition: transform var(--nueva-transition);
 }
 
@@ -776,12 +802,21 @@ input[type="radio"] {
    rules above -- restate them here so Guides is visually identical to
    its sibling links, with only the caret marking that it opens. */
 .mobile-menu .nav-dropdown-toggle {
+  /* Back to flex here: the drawer's items are block-level rows, so the
+     caret needs to sit alongside the label rather than inline with it. */
+  display: flex;
+  align-items: center;
+  gap: 7px;
   font-family: var(--nueva-ui);
   font-weight: 500;
   font-size: 13px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--nueva-cream);
+}
+
+.mobile-menu .nav-dropdown-caret {
+  margin-left: 0;
 }
 
 .mobile-menu .nav-dropdown-panel {
