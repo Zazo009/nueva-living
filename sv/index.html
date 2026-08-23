@@ -4534,26 +4534,33 @@
        message to action. The existing video, links and brand system stay intact. */
     #hero {
       min-height: 720px;
+      padding-bottom: clamp(150px, 15vh, 190px);
     }
 
     .hero-overlay {
       background:
-        linear-gradient(180deg, rgba(47, 36, 23, 0.22) 0%, rgba(47, 36, 23, 0.04) 38%, rgba(47, 36, 23, 0.82) 100%),
-        linear-gradient(90deg, rgba(47, 36, 23, 0.44) 0%, rgba(47, 36, 23, 0.12) 52%, rgba(47, 36, 23, 0.08) 100%);
+        linear-gradient(180deg, rgba(47, 36, 23, 0.55) 0%, rgba(47, 36, 23, 0.06) 22%, rgba(47, 36, 23, 0) 42%);
+    }
+
+    .hero-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(52% 62% at 6% 88%, rgba(47, 36, 23, 0.94) 0%, rgba(47, 36, 23, 0.86) 32%, rgba(47, 36, 23, 0.55) 58%, rgba(47, 36, 23, 0.12) 84%, rgba(47, 36, 23, 0) 100%);
+    }
+
+    [dir="rtl"] .hero-overlay::after {
+      background: radial-gradient(52% 62% at 94% 88%, rgba(47, 36, 23, 0.94) 0%, rgba(47, 36, 23, 0.86) 32%, rgba(47, 36, 23, 0.55) 58%, rgba(47, 36, 23, 0.12) 84%, rgba(47, 36, 23, 0) 100%);
     }
 
     .hero-content {
       width: 100%;
       max-width: none;
-      padding: 0 clamp(34px, 5vw, 84px) clamp(54px, 7vh, 84px);
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(420px, 0.8fr);
-      gap: clamp(48px, 7vw, 126px);
-      align-items: end;
+      padding: 0 clamp(34px, 5vw, 84px);
     }
 
     .hero-copy {
-      max-width: 880px;
+      max-width: 720px;
     }
 
     .hero-eyebrow {
@@ -4562,83 +4569,121 @@
     }
 
     #hero h1 {
-      max-width: 880px;
+      max-width: 720px;
       margin-bottom: 20px;
-      font-size: clamp(38px, 4.15vw, 68px);
+      font-size: clamp(34px, 4vw, 58px);
       line-height: 1.1;
-      letter-spacing: 0.04em;
       text-wrap: balance;
       text-shadow: 0 10px 34px rgba(20, 13, 7, 0.28);
     }
 
+    #hero h1 .hero-line {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    #hero h1 .hero-line-2 {
+      color: var(--gold-light);
+    }
+
     .hero-sub {
-      max-width: 620px;
+      max-width: 480px;
       margin-bottom: 0;
       color: rgba(244, 234, 217, 0.82);
       font-size: 14px;
-      line-height: 1.72;
+      line-height: 1.6;
     }
 
-    .hero-btns {
-      width: min(100%, 580px);
-      justify-self: end;
+    .hero-search {
+      position: absolute;
+      left: clamp(24px, 5vw, 84px);
+      right: clamp(24px, 5vw, 84px);
+      bottom: clamp(28px, 5vh, 46px);
+      z-index: 2;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: 1.25fr 1fr 1fr 1.15fr auto;
+      gap: 1px;
+      background: rgba(244, 234, 217, 0.16);
     }
 
-    .hero-btns .btn {
-      min-height: 80px;
-      padding: 20px 28px;
-      border: 1px solid rgba(168, 131, 74, 0.82);
-      border-radius: 0;
-      box-shadow: none;
+    .hero-search-field {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 7px;
+      padding: 15px 18px 16px;
+      background: rgba(47, 36, 23, 0.94);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-search-field span:first-child {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-search-select-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-search select {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0 20px 0 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14.5px;
+      font-weight: 400;
+      color: var(--cream);
+      cursor: pointer;
+    }
+
+    .hero-search select option {
+      color: #201e1d;
+    }
+
+    .hero-search-chevron {
+      position: absolute;
+      right: 0;
+      color: rgba(244, 234, 217, 0.6);
+      pointer-events: none;
+    }
+
+    .hero-search-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 26px;
+      min-height: 56px;
+      background: var(--gold-light);
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
       font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.14em;
-      line-height: 1.35;
-      transition:
-        background-color 220ms ease,
-        border-color 220ms ease,
-        color 220ms ease,
-        transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .hero-btns .btn-gold {
-      background: #A8834A;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
       color: #21170e;
+      transition: background-color 140ms ease;
     }
 
-    .hero-btns .btn-ghost-light {
-      background: rgba(244, 234, 217, 0.94);
-      border-color: rgba(244, 234, 217, 0.94);
-      color: #2F2417;
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
+    .hero-search-submit:hover,
+    .hero-search-submit:focus-visible {
+      background: #e2c688;
     }
 
-    .hero-btns .btn:hover,
-    .hero-btns .btn:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: none;
-    }
-
-    .hero-btns .btn-gold:hover,
-    .hero-btns .btn-gold:focus-visible {
-      background: #C9A877;
-      border-color: #C9A877;
-    }
-
-    .hero-btns .btn-ghost-light:hover,
-    .hero-btns .btn-ghost-light:focus-visible {
-      background: #FAF6EE;
-      border-color: #FAF6EE;
-      color: #2F2417;
-    }
-
-    .hero-btns .btn:focus-visible {
+    .hero-search-submit:focus-visible {
       outline: 1px solid #FAF6EE;
-      outline-offset: 4px;
+      outline-offset: 2px;
     }
 
     .hero-scroll {
@@ -4657,71 +4702,77 @@
       }
     }
 
-    @media (max-width: 1120px) {
-      .hero-content {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 30px;
-      }
-
-      .hero-btns {
-        justify-self: start;
-      }
-    }
-
     @media (max-width: 768px) {
       #hero {
-        min-height: max(700px, 100svh);
+        min-height: max(760px, 100svh);
         padding-top: 64px;
+        padding-bottom: clamp(210px, 32vh, 260px);
         align-items: flex-end;
       }
 
       .hero-overlay {
         background:
-          linear-gradient(180deg, rgba(47, 36, 23, 0.16) 0%, rgba(47, 36, 23, 0.10) 26%, rgba(47, 36, 23, 0.86) 100%),
-          linear-gradient(90deg, rgba(47, 36, 23, 0.30) 0%, rgba(47, 36, 23, 0.06) 100%);
+          linear-gradient(180deg, rgba(47, 36, 23, 0.18) 0%, rgba(47, 36, 23, 0.10) 22%, rgba(47, 36, 23, 0) 40%);
+      }
+
+      .hero-overlay::after,
+      [dir="rtl"] .hero-overlay::after {
+        background: linear-gradient(0deg, rgba(47, 36, 23, 0.94) 0%, rgba(47, 36, 23, 0.7) 26%, rgba(47, 36, 23, 0.2) 52%, rgba(47, 36, 23, 0) 72%);
       }
 
       .hero-content {
-        padding: clamp(92px, 18svh, 150px) 20px clamp(28px, 5svh, 46px);
-        gap: 24px;
+        padding: clamp(92px, 18svh, 150px) 20px clamp(24px, 4svh, 34px);
       }
 
       .hero-eyebrow {
-        margin-bottom: 14px;
+        margin-bottom: 12px;
         font-size: 9px;
         line-height: 1.6;
       }
 
       #hero h1 {
-        max-width: 12ch;
-        margin-bottom: 16px;
-        font-size: clamp(31px, 9vw, 44px);
-        line-height: 1.12;
+        max-width: 100%;
+        margin-bottom: 14px;
+        font-size: clamp(28px, 8vw, 38px);
+        line-height: 1.14;
       }
 
       .hero-sub {
-        max-width: 37rem;
-        font-size: 15px !important;
-        line-height: 1.62;
+        max-width: 100%;
+        font-size: 14px !important;
+        line-height: 1.55;
       }
 
-      .hero-btns {
-        width: 100%;
-        grid-template-columns: 1fr;
-        gap: 9px;
+      .hero-search {
+        left: 16px;
+        right: 16px;
+        bottom: 20px;
+        grid-template-columns: 1fr 1fr;
       }
 
-      .hero-btns .btn {
-        width: 100%;
-        min-height: 60px;
-        padding: 17px 20px;
-        font-size: 11px;
+      .hero-search-field {
+        padding: 12px 14px 13px;
+        gap: 5px;
+      }
+
+      .hero-search-field span:first-child {
+        font-size: 8.5px;
+      }
+
+      .hero-search select {
+        font-size: 13.5px;
+      }
+
+      .hero-search-submit {
+        grid-column: 1 / -1;
+        min-height: 52px;
+        font-size: 11.5px;
       }
     }
 
     @media (max-width: 420px) {
       #hero {
-        min-height: max(680px, 100svh);
+        min-height: max(740px, 100svh);
       }
 
       .hero-content {
@@ -4730,12 +4781,12 @@
       }
 
       #hero h1 {
-        font-size: clamp(29px, 8.7vw, 38px);
+        font-size: clamp(26px, 8vw, 34px);
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-btns .btn {
+      .hero-search-submit {
         transition: none;
       }
     }
@@ -4798,16 +4849,16 @@
   <!-- ═══════════════════════════════ NAV ═══════════════════════════════ -->
   <nav id="nav">
     <ul class="nav-links nav-links-left">
-      <li><a href="sv/guides.html">Köpguider</a></li>
-      <li><a href="sv/why-nueva.html">Varför Nueva</a></li>
       <li><a href="sv/developments.html">Nybyggnadsprojekt</a></li>
+      <li><a href="sv/areas.html">Områden</a></li>
+      <li><a href="sv/compare.html">Jämför</a></li>
     </ul>
     <a href="sv/index.html" class="nav-logo" aria-label="Nueva Living startsida">
       <img class="nav-wordmark" src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" decoding="async" width="420" height="100" />
     </a>
     <ul class="nav-links nav-links-right">
-      <li><a href="sv/areas.html">Områden</a></li>
       <li><a href="sv/advisory.html">Rådgivning</a></li>
+      <li><a href="sv/guides.html">Guider</a></li>
       <li><a href="sv/contact.html">Kontakta oss</a></li>
     <li><details class="lang-switcher" data-lang-switcher>
       <summary class="lang-switcher-toggle" aria-label="Språk">
@@ -4833,11 +4884,11 @@
     </button>
   </nav>
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <a href="sv/guides.html" onclick="closeMobile()">Köpguider</a>
-    <a href="sv/why-nueva.html" onclick="closeMobile()">Varför Nueva</a>
     <a href="sv/developments.html" onclick="closeMobile()">Nybyggnadsprojekt</a>
     <a href="sv/areas.html" onclick="closeMobile()">Områden</a>
+    <a href="sv/compare.html" onclick="closeMobile()">Jämför</a>
     <a href="sv/advisory.html" onclick="closeMobile()">Rådgivning</a>
+    <a href="sv/guides.html" onclick="closeMobile()">Guider</a>
     <a href="sv/contact.html" onclick="closeMobile()">Kontakta oss</a>
     <details class="lang-switcher" data-lang-switcher>
       <summary class="lang-switcher-toggle" aria-label="Språk">
@@ -4950,19 +5001,139 @@
 	    <div class="hero-content">
         <div class="hero-copy">
 	        <div class="hero-eyebrow">Costa del Sol · Specialist på nybyggda bostäder</div>
-	        <h1>Nybyggda bostäder värda att se på <em>Costa del Sol</em></h1>
-          <p class="hero-sub">Vi hjälper dig att hitta och jämföra rätt nybyggda bostäder i Marbella, Estepona, Benahavís och hela Costa del Sol.</p>
-        </div>
-        <div class="hero-btns" aria-label="Start exploring Nueva Living">
-          <a href="sv/developments.html" class="btn btn-gold">Utforska projekten</a>
-          <a href="#shortlist-form" class="btn btn-ghost-light">Få en personlig urvalslista</a>
+	        <h1><span class="hero-line hero-line-1">En tydlig utsikt</span><span class="hero-line hero-line-2">över kusten</span></h1>
+          <p class="hero-sub">Oberoende, jämförbar information om varje nybygge värt att överväga — och ett rakt svar om dem som inte är det.</p>
         </div>
       </div>
+        <form class="hero-search" id="hero-search" aria-label="Sök">
+          <label class="hero-search-field">
+            <span>Läge</span>
+            <span class="hero-search-select-wrap">
+              <select name="area" data-hero-field="area">
+                <option value="">Alla lägen</option>
+                <option value="marbella">Marbella</option>
+                <option value="estepona">Estepona</option>
+                <option value="benahavis">Benahávis</option>
+                <option value="nueva-andalucia">Nueva Andalucía</option>
+                <option value="mijas-fuengirola">Mijas &amp; Fuengirola</option>
+              </select>
+              <svg class="hero-search-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </label>
+          <label class="hero-search-field">
+            <span>Typ</span>
+            <span class="hero-search-select-wrap">
+              <select name="type" data-hero-field="type">
+                <option value="">Alla typer</option>
+                <option value="apartment">Lägenhet</option>
+                <option value="penthouse">Takvåning</option>
+                <option value="villa">Villa</option>
+                <option value="townhouse">Radhus</option>
+              </select>
+              <svg class="hero-search-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </label>
+          <label class="hero-search-field">
+            <span>Pris</span>
+            <span class="hero-search-select-wrap">
+              <!-- Bands match the Developments page's own price slider
+                   bounds (500k-2.5M, see liora-discovery.js's
+                   data-range-min/max on developments.html) rather than the
+                   design mockup's placeholder figures -- the slider treats
+                   a value at or above its max as "no limit", so a band
+                   straddling that boundary would silently filter wider
+                   than its label promised. -->
+              <select name="price" data-hero-field="price">
+                <option value="">Alla priser</option>
+                <option value="0-750000">Upp till 750 000 €</option>
+                <option value="750000-1500000">750 000 € – 1,5 mn €</option>
+                <option value="1500000-">1,5 mn €+</option>
+              </select>
+              <svg class="hero-search-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </label>
+          <label class="hero-search-field">
+            <span>Färdigställande</span>
+            <span class="hero-search-select-wrap">
+              <!-- The three year options are static content, like the rest
+                   of the site's date-sensitive copy (e.g. per-project
+                   delivery quarters) -- update them by hand as years pass.
+                   The bucket the submit handler maps them to below is
+                   computed at runtime against the real current year, so
+                   only these three labels (and their translations) ever
+                   need touching, not the mapping logic. -->
+              <select name="completion" data-hero-field="completion">
+                <option value="">Alla faser</option>
+                <option value="status:completed">Nyckelklar</option>
+                <option value="status:under_construction">Under uppförande</option>
+                <option value="status:off_plan">Under projektering</option>
+                <option value="year:2027">2027</option>
+                <option value="year:2028">2028</option>
+                <option value="year:2029">2029 eller senare</option>
+              </select>
+              <svg class="hero-search-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </label>
+          <button type="submit" class="hero-search-submit">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4.3-4.3"></path></svg>
+            <span>Sök</span>
+          </button>
+        </form>
     <div class="hero-scroll">
       <div class="hero-scroll-line"></div>
       <span>Scrolla</span>
     </div>
   </section>
+  <script>
+    (function () {
+      var form = document.getElementById('hero-search');
+      if (!form) return;
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var params = new URLSearchParams();
+
+        var area = form.querySelector('[data-hero-field="area"]').value;
+        if (area) params.set('area', area);
+
+        var type = form.querySelector('[data-hero-field="type"]').value;
+        if (type) params.set('type', type);
+
+        var price = form.querySelector('[data-hero-field="price"]').value;
+        if (price) {
+          var parts = price.split('-');
+          if (parts[0]) params.set('pmin', parts[0]);
+          if (parts[1]) params.set('pmax', parts[1]);
+        }
+
+        // "Completion" folds two of the Developments page's separate
+        // filters (build status, and a delivery-date bucket computed
+        // relative to today) into one dropdown, matching the design
+        // brief. Status options map directly; year options are an
+        // approximation -- the current year and the next two map to
+        // 1y/2y, everything after to 2y+. A project delivering in
+        // Q1 vs. Q4 of the same year can therefore land a bucket off
+        // from what the visitor expects; a precise mapping would need
+        // a real `year` param added to liora-discovery.js, which is
+        // deliberately out of scope here so that already-working,
+        // already-tested filter is left untouched.
+        var completion = form.querySelector('[data-hero-field="completion"]').value;
+        if (completion) {
+          if (completion.indexOf('status:') === 0) {
+            params.set('status', completion.slice('status:'.length));
+          } else if (completion.indexOf('year:') === 0) {
+            var pickedYear = Number(completion.slice('year:'.length));
+            var thisYear = new Date().getFullYear();
+            var delta = pickedYear - thisYear;
+            var timing = delta <= 0 ? 'ready' : delta === 1 ? '1y' : delta === 2 ? '2y' : '2y+';
+            params.set('timing', timing);
+          }
+        }
+
+        var query = params.toString();
+        window.location.href = 'developments.html' + (query ? '?' + query : '');
+      });
+    })();
+  </script>
 
   <nav class="home-contact-actions" aria-label="Contact Nueva Living">
     <div class="home-contact-actions-inner">

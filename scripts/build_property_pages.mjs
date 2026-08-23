@@ -988,16 +988,16 @@ function nav(project, locale = DEFAULT_LOCALE) {
   const switcher = renderLanguageSwitcher(outputPath, locale);
   return `<nav class="site-nav">
     <div class="nav-links nav-links-left">
-      <a href="${p}${localizedPath('guides.html', locale)}">${t('nav.buyingGuides', locale)}</a>
-      <a href="${p}${localizedPath('why-nueva.html', locale)}">${t('nav.whyNueva', locale)}</a>
       <a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a>
+      <a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a>
+      <a href="${p}${localizedPath('compare.html', locale)}">${t('nav.compare', locale)}</a>
     </div>
     <a class="nav-logo" href="${p}${localizedPath('index.html', locale)}" aria-label="${t('nav.home', locale)}">
       <img src="${p}assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
     </a>
     <div class="nav-links nav-links-right">
-      <a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a>
       <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
+      <a href="${p}${localizedPath('guides.html', locale)}">${t('nav.guides', locale)}</a>
       <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
       ${switcher}
     </div>
@@ -1007,11 +1007,11 @@ function nav(project, locale = DEFAULT_LOCALE) {
   </nav>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="${p}${localizedPath('guides.html', locale)}">${t('nav.buyingGuides', locale)}</a>
-    <a href="${p}${localizedPath('why-nueva.html', locale)}">${t('nav.whyNueva', locale)}</a>
     <a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a>
     <a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a>
+    <a href="${p}${localizedPath('compare.html', locale)}">${t('nav.compare', locale)}</a>
     <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
+    <a href="${p}${localizedPath('guides.html', locale)}">${t('nav.guides', locale)}</a>
     <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
     ${renderLanguageSwitcher(outputPath, locale)}
   </div>`;

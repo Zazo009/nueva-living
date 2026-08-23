@@ -128,11 +128,11 @@ function formatEuro(value) {
 
 function navLinks(locale) {
   return [
-    [t('nav.buyingGuides', locale), 'guides.html'],
-    [t('nav.whyNueva', locale), 'why-nueva.html'],
     [t('nav.developments', locale), 'developments.html'],
     [t('nav.areas', locale), 'areas.html'],
+    [t('nav.compare', locale), 'compare.html'],
     [t('nav.advisory', locale), 'advisory.html'],
+    [t('nav.guides', locale), 'guides.html'],
     [t('nav.contactUs', locale), 'contact.html'],
   ];
 }

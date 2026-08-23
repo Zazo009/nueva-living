@@ -8,7 +8,7 @@ const failures = [];
 const warnings = [];
 const expectedNavTargets = [
   'guides.html',
-  'why-nueva.html',
+  'compare.html',
   'developments.html',
   'areas.html',
   'advisory.html',
