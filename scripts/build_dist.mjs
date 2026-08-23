@@ -435,7 +435,12 @@ const assetFiles = [
   'assets/liora/brand/nueva-living-lockup-espresso-transparent.png',
   'assets/liora/brand/nueva-living-lockup-sand-transparent.png',
   'assets/liora/video/hero-desktop-v2.mp4',
-  'assets/liora/video/hero-mobile-v2.mp4',
+  // Mobile ships two encodes of the same clip; the hero loader picks HEVC
+  // where the browser can decode it. hero-mobile-v2.mp4 is deliberately not
+  // listed -- it is no longer referenced, and it stays in the repo only as a
+  // revert path.
+  'assets/liora/video/hero-mobile-v3.mp4',
+  'assets/liora/video/hero-mobile-v3-hevc.mp4',
   'assets/vendor/gsap/gsap.min.js',
   'assets/vendor/gsap/ScrollTrigger.min.js',
 ];
