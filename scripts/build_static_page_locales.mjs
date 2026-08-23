@@ -53,8 +53,11 @@ function injectSwitcher(html, file, locale) {
   const switcher = renderLanguageSwitcher(file, locale);
   const divider = '<span class="nav-divider" aria-hidden="true"></span>';
   let next = html.replace(divider, `${divider}\n      ${switcher}`);
+  // The drawer switcher goes last, after the WhatsApp/Email actions block.
+  // Anchor on the email action rather than the Contact link: the actions
+  // block now sits between them, and a stale anchor here fails silently.
   next = next.replace(
-    /(<a href="contact\.html">[^<]*<\/a>)\n  <\/div>/,
+    /(<a class="mobile-menu-action mobile-menu-action--secondary"[\s\S]*?<\/a>\n    <\/div>)\n  <\/div>/,
     `$1\n    ${switcher}\n  </div>`
   );
   return next.replace('</body>', `  ${LANG_SWITCHER_SCRIPT}\n</body>`);

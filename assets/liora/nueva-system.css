@@ -1975,3 +1975,231 @@ so Latin numerals in the price still render in
 
 /* The arrow points the way the reader travels. */
 [dir="rtl"] .dev-cta-arrow { transform: scaleX(-1); }
+
+/* ---------- Mobile header, language panel and drawer (MOBILE-FIX) ----------
+   Below 1121px the nav links are hidden and the bar is just the wordmark plus
+   the three controls. The design puts the controls FIRST and the wordmark
+   last, so the thumb-reachable side of the bar carries the actions. The DOM
+   order stays logo -> links -> switcher -> heart -> burger (that order is what
+   desktop and screen readers want); only the visual order flips, via `order`. */
+@media (max-width: 1120px) {
+  .site-nav,
+  #nav {
+    min-height: 58px;
+    padding: 16px 18px;
+    gap: 8px;
+  }
+
+  .site-nav .nav-burger,
+  #nav .nav-burger { order: 1; }
+
+  .site-nav .nueva-shortlist-mobile-trigger,
+  #nav .nueva-shortlist-mobile-trigger { order: 2; }
+
+  .site-nav [data-lang-switcher-compact],
+  #nav [data-lang-switcher-compact] { order: 3; }
+
+  .site-nav .nav-logo,
+  #nav .nav-logo { order: 4; }
+
+  /* The three squares travel as one cluster at the start of the bar; the
+     wordmark takes the whole remaining run and sits hard against the end. */
+  .site-nav [data-lang-switcher-compact],
+  #nav [data-lang-switcher-compact],
+  [dir="rtl"] .site-nav [data-lang-switcher-compact],
+  [dir="rtl"] #nav [data-lang-switcher-compact] {
+    margin: 0;
+    margin-inline-start: 0;
+  }
+
+  .site-nav .nueva-shortlist-mobile-trigger,
+  #nav .nueva-shortlist-mobile-trigger {
+    margin-inline-end: 0;
+  }
+
+  .site-nav .nav-logo,
+  #nav .nav-logo {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    margin-inline-start: auto;
+    margin-inline-end: 0;
+    padding-inline-end: 0;
+    padding-inline-start: 12px;
+    min-width: 0;
+  }
+
+  /* 40px squares, gold hairline, no radius -- and the raster wordmark gives
+     way to live Cinzel so it stays crisp and can shrink without blurring. */
+  .site-nav .nav-burger,
+  #nav .nav-burger,
+  .site-nav .nueva-shortlist-mobile-trigger,
+  #nav .nueva-shortlist-mobile-trigger,
+  .site-nav [data-lang-switcher-compact] .lang-switcher-toggle,
+  #nav [data-lang-switcher-compact] .lang-switcher-toggle {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    flex: 0 0 40px;
+    border: 1px solid rgba(216, 189, 133, 0.5);
+    border-radius: 0;
+    background: none;
+  }
+
+  .site-nav .nav-logo img,
+  #nav .nav-logo img,
+  .site-nav .nav-logo .nav-wordmark,
+  #nav .nav-logo .nav-wordmark {
+    display: none;
+  }
+
+  .site-nav .nav-logo .nav-wordmark-text,
+  #nav .nav-logo .nav-wordmark-text {
+    display: inline;
+    font-family: var(--nueva-display, 'Cinzel', serif);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--nueva-cream, #f7f4ee);
+  }
+}
+
+/* Language panel: 354px, dropped from the EN square and centred on the
+   viewport rather than hung off one edge, so it clears both sides at 360px
+   and stays put at 430px. The clamp is what the JS viewport nudge used to
+   do by hand. */
+@media (max-width: 1120px) {
+  [data-lang-switcher-compact] .lang-switcher-panel {
+    top: 47px;
+    width: min(354px, calc(100vw - 24px));
+    inset-inline-start: 0;
+    inset-inline-end: auto;
+    transform: translateX(calc(50vw - 18px - 20px - min(354px, 100vw - 24px) / 2));
+  }
+
+  [dir="rtl"] [data-lang-switcher-compact] .lang-switcher-panel {
+    transform: translateX(calc(-1 * (50vw - 18px - 20px - min(354px, 100vw - 24px) / 2)));
+  }
+
+  [data-lang-switcher-compact] .lang-switcher-option {
+    min-height: 46px;
+    padding: 0 16px;
+    font-size: 15px;
+  }
+}
+
+/* ---------- Drawer ----------
+   All six top-level items read as one list: the design stopped splitting
+   them into a Cinzel group and a small-caps group. */
+.mobile-menu {
+  background: #241b14;
+}
+
+.mobile-menu > a,
+.mobile-menu > .nav-dropdown > .nav-dropdown-toggle {
+  font-family: var(--nueva-display, 'Cinzel', serif);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: #f7f4ee;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(247, 244, 238, 0.1);
+}
+
+.mobile-menu > .nav-dropdown {
+  border-bottom: 1px solid rgba(247, 244, 238, 0.1);
+}
+
+.mobile-menu > .nav-dropdown > .nav-dropdown-toggle {
+  border-bottom: 0;
+  color: #d8bd85;
+}
+
+.mobile-menu > .nav-dropdown > .nav-dropdown-toggle .nav-dropdown-caret {
+  width: 14px;
+  height: 14px;
+}
+
+.mobile-menu > .nav-dropdown[open] > .nav-dropdown-toggle .nav-dropdown-caret {
+  transform: rotate(180deg);
+}
+
+/* Contact is the last item in the list -- the actions block below it is not
+   a list item, so the rule under Contact would have been a stray line. */
+.mobile-menu > a:last-of-type {
+  border-bottom: 0;
+}
+
+.mobile-menu .nav-dropdown-panel {
+  padding: 2px 0 4px 16px;
+}
+
+[dir="rtl"] .mobile-menu .nav-dropdown-panel {
+  padding: 2px 16px 4px 0;
+}
+
+.mobile-menu .nav-dropdown-option {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  font-family: var(--nueva-ui, 'Montserrat', sans-serif);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(247, 244, 238, 0.78);
+}
+
+.mobile-menu-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 18px 20px 0;
+  margin-inline: -20px;
+}
+
+.mobile-menu-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 0 10px;
+  border-radius: 0;
+  font-family: var(--nueva-ui, 'Montserrat', sans-serif);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: 0 !important;
+}
+
+.mobile-menu-action svg {
+  flex: 0 0 18px;
+}
+
+.mobile-menu-action--primary {
+  background: #d6c5a0;
+  color: #1a1712;
+}
+
+.mobile-menu-action--secondary {
+  border: 1px solid rgba(216, 189, 133, 0.55);
+  color: #d8bd85;
+}
+
+.mobile-menu-action:focus-visible {
+  outline: 2px solid #c9a45f;
+  outline-offset: 2px;
+}
+
+/* The drawer carries its own contact actions now, so the language block that
+   used to be pinned in it is redundant -- the EN square in the header owns
+   that job on mobile. */
+.mobile-menu .lang-switcher {
+  display: none;
+}

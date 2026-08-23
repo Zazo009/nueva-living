@@ -103,6 +103,16 @@
       </div>
     </details>
     <a href="ar/contact.html">اتصل بنا</a>
+    <div class="mobile-menu-actions">
+      <a class="mobile-menu-action mobile-menu-action--primary" href="https://wa.me/46707576709" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4 0-.5.2-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.1 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.4z"></path></svg>
+        <span>راسلنا على واتساب</span>
+      </a>
+      <a class="mobile-menu-action mobile-menu-action--secondary" href="mailto:contact@nuevaliving.com">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14"></rect><path d="M3 7l9 6 9-6"></path></svg>
+        <span>راسلنا بالبريد</span>
+      </a>
+    </div>
     <details class="lang-switcher" data-lang-switcher>
       <summary class="lang-switcher-toggle" aria-label="اللغة">
         <span class="lang-switcher-code">AR</span>
@@ -221,6 +231,321 @@
       }));
     }
   </script>
+  <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
+  document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+
+      // The panel's CSS anchors it to whichever edge of the toggle its
+      // language convention favors (right on LTR, left on RTL). That
+      // anchor is fine on desktop, but on a narrow phone the toggle can
+      // sit anywhere in the top bar (it gets moved next to the burger
+      // button below 1120px), so a fixed-width panel opening from it can
+      // run off either side of the screen. Clamp it back into view after
+      // layout settles, in viewport coordinates, so it works regardless
+      // of which edge it opened from.
+      var panel = el.querySelector('.lang-switcher-panel');
+      if (!panel) return;
+      requestAnimationFrame(() => {
+        panel.style.left = '';
+        panel.style.right = '';
+        var margin = 12;
+        var elRect = el.getBoundingClientRect();
+        var panelRect = panel.getBoundingClientRect();
+        var overflowRight = panelRect.right - (window.innerWidth - margin);
+        var overflowLeft = margin - panelRect.left;
+        if (overflowRight > 0) {
+          panel.style.right = 'auto';
+          panel.style.left = (panelRect.left - elRect.left - overflowRight) + 'px';
+        } else if (overflowLeft > 0) {
+          panel.style.right = 'auto';
+          panel.style.left = (panelRect.left - elRect.left + overflowLeft) + 'px';
+        }
+      });
+    });
+  });
+
+  // On narrow screens the nav links collapse into the burger menu, which
+  // used to take the language switcher with them -- buried under the menu,
+  // and styled flat so its open panel read as a dark block. Lift it into
+  // the top bar instead, next to the shortlist heart, so it looks and
+  // behaves exactly as it does on desktop. The switcher already inside the
+  // mobile menu is removed so there is only ever one.
+  (function () {
+    var nav = document.querySelector('.site-nav, #nav');
+    var menu = document.querySelector('.mobile-menu');
+    if (!nav) return;
+    var inBar = nav.querySelector('[data-lang-switcher]');
+    var inMenu = menu ? menu.querySelector('[data-lang-switcher]') : null;
+    if (!inBar && !inMenu) return;
+
+    // Prefer the nav-bar copy; if the page only has the menu one, promote it.
+    var switcher = inBar || inMenu;
+    if (switcher === inMenu) nav.appendChild(switcher);
+    else if (inMenu && inMenu.parentNode) inMenu.parentNode.removeChild(inMenu);
+
+    var burger = nav.querySelector('.nav-burger, #burgerBtn');
+    var mq = window.matchMedia('(max-width: 1120px)');
+    var home = switcher.parentNode;
+    var homeNext = switcher.nextSibling;
+
+    function place() {
+      if (mq.matches) {
+        // Sit immediately before the burger, after the heart.
+        if (burger && switcher.nextElementSibling !== burger) nav.insertBefore(switcher, burger);
+        switcher.setAttribute('data-lang-switcher-compact', '');
+      } else {
+        if (switcher.parentNode !== home) home.insertBefore(switcher, homeNext);
+        switcher.removeAttribute('data-lang-switcher-compact');
+      }
+    }
+    place();
+    if (mq.addEventListener) mq.addEventListener('change', place);
+    else if (mq.addListener) mq.addListener(place);
+  })();
+</script>
+  <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
+  document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+
+      // The panel's CSS anchors it to whichever edge of the toggle its
+      // language convention favors (right on LTR, left on RTL). That
+      // anchor is fine on desktop, but on a narrow phone the toggle can
+      // sit anywhere in the top bar (it gets moved next to the burger
+      // button below 1120px), so a fixed-width panel opening from it can
+      // run off either side of the screen. Clamp it back into view after
+      // layout settles, in viewport coordinates, so it works regardless
+      // of which edge it opened from.
+      var panel = el.querySelector('.lang-switcher-panel');
+      if (!panel) return;
+      requestAnimationFrame(() => {
+        panel.style.left = '';
+        panel.style.right = '';
+        var margin = 12;
+        var elRect = el.getBoundingClientRect();
+        var panelRect = panel.getBoundingClientRect();
+        var overflowRight = panelRect.right - (window.innerWidth - margin);
+        var overflowLeft = margin - panelRect.left;
+        if (overflowRight > 0) {
+          panel.style.right = 'auto';
+          panel.style.left = (panelRect.left - elRect.left - overflowRight) + 'px';
+        } else if (overflowLeft > 0) {
+          panel.style.right = 'auto';
+          panel.style.left = (panelRect.left - elRect.left + overflowLeft) + 'px';
+        }
+      });
+    });
+  });
+
+  // On narrow screens the nav links collapse into the burger menu, which
+  // used to take the language switcher with them -- buried under the menu,
+  // and styled flat so its open panel read as a dark block. Lift it into
+  // the top bar instead, next to the shortlist heart, so it looks and
+  // behaves exactly as it does on desktop. The switcher already inside the
+  // mobile menu is removed so there is only ever one.
+  (function () {
+    var nav = document.querySelector('.site-nav, #nav');
+    var menu = document.querySelector('.mobile-menu');
+    if (!nav) return;
+    var inBar = nav.querySelector('[data-lang-switcher]');
+    var inMenu = menu ? menu.querySelector('[data-lang-switcher]') : null;
+    if (!inBar && !inMenu) return;
+
+    // Prefer the nav-bar copy; if the page only has the menu one, promote it.
+    var switcher = inBar || inMenu;
+    if (switcher === inMenu) nav.appendChild(switcher);
+    else if (inMenu && inMenu.parentNode) inMenu.parentNode.removeChild(inMenu);
+
+    var burger = nav.querySelector('.nav-burger, #burgerBtn');
+    var mq = window.matchMedia('(max-width: 1120px)');
+    var home = switcher.parentNode;
+    var homeNext = switcher.nextSibling;
+
+    function place() {
+      if (mq.matches) {
+        // Sit immediately before the burger, after the heart.
+        if (burger && switcher.nextElementSibling !== burger) nav.insertBefore(switcher, burger);
+        switcher.setAttribute('data-lang-switcher-compact', '');
+      } else {
+        if (switcher.parentNode !== home) home.insertBefore(switcher, homeNext);
+        switcher.removeAttribute('data-lang-switcher-compact');
+      }
+    }
+    place();
+    if (mq.addEventListener) mq.addEventListener('change', place);
+    else if (mq.addListener) mq.addListener(place);
+  })();
+</script>
+  <script>
+  // Guides submenu: same dismissal behaviour as the language switcher,
+  // plus Esc to close. Opening one closes the other so the two panels
+  // can never overlap in the bar.
+  document.querySelectorAll('[data-nav-dropdown]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('[data-nav-dropdown][open], [data-lang-switcher][open]').forEach((el) => {
+      el.open = false;
+    });
+  });
+
+  document.querySelectorAll('[data-lang-switcher]').forEach((el) => {
+    document.addEventListener('click', (event) => {
+      if (!el.open) return;
+      if (el.contains(event.target)) return;
+      el.open = false;
+    });
+    el.addEventListener('toggle', () => {
+      if (!el.open) return;
+      document.querySelectorAll('[data-lang-switcher][open], [data-nav-dropdown][open]').forEach((other) => {
+        if (other !== el) other.open = false;
+      });
+
+      // The panel's CSS anchors it to whichever edge of the toggle its
+      // language convention favors (right on LTR, left on RTL). That
+      // anchor is fine on desktop, but on a narrow phone the toggle can
+      // sit anywhere in the top bar (it gets moved next to the burger
+      // button below 1120px), so a fixed-width panel opening from it can
+      // run off either side of the screen. Clamp it back into view after
+      // layout settles, in viewport coordinates, so it works regardless
+      // of which edge it opened from.
+      var panel = el.querySelector('.lang-switcher-panel');
+      if (!panel) return;
+      requestAnimationFrame(() => {
+        panel.style.left = '';
+        panel.style.right = '';
+        var margin = 12;
+        var elRect = el.getBoundingClientRect();
+        var panelRect = panel.getBoundingClientRect();
+        var overflowRight = panelRect.right - (window.innerWidth - margin);
+        var overflowLeft = margin - panelRect.left;
+        if (overflowRight > 0) {
+          panel.style.right = 'auto';
+          panel.style.left = (panelRect.left - elRect.left - overflowRight) + 'px';
+        } else if (overflowLeft > 0) {
+          panel.style.right = 'auto';
+          panel.style.left = (panelRect.left - elRect.left + overflowLeft) + 'px';
+        }
+      });
+    });
+  });
+
+  // On narrow screens the nav links collapse into the burger menu, which
+  // used to take the language switcher with them -- buried under the menu,
+  // and styled flat so its open panel read as a dark block. Lift it into
+  // the top bar instead, next to the shortlist heart, so it looks and
+  // behaves exactly as it does on desktop. The switcher already inside the
+  // mobile menu is removed so there is only ever one.
+  (function () {
+    var nav = document.querySelector('.site-nav, #nav');
+    var menu = document.querySelector('.mobile-menu');
+    if (!nav) return;
+    var inBar = nav.querySelector('[data-lang-switcher]');
+    var inMenu = menu ? menu.querySelector('[data-lang-switcher]') : null;
+    if (!inBar && !inMenu) return;
+
+    // Prefer the nav-bar copy; if the page only has the menu one, promote it.
+    var switcher = inBar || inMenu;
+    if (switcher === inMenu) nav.appendChild(switcher);
+    else if (inMenu && inMenu.parentNode) inMenu.parentNode.removeChild(inMenu);
+
+    var burger = nav.querySelector('.nav-burger, #burgerBtn');
+    var mq = window.matchMedia('(max-width: 1120px)');
+    var home = switcher.parentNode;
+    var homeNext = switcher.nextSibling;
+
+    function place() {
+      if (mq.matches) {
+        // Sit immediately before the burger, after the heart.
+        if (burger && switcher.nextElementSibling !== burger) nav.insertBefore(switcher, burger);
+        switcher.setAttribute('data-lang-switcher-compact', '');
+      } else {
+        if (switcher.parentNode !== home) home.insertBefore(switcher, homeNext);
+        switcher.removeAttribute('data-lang-switcher-compact');
+      }
+    }
+    place();
+    if (mq.addEventListener) mq.addEventListener('change', place);
+    else if (mq.addListener) mq.addListener(place);
+  })();
+</script>
   <script>
   // Guides submenu: same dismissal behaviour as the language switcher,
   // plus Esc to close. Opening one closes the other so the two panels

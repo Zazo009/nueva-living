@@ -13,6 +13,7 @@ import {
   renderLanguageSwitcher,
   renderGuidesMenu,
   guidesMobileLinks,
+  renderDrawerActions,
   LANG_SWITCHER_SCRIPT,
   localizeInternalLinks,
   seoTags
@@ -163,6 +164,7 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
     ${links.slice(0, 4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
     ${guidesMobileLinks(locale)}
     ${links.slice(4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${renderDrawerActions(locale)}
     ${renderLanguageSwitcher(currentOutputPath, locale)}
   </div>`;
 }

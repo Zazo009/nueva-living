@@ -17,6 +17,7 @@ import {
   renderLanguageSwitcher,
   renderGuidesMenu,
   guidesMobileLinks,
+  renderDrawerActions,
   LANG_SWITCHER_SCRIPT
 } from './lib/i18n.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
@@ -1016,6 +1017,7 @@ function nav(project, locale = DEFAULT_LOCALE) {
     <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
     ${guidesMobileLinks(locale, p)}
     <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
+    ${renderDrawerActions(locale)}
     ${renderLanguageSwitcher(outputPath, locale)}
   </div>`;
 }

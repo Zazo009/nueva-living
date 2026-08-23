@@ -107,6 +107,8 @@ function navFooterReplacements(locale) {
     ['>Mortgage Calculator</a>', `>${t('nav.mortgageCalculator', locale)}</a>`],
     ['>Referral &amp; Ambassador</a>', `>${t('nav.referralAmbassador', locale)}</a>`],
     ['>Contact Us<', `>${t('nav.contactUs', locale)}<`],
+    ['<span>WhatsApp Us</span>', `<span>${t('cta.whatsappUs', locale)}</span>`],
+    ['<span>Email Us</span>', `<span>${t('cta.emailUs', locale)}</span>`],
     ['aria-label="Nueva Living — Home"', `aria-label="${t('nav.home', locale)}"`],
     ['aria-label="Menu"', `aria-label="${t('nav.menu', locale)}"`],
     ['New Development Advice', t('footer.about.tagline', locale)],
@@ -524,8 +526,10 @@ for (const meta of LOCALES) {
   // Matched by pattern, not by the link's label: the label has been
   // renamed twice, and each time this anchor stopped matching the mobile
   // switcher silently vanished from every locale homepage.
+  // Anchored on the drawer's email action, which is now its last element
+  // before the switcher -- the Contact link no longer ends the drawer.
   html = html.replace(
-    /(<a href="contact\.html" onclick="closeMobile\(\)">[^<]*<\/a>)\n  <\/div>/,
+    /(<a class="mobile-menu-action mobile-menu-action--secondary"[\s\S]*?<\/a>\n    <\/div>)\n  <\/div>/,
     `$1\n    ${renderSwitcherHtml(locale, true)}\n  </div>`
   );
 
@@ -592,7 +596,7 @@ if (!englishHtml.includes('data-lang-switcher')) {
     `${renderSwitcherHtml(DEFAULT_LOCALE, false)}\n    </ul>\n    <button class="nav-burger"`
   );
   englishHtml = englishHtml.replace(
-    /(<a href="contact\.html" onclick="closeMobile\(\)">[^<]*<\/a>)\n  <\/div>/,
+    /(<a class="mobile-menu-action mobile-menu-action--secondary"[\s\S]*?<\/a>\n    <\/div>)\n  <\/div>/,
     `$1\n    ${renderSwitcherHtml(DEFAULT_LOCALE, true)}\n  </div>`
   );
   englishHtml = englishHtml.replace('</style>\n</head>', `${switcherCss}\n  </style>\n</head>`);
