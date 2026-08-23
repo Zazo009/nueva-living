@@ -2318,15 +2318,23 @@ so Latin numerals in the price still render in
 .site-nav .nav-logo .nav-wordmark-text {
   display: block;
   font-family: var(--nueva-display, 'Cinzel', serif);
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--nueva-cream, #f7f4ee);
   white-space: nowrap;
-  /* Offset by half the trailing letter-space so the tracking does not shift
-     the wordmark off its true optical centre. */
-  text-indent: 0.17em;
+}
+
+/* Desktop metrics only. These were unscoped, and since this block sits after
+   the mobile one at equal specificity they overrode it -- so the wordmark
+   jumped from 12px to 16px the moment you left the homepage on a phone. */
+@media (min-width: 1121px) {
+  .site-nav .nav-logo .nav-wordmark-text {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.34em;
+    /* Offset by half the trailing letter-space so the tracking does not shift
+       the wordmark off its true optical centre. */
+    text-indent: 0.17em;
+  }
 }
 
 /* ---------- Transparent header over the hero, mobile ----------
