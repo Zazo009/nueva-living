@@ -4702,11 +4702,18 @@
     }
 
     @media (min-width: 1121px) {
-      #nav {
+      /* :not(.scrolled) rather than a bare #nav: nueva-system.css loads
+         after this block and sets its own border-bottom-color at equal
+         specificity, so a plain #nav rule here loses and the rule leaks
+         back in. */
+      #nav:not(.scrolled) {
         background: none;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
-        border-bottom-color: rgba(244, 234, 217, 0.14);
+        /* No rule while the header floats over the video -- the hero's
+           own top scrim already separates it. The border returns with
+           the solid background on scroll. */
+        border-bottom-color: transparent;
       }
 
       #nav.scrolled {
