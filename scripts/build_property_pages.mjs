@@ -671,7 +671,7 @@ function responsiveThumb(src, alt) {
   const img = `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async">`;
   if (!candidates.length) return img;
   return `<picture>
-                    <source type="image/webp" srcset="${candidates.join(', ')}" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                    <source type="image/webp" srcset="${candidates.join(', ')}" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                     ${img}
                   </picture>`;
 }
@@ -1934,7 +1934,7 @@ export function loadProjects() {
 // Project cards sit one-per-row on phones, two across on tablets and
 // three on desktop, so the rendered width never approaches the 1920px
 // source.
-const CARD_IMAGE_SIZES = '(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw';
+const CARD_IMAGE_SIZES = '(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw';
 
 // Media-grid tiles sit two-up on phones and four-up on desktop.
 const MEDIA_TILE_SIZES = '(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw';

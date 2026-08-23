@@ -5154,9 +5154,16 @@
         document.body.classList.toggle('menu-open', shouldOpen);
       }
 
+      // Called on every scroll event. Writing the classes unconditionally
+      // invalidated layout each time, so the next scrollY read forced a
+      // synchronous reflow -- 35ms of it by PSI's measurement. The state only
+      // changes twice per page, so write only when it actually flips.
+      let navIsScrolled = null;
       function updateNavScroll() {
         if (!navEl) return;
         const isScrolled = window.scrollY > 60;
+        if (isScrolled === navIsScrolled) return;
+        navIsScrolled = isScrolled;
         navEl.classList.toggle('scrolled', isScrolled);
         mobileMenu.classList.toggle('top-scrolled', isScrolled);
       }
@@ -5413,27 +5420,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-cortijo-blanco-villa-collection.html" data-card-name="Cortijo Blanco Villa Collection">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/exterior-pool-day-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/exterior-pool-day-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/exterior-pool-day-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/exterior-pool-day-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cortijo-blanco-villa-collection/media/exterior-pool-day.jpg" alt="Terras bij het zwembad en tuingevel" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/pool-terrace-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/pool-terrace-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/pool-terrace-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/pool-terrace-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cortijo-blanco-villa-collection/media/pool-terrace.jpg" alt="Zwembad en overdekt terras" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/facade-entrance-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/facade-entrance-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/facade-entrance-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/facade-entrance-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cortijo-blanco-villa-collection/media/facade-entrance.jpg" alt="Entreegevel" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/exterior-dusk-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/exterior-dusk-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/exterior-dusk-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/exterior-dusk-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cortijo-blanco-villa-collection/media/exterior-dusk.jpg" alt="De villa bij schemering" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/pool-night-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/pool-night-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/pool-night-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/pool-night-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cortijo-blanco-villa-collection/media/pool-night.jpg" alt="Zwembad en terras bij nacht" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/facade-night-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/facade-night-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cortijo-blanco-villa-collection/media/facade-night-640.webp 640w, assets/liora/projects/cortijo-blanco-villa-collection/media/facade-night-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cortijo-blanco-villa-collection/media/facade-night.jpg" alt="Tuingevel bij het vallen van de avond" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -5485,27 +5492,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-elviria-hills-residences.html" data-card-name="Elviria Hills Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/exterior-facade-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/exterior-facade-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/exterior-facade-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/exterior-facade-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/elviria-hills-residences/media/exterior-facade.jpg" alt="Golvend hedendaags wooncomplex met beplante terrassen" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/main-pool-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/main-pool-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/main-pool-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/main-pool-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/elviria-hills-residences/media/main-pool.jpg" alt="Gemeenschappelijk zwembad en gazon met de woongebouwen op de achtergrond" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/spa-pool-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/spa-pool-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/spa-pool-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/spa-pool-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/elviria-hills-residences/media/spa-pool.jpg" alt="Binnenspa-zwembad met sauna en loungegedeelte" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/gym-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/gym-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/gym-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/gym-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/elviria-hills-residences/media/gym.jpg" alt="Volledig uitgeruste fitnessruimte met zeezicht" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/coworking-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/coworking-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/coworking-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/coworking-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/elviria-hills-residences/media/coworking.jpg" alt="Binnencoworkinglounge met tuinzicht" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/bedroom-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/bedroom-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/elviria-hills-residences/media/bedroom-640.webp 640w, assets/liora/projects/elviria-hills-residences/media/bedroom-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/elviria-hills-residences/media/bedroom.jpg" alt="Slaapkamer van de modelwoning met toegang tot terras" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -5555,27 +5562,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-rio-real-townhouses.html" data-card-name="Rio Real Townhouses">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/aerial-view-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/aerial-view-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/aerial-view-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/aerial-view-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/rio-real-townhouses/media/aerial-view.jpg" alt="Luchtfoto van het afgeronde project op een heuvel boven Marbella" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/exterior-facade-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/exterior-facade-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/exterior-facade-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/exterior-facade-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/rio-real-townhouses/media/exterior-facade.jpg" alt="Hedendaagse halfvrijstaande woningen met open, glazen woonruimtes" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/twilight-terrace-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/twilight-terrace-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/twilight-terrace-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/twilight-terrace-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/rio-real-townhouses/media/twilight-terrace.jpg" alt="Terras en tuin van de woning bij schemering" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/communal-pool-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/communal-pool-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/communal-pool-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/communal-pool-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/rio-real-townhouses/media/communal-pool.jpg" alt="Gemeenschappelijk zwembad met de woningen op de achtergrond" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/solarium-terrace-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/solarium-terrace-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/solarium-terrace-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/solarium-terrace-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/rio-real-townhouses/media/solarium-terrace.jpg" alt="Eetterras op het dakzwembad met open zeezicht" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/living-room-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/living-room-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/rio-real-townhouses/media/living-room-640.webp 640w, assets/liora/projects/rio-real-townhouses/media/living-room-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/rio-real-townhouses/media/living-room.jpg" alt="Woonkamer met dubbele hoogte in de modelwoning met beglazing van vloer tot plafond" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -5626,27 +5633,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-altos-de-marbella.html" data-card-name="Altos de Marbella Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool-640.webp 640w, assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool-640.webp 640w, assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg" alt="Luchtfoto van de ontwikkelaar van Altos de Marbella bij schemering, met het zwembadterras en de hooggelegen omgeving" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/exterior-entrance-dusk-640.webp 640w, assets/liora/projects/altos-de-marbella/media/exterior-entrance-dusk-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/exterior-entrance-dusk-640.webp 640w, assets/liora/projects/altos-de-marbella/media/exterior-entrance-dusk-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/altos-de-marbella/media/exterior-entrance-dusk.jpg" alt="Beeld van de ontwikkelaar van de toegang en entree van het gebouw bij schemering" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/villa-facade-detail-640.webp 640w, assets/liora/projects/altos-de-marbella/media/villa-facade-detail-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/villa-facade-detail-640.webp 640w, assets/liora/projects/altos-de-marbella/media/villa-facade-detail-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/altos-de-marbella/media/villa-facade-detail.jpg" alt="Beeld van de ontwikkelaar van de laagbouw gevel met details in hout en steen" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/aerial-twilight-overview-640.webp 640w, assets/liora/projects/altos-de-marbella/media/aerial-twilight-overview-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/aerial-twilight-overview-640.webp 640w, assets/liora/projects/altos-de-marbella/media/aerial-twilight-overview-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/altos-de-marbella/media/aerial-twilight-overview.jpg" alt="Luchtfoto van de ontwikkelaar met Altos de Marbella in de omgeving van Marbella Este bij zonsondergang" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/rooftop-pool-aerial-640.webp 640w, assets/liora/projects/altos-de-marbella/media/rooftop-pool-aerial-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/rooftop-pool-aerial-640.webp 640w, assets/liora/projects/altos-de-marbella/media/rooftop-pool-aerial-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/altos-de-marbella/media/rooftop-pool-aerial.jpg" alt="Luchtfoto van de ontwikkelaar van de terrassen met privézwembad op het dak" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/rooftop-infinity-pool-640.webp 640w, assets/liora/projects/altos-de-marbella/media/rooftop-infinity-pool-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/altos-de-marbella/media/rooftop-infinity-pool-640.webp 640w, assets/liora/projects/altos-de-marbella/media/rooftop-infinity-pool-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/altos-de-marbella/media/rooftop-infinity-pool.jpg" alt="Beeld van de ontwikkelaar van een privé infinity pool op het dak bij zonsopgang" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -5696,27 +5703,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-bel-air-villa-collection.html" data-card-name="Bel Air Villa Collection">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/bel-air-villa-collection/media/exterior-frontview.jpg" alt="Eigentijdse voorgevel van de villa met zwembadterras en aangelegde tuin" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-pool-terrace-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-pool-terrace-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-pool-terrace-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-pool-terrace-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/bel-air-villa-collection/media/exterior-pool-terrace.jpg" alt="Privézwembad en overdekt terras in verbinding met de open keuken" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-facade-night-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-facade-night-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-facade-night-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-facade-night-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/bel-air-villa-collection/media/exterior-facade-night.jpg" alt="Verlichte voorgevel van de villa bij nacht boven het zwembad" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-entrance-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-entrance-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-entrance-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-entrance-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/bel-air-villa-collection/media/exterior-entrance.jpg" alt="Entreegevel van de villa met decoratieve bekleding en overdekte parkeerplaats" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-facade-side-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-facade-side-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-facade-side-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-facade-side-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/bel-air-villa-collection/media/exterior-facade-side.jpg" alt="Zijaanzicht van de villa met de overdekte terrassen" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-garden-lounge-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-garden-lounge-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-garden-lounge-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-garden-lounge-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/bel-air-villa-collection/media/exterior-garden-lounge.jpg" alt="Buitenzitje naast het zwembad en de aangelegde tuin" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -5767,27 +5774,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-cancelada-park.html" data-card-name="Cancelada Park">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/aerial-courtyard-640.webp 640w, assets/liora/projects/cancelada-park/media/aerial-courtyard-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/aerial-courtyard-640.webp 640w, assets/liora/projects/cancelada-park/media/aerial-courtyard-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cancelada-park/media/aerial-courtyard.jpg" alt="Luchtfoto van de projectontwikkelaar van Cancelada Park en de aangelegde zwembadtuinen" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/pool-garden-640.webp 640w, assets/liora/projects/cancelada-park/media/pool-garden-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/pool-garden-640.webp 640w, assets/liora/projects/cancelada-park/media/pool-garden-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cancelada-park/media/pool-garden.jpg" alt="Beeld van de projectontwikkelaar van het zwembad en de op de tuin georiënteerde woningen bij Cancelada Park" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/garden-terrace-lounge-640.webp 640w, assets/liora/projects/cancelada-park/media/garden-terrace-lounge-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/garden-terrace-lounge-640.webp 640w, assets/liora/projects/cancelada-park/media/garden-terrace-lounge-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cancelada-park/media/garden-terrace-lounge.jpg" alt="Beeld van de projectontwikkelaar van een privéterras met tuin bij Cancelada Park" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/penthouse-terrace-one-640.webp 640w, assets/liora/projects/cancelada-park/media/penthouse-terrace-one-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/penthouse-terrace-one-640.webp 640w, assets/liora/projects/cancelada-park/media/penthouse-terrace-one-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cancelada-park/media/penthouse-terrace-one.jpg" alt="Beeld van de projectontwikkelaar van een penthouseterras bij Cancelada Park" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/new-golden-mile-aerial-640.webp 640w, assets/liora/projects/cancelada-park/media/new-golden-mile-aerial-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/new-golden-mile-aerial-640.webp 640w, assets/liora/projects/cancelada-park/media/new-golden-mile-aerial-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cancelada-park/media/new-golden-mile-aerial.jpg" alt="Luchtfoto van de projectontwikkelaar met de omgeving van de New Golden Mile rond Cancelada Park" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/resort-wellness-640.webp 640w, assets/liora/projects/cancelada-park/media/resort-wellness-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/cancelada-park/media/resort-wellness-640.webp 640w, assets/liora/projects/cancelada-park/media/resort-wellness-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/cancelada-park/media/resort-wellness.jpg" alt="Indicatief beeld van de projectontwikkelaar van de spa- en wellnessfaciliteiten in het bredere resortplan" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -5837,27 +5844,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-marbella-west-garden-residences.html" data-card-name="Marbella West Garden Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/exterior-4-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/exterior-4-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/exterior-4-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/exterior-4-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/marbella-west-garden-residences/media/exterior-4.jpg" alt="Beeld van de ontwikkelaar van de beplante centrale tuin en het buitenzwembad bij Marbella West Garden Residences" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/amenities-3-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/amenities-3-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/amenities-3-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/amenities-3-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/marbella-west-garden-residences/media/amenities-3.jpg" alt="Beeld van de ontwikkelaar van het infinity-zwembad op het dak met zeezicht bij Marbella West Garden Residences" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/living-3-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/living-3-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/living-3-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/living-3-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/marbella-west-garden-residences/media/living-3.jpg" alt="Beeld van de ontwikkelaar van een op zee georiënteerde woonkamer bij Marbella West Garden Residences" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/terrace-5-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/terrace-5-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/terrace-5-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/terrace-5-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/marbella-west-garden-residences/media/terrace-5.jpg" alt="Beeld van de ontwikkelaar van een terras bij het dakzwembad bij Marbella West Garden Residences" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/exterior-1-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/exterior-1-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/exterior-1-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/exterior-1-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/marbella-west-garden-residences/media/exterior-1.jpg" alt="Beeld van de ontwikkelaar van de beplante straatgevel bij Marbella West Garden Residences" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/amenities-7-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/amenities-7-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/marbella-west-garden-residences/media/amenities-7-640.webp 640w, assets/liora/projects/marbella-west-garden-residences/media/amenities-7-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/marbella-west-garden-residences/media/amenities-7.jpg" alt="Beeld van de ontwikkelaar van het binnenbad voor baantjes zwemmen en de lounge bij Marbella West Garden Residences" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -5908,27 +5915,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-vega-verde-residences.html" data-card-name="Vega Verde Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/exterior-pool-gardens-640.webp 640w, assets/liora/projects/vega-verde-residences/media/exterior-pool-gardens-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/exterior-pool-gardens-640.webp 640w, assets/liora/projects/vega-verde-residences/media/exterior-pool-gardens-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/vega-verde-residences/media/exterior-pool-gardens.jpg" alt="Impressie van de ontwikkelaar van het buitenzwembad en de aangelegde tuinen" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/exterior-pool-day-640.webp 640w, assets/liora/projects/vega-verde-residences/media/exterior-pool-day-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/exterior-pool-day-640.webp 640w, assets/liora/projects/vega-verde-residences/media/exterior-pool-day-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/vega-verde-residences/media/exterior-pool-day.jpg" alt="Impressie van de ontwikkelaar van het buitenzwembadterras overdag" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/aerial-sunset-640.webp 640w, assets/liora/projects/vega-verde-residences/media/aerial-sunset-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/aerial-sunset-640.webp 640w, assets/liora/projects/vega-verde-residences/media/aerial-sunset-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/vega-verde-residences/media/aerial-sunset.jpg" alt="Luchtfoto-impressie van de ontwikkelaar met Vega Verde Residences in de omliggende Golf Valley van Nueva Andalucía bij zonsondergang" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/bedroom-suite-640.webp 640w, assets/liora/projects/vega-verde-residences/media/bedroom-suite-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/bedroom-suite-640.webp 640w, assets/liora/projects/vega-verde-residences/media/bedroom-suite-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/vega-verde-residences/media/bedroom-suite.jpg" alt="Impressie van de ontwikkelaar van een hoofdslaapkamer-suite met kleedruimte" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/residence-garden-terrace-640.webp 640w, assets/liora/projects/vega-verde-residences/media/residence-garden-terrace-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/residence-garden-terrace-640.webp 640w, assets/liora/projects/vega-verde-residences/media/residence-garden-terrace-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/vega-verde-residences/media/residence-garden-terrace.jpg" alt="Impressie van de ontwikkelaar van een terras met tuin bij een woning op de begane grond" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/bathroom-ensuite-640.webp 640w, assets/liora/projects/vega-verde-residences/media/bathroom-ensuite-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/media/bathroom-ensuite-640.webp 640w, assets/liora/projects/vega-verde-residences/media/bathroom-ensuite-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/vega-verde-residences/media/bathroom-ensuite.jpg" alt="Beeld van de ontwikkelaar van een en-suite badkamer met douche" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -5979,27 +5986,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-alisios-residences.html" data-card-name="Alisios Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/aerial-golf-sea-view-640.webp 640w, assets/liora/projects/alisios-residences/media/aerial-golf-sea-view-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/aerial-golf-sea-view-640.webp 640w, assets/liora/projects/alisios-residences/media/aerial-golf-sea-view-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/alisios-residences/media/aerial-golf-sea-view.jpg" alt="Luchtfoto van de ontwikkelaar van Alisios Residences omgeven door de golfbaan van Guadalmina en de zee" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/exterior-dusk-640.webp 640w, assets/liora/projects/alisios-residences/media/exterior-dusk-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/exterior-dusk-640.webp 640w, assets/liora/projects/alisios-residences/media/exterior-dusk-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/alisios-residences/media/exterior-dusk.jpg" alt="Beeld van de ontwikkelaar van de eigentijdse gevel bij schemering met aangelegde tuinen" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/aerial-rooftop-pools-640.webp 640w, assets/liora/projects/alisios-residences/media/aerial-rooftop-pools-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/aerial-rooftop-pools-640.webp 640w, assets/liora/projects/alisios-residences/media/aerial-rooftop-pools-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/alisios-residences/media/aerial-rooftop-pools.jpg" alt="Luchtfoto van de ontwikkelaar van de dakzwembaden naast de golfbaan" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/rooftop-terrace-lounge-640.webp 640w, assets/liora/projects/alisios-residences/media/rooftop-terrace-lounge-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/rooftop-terrace-lounge-640.webp 640w, assets/liora/projects/alisios-residences/media/rooftop-terrace-lounge-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/alisios-residences/media/rooftop-terrace-lounge.jpg" alt="Beeld van de ontwikkelaar van een overdekte lounge en eetruimte op het dakterras" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/terrace-golf-sea-view-640.webp 640w, assets/liora/projects/alisios-residences/media/terrace-golf-sea-view-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/terrace-golf-sea-view-640.webp 640w, assets/liora/projects/alisios-residences/media/terrace-golf-sea-view-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/alisios-residences/media/terrace-golf-sea-view.jpg" alt="Beeld van de ontwikkelaar van een privéterras met uitzicht op de golfbaan richting zee" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/living-room-golf-view-640.webp 640w, assets/liora/projects/alisios-residences/media/living-room-golf-view-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/alisios-residences/media/living-room-golf-view-640.webp 640w, assets/liora/projects/alisios-residences/media/living-room-golf-view-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/alisios-residences/media/living-room-golf-view.jpg" alt="Beeld van de ontwikkelaar van een open woonkamer die uitkomt op een terras met golfzicht" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -6050,27 +6057,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-los-olivos-residences.html" data-card-name="Los Olivos Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/aerial-development-golf-valley-640.webp 640w, assets/liora/projects/los-olivos-residences/media/aerial-development-golf-valley-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/aerial-development-golf-valley-640.webp 640w, assets/liora/projects/los-olivos-residences/media/aerial-development-golf-valley-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/los-olivos-residences/media/aerial-development-golf-valley.jpg" alt="Luchtfoto van het project in de Golf Valley van Marbella" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/aerial-phase-overview-640.webp 640w, assets/liora/projects/los-olivos-residences/media/aerial-phase-overview-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/aerial-phase-overview-640.webp 640w, assets/liora/projects/los-olivos-residences/media/aerial-phase-overview-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/los-olivos-residences/media/aerial-phase-overview.jpg" alt="Luchtfoto van de bouwvoortgang van Fase I naast de kavel van Fase II" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/terrace-dining-la-concha-640.webp 640w, assets/liora/projects/los-olivos-residences/media/terrace-dining-la-concha-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/terrace-dining-la-concha-640.webp 640w, assets/liora/projects/los-olivos-residences/media/terrace-dining-la-concha-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/los-olivos-residences/media/terrace-dining-la-concha.jpg" alt="Privéterras eetgedeelte met uitzicht op de berg La Concha" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/terrace-lounge-640.webp 640w, assets/liora/projects/los-olivos-residences/media/terrace-lounge-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/terrace-lounge-640.webp 640w, assets/liora/projects/los-olivos-residences/media/terrace-lounge-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/los-olivos-residences/media/terrace-lounge.jpg" alt="Terraslounge met zitgedeelte en uitzicht over de omliggende heuvels" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/dining-terrace-view-640.webp 640w, assets/liora/projects/los-olivos-residences/media/dining-terrace-view-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/dining-terrace-view-640.webp 640w, assets/liora/projects/los-olivos-residences/media/dining-terrace-view-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/los-olivos-residences/media/dining-terrace-view.jpg" alt="Eetterras met hanglampen en berguitzicht" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/kitchen-marble-island-640.webp 640w, assets/liora/projects/los-olivos-residences/media/kitchen-marble-island-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/los-olivos-residences/media/kitchen-marble-island-640.webp 640w, assets/liora/projects/los-olivos-residences/media/kitchen-marble-island-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/los-olivos-residences/media/kitchen-marble-island.jpg" alt="Keuken van de modelwoning met marmeren eiland" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -6121,27 +6128,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-jardin-del-mar-residences.html" data-card-name="Jardin del Mar Residences">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day.jpg" alt="Exterieurrender van het project met een door palmbomen omzoomd gemeenschappelijk zwembad overdag" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/aerial-coastline-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/aerial-coastline-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/aerial-coastline-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/aerial-coastline-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/jardin-del-mar-residences/media/aerial-coastline.jpg" alt="Luchtfoto van de kustlijn van Estepona" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-night-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-night-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-night-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-night-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-night.jpg" alt="Exterieurrender van het project met een door palmbomen omzoomd gemeenschappelijk zwembad 's nachts" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/courtyard-facade-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/courtyard-facade-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/courtyard-facade-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/courtyard-facade-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/jardin-del-mar-residences/media/courtyard-facade.jpg" alt="Gevel van de binnenplaats van het gebouw met pergola en palmbomen" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/courtyard-walkway-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/courtyard-walkway-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/courtyard-walkway-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/courtyard-walkway-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/jardin-del-mar-residences/media/courtyard-walkway.jpg" alt="Aangelegde wandelpad tussen twee woonblokken" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/restaurant-bar-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/restaurant-bar-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/media/restaurant-bar-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/media/restaurant-bar-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/jardin-del-mar-residences/media/restaurant-bar.jpg" alt="Restaurant en bar ter plaatse met uitzicht op de tuin" loading="lazy" decoding="async">
                     </picture>
                     </div>
@@ -6192,27 +6199,27 @@
                 <div class="project-card-gallery" data-project-card-gallery data-card-url="nl/property-el-campanario-golf-villa.html" data-card-name="El Campanario Golf Villa">
                     <div class="project-card-gallery-track" data-gallery-track>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool.jpg" alt="De villa vanuit de tuin, met het zwembad en de overkragende bovenverdieping" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/villa-entrance-dusk-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/villa-entrance-dusk-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/villa-entrance-dusk-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/villa-entrance-dusk-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/el-campanario-golf-villa/media/villa-entrance-dusk.jpg" alt="Straataanzicht bij schemering, met de bovenverdieping overkragend boven de entree" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/terrace-golf-frontage-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/terrace-golf-frontage-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/terrace-golf-frontage-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/terrace-golf-frontage-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/el-campanario-golf-villa/media/terrace-golf-frontage.jpg" alt="Terras en zwembad met uitzicht over de golfbaan" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/living-room-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/living-room-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/living-room-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/living-room-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/el-campanario-golf-villa/media/living-room.jpg" alt="Open woonkamer met de keuken en trap op de achtergrond" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/dining-and-living-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/dining-and-living-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/dining-and-living-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/dining-and-living-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/el-campanario-golf-villa/media/dining-and-living.jpg" alt="Eettafel en zithoek met beglazing van vloer tot plafond naar de tuin" loading="lazy" decoding="async">
                     </picture>
                     <picture>
-                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/entrance-hall-staircase-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/entrance-hall-staircase-960.webp 960w" sizes="(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw">
+                      <source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/entrance-hall-staircase-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/entrance-hall-staircase-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
                       <img src="assets/liora/projects/el-campanario-golf-villa/media/entrance-hall-staircase.jpg" alt="Entreehal met een open trap en plantenbed eronder" loading="lazy" decoding="async">
                     </picture>
                     </div>

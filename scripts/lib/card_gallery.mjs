@@ -13,7 +13,12 @@
 
 import { existsSync } from 'node:fs';
 
-export const CARD_IMAGE_SIZES = '(max-width: 640px) 92vw, (max-width: 1100px) 46vw, 30vw';
+// Measured, not estimated: the card image renders at 86.9-88.5vw across
+// 320-430px. The declared 92vw was an over-estimate, and it tipped the
+// browser past the 640w candidate into the 960w one on a 412px/1.75dpr
+// device -- 638 device px needed, 640 available, 663 requested. PSI
+// scored that as ~159KB of oversized images.
+export const CARD_IMAGE_SIZES = '(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw';
 
 function esc(value) {
   return String(value ?? '')

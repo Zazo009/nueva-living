@@ -737,8 +737,13 @@ const gtmHeadSnippet = `<!-- Google Tag Manager + Google tag (gtag.js) -->
       function start() {
         if (started) return;
         started = true;
-        ['https://www.googletagmanager.com/gtm.js?id=${GTM_ID}',
-         'https://www.googletagmanager.com/gtag/js?id=${GA4_ID}'].forEach(function (src) {
+        // Only the container. GA4 used to be loaded directly here as well,
+        // but the container already carries a GA4 tag and fetches gtag.js
+        // itself -- the network showed gtag/js?id=<GA4> twice, ~182KB
+        // duplicated, and it was the single largest slice of unused
+        // JavaScript on the page. dataLayer and the gtag() shim below stay,
+        // so every queued hit still replays through the container.
+        ['https://www.googletagmanager.com/gtm.js?id=${GTM_ID}'].forEach(function (src) {
           var s = d.createElement('script');
           s.async = true;
           s.src = src;

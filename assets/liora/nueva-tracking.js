@@ -1,6 +1,15 @@
 (() => {
   'use strict';
 
+// Cached once at parse time. Reading window.innerWidth/Height inside the
+// payload builder forced a synchronous layout on every send.
+let viewportWidth = window.innerWidth;
+let viewportHeight = window.innerHeight;
+window.addEventListener('resize', () => {
+  viewportWidth = window.innerWidth;
+  viewportHeight = window.innerHeight;
+}, { passive: true });
+
   const endpoint = '/.netlify/functions/nueva-track';
   const sessionKey = '_nl_sid';
   const sessionTimestampKey = '_nl_ts';
@@ -143,8 +152,11 @@
       browser: browserName(),
       os: operatingSystem(),
       language: navigator.language || '',
-      viewport_width: window.innerWidth,
-      viewport_height: window.innerHeight,
+      // Read once at load rather than mid-payload: querying innerWidth after
+      // the DOM has been touched forces a synchronous layout, which PSI
+      // measured at 66ms of forced reflow.
+      viewport_width: viewportWidth,
+      viewport_height: viewportHeight,
       utm_source: acquisition.utm_source || '',
       utm_medium: acquisition.utm_medium || '',
       utm_campaign: acquisition.utm_campaign || '',
