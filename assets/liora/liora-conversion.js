@@ -428,3 +428,61 @@
     }
   }, { capture: true });
 })();
+
+// ---------------------------------------------------------------------------
+// Mobile drawer: focus management (WCAG 2.4.11, 2.4.3)
+//
+// The drawer covers the whole viewport and locks body scroll, but the ~300
+// focusable elements behind it stayed in the tab order. A keyboard user opened
+// the menu and tabbed straight into content that is completely hidden behind
+// the overlay -- which is what 2.4.11 Focus Not Obscured prohibits. Escape did
+// not close it either.
+//
+// The toggle itself is written inline in seven different page templates, so
+// this attaches generically instead of patching each copy: it watches
+// aria-expanded on the burger and reacts, whichever copy did the toggling.
+// Purely behavioural -- nothing here changes what the drawer looks like.
+(() => {
+  const burger = document.querySelector('.nav-burger');
+  const menu = document.getElementById('mobileMenu');
+  if (!burger || !menu) return;
+
+  // Everything outside the drawer and the button that opens it. `inert` takes
+  // the subtree out of the tab order and hides it from assistive tech in one
+  // step, which is exactly the semantics wanted here.
+  const outside = () => Array.from(document.body.children)
+    .filter((el) => !el.contains(menu) && !el.contains(burger));
+
+  let restoreFocusTo = null;
+
+  const onOpen = () => {
+    // document.activeElement is <body> when nothing was focused -- focusing
+    // that on close leaves the user nowhere, so fall back to the button that
+    // opened the drawer.
+    const active = document.activeElement;
+    restoreFocusTo = active && active !== document.body ? active : burger;
+    outside().forEach((el) => el.setAttribute('inert', ''));
+    const first = menu.querySelector('a[href], button, [tabindex]:not([tabindex="-1"])');
+    if (first) first.focus();
+  };
+
+  const onClose = () => {
+    outside().forEach((el) => el.removeAttribute('inert'));
+    // Send focus back where it came from, so closing the menu does not dump
+    // the user at the top of the document.
+    if (restoreFocusTo && document.contains(restoreFocusTo)) restoreFocusTo.focus();
+    else burger.focus();
+    restoreFocusTo = null;
+  };
+
+  new MutationObserver(() => {
+    if (burger.getAttribute('aria-expanded') === 'true') onOpen();
+    else if (restoreFocusTo !== null) onClose();
+  }).observe(burger, { attributes: true, attributeFilter: ['aria-expanded'] });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    if (burger.getAttribute('aria-expanded') !== 'true') return;
+    burger.click();
+  });
+})();

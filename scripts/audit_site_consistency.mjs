@@ -437,6 +437,32 @@ for (const file of countPlaceholderPages) {
   }
 }
 
+// Accessibility fixes that are invisible by construction, and therefore the
+// easiest kind to lose: nothing looks wrong when they regress.
+let a11yPagesChecked = 0;
+for (const file of countPlaceholderPages) {
+  const relative = path.relative(dist, file);
+  const html = fs.readFileSync(file, 'utf8');
+  a11yPagesChecked += 1;
+
+  // WCAG 2.4.1 -- injected by build_dist, so a change to that pipeline drops it
+  // from every page at once rather than from one.
+  if (!/data-skip-link/.test(html)) {
+    fail(relative, 'no skip link, so a keyboard user must tab through the whole navigation '
+      + 'on every page');
+  } else if (!/<main[^>]*\sid="main-content"/.test(html)) {
+    fail(relative, 'has a skip link but no #main-content for it to land on');
+  }
+
+  // WCAG 1.3.1 / 4.1.2 -- the visible label sits in a <div>, so the association
+  // is explicit and silently droppable. A screen reader gets "slider" without it.
+  for (const control of html.matchAll(/<input[^>]*\bdata-calc-(price-range|price|deposit|term)\b[^>]*>/g)) {
+    if (!/aria-labelledby=|aria-label=/.test(control[0])) {
+      fail(relative, `the calculator's ${control[1]} control has no accessible name`);
+    }
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -451,5 +477,6 @@ if (failures.length) {
     + `${heroTitlesChecked} hero titles measured against their font-size cap, `
     + `${leadFormsChecked} CRM lead forms checked for a honeypot, `
     + `${schemaRefsChecked} schema @id references resolved, `
-    + `${guidesChecked} guides checked for a named author.`);
+    + `${guidesChecked} guides checked for a named author, `
+    + `${a11yPagesChecked} pages checked for skip link and labelled controls.`);
 }

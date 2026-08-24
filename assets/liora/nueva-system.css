@@ -1275,10 +1275,21 @@ html[lang="ru"] #nav .nav-links a {
 }
 
 /* Arrows are revealed on hover, which no touch device can do -- without
-   this the only way to change image on a phone was the swipe. */
+   this the only way to change image on a phone was the swipe.
+ *
+ * This rule used to set opacity alone, and did nothing: liora-pages.css sets
+ * `display: none` under the same (hover: none) query, and no amount of
+ * opacity brings back a display:none element. The arrows were invisible on
+ * every phone, which left swipe as the only way to browse a gallery -- a
+ * dragging movement with no alternative (WCAG 2.5.7) -- and left the 6x2px
+ * dots as the only visible control, well under the 24x24 minimum (2.5.8).
+ * At 34x34 the arrows clear that minimum, so they are the equivalent control
+ * that exempts the dots. */
 @media (hover: none) {
   .project-card-gallery .project-card-gallery-arrow {
+    display: flex;
     opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -2530,4 +2541,46 @@ so Latin numerals in the price still render in
   .breadcrumb-bar {
     margin-top: var(--nueva-header-h);
   }
+}
+
+/* Skip link -- off-screen until it takes keyboard focus, so it is invisible in
+   normal use and the first Tab on any page can jump past the navigation. */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -100px;
+  z-index: 10000;
+  padding: 12px 18px;
+  background: var(--nueva-deep, #241b14);
+  color: #fffaf2;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus-visible,
+.skip-link:focus {
+  top: 12px;
+  outline: 2px solid #fffaf2;
+  outline-offset: 2px;
+}
+
+/* An 89px fixed header sits over the top of the document, so anything the
+   browser scrolls to the top of the viewport -- an in-page anchor, or a
+   focused element it brings into view while tabbing -- lands underneath it.
+   WCAG 2.4.11 Focus Not Obscured. */
+html {
+  scroll-padding-top: calc(var(--nueva-header-h, 89px) + 12px);
+}
+
+/* Range tracks are 4px tall by design. The pointer target has to be at least
+   24px (WCAG 2.5.8), so the input grows with transparent padding while the
+   visible track stays exactly where it was. */
+input[type="range"] {
+  min-height: 24px;
+  background: transparent;
 }

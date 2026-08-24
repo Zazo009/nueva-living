@@ -1063,6 +1063,23 @@ function stampAssetVersions(html) {
   );
 }
 
+// A skip link, injected once here rather than into the seven page templates
+// that each carry their own <body> markup. Hidden until it takes focus, so it
+// changes nothing about how the site looks; the first Tab on any page now
+// jumps past the navigation instead of walking through it.
+function injectSkipLink(html, locale) {
+  if (html.includes('data-skip-link')) return html;
+  const target = /<main\b[^>]*\sid="/.test(html) ? null : '<main';
+  const withId = target
+    ? html.replace(/<main\b/, '<main id="main-content"')
+    : html;
+  const label = t('a11y.skipToContent', locale);
+  return withId.replace(
+    /(<body[^>]*>)/i,
+    `$1\n  <a class="skip-link" data-skip-link href="#main-content">${label}</a>`
+  );
+}
+
 function injectSystemStyles(html) {
   if (html.includes(systemStylesheetPath) || html.includes('data-nueva-system')) return html;
   return html.replace(
@@ -1245,10 +1262,22 @@ function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
   const locale = localeFromPublicName(publicName);
-  const productionHtml = externalizeHomepageController(
-    stampAssetVersions(clampMetaDescriptions(injectGtm(injectSystemStyles(injectNavInteractions(injectShortlist(injectNewsletter(injectConversion(injectTracking(inheritLocaleRobots(injectSeo(html, publicName), publicName))), locale))))))),
-    publicName
-  );
+  // Written as steps rather than a fourteen-deep call chain: which stage
+  // received `locale` was impossible to read, and the skip link shipped in
+  // English on every locale because of it.
+  let out = injectSeo(html, publicName);
+  out = inheritLocaleRobots(out, publicName);
+  out = injectTracking(out);
+  out = injectConversion(out);
+  out = injectNewsletter(out, locale);
+  out = injectShortlist(out);
+  out = injectNavInteractions(out);
+  out = injectSkipLink(out, locale);
+  out = injectSystemStyles(out);
+  out = injectGtm(out);
+  out = clampMetaDescriptions(out);
+  out = stampAssetVersions(out);
+  const productionHtml = externalizeHomepageController(out, publicName);
   fs.writeFileSync(target, optimizeHtml(productionHtml));
 }
 

@@ -1623,18 +1623,18 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
         <div class="calculator-panel reveal-soft" data-calculator>
           <div class="calculator-inputs">
             <div class="calculator-field calculator-field--dual">
-              <div class="calculator-field-label"><span>${t('calculator.purchasePrice', locale)}</span><em data-calc-price-readout>&euro;0</em></div>
-              <input type="range" data-calc-price-range min="150000" max="3000000" step="5000" value="${esc(calculatorSeedPrice)}">
-              <input type="number" data-calc-price value="${esc(calculatorSeedPrice)}" min="0" step="1000" class="calculator-field-number">
+              <div class="calculator-field-label"><span id="calc-price-label">${t('calculator.purchasePrice', locale)}</span><em data-calc-price-readout>&euro;0</em></div>
+              <input type="range" data-calc-price-range aria-labelledby="calc-price-label" min="150000" max="3000000" step="5000" value="${esc(calculatorSeedPrice)}">
+              <input type="number" data-calc-price aria-labelledby="calc-price-label" value="${esc(calculatorSeedPrice)}" min="0" step="1000" class="calculator-field-number">
             </div>
             <div class="calculator-field calculator-field--dual">
-              <div class="calculator-field-label"><span>${t('calculator.deposit', locale)}</span><em data-calc-deposit-readout>30% &middot; &euro;0</em></div>
-              <input type="range" data-calc-deposit min="10" max="100" step="5" value="30">
+              <div class="calculator-field-label"><span id="calc-deposit-label">${t('calculator.deposit', locale)}</span><em data-calc-deposit-readout>30% &middot; &euro;0</em></div>
+              <input type="range" data-calc-deposit aria-labelledby="calc-deposit-label" min="10" max="100" step="5" value="30">
               <em class="calculator-field-hint">${t('calculator.depositHint', locale)}</em>
             </div>
             <div class="calculator-field calculator-field--dual">
-              <div class="calculator-field-label"><span>${t('calculator.mortgageTerm', locale)}</span><em data-calc-term-readout>25 ${t('common.years', locale)}</em></div>
-              <input type="range" data-calc-term min="5" max="35" step="1" value="25">
+              <div class="calculator-field-label"><span id="calc-term-label">${t('calculator.mortgageTerm', locale)}</span><em data-calc-term-readout>25 ${t('common.years', locale)}</em></div>
+              <input type="range" data-calc-term aria-labelledby="calc-term-label" min="5" max="35" step="1" value="25">
             </div>
             <div class="calculator-field calculator-field--split">
               <label>
