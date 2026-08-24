@@ -623,6 +623,50 @@ function guidesCalculatorSection() {
 
 const PROCESS_GUIDES = [
   {
+    output: 'guide-bank-guarantee-off-plan-spain.html',
+    // Built in English only, so it is only offered on the English hub --
+    // linking a Swedish reader to an English-bodied page is a worse
+    // experience than not showing the card.
+    englishOnly: true,
+    kicker: 'Buying Guide',
+    title: 'Bank Guarantees Explained',
+    description: 'What actually protects an off-plan deposit under Spanish law, and the point in the timeline at which the statutory guarantee has not started yet.',
+    image: 'assets/nueva/journey/reservation-legal-1200.webp',
+    alt: 'Buyer reviewing purchase contract documents with legal guidance'
+  },
+  {
+    output: 'guide-off-plan-payment-schedules.html',
+    // Built in English only, so it is only offered on the English hub --
+    // linking a Swedish reader to an English-bodied page is a worse
+    // experience than not showing the card.
+    englishOnly: true,
+    kicker: 'Buying Guide',
+    title: 'Off-Plan Payment Schedules',
+    description: 'The staged payment structures the developers on this site have supplied in writing, from reservation through to the balance at deed.',
+    image: 'assets/nueva/journey/project-review-v2-1200.webp',
+    alt: 'Reviewing a development payment schedule and floorplans'
+  },
+  {
+    output: 'guide-new-build-warranties-snagging.html',
+    // Built in English only, so it is only offered on the English hub --
+    // linking a Swedish reader to an English-bodied page is a worse
+    // experience than not showing the card.
+    englishOnly: true,
+    kicker: 'Buying Guide',
+    title: 'Warranties and Snagging',
+    description: 'The ten, three and one-year guarantees on a Spanish new-build, who is liable under each, and why the handover inspection starts the clock.',
+    image: 'assets/nueva/journey/completion-aftercare-1200.webp',
+    alt: 'Handover inspection of a completed new-build residence'
+  },
+  {
+    output: 'guide-purchase-costs-andalucia.html',
+    kicker: 'Buying Guide',
+    title: 'New-Build Purchase Costs',
+    description: 'What a new-build in Andalucia costs on top of the price: IVA at 10%, AJD at 1.2%, and the notary, registry and legal fees around them.',
+    image: 'assets/liora/viewing/scene-13.jpg',
+    alt: 'Costa del Sol new-build residence viewed from its terrace'
+  },
+  {
     output: 'guide-off-plan-vs-resale.html',
     kicker: 'Buying Guide',
     title: 'Off-Plan vs Resale',
@@ -733,7 +777,7 @@ ${JSON.stringify(schema, null, 2)}
     <section class="section guides-list"><div class="section-inner">
       <div class="section-head"><span class="label">The Process</span><div class="rule"></div><h2 class="section-title">How buying <em>actually works</em></h2><p class="body-copy">Understand the process before you compare projects.</p></div>
       <div class="cards guides-grid">
-        ${PROCESS_GUIDES.map(processGuideCard).join('\n        ')}
+        ${PROCESS_GUIDES.filter((guide) => !guide.englishOnly || locale === DEFAULT_LOCALE).map(processGuideCard).join('\n        ')}
       </div>
     </div></section>
     <section class="section quiet-band guides-list"><div class="section-inner">

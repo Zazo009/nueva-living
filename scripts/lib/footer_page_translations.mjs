@@ -14,11 +14,13 @@ import { FOOTER_PAGE_ENTRIES_GROUP_A } from './footer_page_translations_group_a.
 import { FOOTER_PAGE_ENTRIES_GROUP_B } from './footer_page_translations_group_b.mjs';
 import { FOOTER_PAGE_ENTRIES_GROUP_C } from './footer_page_translations_group_c.mjs';
 import { FOOTER_PAGE_ENTRIES_GROUP_D } from './footer_page_translations_group_d.mjs';
+import { FOOTER_PAGE_ENTRIES_GROUP_E } from './footer_page_translations_group_e.mjs';
 
 export const FOOTER_PAGE_ENTRIES = [
   ...CARD_CHROME_ENTRIES,
   ...FOOTER_PAGE_ENTRIES_GROUP_A,
   ...FOOTER_PAGE_ENTRIES_GROUP_B,
   ...FOOTER_PAGE_ENTRIES_GROUP_C,
-  ...FOOTER_PAGE_ENTRIES_GROUP_D
+  ...FOOTER_PAGE_ENTRIES_GROUP_D,
+  ...FOOTER_PAGE_ENTRIES_GROUP_E
 ];

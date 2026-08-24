@@ -67,6 +67,10 @@ function isPlainObject(value) {
 // Whether a string key exists in the dictionary. Used by build-time guards:
 // t() falls back to returning the key itself, so a missing entry renders as
 // literal "mediaCategory.Solarium" on the page rather than failing loudly.
+// True when strings.json actually defines this key. Callers that build a key
+// from content (e.g. `mediaCategory.${category}`) must check this first: a
+// project's i18n overlay may already have localized that content, in which
+// case there is no key to find and t() would return the literal key text.
 export function hasString(key) {
   return Object.prototype.hasOwnProperty.call(strings, key);
 }
@@ -95,8 +99,13 @@ export function localizedPath(outputPath, locale) {
 
 // Builds the reciprocal hreflang link tags for a given page across every
 // locale that has a rendered equivalent, plus x-default pointing at English.
-export function hreflangLinks(outputPath, siteUrl) {
-  const links = LOCALES.map((meta) => {
+// `locales` lets a caller advertise only the locales it actually generated.
+// A page we can only stand behind in English (statutory content that has not
+// been through native-language review) must not claim nine translations that
+// do not exist -- an hreflang pointing at a missing or English-bodied URL is
+// worse than no hreflang at all.
+export function hreflangLinks(outputPath, siteUrl, locales = LOCALES) {
+  const links = locales.map((meta) => {
     const href = pageUrl(outputPath, meta.code, siteUrl);
     return `  <link rel="alternate" hreflang="${meta.hreflang}" href="${href}">`;
   });
@@ -249,7 +258,12 @@ export function localizeInternalLinks(html, locale) {
 export const LANG_CHECK_ICON = '<svg class="lang-switcher-check" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke-width="2.4" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>';
 export const LANG_CHECK_SPACER = '<span class="lang-switcher-check-spacer" aria-hidden="true"></span>';
 
-export function renderLanguageSwitcher(outputPath, locale) {
+// `fallbackPath` is for pages that exist in English only (verified statutory
+// content we will not publish machine-translated). Without it the switcher
+// would offer nine languages that all 404, so instead each non-English option
+// points at the nearest page that does exist in that language -- normally the
+// guides hub -- and the English option still points at this page.
+export function renderLanguageSwitcher(outputPath, locale, fallbackPath = null) {
   const current = localeMeta(locale);
   const options = LOCALES.map((meta) => {
     // Absolute path (leading "/"), not a bare relative filename resolved
@@ -259,7 +273,8 @@ export function renderLanguageSwitcher(outputPath, locale) {
     // own directory (e.g. "/ar/") since that's the only locale whose
     // localizedPath() has no directory prefix to anchor it. An absolute
     // path needs no resolution by anything, so it can't be mis-rewritten.
-    const href = `/${localizedPath(outputPath, meta.code)}`;
+    const target = fallbackPath && meta.code !== DEFAULT_LOCALE ? fallbackPath : outputPath;
+    const href = `/${localizedPath(target, meta.code)}`;
     const active = meta.code === locale;
     return `<a class="lang-switcher-option${active ? ' is-active' : ''}" href="${href}" lang="${meta.htmlLang}" ${active ? 'aria-current="true"' : ''}>${active ? LANG_CHECK_ICON : LANG_CHECK_SPACER}${meta.nativeLabel}</a>`;
   }).join('\n            ');

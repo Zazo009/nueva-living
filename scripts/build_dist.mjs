@@ -63,6 +63,10 @@ const baseHtmlFiles = [
   'advisory.html',
   'guide-how-buying-works.html',
   'guide-off-plan-vs-resale.html',
+  'guide-purchase-costs-andalucia.html',
+  'guide-bank-guarantee-off-plan-spain.html',
+  'guide-off-plan-payment-schedules.html',
+  'guide-new-build-warranties-snagging.html',
   'why-nueva.html',
   'areas.html',
   ...areas.map((area) => area.output),
@@ -129,6 +133,30 @@ const basePageMeta = {
     // CollectionPage JSON-LD, and seoBlock() does not strip existing
     // <script type="application/ld+json"> tags, so adding one here would
     // duplicate it in the built output.
+  },
+  'guide-purchase-costs-andalucia.html': {
+    title: 'New-Build Purchase Costs in Andalucia (2026 Guide)',
+    description: 'New-build in Andalucia in 2026: IVA at 10%, AJD at 1.2%, plus notary, land registry and legal fees, and the reduced stamp-duty rates that can apply.',
+    path: '/guide-purchase-costs-andalucia.html',
+    type: 'article'
+  },
+  'guide-bank-guarantee-off-plan-spain.html': {
+    title: 'Bank Guarantees on Off-Plan Property in Spain (2026)',
+    description: 'How Spanish law protects off-plan deposits: the segregated account, the aval or seguro de caucion, and why cover starts at the building licence.',
+    path: '/guide-bank-guarantee-off-plan-spain.html',
+    type: 'article'
+  },
+  'guide-off-plan-payment-schedules.html': {
+    title: 'Off-Plan Payment Schedules on the Costa del Sol (2026)',
+    description: 'Real staged payment schedules from Costa del Sol developers: reservation fees, the 30% contract stage, construction milestones and the balance at deed.',
+    path: '/guide-off-plan-payment-schedules.html',
+    type: 'article'
+  },
+  'guide-new-build-warranties-snagging.html': {
+    title: 'New-Build Warranties and Snagging in Spain (2026)',
+    description: 'The ten, three and one-year guarantees on a Spanish new-build: who is liable under each, which one is insured by law, and when the clock starts.',
+    path: '/guide-new-build-warranties-snagging.html',
+    type: 'article'
   },
   'guides.html': {
     title: 'Buying a New-Build in Spain: Costa del Sol Guides 2026',

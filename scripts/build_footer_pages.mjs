@@ -130,9 +130,9 @@ function footerLinks(locale) {
   };
 }
 
-function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
+function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html', langFallback = null) {
   const links = navLinks(locale);
-  const switcher = renderLanguageSwitcher(currentOutputPath, locale);
+  const switcher = renderLanguageSwitcher(currentOutputPath, locale, langFallback);
   return `<nav class="site-nav">
     <div class="nav-links nav-links-left">
       ${links.slice(0, 3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
@@ -157,7 +157,7 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
     ${guidesMobileLinks(locale)}
     ${links.slice(4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
     ${renderDrawerActions(locale)}
-    ${renderLanguageSwitcher(currentOutputPath, locale)}
+    ${renderLanguageSwitcher(currentOutputPath, locale, langFallback)}
   </div>`;
 }
 
@@ -254,7 +254,7 @@ function heroPicture(src, alt = '', width, height, position) {
     + `<img src="${esc(src)}" ${attrs}></picture>`;
 }
 
-function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '' }, locale = DEFAULT_LOCALE) {
+function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '', englishOnly = false }, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
   const html = `<!doctype html>
@@ -264,7 +264,7 @@ function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImag
   <meta name="viewport" content="width=device-width, initial-scale=1">
 ${baseHrefTag(locale)}  <title>${esc(title)} | Nueva Living</title>
   <meta name="description" content="${esc(description)}">
-${hreflangLinks(file, 'https://nuevaliving.com')}
+${hreflangLinks(file, 'https://nuevaliving.com', englishOnly ? [LOCALES[0]] : LOCALES)}
 ${seoTags(file, locale, { title: `${title} | Nueva Living`, description, image: heroImage ? `https://nuevaliving.com/${heroImage}` : undefined })}
 ${pageSchema({ outputPath: file, locale, title: breadcrumbTitle || title, description, trail: breadcrumbs || [] })}
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
@@ -277,7 +277,7 @@ ${fontPreloadBlock}
   <script src="assets/liora/liora-card-gallery.js" defer></script>
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
-  ${nav(locale, file)}
+  ${nav(locale, file, englishOnly ? 'guides.html' : null)}
   ${breadcrumb(breadcrumbTitle || title, breadcrumbs, locale)}
   <main>
     <section class="page-hero">
@@ -290,7 +290,7 @@ ${fontPreloadBlock}
         <p class="lead">${esc(heroLead)}</p>
       </div>
     </section>
-    ${body}
+    ${typeof body === 'function' ? body(locale) : body}
   </main>
   ${footer(locale)}
   <script>
@@ -511,10 +511,11 @@ const pages = [
     seoContext: 'Off-Plan Buyer Advisory, Costa del Sol',
     heroTitle: 'Know what you are buying <em>before you decide</em>',
     heroLead: 'We help you check the location, developer, finishes, payment plan and future resale appeal before you choose a home.',
-    body: `<section class="section"><div class="section-inner split"><div><span class="label">An Independent View</span><div class="rule"></div><h2 class="section-title">Clear advice for <em>the buyer</em></h2><p class="body-copy">A developer brochure shows the project at its best. We help you look beyond it and understand what is genuinely strong, what is fairly standard and what needs a closer check.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Interior detail"></div></div></section>
+    body: (locale) => `<section class="section"><div class="section-inner split"><div><span class="label">An Independent View</span><div class="rule"></div><h2 class="section-title">Clear advice for <em>the buyer</em></h2><p class="body-copy">A developer brochure shows the project at its best. We help you look beyond it and understand what is genuinely strong, what is fairly standard and what needs a closer check.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Interior detail"></div></div></section>
     <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">How We Help</span><div class="rule"></div><h2 class="section-title">The details we help you <em>compare</em></h2></div><div class="cards"><article class="card"><h3>Compare Projects</h3><p>We compare prices, orientation, amenities, completion dates and nearby alternatives side by side.</p></article><article class="card"><h3>Plan the Purchase</h3><p>We talk through how you will use the home, rental plans, financing and what you may want later.</p></article><article class="card"><h3>Reserve with Clarity</h3><p>We organise project documents, viewings, reservation details and an introduction to an independent lawyer.</p></article></div></div></section>
     <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Our Promise</span><div class="rule"></div><h2 class="section-title">Straight answers, <em>no pressure</em></h2></div><div class="cards two"><article class="card"><h3>A Shorter, Better List</h3><p>We would rather show you three suitable projects than thirty generic options.</p></article><article class="card"><h3>Real Urgency Only</h3><p>We only flag urgency when availability, pricing or a reservation deadline genuinely changes.</p></article></div></div></section>
     ${generalFaqSection()}
+    ${locale === DEFAULT_LOCALE ? `<section class="section quiet-band"><div class="section-inner"><div class="section-head center"><span class="label">The Mechanics</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">How an off-plan purchase <em>actually works</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Three guides on the parts of the process buyers ask about most, each written against the statute or against the schedules our developers have supplied in writing.</p></div><div class="cards"><article class="card"><h3><a href="guide-bank-guarantee-off-plan-spain.html">Bank Guarantees</a></h3><p>What protects your deposit under Ley 38/1999, and the point before the building licence at which it does not yet apply.</p></article><article class="card"><h3><a href="guide-off-plan-payment-schedules.html">Payment Schedules</a></h3><p>Reservation, contract, construction milestones and the balance at deed, using real figures from the projects on this site.</p></article><article class="card"><h3><a href="guide-new-build-warranties-snagging.html">Warranties and Snagging</a></h3><p>The ten, three and one-year guarantees, who is liable under each, and why handover starts the clock.</p></article></div></div></section>` : ''}
     <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Who We Are</span><div class="rule"></div><h2 class="section-title">The people <em>behind the advice</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">We work only with new and off-plan homes on the Costa del Sol, which is why we know the developers, the projects and the questions worth asking.</p><a class="btn ghost" href="about.html">About Nueva Living</a></div></div></section>
     <section class="cta-band"><div class="cta-inner"><h2 class="cta-title">Talk through the options before you reserve.</h2><a class="btn" href="contact.html">Talk to an Advisor</a></div></section>`,
   },
@@ -661,7 +662,7 @@ const pages = [
           </div>
           <details class="guide-step-more">
             <summary>Good to know: warranties and ongoing costs</summary>
-            <p>Spanish building law generally provides for a structural warranty, a shorter warranty on installations, and a one-year warranty on finishes. After completion, budgeting for ongoing costs such as community fees and annual property tax (IBI) becomes part of owning the home.</p>
+            <p>Spanish building law generally provides for a structural warranty, a shorter warranty on installations, and a one-year warranty on finishes. After completion, budgeting for ongoing costs such as community fees and annual property tax (IBI) becomes part of owning the home. For the one-off taxes and fees due at purchase, see our <a href="guide-purchase-costs-andalucia.html">breakdown of new-build purchase costs in Andalucia</a>.</p>
           </details>
         </article>
       </div>
@@ -776,6 +777,253 @@ const pages = [
     </script>`,
   },
   {
+    file: 'guide-bank-guarantee-off-plan-spain.html',
+    title: 'Bank Guarantees on Off-Plan Property in Spain',
+    description: 'How Spanish law protects off-plan deposits: the segregated account, the aval or seguro de caucion, and why cover starts at the building licence.',
+    heroImage: 'assets/nueva/journey/reservation-legal-1200.webp',
+    heroKicker: 'Buying Guide',
+    seoContext: 'Bank Guarantees on Off-Plan Property \u00b7 2026 Guide',
+    heroTitle: 'What actually protects <em>your deposit</em>',
+    heroLead: 'Spanish law guarantees the money you pay during construction. It does not guarantee all of it, from the moment you pay it, and the gap is where buyers get caught.',
+    breadcrumbs: [['Guides', 'guides.html']],
+    bodyClass: 'guide-article-page',
+    // English only: statutory content we have verified against the
+    // consolidated text of the law. We do not publish translations of it
+    // that have not been through native-language legal review.
+    englishOnly: true,
+    body: `<section class="section"><div class="section-inner">
+      <div class="guide-intro g-reveal">
+        <p class="body-copy">When you buy off-plan you pay for a home that does not exist yet. Spanish law answers that with a specific mechanism: the money you hand over during construction has to be guaranteed, held apart from the developer's own funds, and returned with interest if the home is never delivered. Knowing exactly how that protection works -- and the one point at which it does not yet apply -- is the difference between an informed off-plan purchase and a hopeful one.</p>
+        <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+          <a class="btn" href="#gap">The Pre-Licence Gap</a>
+          <a class="btn ghost" href="contact.html#contact-form">Ask About a Specific Project</a>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">The Law As It Stands</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Ley 38/1999, <em>not Ley 57/1968</em></h2></div>
+      <p class="body-copy g-reveal">A great deal of English-language material about Spanish off-plan purchases still cites Ley 57/1968 as the source of your protection. That law was repealed with effect from 1 January 2016. Its regime was carried over, with changes, into the first additional provision of Ley 38/1999 (the Ley de Ordenaci&oacute;n de la Edificaci&oacute;n), in the wording given to it by Ley 20/2015. If a page tells you Ley 57/1968 protects your deposit today, it has not been updated in a decade -- and the changes are not cosmetic.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">What The Developer Must Do</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Four obligations, <em>not one</em></h2></div>
+      <div class="guide-compare-grid g-reveal">
+        <div class="guide-compare-row"><div class="guide-compare-label">A segregated account</div><div><p>Advance payments must be received through a credit institution and deposited in a special account, kept separate from any other class of funds. Money may only leave that account for costs arising directly from the construction of those homes. It is not the developer's working capital.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">A guarantee</div><div><p>Repayment must be guaranteed, either by a <em>seguro de cauci&oacute;n</em> with an insurer authorised to operate in Spain, or by an <em>aval solidario</em> issued by an authorised credit institution. Both are acceptable; what matters is that one of them exists and names you.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">Disclosure in the contract</div><div><p>The purchase contract itself must state the developer's obligation to repay, identify the insurer or guarantor, and identify the credit institution and the account. At signing you should also be handed the document evidencing the guarantee attached to your particular payments.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">Consequences of skipping it</div><div><p>Failing to put the guarantee in place is treated as a consumer-protection infringement, carrying a penalty of up to 25% of the amounts that should have been secured, on top of anything the regional building rules impose.</p></div></div>
+      </div>
+    </div></section>
+
+    <section class="section" id="gap"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">The Part Most Guides Omit</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">The guarantee starts at <em>the building licence</em></h2></div>
+      <p class="body-copy g-reveal">The obligation to guarantee repayment runs from the point the building licence is obtained -- not from the moment you first pay. This is one of the substantive differences between the current regime and the 1968 law it replaced, and it is the single most practical thing to understand before you reserve.</p>
+      <p class="body-copy g-reveal">In plain terms: if you pay a reservation fee on a project whose licence has not yet been granted, that money is not sitting behind the statutory guarantee. It may well be protected by what your contract says instead -- many reservation agreements make the fee refundable during a due-diligence window, and that is a contractual protection, not a legal one. The two are not interchangeable, and only one of them is the same at every developer.</p>
+      <p class="body-copy g-reveal">This is not a reason to avoid pre-licence projects. It is a reason to know which category a project is in before you transfer anything, and to have your lawyer read the reservation terms rather than assume the statute covers you. Every project on this site states its licence status in its own trust dossier, in those words, because the distinction changes what your money is standing on.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">If It Goes Wrong</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">What you can <em>actually recover</em></h2></div>
+      <p class="body-copy g-reveal">If construction does not begin, is not finished within the agreed period, or the habitation certificate is not obtained, you may claim back the amounts paid on account -- including the taxes applied to them -- plus statutory interest. You can either terminate the contract or grant the developer an extension, which is recorded as an additional clause setting the new delivery date.</p>
+      <p class="body-copy g-reveal">The practical lesson is that the guarantee is only as useful as the paperwork behind it. Ask for the guarantee document at signing, check it names you and your specific payments, and keep it. A guarantee that exists in principle but was never issued to you is the failure mode this provision was written to prevent.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Before You Rely On This</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Sourced from the <em>consolidated statute</em></h2></div>
+      <p class="body-copy g-reveal">The obligations described on this page are taken from the first additional provision of Ley 38/1999 as consolidated after Ley 20/2015, and are current as of August 2026. This is general information about how the protection is structured; it is not legal advice, and how it applies to a particular contract is a question for your own lawyer. Nueva Living confirms licence status and guarantee arrangements in writing for a specific project on request.</p>
+      <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+        <a class="btn" href="contact.html#contact-form">Check a Project's Licence Status</a>
+        <a class="btn ghost" href="guide-off-plan-payment-schedules.html">How Payments Are Staged</a>
+      </div>
+    </div></section>`,
+  },
+  {
+    file: 'guide-off-plan-payment-schedules.html',
+    title: 'Off-Plan Payment Schedules on the Costa del Sol',
+    description: 'Real staged payment schedules from Costa del Sol developers: reservation fees, the 30% contract stage, construction milestones and the balance at deed.',
+    heroImage: 'assets/nueva/journey/project-review-v2-1200.webp',
+    heroKicker: 'Buying Guide',
+    seoContext: 'Off-Plan Payment Schedules \u00b7 2026 Guide',
+    heroTitle: 'How off-plan payments <em>are actually staged</em>',
+    heroLead: 'Not an averaged range borrowed from elsewhere: the schedules the developers of the projects on this site have supplied in writing.',
+    breadcrumbs: [['Guides', 'guides.html']],
+    bodyClass: 'guide-article-page',
+    // English only: statutory content we have verified against the
+    // consolidated text of the law. We do not publish translations of it
+    // that have not been through native-language legal review.
+    englishOnly: true,
+    body: `<section class="section"><div class="section-inner">
+      <div class="guide-intro g-reveal">
+        <p class="body-copy">Off-plan purchases are paid in stages, and the stages are not standardised. The figures below are not a market average taken from elsewhere -- they are the actual schedules supplied by the developers of the projects listed on this site, which is why the ranges are narrower and less tidy than the ones you will read in a generic guide.</p>
+        <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+          <a class="btn" href="#stages">The Four Stages</a>
+          <a class="btn ghost" href="developments.html">See the Developments</a>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section" id="stages"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">What We Actually See</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Reservation, contract, <em>build, deed</em></h2></div>
+      <p class="body-copy g-reveal">Across the projects on this site where the developer has supplied a written schedule, the shape is consistent even though the numbers move.</p>
+      <div class="guide-compare-grid g-reveal">
+        <div class="guide-compare-row"><div class="guide-compare-label">Reservation</div><div><p>Either a fixed sum or a percentage. We see fixed reservations from &euro;6,000 to &euro;10,000, and percentage reservations from 1% to 5%. This takes the unit off the market for an agreed period while contracts are prepared.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">Private purchase contract</div><div><p>Typically bringing the total paid to 30%, with the reservation usually counted towards it. Some developers stage this as 25% at contract with the balance spread across the build. Signing windows are short -- 15 to 30 days from reservation is normal.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">During construction</div><div><p>Highly variable. Some projects take nothing between contract and completion; others take 10% at a fixed date, or tie payments to certified milestones such as completion of the foundation and of the structure. One project on this site spreads 50% across fifteen monthly payments from the start of works.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">Completion</div><div><p>The balance at the deed of sale, most often 50% to 70%. This is also where the bulk of the tax falls due.</p></div></div>
+      </div>
+      <p class="body-copy g-reveal">Note that stage payments are quoted plus VAT in most schedules, so the cash required at each stage is higher than the headline percentage. See <a href="guide-purchase-costs-andalucia.html">what a new-build costs on top of the price</a> for how IVA and AJD land across the timeline.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Reservation Agreements</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Market practice, <em>not statute</em></h2></div>
+      <p class="body-copy g-reveal">This is worth stating plainly, because it is often blurred: there is no Spanish statute governing reservation agreements. What your reservation fee does, whether it is refundable, and for how long, is whatever your particular reservation document says. It is a contract, and its terms vary between developers.</p>
+      <p class="body-copy g-reveal">That matters more than it sounds, because the statutory guarantee over advance payments only begins once the building licence has been obtained. A reservation paid before that point rests on the contract wording alone. Some agreements make the fee refundable for a defined due-diligence window; others do not. Read it, or have your lawyer read it, before transferring anything -- and see <a href="guide-bank-guarantee-off-plan-spain.html">how the bank guarantee works</a> for what changes once the licence is in place.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Where The Money Sits</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Not the developer's <em>working capital</em></h2></div>
+      <p class="body-copy g-reveal">Once the guarantee regime applies, amounts you pay on account must be received through a credit institution and held in a special account, separate from any other class of funds, and may only be drawn for costs arising directly from building those homes. If a developer proposes any other arrangement for staged payments, that is the point to stop and take advice.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Before You Rely On This</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Schedules change <em>per project</em></h2></div>
+      <p class="body-copy g-reveal">The ranges above describe the written schedules held for the projects listed on this site as of August 2026. They are not a rule, and they are not an offer -- an individual developer can and does structure payments differently, and terms change between releases. Nueva Living reconfirms the current payment structure in writing for a specific residence before any reservation. This page is general information, not legal, tax or financial advice.</p>
+      <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+        <a class="btn" href="contact.html#contact-form">Request a Payment Structure</a>
+        <a class="btn ghost" href="guide-how-buying-works.html">How Buying a New-Build Works</a>
+      </div>
+    </div></section>`,
+  },
+  {
+    file: 'guide-new-build-warranties-snagging.html',
+    title: 'New-Build Warranties and Snagging in Spain',
+    description: 'The ten, three and one-year guarantees on a Spanish new-build: who is liable under each, which one is insured by law, and when the clock starts.',
+    heroImage: 'assets/nueva/journey/completion-aftercare-1200.webp',
+    heroKicker: 'Buying Guide',
+    seoContext: 'New-Build Warranties and Snagging \u00b7 2026 Guide',
+    heroTitle: 'Three warranties, <em>three different clocks</em>',
+    heroLead: 'A Spanish new-build carries ten, three and one-year cover against defects. They start on the same day, point at different parties, and only one of them is insured by law.',
+    breadcrumbs: [['Guides', 'guides.html']],
+    bodyClass: 'guide-article-page',
+    // English only: statutory content we have verified against the
+    // consolidated text of the law. We do not publish translations of it
+    // that have not been through native-language legal review.
+    englishOnly: true,
+    body: `<section class="section"><div class="section-inner">
+      <div class="guide-intro g-reveal">
+        <p class="body-copy">A new-build comes with statutory cover against defects, and it is not one warranty but three, each running for a different length of time and each pointing at a different party. Knowing which clock applies to a given problem is what turns a snagging list from a favour the developer might do into a claim with a legal basis.</p>
+        <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+          <a class="btn" href="#periods">The Three Periods</a>
+          <a class="btn ghost" href="contact.html#contact-form">Ask About a Specific Project</a>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section" id="periods"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Article 17, Ley 38/1999</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Ten years, three years, <em>one year</em></h2></div>
+      <p class="body-copy g-reveal">All three periods run from the date the works are formally received without reservations -- or, where reservations were made, from the date those are put right. Not from when you move in, and not from the deed.</p>
+      <div class="guide-compare-grid g-reveal">
+        <div class="guide-compare-row"><div class="guide-compare-label">10 years &middot; structural</div><div><p>Damage caused by defects affecting the foundations, supports, beams, floor slabs, load-bearing walls or other structural elements. The building agents are liable.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">3 years &middot; habitability</div><div><p>Damage from defects in construction elements or installations that cause the building to fail the habitability requirements -- damp penetration, insulation, water, heating and similar.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">1 year &middot; finishes</div><div><p>Defects of execution affecting elements of finish or trim. Here the constructor alone is liable, which is a narrower answer than the other two periods give you.</p></div></div>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Insurance</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Only one of the three <em>is insured by law</em></h2></div>
+      <p class="body-copy g-reveal">Liability and insurance are not the same thing, and this is where expectations often run ahead of the statute. For buildings whose main use is housing, only the ten-year structural cover is compulsory insurance. The one-year and three-year guarantees remain liabilities of the parties rather than insurances that must be in place, pending implementing regulation that has not arrived.</p>
+      <p class="body-copy g-reveal">In practice this means a structural problem has an insurer standing behind it, while a three-year habitability defect is a claim against the agents involved. Both are real; they are not equally easy to enforce, and it is worth knowing which one you are in before a dispute rather than during it.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">At Handover</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">The snagging list <em>is the clock-starter</em></h2></div>
+      <p class="body-copy g-reveal">Because the periods run from reception of the works, and because reservations noted at reception shift the start date until they are put right, the handover inspection is not a formality. Recording defects in writing at that point is what fixes the date and creates the record you would later rely on.</p>
+      <p class="body-copy g-reveal">Snagging inspections themselves are market practice rather than a statutory step -- there is no law requiring one, and no prescribed format. What the law does is define the periods and the liabilities that an inspection lets you use. A written, dated list, delivered to the developer, is the practical bridge between the two.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Before You Rely On This</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Sourced from the <em>consolidated statute</em></h2></div>
+      <p class="body-copy g-reveal">The periods and liabilities described here are taken from articles 17 and 19 of Ley 38/1999 and its second additional provision, as consolidated, and are current as of August 2026. This page is general information about how the cover is structured, not legal advice. Whether a particular defect falls in a particular period is a question of fact for your lawyer and, usually, a surveyor. Nueva Living can provide the warranty and insurance documentation held for a specific project on request.</p>
+      <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+        <a class="btn" href="contact.html#contact-form">Request Warranty Documentation</a>
+        <a class="btn ghost" href="guide-bank-guarantee-off-plan-spain.html">How the Bank Guarantee Works</a>
+      </div>
+    </div></section>`,
+  },
+  {
+    file: 'guide-purchase-costs-andalucia.html',
+    title: 'New-Build Purchase Costs in Andalucia',
+    description: 'New-build in Andalucia in 2026: IVA at 10%, AJD at 1.2%, plus notary, land registry and legal fees, and the reduced stamp-duty rates that can apply.',
+    heroImage: 'assets/liora/viewing/scene-13.jpg',
+    heroKicker: 'Buying Guide',
+    seoContext: 'New-Build Purchase Costs in Andalucia \u00b7 2026 Guide',
+    heroTitle: 'What a new-build costs <em>on top of the price</em>',
+    heroLead: 'Every competitor writes a Spain-wide cost guide quoting 8 to 13 per cent. New-build in Andalucia is a specific number, and it is knowable before you offer.',
+    breadcrumbs: [['Guides', 'guides.html']],
+    bodyClass: 'guide-article-page',
+    body: `<section class="section"><div class="section-inner">
+      <div class="guide-intro g-reveal">
+        <p class="body-copy">Most cost guides for Spain quote a single national range, usually somewhere between 8 and 13 per cent. That range exists because it is averaging two different purchases across seventeen regions. For a new-build in Andaluc&iacute;a the tax side is not a range at all -- it is two fixed rates, and you can work out the number exactly.</p>
+        <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+          <a class="btn" href="#taxes">See the Breakdown</a>
+          <a class="btn ghost" href="contact.html#contact-form">Ask About a Specific Project</a>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section" id="taxes"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">The Two Taxes</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">IVA and AJD, <em>not transfer tax</em></h2></div>
+      <p class="body-copy g-reveal">A new-build bought from the developer is a first transmission, so it carries VAT rather than the transfer tax that applies to a resale. In Andaluc&iacute;a that means two separate taxes on the same purchase.</p>
+      <div class="guide-compare-grid g-reveal">
+        <div class="guide-compare-row"><div class="guide-compare-label">IVA (VAT)</div><div><p><strong>10% of the purchase price.</strong> The national rate for new residential property. It drops to 4% for officially protected housing (VPO de r&eacute;gimen especial), which does not apply to the developments on this site.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">AJD (stamp duty)</div><div><p><strong>1.2% of the purchase price</strong> in Andaluc&iacute;a. This is the regional rate, set at 1.2% since April 2021 and made permanent by the region's Ley 5/2021. Older guides still quote 1.5%, which was the rate before that change.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">Total tax</div><div><p><strong>11.2%</strong> on a new-build. For comparison, a resale in Andaluc&iacute;a carries ITP at 7% and no AJD -- so the tax on a new home is roughly four points higher than on an equivalent resale.</p></div></div>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Reduced Rates</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">When AJD is <em>lower than 1.2%</em></h2></div>
+      <p class="body-copy g-reveal">Andaluc&iacute;a applies reduced AJD rates in specific circumstances. They are worth checking before you assume the general rate, though most purchases on this coast fall outside them.</p>
+      <div class="cards g-reveal">
+        <article class="card"><h3>1%</h3><p>Where the property value does not exceed &euro;150,000 and it will be the buyer's habitual residence.</p></article>
+        <article class="card"><h3>0.3%</h3><p>Where the buyer is under 35 and the property will be their habitual residence.</p></article>
+        <article class="card"><h3>0.1%</h3><p>For large families (familia numerosa) and for buyers with a recognised disability, subject to the region's conditions.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">On Top of Tax</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Notary, registry <em>and legal fees</em></h2></div>
+      <p class="body-copy g-reveal">Notary and Land Registry fees are set by national tariff, so they do not vary between providers. Legal fees do.</p>
+      <div class="guide-compare-grid g-reveal">
+        <div class="guide-compare-row"><div class="guide-compare-label">Notary</div><div><p>Roughly &euro;600 to &euro;1,200 on a typical residential purchase, scaling with the price and the length of the deed. Regulated, so shopping around does not change it.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">Land Registry</div><div><p>Roughly &euro;400 to &euro;700. Also regulated.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">Legal</div><div><p>Typically 1% of the price plus 21% IVA on the fee, or a fixed quote in the &euro;1,500 to &euro;3,000 range for a straightforward purchase. This one is negotiable, and it is the line worth comparing quotes on.</p></div></div>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Worked Example</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">A &euro;450,000 <em>new-build</em></h2></div>
+      <div class="guide-compare-grid g-reveal">
+        <div class="guide-compare-row"><div class="guide-compare-label">IVA at 10%</div><div><p>&euro;45,000</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">AJD at 1.2%</div><div><p>&euro;5,400</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">Notary and registry</div><div><p>Roughly &euro;1,000 to &euro;1,900</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">Legal</div><div><p>Roughly &euro;4,500 plus IVA at 1%, or a fixed quote</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">Budget for</div><div><p><strong>Around &euro;57,000, or about 12.5% over the price.</strong> Taxes are the fixed &euro;50,400 of that; the rest moves with who you instruct.</p></div></div>
+      </div>
+      <p class="body-copy g-reveal">That is the acquisition cost. It does not include mortgage arrangement and valuation fees if you are borrowing, furnishing, or the running costs that start after completion -- IBI, community fees and utilities.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Before You Rely On This</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Figures current at <em>August 2026</em></h2></div>
+      <p class="body-copy g-reveal">The IVA rate is national and the AJD rate is set by Andaluc&iacute;a; both can change, and the reduced rates carry conditions that depend on your circumstances. This page is general information about how the costs are structured, not tax or legal advice. Confirm the figures for your own purchase with your lawyer or tax adviser before you commit to anything. Nueva Living provides a written cost breakdown for a specific residence on request.</p>
+      <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+        <a class="btn" href="contact.html#contact-form">Request a Cost Breakdown</a>
+        <a class="btn ghost" href="guide-how-buying-works.html">How Buying a New-Build Works</a>
+      </div>
+    </div></section>`,
+  },
+  {
     file: 'guide-off-plan-vs-resale.html',
     title: 'Off-Plan vs Resale',
     description: 'How buying off-plan and buying a completed resale home actually compare on the Costa del Sol, across price, risk, payment terms and appreciation.',
@@ -852,7 +1100,7 @@ const pages = [
         <details class="guide-glossary-item"><summary>Escritura</summary><p>The deed of sale signed at the notary and registered in your name at completion.</p></details>
       </div>
     </div></section>
-    <div class="section-inner"><p class="guide-disclaimer g-reveal">This guide is general information to help you compare off-plan and resale purchases on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.</p></div>
+    <div class="section-inner"><p class="body-copy g-reveal" style="text-align:center;">The two routes are also taxed differently: new-build carries IVA and AJD, resale carries ITP. See <a href="guide-purchase-costs-andalucia.html">what a new-build actually costs in Andalucia</a> for the figures.</p><p class="guide-disclaimer g-reveal">This guide is general information to help you compare off-plan and resale purchases on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.</p></div>
     <section class="cta-band"><div class="cta-inner"><div><span class="label">Compare Real Options</span><h2 class="cta-title">Not sure which fits? Let's talk.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>
     <script>
       (() => {
@@ -1098,7 +1346,11 @@ function slug(value) {
 
 const written = [];
 for (const item of pages) {
-  for (const { code: locale } of LOCALES) {
+  // englishOnly pages are generated in English alone: see the note on
+  // hreflangLinks(). Nothing downstream needs changing -- build_dist derives
+  // its sitemap alternates from what actually exists on disk.
+  const localesForItem = item.englishOnly ? [LOCALES[0]] : LOCALES;
+  for (const { code: locale } of localesForItem) {
     const resolvedItem = item.__area ? areaDetailPage(item.__area, locale) : item;
     const outputPath = localizedPath(item.file, locale);
     const fullPath = outputPath;
