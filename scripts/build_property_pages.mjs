@@ -1981,36 +1981,28 @@ function assertPropertyTypes(project) {
   return project;
 }
 
-// crm.availableUnits is what every card, filter and segment-page count
-// reads. The real unit list lives in availability.units, and the two drifted
-// apart silently: Alisios listed four current references with floorplans on
-// its own page while crm.availableUnits was empty, so the project counted as
-// zero units everywhere else on the site.
+// crm.availableUnits is what every card, filter and segment-page count reads.
+// The unit list a visitor actually sees lives in availability.units, and the
+// two drifted apart silently: Alisios listed four current references with
+// floorplans on its own page while crm.availableUnits was empty, so the
+// project counted as zero units everywhere else on the site.
 //
-// availability.unitsAre records what the list actually is, because the two
-// cases are not distinguishable by length alone:
-//   'available'      -- current releasable references; the count must match
-//   'layout-examples'-- floorplan examples where the developer has published
-//                       no release status, so there is no count to publish
+// There is no "these are only examples" case. The unit card renderer stamps
+// availability.available on every row unconditionally -- 516 units across the
+// site say "Available" from a hardcoded string, not from data. So publishing a
+// row at all is already a claim that it is available, and the count has to
+// match the rows. If a project ever needs to show layouts that are not for
+// sale, that badge has to become data-driven first; until then this invariant
+// is the only honest one.
 function assertAvailability(project) {
-  const av = project.availability || {};
-  const units = av.units || [];
+  const units = project.availability?.units || [];
   if (!units.length) return project;
-  const kind = av.unitsAre;
-  if (kind !== 'available' && kind !== 'layout-examples') {
-    throw new Error(`${project.slug}: availability.units is set but availability.unitsAre is `
-      + `${JSON.stringify(kind)}. Use 'available' or 'layout-examples'.`);
-  }
   const declared = project.crm?.availableUnits;
-  if (kind === 'available' && declared !== units.length) {
+  if (declared !== units.length) {
     throw new Error(`${project.slug}: crm.availableUnits is ${JSON.stringify(declared)} but `
-      + `availability.units lists ${units.length} current reference(s). They must agree -- the `
-      + 'unit list is what the project page shows, crm.availableUnits is what the filters and '
-      + 'segment counts read.');
-  }
-  if (kind === 'layout-examples' && declared != null) {
-    throw new Error(`${project.slug}: availability.units are layout examples, so `
-      + `crm.availableUnits must stay unset rather than claim ${declared} homes are available.`);
+      + `availability.units publishes ${units.length} row(s), each rendered as "Available". `
+      + 'They must agree -- the unit list is what the project page shows, crm.availableUnits is '
+      + 'what the filters and segment counts read.');
   }
   return project;
 }
