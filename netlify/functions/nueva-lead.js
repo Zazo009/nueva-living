@@ -158,6 +158,12 @@ function crmPayload(lead, event) {
     : originalMessage;
 
   return compactPayload({
+    // Forwarded rather than dropped here. The CRM treats a filled honeypot as
+    // decisive on its own and logs the rejection with the full payload, so a
+    // false positive -- a password manager filling a field named "honeypot",
+    // say -- can be found and recovered. Dropping it at the edge would return
+    // a fake success and lose the enquiry with no record that it existed.
+    honeypot: cleanString(lead.honeypot),
     first_name: cleanString(lead.first_name),
     last_name: cleanString(lead.last_name),
     email: cleanString(lead.email),
@@ -237,8 +243,10 @@ exports.handler = async (event) => {
     return response(400, { ok: false, error: 'Invalid JSON payload' }, origin);
   }
 
-  // Newsletter forms include a hidden honeypot. Treat bot submissions as
-  // successful without sending them to the CRM.
+  // The newsletter's own honeypot predates the CRM's and is named `website`.
+  // It is still dropped here rather than forwarded: it sits on a footer form
+  // that exists on every page, so it attracts the bulk of drive-by submissions
+  // and there is nothing in a newsletter signup worth recovering.
   if (cleanString(lead.website)) {
     return response(200, { ok: true, success: true }, origin);
   }

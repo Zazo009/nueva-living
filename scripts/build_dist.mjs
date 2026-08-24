@@ -1066,7 +1066,7 @@ function newsletterMarkup(locale = DEFAULT_LOCALE) {
         <input type="hidden" name="message" value="Newsletter subscription request">
         <input type="hidden" name="consent" value="true">
         <input type="hidden" name="consent_text" value="${t('newsletter.consentText', locale)}">
-        <label class="footer-newsletter-honeypot" aria-hidden="true">${t('newsletter.website', locale)}<input name="website" tabindex="-1" autocomplete="off"></label>
+        <label class="footer-newsletter-honeypot" aria-hidden="true">${t('newsletter.website', locale)}<input name="website" tabindex="-1" autocomplete="off"></label><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
         <div class="footer-newsletter-fields">
           <label class="footer-newsletter-field">
             <span>${t('newsletter.firstName', locale)}</span>

@@ -1850,7 +1850,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
           <h2 class="section-title">${project.enquiry.headlineHtml}</h2>
           <p class="body-copy">${esc(project.enquiry.copy)}</p>
         </div>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead">
+        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
 
           <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - ${esc(project.name)}">
 

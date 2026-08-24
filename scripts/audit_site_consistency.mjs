@@ -306,6 +306,47 @@ for (const file of countPlaceholderPages) {
   }
 }
 
+// Every form that posts a lead to the CRM carries a hidden honeypot. The CRM
+// treats a filled one as decisive spam, so a form that ships without the field
+// simply loses that protection -- silently, and only for that one form. Before
+// this check the newsletter had a honeypot and all eleven actual lead forms
+// did not, which is the shape of gap it exists to catch.
+let leadFormsChecked = 0;
+for (const file of countPlaceholderPages) {
+  const html = fs.readFileSync(file, 'utf8');
+  const relative = path.relative(dist, file);
+  for (const match of html.matchAll(/<form[^>]*\bdata-crm-lead\b[^>]*>([\s\S]*?)<\/form>/g)) {
+    leadFormsChecked += 1;
+    const nameAttr = match[0].match(/name="([^"]+)"/);
+    const formName = nameAttr ? nameAttr[1] : 'unnamed form';
+    if (!/name="honeypot"/.test(match[1])) {
+      fail(relative, `the CRM lead form "${formName}" has no hidden honeypot field, so bot `
+        + 'submissions reach the CRM unflagged');
+    }
+  }
+}
+
+// Some lead forms are authored inside the JavaScript bundles and injected at
+// runtime, so they never appear in the built HTML the check above walks. The
+// shortlist form is one, and it shipped without a honeypot for exactly that
+// reason. Scan the scripts for the same marker.
+for (const name of fs.readdirSync(path.join(dist, 'assets', 'liora')).filter((f) => f.endsWith('.js'))) {
+  const source = fs.readFileSync(path.join(dist, 'assets', 'liora', name), 'utf8');
+  for (const match of source.matchAll(/<form[^>]*\bdata-crm-lead\b[^>]*>([\s\S]{0,4000}?)<\/form>/g)) {
+    leadFormsChecked += 1;
+    if (!/name=.honeypot./.test(match[1])) {
+      fail(`assets/liora/${name}`, 'a CRM lead form written in JavaScript has no hidden honeypot '
+        + 'field, so bot submissions from it reach the CRM unflagged');
+    }
+  }
+  // And the client picks payload fields by name rather than serialising the
+  // form, so the field has to be read explicitly or it never gets sent.
+  if (/buildLeadPayload/.test(source) && !/\[name="honeypot"\]/.test(source)) {
+    fail(`assets/liora/${name}`, 'buildLeadPayload does not read [name="honeypot"], so the hidden '
+      + 'field is never included in the payload sent to the CRM');
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -317,5 +358,6 @@ if (failures.length) {
   process.exitCode = 1;
 } else {
   console.log(`Consistency audit passed: ${htmlFiles.length} HTML pages checked, `
-    + `${heroTitlesChecked} hero titles measured against their font-size cap.`);
+    + `${heroTitlesChecked} hero titles measured against their font-size cap, `
+    + `${leadFormsChecked} CRM lead forms checked for a honeypot.`);
 }

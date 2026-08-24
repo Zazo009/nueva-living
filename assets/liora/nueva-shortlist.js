@@ -381,6 +381,7 @@
         <h3>${t('sendYourShortlist')}</h3>
         <p>${t('sendShortlistIntro')}</p>
         <form class="nueva-shortlist-form" name="nueva-shortlist" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead">
+          <input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           <input type="hidden" name="request_context" value="Nueva Living shortlist: ${escapeHtml(names)}">
           <input type="hidden" name="project" value="${escapeHtml(names)}">
           <div class="nueva-shortlist-field">

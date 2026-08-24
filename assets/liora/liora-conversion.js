@@ -164,6 +164,11 @@
       : message;
 
     return compactPayload({
+      // buildLeadPayload picks fields by name rather than serialising the
+      // form, so a hidden input that nothing reads here never leaves the
+      // browser. The honeypot has to be listed explicitly or adding it to the
+      // markup accomplishes nothing.
+      honeypot: readField(form, '[name="honeypot"]'),
       first_name: firstName,
       last_name: lastName,
       email: readField(form, '[name="email"]'),
