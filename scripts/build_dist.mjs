@@ -1,4 +1,4 @@
-import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema } from './lib/brand.mjs';
+import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema, FOUNDERS, organizationId, personId } from './lib/brand.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -294,7 +294,25 @@ const basePageMeta = {
     // Person schema is added here rather than in build_footer_pages so it
     // sits alongside the WebPage/WebSite/BreadcrumbList that template already
     // writes, instead of duplicating them.
-    schema: personSchemas(siteUrl)
+    //
+    // The Organization node ships with it because the Person blocks reference
+    // the company by @id. Without the node present, that reference dangles on
+    // this page and a parser has to go find it on the homepage to resolve who
+    // these people work for -- which is the one fact this page exists to
+    // assert. The AboutPage names them as its subject for the same reason.
+    schema: [
+      organizationSchema(siteUrl),
+      ...personSchemas(siteUrl),
+      {
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        name: 'About Nueva Living',
+        url: `${siteUrl}/about.html`,
+        description: 'The people behind Nueva Living and how the firm works with buyers of new-build property on the Costa del Sol.',
+        mainEntity: { '@id': organizationId(siteUrl) },
+        about: FOUNDERS.map((person) => ({ '@id': personId(siteUrl, person) }))
+      }
+    ]
   },
   'contact.html': {
     title: 'Contact Nueva Living | Marbella & Costa del Sol',

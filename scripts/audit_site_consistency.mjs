@@ -347,6 +347,51 @@ for (const name of fs.readdirSync(path.join(dist, 'assets', 'liora')).filter((f)
   }
 }
 
+// Structured data now uses @id so the company and the two founders are one
+// entity across the site rather than a fresh node minted per page. That only
+// works if a reference resolves: the about page referenced the Organization by
+// @id while the Organization node itself lived only on the homepage, leaving
+// the one fact that page exists to assert -- who these people work for --
+// hanging on a parser's willingness to go looking. Every {"@id": ...}
+// reference must have a node defining that id on the same page.
+let schemaRefsChecked = 0;
+for (const file of countPlaceholderPages) {
+  const html = fs.readFileSync(file, 'utf8');
+  const relative = path.relative(dist, file);
+  const defined = new Set();
+  const referenced = new Map();
+
+  const visit = (node, isRoot) => {
+    if (Array.isArray(node)) return node.forEach((child) => visit(child, isRoot));
+    if (!node || typeof node !== 'object') return;
+    const id = node['@id'];
+    // A node that carries @type as well as @id defines the entity; a bare
+    // {"@id": ...} is a reference to one defined elsewhere.
+    if (id && node['@type']) defined.add(id);
+    else if (id && Object.keys(node).length === 1) referenced.set(id, true);
+    for (const value of Object.values(node)) visit(value, false);
+  };
+
+  for (const block of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    let parsed;
+    try {
+      parsed = JSON.parse(block[1]);
+    } catch (error) {
+      fail(relative, `JSON-LD does not parse: ${error.message}`);
+      continue;
+    }
+    visit(parsed, true);
+  }
+
+  for (const id of referenced.keys()) {
+    schemaRefsChecked += 1;
+    if (!defined.has(id)) {
+      fail(relative, `JSON-LD references the entity ${id} but no node on this page defines it, `
+        + 'so the reference does not resolve');
+    }
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -359,5 +404,6 @@ if (failures.length) {
 } else {
   console.log(`Consistency audit passed: ${htmlFiles.length} HTML pages checked, `
     + `${heroTitlesChecked} hero titles measured against their font-size cap, `
-    + `${leadFormsChecked} CRM lead forms checked for a honeypot.`);
+    + `${leadFormsChecked} CRM lead forms checked for a honeypot, `
+    + `${schemaRefsChecked} schema @id references resolved.`);
 }

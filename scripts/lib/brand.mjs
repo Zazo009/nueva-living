@@ -50,6 +50,7 @@ export function realEstateAgentSchema(siteUrl, extra = {}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
+    '@id': organizationId(siteUrl),
     ...IDENTITY,
     url: `${siteUrl}/`,
     logo: `${siteUrl}/assets/liora/brand/nueva-living-lockup-espresso-transparent.png`,
@@ -63,6 +64,7 @@ export function organizationSchema(siteUrl, extra = {}) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': organizationId(siteUrl),
     ...IDENTITY,
     url: siteUrl,
     logo: `${siteUrl}/assets/liora/brand/nueva-living-lockup-espresso-transparent.png`,
@@ -79,35 +81,76 @@ export function organizationSchema(siteUrl, extra = {}) {
 // name, with two similarly named firms occupying the space, and named people
 // tied to the organisation are one of the signals that separates one entity
 // from another.
+// `slug` gives each founder a stable @id on /about.html, so every page that
+// names them points at one entity instead of minting a fresh Person each
+// time. Google treats repeated un-@id'd Person blocks as separate people,
+// which splits exactly the reputation signal these are here to build.
+//
+// `photo` is the real headshot already on the page -- E-E-A-T asks who is
+// behind advice about a purchase this size, and an image in the markup that
+// the structured data never mentions answers that only to a human reader.
+//
+// `sameAs` stays empty until real profile URLs exist. An unclaimed profile is
+// better than a wrong one: sameAs is a claim of identity, and a guess that
+// resolves to someone else is worse than saying nothing.
 export const FOUNDERS = [
   {
+    slug: 'sasan-raftari',
     name: 'Sasan Raftari',
     jobTitle: 'Founder',
     email: 'sasan@nuevaliving.com',
-    telephone: '+46707576709'
+    telephone: '+46707576709',
+    photo: 'assets/liora/team/sasan-raftari-founder.jpg',
+    knowsAbout: [
+      'New-build property on the Costa del Sol',
+      'Off-plan purchase process',
+      'Property search technology'
+    ],
+    sameAs: []
   },
   {
+    slug: 'sami-altun',
     name: 'Sami Altun',
     jobTitle: 'Co-Founder',
     email: 'sami@nuevaliving.com',
-    telephone: '+34645446624'
+    telephone: '+34645446624',
+    photo: 'assets/liora/team/sami-altun-co-founder.jpg',
+    knowsAbout: [
+      'New-build property on the Costa del Sol',
+      'Business development',
+      'Property investment appraisal'
+    ],
+    sameAs: []
   }
 ];
+
+// One canonical node id for the company. Every schema block that refers to
+// Nueva Living points here rather than restating the facts, so the graph
+// describes one organisation instead of a dozen similar ones.
+export function organizationId(siteUrl) {
+  return `${siteUrl}/#organization`;
+}
+
+export function personId(siteUrl, person) {
+  return `${siteUrl}/about.html#${person.slug}`;
+}
 
 export function personSchemas(siteUrl) {
   return FOUNDERS.map((person) => ({
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': personId(siteUrl, person),
     name: person.name,
     jobTitle: person.jobTitle,
     email: person.email,
     telephone: person.telephone,
-    worksFor: {
-      '@type': 'Organization',
-      name: IDENTITY.name,
-      url: siteUrl
-    },
-    url: `${siteUrl}/about.html`
+    image: `${siteUrl}/${person.photo}`,
+    ...(person.knowsAbout?.length ? { knowsAbout: person.knowsAbout } : {}),
+    ...(person.sameAs?.length ? { sameAs: person.sameAs } : {}),
+    workLocation: ADDRESS,
+    worksFor: { '@id': organizationId(siteUrl) },
+    url: `${siteUrl}/about.html`,
+    mainEntityOfPage: `${siteUrl}/about.html`
   }));
 }
 
