@@ -2449,3 +2449,40 @@ so Latin numerals in the price still render in
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 }
+
+/* ---------- Search context inside the page-hero H1 ----------
+   The decorative kicker moved inside the <h1> so the heading carries the
+   page's search terms as well as its editorial line. `.kicker` is
+   `inline-flex`, though, so in that position it stopped being its own line
+   and flowed into the middle of the display type -- the heading read
+   "COSTA DEL SOL AREA GUIDE Casares, area by area: ...", all run together.
+
+   Both parts are blocks now, which restores exactly the composition the page
+   had when the kicker was a sibling above the heading. */
+.display-title > .kicker {
+  display: flex;
+  width: 100%;
+}
+
+.display-title > .display-title-line {
+  display: block;
+  text-wrap: balance;
+}
+
+/* These headings used to be short editorial lines -- "Benahavis, privacy
+   above the coast" -- and the display size was chosen for that. They now
+   carry a full sentence, which at the old size ran to three lines on desktop
+   and five on a phone, filling the hero and crowding the lead beneath it.
+   Only the headings that gained a context line are stepped down; anything
+   still using the old single-line form keeps its original size. */
+.display-title:has(> .display-title-line) {
+  font-size: clamp(32px, 3.5vw, 46px);
+  line-height: 1.14;
+}
+
+@media (max-width: 760px) {
+  .display-title:has(> .display-title-line) {
+    font-size: clamp(25px, 6.6vw, 31px);
+    line-height: 1.2;
+  }
+}
