@@ -1957,9 +1957,33 @@ function buildSearchCatalog(projects) {
     });
 }
 
+// The only property-type values anything downstream understands. The
+// /developments type filter offers exactly these, the segment pages filter on
+// exactly these, and the compare table looks them up in its typeMap.
+//
+// Half the catalogue once carried a capitalised plural form instead --
+// "Apartments", "Villas" -- which matched none of the above. Fifteen of thirty
+// projects were invisible to the type filter and absent from every segment
+// page count. Nothing failed; the pages just quietly listed less than the site
+// actually has. Same failure mode as constructionStatus below, so it gets the
+// same treatment: reject it at load rather than let it render.
+const PROPERTY_TYPES = ['apartment', 'penthouse', 'villa', 'townhouse', 'duplex'];
+
+function assertPropertyTypes(project) {
+  const bad = (project.crm?.propertyTypes || []).filter((type) => !PROPERTY_TYPES.includes(type));
+  if (bad.length) {
+    throw new Error(
+      `${project.slug}: crm.propertyTypes has non-canonical value(s) ${JSON.stringify(bad)}. `
+      + `Use one of ${JSON.stringify(PROPERTY_TYPES)} -- anything else is silently dropped by `
+      + 'the developments type filter and by every segment page.'
+    );
+  }
+  return project;
+}
+
 export function loadProjects() {
   return projectFiles()
-    .map((file) => ({ ...readJson(file), sourceFile: file }))
+    .map((file) => assertPropertyTypes({ ...readJson(file), sourceFile: file }))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;
