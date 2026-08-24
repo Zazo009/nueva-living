@@ -416,6 +416,14 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     ar: `>عن Nueva Living</a>`, nl: `>Over Nueva Living</a>`, pl: `>O Nueva Living</a>`, sv: `>Om Nueva Living</a>`, no: `>Om Nueva Living</a>`,
   },
   {
+    find: `>Introduce Someone</a>`,
+    es: `>Recomienda a alguien</a>`,
+    fr: `>Recommander quelqu'un</a>`,
+    de: `>Jemanden empfehlen</a>`,
+    ru: `>Порекомендовать</a>`,
+    ar: `>رشِّح شخصًا</a>`, nl: `>Iemand aanbevelen</a>`, pl: `>Poleć kogoś</a>`, sv: `>Rekommendera någon</a>`, no: `>Anbefal noen</a>`,
+  },
+  {
     find: `Know Someone Looking?`,
     es: `¿Conoces a alguien que esté buscando?`,
     fr: `Connaissez-vous quelqu'un qui cherche ?`,
