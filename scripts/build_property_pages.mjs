@@ -715,6 +715,24 @@ function renderUnitCard(unit, project, locale) {
               </article>`;
 }
 
+// The hero H1 must never break inside a word -- "Guadalobon" splitting into
+// "Guadalobo / n" is the exact thing this guards against. Preventing the break
+// alone is not enough: a word too wide for the column would then overflow the
+// page instead. So the build measures the longest unbreakable run of the title
+// and the stylesheet caps the font size at a width that run is known to fit.
+//
+// Browsers already break after a real hyphen, so "Villen-Kollektion" counts as
+// its longest piece ("Kollektion"), not its full 17 characters. <br> and
+// whitespace are break opportunities too; <em>/<span> are inline and are not.
+function heroTitleLongestRun(titleHtml = '') {
+  const text = String(titleHtml)
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&[a-z]+;|&#\d+;/gi, 'x');
+  const runs = text.split(/[\s\u00a0]+|(?<=-)|(?<=\u2013)|(?<=\u2014)/);
+  return runs.reduce((longest, run) => Math.max(longest, run.trim().length), 0) || 10;
+}
+
 function renderAvailabilitySiteMaps(availability, locale = DEFAULT_LOCALE) {
   const maps = availability.siteMaps || [];
   if (!maps.length) return '';
@@ -1489,7 +1507,7 @@ ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
       <div class="project-hero-inner">
         <div class="hero-copy reveal-soft">
           <span class="project-eyebrow">${esc(project.hero.eyebrow)}</span>
-          <h1 class="hero-title">
+          <h1 class="hero-title" style="--hero-title-run: ${heroTitleLongestRun(project.titleHtml)}">
             <span class="hero-title-name">${project.titleHtml}</span>
             <span class="hero-title-context">${heroTitleContext(project, sourceProject, locale)}</span>
           </h1>

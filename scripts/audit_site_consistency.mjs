@@ -236,6 +236,54 @@ if (!fs.existsSync(cssFile)) {
   if (open !== close) fail('assets/liora/nueva-system.css', `unbalanced braces (${open}/${close})`);
 }
 
+// The hero H1 is not allowed to break inside a word -- "Guadalobon" splitting
+// into "Guadalobo / n" is what this exists to stop. The stylesheet caps the
+// font size using --hero-title-run, the longest run of characters in the title
+// that has no break opportunity in it. If that number is ever smaller than the
+// title actually contains, the cap is too generous and the word breaks again.
+// Recompute it from the rendered markup and compare, on every locale of every
+// project page.
+function heroTitleRunFromMarkup(nameHtml) {
+  const text = nameHtml
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&[a-z]+;|&#\d+;/gi, 'x');
+  return text
+    .split(/[\s\u00a0]+|(?<=-)|(?<=\u2013)|(?<=\u2014)/)
+    .reduce((longest, run) => Math.max(longest, run.trim().length), 0);
+}
+
+// htmlFiles above is English-only and holds bare filenames; the hero title
+// has to hold up in every locale, so enumerate dist and its locale folders.
+const propertyPages = [dist, ...fs.readdirSync(dist, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && /^[a-z]{2}$/.test(entry.name))
+  .map((entry) => path.join(dist, entry.name))]
+  .flatMap((dir) => fs.readdirSync(dir)
+    .filter((name) => name.startsWith('property-') && name.endsWith('.html'))
+    .map((name) => path.join(dir, name)));
+
+let heroTitlesChecked = 0;
+for (const file of propertyPages) {
+  const relative = path.relative(dist, file);
+  const html = fs.readFileSync(file, 'utf8');
+  const nameMatch = html.match(/<span class="hero-title-name">([\s\S]*?)<\/span>/);
+  if (!nameMatch) continue;
+  const runMatch = html.match(/<h1 class="hero-title"[^>]*--hero-title-run:\s*(\d+)/);
+  if (!runMatch) {
+    fail(relative, 'hero H1 has no --hero-title-run, so its font size is not capped '
+      + 'and a long project name will break mid-word');
+    continue;
+  }
+  heroTitlesChecked += 1;
+  const declared = Number(runMatch[1]);
+  const actual = heroTitleRunFromMarkup(nameMatch[1]);
+  if (declared < actual) {
+    fail(relative, `--hero-title-run is ${declared} but the title contains an unbreakable `
+      + `run of ${actual} characters, so the font size cap is too generous and the word will split`);
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -246,5 +294,6 @@ if (failures.length) {
   failures.forEach((message) => console.error(`- ${message}`));
   process.exitCode = 1;
 } else {
-  console.log(`Consistency audit passed: ${htmlFiles.length} HTML pages checked.`);
+  console.log(`Consistency audit passed: ${htmlFiles.length} HTML pages checked, `
+    + `${heroTitlesChecked} hero titles measured against their font-size cap.`);
 }
