@@ -19,6 +19,8 @@ import {
   seoTags,
   pageSchema
 } from './lib/i18n.mjs';
+import { MONTH_NAMES, localizeMonthDate } from './lib/dates.mjs';
+import { GUIDE_AUTHOR, organizationSchema, personSchemas, organizationId, personId } from './lib/brand.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
@@ -254,7 +256,53 @@ function heroPicture(src, alt = '', width, height, position) {
     + `<img src="${esc(src)}" ${attrs}></picture>`;
 }
 
-function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '', englishOnly = false }, locale = DEFAULT_LOCALE) {
+// The byline shows a date a reader can read; the datetime attribute keeps the
+// machine-readable form. Writing the ISO string at the reader is what this
+// replaced.
+function humanDate(iso, locale) {
+  const [year, month, day] = String(iso).split('-');
+  const monthName = Object.keys(MONTH_NAMES)[Number(month) - 1];
+  return localizeMonthDate(`${Number(day)} ${monthName} ${year}`, locale);
+}
+
+const siteUrl = 'https://nuevaliving.com';
+
+// A buying guide states tax rates, statutory guarantee periods and warranty
+// law. Google's raters are told to look for a named, accountable author on
+// exactly this kind of page, and these carried only WebPage + BreadcrumbList:
+// the same assertions with nobody behind them.
+//
+// The Person and Organization nodes ship alongside the Article rather than
+// being referenced into thin air, so the author reference resolves on the page
+// that makes the claim. Both reuse the @ids minted on /about.html, so this is
+// the same Sasan Raftari the about page describes and not a second one.
+//
+// dateModified starts equal to datePublished and is rewritten by build_dist
+// from the content hash, so it moves when the guide's text actually changes
+// rather than on every deploy.
+function guideArticleSchema({ file, title, description, heroImage, datePublished, locale }) {
+  const author = { '@id': personId(siteUrl, GUIDE_AUTHOR) };
+  return [
+    organizationSchema(siteUrl),
+    ...personSchemas(siteUrl).filter((person) => person['@id'] === author['@id']),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      '@id': `${siteUrl}/${localizedPath(file, locale)}#article`,
+      headline: title,
+      description,
+      inLanguage: localeMeta(locale).htmlLang,
+      image: `${siteUrl}/${heroImage}`,
+      author,
+      publisher: { '@id': organizationId(siteUrl) },
+      datePublished,
+      dateModified: datePublished,
+      mainEntityOfPage: `${siteUrl}/${localizedPath(file, locale)}`
+    }
+  ];
+}
+
+function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '', englishOnly = false, datePublished }, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
   const html = `<!doctype html>
@@ -266,7 +314,10 @@ ${baseHrefTag(locale)}  <title>${esc(title)} | Nueva Living</title>
   <meta name="description" content="${esc(description)}">
 ${hreflangLinks(file, 'https://nuevaliving.com', englishOnly ? [LOCALES[0]] : LOCALES)}
 ${seoTags(file, locale, { title: `${title} | Nueva Living`, description, image: heroImage ? `https://nuevaliving.com/${heroImage}` : undefined })}
-${pageSchema({ outputPath: file, locale, title: breadcrumbTitle || title, description, trail: breadcrumbs || [] })}
+${pageSchema({ outputPath: file, locale, title: breadcrumbTitle || title, description, trail: breadcrumbs || [] })}${datePublished ? `
+  <script type="application/ld+json">
+${JSON.stringify(guideArticleSchema({ file, title, description, heroImage, datePublished, locale }), null, 2)}
+  </script>` : ''}
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
@@ -288,6 +339,7 @@ ${fontPreloadBlock}
           <span class="display-title-line">${heroTitle}</span>
         </h1>
         <p class="lead">${esc(heroLead)}</p>
+${datePublished ? `        <p class="guide-byline"><span>${t('guide.writtenBy', locale)} <a href="about.html" rel="author">${esc(GUIDE_AUTHOR.name)}</a></span><span class="guide-byline-sep" aria-hidden="true">&middot;</span><span>${t('guide.updated', locale)} <time data-guide-updated datetime="${datePublished}">${esc(humanDate(datePublished, locale))}</time></span></p>` : ''}
       </div>
     </section>
     ${typeof body === 'function' ? body(locale) : body}
@@ -521,6 +573,7 @@ const pages = [
   },
   {
     file: 'guide-how-buying-works.html',
+    datePublished: '2026-08-12',
     title: 'How Buying Works',
     description: 'A step-by-step guide to buying a new-build home on the Costa del Sol, from your first shortlist to collecting the keys.',
     heroImage: 'assets/liora/viewing/scene-13.jpg',
@@ -778,6 +831,7 @@ const pages = [
   },
   {
     file: 'guide-bank-guarantee-off-plan-spain.html',
+    datePublished: '2026-08-24',
     title: 'Bank Guarantees on Off-Plan Property in Spain',
     description: 'How Spanish law protects off-plan deposits: the segregated account, the aval or seguro de caucion, and why cover starts at the building licence.',
     heroImage: 'assets/nueva/journey/reservation-legal-1200.webp',
@@ -840,6 +894,7 @@ const pages = [
   },
   {
     file: 'guide-off-plan-payment-schedules.html',
+    datePublished: '2026-08-24',
     title: 'Off-Plan Payment Schedules on the Costa del Sol',
     description: 'Real staged payment schedules from Costa del Sol developers: reservation fees, the 30% contract stage, construction milestones and the balance at deed.',
     heroImage: 'assets/nueva/journey/project-review-v2-1200.webp',
@@ -897,6 +952,7 @@ const pages = [
   },
   {
     file: 'guide-new-build-warranties-snagging.html',
+    datePublished: '2026-08-24',
     title: 'New-Build Warranties and Snagging in Spain',
     description: 'The ten, three and one-year guarantees on a Spanish new-build: who is liable under each, which one is insured by law, and when the clock starts.',
     heroImage: 'assets/nueva/journey/completion-aftercare-1200.webp',
@@ -953,6 +1009,7 @@ const pages = [
   },
   {
     file: 'guide-purchase-costs-andalucia.html',
+    datePublished: '2026-08-24',
     title: 'New-Build Purchase Costs in Andalucia',
     description: 'New-build in Andalucia in 2026: IVA at 10%, AJD at 1.2%, plus notary, land registry and legal fees, and the reduced stamp-duty rates that can apply.',
     heroImage: 'assets/liora/viewing/scene-13.jpg',
@@ -1025,6 +1082,7 @@ const pages = [
   },
   {
     file: 'guide-off-plan-vs-resale.html',
+    datePublished: '2026-08-12',
     title: 'Off-Plan vs Resale',
     description: 'How buying off-plan and buying a completed resale home actually compare on the Costa del Sol, across price, risk, payment terms and appreciation.',
     heroImage: 'assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg',

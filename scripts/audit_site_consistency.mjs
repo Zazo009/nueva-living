@@ -392,6 +392,51 @@ for (const file of countPlaceholderPages) {
   }
 }
 
+// The buying guides state tax rates, statutory guarantee periods and warranty
+// law. They shipped for weeks carrying only WebPage + BreadcrumbList -- the
+// same assertions with no named author and no dates, which is the weakest
+// possible posture for advice about a purchase this size. A guide that loses
+// its byline or its Article block loses that silently, on one page.
+let guidesChecked = 0;
+for (const file of countPlaceholderPages) {
+  const name = path.basename(file);
+  if (!name.startsWith('guide-')) continue;
+  const relative = path.relative(dist, file);
+  const html = fs.readFileSync(file, 'utf8');
+  guidesChecked += 1;
+
+  if (!/class="guide-byline"/.test(html)) {
+    fail(relative, 'a buying guide with no visible byline -- readers cannot see who stands '
+      + 'behind advice on tax, guarantees or warranty law');
+  }
+
+  let article = null;
+  for (const block of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    let parsed;
+    try {
+      parsed = JSON.parse(block[1]);
+    } catch {
+      continue;
+    }
+    for (const node of Array.isArray(parsed) ? parsed : [parsed]) {
+      if (node && node['@type'] === 'Article') article = node;
+    }
+  }
+
+  if (!article) {
+    fail(relative, 'a buying guide with no Article schema, so it names no author and no dates');
+    continue;
+  }
+  for (const field of ['author', 'publisher', 'datePublished', 'dateModified']) {
+    if (!article[field]) fail(relative, `the guide's Article schema has no ${field}`);
+  }
+  const bylineDate = html.match(/data-guide-updated datetime="(\d{4}-\d{2}-\d{2})"/)?.[1];
+  if (bylineDate && article.dateModified && bylineDate !== article.dateModified) {
+    fail(relative, `the visible byline says the guide was updated ${bylineDate} but its Article `
+      + `schema says ${article.dateModified} -- readers and search engines are told different things`);
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -405,5 +450,6 @@ if (failures.length) {
   console.log(`Consistency audit passed: ${htmlFiles.length} HTML pages checked, `
     + `${heroTitlesChecked} hero titles measured against their font-size cap, `
     + `${leadFormsChecked} CRM lead forms checked for a honeypot, `
-    + `${schemaRefsChecked} schema @id references resolved.`);
+    + `${schemaRefsChecked} schema @id references resolved, `
+    + `${guidesChecked} guides checked for a named author.`);
 }

@@ -4,6 +4,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import vm from 'node:vm';
 import { LOCALES, DEFAULT_LOCALE, localizedPath, t, clampDescription} from './lib/i18n.mjs';
+import { MONTH_NAMES, localizeMonthDate } from './lib/dates.mjs';
 
 // writeHtml() below is called once per output file across the whole site
 // (English root files, and every es/fr/de/ru/ar/*.html locale variant) --
@@ -1370,7 +1371,13 @@ function pageContentHash(distRelPath) {
     return null;
   }
   return createHash('sha256')
-    .update(html.replace(/\?v=[A-Za-z0-9]+/g, ''))
+    .update(html
+      .replace(/\?v=[A-Za-z0-9]+/g, '')
+      // The guide byline and the Article's dateModified are written *from*
+      // this hash, so they cannot be part of it -- otherwise stamping the date
+      // changes the content, which changes the date, on every build.
+      .replace(/data-guide-updated datetime="\d{4}-\d{2}-\d{2}">\d{4}-\d{2}-\d{2}</g, 'data-guide-updated<')
+      .replace(/"dateModified": "\d{4}-\d{2}-\d{2}"/g, '"dateModified": ""'))
     .digest('hex')
     .slice(0, 16);
 }
@@ -1383,7 +1390,32 @@ function lastmodFor(distRelPath) {
     ? previous.lastmod
     : buildDate;
   nextLastmodManifest[distRelPath] = { hash, lastmod };
+  stampGuideUpdated(distRelPath, lastmod);
   return lastmod;
+}
+
+// A guide's visible "Updated" line and its Article dateModified both claim the
+// same thing, so they read from the same content-derived date rather than from
+// two places that can disagree. build_footer_pages writes datePublished into
+// both as a placeholder; this replaces it once the real date is known.
+function stampGuideUpdated(distRelPath, lastmod) {
+  if (!path.basename(distRelPath).startsWith('guide')) return;
+  const abs = path.join(dist, distRelPath);
+  let html;
+  try {
+    html = fs.readFileSync(abs, 'utf8');
+  } catch {
+    return;
+  }
+  const locale = /^([a-z]{2})\//.exec(distRelPath)?.[1] || DEFAULT_LOCALE;
+  const [year, month, day] = lastmod.split('-');
+  const readable = localizeMonthDate(
+    `${Number(day)} ${Object.keys(MONTH_NAMES)[Number(month) - 1]} ${year}`, locale);
+  const stamped = html
+    .replace(/data-guide-updated datetime="\d{4}-\d{2}-\d{2}">[^<]*</g,
+      `data-guide-updated datetime="${lastmod}">${readable}<`)
+    .replace(/"dateModified": "\d{4}-\d{2}-\d{2}"/g, `"dateModified": "${lastmod}"`);
+  if (stamped !== html) fs.writeFileSync(abs, stamped);
 }
 
 

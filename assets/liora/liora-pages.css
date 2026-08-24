@@ -4232,3 +4232,45 @@ li,
 .calculator-panel .calculator-rate-toggle button.is-active {
   color: #241b10;
 }
+
+/* Guide byline -- who wrote this and when it was last checked. Sits under the
+   hero lead, deliberately quiet: it is a credibility signal, not a headline.
+   The date is stamped by build_dist from the page's own content hash, so it
+   moves when the guide changes rather than on every deploy. */
+.guide-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin: 18px 0 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 250, 242, 0.72);
+}
+
+.guide-byline a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(255, 250, 242, 0.4);
+}
+
+.guide-byline a:hover,
+.guide-byline a:focus-visible {
+  color: #fffaf2;
+  text-decoration-color: currentColor;
+}
+
+.guide-byline-sep {
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  .guide-byline {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+  }
+}

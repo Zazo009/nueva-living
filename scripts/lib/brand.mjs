@@ -127,6 +127,12 @@ export const FOUNDERS = [
 // One canonical node id for the company. Every schema block that refers to
 // Nueva Living points here rather than restating the facts, so the graph
 // describes one organisation instead of a dozen similar ones.
+// Who signs the buying guides. These pages state tax rates, statutory
+// guarantee periods and warranty law -- the class of content Google's raters
+// are told to check for a named, accountable author. An unsigned page asserts
+// the same facts with nobody behind them.
+export const GUIDE_AUTHOR = FOUNDERS[0];
+
 export function organizationId(siteUrl) {
   return `${siteUrl}/#organization`;
 }
