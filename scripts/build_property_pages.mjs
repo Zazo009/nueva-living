@@ -685,7 +685,7 @@ function renderUnitCard(unit, project, locale) {
                     ${facts.map(([label, value]) => `<div><dt>${label}</dt><dd>${esc(value)}</dd></div>`).join('\n                    ')}
                   </dl>
                   <p class="unit-card-price">${esc(unit.price)}</p>
-                  <a class="unit-card-cta" href="contact.html?intent=${encodeURIComponent(`${project.name} - ${unit.reference}`)}">${t('availability.askAboutUnit', locale, { reference })}</a>
+                  <a class="unit-card-cta" href="contact.html#contact-form&intent=${encodeURIComponent(`${project.name} - ${unit.reference}`)}">${t('availability.askAboutUnit', locale, { reference })}</a>
                 </div>
               </article>`;
 }
@@ -1319,7 +1319,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
   const lifestyleImage = image(project, 'lifestyle');
-  const privateHrefRaw = project.privateViewing?.href || 'index.html?private-viewing=1';
+  const privateHrefRaw = project.privateViewing?.href || 'index.html#private-viewing=1';
   const privateHref = locale === DEFAULT_LOCALE
     ? privateHrefRaw
     : privateHrefRaw.replace(/^index\.html/, localizedPath('index.html', locale));
@@ -2514,7 +2514,9 @@ function validateProject(project) {
   // visitor who asked for the presentation to the enquiry form instead.
   const privateHref = project.privateViewing?.href;
   if (privateHref !== undefined) {
-    const expected = `index.html?private-viewing=1&project=${project.slug}`;
+    // Fragment, not query string: a query string makes every project a
+    // separate crawlable URL for the same homepage document.
+    const expected = `index.html#private-viewing=1&project=${project.slug}`;
     if (privateHref !== expected) {
       throw new Error(`${label}: "privateViewing.href" is "${privateHref}" but the Cinematic Presentation buttons must open the player: "${expected}".`);
     }

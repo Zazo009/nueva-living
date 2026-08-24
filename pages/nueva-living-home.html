@@ -26,13 +26,28 @@
   <link rel="preload" as="image" href="assets/liora/hero/hero-poster-mobile-v3.avif" type="image/avif" media="(max-width: 768px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/liora/hero/hero-poster-desktop-v2.avif" type="image/avif" media="(min-width: 769px)" fetchpriority="high">
   <script>
+    // State travels in the fragment, not a query string: every distinct
+    // ?private-viewing=1&project=<slug> was a separate crawlable URL serving
+    // the identical document, and the site linked 600 of them. Everything
+    // after # is never sent to the server and never becomes its own URL.
+    //
+    // The query string is still read first so links already in the wild --
+    // emails, bookmarks, anything Google has cached -- keep working.
     (() => {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        if (params.has('private-viewing') || params.get('viewing') === 'private') {
-          document.documentElement.classList.add('private-viewing-boot');
+      const read = (name) => {
+        try {
+          const search = new URLSearchParams(window.location.search);
+          if (search.has(name)) return search.get(name);
+          const hash = new URLSearchParams(String(window.location.hash).replace(/^#/, ''));
+          return hash.has(name) ? hash.get(name) : null;
+        } catch (error) {
+          return null;
         }
-      } catch (error) {}
+      };
+      window.__nuevaParam = read;
+      if (read('private-viewing') !== null || read('viewing') === 'private') {
+        document.documentElement.classList.add('private-viewing-boot');
+      }
     })();
   </script>
   <style>
@@ -14627,7 +14642,8 @@
   function getRequestedViewingProjectId() {
     try {
       const params = new URLSearchParams(window.location.search);
-      const projectId = params.get('project') || params.get('viewing-project');
+      const read = window.__nuevaParam || ((n) => params.get(n));
+      const projectId = read('project') || read('viewing-project');
       return VIEWING_PROJECTS[projectId] ? projectId : DEFAULT_VIEWING_PROJECT_ID;
     } catch (error) {
       return DEFAULT_VIEWING_PROJECT_ID;
@@ -15617,12 +15633,9 @@
   });
 
   function shouldAutoOpenPrivateViewing() {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      return params.has('private-viewing') || params.get('viewing') === 'private';
-    } catch (error) {
-      return false;
-    }
+    const read = window.__nuevaParam;
+    if (!read) return false;
+    return read('private-viewing') !== null || read('viewing') === 'private';
   }
 
   window.addEventListener('load', () => {

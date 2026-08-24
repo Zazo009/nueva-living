@@ -6,10 +6,28 @@
   };
 
   const params = new URLSearchParams(window.location.search);
+
+  // Enquiry context used to travel as ?intent=<project> - <unit>, which gave
+  // Google a distinct crawlable URL for every one of 1,565 units, each serving
+  // the byte-identical contact page. It now travels in the fragment, which is
+  // never sent to the server and never becomes its own URL.
+  //
+  // The query string is still read first, so the links already out there --
+  // in CRM emails, bookmarks, anything Google cached -- keep working.
+  function urlParam(name) {
+    if (params.has(name)) return params.get(name);
+    try {
+      const hash = new URLSearchParams(String(window.location.hash).replace(/^#/, ''));
+      return hash.has(name) ? hash.get(name) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
   const pageTitle = document.title.replace(/\s*\|\s*Nueva Living\s*$/i, '').trim();
   const pagePath = window.location.pathname || '/';
-  const pageContext = document.body?.dataset?.projectName || params.get('project') || pageTitle || 'Nueva Living enquiry';
-  const intentFromUrl = params.get('intent') || '';
+  const pageContext = document.body?.dataset?.projectName || urlParam('project') || pageTitle || 'Nueva Living enquiry';
+  const intentFromUrl = urlParam('intent') || '';
 
   window.dataLayer = window.dataLayer || [];
 
@@ -368,7 +386,12 @@
   registerLeadForms();
 
   function alignLinkedLeadForm() {
-    const id = decodeURIComponent(window.location.hash.replace(/^#/, ''));
+    // The fragment now carries the anchor and the enquiry context together --
+    // "#contact-form&intent=Cerrado%20Vista%20-%2021D" -- because a URL has
+    // room for only one fragment and the context can no longer be a query
+    // string. The element id is the part before the first &; the browser
+    // cannot resolve that itself, which is why this function does the scroll.
+    const id = decodeURIComponent(String(window.location.hash).replace(/^#/, '').split('&')[0]);
     if (!id) return;
     const target = document.getElementById(id);
     if (!target?.matches('form[data-crm-lead], form[action="/.netlify/functions/nueva-lead"]')) return;

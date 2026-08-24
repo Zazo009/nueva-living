@@ -463,6 +463,33 @@ for (const file of countPlaceholderPages) {
   }
 }
 
+// Enquiry context and the cinematic-player link travel in the fragment, not a
+// query string. Each distinct ?intent=<project> - <unit> was a separate
+// crawlable URL serving the byte-identical contact page, and the site rendered
+// 1,987 of them; ?private-viewing=1&project=<slug> added 600 more. Google
+// consolidated them correctly via canonical, so nothing was mis-indexed -- it
+// was simply a thousand duplicate URLs offered to the crawler for no gain.
+//
+// Readers still accept the query string, so links already in the wild keep
+// working. What must not come back is the site *rendering* them.
+let internalLinksScanned = 0;
+for (const file of countPlaceholderPages) {
+  const relative = path.relative(dist, file);
+  const html = fs.readFileSync(file, 'utf8');
+  for (const match of html.matchAll(/href="([^"]+)"/g)) {
+    const href = match[1];
+    if (/^(?:https?:)?\/\//.test(href) && !href.includes('nuevaliving.com')) continue;
+    if (/^(?:mailto|tel):/.test(href)) continue;
+    const query = href.split('#')[0].split('?')[1];
+    if (!query) continue;
+    internalLinksScanned += 1;
+    // ?v= is the asset cache-buster on stylesheets and scripts, not a page URL.
+    if (/^v=[A-Za-z0-9]+$/.test(query)) continue;
+    fail(relative, `an internal link carries a query string ("?${query.slice(0, 48)}"), which gives `
+      + 'Google a separate crawlable URL for the same document -- put the state in the fragment');
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -478,5 +505,6 @@ if (failures.length) {
     + `${leadFormsChecked} CRM lead forms checked for a honeypot, `
     + `${schemaRefsChecked} schema @id references resolved, `
     + `${guidesChecked} guides checked for a named author, `
-    + `${a11yPagesChecked} pages checked for skip link and labelled controls.`);
+    + `${a11yPagesChecked} pages checked for skip link and labelled controls, `
+    + `${internalLinksScanned} internal query-string links scanned.`);
 }

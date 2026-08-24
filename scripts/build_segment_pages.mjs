@@ -457,7 +457,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
   const developmentsSection = `<section class="section segment-developments"><div class="section-inner">
     <div class="section-head"><span class="label">Current Match</span><div class="rule"></div><h2 class="section-title">${segment.developmentsHeadlineHtml}</h2><p class="body-copy">Only developments currently matching this search are shown below. Price and availability are reconfirmed before a viewing.</p></div>
     <div class="project-grid area-project-grid">
-      ${matches.length ? matches.map(segmentProjectCard).join('\n      ') : `<article class="area-project-empty"><span class="label">Private Selection</span><h3>Current opportunities available by request</h3><p>We do not publish a development here until its information is ready to compare. Tell us what you need and we will check current releases directly.</p><a class="project-link" href="contact.html?intent=${encodeURIComponent(`${segment.breadcrumbLabel} in ${segment.areaLabel}`)}#contact-form">Request a Shortlist</a></article>`}
+      ${matches.length ? matches.map(segmentProjectCard).join('\n      ') : `<article class="area-project-empty"><span class="label">Private Selection</span><h3>Current opportunities available by request</h3><p>We do not publish a development here until its information is ready to compare. Tell us what you need and we will check current releases directly.</p><a class="project-link" href="contact.html#contact-form&intent=${encodeURIComponent(`${segment.breadcrumbLabel} in ${segment.areaLabel}`)}">Request a Shortlist</a></article>`}
     </div>
   </div></section>`;
 
@@ -478,7 +478,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
   const enquirySection = `<section class="section segment-enquiry"><div class="section-inner">
     <div class="section-head center"><span class="label">Next Step</span><div class="rule"></div><h2 class="section-title">Get a shortlist matching <em>your budget</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Tell us your budget, preferred sub-area and must-haves. We will reply with current developments and availability that genuinely match.</p></div>
     <div style="display:flex;justify-content:center;">
-      <a class="btn" href="contact.html?intent=${encodeURIComponent(`${segment.breadcrumbLabel} in ${segment.areaLabel}`)}#contact-form">Request a Personal Shortlist</a>
+      <a class="btn" href="contact.html#contact-form&intent=${encodeURIComponent(`${segment.breadcrumbLabel} in ${segment.areaLabel}`)}">Request a Personal Shortlist</a>
     </div>
   </div></section>`;
 
