@@ -12,7 +12,7 @@
   # audit_site_consistency reads dist, so it runs last. It checks the nav,
   # the language switchers and the heading structure that have each silently
   # regressed before.
-  command = "node scripts/build_footer_pages.mjs && node scripts/build_property_pages.mjs && node scripts/build_segment_pages.mjs && node scripts/build_homepage_locales.mjs && node scripts/build_developments_locales.mjs && node scripts/build_static_page_locales.mjs && node scripts/verify_build_idempotent.mjs && node scripts/build_dist.mjs && node scripts/audit_site_consistency.mjs"
+  command = "node scripts/stage_pages.mjs && node scripts/build_footer_pages.mjs && node scripts/build_property_pages.mjs && node scripts/build_segment_pages.mjs && node scripts/build_homepage_locales.mjs && node scripts/build_developments_locales.mjs && node scripts/build_static_page_locales.mjs && node scripts/verify_build_idempotent.mjs && node scripts/build_dist.mjs && node scripts/audit_site_consistency.mjs"
 
 [functions]
   directory = "netlify/functions"
