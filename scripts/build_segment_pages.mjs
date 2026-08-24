@@ -21,6 +21,7 @@ import {
 import { renderUnifiedCard } from './lib/project_card.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
+import { SEGMENT_CLUSTER_ENTRIES } from './lib/segment_page_translations_clusters.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
 import { PROJECT_CARD_ENTRIES } from './lib/developments_page_translations.mjs';
 
@@ -35,7 +36,7 @@ import { PROJECT_CARD_ENTRIES } from './lib/developments_page_translations.mjs';
 // the shared project-card meta labels/values and CTA (same set used on
 // developments.html); per-project card descriptions come from each
 // project.json's own i18n overlay.
-const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...PROJECT_CARD_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
+const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...SEGMENT_CLUSTER_ENTRIES, ...PROJECT_CARD_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
   .sort((a, b) => b.find.length - a.find.length);
 
 function cardDescriptionReplacements(locale) {
@@ -312,7 +313,24 @@ function resolveCount(text, stats) {
   return text.replace(/\{count\}\s*/, '');
 }
 
+// Most segments are an area crossed with a property type. A cluster segment
+// instead names its projects outright, because the thing it targets is a
+// sub-area with no discovery.area of its own -- "New Golden Mile" is a real
+// search term spanning several Estepona addresses, and nothing in the data
+// models it. Listing slugs keeps that explicit and reviewable rather than
+// inventing a second area taxonomy.
 function matchProjects(segment) {
+  if (segment.slugs) {
+    return segment.slugs.map((slug) => {
+      const project = projects.find((candidate) => candidate.slug === slug);
+      if (!project) {
+        throw new Error(`${segment.output}: lists slug "${slug}", which is not an active project. `
+          + 'Remove it or fix the slug -- a cluster page silently missing a project is the bug '
+          + 'this check exists to prevent.');
+      }
+      return project;
+    });
+  }
   return projects.filter((project) => {
     const discovery = project.discovery || {};
     const crm = project.crm || {};
@@ -377,11 +395,17 @@ function faqSection(faqs) {
 
 function segmentSchema(segment, matches) {
   const url = `${siteUrl}/${segment.output}`;
+  // The {count} placeholder has to be resolved here too. The <title> and the
+  // H1 both run through resolveCount(); the JSON-LD did not, so structured
+  // data was advertising a literal "{count} New-Build Apartments..." to
+  // search engines on every segment page and on the guides hub.
+  const stats = computeStats(matches);
+  const name = resolveCount(segment.title, stats);
   return [
     {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: segment.title,
+      name,
       url,
       description: segment.description
     },
@@ -462,7 +486,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
   const relatedSection = `<section class="section quiet-band segment-related"><div class="section-inner">
     <div class="section-head"><span class="label">Other Areas</span><div class="rule"></div><h2 class="section-title">More buying <em>guides</em></h2></div>
     <ul class="segment-related-list">
-      ${otherSegments.map((s) => `<li><a href="${esc(s.output)}">${esc(s.breadcrumbLabel)} in ${esc(s.areaLabel)}</a></li>`).join('\n      ')}
+      ${otherSegments.map((s) => `<li><a href="${esc(s.output)}">${s.cardHeading ? esc(s.cardHeading) : `${esc(s.breadcrumbLabel)} in ${esc(s.areaLabel)}`}</a></li>`).join('\n      ')}
       <li><a href="guides.html">All Buying Guides</a></li>
     </ul>
   </div></section>`;
@@ -477,7 +501,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
 ${baseHrefTag(locale)}  <title>${esc(resolveCount(segment.title, stats))}</title>
   <meta name="description" content="${esc(segment.description)}">
 ${hreflangLinks(segment.output, siteUrl)}
-${seoTags(segment.output, locale, { title: segment.title, description: segment.description, image: `${siteUrl}/${segment.hero.image}` })}
+${seoTags(segment.output, locale, { title: resolveCount(segment.title, stats), description: segment.description, image: `${siteUrl}/${segment.hero.image}` })}
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
@@ -703,7 +727,7 @@ function guideCard(segment) {
       <div class="guide-card-image"><img src="${esc(segment.hero.image)}" alt="${esc(segment.hero.alt)}" width="640" height="420" loading="lazy" decoding="async"></div>
       <div class="guide-card-body">
         <span class="label">${segment.kicker}</span>
-        <h3>${esc(segment.breadcrumbLabel)} in ${esc(segment.areaLabel)}</h3>
+        <h3>${segment.cardHeading ? esc(segment.cardHeading) : `${esc(segment.breadcrumbLabel)} in ${esc(segment.areaLabel)}`}</h3>
         <p>${esc(segment.description)}</p>
         <div class="meta">
           <div><span>Developments</span><strong>${stats.count}</strong></div>
@@ -734,7 +758,7 @@ function renderGuidesPage(locale = DEFAULT_LOCALE) {
         '@type': 'ListItem',
         position: index + 1,
         url: `${siteUrl}/${segment.output}`,
-        name: segment.title
+        name: resolveCount(segment.title, computeStats(matchProjects(segment)))
       }))
     },
     generalFaqSchema()
@@ -844,6 +868,126 @@ function generalFaqSchema() {
 }
 
 const SEGMENTS = [
+  {
+    output: 'new-build-homes-new-golden-mile.html',
+    area: 'estepona',
+    slugs: [
+      'vista-alta-suites',
+      'jardin-del-mar-residences',
+      'cancelada-park',
+      'meridian-golf-villas',
+      'fairway-grove-villas',
+      'el-campanario-golf-villa',
+      'bel-air-villa-collection'
+    ],
+    areaLabel: 'the New Golden Mile',
+    areaHref: 'area-estepona.html',
+    propertyTypes: ['apartment', 'penthouse', 'villa'],
+    breadcrumbLabel: 'New Golden Mile',
+    // "New Golden Mile in the New Golden Mile" is what the default card
+    // heading produces for a cluster whose label already names the place.
+    cardHeading: 'New-Build Homes on the New Golden Mile',
+    title: '{count} New-Build Homes on the New Golden Mile',
+    description: 'New-build apartments, penthouses and villas on the New Golden Mile between Estepona and Puerto Banus, from EUR 695,000. Real availability and delivery dates.',
+    kicker: 'Estepona &middot; New Golden Mile',
+    heroTitleHtml: '{count} New-Build Homes for Sale on the <em>New Golden Mile</em>',
+    heroLead: 'The stretch between Estepona and Puerto Banus, where beachside apartments and golf-side villas sit within a few minutes of each other.',
+    hero: {
+      image: 'assets/liora/projects/jardin-del-mar-residences/hero.jpg',
+      alt: 'New-build residence with pool and gardens on the New Golden Mile between Estepona and Puerto Banus',
+      width: 1920,
+      height: 1280,
+      position: 'center 55%'
+    },
+    introLabel: 'Buying On The New Golden Mile',
+    introHeadlineHtml: 'Not Estepona, <em>not quite Marbella</em>',
+    areaLinkHtml: 'Looking more widely? Our guide to <a href="area-estepona.html">where to buy in Estepona, area by area</a> sets the New Golden Mile against the town itself and the coast further west.',
+    introParagraphs: [
+      'The New Golden Mile is the coastal strip running from the eastern edge of Estepona up to Puerto Banus. It is its own market rather than a part of either: buyers who start in Marbella come here for space and newer stock, and buyers who start in Estepona come here for proximity to Puerto Banus.',
+      'It is also unusually mixed. Within a few minutes of each other you will find beachside apartment releases from EUR 695,000 and golf-side villa collections up to EUR 3,500,000, which is why this page covers both rather than splitting them. Every current release here is off-plan or under construction with staged payments.'
+    ],
+    quickFacts: [
+      ['Buyer Profile', 'Suits buyers who want Puerto Banus within reach without Marbella pricing, and families who need more built area than the Golden Mile offers.'],
+      ['Typical Status', 'All current releases are off-plan or under construction, sold with staged payments through to completion.'],
+      ['What Varies Most', 'Distance to the beach against distance to the golf. The apartment releases sit beachside; the villa collections sit inland around El Campanario.'],
+      ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
+    ],
+    subareasHeadlineHtml: 'One strip, <em>three distinct pockets</em>',
+    subareas: [
+      ['Cancelada &amp; beachside', 'The most walkable part of the strip, with apartment and penthouse releases close to the beach and everyday services. The lower entry point on the New Golden Mile and the easiest to let.'],
+      ['El Campanario', 'Inland and golf-facing, built around the golf and country club. Almost all of the villa stock on this stretch sits here, on larger plots than anything beachside.'],
+      ['Bel Air', 'An established, low-density address at the Marbella end of the strip, closest to Puerto Banus, where new villa releases are small and infrequent.']
+    ],
+    developmentsHeadlineHtml: 'Current <em>developments</em>',
+    amenitiesHeadlineHtml: 'Amenities to expect',
+    amenitiesIntro: 'Specification varies by development, but current releases on this stretch typically include some combination of the following.',
+    comparisonHeadlineHtml: 'Apartment or villa <em>on this stretch?</em>',
+    comparison: [
+      ['Apartment or penthouse', 'Beachside, walkable and from EUR 695,000. Community pools and gardens are maintained for you, which suits owners who are not here year-round. The practical choice if you want to be able to leave and lock the door.'],
+      ['Villa', 'Golf-side around El Campanario, from EUR 1,550,000, on private plots with a private pool. More space and more privacy, and more to maintain: budget for a gardener and pool service whether you are here or not.']
+    ],
+    faq: [
+      ['Where exactly is the New Golden Mile?', 'It is the coastal strip between the eastern edge of Estepona and Puerto Banus, taking in Cancelada, El Campanario and Bel Air. It is not an administrative area, which is why it does not appear on municipal maps, but it is how the stretch is bought and sold locally.'],
+      ['Is it in Estepona or Marbella?', 'Almost all of it falls within the municipality of Estepona, with the Bel Air end closest to the Marbella boundary. For practical purposes -- taxes, licences, town hall -- treat it as Estepona.'],
+      ['Why is it cheaper than the Golden Mile in Marbella?', 'It is further from central Marbella and it is newer, with more land still being built on. That is what keeps entry prices near EUR 695,000 here against Marbella pricing a few kilometres east. It is a location difference, not a build-quality one.'],
+      ['Can I walk to the beach from these developments?', 'From the beachside apartment releases around Cancelada, generally yes. The villa collections around El Campanario are inland and golf-facing, so a car is assumed there. We confirm the actual walking distance for a specific development rather than relying on a brochure claim.'],
+      ['Is there much difference in service charges between an apartment and a villa here?', 'They are different in kind rather than degree. An apartment carries a community charge covering shared pools, gardens and lighting. A villa usually carries a smaller community charge but takes on its own pool and garden maintenance directly, which often costs more in total once you add it up.']
+    ]
+  },
+  {
+    output: 'new-build-apartments-penthouses-mijas-fuengirola.html',
+    area: 'mijas-fuengirola',
+    areaLabel: 'Mijas & Fuengirola',
+    areaHref: 'area-mijas-fuengirola.html',
+    propertyTypes: ['apartment', 'penthouse'],
+    breadcrumbLabel: 'Apartments & Penthouses',
+    title: '{count} New-Build Apartments & Penthouses in Mijas & Fuengirola',
+    description: 'New-build apartments and penthouses in Mijas, Fuengirola and Benalmadena from EUR 390,000. Real availability, floorplans and delivery dates.',
+    kicker: 'Mijas &amp; Fuengirola &middot; Apartments &amp; Penthouses',
+    heroTitleHtml: '{count} New-Build Apartments &amp; Penthouses for Sale in <em>Mijas &amp; Fuengirola</em>',
+    heroLead: 'The eastern stretch of the coast, where the same budget buys more floor area than it does in Marbella, with current releases in Mijas, Las Lagunas and Torremuelle.',
+    hero: {
+      image: 'assets/liora/projects/cerrado-vista-residences/media/sunset-terrace-coastal-view.jpg',
+      alt: 'Penthouse terrace at sunset with panoramic views over the Mijas and Fuengirola coastline',
+      width: 1920,
+      height: 1127,
+      position: 'center 55%'
+    },
+    introLabel: 'Buying In Mijas & Fuengirola',
+    introHeadlineHtml: 'The same coast, <em>at a different price</em>',
+    areaLinkHtml: 'Weighing up the towns? Our guide to <a href="area-mijas-fuengirola.html">where to buy in Mijas and Fuengirola</a> compares them on price, character and who each one suits.',
+    introParagraphs: [
+      'This is the part of the Costa del Sol where the arithmetic changes. Entry prices here start around EUR 390,000, against EUR 527,500 in Marbella for the same kind of home, and the gap widens once you compare built size rather than headline price.',
+      'What you trade is prestige, not access. Malaga airport is closer from here than it is from Marbella, the train line runs to Fuengirola, and the golf courses at Mijas sit minutes inland. Current releases here are under construction or off-plan with staged payments, and Nueva Living reconfirms the price list, floorplans and payment schedule before you shortlist anything.'
+    ],
+    quickFacts: [
+      ['Buyer Profile', 'Suits buyers who want coastal access and floor area over a Marbella address, and investors working to a yield rather than a trophy.'],
+      ['Typical Status', 'Every current release is under construction or off-plan, sold with staged payments through to completion.'],
+      ['What Varies Most', 'Position relative to the sea and the golf courses. Las Lagunas is inland and connected; Torremuelle sits above the water.'],
+      ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
+    ],
+    subareasHeadlineHtml: 'Three settings, <em>three different trade-offs</em>',
+    subareas: [
+      ['Mijas', 'Inland and elevated, next to the golf courses, with the widest spread of prices on this stretch. Suits buyers who want space and green surroundings within a short drive of the beach rather than on it.'],
+      ['Las Lagunas', 'Between Fuengirola and Mijas, the most connected of the three: everyday services, schools and the train line within reach. The practical choice for year-round living rather than seasonal use.'],
+      ['Torremuelle, Benalmadena', 'A quieter pocket above the coastline east of Fuengirola, closer to Malaga than to Marbella, with sea-facing positions and a smaller, more private scale of development.']
+    ],
+    developmentsHeadlineHtml: 'Current apartment &amp; penthouse <em>developments</em>',
+    amenitiesHeadlineHtml: 'Amenities to expect',
+    amenitiesIntro: 'Specification varies by development, but current releases on this stretch typically include some combination of the following.',
+    comparisonHeadlineHtml: 'Apartment or penthouse <em>on this stretch?</em>',
+    comparison: [
+      ['Apartment', 'The lower entry price in any given development, and where the value argument for this area is strongest: the price per built square metre here is materially below the equivalent in Marbella. Ground-floor units are often sold with a private garden.'],
+      ['Penthouse', 'The largest terrace or solarium in the building and the best of the sea or golf view, at a premium over a mid-floor unit. On this coast a penthouse still frequently lands under what a mid-floor apartment costs further west.']
+    ],
+    faq: [
+      ['Why are new-build prices lower here than in Marbella?', 'Land costs less on this stretch than it does between Marbella and Estepona, and that carries through to the finished price rather than reflecting a difference in build quality. Current releases here run from around EUR 390,000, against EUR 527,500 for the equivalent in Marbella.'],
+      ['How far is Malaga airport?', 'Closer than it is from Marbella. Fuengirola, Mijas Costa and Benalmadena all sit on the airport side of the coast, which shortens the transfer at both ends of a trip and matters more than it sounds if you plan to visit often or rent the property out.'],
+      ['Is there a train to this part of the coast?', 'Yes. The Cercanias line runs from Malaga and the airport to Fuengirola, which is unusual on this coast: Marbella and Estepona have no rail connection at all. It makes year-round living and car-free visits genuinely practical here.'],
+      ['Are these developments suitable for holiday rental?', 'Rental demand on this stretch is strong and year-round rather than purely seasonal, helped by the airport proximity and the train. Whether a specific development permits short-term letting depends on its community rules and the municipal licence position, which differs between Mijas, Fuengirola and Benalmadena. Nueva Living confirms this for a development before you reserve.'],
+      ['Is Benalmadena the same market as Mijas and Fuengirola?', 'It is a separate municipality with its own character, though it sits on the same stretch and buyers usually shop across all three. Torremuelle, where our current Benalmadena release sits, is a quieter residential pocket above the coastline rather than part of the busier Benalmadena Costa.']
+    ]
+  },
   {
     output: 'new-build-apartments-penthouses-marbella.html',
     area: 'marbella',

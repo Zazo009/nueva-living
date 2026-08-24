@@ -76,6 +76,8 @@ const baseHtmlFiles = [
   'guides.html',
   'legal-notice.html',
   'new-build-apartments-penthouses-marbella.html',
+  'new-build-apartments-penthouses-mijas-fuengirola.html',
+  'new-build-homes-new-golden-mile.html',
   'new-build-apartments-penthouses-estepona.html',
   'new-build-apartments-penthouses-nueva-andalucia.html',
   'privacy-policy.html',
@@ -102,8 +104,17 @@ function segmentAvailable(area, types) {
       && (p.crm?.propertyTypes || []).some((t) => types.includes(t)))
     .reduce((sum, p) => sum + (p.crm?.availableUnits || 0), 0);
 }
+// A cluster page names its projects outright instead of filtering on an area,
+// because the sub-area it targets has no discovery.area of its own. Its count
+// has to come from the same list build_segment_pages.mjs renders, or the title
+// here and the H1 there disagree.
+function clusterAvailable(slugs) {
+  return slugs
+    .map((slug) => projectPages.find((p) => p.slug === slug))
+    .reduce((sum, p) => sum + (p?.crm?.availableUnits || 0), 0);
+}
 function segmentTitle(template, area, types = ['apartment', 'penthouse']) {
-  const n = segmentAvailable(area, types);
+  const n = Array.isArray(area) ? clusterAvailable(area) : segmentAvailable(area, types);
   return n >= SEGMENT_COUNT_MIN
     ? template.replace('{count}', String(n))
     : template.replace(/\{count\}\s*/, '');
@@ -162,6 +173,18 @@ const basePageMeta = {
     title: 'Buying a New-Build in Spain: Costa del Sol Guides 2026',
     description: 'How buying a new-build on the Costa del Sol actually works: the seven steps, off-plan vs resale, purchase costs in Andalucia and non-resident mortgages.',
     path: '/guides.html',
+    type: 'website'
+  },
+  'new-build-homes-new-golden-mile.html': {
+    title: '{count} New-Build Homes on the New Golden Mile',
+    description: 'New-build apartments, penthouses and villas on the New Golden Mile between Estepona and Puerto Banus, from EUR 695,000. Real availability and delivery dates.',
+    path: '/new-build-homes-new-golden-mile.html',
+    type: 'website'
+  },
+  'new-build-apartments-penthouses-mijas-fuengirola.html': {
+    title: '{count} New-Build Apartments & Penthouses in Mijas & Fuengirola',
+    description: 'New-build apartments and penthouses in Mijas, Fuengirola and Benalmadena from EUR 390,000. Real availability, floorplans and delivery dates.',
+    path: '/new-build-apartments-penthouses-mijas-fuengirola.html',
     type: 'website'
   },
   'new-build-apartments-penthouses-marbella.html': {
@@ -425,8 +448,18 @@ const projectPages = loadProjectPages();
 // once projectPages exists. Same number the H1 uses in build_segment_pages.
 for (const [output, area] of [
   ['new-build-apartments-penthouses-marbella.html', 'marbella'],
+  ['new-build-apartments-penthouses-mijas-fuengirola.html', 'mijas-fuengirola'],
   ['new-build-apartments-penthouses-estepona.html', 'estepona'],
-  ['new-build-apartments-penthouses-nueva-andalucia.html', 'nueva-andalucia']
+  ['new-build-apartments-penthouses-nueva-andalucia.html', 'nueva-andalucia'],
+  ['new-build-homes-new-golden-mile.html', [
+    'vista-alta-suites',
+    'jardin-del-mar-residences',
+    'cancelada-park',
+    'meridian-golf-villas',
+    'fairway-grove-villas',
+    'el-campanario-golf-villa',
+    'bel-air-villa-collection'
+  ]]
 ]) {
   const entry = basePageMeta[output];
   if (entry?.title) entry.title = segmentTitle(entry.title, area);

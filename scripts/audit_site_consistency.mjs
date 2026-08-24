@@ -284,6 +284,28 @@ for (const file of propertyPages) {
   }
 }
 
+// {count} is a build-time placeholder resolved by resolveCount() for segment
+// titles and H1s. It leaked into the JSON-LD and the og:/twitter: tags, so
+// structured data advertised a literal "{count} New-Build Apartments..." on
+// every segment page. The only legitimate survivor is a data-i18n-* attribute,
+// which is a client-side template the discovery script fills in at runtime.
+const countPlaceholderPages = [dist, ...fs.readdirSync(dist, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && /^[a-z]{2}$/.test(entry.name))
+  .map((entry) => path.join(dist, entry.name))]
+  .flatMap((dir) => fs.readdirSync(dir)
+    .filter((name) => name.endsWith('.html'))
+    .map((name) => path.join(dir, name)));
+
+for (const file of countPlaceholderPages) {
+  const html = fs.readFileSync(file, 'utf8');
+  if (!html.includes('{count}')) continue;
+  const stripped = html.replace(/\sdata-i18n-[a-z-]+="[^"]*"/g, '');
+  if (stripped.includes('{count}')) {
+    fail(path.relative(dist, file), 'an unresolved {count} placeholder reaches the page outside a '
+      + 'data-i18n-* attribute -- it is being published to readers or to search engines');
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
