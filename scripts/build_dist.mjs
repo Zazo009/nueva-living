@@ -1281,7 +1281,60 @@ Excluded:
 
 fs.writeFileSync(path.join(dist, 'README.md'), metadata);
 
-const sitemapLastmod = new Date().toISOString().slice(0, 10);
+// ---------------------------------------------------------------------------
+// sitemap <lastmod>
+//
+// This used to stamp today's date onto all ~510 URLs on every single build,
+// which tells Google that the entire site changed every time we deploy. That
+// is not a signal -- it is noise, and Google's documented response to a
+// lastmod it cannot trust is to stop reading lastmod for the site entirely.
+//
+// Instead each URL keeps its own date, moved only when that page's content
+// actually changed. We hash the built page and compare against a manifest
+// committed alongside the content, so the date survives across builds and
+// across machines (Netlify builds from the same commit, computes the same
+// hashes, and therefore emits the same dates).
+//
+// The hash deliberately strips `?v=<assethash>` cache-busting query strings
+// first: bumping the shared stylesheet rewrites that token on every page, and
+// a CSS tweak is not a content change to 510 documents.
+// ---------------------------------------------------------------------------
+const buildDate = new Date().toISOString().slice(0, 10);
+const lastmodManifestPath = path.join(root, 'content', 'sitemap-lastmod.json');
+
+let lastmodManifest = {};
+try {
+  lastmodManifest = JSON.parse(fs.readFileSync(lastmodManifestPath, 'utf8'));
+} catch {
+  lastmodManifest = {};
+}
+const nextLastmodManifest = {};
+
+function pageContentHash(distRelPath) {
+  const abs = path.join(dist, distRelPath);
+  let html;
+  try {
+    html = fs.readFileSync(abs, 'utf8');
+  } catch {
+    return null;
+  }
+  return createHash('sha256')
+    .update(html.replace(/\?v=[A-Za-z0-9]+/g, ''))
+    .digest('hex')
+    .slice(0, 16);
+}
+
+function lastmodFor(distRelPath) {
+  const hash = pageContentHash(distRelPath);
+  if (!hash) return buildDate;
+  const previous = lastmodManifest[distRelPath];
+  const lastmod = previous && previous.hash === hash && previous.lastmod
+    ? previous.lastmod
+    : buildDate;
+  nextLastmodManifest[distRelPath] = { hash, lastmod };
+  return lastmod;
+}
+
 
 // Every page type now renders real per-locale content (property, footer,
 // segment, area, homepage, developments), so sitemap hreflang alternates
@@ -1320,7 +1373,7 @@ const sitemapEntries = Object.entries(pageMeta)
     return [
       '  <url>',
       `<loc>${siteUrl}${meta.path}</loc>`,
-      `<lastmod>${sitemapLastmod}</lastmod>`,
+      `<lastmod>${lastmodFor(file === 'index.html' ? 'index.html' : file)}</lastmod>`,
       '<changefreq>weekly</changefreq>',
       `<priority>${priority}</priority>${hreflangAlternatesXml(file)}`,
       '</url>'
@@ -1348,7 +1401,7 @@ const localeSitemapEntries = Object.entries(pageMeta)
       return [
         '  <url>',
         `<loc>${localeHref(englishFile, locale)}</loc>`,
-        `<lastmod>${sitemapLastmod}</lastmod>`,
+        `<lastmod>${lastmodFor(file)}</lastmod>`,
         '<changefreq>weekly</changefreq>',
         `<priority>${priority}</priority>\n${alternates.join('\n')}`,
         '</url>'
@@ -1367,6 +1420,14 @@ fs.writeFileSync(
     '</urlset>',
     ''
   ].join('\n')
+);
+
+// Persist the per-URL dates. Committing this file is what makes the dates
+// stable: a build from the same commit recomputes the same hashes and so
+// re-emits the same lastmod values instead of resetting them to today.
+fs.writeFileSync(
+  lastmodManifestPath,
+  `${JSON.stringify(Object.fromEntries(Object.entries(nextLastmodManifest).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`
 );
 
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
