@@ -13,7 +13,7 @@
 // entire property-page build a second time.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
-import { DEFAULT_LOCALE, localizeProject, t } from './i18n.mjs';
+import { DEFAULT_LOCALE, localizeProject, t, hasString } from './i18n.mjs';
 
 const projectsDir = path.resolve('content/liora-projects');
 
@@ -40,8 +40,12 @@ export function loadProjects() {
 }
 
 function localizedCategory(category, locale) {
+  if (!category) return category;
   const key = `mediaCategory.${category}`;
-  return category ? t(key, locale) : category;
+  // Same guard as build_property_pages.mjs: on a localized build the
+  // project's i18n overlay may already have translated the category, so
+  // there is no key to look up and t() would return the key literal.
+  return hasString(key) ? t(key, locale) : category;
 }
 
 const AREA_DISPLAY_NAMES = {

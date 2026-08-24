@@ -18,8 +18,7 @@ import {
   renderGuidesMenu,
   guidesMobileLinks,
   renderDrawerActions,
-  LANG_SWITCHER_SCRIPT
-} from './lib/i18n.mjs';
+  LANG_SWITCHER_SCRIPT } from './lib/i18n.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
 import { realEstateAgentSchema } from './lib/brand.mjs';
@@ -284,8 +283,13 @@ function tourEmbedUrl(rawUrl) {
 }
 
 function localizedCategory(category, locale) {
+  if (!category) return category;
   const key = `mediaCategory.${category}`;
-  return category ? t(key, locale) : category;
+  // On a localized build the project's i18n overlay may already have
+  // translated the category, so no `mediaCategory.<English>` key exists.
+  // Without this guard t() falls back to returning the key itself and the
+  // gallery tile reads "mediaCategory.Exteriores".
+  return hasString(key) ? t(key, locale) : category;
 }
 
 function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
