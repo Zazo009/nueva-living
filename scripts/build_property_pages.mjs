@@ -767,7 +767,6 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
             <div><span>${t('availability.priceRange', locale)}</span><strong>${esc(availability.priceRange || '')}</strong></div>
             <div><span>${t('availability.checked', locale)}</span><strong>${esc(localizeMonthDate(availability.checkedDate, locale) || '')}</strong></div>
           </div>
-          ${renderAvailabilitySiteMaps(availability, locale)}
           <details class="availability-disclosure">
             <summary>
               <span>${t('availability.viewAll', locale, { count: units.length })}</span>
@@ -784,6 +783,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
               </table>
             </div>`}
           </details>
+          ${renderAvailabilitySiteMaps(availability, locale)}
           <p class="availability-source-note">${esc(availability.sourceNote || '')}</p>
         </div>`;
 }
