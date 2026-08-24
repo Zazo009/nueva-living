@@ -1037,11 +1037,13 @@ function projectArea(project, locale = DEFAULT_LOCALE) {
   if (location.includes('mijas') || location.includes('fuengirola')) {
     return { label: t('area.mijasFuengirola', locale), href: 'area-mijas-fuengirola.html' };
   }
-  // Benalmadena has no area page of its own; it sits between Fuengirola and
-  // Torremolinos, so it belongs with the Mijas & Fuengirola page rather than
-  // falling through to the Marbella default.
+  // Benalmadena has no area page of its own and sits between Fuengirola and
+  // Torremolinos, so the nearest covered area page is Mijas & Fuengirola.
+  // The LABEL, however, names the real town: calling a Benalmadena
+  // development "Mijas & Fuengirola" put a factual error in the title tag,
+  // the breadcrumb and the schema. Same treatment as Casares below.
   if (location.includes('benalmad')) {
-    return { label: t('area.mijasFuengirola', locale), href: 'area-mijas-fuengirola.html' };
+    return { label: t('area.benalmadena', locale), href: 'area-mijas-fuengirola.html' };
   }
   // Casares has no area page of its own; it sits west of Estepona and belongs
   // with that page. Without this branch it fell through to the Marbella default
@@ -1093,6 +1095,10 @@ const SEO_TITLE_MAX = 60;
 const BRAND_SUFFIX = ' | Nueva Living';
 
 function seoTitle(project, locale = DEFAULT_LOCALE) {
+  // English uses the audited, project-name-first title (see build_dist.mjs).
+  // Locales keep the generated pattern: the audit only covers English, and
+  // publishing unreviewed translated tags is worse than a generated one.
+  if (locale === DEFAULT_LOCALE && project.seo?.title) return project.seo.title;
   const area = projectArea(project, locale);
   const type = project.hero?.type || 'New Development';
   const build = (t2) => t('seo.titleTemplate', locale, { type: t2, area: area.label, name: project.shortName || project.name });
@@ -1289,6 +1295,23 @@ function renderFurniturePackages(project, locale = DEFAULT_LOCALE) {
 `;
 }
 
+// The H1 used to be the bare project name, which tells a search engine
+// nothing -- the single biggest systematic weakness the Aug 2026 audit found.
+// The name stays the display line; a second, quieter line carries the search
+// context (bedroom range, type, micro-location) inside the same <h1>.
+//
+// English uses the audited wording. Locales derive theirs from their own
+// already-translated hero fields rather than shipping English into nine
+// languages or machine-translating tags the audit explicitly warns against.
+function heroTitleContext(project, sourceProject, locale) {
+  if (locale === DEFAULT_LOCALE) {
+    const context = sourceProject?.seo?.h1Context;
+    if (context) return esc(context);
+  }
+  const parts = [project.hero?.type, project.hero?.location].filter(Boolean);
+  return esc(parts.join(' \u00b7 '));
+}
+
 function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const project = localizeProject(sourceProject, locale);
   const rtl = isRtl(locale);
@@ -1460,7 +1483,10 @@ ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
       <div class="project-hero-inner">
         <div class="hero-copy reveal-soft">
           <span class="project-eyebrow">${esc(project.hero.eyebrow)}</span>
-          <h1 class="hero-title">${project.titleHtml}</h1>
+          <h1 class="hero-title">
+            <span class="hero-title-name">${project.titleHtml}</span>
+            <span class="hero-title-context">${heroTitleContext(project, sourceProject, locale)}</span>
+          </h1>
           <p class="hero-positioning">${esc(project.description)}</p>
           <div class="hero-actions">
             ${availabilityBrowseAction}

@@ -85,10 +85,30 @@ const fontPreloadBlock = [
   '  <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>',
   '  <link rel="preload" href="assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>'
 ].join('\n');
+// Live availability counts for the three type/facet pages, mirroring
+// matchProjects()/computeStats() in build_segment_pages.mjs. The audit asks
+// for the count in the title, but a hardcoded number goes stale on the first
+// sale -- and the same number has to drive the title here and the H1 there,
+// or the page contradicts itself. Shown only at 10 or above, per the audit:
+// a title advertising two apartments reads as an empty shop.
+const SEGMENT_COUNT_MIN = 10;
+function segmentAvailable(area, types) {
+  return projectPages
+    .filter((p) => p.discovery?.area === area
+      && (p.crm?.propertyTypes || []).some((t) => types.includes(t)))
+    .reduce((sum, p) => sum + (p.crm?.availableUnits || 0), 0);
+}
+function segmentTitle(template, area, types = ['apartment', 'penthouse']) {
+  const n = segmentAvailable(area, types);
+  return n >= SEGMENT_COUNT_MIN
+    ? template.replace('{count}', String(n))
+    : template.replace(/\{count\}\s*/, '');
+}
+
 const basePageMeta = {
   'index.html': {
-    title: 'Nueva Living | Costa del Sol New Developments',
-    description: 'Find and compare new-build homes across Marbella, Estepona, Benahavis and the wider Costa del Sol with personal buyer support.',
+    title: 'Nueva Living | New-Build & Off-Plan Property, Costa del Sol',
+    description: 'Independent advice on new-build and off-plan homes in Marbella, Estepona, Benahavis and Nueva Andalucia - real prices, availability and delivery dates.',
     path: '/',
     type: 'website',
     schema: [
@@ -100,8 +120,8 @@ const basePageMeta = {
     ]
   },
   'developments.html': {
-    title: 'Costa del Sol New Developments | Nueva Living',
-    description: 'Explore new developments across the Costa del Sol, chosen for their design, location and everyday appeal.',
+    title: 'New Developments on the Costa del Sol - {count} Projects',
+    description: 'Browse 30 new-build and off-plan developments from Marbella to Benalmadena, with guide prices from €305,000, delivery dates and live availability.',
     path: '/developments.html',
     type: 'website'
     // No `schema` here: developments.html already carries its own inline
@@ -110,40 +130,40 @@ const basePageMeta = {
     // duplicate it in the built output.
   },
   'guides.html': {
-    title: 'Costa del Sol Buying Guides | Nueva Living',
-    description: 'Compare new-build apartments and penthouses by area across the Costa del Sol, with real prices, availability and local buying guidance from Nueva Living.',
+    title: 'Buying a New-Build in Spain: Costa del Sol Guides 2026',
+    description: 'How buying a new-build on the Costa del Sol actually works: the seven steps, off-plan vs resale, purchase costs in Andalucia and non-resident mortgages.',
     path: '/guides.html',
     type: 'website'
   },
   'new-build-apartments-penthouses-marbella.html': {
-    title: 'New-Build Apartments & Penthouses in Marbella | Nueva Living',
-    description: 'Compare new-build apartments and penthouses across Marbella’s Golf Valley, Elevated Coastline and Marbella West, with real prices, availability and floorplans from Nueva Living.',
+    title: '{count} New-Build Apartments & Penthouses in Marbella',
+    description: 'New-build apartments and penthouses across Golf Valley, Marbella East and Marbella West, from €527,500. Real availability, floorplans and delivery dates.',
     path: '/new-build-apartments-penthouses-marbella.html',
     type: 'website'
     // No `schema` here either: build_segment_pages.mjs already writes the
     // full CollectionPage/ItemList/BreadcrumbList/FAQPage JSON-LD inline.
   },
   'new-build-apartments-penthouses-estepona.html': {
-    title: 'New-Build Apartments & Penthouses in Estepona | Nueva Living',
-    description: 'Compare new-build apartments and penthouses in Estepona, from the New Golden Mile to the town centre, with real prices, availability and floorplans from Nueva Living.',
+    title: 'New-Build Apartments & Penthouses in Estepona',
+    description: 'New-build apartments and penthouses in Estepona, from the New Golden Mile to the town centre. From €720,000, with floorplans and delivery dates.',
     path: '/new-build-apartments-penthouses-estepona.html',
     type: 'website'
   },
   'new-build-apartments-penthouses-nueva-andalucia.html': {
     title: 'New-Build Apartments & Penthouses in Nueva Andalucia',
-    description: 'Compare new-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus, with real prices, availability and floorplans from Nueva Living.',
+    description: 'New-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus. From €450,000, with floorplans and delivery dates.',
     path: '/new-build-apartments-penthouses-nueva-andalucia.html',
     type: 'website'
   },
   'areas.html': {
-    title: 'Costa del Sol Area Guide | Nueva Living',
-    description: 'Compare Marbella, Estepona, Benahavis, Nueva Andalucia and nearby Costa del Sol areas before choosing a new-build home.',
+    title: 'Where to Buy on the Costa del Sol: Area Guide 2026',
+    description: 'Compare Marbella, Estepona, Benahavis, Nueva Andalucia and Mijas on price per m2, lifestyle and new-build supply before you choose where to buy.',
     path: '/areas.html',
     type: 'article'
   },
   'why-nueva.html': {
-    title: 'Why Choose Nueva Living | Costa del Sol Buyer Support',
-    description: 'Local Costa del Sol insight, honest advice and a clear step-by-step process, from the first conversation through to handover.',
+    title: 'Why Nueva Living | Independent Buyer\'s Agent, Costa del Sol',
+    description: 'An independent buyer\'s agent for Costa del Sol new-builds: off-market access, developer-by-developer comparison, and no pressure to buy.',
     path: '/why-nueva.html',
     type: 'website',
     schema: {
@@ -155,8 +175,8 @@ const basePageMeta = {
     }
   },
   'advisory.html': {
-    title: 'Costa del Sol Buyer Advisory | Nueva Living',
-    description: 'Practical buyer support for comparing Costa del Sol new developments, developers, purchase steps and long-term suitability.',
+    title: 'Off-Plan Buyer Advisory, Costa del Sol | Nueva Living',
+    description: 'Independent help comparing Costa del Sol developers, contracts, payment schedules and bank guarantees before you reserve an off-plan home.',
     path: '/advisory.html',
     type: 'article',
     schema: {
@@ -179,8 +199,8 @@ const basePageMeta = {
     }
   },
   'guide-how-buying-works.html': {
-    title: 'How Buying a New-Build Home Works | Nueva Living',
-    description: 'A step-by-step guide to buying a new-build home on the Costa del Sol, from your first shortlist to collecting the keys.',
+    title: 'How to Buy a New-Build in Spain: 7 Steps (2026 Guide)',
+    description: 'The seven steps to buying a new-build on the Costa del Sol in 2026: reservation, private contract, bank guarantee, legal checks, completion and handover.',
     path: '/guide-how-buying-works.html',
     type: 'article',
     schema: {
@@ -203,26 +223,26 @@ const basePageMeta = {
     }
   },
   'guide-off-plan-vs-resale.html': {
-    title: 'Off-Plan vs Resale on the Costa del Sol | Nueva Living',
-    description: 'How buying off-plan and buying a completed resale home actually compare, across price, risk, payment terms and appreciation.',
+    title: 'Off-Plan vs Resale on the Costa del Sol: 2026 Guide',
+    description: 'Off-plan vs resale on the Costa del Sol in 2026: price, payment structure, bank guarantees, LOE warranty, timelines and which one suits your plan.',
     path: '/guide-off-plan-vs-resale.html',
     type: 'article'
   },
   'referrals.html': {
-    title: 'Referral & Ambassador Program | Nueva Living',
-    description: 'Introduce someone to Nueva Living and receive a share of our commission when their Costa del Sol purchase completes.',
+    title: 'Property Referral Program, Costa del Sol | Nueva Living',
+    description: 'Introduce a buyer to Nueva Living and share our commission when their Costa del Sol new-build purchase completes. No cap on introductions.',
     path: '/referrals.html',
     type: 'article'
   },
   'about.html': {
-    title: 'About Nueva Living | Costa del Sol New Development Advisory',
-    description: 'Nueva Living helps international buyers find, compare and understand new developments across the Costa del Sol.',
+    title: 'About Nueva Living | New-Build Specialists in Marbella',
+    description: 'Meet Sasan Raftari and Sami Altun. Nueva Living works with 40+ developers across Marbella, Estepona and the Costa del Sol on new-build and off-plan homes.',
     path: '/about.html',
     type: 'website'
   },
   'contact.html': {
-    title: 'Contact Nueva Living | Costa del Sol New Developments',
-    description: 'Tell us what you are looking for and receive a personal shortlist of Costa del Sol new developments that match your needs.',
+    title: 'Contact Nueva Living | Marbella & Costa del Sol',
+    description: 'Tell us your budget, area and timing and we will send a personal shortlist of Costa del Sol new developments, usually within one working day.',
     path: '/contact.html',
     type: 'website'
   },
@@ -313,10 +333,10 @@ function projectAreaLabel(project) {
   if (location.includes('benahav')) return 'Benahavis';
   if (location.includes('estepona') || location.includes('new golden mile')) return 'Estepona';
   if (location.includes('mijas') || location.includes('fuengirola')) return 'Mijas & Fuengirola';
-  // Benalmadena has no area page of its own; group it with Mijas & Fuengirola
-  // rather than falling through to the Marbella default (see the matching
-  // branch in build_property_pages.mjs's projectArea()).
-  if (location.includes('benalmad')) return 'Mijas & Fuengirola';
+  // Names the real town. It has no area page of its own, but labelling a
+  // Benalmadena development "Mijas & Fuengirola" was a factual error --
+  // see the matching branch in build_property_pages.mjs's projectArea().
+  if (location.includes('benalmad')) return 'Benalmadena';
   // Kept in step with projectArea() in build_property_pages.mjs. That file
   // titles the locale variants and this one the English page, so a branch
   // added there and not here silently gives a project two different areas.
@@ -335,6 +355,13 @@ function projectAreaLabel(project) {
 // Mirrors seoTitle() in build_property_pages: this one titles the English
 // property pages, that one the locale variants, and they have to agree.
 function projectSeoTitle(project) {
+  // The Aug 2026 SEO audit supplies a hand-written title per development,
+  // leading with the project name rather than the property type: nobody
+  // outranks Idealista for "apartments in Marbella", but the project's own
+  // name is what a buyer types after hearing it, and it is winnable outright.
+  // Figures in these strings were validated against this project's own data
+  // before being stored. Falls back to the generated pattern if absent.
+  if (project.seo?.title) return project.seo.title;
   const area = projectAreaLabel(project);
   const type = project.hero?.type || 'New Development';
   const brand = ' | Nueva Living';
@@ -359,6 +386,31 @@ function projectSeoTitle(project) {
 }
 
 const projectPages = loadProjectPages();
+
+// basePageMeta is a literal built before the projects are read, so the three
+// type/facet titles are stamped with their live availability count here,
+// once projectPages exists. Same number the H1 uses in build_segment_pages.
+for (const [output, area] of [
+  ['new-build-apartments-penthouses-marbella.html', 'marbella'],
+  ['new-build-apartments-penthouses-estepona.html', 'estepona'],
+  ['new-build-apartments-penthouses-nueva-andalucia.html', 'nueva-andalucia']
+]) {
+  const entry = basePageMeta[output];
+  if (entry?.title) entry.title = segmentTitle(entry.title, area);
+}
+
+// Same treatment for the developments index: the count is the live number of
+// published projects, not a number that quietly goes stale as the portfolio
+// grows. Below the display threshold it falls back to the countless title.
+{
+  const entry = basePageMeta['developments.html'];
+  const n = projectPages.length;
+  if (entry?.title) {
+    entry.title = n >= SEGMENT_COUNT_MIN
+      ? entry.title.replace('{count}', String(n))
+      : entry.title.replace(/ - \{count\} Projects/, '');
+  }
+}
 const nonDefaultLocales = LOCALES.filter((l) => l.code !== DEFAULT_LOCALE);
 const htmlFiles = [
   ...baseHtmlFiles,
@@ -395,7 +447,7 @@ const pageMeta = {
     project.output,
     {
       title: projectSeoTitle(project),
-      description: project.seoDescription || project.description || `${project.name} new development preview by Nueva Living.`,
+      description: project.seo?.description || project.seoDescription || project.description || `${project.name} new development preview by Nueva Living.`,
       path: `/${project.output}`,
       type: 'website'
     }
@@ -649,6 +701,14 @@ function minifyInlineStyles(html) {
 
 function optimizeHtml(html) {
   return minifyInlineStyles(inlineFontStyles(html))
+    // The developments index carries the live project count in its H1 as
+    // well as its title, resolved from the same number so the two can never
+    // contradict each other -- which is exactly what the audit found here,
+    // where the title said "new developments" and the H1 said "luxury
+    // properties for sale".
+    .replace(/\{devCount\}\s*/g, projectPages.length >= SEGMENT_COUNT_MIN
+      ? `${projectPages.length} `
+      : '')
     // Assets are immutable in production, so content hashes ensure every CSS
     // and form-handler revision reaches both new and returning visitors.
     .replace(

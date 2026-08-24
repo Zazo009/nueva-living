@@ -262,6 +262,26 @@ function segmentProjectCard(project) {
   });
 }
 
+// The audit asks for a live inventory count in the title and H1 -- the
+// pattern every ranking competitor uses -- but only when it flatters. A
+// hardcoded number goes stale the moment a unit sells, so it is resolved
+// from the same availability data the page already displays.
+//
+// Rule from the audit: show the count only at 10 or above. "2 apartments for
+// sale in Estepona" reads as an empty shop and costs the click, so below the
+// threshold the sentence falls back to its countless form.
+const COUNT_DISPLAY_MIN = 10;
+
+function resolveCount(text, stats) {
+  if (!text) return text;
+  if (!text.includes('{count}')) return text;
+  const n = stats?.availableTotal;
+  if (typeof n === 'number' && n >= COUNT_DISPLAY_MIN) {
+    return text.replace('{count}', String(n));
+  }
+  return text.replace(/\{count\}\s*/, '');
+}
+
 function matchProjects(segment) {
   return projects.filter((project) => {
     const discovery = project.discovery || {};
@@ -424,7 +444,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-${baseHrefTag(locale)}  <title>${esc(segment.title)}</title>
+${baseHrefTag(locale)}  <title>${esc(resolveCount(segment.title, stats))}</title>
   <meta name="description" content="${esc(segment.description)}">
 ${hreflangLinks(segment.output, siteUrl)}
 ${seoTags(segment.output, locale, { title: segment.title, description: segment.description, image: `${siteUrl}/${segment.hero.image}` })}
@@ -448,7 +468,7 @@ ${JSON.stringify(schema, null, 2)}
       <img src="${esc(segment.hero.image)}" alt="${esc(segment.hero.alt)}" width="${segment.hero.width}" height="${segment.hero.height}"${segment.hero.position ? ` style="object-position:${esc(segment.hero.position)}"` : ''} loading="eager" fetchpriority="high" decoding="async">
       <div class="hero-inner">
         <span class="kicker">${segment.kicker}</span>
-        <h1 class="display-title">${segment.heroTitleHtml}</h1>
+        <h1 class="display-title">${resolveCount(segment.heroTitleHtml, stats)}</h1>
         <p class="lead">${esc(segment.heroLead)}</p>
       </div>
     </section>
@@ -757,10 +777,10 @@ const SEGMENTS = [
     areaHref: 'area-marbella.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
-    title: 'New-Build Apartments & Penthouses in Marbella | Nueva Living',
-    description: 'Compare new-build apartments and penthouses across Marbella’s Golf Valley, Elevated Coastline and Marbella West, with real prices, availability and floorplans from Nueva Living.',
+    title: '{count} New-Build Apartments & Penthouses in Marbella',
+    description: 'New-build apartments and penthouses across Golf Valley, Marbella East and Marbella West, from €527,500. Real availability, floorplans and delivery dates.',
     kicker: 'Marbella &middot; Apartments &amp; Penthouses',
-    heroTitleHtml: 'New-Build Apartments &amp; Penthouses in <em>Marbella</em>',
+    heroTitleHtml: '{count} New-Build Apartments &amp; Penthouses for Sale in <em>Marbella</em>',
     heroLead: 'Compare current apartment and penthouse developments across Marbella, from golf-course settings to elevated sea views, with real prices and availability confirmed before you view.',
     hero: {
       image: 'assets/liora/projects/alisios-residences/hero.jpg',
@@ -810,10 +830,10 @@ const SEGMENTS = [
     areaHref: 'area-estepona.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
-    title: 'New-Build Apartments & Penthouses in Estepona | Nueva Living',
-    description: 'Compare new-build apartments and penthouses in Estepona, from the New Golden Mile to the town centre, with real prices, availability and floorplans from Nueva Living.',
+    title: 'New-Build Apartments & Penthouses in Estepona',
+    description: 'New-build apartments and penthouses in Estepona, from the New Golden Mile to the town centre. From €720,000, with floorplans and delivery dates.',
     kicker: 'Estepona &middot; Apartments &amp; Penthouses',
-    heroTitleHtml: 'New-Build Apartments &amp; Penthouses in <em>Estepona</em>',
+    heroTitleHtml: '{count} New-Build Apartments &amp; Penthouses for Sale in <em>Estepona</em>',
     heroLead: 'Compare current apartment and penthouse developments across Estepona, from low-rise garden homes on the New Golden Mile to gated communities in the town centre, with real prices and availability confirmed before you view.',
     hero: {
       image: 'assets/liora/projects/jardin-del-mar-residences/hero.jpg',
@@ -863,9 +883,9 @@ const SEGMENTS = [
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
     title: 'New-Build Apartments & Penthouses in Nueva Andalucia',
-    description: 'Compare new-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus, with real prices, availability and floorplans from Nueva Living.',
+    description: 'New-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus. From €450,000, with floorplans and delivery dates.',
     kicker: 'Nueva Andaluc&iacute;a &middot; Apartments &amp; Penthouses',
-    heroTitleHtml: 'New-Build Apartments &amp; Penthouses in <em>Nueva Andaluc&iacute;a</em>',
+    heroTitleHtml: '{count} New-Build Apartments &amp; Penthouses for Sale in <em>Nueva Andaluc&iacute;a</em>',
     heroLead: 'Compare current apartment and penthouse developments in Nueva Andalucía’s Golf Valley, minutes from Puerto Banús, with real prices and availability confirmed before you view.',
     hero: {
       image: 'assets/liora/projects/los-olivos-residences/hero.jpg',

@@ -96,6 +96,33 @@ body {
   font-style: normal;
 }
 
+/* The H1 now carries two lines: the project name, which stays the display
+   type, and a quieter line beneath it holding the search context (bedroom
+   range, property type, micro-location). Both sit inside one <h1> so the
+   heading reads meaningfully to a search engine while the page keeps its
+   editorial hierarchy.
+
+   The context line deliberately borrows the eyebrow's typography -- the
+   supporting voice already established on these pages -- rather than
+   introducing a new one. It is a block so the display name keeps its own
+   line and `text-wrap: balance` above still works on the name alone. */
+.hero-title-name {
+  display: block;
+}
+
+.hero-title-context {
+  display: block;
+  margin-top: 18px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(251, 247, 239, 0.66);
+  text-wrap: pretty;
+}
+
 .hero-positioning {
   max-width: 650px;
   margin: 24px 0 0;
@@ -2219,6 +2246,12 @@ body {
   .project-hero-inner {
     padding-top: 98px;
     padding-bottom: 40px;
+  }
+
+  .hero-title-context {
+    margin-top: 12px;
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
   }
 
   .hero-title {
