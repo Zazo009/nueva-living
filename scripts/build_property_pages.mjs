@@ -1981,9 +1981,43 @@ function assertPropertyTypes(project) {
   return project;
 }
 
+// crm.availableUnits is what every card, filter and segment-page count
+// reads. The real unit list lives in availability.units, and the two drifted
+// apart silently: Alisios listed four current references with floorplans on
+// its own page while crm.availableUnits was empty, so the project counted as
+// zero units everywhere else on the site.
+//
+// availability.unitsAre records what the list actually is, because the two
+// cases are not distinguishable by length alone:
+//   'available'      -- current releasable references; the count must match
+//   'layout-examples'-- floorplan examples where the developer has published
+//                       no release status, so there is no count to publish
+function assertAvailability(project) {
+  const av = project.availability || {};
+  const units = av.units || [];
+  if (!units.length) return project;
+  const kind = av.unitsAre;
+  if (kind !== 'available' && kind !== 'layout-examples') {
+    throw new Error(`${project.slug}: availability.units is set but availability.unitsAre is `
+      + `${JSON.stringify(kind)}. Use 'available' or 'layout-examples'.`);
+  }
+  const declared = project.crm?.availableUnits;
+  if (kind === 'available' && declared !== units.length) {
+    throw new Error(`${project.slug}: crm.availableUnits is ${JSON.stringify(declared)} but `
+      + `availability.units lists ${units.length} current reference(s). They must agree -- the `
+      + 'unit list is what the project page shows, crm.availableUnits is what the filters and '
+      + 'segment counts read.');
+  }
+  if (kind === 'layout-examples' && declared != null) {
+    throw new Error(`${project.slug}: availability.units are layout examples, so `
+      + `crm.availableUnits must stay unset rather than claim ${declared} homes are available.`);
+  }
+  return project;
+}
+
 export function loadProjects() {
   return projectFiles()
-    .map((file) => assertPropertyTypes({ ...readJson(file), sourceFile: file }))
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;
