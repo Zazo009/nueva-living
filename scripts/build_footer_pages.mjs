@@ -455,6 +455,7 @@ const pages = [
     description: 'Costa del Sol area guide for new development buyers.',
     heroImage: 'assets/liora/viewing/scene-01.jpg',
     heroKicker: 'Locations',
+    seoContext: 'Where to Buy on the Costa del Sol \u00b7 Area Guide 2026',
     heroTitle: 'The Costa del Sol, <em>area by area</em>',
     heroLead: 'Every area feels different. We help you compare daily life, travel times, views, prices and future resale demand.',
     body: `<section class="section"><div class="section-inner"><div class="section-head"><span class="label">Area Guide</span><div class="rule"></div><h2 class="section-title">Find the area that <em>fits you</em></h2><p class="body-copy">We look at what it is actually like to live there, how easy it is to get around and what supports long-term demand.</p></div><div class="area-stack">

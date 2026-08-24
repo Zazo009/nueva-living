@@ -2497,13 +2497,26 @@ so Latin numerals in the price still render in
    The homepage's transparent header is the reference, so the rest of the site
    is brought to it rather than the other way round.
 
-   Desktop only. Everything below 1121px is the mobile bar, which is a
-   different composition entirely and is deliberately untouched. */
+   The height is a variable because the breadcrumb bar has to clear a fixed
+   header, and it was clearing the old 76px: 13px of the breadcrumb sat behind
+   the header on every page that has one. Both now read the same number, so
+   they cannot drift apart again.
+
+   Desktop only. Everything below 1121px is the mobile bar, a different
+   composition, and is deliberately untouched. */
 @media (min-width: 1121px) {
-  .site-nav {
-    height: auto;
-    padding: 22px 44px;
+  :root {
+    --nueva-header-h: 89px;
+  }
+
+  .site-nav,
+  #nav {
+    height: var(--nueva-header-h);
+    padding: 0 44px;
     column-gap: 28px;
+    /* A plain 1fr will not shrink below its content, so between 1121px and
+       roughly 1250px the wider right-hand group pushed the centred wordmark
+       off true centre. minmax(0, 1fr) lets both sides shrink equally. */
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   }
 
@@ -2514,10 +2527,7 @@ so Latin numerals in the price still render in
     width: auto;
   }
 
-  /* A plain 1fr will not shrink below its content, so between 1121px and
-     roughly 1250px the wider right-hand group pushed the centred wordmark off
-     true centre. minmax(0, 1fr) lets both sides shrink equally. */
-  #nav {
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  .breadcrumb-bar {
+    margin-top: var(--nueva-header-h);
   }
 }
