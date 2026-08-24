@@ -42,7 +42,13 @@ function stripPriorInjections(html) {
     .replace(/\s*<details class="lang-switcher" data-lang-switcher>[\s\S]*?<\/details>\n?/g, '\n')
     .replace(/(<link rel="canonical"[^\n]*\n)(?:  <link rel="alternate"[^\n]*\n)*/, '$1')
     .replace(/(<meta name="description"[^\n]*\n)(?:  <link rel="alternate"[^\n]*\n)*/, '$1')
-    .replace(/\s*<script>\n\s*document\.querySelectorAll\('\[data-lang-switcher\]'\)[\s\S]*?<\/script>\n/g, '\n');
+    // Matches ANY <script> that mentions [data-lang-switcher], rather than one
+    // that begins with it. The block used to start with that selector; a
+    // Guides-dropdown section was later added above it, this anchor stopped
+    // matching, and the script was appended again on every single build --
+    // 25 copies of the same 4.4KB block had accumulated in these pages before
+    // anyone noticed, because nothing about the page looked wrong.
+    .replace(/\s*<script>((?:(?!<\/script>)[\s\S])*?\[data-lang-switcher\](?:(?!<\/script>)[\s\S])*?)<\/script>\n/g, '\n');
 }
 
 // Desktop switcher anchors on the nav divider, which exists only to
