@@ -1713,6 +1713,10 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
             <div class="why-point-grid">
               ${(trustDossier.cards || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n              ')}
             </div>
+            <p class="why-group-note">${t('why.guidesNote', locale, {
+              howItWorks: `<a href="${p}${localizedPath('guide-how-buying-works.html', locale)}">${t('why.guidesHowLink', locale)}</a>`,
+              offPlanVsResale: `<a href="${p}${localizedPath('guide-off-plan-vs-resale.html', locale)}">${t('why.guidesCompareLink', locale)}</a>`
+            })}</p>
           </div>
         </div>
       </div>
