@@ -101,9 +101,14 @@ export const FOUNDERS = [
     email: 'sasan@nuevaliving.com',
     telephone: '+46707576709',
     photo: 'assets/liora/team/sasan-raftari-founder.jpg',
+    // The specifics matter more than the adjectives here: "17 years" and the
+    // named roles are checkable claims, which is what E-E-A-T asks of the
+    // person signing pages about tax rates and guarantee law.
+    description: 'Founder of Nueva Living. Seventeen years in sales, around ten of them in digital as a product manager, ecommerce manager and head of digital, now applied to new-build property on the Costa del Sol.',
     knowsAbout: [
       'New-build property on the Costa del Sol',
       'Off-plan purchase process',
+      'Ecommerce and digital product management',
       'Property search technology'
     ],
     sameAs: []
@@ -151,6 +156,7 @@ export function personSchemas(siteUrl) {
     email: person.email,
     telephone: person.telephone,
     image: `${siteUrl}/${person.photo}`,
+    ...(person.description ? { description: person.description } : {}),
     ...(person.knowsAbout?.length ? { knowsAbout: person.knowsAbout } : {}),
     ...(person.sameAs?.length ? { sameAs: person.sameAs } : {}),
     workLocation: ADDRESS,
