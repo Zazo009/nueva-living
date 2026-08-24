@@ -212,7 +212,14 @@ function footer(locale = DEFAULT_LOCALE) {
   </footer>`;
 }
 
-function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, heroTitle, heroLead, body, bodyClass = '' }, locale = DEFAULT_LOCALE) {
+// seoContext replaces the decorative kicker with a line that actually carries
+// the page's search terms, and it now sits inside the <h1> rather than above
+// it. The editorial display line is untouched -- the audit's finding was that
+// these H1s were beautiful and said nothing a search engine could use, not
+// that they were bad writing. Falls back to the kicker where no context is
+// supplied, so locale pages and any page not covered by the audit are
+// unaffected.
+function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '' }, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
   const html = `<!doctype html>
@@ -241,8 +248,10 @@ ${fontPreloadBlock}
     <section class="page-hero">
       <img src="${esc(heroImage)}" alt="${esc(heroAlt)}"${heroWidth ? ` width="${heroWidth}"` : ''}${heroHeight ? ` height="${heroHeight}"` : ''}${heroPosition ? ` style="object-position:${esc(heroPosition)}"` : ''} loading="eager" fetchpriority="high" decoding="async">
       <div class="hero-inner">
-        <span class="kicker">${esc(heroKicker)}</span>
-        <h1 class="display-title">${heroTitle}</h1>
+        <h1 class="display-title">
+          <span class="kicker">${esc(seoContext || heroKicker)}</span>
+          <span class="display-title-line">${heroTitle}</span>
+        </h1>
         <p class="lead">${esc(heroLead)}</p>
       </div>
     </section>
@@ -418,6 +427,7 @@ const pages = [
     heroImage: 'assets/liora/advisory-property.jpg',
     heroAlt: 'Contemporary Costa del Sol home surrounded by Mediterranean planting',
     heroKicker: 'Why Nueva Living',
+    seoContext: 'An Independent Buyer\u2019s Agent for Costa del Sol New Builds',
     heroTitle: 'Finding a home should feel <em>exciting, not exhausting</em>',
     heroLead: 'We know the coast, ask the questions that glossy brochures leave out and stay close from the first conversation to the day you get the keys.',
     body: `<section class="section"><div class="section-inner split"><div><span class="label">What Sets Us Apart</span><div class="rule"></div><h2 class="section-title">Beautiful brochures are easy. <em>Good decisions take more.</em></h2><p class="body-copy">A sea-view render can make almost any development look perfect. We look past the presentation: the exact setting, the developer, the payment terms, the compromises and whether the property will still suit you years from now.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Refined interior detail in a Costa del Sol residence" width="2048" height="1365" loading="lazy" decoding="async"></div></div></section>
@@ -461,6 +471,7 @@ const pages = [
     description: 'Buyer-focused advisory for Costa del Sol new development purchases.',
     heroImage: 'assets/liora/advisory-property.jpg',
     heroKicker: 'Advisory',
+    seoContext: 'Off-Plan Buyer Advisory, Costa del Sol',
     heroTitle: 'Know what you are buying <em>before you decide</em>',
     heroLead: 'We help you check the location, developer, finishes, payment plan and future resale appeal before you choose a home.',
     body: `<section class="section"><div class="section-inner split"><div><span class="label">An Independent View</span><div class="rule"></div><h2 class="section-title">Clear advice for <em>the buyer</em></h2><p class="body-copy">A developer brochure shows the project at its best. We help you look beyond it and understand what is genuinely strong, what is fairly standard and what needs a closer check.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Interior detail"></div></div></section>
@@ -476,6 +487,7 @@ const pages = [
     description: 'A step-by-step guide to buying a new-build home on the Costa del Sol, from your first shortlist to collecting the keys.',
     heroImage: 'assets/liora/viewing/scene-13.jpg',
     heroKicker: 'Buying Guide',
+    seoContext: 'How to Buy a New-Build on the Costa del Sol \u00b7 7 Steps for 2026',
     heroTitle: 'Buying a new-build home, <em>step by step</em>',
     heroLead: 'Off-plan and new-build purchases work differently from buying a resale home. Here is exactly how the process runs, from your first shortlist to collecting the keys.',
     bodyClass: 'guide-article-page',
@@ -732,6 +744,7 @@ const pages = [
     description: 'How buying off-plan and buying a completed resale home actually compare on the Costa del Sol, across price, risk, payment terms and appreciation.',
     heroImage: 'assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg',
     heroKicker: 'Buying Guide',
+    seoContext: 'Off-Plan vs Resale on the Costa del Sol \u00b7 2026 Guide',
     heroTitle: 'Off-plan vs resale: <em>which fits your plan</em>',
     heroLead: 'Both are legitimate ways to buy on the Costa del Sol. The right one depends on your timeline, your appetite for construction risk, and what you actually want the property to do for you.',
     bodyClass: 'guide-article-page',
@@ -861,6 +874,7 @@ const pages = [
     heroHeight: 1029,
     heroPosition: 'center 55%',
     heroKicker: 'Referral & Ambassador Program',
+    seoContext: 'Refer a Costa del Sol Buyer, Share the Commission',
     heroTitle: 'Your introduction deserves <em>more than a thank you</em>',
     heroLead: 'The people you introduce to Nueva Living get the same private, unhurried search every client receives. When their search ends in a home, yours ends in a genuine reward.',
     bodyClass: 'ambassador-page',
@@ -955,6 +969,7 @@ const pages = [
     description: 'About Nueva Living, a Costa del Sol new development advisory firm.',
     heroImage: 'assets/liora/viewing/scene-19.jpg',
     heroKicker: 'About Nueva Living',
+    seoContext: 'Nueva Living: New-Build Specialists on the Costa del Sol',
     heroTitle: 'We focus on <em>new developments</em>',
     heroLead: 'Nueva Living was created for buyers who want straightforward help in the Costa del Sol new-build market.',
     body: `<section class="section"><div class="section-inner split"><div class="image-panel logo-panel"><img src="assets/liora/brand/nueva-living-lockup-sand-transparent.png?v=7" alt="Nueva Living logo" width="700" height="340"></div><div><span class="label">About Nueva Living</span><div class="rule"></div><h2 class="section-title">New builds are <em>what we know</em></h2><p class="body-copy">Because we only work with new and off-plan homes, we know the developers, the projects and the questions buyers should ask.</p><p class="body-copy">Our job is simple: show you what is available, explain what is good and help you leave the wrong options behind.</p></div></div></section>
@@ -971,6 +986,7 @@ const pages = [
     description: 'Tell Nueva Living what kind of new home you are looking for on the Costa del Sol.',
     heroImage: 'assets/liora/viewing/scene-08.jpg',
     heroKicker: 'Contact Nueva Living',
+    seoContext: 'Get Your Costa del Sol New-Build Shortlist',
     heroTitle: 'Tell us what you are <em>looking for</em>',
     heroLead: 'Share a few details and we will come back with relevant projects, current availability and a clear next step.',
     body: `<section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Your Search</span><div class="rule"></div><h2 class="section-title">Let us help you <em>narrow it down</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Tell us what matters to you. We will reply with the projects and information that best fit your search.</p></div><div class="contact-nap" style="max-width:640px;margin:0 auto 40px;text-align:center;">

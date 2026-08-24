@@ -1,4 +1,4 @@
-import { realEstateAgentSchema, organizationSchema } from './lib/brand.mjs';
+import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema } from './lib/brand.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -116,7 +116,8 @@ const basePageMeta = {
         areaServed: ['Marbella', 'Estepona', 'Benahavis', 'Costa del Sol'],
         knowsAbout: ['New developments', 'Off-plan property', 'Luxury real estate advisory']
       }),
-      organizationSchema(siteUrl)
+      organizationSchema(siteUrl),
+      webSiteSchema(siteUrl)
     ]
   },
   'developments.html': {
@@ -238,7 +239,11 @@ const basePageMeta = {
     title: 'About Nueva Living | New-Build Specialists in Marbella',
     description: 'Meet Sasan Raftari and Sami Altun. Nueva Living works with 40+ developers across Marbella, Estepona and the Costa del Sol on new-build and off-plan homes.',
     path: '/about.html',
-    type: 'website'
+    type: 'website',
+    // Person schema is added here rather than in build_footer_pages so it
+    // sits alongside the WebPage/WebSite/BreadcrumbList that template already
+    // writes, instead of duplicating them.
+    schema: personSchemas(siteUrl)
   },
   'contact.html': {
     title: 'Contact Nueva Living | Marbella & Costa del Sol',

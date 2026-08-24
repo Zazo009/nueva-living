@@ -71,3 +71,54 @@ export function organizationSchema(siteUrl, extra = {}) {
     ...extra
   };
 }
+
+// The two founders, for Person schema on /about. Every field here is stated
+// on that page in visible copy -- name, role, email and phone -- so the
+// structured data asserts nothing the page does not already say. That is the
+// point of it: the audit found the site does not rank for its own brand
+// name, with two similarly named firms occupying the space, and named people
+// tied to the organisation are one of the signals that separates one entity
+// from another.
+export const FOUNDERS = [
+  {
+    name: 'Sasan Raftari',
+    jobTitle: 'Founder',
+    email: 'sasan@nuevaliving.com',
+    telephone: '+46707576709'
+  },
+  {
+    name: 'Sami Altun',
+    jobTitle: 'Co-Founder',
+    email: 'sami@nuevaliving.com',
+    telephone: '+34645446624'
+  }
+];
+
+export function personSchemas(siteUrl) {
+  return FOUNDERS.map((person) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: person.name,
+    jobTitle: person.jobTitle,
+    email: person.email,
+    telephone: person.telephone,
+    worksFor: {
+      '@type': 'Organization',
+      name: IDENTITY.name,
+      url: siteUrl
+    },
+    url: `${siteUrl}/about.html`
+  }));
+}
+
+// Names the site itself, distinct from the company. Without it the homepage
+// asserted the business but never the website as an entity.
+export function webSiteSchema(siteUrl) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: IDENTITY.name,
+    url: `${siteUrl}/`,
+    publisher: { '@type': 'Organization', name: IDENTITY.name, url: siteUrl }
+  };
+}

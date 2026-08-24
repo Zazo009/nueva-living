@@ -474,7 +474,7 @@ ${JSON.stringify(schema, null, 2)}
     </section>
     ${statsBand(stats)}
     <section class="section segment-intro"><div class="section-inner area-intro-layout">
-      <div><span class="label">${esc(segment.introLabel)}</span><div class="rule"></div><h2 class="section-title">${segment.introHeadlineHtml}</h2>${segment.introParagraphs.map((p) => `<p class="body-copy">${esc(p)}</p>`).join('\n')}</div>
+      <div><span class="label">${esc(segment.introLabel)}</span><div class="rule"></div><h2 class="section-title">${segment.introHeadlineHtml}</h2>${segment.introParagraphs.map((p) => `<p class="body-copy">${esc(p)}</p>`).join('\n')}${segment.areaLinkHtml ? `\n<p class="body-copy">${segment.areaLinkHtml}</p>` : ''}</div>
       <div class="area-highlights">${segment.quickFacts.map(([title, copy], index) => `<article class="area-highlight"><span>${String(index + 1).padStart(2, '0')}</span><h3>${esc(title)}</h3><p>${esc(copy)}</p></article>`).join('')}</div>
     </div></section>
     ${highlightsSection}
@@ -791,6 +791,7 @@ const SEGMENTS = [
     },
     introLabel: 'Buying In Marbella',
     introHeadlineHtml: 'One municipality, <em>three very different addresses</em>',
+    areaLinkHtml: 'Still deciding on a neighbourhood? Our guide to <a href="area-marbella.html">where to buy in Marbella, area by area</a> compares the Golden Mile, Marbella East and Marbella West on price, character and who each one suits.',
     introParagraphs: [
       'Marbella is not one property market. An apartment in Guadalmina Golf, a penthouse on the elevated coastline of Marbella East and a resort-style residence near San Pedro Alcántara are different homes for different buyers, even though all three sit within Marbella.',
       'New-build apartments and penthouses here are typically sold off-plan or under construction, with staged payments through to completion. Nueva Living reconfirms the current price list, floorplans and payment schedule for any development before you shortlist it.'
@@ -844,6 +845,7 @@ const SEGMENTS = [
     },
     introLabel: 'Buying In Estepona',
     introHeadlineHtml: 'The Costa del Sol’s <em>fastest-growing market</em>',
+    areaLinkHtml: 'If you are weighing up locations first, <a href="area-estepona.html">where to buy in Estepona</a> sets out the New Golden Mile, the town centre and Bahía Dorada side by side, with local asking prices.',
     introParagraphs: [
       'Estepona has been the most active new-build market on the Costa del Sol in recent years, and it covers more than one kind of address. A low-rise garden apartment on the New Golden Mile and a gated penthouse in the town centre are both "Estepona", but they suit different buyers.',
       'New-build apartments and penthouses here are typically sold off-plan, with staged payments through to completion. Nueva Living reconfirms the current price list, floorplans and payment schedule for any development before you shortlist it.'
@@ -896,6 +898,7 @@ const SEGMENTS = [
     },
     introLabel: 'Buying In Nueva Andalucía',
     introHeadlineHtml: 'Golf Valley, <em>minutes from Puerto Banús</em>',
+    areaLinkHtml: 'For the wider picture, <a href="area-nueva-andalucia.html">where to buy in Nueva Andalucía</a> covers Las Brisas, Los Naranjos and Aloha, and how close each sits to Puerto Banús.',
     introParagraphs: [
       'Nueva Andalucía’s Golf Valley is one of the most established gated-community settings on the Costa del Sol: green, quiet and close to golf courses, yet a short drive from Puerto Banús and the beach.',
       'New-build apartments and penthouses here are typically sold off-plan or under construction, with staged payments through to completion. Nueva Living reconfirms the current price list, floorplans and payment schedule for any development before you shortlist it.'
