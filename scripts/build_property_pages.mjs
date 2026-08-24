@@ -1967,6 +1967,25 @@ const CARD_IMAGE_SIZES = '(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30v
 // Media-grid tiles sit two-up on phones and four-up on desktop.
 const MEDIA_TILE_SIZES = '(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23vw';
 
+// The discovery filter compares data-status strictly against the three values
+// its select offers: off_plan, under_construction, completed. Half the
+// portfolio carries a richer free-text status instead -- "Off-plan, building
+// licence granted", "Under construction, delivery Q3 2027" -- and every one of
+// those cards vanished the moment anyone filtered by status. Fifteen of thirty.
+//
+// The text is worth keeping: it goes to the CRM payload and says more than a
+// slug can. So it stays in the data and is normalised here, at the one point
+// where the filter actually reads it.
+function normaliseConstructionStatus(value) {
+  if (!value) return value;
+  const v = String(value).trim().toLowerCase();
+  if (['off_plan', 'under_construction', 'completed'].includes(v)) return v;
+  if (v.startsWith('under construction')) return 'under_construction';
+  if (v.startsWith('off-plan') || v.startsWith('off plan')) return 'off_plan';
+  if (v.includes('key ready') || v.includes('completed') || v.startsWith('resale')) return 'completed';
+  return value;
+}
+
 function renderProjectCard(project) {
   const meta = project.card?.meta || [
     ['From', project.hero?.startingPrice?.replace(/^From\s+/i, '') || 'On request'],
@@ -2005,7 +2024,7 @@ function renderProjectCard(project) {
   const priceValue = (meta.find(([label]) => /^from$/i.test(label)) || [])[1]
     || project.hero?.startingPrice?.replace(/^From\s+/i, '')
     || 'On request';
-  const dataAttrs = `${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', crm.constructionStatus)}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}`;
+  const dataAttrs = `${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', normaliseConstructionStatus(crm.constructionStatus))}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}`;
 
   return '          ' + renderUnifiedCard({
     project,
