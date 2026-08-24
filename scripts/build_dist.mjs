@@ -145,13 +145,13 @@ const basePageMeta = {
     // full CollectionPage/ItemList/BreadcrumbList/FAQPage JSON-LD inline.
   },
   'new-build-apartments-penthouses-estepona.html': {
-    title: 'New-Build Apartments & Penthouses in Estepona',
+    title: '{count} New-Build Apartments & Penthouses in Estepona',
     description: 'New-build apartments and penthouses in Estepona, from the New Golden Mile to the town centre. From €720,000, with floorplans and delivery dates.',
     path: '/new-build-apartments-penthouses-estepona.html',
     type: 'website'
   },
   'new-build-apartments-penthouses-nueva-andalucia.html': {
-    title: 'New-Build Apartments & Penthouses in Nueva Andalucia',
+    title: '{count} New-Build Apartments & Penthouses in Nueva Andalucia',
     description: 'New-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus. From €450,000, with floorplans and delivery dates.',
     path: '/new-build-apartments-penthouses-nueva-andalucia.html',
     type: 'website'
