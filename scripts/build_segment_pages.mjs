@@ -206,6 +206,7 @@ function footer(locale = DEFAULT_LOCALE) {
           <li><a href="areas.html">${t('footer.areasOverview', locale)}</a></li>
           <li><a href="area-marbella.html">${t('area.marbella', locale)}</a></li>
           <li><a href="area-estepona.html">${t('area.estepona', locale)}</a></li>
+          <li><a href="area-casares.html">${t('area.casares', locale)}</a></li>
           <li><a href="area-benahavis.html">${t('area.benahavis', locale)}</a></li>
           <li><a href="area-nueva-andalucia.html">${t('area.nuevaAndalucia', locale)}</a></li>
           <li><a href="area-mijas-fuengirola.html">${t('area.mijasFuengirola', locale)}</a></li>

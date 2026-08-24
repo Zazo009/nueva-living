@@ -1045,11 +1045,12 @@ function projectArea(project, locale = DEFAULT_LOCALE) {
   if (location.includes('benalmad')) {
     return { label: t('area.benalmadena', locale), href: 'area-mijas-fuengirola.html' };
   }
-  // Casares has no area page of its own; it sits west of Estepona and belongs
-  // with that page. Without this branch it fell through to the Marbella default
-  // and a Casares project was breadcrumbed, titled and schema-tagged as Marbella.
+  // Casares now has its own area guide, so the breadcrumb points there rather
+  // than at Estepona's. Before that page existed this branch still had to be
+  // here: without it a Casares project fell through to the Marbella default
+  // and was breadcrumbed, titled and schema-tagged as Marbella.
   if (location.includes('casares')) {
-    return { label: t('area.casares', locale), href: 'area-estepona.html' };
+    return { label: t('area.casares', locale), href: 'area-casares.html' };
   }
   if (location.includes('marbella east')) {
     return { label: t('area.marbellaEast', locale), href: 'area-marbella.html' };
@@ -1171,6 +1172,7 @@ function footer(project, locale = DEFAULT_LOCALE) {
           <li><a href="${p}${localizedPath('areas.html', locale)}">${t('footer.areasOverview', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-marbella.html', locale)}">${t('area.marbella', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-estepona.html', locale)}">${t('area.estepona', locale)}</a></li>
+          <li><a href="${p}${localizedPath('area-casares.html', locale)}">${t('area.casares', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-benahavis.html', locale)}">${t('area.benahavis', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-nueva-andalucia.html', locale)}">${t('area.nuevaAndalucia', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-mijas-fuengirola.html', locale)}">${t('area.mijasFuengirola', locale)}</a></li>
