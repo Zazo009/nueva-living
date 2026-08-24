@@ -271,6 +271,35 @@ function segmentProjectCard(project) {
 // Rule from the audit: show the count only at 10 or above. "2 apartments for
 // sale in Estepona" reads as an empty shop and costs the click, so below the
 // threshold the sentence falls back to its countless form.
+// Same treatment as the footer page template: the hero is the LCP element on
+// these pages and was shipping as a 487-636KB JPEG with no modern format.
+// Variant widths are discovered on disk, so a hero without them degrades to
+// the original rather than emitting a broken srcset.
+function heroPicture(hero) {
+  const src = hero.image;
+  const stem = src.replace(/\.[a-z]+$/i, '');
+  const dir = stem.slice(0, stem.lastIndexOf('/'));
+  const base = stem.slice(stem.lastIndexOf('/') + 1);
+  const siblings = existsSync(dir) ? readdirSync(dir) : [];
+  const srcsetFor = (ext) => siblings
+    .map((name) => name.match(new RegExp(`^${base}-(\\d+)\\.${ext}$`)))
+    .filter(Boolean)
+    .map((m) => ({ w: Number(m[1]), file: `${dir}/${m[0]}` }))
+    .filter(({ w }) => w >= 1200)
+    .sort((a, b) => a.w - b.w)
+    .map(({ w, file }) => `${file} ${w}w`)
+    .join(', ');
+  const avif = srcsetFor('avif');
+  const webp = srcsetFor('webp');
+  const img = `<img src="${esc(src)}" alt="${esc(hero.alt)}" width="${hero.width}" height="${hero.height}"`
+    + `${hero.position ? ` style="object-position:${esc(hero.position)}"` : ''} loading="eager" fetchpriority="high" decoding="async">`;
+  if (!avif && !webp) return img;
+  return `<picture>`
+    + (avif ? `<source type="image/avif" srcset="${avif}" sizes="100vw">` : '')
+    + (webp ? `<source type="image/webp" srcset="${webp}" sizes="100vw">` : '')
+    + img + `</picture>`;
+}
+
 const COUNT_DISPLAY_MIN = 10;
 
 function resolveCount(text, stats) {
@@ -466,7 +495,7 @@ ${JSON.stringify(schema, null, 2)}
   ${breadcrumb(segment.breadcrumbLabel, [[t('breadcrumb.developments', locale), 'developments.html'], [segment.areaLabel, segment.areaHref]], locale)}
   <main>
     <section class="page-hero">
-      <img src="${esc(segment.hero.image)}" alt="${esc(segment.hero.alt)}" width="${segment.hero.width}" height="${segment.hero.height}"${segment.hero.position ? ` style="object-position:${esc(segment.hero.position)}"` : ''} loading="eager" fetchpriority="high" decoding="async">
+      ${heroPicture(segment.hero)}
       <div class="hero-inner">
         <span class="kicker">${segment.kicker}</span>
         <h1 class="display-title">${resolveCount(segment.heroTitleHtml, stats)}</h1>
@@ -694,7 +723,7 @@ ${JSON.stringify(schema, null, 2)}
   ${breadcrumb(t('nav.buyingGuides', locale), [[t('breadcrumb.developments', locale), 'developments.html']], locale)}
   <main>
     <section class="page-hero">
-      <img src="assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg" alt="Aerial dusk view of a new-build Costa del Sol residence and pool terrace" width="1920" height="1085" loading="eager" fetchpriority="high" decoding="async">
+      ${heroPicture({ image: 'assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg', alt: 'Aerial dusk view of a new-build Costa del Sol residence and pool terrace', width: 1920, height: 1085 })}
       <div class="hero-inner">
         <span class="kicker">Buying Guides</span>
         <h1 class="display-title">Costa del Sol <em>Buying Guides</em></h1>

@@ -461,6 +461,10 @@ const pageMeta = {
 
 const assetFiles = [
   'assets/liora/advisory-property.jpg',
+  'assets/liora/advisory-property-1440.avif',
+  'assets/liora/advisory-property-1440.webp',
+  'assets/liora/advisory-property-2048.avif',
+  'assets/liora/advisory-property-2048.webp',
   'assets/liora/apple-touch-icon.png',
   'assets/liora/favicon-16.png',
   'assets/liora/favicon-32.png',

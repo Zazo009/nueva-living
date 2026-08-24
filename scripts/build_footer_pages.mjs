@@ -220,6 +220,40 @@ function footer(locale = DEFAULT_LOCALE) {
 // that they were bad writing. Falls back to the kicker where no context is
 // supplied, so locale pages and any page not covered by the audit are
 // unaffected.
+// Hero images were shipping as bare JPEGs -- 203KB to 956KB each, no srcset,
+// no modern format -- and on every page the hero is the LCP element. AVIF at
+// the same visual quality runs 60-90% smaller here.
+//
+// The widths are probed rather than assumed: only variants that actually exist
+// on disk are offered, so a hero without generated variants degrades to the
+// original JPEG instead of emitting a 404 into the srcset.
+function heroPicture(src, alt = '', width, height, position) {
+  const stem = src.replace(/\.[a-z]+$/i, '');
+  const dir = stem.slice(0, stem.lastIndexOf('/'));
+  const base = stem.slice(stem.lastIndexOf('/') + 1);
+  // Discovered from disk rather than assumed: variants are named for the
+  // width they actually are, so a 2047px source yields -2047, not -2048.
+  const siblings = existsSync(dir) ? readdirSync(dir) : [];
+  const srcsetFor = (ext) => siblings
+    .map((name) => name.match(new RegExp(`^${base}-(\\d+)\\.${ext}$`)))
+    .filter(Boolean)
+    .map((m) => ({ w: Number(m[1]), file: `${dir}/${m[0]}` }))
+    .filter(({ w }) => w >= 1200)
+    .sort((a, b) => a.w - b.w)
+    .map(({ w, file }) => `${file} ${w}w`)
+    .join(', ');
+  const avif = srcsetFor('avif');
+  const webp = srcsetFor('webp');
+  const attrs = `alt="${esc(alt)}"${width ? ` width="${width}"` : ''}${height ? ` height="${height}"` : ''}`
+    + `${position ? ` style="object-position:${esc(position)}"` : ''} loading="eager" fetchpriority="high" decoding="async"`;
+  if (!avif && !webp) return `<img src="${esc(src)}" ${attrs}>`;
+  const sizes = '100vw';
+  return `<picture>`
+    + (avif ? `<source type="image/avif" srcset="${avif}" sizes="${sizes}">` : '')
+    + (webp ? `<source type="image/webp" srcset="${webp}" sizes="${sizes}">` : '')
+    + `<img src="${esc(src)}" ${attrs}></picture>`;
+}
+
 function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '' }, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
@@ -247,7 +281,7 @@ ${fontPreloadBlock}
   ${breadcrumb(breadcrumbTitle || title, breadcrumbs, locale)}
   <main>
     <section class="page-hero">
-      <img src="${esc(heroImage)}" alt="${esc(heroAlt)}"${heroWidth ? ` width="${heroWidth}"` : ''}${heroHeight ? ` height="${heroHeight}"` : ''}${heroPosition ? ` style="object-position:${esc(heroPosition)}"` : ''} loading="eager" fetchpriority="high" decoding="async">
+      ${heroPicture(heroImage, heroAlt, heroWidth, heroHeight, heroPosition)}
       <div class="hero-inner">
         <h1 class="display-title">
           <span class="kicker">${esc(seoContext || heroKicker)}</span>
