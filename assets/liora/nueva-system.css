@@ -2486,3 +2486,38 @@ so Latin numerals in the price still render in
     line-height: 1.2;
   }
 }
+
+/* ---------- One header geometry, every page (desktop) ----------
+   Measured across eight pages: the homepage bar and every other page's bar
+   disagreed on three things -- 89px tall against 76px, 44px of side padding
+   against 74-78px, and a wordmark column of 189px against a fixed 280px left
+   over from the old raster logo. Leaving the homepage, or arriving on it,
+   moved the whole bar.
+
+   The homepage's transparent header is the reference, so the rest of the site
+   is brought to it rather than the other way round.
+
+   Desktop only. Everything below 1121px is the mobile bar, which is a
+   different composition entirely and is deliberately untouched. */
+@media (min-width: 1121px) {
+  .site-nav {
+    height: auto;
+    padding: 22px 44px;
+    column-gap: 28px;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  /* Sized for the 420x100 raster that no longer renders. The live-text
+     wordmark is about 186px, so a 280px column pushed the two link groups
+     nearly 100px further apart than on the homepage. */
+  .site-nav .nav-logo {
+    width: auto;
+  }
+
+  /* A plain 1fr will not shrink below its content, so between 1121px and
+     roughly 1250px the wider right-hand group pushed the centred wordmark off
+     true centre. minmax(0, 1fr) lets both sides shrink equally. */
+  #nav {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+}
