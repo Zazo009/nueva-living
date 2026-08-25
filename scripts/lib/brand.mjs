@@ -25,6 +25,21 @@ export const SAME_AS = [
   //   'https://www.facebook.com/<page>/'
 ];
 
+// The coordinates the Google Business Profile itself sits on, read from the
+// place URL. `geo` and `hasMap` are what let a crawler tie this website to
+// that specific place rather than to a business with a similar name at a
+// similar address -- the address text alone leaves that to inference.
+export const GEO = {
+  '@type': 'GeoCoordinates',
+  latitude: 36.5043628,
+  longitude: -4.9600938
+};
+
+// The officially issued share link for the profile, the same URL asserted in
+// SAME_AS. Kept identical in both places on purpose: two different URLs for
+// one place is the ambiguity this is meant to remove.
+export const MAP_URL = 'https://maps.app.goo.gl/AVKXU8m9sL7LA5uK6';
+
 export const ADDRESS = {
   '@type': 'PostalAddress',
   // Matched word for word to the Google Business Profile, which reads
@@ -57,6 +72,8 @@ export function realEstateAgentSchema(siteUrl, extra = {}) {
     '@type': 'RealEstateAgent',
     '@id': organizationId(siteUrl),
     ...IDENTITY,
+    geo: GEO,
+    hasMap: MAP_URL,
     url: `${siteUrl}/`,
     logo: `${siteUrl}/assets/liora/brand/nueva-living-lockup-espresso-transparent.png`,
     address: ADDRESS,
