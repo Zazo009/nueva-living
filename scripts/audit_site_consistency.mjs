@@ -490,6 +490,44 @@ for (const file of countPlaceholderPages) {
   }
 }
 
+// Titles were only ever checked in English, and three separate faults hid in
+// the locale copies: an <em>-less half-translated H1 reading "84 New-Build
+// Lägenheter och takvåningar for Sale in Marbella", a doubled brand suffix,
+// and six titles running to 67 characters because seoTitle's shortening step
+// split the property type on English conjunctions and silently no-opped for
+// Polish, Dutch and Norwegian.
+let localeTitlesChecked = 0;
+const decodeEntities = (value) => value
+  .replace(/&amp;/g, '&').replace(/&middot;/g, '·').replace(/&nbsp;/g, ' ')
+  .replace(/&[a-z]+;/gi, 'x');
+
+for (const file of countPlaceholderPages) {
+  const relative = path.relative(dist, file);
+  const html = fs.readFileSync(file, 'utf8');
+  const locale = /^([a-z]{2})\//.exec(relative)?.[1] || 'en';
+  const match = html.match(/<title>([\s\S]*?)<\/title>/);
+  if (!match) {
+    fail(relative, 'no <title>');
+    continue;
+  }
+  localeTitlesChecked += 1;
+  const title = decodeEntities(match[1]).trim();
+
+  if (title.length > 62) {
+    fail(relative, `<title> is ${title.length} characters, over the 62 that survive in a result: `
+      + `"${title.slice(0, 60)}"`);
+  }
+  // "Nueva Living | Nueva Living" -- the builder appends the brand and some
+  // overlays already carried it.
+  if ((title.match(/Nueva Living/g) || []).length > 1 && !/why-nueva|om-oss|about/.test(relative)) {
+    fail(relative, `<title> names the brand twice: "${title}"`);
+  }
+  // English fragments stranded in a translated title by a stale find string.
+  if (locale !== 'en' && /\b(New-Build|for Sale)\b/.test(title)) {
+    fail(relative, `<title> is part-translated -- an English fragment survives: "${title}"`);
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -506,5 +544,6 @@ if (failures.length) {
     + `${schemaRefsChecked} schema @id references resolved, `
     + `${guidesChecked} guides checked for a named author, `
     + `${a11yPagesChecked} pages checked for skip link and labelled controls, `
-    + `${internalLinksScanned} internal query-string links scanned.`);
+    + `${internalLinksScanned} internal query-string links scanned, `
+    + `${localeTitlesChecked} titles measured in every locale.`);
 }

@@ -486,7 +486,15 @@ function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
 
   return {
     file: area.output,
-    title: t('area.areaGuide', locale, { name: area.name }),
+    // The localized seo.title if the area overlay carries one, otherwise the
+    // generic template. Without this the locale pages all read "Områdesguide
+    // Marbella" / "Przewodnik po okolicy Marbella" -- a label, not something
+    // anyone searches for -- while the English page got the real title from
+    // build_dist. The description was already localized; the title was not.
+    // <title> appends " | Nueva Living" below, and the older locale overlays
+    // already carry it, so strip it here rather than shipping it twice.
+    title: (area.seo?.title || t('area.areaGuide', locale, { name: area.name }))
+      .replace(/\s*\|\s*Nueva Living\s*$/, ''),
     breadcrumbTitle: area.name,
     breadcrumbs: [[t('nav.areas', locale), 'areas.html']],
     description: area.seo.description,

@@ -1113,7 +1113,21 @@ function seoTitle(project, locale = DEFAULT_LOCALE) {
   // and the project name. Keep the first type; the rest is on the page. The
   // separator is whatever the language uses to join a list, so the
   // conjunctions are listed alongside the punctuation.
-  const firstType = type.split(/\s*[,&]\s*|\s+(?:&|and|y|et|und|и|و)\s+/i)[0].trim();
+  // The conjunction is whatever joins a list in this language. Missing one
+  // means the split silently returns the whole string, firstType === type, and
+  // the shortening below is skipped -- which is why Polish, Dutch and
+  // Norwegian titles ran to 65-67 characters while every other locale fitted.
+  // Locale-keyed rather than one combined pattern: Spanish "en" means "in",
+  // and a shared list would cut "Apartamentos en primera línea" at the wrong
+  // word.
+  const CONJUNCTIONS = {
+    en: 'and', es: 'y', fr: 'et', de: 'und', ru: 'и', ar: 'و',
+    nl: 'en', pl: 'i', sv: 'och', no: 'og'
+  };
+  const conjunction = CONJUNCTIONS[locale] || 'and';
+  const firstType = type
+    .split(new RegExp(`\\s*[,&]\\s*|\\s+(?:&|${conjunction})\\s+`, 'i'))[0]
+    .trim();
   const strip = (value) => (value.endsWith(BRAND_SUFFIX) && value.length > SEO_TITLE_MAX
     ? value.slice(0, -BRAND_SUFFIX.length)
     : value);
