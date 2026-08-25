@@ -160,6 +160,18 @@ h6,
   font-size: 13px;
 }
 
+/* One row height for every item in the drawer, set here rather than in the
+   homepage's own inline block -- which is where the 44px lived, so every
+   other page type had rows sized by line-height alone.
+   WCAG 2.5.8 asks for 24x24; 44 is the 2.5.5 enhanced target and it is what
+   gives the list an even 64px rhythm from top to bottom. */
+.mobile-menu a,
+.mobile-menu .nav-dropdown-toggle {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
 /* One button language for every standard conversion action. */
 :is(
   .btn,

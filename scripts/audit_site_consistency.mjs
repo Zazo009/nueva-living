@@ -805,6 +805,47 @@ for (const name of ['liora-pages.css', 'nueva-system.css']) {
   }
 }
 
+// The Guides toggle is a <summary> and inherits nothing from `.mobile-menu a`,
+// so its row height has to be stated with the links or it collapses to the
+// line box: 22.8px on the homepage, 16px everywhere else. Both break WCAG
+// 2.5.8's 24x24 target and both break the drawer's rhythm -- the row reads as
+// a tighter gap rather than as a smaller button, which is how it was reported.
+//
+// The links' own 44px lived in the homepage's inline <style>, so every other
+// page type had rows sized by line-height alone. It belongs in the shared
+// sheet, and the two selectors belong in one rule so neither can drift.
+let drawerRowHeights = 0;
+
+{
+  const file = path.join(root, 'assets', 'liora', 'nueva-system.css');
+  if (fs.existsSync(file)) {
+    // Strip comments first: the selector capture below reaches back to the
+    // previous rule, so a comment above the rule lands inside it.
+    const css = fs.readFileSync(file, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+    const heights = new Map();
+    for (const [, selectors, body] of css.matchAll(/([^{}]+)\{([^}]*)\}/g)) {
+      const declared = /min-height\s*:\s*([^;]+);/.exec(body);
+      if (!declared) continue;
+      for (const selector of selectors.split(',').map((s2) => s2.trim())) {
+        if (selector === '.mobile-menu a' || selector === '.mobile-menu .nav-dropdown-toggle') {
+          heights.set(selector, declared[1].trim());
+        }
+      }
+    }
+    drawerRowHeights = heights.size;
+    const link = heights.get('.mobile-menu a');
+    const toggle = heights.get('.mobile-menu .nav-dropdown-toggle');
+    if (!link || !toggle) {
+      fail('assets/liora/nueva-system.css', 'the drawer row height is missing for '
+        + `${!link ? '.mobile-menu a' : '.mobile-menu .nav-dropdown-toggle'} -- without it the `
+        + 'row collapses to its line box, under the 24px WCAG 2.5.8 target');
+    } else if (link !== toggle) {
+      fail('assets/liora/nueva-system.css', `.mobile-menu a is ${link} tall but the Guides `
+        + `toggle is ${toggle} -- the drawer's rhythm breaks at that row`);
+    }
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -827,5 +868,6 @@ if (failures.length) {
     + `${navLabelsChecked} nav and footer labels checked for one name per destination, `
     + `${reachabilityChecked} submitted pages checked for reachability from the homepage, `
     + `locale attribute text checked for untranslated values, `
-    + `${breadcrumbOffsetsChecked} breadcrumb offsets checked against the header height.`);
+    + `${breadcrumbOffsetsChecked} breadcrumb offsets checked against the header height, `
+    + `${drawerRowHeights} drawer row heights checked for one target size.`);
 }
