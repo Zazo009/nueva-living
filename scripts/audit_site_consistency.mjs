@@ -743,7 +743,9 @@ const projectNames = new Set();
 // A value that is byte-identical to the English page's is either untranslated
 // or a proper noun. Proper nouns are the exception, so they are named.
 const ATTR_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
-const TRANSLATABLE_ATTRS = ['placeholder', 'aria-label', 'title'];
+// alt joined this list last: 2,258 image descriptions were still English on
+// locale pages, spoken by screen readers and indexed by image search.
+const TRANSLATABLE_ATTRS = ['placeholder', 'aria-label', 'title', 'alt'];
 const ATTR_ALLOWED = /Nueva Living|Costa del Sol|you@email\.com|^\+34|WhatsApp|Instagram|Facebook|^https?:/;
 let localeAttributesChecked = 0;
 

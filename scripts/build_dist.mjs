@@ -1392,6 +1392,31 @@ function localiseChromeTemplates(html, locale) {
   return out;
 }
 
+// Card galleries render the same project images on area pages, segment pages
+// and the guides index, and those builders read the project's base alt text
+// rather than its locale overlay -- so the property pages and developments
+// page were translated while every other page type still described the same
+// photograph in English. alt text is what a screen reader speaks and what
+// image search indexes, so it belongs in the reader's language everywhere or
+// nowhere.
+let imageAltDictionary = null;
+
+function localiseImageAlts(html, locale) {
+  if (locale === DEFAULT_LOCALE) return html;
+  if (!imageAltDictionary) {
+    imageAltDictionary = JSON.parse(
+      fs.readFileSync(path.join(root, 'content', 'i18n', 'image-alts.json'), 'utf8')
+    );
+  }
+  let out = html;
+  for (const [english, byLocale] of Object.entries(imageAltDictionary)) {
+    const translated = byLocale[locale];
+    if (!translated) continue;
+    out = out.split(`alt="${english}"`).join(`alt="${translated}"`);
+  }
+  return out;
+}
+
 function localiseGalleryChrome(html, locale) {
   if (locale === DEFAULT_LOCALE) return html;
   let out = html;
@@ -1425,6 +1450,7 @@ function localiseGalleryChrome(html, locale) {
   out = localiseDiscoveryTags(out, locale);
   out = localiseGalleryChrome(out, locale);
   out = localiseChromeTemplates(out, locale);
+  out = localiseImageAlts(out, locale);
   out = injectSystemStyles(out);
   out = injectGtm(out);
   out = clampMetaDescriptions(out);
