@@ -31,6 +31,19 @@ const siteUrl = 'https://nuevaliving.com';
 // their own source, but compare.html gets it from build_dist's pageMeta --
 // which locale clones bypass. Without it the five locale compare pages
 // were indexable, thin, near-duplicate tool pages.
+const AMENITY_DICTIONARY = JSON.parse(
+  readFileSync(path.join(process.cwd(), 'content', 'i18n', 'amenities.json'), 'utf8')
+);
+
+function amenityMapFor(locale) {
+  const map = {};
+  for (const [english, byLocale] of Object.entries(AMENITY_DICTIONARY)) {
+    const translated = byLocale[locale];
+    if (translated && translated !== english) map[english] = translated;
+  }
+  return map;
+}
+
 const PAGES = [
   { file: 'thank-you.html', entries: THANK_YOU_ENTRIES },
   { file: 'compare.html', entries: COMPARE_ENTRIES, compareRuntime: true, robots: 'noindex,follow' },
@@ -140,7 +153,16 @@ for (const page of PAGES) {
     }
 
     if (page.compareRuntime && COMPARE_RUNTIME_STRINGS[locale]) {
-      const json = JSON.stringify(COMPARE_RUNTIME_STRINGS[locale]).replace(/'/g, '&#39;');
+      // liora-compare.js has always looked amenities up in i18n.amenityMap, but
+      // nothing ever populated it, so the fallback ran and every locale showed
+      // the English amenity list. The map is built from content/i18n/
+      // amenities.json rather than written out here: one dictionary, not a
+      // fourth copy of the same words.
+      const runtime = {
+        ...COMPARE_RUNTIME_STRINGS[locale],
+        amenityMap: amenityMapFor(locale)
+      };
+      const json = JSON.stringify(runtime).replace(/'/g, '&#39;');
       html = html.replace(
         'id="compareRoot" data-compare-root>',
         `id="compareRoot" data-compare-root data-i18n='${json}'>`

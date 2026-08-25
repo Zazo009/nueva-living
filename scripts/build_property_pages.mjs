@@ -2031,6 +2031,33 @@ const UNTRANSLATED_TAG = new RegExp(
   + '|Fuengirola|Puerto Banús|Golf Valley|Cancelada|Puente Romano|Alcántara|Torremuelle'
 );
 
+// crm.amenities feeds the compare page's catalogue, which renders them
+// client-side through i18n.amenityMap. An amenity with no translation is
+// silently rendered in English there -- the fallback in liora-compare.js
+// capitalises the English string and moves on -- so nothing ever reports it.
+function assertAmenityTranslations(projects) {
+  const dictPath = path.join(process.cwd(), 'content', 'i18n', 'amenities.json');
+  const dict = JSON.parse(readFileSync(dictPath, 'utf8'));
+  const missing = new Map();
+  for (const project of projects) {
+    for (const amenity of (project.crm || {}).amenities || []) {
+      if (typeof amenity !== 'string' || UNTRANSLATED_TAG.test(amenity)) continue;
+      const entry = dict[amenity];
+      const gaps = !entry ? ['all nine'] : TAG_LOCALES.filter((l) => !entry[l]);
+      if (gaps.length) missing.set(amenity, gaps);
+    }
+  }
+  if (missing.size) {
+    const lines = [...missing].map(([a, gaps]) => `  "${a}" -> missing ${gaps.join(', ')}`);
+    throw new Error(
+      `${missing.size} amenity value(s) have no translation in content/i18n/amenities.json:\n`
+      + `${lines.join('\n')}\n`
+      + 'The compare table falls back to the English string, so this has no visible symptom.'
+    );
+  }
+  return projects;
+}
+
 function assertTagTranslations(projects) {
   const dictPath = path.join(process.cwd(), 'content', 'i18n', 'tags.json');
   const dict = JSON.parse(readFileSync(dictPath, 'utf8'));
@@ -2102,8 +2129,8 @@ function assertAvailability(project) {
 export function loadProjects() {
   // assertTagVocabulary needs the whole set -- a clash is between two projects,
   // not inside one -- so it wraps the list rather than each file.
-  return assertTagTranslations(assertTagVocabulary(projectFiles()
-    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))))
+  return assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file }))))))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;
