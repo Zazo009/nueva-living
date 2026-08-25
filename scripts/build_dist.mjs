@@ -1286,6 +1286,48 @@ function inheritLocaleRobots(html, publicName) {
 function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
+// The discovery cards are rendered once in English and the locale pages are
+// produced by translating the rendered HTML, so the search tokens in
+// data-tags stayed English on all nine locales. Nothing looked broken -- the
+// chips are invisible -- but a Swedish visitor typing "havsutsikt" matched
+// nothing, because the card only ever carried "Sea Views".
+//
+// The translated token is ADDED, not substituted: English queries and the
+// existing filter chips keep working exactly as before, and the locale gains
+// its own vocabulary on top.
+const DISCOVERY_TAG_ATTRS = [
+  'data-tags', 'data-lifestyle', 'data-architecture', 'data-practical', 'data-investment'
+];
+let discoveryTagDictionary = null;
+
+function loadDiscoveryTagDictionary() {
+  if (discoveryTagDictionary) return discoveryTagDictionary;
+  const file = path.join(root, 'content', 'i18n', 'tags.json');
+  discoveryTagDictionary = JSON.parse(fs.readFileSync(file, 'utf8'));
+  return discoveryTagDictionary;
+}
+
+function localiseDiscoveryTags(html, locale) {
+  if (locale === DEFAULT_LOCALE) return html;
+  const dict = loadDiscoveryTagDictionary();
+  return html.replace(
+    new RegExp(`(${DISCOVERY_TAG_ATTRS.join('|')})="([^"]*)"`, 'g'),
+    (whole, attrName, value) => {
+      const tokens = value.split('|').map((t) => t.trim()).filter(Boolean);
+      if (!tokens.length) return whole;
+      const out = [];
+      for (const token of tokens) {
+        out.push(token);
+        // The attribute is already HTML-encoded, so "Apartments &amp; Villas"
+        // never matched its dictionary key and shipped English.
+        const translated = dict[token.replace(/&amp;/g, '&')]?.[locale];
+        if (translated && translated !== token) out.push(translated);
+      }
+      return `${attrName}="${out.join('|')}"`;
+    }
+  );
+}
+
   const locale = localeFromPublicName(publicName);
   // Written as steps rather than a fourteen-deep call chain: which stage
   // received `locale` was impossible to read, and the skip link shipped in
@@ -1298,6 +1340,7 @@ function writeHtml(source, target, publicName) {
   out = injectShortlist(out);
   out = injectNavInteractions(out);
   out = injectSkipLink(out, locale);
+  out = localiseDiscoveryTags(out, locale);
   out = injectSystemStyles(out);
   out = injectGtm(out);
   out = clampMetaDescriptions(out);

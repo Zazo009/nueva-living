@@ -2008,11 +2008,53 @@ function assertPropertyTypes(project) {
 // at most eleven of them, and nothing anywhere reported a problem.
 //
 // Collapse both kinds here so the vocabulary cannot drift apart again.
-const TAG_FIELDS = ['practicalTags', 'cardTags', 'lifestyleTags', 'architectureTags'];
+const TAG_FIELDS = ['practicalTags', 'cardTags', 'lifestyleTags', 'architectureTags',
+  'locationTags', 'investmentTags'];
 
 function tagToken(tag) {
   return tag.toLowerCase().replace(/&/g, 'and').replace(/\s+/g, ' ').trim()
     .replace(/s$/, '');
+}
+
+// Every tag must exist in content/i18n/tags.json for all nine locales.
+//
+// The tags are invisible -- they live in data- attributes as search tokens --
+// so a missing translation shows no symptom at all. It just means a visitor
+// searching in their own language does not find the project. Adding one tag
+// to one project.json is enough to reopen the gap, so the check belongs here,
+// where the tag enters the build.
+const TAG_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+// Place names, prices, dates and bedroom counts are not translated on purpose.
+const UNTRANSLATED_TAG = new RegExp(
+  '^(Q[1-4] 20|\\d|€|EUR|From €)|Bedroom|Marbella|Estepona|Mijas|Casares|Benahav|Benalm'
+  + '|Elviria|Golden Mile|Nueva Andaluc|San Pedro|Guadalmina|Cortijo|Rio Real|Bel Air'
+  + '|Fuengirola|Puerto Banús|Golf Valley|Cancelada|Puente Romano|Alcántara|Torremuelle'
+);
+
+function assertTagTranslations(projects) {
+  const dictPath = path.join(process.cwd(), 'content', 'i18n', 'tags.json');
+  const dict = JSON.parse(readFileSync(dictPath, 'utf8'));
+  const missing = new Map();
+  for (const project of projects) {
+    for (const field of TAG_FIELDS) {
+      for (const tag of (project.discovery || {})[field] || []) {
+        if (typeof tag !== 'string' || UNTRANSLATED_TAG.test(tag)) continue;
+        const entry = dict[tag];
+        const gaps = !entry ? ['all nine'] : TAG_LOCALES.filter((l) => !entry[l]);
+        if (gaps.length) missing.set(tag, gaps);
+      }
+    }
+  }
+  if (missing.size) {
+    const lines = [...missing].map(([tag, gaps]) => `  "${tag}" -> missing ${gaps.join(', ')}`);
+    throw new Error(
+      `${missing.size} discovery tag(s) have no translation in content/i18n/tags.json:\n`
+      + `${lines.join('\n')}\n`
+      + 'Tags are invisible search tokens, so an untranslated one has no symptom -- it '
+      + 'simply means nobody searching in that language can find the project.'
+    );
+  }
+  return projects;
 }
 
 function assertTagVocabulary(projects) {
@@ -2060,8 +2102,8 @@ function assertAvailability(project) {
 export function loadProjects() {
   // assertTagVocabulary needs the whole set -- a clash is between two projects,
   // not inside one -- so it wraps the list rather than each file.
-  return assertTagVocabulary(projectFiles()
-    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file }))))
+  return assertTagTranslations(assertTagVocabulary(projectFiles()
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;
