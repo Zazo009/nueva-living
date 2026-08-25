@@ -27,10 +27,15 @@ export const SAME_AS = [
 
 export const ADDRESS = {
   '@type': 'PostalAddress',
-  streetAddress: 'Avenida del Prado 71',
+  // Matched word for word to the Google Business Profile, which reads
+  // "Av. del Prado, 71, Nueva Andalucía, 29660 Marbella, Málaga". The district
+  // was missing here, and NAP consistency across the profile, the schema and
+  // any directory listing is what lets Google treat them as one business
+  // rather than two similar ones -- the whole point of the brand-SERP work.
+  streetAddress: 'Avenida del Prado 71, Nueva Andalucía',
   postalCode: '29660',
   addressLocality: 'Marbella',
-  addressRegion: 'Malaga',
+  addressRegion: 'Málaga',
   addressCountry: 'ES'
 };
 
