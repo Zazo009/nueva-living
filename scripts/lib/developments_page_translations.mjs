@@ -276,7 +276,8 @@ export const DEVELOPMENTS_PAGE_ENTRIES = [
   ...PAGE_ENTRIES_HEAD,
   ...PROJECT_CARD_ENTRIES,
   ...PAGE_ENTRIES_TAIL,
-  ...CHROME_ENTRIES
+  ...CHROME_ENTRIES,
+  { find: 'New-development projects across the Costa del Sol.', es: 'Promociones de obra nueva en toda la Costa del Sol.', fr: 'Programmes neufs sur toute la Costa del Sol.', de: 'Neubauprojekte an der gesamten Costa del Sol.', ru: 'Новостройки по всему побережью Коста-дель-Соль.', ar: 'مشاريع بناء جديدة في كامل كوستا ديل سول.', nl: 'Nieuwbouwprojecten in heel Costa del Sol.', pl: 'Nowe inwestycje na całym Costa del Sol.', sv: 'Nyproduktionsprojekt längs hela Costa del Sol.', no: 'Nybyggprosjekter langs hele Costa del Sol.' }
 ];
 
 // "Show image N of M" gallery-dot aria-labels, translated as templates
