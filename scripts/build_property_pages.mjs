@@ -109,6 +109,46 @@ function localizedUnitSize(value, locale = DEFAULT_LOCALE) {
 // [label, value] pair per segment so each figure gets its own stat cell;
 // falls back to the raw string (as one "Size" fact) for anything that
 // doesn't match the "number unit label" shape, e.g. a plain "103 m2".
+// A multi-part size string carries its own labels -- "368.63 sqm built,
+// 140.00 sqm terrace, 475.00 sqm plot" -- and they were capitalised and
+// printed as authored, so two projects shipped "Built", "Terrace" and "Plot"
+// into all nine locales. The other twenty-eight have single-value sizes and
+// no label at all, which is why nothing looked wrong.
+//
+// Translating here rather than in those two project.json files means the next
+// project with a multi-part size is covered without anyone remembering.
+const SIZE_LABELS = {
+  built: { es: 'construido', fr: 'construit', de: 'bebaut', ru: 'застройка', ar: 'مبنية', nl: 'bebouwd', pl: 'powierzchnia zabudowy', sv: 'byggyta', no: 'bruksareal' },
+  'total built': { es: 'construido total', fr: 'construit total', de: 'bebaut gesamt', ru: 'общая застройка', ar: 'إجمالي المبني', nl: 'totaal bebouwd', pl: 'całkowita powierzchnia zabudowy', sv: 'total byggyta', no: 'totalt bruksareal' },
+  usable: { es: 'superficie útil', fr: 'surface utile', de: 'Wohnfläche', ru: 'полезная площадь', ar: 'مساحة صافية', nl: 'gebruiksoppervlak', pl: 'powierzchnia użytkowa', sv: 'boarea', no: 'innvendig areal' },
+  terrace: { es: 'terraza', fr: 'terrasse', de: 'Terrasse', ru: 'терраса', ar: 'تراس', nl: 'terras', pl: 'taras', sv: 'terrass', no: 'terrasse' },
+  plot: { es: 'parcela', fr: 'parcelle', de: 'Grundstück', ru: 'участок', ar: 'قطعة أرض', nl: 'perceel', pl: 'działka', sv: 'tomt', no: 'tomt' },
+  garden: { es: 'jardín', fr: 'jardin', de: 'Garten', ru: 'сад', ar: 'حديقة', nl: 'tuin', pl: 'ogród', sv: 'trädgård', no: 'hage' },
+  solarium: { es: 'solárium', fr: 'solarium', de: 'Solarium', ru: 'солярий', ar: 'سولاريوم', nl: 'solarium', pl: 'solarium', sv: 'solterrass', no: 'solterrasse' },
+  interior: { es: 'interior', fr: 'intérieur', de: 'Innenfläche', ru: 'внутренняя площадь', ar: 'مساحة داخلية', nl: 'binnenoppervlak', pl: 'powierzchnia wewnętrzna', sv: 'inneryta', no: 'innvendig areal' },
+  total: { es: 'en total', fr: 'au total', de: 'gesamt', ru: 'всего', ar: 'الإجمالي', nl: 'totaal', pl: 'łącznie', sv: 'totalt', no: 'totalt' }
+};
+
+// The two projects with a multi-part size carry no unit overlay, so the raw
+// "368.63 sqm" flowed through untouched: an English unit and an English
+// decimal point on every locale page. Everywhere else the figure is
+// pre-formatted in the project's own overlay, which is why this was the only
+// place it showed.
+const SIZE_UNIT = { es: 'm²', fr: 'm²', de: 'm²', ru: 'м²', ar: 'م²', nl: 'm²', pl: 'm²', sv: 'm²', no: 'm²' };
+const DECIMAL_COMMA = new Set(['es', 'de', 'nl', 'pl', 'sv', 'no']);
+
+function localizedSizeFigure(num, locale) {
+  const unit = SIZE_UNIT[locale] || 'sqm';
+  const figure = DECIMAL_COMMA.has(locale) ? num.replace('.', ',') : num;
+  return `${figure} ${unit}`;
+}
+
+function localizedSizeLabel(label, locale) {
+  const translated = SIZE_LABELS[label.trim().toLowerCase()]?.[locale];
+  const text = translated || label.trim();
+  return text.replace(/^\p{L}/u, (c) => c.toUpperCase());
+}
+
 function unitSizeFacts(value, locale = DEFAULT_LOCALE) {
   const raw = String(value || '').trim();
   if (!raw) return [];
@@ -120,8 +160,10 @@ function unitSizeFacts(value, locale = DEFAULT_LOCALE) {
     const match = /^([\d.,]+)\s*(sqm|m²)\s+(.+)$/i.exec(segment.trim());
     if (!match) return [[t('availability.size', locale), localizedUnitSize(raw, locale)]];
     const [, num, unit, label] = match;
-    const capitalised = label.trim().replace(/^\p{L}/u, (c) => c.toUpperCase());
-    parts.push([capitalised, `${num} ${unit}`]);
+    parts.push([
+      localizedSizeLabel(label, locale),
+      locale === DEFAULT_LOCALE ? `${num} ${unit}` : localizedSizeFigure(num, locale)
+    ]);
   }
   return parts;
 }
@@ -2035,6 +2077,46 @@ const UNTRANSLATED_TAG = new RegExp(
 // client-side through i18n.amenityMap. An amenity with no translation is
 // silently rendered in English there -- the fallback in liora-compare.js
 // capitalises the English string and moves on -- so nothing ever reports it.
+// A size label with no entry in SIZE_LABELS prints in English on all nine
+// locales, and only on the handful of projects that use a multi-part size --
+// so it is invisible unless someone happens to open one of those pages in a
+// language they read.
+function assertSizeLabels(projects) {
+  const missing = new Map();
+  for (const project of projects) {
+    const units = (project.availability || {}).units || [];
+    for (const [index, unit] of units.entries()) {
+      // Most projects translate the whole size string in their own i18n
+      // overlay, so the base label never reaches a locale page. Only the units
+      // with no overlay fall through to SIZE_LABELS -- flagging the rest would
+      // be noise about text nobody ever sees.
+      const covered = TAG_LOCALES.every(
+        (l) => ((project.i18n?.[l]?.availability?.units || [])[index] || {}).size
+      );
+      if (covered) continue;
+      const raw = String(unit.size || '').trim();
+      const segments = raw.split(/,\s*/);
+      if (segments.length < 2) continue;
+      for (const segment of segments) {
+        const match = /^([\d.,]+)\s*(sqm|m²)\s+(.+)$/i.exec(segment.trim());
+        if (!match) continue;
+        const key = match[3].trim().toLowerCase();
+        const entry = SIZE_LABELS[key];
+        const gaps = !entry ? ['all nine'] : TAG_LOCALES.filter((l) => !entry[l]);
+        if (gaps.length) missing.set(key, `${gaps.join(', ')} (${project.slug})`);
+      }
+    }
+  }
+  if (missing.size) {
+    throw new Error(
+      `${missing.size} unit size label(s) have no translation in SIZE_LABELS:\n`
+      + [...missing].map(([k, v]) => `  "${k}" -> missing ${v}`).join('\n')
+      + '\nA missing label prints in English on every locale page for that project.'
+    );
+  }
+  return projects;
+}
+
 function assertAmenityTranslations(projects) {
   const dictPath = path.join(process.cwd(), 'content', 'i18n', 'amenities.json');
   const dict = JSON.parse(readFileSync(dictPath, 'utf8'));
@@ -2129,8 +2211,8 @@ function assertAvailability(project) {
 export function loadProjects() {
   // assertTagVocabulary needs the whole set -- a clash is between two projects,
   // not inside one -- so it wraps the list rather than each file.
-  return assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
-    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file }))))))
+  return assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))))))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;
