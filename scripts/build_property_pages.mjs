@@ -1169,18 +1169,18 @@ function footer(project, locale = DEFAULT_LOCALE) {
         <ul>
           <li><a href="${p}${localizedPath('why-nueva.html', locale)}">${t('footer.whyNuevaLiving', locale)}</a></li>
           <li><a href="${p}${localizedPath('about.html', locale)}">${t('footer.about', locale)}</a></li>
-          <li><a href="${p}${localizedPath('advisory.html', locale)}">${t('footer.advisory', locale)}</a></li>
-          <li><a href="${p}${localizedPath('referrals.html', locale)}">${t('footer.referralProgram', locale)}</a></li>
+          <li><a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a></li>
+          <li><a href="${p}${localizedPath('referrals.html', locale)}">${t('nav.referralAmbassador', locale)}</a></li>
           <li><a href="${p}${localizedPath('contact.html', locale)}">${t('footer.contactUs', locale)}</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">${t('footer.projectsTitle', locale)}</div>
         <ul>
-          <li><a href="${p}${localizedPath('developments.html', locale)}">${t('footer.allDevelopments', locale)}</a></li>
+          <li><a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a></li>
           <li><a href="${p}${localizedPath(project.output, locale)}">${esc(project.shortName || project.name)}</a></li>
-          <li><a href="${p}${localizedPath('guides.html', locale)}">${t('footer.buyingGuides', locale)}</a></li>
-          <li><a href="${p}${localizedPath('areas.html', locale)}">${t('footer.areasOverview', locale)}</a></li>
+          <li><a href="${p}${localizedPath('guides.html', locale)}">${t('nav.buyingGuides', locale)}</a></li>
+          <li><a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-marbella.html', locale)}">${t('area.marbella', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-estepona.html', locale)}">${t('area.estepona', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-casares.html', locale)}">${t('area.casares', locale)}</a></li>

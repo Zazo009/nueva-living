@@ -528,6 +528,117 @@ for (const file of countPlaceholderPages) {
   }
 }
 
+// Canonical form of every URL the site publishes about itself.
+//
+// Two live defects, both found in the Google Business Profile rather than in
+// the build: the website field pointed at https://www.nuevaliving.com/ (which
+// 301s to the apex, so the profile and the site never asserted the same URL),
+// and the Facebook profile was claimed over plain http. Neither broke a page.
+// Both weakened exactly the signal -- one company, one set of URLs -- that
+// `sameAs`, `url` and <link rel="canonical"> exist to send.
+//
+// The site is the half we control at build time, so it is the half that gets
+// checked: nothing we publish may point at the www host, and no URL we claim
+// as our own may be unencrypted.
+const CANONICAL_HOST = 'https://nuevaliving.com';
+let selfUrlsChecked = 0;
+
+for (const file of everyHtmlFile(dist)) {
+  const relative = path.relative(dist, file);
+  const html = fs.readFileSync(file, 'utf8');
+
+  const wwwHits = html.match(/https?:\/\/www\.nuevaliving\.com[^"'\s<>]*/g) || [];
+  for (const hit of wwwHits) {
+    fail(relative, `publishes the www host, which 301s to the apex: "${hit}" `
+      + `-- use ${CANONICAL_HOST} so the profile, the sitemap and the page all name one URL`);
+  }
+
+  // Only URLs the site claims as its own identity, not arbitrary outbound links.
+  const schemaBlocks = html.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g) || [];
+  for (const block of schemaBlocks) {
+    const insecure = block.match(/"http:\/\/[^"]+"/g) || [];
+    for (const hit of insecure) {
+      fail(relative, `claims an unencrypted URL in structured data: ${hit} -- `
+        + 'a http:// sameAs is a different URL to Google than its https:// twin');
+    }
+  }
+
+  const canonical = /<link rel="canonical" href="([^"]+)"/.exec(html);
+  if (canonical) {
+    selfUrlsChecked += 1;
+    if (!canonical[1].startsWith(CANONICAL_HOST)) {
+      fail(relative, `<link rel="canonical"> is not on ${CANONICAL_HOST}: "${canonical[1]}"`);
+    }
+  }
+}
+
+// One label per destination, per locale, in nav and footer.
+//
+// `developments.html` was reachable under four different Swedish names at
+// once: "Nybyggnadsprojekt" from the nav, "Alla nybyggnadsprojekt" from the
+// footer, and "Bostadsprojekt"/"Alla Bostadsprojekt" from the developments
+// page, whose translations live in a second table that had drifted from
+// strings.json. Every one of them rendered correctly, so nothing looked
+// broken -- but a search engine reading the site sees one destination
+// described four ways, and internal anchor text is part of how it decides
+// what to call a page.
+//
+// Body CTAs are deliberately out of scope: "Explore Developments" is
+// conversion copy and is allowed to read differently from a menu item. This
+// checks navigation only, where one name is the whole point.
+const NAV_DESTINATIONS = new Set([
+  'developments.html', 'areas.html', 'guides.html', 'advisory.html',
+  'contact.html', 'about.html', 'why-nueva.html', 'compare.html', 'referrals.html',
+  'privacy-policy.html', 'legal-notice.html', 'cookie-policy.html'
+]);
+const navLabels = new Map(); // `${locale}|${target}` -> Map<label, firstFile>
+let navLabelsChecked = 0;
+
+for (const file of everyHtmlFile(dist)) {
+  const relative = path.relative(dist, file);
+  const locale = /^([a-z]{2})\//.exec(relative)?.[1] || 'en';
+  const html = fs.readFileSync(file, 'utf8');
+
+  // Match each region against its OWN closing tag. An alternation here lets
+  // <nav> pair with the page's final </footer> and swallow the whole body,
+  // which turned every prose link into a navigation link.
+  const regions = [
+    ...(html.match(/<nav\b[\s\S]*?<\/nav>/g) || []),
+    ...(html.match(/<footer\b[\s\S]*?<\/footer>/g) || [])
+  ];
+  for (const region of regions) {
+    for (const [, href, label] of region.matchAll(/<a[^>]*href="([^"]+)"[^>]*>([^<]+)<\/a>/g)) {
+      // Local page targets only -- not anchors, assets or outbound links.
+      if (!/^(?:\.\.\/)*[a-z0-9-]+\/?(?:[a-z0-9-]+)?\.html$/.test(href)) continue;
+      // The site's own navigation set. Contextual cross-links are deliberately
+      // excluded: a segment page linking to the Marbella guide under the label
+      // "Elviria" is naming the sub-area it covers, not renaming the guide.
+      if (!NAV_DESTINATIONS.has(href.replace(/^(?:\.\.\/)+/, '').replace(/^[a-z]{2}\//, ''))) continue;
+      const target = href.replace(/^(?:\.\.\/)+/, '').replace(/^[a-z]{2}\//, '');
+      // Compare the words, not the encoding: "Benahavís" and "Benahav&iacute;s"
+      // are the same label written two ways and must not read as a conflict.
+      const text = label.replace(/&amp;/g, '&').replace(/&iacute;/g, 'í')
+        .replace(/&aacute;/g, 'á').replace(/&oacute;/g, 'ó').replace(/&uacute;/g, 'ú')
+        .replace(/&eacute;/g, 'é').replace(/&ntilde;/g, 'ñ').replace(/&nbsp;/g, ' ')
+        .replace(/\s+/g, ' ').trim();
+      if (!text) continue;
+      navLabelsChecked += 1;
+      const key = `${locale}|${target}`;
+      if (!navLabels.has(key)) navLabels.set(key, new Map());
+      const seen = navLabels.get(key);
+      if (!seen.has(text)) seen.set(text, relative);
+    }
+  }
+}
+
+for (const [key, seen] of navLabels) {
+  if (seen.size < 2) continue;
+  const [locale, target] = key.split('|');
+  const shown = [...seen].map(([label, where]) => `"${label}" (${where})`).join(', ');
+  fail(target, `is linked from nav or footer under ${seen.size} different names in `
+    + `locale "${locale}": ${shown} -- pick one and translate it from a single key`);
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -545,5 +656,7 @@ if (failures.length) {
     + `${guidesChecked} guides checked for a named author, `
     + `${a11yPagesChecked} pages checked for skip link and labelled controls, `
     + `${internalLinksScanned} internal query-string links scanned, `
-    + `${localeTitlesChecked} titles measured in every locale.`);
+    + `${localeTitlesChecked} titles measured in every locale, `
+    + `${selfUrlsChecked} canonical URLs checked for host and scheme, `
+    + `${navLabelsChecked} nav and footer labels checked for one name per destination.`);
 }

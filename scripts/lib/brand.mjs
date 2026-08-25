@@ -15,14 +15,18 @@ export const SAME_AS = [
   //
   // Anything left out is simply not claimed; add URLs as they exist.
   'https://www.instagram.com/nuevaliving',
+  // The Facebook page has existed all along and the Google Business Profile
+  // already listed it -- but this file did not, so the corroboration ran one
+  // way only: the profile pointed at a page the site never claimed. `sameAs`
+  // is only worth something when both ends agree, so it is claimed here now.
+  'https://www.facebook.com/nuevaliving',
   // Google Business Profile, the officially issued share link. For a local
   // business this is the strongest claim here: Instagram corroborates the
   // name, this corroborates the name, the Marbella address and the phone
   // together -- the same address asserted below.
   'https://maps.app.goo.gl/AVKXU8m9sL7LA5uK6'
   // Still unclaimed:
-  //   'https://www.linkedin.com/company/<slug>/',
-  //   'https://www.facebook.com/<page>/'
+  //   'https://www.linkedin.com/company/<slug>/'
 ];
 
 // The coordinates the Google Business Profile itself sits on, read from the

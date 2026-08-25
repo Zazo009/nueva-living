@@ -109,14 +109,14 @@ function footerLinks(locale) {
     company: [
       [t('footer.whyNuevaLiving', locale), 'why-nueva.html'],
       [t('footer.about', locale), 'about.html'],
-      [t('footer.advisory', locale), 'advisory.html'],
-      [t('footer.referralProgram', locale), 'referrals.html'],
+      [t('nav.advisory', locale), 'advisory.html'],
+      [t('nav.referralAmbassador', locale), 'referrals.html'],
       [t('footer.contactUs', locale), 'contact.html'],
     ],
     projects: [
-      [t('footer.allDevelopments', locale), 'developments.html'],
-      [t('footer.buyingGuides', locale), 'guides.html'],
-      [t('footer.areasOverview', locale), 'areas.html'],
+      [t('nav.developments', locale), 'developments.html'],
+      [t('nav.buyingGuides', locale), 'guides.html'],
+      [t('nav.areas', locale), 'areas.html'],
       [t('area.marbella', locale), 'area-marbella.html'],
       [t('area.estepona', locale), 'area-estepona.html'],
       [t('area.casares', locale), 'area-casares.html'],
@@ -163,8 +163,21 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html', langFall
   </div>`;
 }
 
+// A breadcrumb parent is the same destination the nav and footer link to, so
+// it must carry the same label. These were literal English strings in the page
+// definitions, which meant every locale's guide pages showed a breadcrumb
+// reading "Guides" while the menu two lines above said "Köpguider".
+const BREADCRUMB_PARENT_KEYS = {
+  'guides.html': 'nav.buyingGuides',
+  'developments.html': 'nav.developments',
+  'areas.html': 'nav.areas'
+};
+
 function breadcrumb(currentLabel, parents = [], locale = DEFAULT_LOCALE) {
-  const parentItems = parents.map(([label, href]) => `<li><a href="${esc(href)}">${esc(label)}</a></li>`).join('\n      ');
+  const parentItems = parents.map(([label, href]) => {
+    const key = BREADCRUMB_PARENT_KEYS[href];
+    return `<li><a href="${esc(href)}">${esc(key ? t(key, locale) : label)}</a></li>`;
+  }).join('\n      ');
   return `<nav class="breadcrumb-bar" aria-label="Breadcrumb">
     <ol class="breadcrumb-list">
       <li><a href="${home}">${t('breadcrumb.home', locale)}</a></li>${parentItems ? `

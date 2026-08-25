@@ -194,17 +194,17 @@ function footer(locale = DEFAULT_LOCALE) {
         <ul>
           <li><a href="why-nueva.html">${t('footer.whyNuevaLiving', locale)}</a></li>
           <li><a href="about.html">${t('footer.about', locale)}</a></li>
-          <li><a href="advisory.html">${t('footer.advisory', locale)}</a></li>
-          <li><a href="referrals.html">${t('footer.referralProgram', locale)}</a></li>
+          <li><a href="advisory.html">${t('nav.advisory', locale)}</a></li>
+          <li><a href="referrals.html">${t('nav.referralAmbassador', locale)}</a></li>
           <li><a href="contact.html">${t('footer.contactUs', locale)}</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">${t('footer.projectsTitle', locale)}</div>
         <ul>
-          <li><a href="developments.html">${t('footer.allDevelopments', locale)}</a></li>
-          <li><a href="guides.html">${t('footer.buyingGuides', locale)}</a></li>
-          <li><a href="areas.html">${t('footer.areasOverview', locale)}</a></li>
+          <li><a href="developments.html">${t('nav.developments', locale)}</a></li>
+          <li><a href="guides.html">${t('nav.buyingGuides', locale)}</a></li>
+          <li><a href="areas.html">${t('nav.areas', locale)}</a></li>
           <li><a href="area-marbella.html">${t('area.marbella', locale)}</a></li>
           <li><a href="area-estepona.html">${t('area.estepona', locale)}</a></li>
           <li><a href="area-casares.html">${t('area.casares', locale)}</a></li>
