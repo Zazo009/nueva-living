@@ -777,6 +777,32 @@ let localeAttributesChecked = 0;
   }
 }
 
+// The breadcrumb bar's offset must come from --nueva-header-h, never a number.
+//
+// It was written out three times -- 76px in the base rule, 66px under 640px,
+// and var(--nueva-header-h) above 1121px -- while the fixed header is 59px
+// tall below 1121px and 89px above it. Only the desktop pair matched, so the
+// page background showed through between header and breadcrumb as a 17px
+// strip on tablets and a 7px one on phones. Nothing was broken; two numbers
+// that had to agree simply were not the same number.
+let breadcrumbOffsetsChecked = 0;
+
+for (const name of ['liora-pages.css', 'nueva-system.css']) {
+  const file = path.join(root, 'assets', 'liora', name);
+  if (!fs.existsSync(file)) continue;
+  const css = fs.readFileSync(file, 'utf8');
+  for (const [, body] of css.matchAll(/\.breadcrumb-bar\s*\{([^}]*)\}/g)) {
+    const offset = /margin-top\s*:\s*([^;]+);/.exec(body);
+    if (!offset) continue;
+    breadcrumbOffsetsChecked += 1;
+    if (!offset[1].includes('--nueva-header-h')) {
+      fail(`assets/liora/${name}`, `.breadcrumb-bar sets margin-top: ${offset[1].trim()} -- `
+        + 'it must read var(--nueva-header-h) so the offset cannot drift away from the '
+        + 'height of the fixed header it is clearing');
+    }
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -798,5 +824,6 @@ if (failures.length) {
     + `${selfUrlsChecked} canonical URLs checked for host and scheme, `
     + `${navLabelsChecked} nav and footer labels checked for one name per destination, `
     + `${reachabilityChecked} submitted pages checked for reachability from the homepage, `
-    + 'locale attribute text checked for untranslated values.');
+    + `locale attribute text checked for untranslated values, `
+    + `${breadcrumbOffsetsChecked} breadcrumb offsets checked against the header height.`);
 }

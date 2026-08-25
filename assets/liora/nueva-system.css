@@ -8,6 +8,12 @@
   --nueva-deep: #2f2417;
   --nueva-gold: #a8834a;
   --nueva-gold-light: #c7a36b;
+  /* The fixed header's height. Everything that has to clear it reads this
+     rather than repeating a number: the breadcrumb bar's offset and the
+     scroll padding that keeps anchors and focused elements out from under
+     it. Overridden to 89px above 1121px, where the nav gets an explicit
+     height. */
+  --nueva-header-h: 59px;
   --nueva-line: rgba(74, 59, 40, 0.2);
   --nueva-line-dark: rgba(244, 234, 217, 0.22);
   --nueva-display: "Cinzel", Georgia, serif;
@@ -508,6 +514,12 @@ input[type="radio"] {
 .breadcrumb-bar {
   border-color: var(--nueva-line);
   background: rgba(250, 246, 238, 0.94);
+  /* liora-pages.css offsets this by a hardcoded 76px, and 66px under 640px,
+     while the header is 59px tall below 1121px -- so the page background
+     showed through as a 17px strip on tablets and 7px on phones, between the
+     header and the breadcrumb. Desktop was correct because there, and only
+     there, both numbers came from --nueva-header-h. */
+  margin-top: var(--nueva-header-h);
 }
 
 .breadcrumb-list a {
