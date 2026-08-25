@@ -869,6 +869,118 @@ function generalFaqSchema() {
 
 const SEGMENTS = [
   {
+    output: 'new-build-homes-san-pedro-guadalmina.html',
+    area: 'marbella',
+    slugs: ['marbella-west-garden-residences', 'nueva-alcantara-residences', 'alisios-residences', 'cortijo-blanco-villa-collection'],
+    areaLabel: 'San Pedro & Guadalmina',
+    areaHref: 'area-marbella.html',
+    propertyTypes: ['apartment', 'penthouse', 'villa'],
+    breadcrumbLabel: 'San Pedro & Guadalmina',
+    cardHeading: 'New-Build Homes in San Pedro & Guadalmina',
+    title: '{count} New-Build Homes in San Pedro & Guadalmina, Marbella',
+    description: 'New-build apartments, penthouses and villas in San Pedro Alcantara and Guadalmina, western Marbella, from EUR 527,500. Real availability and delivery dates.',
+    kicker: 'Marbella West &middot; San Pedro &amp; Guadalmina',
+    heroTitleHtml: '{count} New-Build Homes for Sale in <em>San Pedro &amp; Guadalmina</em>',
+    heroLead: 'Western Marbella between the town and Puerto Ban\u00fas: a working Spanish high street on one side, four golf courses on the other, and the beach within walking distance of both.',
+    hero: {
+      image: 'assets/liora/projects/marbella-west-garden-residences/hero.jpg',
+      alt: 'New-build residences with gardens in western Marbella between San Pedro Alcantara and Puerto Banus',
+      width: 1920,
+      height: 1280,
+      position: 'center 55%'
+    },
+    introLabel: 'Buying In San Pedro & Guadalmina',
+    introHeadlineHtml: 'A town that <em>works in February</em>',
+    areaLinkHtml: 'Comparing across the municipality? Our guide to <a href="area-marbella.html">where to buy in Marbella, area by area</a> sets this stretch against Marbella East and the Golden Mile.',
+    introParagraphs: [
+      'San Pedro Alc\u00e1ntara is the part of Marbella that does not empty out in winter. It has its own high street, a plaza people actually use, schools, health centres and a boulevard down to the beach -- the things a resort address usually sends you elsewhere for. Guadalmina sits immediately west of it, quieter and built around the golf.',
+      'The two together cover an unusually wide range: apartments from EUR 527,500 through to villas above EUR 4,000,000, within a few minutes of each other. Puerto Ban\u00fas is five minutes east, which is close enough to use and far enough not to live in.'
+    ],
+    quickFacts: [
+      ['Buyer Profile', 'Suits year-round residents, families using the international schools, and buyers who want Puerto Banus nearby without living beside it.'],
+      ['Typical Status', 'Current releases are off-plan or under construction, sold with staged payments through to completion.'],
+      ['What Varies Most', 'Format, more than location. The same few streets hold a EUR 527,500 apartment and a EUR 4,000,000 villa.'],
+      ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
+    ],
+    subareasHeadlineHtml: 'Two neighbourhoods, <em>one stretch of coast</em>',
+    subareas: [
+      ['San Pedro Alc\u00e1ntara', 'A real town rather than a development: high street, market, schools and a boulevard to the beach. Walkable, level, and busy all year. The apartment stock sits here.'],
+      ['Guadalmina', 'West of San Pedro and built around Guadalmina Golf, lower density and quieter. Established rather than growing, and where the golf-side apartments and villas are.'],
+      ['Cortijo Blanco', 'The pocket between San Pedro and Puerto Ban\u00fas, a few streets back from the promenade. Level, established, and within walking distance of both.']
+    ],
+    developmentsHeadlineHtml: 'Current <em>developments</em>',
+    amenitiesHeadlineHtml: 'Amenities to expect',
+    amenitiesIntro: 'Specification varies by development, but current releases on this stretch typically include some combination of the following.',
+    comparisonHeadlineHtml: 'San Pedro or <em>Puerto Ban&uacute;s?</em>',
+    comparison: [
+      ['San Pedro & Guadalmina', 'More space for the money, a neighbourhood that functions year-round, and parking you can find. Five minutes from Puerto Banus by car. The trade is that the marina glamour is somewhere you visit rather than live in.'],
+      ['Puerto Ban\u00fas itself', 'The address, the marina and the walk-out nightlife, at a clear premium and with far less new-build stock. Better suited to short stays than to a household that needs a school run.']
+    ],
+    faq: [
+      ['How far is San Pedro from Puerto Ban\u00fas?', 'About five minutes by car, or a walk along the promenade from the eastern edge of San Pedro. Close enough to use the marina without living with its noise or its parking.'],
+      ['Is San Pedro a real town or a resort?', 'A real town. It has a high street, a weekly market, schools, health centres and a resident population that stays through the winter -- which is not true of every address in Marbella. That is the main reason buyers choose it over the Golden Mile.'],
+      ['What is the difference between San Pedro and Guadalmina?', 'San Pedro is the town: walkable, level, busy. Guadalmina is immediately west, lower density and organised around the golf course, with larger plots and less foot traffic. Prices in Guadalmina are generally higher for the same built area.'],
+      ['Are the international schools nearby?', 'Yes. Several of the Costa del Sol\u2019s international schools sit in and around San Pedro and Guadalmina, which is a large part of why the area holds its year-round population. We can confirm distances for a specific development.'],
+      ['Can I walk to the beach?', 'From most of San Pedro, yes -- the boulevard runs from the town centre down to the promenade. From the Guadalmina golf-side addresses it is a short drive. We confirm the actual walking distance for a development rather than relying on a brochure claim.']
+    ]
+  },
+  {
+    output: 'new-build-homes-elviria-marbella.html',
+    area: 'marbella',
+    slugs: ['elviria-hills-residences', 'laurel-hill-residences', 'elviria-woodland-residences'],
+    areaLabel: 'Elviria',
+    areaHref: 'area-marbella.html',
+    propertyTypes: ['apartment', 'penthouse', 'villa', 'townhouse'],
+    breadcrumbLabel: 'Elviria',
+    cardHeading: 'New-Build Homes in Elviria',
+    title: '{count} New-Build Homes in Elviria, Marbella East',
+    description: 'New-build apartments, townhouses and villas in Elviria on Marbella East, from EUR 690,000. Real availability, floorplans and delivery dates.',
+    kicker: 'Marbella East &middot; Elviria',
+    heroTitleHtml: '{count} New-Build Homes for Sale in <em>Elviria</em>',
+    heroLead: 'The pine-covered hillside east of Marbella, where the beach clubs sit below and three golf courses sit behind, and where most of Marbella East\u2019s current new-build stock is concentrated.',
+    hero: {
+      image: 'assets/liora/projects/elviria-hills-residences/hero.jpg',
+      alt: 'Elevated new-build residences among pines above the Elviria coastline, Marbella East',
+      width: 1920,
+      height: 1280,
+      position: 'center 55%'
+    },
+    introLabel: 'Buying In Elviria',
+    introHeadlineHtml: 'Marbella East, <em>at Marbella East prices</em>',
+    areaLinkHtml: 'Comparing across the municipality? Our guide to <a href="area-marbella.html">where to buy in Marbella, area by area</a> sets Elviria against the Golden Mile and Marbella West.',
+    introParagraphs: [
+      'Elviria is the stretch of Marbella East between the A-7 and the pine hills behind it, about twenty minutes from the old town and the same again from the airport. It is residential rather than resort: a supermarket you actually use, international schools, and beach clubs that stay open through the winter.',
+      'It also holds the largest concentration of new-build stock on this side of Marbella. The three current releases here run from EUR 690,000, which is roughly where Marbella starts, and they cover apartments, townhouses and villas rather than one format. All are under construction or off-plan with staged payments.'
+    ],
+    quickFacts: [
+      ['Buyer Profile', 'Suits year-round residents and families as much as second-home buyers, helped by the schools and the everyday services.'],
+      ['Typical Status', 'Every current release is under construction or off-plan, sold with staged payments through to completion.'],
+      ['What Varies Most', 'Height. Elviria runs from the beach up into the hills, and the elevated plots carry both the sea views and the premium.'],
+      ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
+    ],
+    subareasHeadlineHtml: 'One name, <em>three distinct heights</em>',
+    subareas: [
+      ['Elviria West', 'The growing edge closest to Marbella, elevated enough for sea views, with the golf courses and the beach clubs both within a short drive. Where most of the current apartment stock sits.'],
+      ['Elviria Sur', 'The lower, flatter part nearer the coast, around three kilometres from Nikki Beach. The most walkable to the sand and the strongest for rental demand.'],
+      ['The pine hills', 'Behind and above the rest, backing onto Santa Maria and Cabopino golf. Quieter and more private, and where the villa and woodland plots are.']
+    ],
+    developmentsHeadlineHtml: 'Current <em>developments</em>',
+    amenitiesHeadlineHtml: 'Amenities to expect',
+    amenitiesIntro: 'Specification varies by development, but current releases in Elviria typically include some combination of the following.',
+    comparisonHeadlineHtml: 'Elviria or <em>central Marbella?</em>',
+    comparison: [
+      ['Elviria', 'More built area for the money, greener surroundings, and a genuine year-round neighbourhood with schools and services. The trade is that you drive to the old town and to Puerto Banus rather than walking.'],
+      ['Central Marbella', 'Walkable to the old town and the promenade, and a shorter hop to Puerto Banus, at a clear premium per square metre. Better for short stays and for buyers who want the address more than the floor area.']
+    ],
+    faq: [
+      ['How far is Elviria from Marbella old town?', 'Around fifteen to twenty minutes by car along the A-7, depending on where in Elviria you are and the time of year. The airport is a similar distance in the other direction, which is unusual on this coast -- most of Marbella is materially further from both.'],
+      ['Is Elviria walkable, or do I need a car?', 'It depends on the height. Elviria Sur, nearer the coast, is walkable to the beach and to everyday shops. The elevated plots in Elviria West and the pine hills assume a car, which is also what buys the views and the quiet.'],
+      ['What golf is nearby?', 'Santa Maria Golf and Cabopino Golf both sit directly behind Elviria, with Rio Real a short drive west. The woodland plots back onto the courses; the apartment releases are a few minutes away.'],
+      ['Is Elviria good for letting?', 'Rental demand here is helped by the beach clubs and the schools, which pull both holiday and longer lets. Whether a specific development permits short-term letting depends on its community rules and the municipal licence position. Nueva Living confirms this for a development before you reserve.'],
+      ['Why is Elviria cheaper than the Golden Mile?', 'Distance from central Marbella, and nothing else that matters. The build standard on the current releases is the same, and the plots are larger. Elviria starts around EUR 690,000 where the Golden Mile starts several times higher.']
+    ]
+  },
+  {
     output: 'new-build-homes-new-golden-mile.html',
     area: 'estepona',
     slugs: [

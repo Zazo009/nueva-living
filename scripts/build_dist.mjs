@@ -79,6 +79,8 @@ const baseHtmlFiles = [
   'new-build-apartments-penthouses-marbella.html',
   'new-build-apartments-penthouses-mijas-fuengirola.html',
   'new-build-homes-new-golden-mile.html',
+  'new-build-homes-elviria-marbella.html',
+  'new-build-homes-san-pedro-guadalmina.html',
   'new-build-apartments-penthouses-estepona.html',
   'new-build-apartments-penthouses-nueva-andalucia.html',
   'privacy-policy.html',
@@ -174,6 +176,18 @@ const basePageMeta = {
     title: 'Buying a New-Build in Spain: Costa del Sol Guides 2026',
     description: 'How buying a new-build on the Costa del Sol actually works: the seven steps, off-plan vs resale, purchase costs in Andalucia and non-resident mortgages.',
     path: '/guides.html',
+    type: 'website'
+  },
+  'new-build-homes-elviria-marbella.html': {
+    title: '{count} New-Build Homes in Elviria, Marbella East',
+    description: 'New-build apartments, townhouses and villas in Elviria on Marbella East, from EUR 690,000. Real availability, floorplans and delivery dates.',
+    path: '/new-build-homes-elviria-marbella.html',
+    type: 'website'
+  },
+  'new-build-homes-san-pedro-guadalmina.html': {
+    title: '{count} New-Build Homes in San Pedro & Guadalmina, Marbella',
+    description: 'New-build apartments, penthouses and villas in San Pedro Alcantara and Guadalmina, western Marbella, from EUR 527,500. Real availability and delivery dates.',
+    path: '/new-build-homes-san-pedro-guadalmina.html',
     type: 'website'
   },
   'new-build-homes-new-golden-mile.html': {
@@ -470,6 +484,17 @@ for (const [output, area] of [
   ['new-build-apartments-penthouses-mijas-fuengirola.html', 'mijas-fuengirola'],
   ['new-build-apartments-penthouses-estepona.html', 'estepona'],
   ['new-build-apartments-penthouses-nueva-andalucia.html', 'nueva-andalucia'],
+  ['new-build-homes-elviria-marbella.html', [
+    'elviria-hills-residences',
+    'laurel-hill-residences',
+    'elviria-woodland-residences'
+  ]],
+  ['new-build-homes-san-pedro-guadalmina.html', [
+    'marbella-west-garden-residences',
+    'nueva-alcantara-residences',
+    'alisios-residences',
+    'cortijo-blanco-villa-collection'
+  ]],
   ['new-build-homes-new-golden-mile.html', [
     'vista-alta-suites',
     'jardin-del-mar-residences',
