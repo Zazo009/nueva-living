@@ -639,6 +639,85 @@ for (const [key, seen] of navLabels) {
     + `locale "${locale}": ${shown} -- pick one and translate it from a single key`);
 }
 
+// Every page in the sitemap must be reachable from the homepage.
+//
+// The seven segment pages -- the ones built specifically to catch search
+// demand -- were linked from area pages and guides, but from no homepage, not
+// from developments.html and not from areas.html. Search Console showed the
+// result: three of them discovered but never crawled, and the Norwegian one
+// reported as "URL is unknown to Google". Nothing was broken. The pages
+// rendered, sat in the sitemap and simply were not found.
+//
+// A sitemap entry is a claim that a page matters. If nothing on the site
+// links to it, the claim is not backed by the site's own structure.
+const MAX_CLICK_DEPTH = 3;
+let reachabilityChecked = 0;
+
+function localLinkTargets(html, fromRelative) {
+  // Locale pages carry <base href="../">, so a relative href resolves against
+  // the site root, not the page's own folder. Resolving against the folder
+  // turns "sv/about.html" into "sv/sv/about.html" -- a dead end that makes
+  // every locale page look reachable when it is not, or unreachable when it
+  // is. Read the base the page actually declares.
+  const base = /<base[^>]+href="([^"]*)"/.exec(html)?.[1];
+  const pageDir = path.posix.dirname(fromRelative) === '.' ? '' : `${path.posix.dirname(fromRelative)}/`;
+  const dir = base ? path.posix.normalize(`${pageDir}${base}`).replace(/^\.\/?$/, '') : pageDir;
+  const out = new Set();
+  for (const [, href] of html.matchAll(/<a[^>]+href="([^"#?]+\.html)(?:[#?][^"]*)?"/g)) {
+    const resolved = href.startsWith('/')
+      ? href.slice(1)
+      : path.posix.normalize(`${dir}${dir && !dir.endsWith('/') ? '/' : ''}${href}`);
+    if (!resolved.startsWith('..')) out.add(resolved);
+  }
+  return out;
+}
+
+{
+  const sitemapPath = path.join(dist, 'sitemap.xml');
+  if (fs.existsSync(sitemapPath)) {
+    const sitemap = fs.readFileSync(sitemapPath, 'utf8');
+    const submitted = new Set(
+      [...sitemap.matchAll(/<loc>https:\/\/nuevaliving\.com\/([^<]*)<\/loc>/g)]
+        .map(([, p]) => (p === '' || p.endsWith('/') ? `${p}index.html` : p))
+    );
+
+    const depth = new Map([['index.html', 0]]);
+    let frontier = ['index.html'];
+    while (frontier.length) {
+      const next = [];
+      for (const page of frontier) {
+        const file = path.join(dist, page);
+        if (!fs.existsSync(file)) continue;
+        for (const target of localLinkTargets(fs.readFileSync(file, 'utf8'), page)) {
+          if (depth.has(target)) continue;
+          depth.set(target, depth.get(page) + 1);
+          next.push(target);
+        }
+      }
+      frontier = next;
+    }
+
+    const unreachable = [];
+    const tooDeep = [];
+    for (const page of submitted) {
+      reachabilityChecked += 1;
+      const d = depth.get(page);
+      if (d === undefined) unreachable.push(page);
+      else if (d > MAX_CLICK_DEPTH) tooDeep.push(`${page} (${d} clicks)`);
+    }
+    if (unreachable.length) {
+      fail('sitemap.xml', `${unreachable.length} submitted page(s) cannot be reached from the `
+        + `homepage by following links at all: ${unreachable.slice(0, 6).join(', ')}`
+        + `${unreachable.length > 6 ? ', …' : ''}`);
+    }
+    if (tooDeep.length) {
+      fail('sitemap.xml', `${tooDeep.length} submitted page(s) sit more than ${MAX_CLICK_DEPTH} `
+        + `clicks from the homepage: ${tooDeep.slice(0, 6).join(', ')}`
+        + `${tooDeep.length > 6 ? ', …' : ''}`);
+    }
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -658,5 +737,6 @@ if (failures.length) {
     + `${internalLinksScanned} internal query-string links scanned, `
     + `${localeTitlesChecked} titles measured in every locale, `
     + `${selfUrlsChecked} canonical URLs checked for host and scheme, `
-    + `${navLabelsChecked} nav and footer labels checked for one name per destination.`);
+    + `${navLabelsChecked} nav and footer labels checked for one name per destination, `
+    + `${reachabilityChecked} submitted pages checked for reachability from the homepage.`);
 }
