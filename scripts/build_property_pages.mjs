@@ -2001,6 +2001,49 @@ function assertPropertyTypes(project) {
 // match the rows. If a project ever needs to show layouts that are not for
 // sale, that badge has to become data-driven first; until then this invariant
 // is the only honest one.
+// Discovery tags are filter tokens, not prose. The filter lowercases before
+// matching, so "Off-Plan" and "Off-plan" are harmless -- but it does not
+// stem, so "Sea View" and "Sea Views" are two different tokens. That split
+// 18 sea-view projects into 11 and 7: a visitor filtering on sea views saw
+// at most eleven of them, and nothing anywhere reported a problem.
+//
+// Collapse both kinds here so the vocabulary cannot drift apart again.
+const TAG_FIELDS = ['practicalTags', 'cardTags', 'lifestyleTags', 'architectureTags'];
+
+function tagToken(tag) {
+  return tag.toLowerCase().replace(/&/g, 'and').replace(/\s+/g, ' ').trim()
+    .replace(/s$/, '');
+}
+
+function assertTagVocabulary(projects) {
+  const byToken = new Map(); // token -> Map<spelling, slugs[]>
+  for (const project of projects) {
+    const discovery = project.discovery || {};
+    for (const field of TAG_FIELDS) {
+      for (const tag of discovery[field] || []) {
+        if (typeof tag !== 'string') continue;
+        const token = tagToken(tag);
+        if (!byToken.has(token)) byToken.set(token, new Map());
+        const spellings = byToken.get(token);
+        if (!spellings.has(tag)) spellings.set(tag, []);
+        spellings.get(tag).push(project.slug);
+      }
+    }
+  }
+  for (const [, spellings] of byToken) {
+    if (spellings.size < 2) continue;
+    const shown = [...spellings]
+      .map(([tag, slugs]) => `"${tag}" (${slugs.length} project${slugs.length === 1 ? '' : 's'})`)
+      .join(' and ');
+    throw new Error(
+      `discovery tags: ${shown} are the same tag written two ways. The filter does not `
+      + 'stem, so each spelling matches only its own projects and every chip built from '
+      + 'one of them silently omits the other. Pick one spelling in content/liora-projects.'
+    );
+  }
+  return projects;
+}
+
 function assertAvailability(project) {
   const units = project.availability?.units || [];
   if (!units.length) return project;
@@ -2015,8 +2058,10 @@ function assertAvailability(project) {
 }
 
 export function loadProjects() {
-  return projectFiles()
-    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))
+  // assertTagVocabulary needs the whole set -- a clash is between two projects,
+  // not inside one -- so it wraps the list rather than each file.
+  return assertTagVocabulary(projectFiles()
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file }))))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;
