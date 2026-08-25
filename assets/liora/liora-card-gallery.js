@@ -2,14 +2,14 @@
   const locale = document.documentElement.getAttribute('lang') || 'en';
 
   const STRINGS = {
-    share: { en: 'Share this project', es: 'Compartir este proyecto', fr: 'Partager ce projet', de: 'Dieses Projekt teilen', ru: 'Поделиться проектом', ar: 'مشاركة هذا المشروع' },
-    linkCopied: { en: 'Link copied to clipboard.', es: 'Enlace copiado al portapapeles.', fr: 'Lien copié dans le presse-papiers.', de: 'Link in die Zwischenablage kopiert.', ru: 'Ссылка скопирована в буфер обмена.', ar: 'تم نسخ الرابط.' },
-    linkCopyFailed: { en: 'Could not copy the link.', es: 'No se pudo copiar el enlace.', fr: 'Impossible de copier le lien.', de: 'Der Link konnte nicht kopiert werden.', ru: 'Не удалось скопировать ссылку.', ar: 'تعذّر نسخ الرابط.' },
-    viewPhotos: { en: 'View all photos', es: 'Ver todas las fotos', fr: 'Voir toutes les photos', de: 'Alle Fotos ansehen', ru: 'Смотреть все фото', ar: 'عرض جميع الصور' },
-    close: { en: 'Close', es: 'Cerrar', fr: 'Fermer', de: 'Schließen', ru: 'Закрыть', ar: 'إغلاق' },
-    previous: { en: 'Previous image', es: 'Imagen anterior', fr: 'Image précédente', de: 'Vorheriges Bild', ru: 'Предыдущее фото', ar: 'الصورة السابقة' },
-    next: { en: 'Next image', es: 'Imagen siguiente', fr: 'Image suivante', de: 'Nächstes Bild', ru: 'Следующее фото', ar: 'الصورة التالية' },
-    counter: { en: '{index} of {total}', es: '{index} de {total}', fr: '{index} sur {total}', de: '{index} von {total}', ru: '{index} из {total}', ar: '{index} من {total}' }
+    share: { en: 'Share this project', es: 'Compartir este proyecto', fr: 'Partager ce projet', de: 'Dieses Projekt teilen', ru: 'Поделиться проектом', ar: 'مشاركة هذا المشروع' , nl: 'Dit project delen', pl: 'Udostępnij tę inwestycję', sv: 'Dela projektet', no: 'Del prosjektet'},
+    linkCopied: { en: 'Link copied to clipboard.', es: 'Enlace copiado al portapapeles.', fr: 'Lien copié dans le presse-papiers.', de: 'Link in die Zwischenablage kopiert.', ru: 'Ссылка скопирована в буфер обмена.', ar: 'تم نسخ الرابط.' , nl: 'Link gekopieerd naar het klembord.', pl: 'Link skopiowany do schowka.', sv: 'Länken är kopierad.', no: 'Lenken er kopiert.'},
+    linkCopyFailed: { en: 'Could not copy the link.', es: 'No se pudo copiar el enlace.', fr: 'Impossible de copier le lien.', de: 'Der Link konnte nicht kopiert werden.', ru: 'Не удалось скопировать ссылку.', ar: 'تعذّر نسخ الرابط.' , nl: 'Kon de link niet kopiëren.', pl: 'Nie udało się skopiować linku.', sv: 'Länken kunde inte kopieras.', no: 'Lenken kunne ikke kopieres.'},
+    viewPhotos: { en: 'View all photos', es: 'Ver todas las fotos', fr: 'Voir toutes les photos', de: 'Alle Fotos ansehen', ru: 'Смотреть все фото', ar: 'عرض جميع الصور' , nl: 'Alle foto’s bekijken', pl: 'Zobacz wszystkie zdjęcia', sv: 'Visa alla bilder', no: 'Se alle bilder'},
+    close: { en: 'Close', es: 'Cerrar', fr: 'Fermer', de: 'Schließen', ru: 'Закрыть', ar: 'إغلاق' , nl: 'Sluiten', pl: 'Zamknij', sv: 'Stäng', no: 'Lukk'},
+    previous: { en: 'Previous image', es: 'Imagen anterior', fr: 'Image précédente', de: 'Vorheriges Bild', ru: 'Предыдущее фото', ar: 'الصورة السابقة' , nl: 'Vorige afbeelding', pl: 'Poprzednie zdjęcie', sv: 'Föregående bild', no: 'Forrige bilde'},
+    next: { en: 'Next image', es: 'Imagen siguiente', fr: 'Image suivante', de: 'Nächstes Bild', ru: 'Следующее фото', ar: 'الصورة التالية' , nl: 'Volgende afbeelding', pl: 'Następne zdjęcie', sv: 'Nästa bild', no: 'Neste bilde'},
+    counter: { en: '{index} of {total}', es: '{index} de {total}', fr: '{index} sur {total}', de: '{index} von {total}', ru: '{index} из {total}', ar: '{index} من {total}' , nl: '{index} van {total}', pl: '{index} z {total}', sv: '{index} av {total}', no: '{index} av {total}'}
   };
 
   const t = (key, vars) => {

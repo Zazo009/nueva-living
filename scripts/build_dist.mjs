@@ -1328,6 +1328,88 @@ function localiseDiscoveryTags(html, locale) {
   );
 }
 
+// Gallery chrome is written once in English by card_gallery.mjs and reaches
+// every page type that renders a project card. build_developments_locales.mjs
+// translated the dot labels, but only on developments.html -- so the same
+// buttons sat in English on 300 property pages, 70 segment pages and every
+// area page, on all nine locales. Nothing visible: they are aria-labels and
+// tooltips, which is exactly why nobody saw them.
+const GALLERY_CHROME = {
+  'View all photos': { es: 'Ver todas las fotos', fr: 'Voir toutes les photos', de: 'Alle Fotos ansehen', ru: 'Смотреть все фото', ar: 'عرض جميع الصور', nl: 'Alle foto\u2019s bekijken', pl: 'Zobacz wszystkie zdjęcia', sv: 'Visa alla bilder', no: 'Se alle bilder' },
+  'Share this project': { es: 'Compartir este proyecto', fr: 'Partager ce projet', de: 'Dieses Projekt teilen', ru: 'Поделиться проектом', ar: 'مشاركة هذا المشروع', nl: 'Dit project delen', pl: 'Udostępnij tę inwestycję', sv: 'Dela projektet', no: 'Del prosjektet' },
+  'Previous image': { es: 'Imagen anterior', fr: 'Image précédente', de: 'Vorheriges Bild', ru: 'Предыдущее фото', ar: 'الصورة السابقة', nl: 'Vorige afbeelding', pl: 'Poprzednie zdjęcie', sv: 'Föregående bild', no: 'Forrige bilde' },
+  'Next image': { es: 'Imagen siguiente', fr: 'Image suivante', de: 'Nächstes Bild', ru: 'Следующее фото', ar: 'الصورة التالية', nl: 'Volgende afbeelding', pl: 'Następne zdjęcie', sv: 'Nästa bild', no: 'Neste bilde' }
+};
+const SHOW_IMAGE = {
+  es: 'Imagen {n} de {m}', fr: 'Image {n} sur {m}', de: 'Bild {n} von {m}', ru: 'Фото {n} из {m}',
+  ar: 'الصورة {n} من {m}', nl: 'Afbeelding {n} van {m}', pl: 'Zdjęcie {n} z {m}',
+  sv: 'Bild {n} av {m}', no: 'Bilde {n} av {m}'
+};
+
+// The same class as the gallery chrome, but with a proper noun inside, so a
+// plain string swap cannot reach them: "Explore the Marbella area guide",
+// "Rio Real Townhouses media viewer", "Contact Sasan Raftari". The name stays,
+// the sentence around it does not.
+const CHROME_TEMPLATES = [
+  {
+    pattern: /aria-label="Explore the (.+?) area guide"/g,
+    byLocale: { es: 'Explorar la guía de {name}', fr: 'Découvrir le guide de {name}', de: 'Zum Gebietsführer {name}', ru: 'Открыть гид по району {name}', ar: 'استكشاف دليل منطقة {name}', nl: 'Bekijk de gebiedsgids {name}', pl: 'Zobacz przewodnik po {name}', sv: 'Utforska områdesguiden {name}', no: 'Utforsk områdeguiden {name}' }
+  },
+  {
+    pattern: /aria-label="(.+?) media viewer"/g,
+    byLocale: { es: 'Visor multimedia de {name}', fr: 'Visionneuse média {name}', de: 'Medienansicht {name}', ru: 'Медиапросмотр {name}', ar: 'عارض وسائط {name}', nl: 'Mediaviewer {name}', pl: 'Przeglądarka multimediów {name}', sv: 'Bildvisare {name}', no: 'Bildeviser {name}' }
+  },
+  {
+    pattern: /aria-label="Contact (.+?)"/g,
+    byLocale: { es: 'Contactar con {name}', fr: 'Contacter {name}', de: '{name} kontaktieren', ru: 'Связаться с {name}', ar: 'التواصل مع {name}', nl: 'Contact opnemen met {name}', pl: 'Skontaktuj się z {name}', sv: 'Kontakta {name}', no: 'Kontakt {name}' }
+  }
+];
+const CHROME_LITERALS = {
+  'Off-plan vs resale comparison': { es: 'Comparativa sobre plano y segunda mano', fr: 'Comparatif sur plan et revente', de: 'Vergleich Off-Plan und Wiederverkauf', ru: 'Сравнение: офф-план и вторичный рынок', ar: 'مقارنة بين الشراء على المخطط وإعادة البيع', nl: 'Vergelijking off-plan en bestaande bouw', pl: 'Porównanie: rynek pierwotny i wtórny', sv: 'Jämförelse: på ritning och begagnat', no: 'Sammenligning: på tegning og bruktbolig' },
+  'Rate type': { es: 'Tipo de interés', fr: 'Type de taux', de: 'Zinsart', ru: 'Тип ставки', ar: 'نوع الفائدة', nl: 'Rentetype', pl: 'Rodzaj oprocentowania', sv: 'Räntetyp', no: 'Rentetype' },
+  'First name': { es: 'Nombre', fr: 'Prénom', de: 'Vorname', ru: 'Имя', ar: 'الاسم الأول', nl: 'Voornaam', pl: 'Imię', sv: 'Förnamn', no: 'Fornavn' },
+  'Last name': { es: 'Apellidos', fr: 'Nom', de: 'Nachname', ru: 'Фамилия', ar: 'اسم العائلة', nl: 'Achternaam', pl: 'Nazwisko', sv: 'Efternamn', no: 'Etternavn' }
+};
+
+function localiseChromeTemplates(html, locale) {
+  if (locale === DEFAULT_LOCALE) return html;
+  let out = html;
+  for (const { pattern, byLocale } of CHROME_TEMPLATES) {
+    const template = byLocale[locale];
+    if (!template) continue;
+    out = out.replace(pattern, (whole, name) => {
+      const attribute = whole.slice(0, whole.indexOf('='));
+      return `${attribute}="${template.replace('{name}', name)}"`;
+    });
+  }
+  for (const [english, byLocale] of Object.entries(CHROME_LITERALS)) {
+    const translated = byLocale[locale];
+    if (!translated) continue;
+    for (const attribute of ['aria-label', 'placeholder', 'title']) {
+      out = out.split(`${attribute}="${english}"`).join(`${attribute}="${translated}"`);
+    }
+  }
+  return out;
+}
+
+function localiseGalleryChrome(html, locale) {
+  if (locale === DEFAULT_LOCALE) return html;
+  let out = html;
+  for (const [english, byLocale] of Object.entries(GALLERY_CHROME)) {
+    const translated = byLocale[locale];
+    if (!translated) continue;
+    for (const attribute of ['aria-label', 'title']) {
+      out = out.split(`${attribute}="${english}"`).join(`${attribute}="${translated}"`);
+    }
+  }
+  const template = SHOW_IMAGE[locale];
+  if (template) {
+    out = out.replace(/aria-label="Show image (\d+) of (\d+)"/g, (whole, n, total) =>
+      `aria-label="${template.replace('{n}', n).replace('{m}', total)}"`);
+  }
+  return out;
+}
+
   const locale = localeFromPublicName(publicName);
   // Written as steps rather than a fourteen-deep call chain: which stage
   // received `locale` was impossible to read, and the skip link shipped in
@@ -1341,6 +1423,8 @@ function localiseDiscoveryTags(html, locale) {
   out = injectNavInteractions(out);
   out = injectSkipLink(out, locale);
   out = localiseDiscoveryTags(out, locale);
+  out = localiseGalleryChrome(out, locale);
+  out = localiseChromeTemplates(out, locale);
   out = injectSystemStyles(out);
   out = injectGtm(out);
   out = clampMetaDescriptions(out);

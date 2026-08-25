@@ -718,6 +718,65 @@ function localLinkTargets(html, fromRelative) {
   }
 }
 
+const projectNames = new Set();
+{
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  if (fs.existsSync(projectsDir)) {
+    for (const entry of fs.readdirSync(projectsDir, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const projectFile = path.join(projectsDir, entry.name, 'project.json');
+      if (!fs.existsSync(projectFile)) continue;
+      const name = JSON.parse(fs.readFileSync(projectFile, 'utf8')).name;
+      if (name) projectNames.add(name);
+    }
+  }
+}
+
+// User-visible text living in attributes, not between tags.
+//
+// Every earlier check here read text nodes, so placeholder, aria-label and
+// title were invisible to all of them. The referrals form asked "Who are you
+// introducing?" in English under a Swedish label, and 1,601 gallery buttons
+// carried English aria-labels on nine locales -- none of it caught, because
+// none of it is text on the page.
+//
+// A value that is byte-identical to the English page's is either untranslated
+// or a proper noun. Proper nouns are the exception, so they are named.
+const ATTR_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+const TRANSLATABLE_ATTRS = ['placeholder', 'aria-label', 'title'];
+const ATTR_ALLOWED = /Nueva Living|Costa del Sol|you@email\.com|^\+34|WhatsApp|Instagram|Facebook|^https?:/;
+let localeAttributesChecked = 0;
+
+{
+  const properNouns = new Set(['Sasan Raftari', 'Sami Altun']);
+  for (const file of everyHtmlFile(dist)) {
+    const relative = path.relative(dist, file);
+    if (!/^[a-z]{2}\//.test(relative)) continue;
+    const locale = relative.slice(0, 2);
+    if (!ATTR_LOCALES.includes(locale)) continue;
+    const twin = path.join(dist, relative.slice(3));
+    if (!fs.existsSync(twin)) continue;
+    const localeHtml = fs.readFileSync(file, 'utf8');
+    const englishHtml = fs.readFileSync(twin, 'utf8');
+    for (const attribute of TRANSLATABLE_ATTRS) {
+      const pattern = new RegExp(`${attribute}="([^"]{6,90})"`, 'g');
+      const english = new Set([...englishHtml.matchAll(pattern)].map(([, v]) => v));
+      for (const [, value] of localeHtml.matchAll(pattern)) {
+        if (!english.has(value)) continue;
+        if (ATTR_ALLOWED.test(value) || properNouns.has(value)) continue;
+        // Two or more words of Latin script is the signal for a sentence
+        // rather than a name; single words and project names pass.
+        if (!/[A-Za-z]{2,}\s+[A-Za-z]{2,}/.test(value)) continue;
+        if (projectNames.has(value)) continue;
+        localeAttributesChecked += 1;
+        fail(relative, `${attribute}="${value}" is identical to the English page -- `
+          + 'attribute text is never checked by the text-node passes above, so an '
+          + 'untranslated one has no visible symptom');
+      }
+    }
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -738,5 +797,6 @@ if (failures.length) {
     + `${localeTitlesChecked} titles measured in every locale, `
     + `${selfUrlsChecked} canonical URLs checked for host and scheme, `
     + `${navLabelsChecked} nav and footer labels checked for one name per destination, `
-    + `${reachabilityChecked} submitted pages checked for reachability from the homepage.`);
+    + `${reachabilityChecked} submitted pages checked for reachability from the homepage, `
+    + 'locale attribute text checked for untranslated values.');
 }
