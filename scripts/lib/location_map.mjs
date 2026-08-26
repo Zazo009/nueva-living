@@ -48,7 +48,7 @@ const esc = (value) => String(value ?? '')
   .replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;');
 
-// Place names never translate -- Puerto Banus stays Puerto Banus in Russian.
+// Place names never translate -- Puerto Banús stays Puerto Banús in Russian.
 // Only the category word around a name is localised, which is why every label
 // is built from a template carrying {name} rather than from a translated string.
 // A plate on the map face has roughly 120px before it collides with a

@@ -104,7 +104,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
   { find: `Explore Benahavis`, es: `Explorar Benahavís`, fr: `Découvrir Benahavís`, de: `Benahavís Entdecken`, ru: `Смотреть Бенаавис`, ar: `استكشف بيناهافيس`, nl: `Ontdek Benahavís`, pl: `Poznaj Benahavís`, sv: `Utforska Benahavís`, no: `Utforsk Benahavís` },
   { find: `Golf Valley living`, es: `Vivir en el Valle del Golf`, fr: `Vivre dans le Golf Valley`, de: `Leben im Golf Valley`, ru: `Жизнь в долине для гольфа`, ar: `الحياة في وادي الغولف`, nl: `Wonen in Golf Valley`, pl: `Życie w Golf Valley`, sv: `Att bo i Golf Valley`, no: `Å bo i Golf Valley` },
   {
-    find: `Close to Puerto Banus and surrounded by golf courses, Nueva Andalucia works well for buyers who want restaurants, services and year-round activity nearby.`,
+    find: `Close to Puerto Banús and surrounded by golf courses, Nueva Andalucia works well for buyers who want restaurants, services and year-round activity nearby.`,
     es: `Cerca de Puerto Banús y rodeada de campos de golf, Nueva Andalucía funciona bien para compradores que desean restaurantes, servicios y actividad durante todo el año cerca de casa.`,
     fr: `Proche de Puerto Banús et entourée de terrains de golf, Nueva Andalucía convient bien aux acheteurs qui souhaitent des restaurants, des services et une activité toute l'année à proximité.`,
     de: `In der Nähe von Puerto Banús und umgeben von Golfplätzen eignet sich Nueva Andalucía gut für Käufer, die Restaurants, Dienstleistungen und ganzjährige Aktivität in der Nähe wünschen.`,

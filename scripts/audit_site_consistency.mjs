@@ -866,6 +866,61 @@ let drawerRowHeights = 0;
 // Read the modules rather than the built pages: a table that is missing a
 // locale is the cause, and the page is only where it shows.
 const ENTRY_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+let placeSpellingsChecked = 0;
+
+// Place names have one spelling.
+//
+// "Puerto Banus" without the accent sat in 235 places against 1098 with it,
+// and "Benahavís" was written "Benahávis" -- accent on the wrong vowel -- in
+// sixteen, including a whole area guide in four languages. Both are the kind
+// of thing that reads as sloppiness to a local buyer and splits a search term
+// in two.
+//
+// The check runs over sources rather than output, because the wrong spelling
+// has to be fixed in the English AND in every translation table's find string
+// in the same pass: correcting one side alone stops the entries matching and
+// silently reverts whole paragraphs to English. That happened twice while
+// this was being fixed.
+{
+  // Only spellings that are unambiguously wrong. "Nueva Andalucia" without the
+  // accent is deliberate in a dozen files -- it is a filter key the discovery
+  // JS matches on, not display text -- so it is not listed here.
+  const WRONG_SPELLINGS = [
+    ['Puerto Banus', 'Puerto Banús'],
+    ['Benahávis', 'Benahavís']
+  ];
+  const roots = ['scripts', 'content', 'pages'];
+  const files = [];
+  const walk = (dir) => {
+    if (!fs.existsSync(dir)) return;
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (/\.(mjs|json|html)$/.test(entry.name)
+        && entry.name !== 'audit_site_consistency.mjs') files.push(full);
+    }
+  };
+  for (const root_ of roots) walk(path.join(root, root_));
+  for (const [wrong, right] of WRONG_SPELLINGS) {
+    placeSpellingsChecked += 1;
+    const offenders = [];
+    for (const file of files) {
+      const text = fs.readFileSync(file, 'utf8');
+      // No subtraction: "Puerto Banus" is not a substring of "Puerto Banús"
+      // -- they differ at the u. Deducting the correct spellings made the
+      // count negative and the check silently passed.
+      const count = text.split(wrong).length - 1;
+      if (count > 0) offenders.push(`${path.relative(root, file)} (${count})`);
+    }
+    if (offenders.length) {
+      fail('place names', `"${wrong}" should be "${right}": ${offenders.slice(0, 4).join(', ')}`
+        + `${offenders.length > 4 ? `, …and ${offenders.length - 4} more` : ''}. `
+        + 'Fix the English and every translation table\'s find string together -- '
+        + 'changing one side stops the entries matching and reverts paragraphs to English.');
+    }
+  }
+}
+
 let breadcrumbTrailsChecked = 0;
 
 // A breadcrumb may not say the same thing twice.
@@ -1035,5 +1090,6 @@ if (failures.length) {
     + `${drawerRowHeights} drawer row heights checked for one target size, `
     + `${translationEntriesChecked} translation entries checked for all nine locales, `
     + `${survivingFindStrings === 0 ? 'no' : survivingFindStrings} English source string(s) left unreplaced in translated pages, `
-    + `${breadcrumbTrailsChecked} breadcrumb trails checked for a repeated crumb.`);
+    + `${breadcrumbTrailsChecked} breadcrumb trails checked for a repeated crumb, `
+    + `${placeSpellingsChecked} place names checked for one spelling.`);
 }

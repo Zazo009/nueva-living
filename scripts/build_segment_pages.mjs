@@ -933,10 +933,10 @@ const SEGMENTS = [
     description: 'New-build apartments, penthouses and villas in San Pedro Alcantara and Guadalmina, western Marbella, from EUR 527,500. Real availability and delivery dates.',
     kicker: 'Marbella West &middot; San Pedro &amp; Guadalmina',
     heroTitleHtml: '{count} New-Build Homes for Sale in <em>San Pedro &amp; Guadalmina</em>',
-    heroLead: 'Western Marbella between the town and Puerto Banus: a working Spanish high street on one side, four golf courses on the other, and the beach within walking distance of both.',
+    heroLead: 'Western Marbella between the town and Puerto Banús: a working Spanish high street on one side, four golf courses on the other, and the beach within walking distance of both.',
     hero: {
       image: 'assets/liora/projects/marbella-west-garden-residences/hero.jpg',
-      alt: 'New-build residences with gardens in western Marbella between San Pedro Alcantara and Puerto Banus',
+      alt: 'New-build residences with gardens in western Marbella between San Pedro Alcantara and Puerto Banús',
       width: 1920,
       height: 1280,
       position: 'center 55%'
@@ -946,10 +946,10 @@ const SEGMENTS = [
     areaLinkHtml: 'Comparing across the municipality? Our guide to <a href="area-marbella.html">where to buy in Marbella, area by area</a> sets this stretch against Marbella East and the Golden Mile.',
     introParagraphs: [
       'San Pedro Alc\u00e1ntara is the part of Marbella that does not empty out in winter. It has its own high street, a plaza people actually use, schools, health centres and a boulevard down to the beach -- the things a resort address usually sends you elsewhere for. Guadalmina sits immediately west of it, quieter and built around the golf.',
-      'The two together cover an unusually wide range: apartments from EUR 527,500 through to villas above EUR 4,000,000, within a few minutes of each other. Puerto Banus is five minutes east, which is close enough to use and far enough not to live in.'
+      'The two together cover an unusually wide range: apartments from EUR 527,500 through to villas above EUR 4,000,000, within a few minutes of each other. Puerto Banús is five minutes east, which is close enough to use and far enough not to live in.'
     ],
     quickFacts: [
-      ['Buyer Profile', 'Suits year-round residents, families using the international schools, and buyers who want Puerto Banus nearby without living beside it.'],
+      ['Buyer Profile', 'Suits year-round residents, families using the international schools, and buyers who want Puerto Banús nearby without living beside it.'],
       ['Typical Status', 'Current releases are off-plan or under construction, sold with staged payments through to completion.'],
       ['What Varies Most', 'Format, more than location. The same few streets hold a EUR 527,500 apartment and a EUR 4,000,000 villa.'],
       ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
@@ -958,18 +958,18 @@ const SEGMENTS = [
     subareas: [
       ['San Pedro Alc\u00e1ntara', 'A real town rather than a development: high street, market, schools and a boulevard to the beach. Walkable, level, and busy all year. The apartment stock sits here.'],
       ['Guadalmina', 'West of San Pedro and built around Guadalmina Golf, lower density and quieter. Established rather than growing, and where the golf-side apartments and villas are.'],
-      ['Cortijo Blanco', 'The pocket between San Pedro and Puerto Banus, a few streets back from the promenade. Level, established, and within walking distance of both.']
+      ['Cortijo Blanco', 'The pocket between San Pedro and Puerto Banús, a few streets back from the promenade. Level, established, and within walking distance of both.']
     ],
     developmentsHeadlineHtml: 'Current <em>developments</em>',
     amenitiesHeadlineHtml: 'Amenities to expect',
     amenitiesIntro: 'Specification varies by development, but current releases on this stretch typically include some combination of the following.',
     comparisonHeadlineHtml: 'San Pedro or <em>Puerto Ban&uacute;s?</em>',
     comparison: [
-      ['San Pedro & Guadalmina', 'More space for the money, a neighbourhood that functions year-round, and parking you can find. Five minutes from Puerto Banus by car. The trade is that the marina glamour is somewhere you visit rather than live in.'],
-      ['Puerto Banus itself', 'The address, the marina and the walk-out nightlife, at a clear premium and with far less new-build stock. Better suited to short stays than to a household that needs a school run.']
+      ['San Pedro & Guadalmina', 'More space for the money, a neighbourhood that functions year-round, and parking you can find. Five minutes from Puerto Banús by car. The trade is that the marina glamour is somewhere you visit rather than live in.'],
+      ['Puerto Banús itself', 'The address, the marina and the walk-out nightlife, at a clear premium and with far less new-build stock. Better suited to short stays than to a household that needs a school run.']
     ],
     faq: [
-      ['How far is San Pedro from Puerto Banus?', 'About five minutes by car, or a walk along the promenade from the eastern edge of San Pedro. Close enough to use the marina without living with its noise or its parking.'],
+      ['How far is San Pedro from Puerto Banús?', 'About five minutes by car, or a walk along the promenade from the eastern edge of San Pedro. Close enough to use the marina without living with its noise or its parking.'],
       ['Is San Pedro a real town or a resort?', 'A real town. It has a high street, a weekly market, schools, health centres and a resident population that stays through the winter -- which is not true of every address in Marbella. That is the main reason buyers choose it over the Golden Mile.'],
       ['What is the difference between San Pedro and Guadalmina?', 'San Pedro is the town: walkable, level, busy. Guadalmina is immediately west, lower density and organised around the golf course, with larger plots and less foot traffic. Prices in Guadalmina are generally higher for the same built area.'],
       ['Are the international schools nearby?', 'Yes. Several of the Costa del Sol\u2019s international schools sit in and around San Pedro and Guadalmina, which is a large part of why the area holds its year-round population. We can confirm distances for a specific development.'],
@@ -1023,8 +1023,8 @@ const SEGMENTS = [
     amenitiesIntro: 'Specification varies by development, but current releases in Elviria typically include some combination of the following.',
     comparisonHeadlineHtml: 'Elviria or <em>central Marbella?</em>',
     comparison: [
-      ['Elviria', 'More built area for the money, greener surroundings, and a genuine year-round neighbourhood with schools and services. The trade is that you drive to the old town and to Puerto Banus rather than walking.'],
-      ['Central Marbella', 'Walkable to the old town and the promenade, and a shorter hop to Puerto Banus, at a clear premium per square metre. Better for short stays and for buyers who want the address more than the floor area.']
+      ['Elviria', 'More built area for the money, greener surroundings, and a genuine year-round neighbourhood with schools and services. The trade is that you drive to the old town and to Puerto Banús rather than walking.'],
+      ['Central Marbella', 'Walkable to the old town and the promenade, and a shorter hop to Puerto Banús, at a clear premium per square metre. Better for short stays and for buyers who want the address more than the floor area.']
     ],
     faq: [
       ['How far is Elviria from Marbella old town?', 'Around fifteen to twenty minutes by car along the A-7, depending on where in Elviria you are and the time of year. The airport is a similar distance in the other direction, which is unusual on this coast -- most of Marbella is materially further from both.'],
@@ -1056,13 +1056,13 @@ const SEGMENTS = [
     // heading produces for a cluster whose label already names the place.
     cardHeading: 'New-Build Homes on the New Golden Mile',
     title: '{count} New-Build Homes on the New Golden Mile',
-    description: 'New-build apartments, penthouses and villas on the New Golden Mile between Estepona and Puerto Banus, from EUR 695,000. Real availability and delivery dates.',
+    description: 'New-build apartments, penthouses and villas on the New Golden Mile between Estepona and Puerto Banús, from EUR 695,000. Real availability and delivery dates.',
     kicker: 'Estepona &middot; New Golden Mile',
     heroTitleHtml: '{count} New-Build Homes for Sale on the <em>New Golden Mile</em>',
-    heroLead: 'The stretch between Estepona and Puerto Banus, where beachside apartments and golf-side villas sit within a few minutes of each other.',
+    heroLead: 'The stretch between Estepona and Puerto Banús, where beachside apartments and golf-side villas sit within a few minutes of each other.',
     hero: {
       image: 'assets/liora/projects/jardin-del-mar-residences/hero.jpg',
-      alt: 'New-build residence with pool and gardens on the New Golden Mile between Estepona and Puerto Banus',
+      alt: 'New-build residence with pool and gardens on the New Golden Mile between Estepona and Puerto Banús',
       width: 1920,
       height: 1280,
       position: 'center 55%'
@@ -1071,11 +1071,11 @@ const SEGMENTS = [
     introHeadlineHtml: 'Not Estepona, <em>not quite Marbella</em>',
     areaLinkHtml: 'Looking more widely? Our guide to <a href="area-estepona.html">where to buy in Estepona, area by area</a> sets the New Golden Mile against the town itself and the coast further west.',
     introParagraphs: [
-      'The New Golden Mile is the coastal strip running from the eastern edge of Estepona up to Puerto Banus. It is its own market rather than a part of either: buyers who start in Marbella come here for space and newer stock, and buyers who start in Estepona come here for proximity to Puerto Banus.',
+      'The New Golden Mile is the coastal strip running from the eastern edge of Estepona up to Puerto Banús. It is its own market rather than a part of either: buyers who start in Marbella come here for space and newer stock, and buyers who start in Estepona come here for proximity to Puerto Banús.',
       'It is also unusually mixed. Within a few minutes of each other you will find beachside apartment releases from EUR 695,000 and golf-side villa collections up to EUR 3,500,000, which is why this page covers both rather than splitting them. Every current release here is off-plan or under construction with staged payments.'
     ],
     quickFacts: [
-      ['Buyer Profile', 'Suits buyers who want Puerto Banus within reach without Marbella pricing, and families who need more built area than the Golden Mile offers.'],
+      ['Buyer Profile', 'Suits buyers who want Puerto Banús within reach without Marbella pricing, and families who need more built area than the Golden Mile offers.'],
       ['Typical Status', 'All current releases are off-plan or under construction, sold with staged payments through to completion.'],
       ['What Varies Most', 'Distance to the beach against distance to the golf. The apartment releases sit beachside; the villa collections sit inland around El Campanario.'],
       ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
@@ -1084,7 +1084,7 @@ const SEGMENTS = [
     subareas: [
       ['Cancelada &amp; beachside', 'The most walkable part of the strip, with apartment and penthouse releases close to the beach and everyday services. The lower entry point on the New Golden Mile and the easiest to let.'],
       ['El Campanario', 'Inland and golf-facing, built around the golf and country club. Almost all of the villa stock on this stretch sits here, on larger plots than anything beachside.'],
-      ['Bel Air', 'An established, low-density address at the Marbella end of the strip, closest to Puerto Banus, where new villa releases are small and infrequent.']
+      ['Bel Air', 'An established, low-density address at the Marbella end of the strip, closest to Puerto Banús, where new villa releases are small and infrequent.']
     ],
     developmentsHeadlineHtml: 'Current <em>developments</em>',
     amenitiesHeadlineHtml: 'Amenities to expect',
@@ -1095,7 +1095,7 @@ const SEGMENTS = [
       ['Villa', 'Golf-side around El Campanario, from EUR 1,550,000, on private plots with a private pool. More space and more privacy, and more to maintain: budget for a gardener and pool service whether you are here or not.']
     ],
     faq: [
-      ['Where exactly is the New Golden Mile?', 'It is the coastal strip between the eastern edge of Estepona and Puerto Banus, taking in Cancelada, El Campanario and Bel Air. It is not an administrative area, which is why it does not appear on municipal maps, but it is how the stretch is bought and sold locally.'],
+      ['Where exactly is the New Golden Mile?', 'It is the coastal strip between the eastern edge of Estepona and Puerto Banús, taking in Cancelada, El Campanario and Bel Air. It is not an administrative area, which is why it does not appear on municipal maps, but it is how the stretch is bought and sold locally.'],
       ['Is it in Estepona or Marbella?', 'Almost all of it falls within the municipality of Estepona, with the Bel Air end closest to the Marbella boundary. For practical purposes -- taxes, licences, town hall -- treat it as Estepona.'],
       ['Why is it cheaper than the Golden Mile in Marbella?', 'It is further from central Marbella and it is newer, with more land still being built on. That is what keeps entry prices near EUR 695,000 here against Marbella pricing a few kilometres east. It is a location difference, not a build-quality one.'],
       ['Can I walk to the beach from these developments?', 'From the beachside apartment releases around Cancelada, generally yes. The villa collections around El Campanario are inland and golf-facing, so a car is assumed there. We confirm the actual walking distance for a specific development rather than relying on a brochure claim.'],
@@ -1275,7 +1275,7 @@ const SEGMENTS = [
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
     title: 'New-Build Apartments & Penthouses in Nueva Andalucia',
-    description: 'New-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus. From €450,000, with floorplans and delivery dates.',
+    description: 'New-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banús. From €450,000, with floorplans and delivery dates.',
     kicker: 'Nueva Andaluc&iacute;a &middot; Apartments &amp; Penthouses',
     heroTitleHtml: '{count} New-Build Apartments &amp; Penthouses for Sale in <em>Nueva Andaluc&iacute;a</em>',
     heroLead: 'Compare current apartment and penthouse developments in Nueva Andalucía’s Golf Valley, minutes from Puerto Banús, with real prices and availability confirmed before you view.',

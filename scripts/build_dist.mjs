@@ -193,7 +193,7 @@ const basePageMeta = {
   },
   'new-build-homes-new-golden-mile.html': {
     title: '{count} New-Build Homes on the New Golden Mile',
-    description: 'New-build apartments, penthouses and villas on the New Golden Mile between Estepona and Puerto Banus, from EUR 695,000. Real availability and delivery dates.',
+    description: 'New-build apartments, penthouses and villas on the New Golden Mile between Estepona and Puerto Banús, from EUR 695,000. Real availability and delivery dates.',
     path: '/new-build-homes-new-golden-mile.html',
     type: 'website'
   },
@@ -219,7 +219,7 @@ const basePageMeta = {
   },
   'new-build-apartments-penthouses-nueva-andalucia.html': {
     title: '{count} New-Build Apartments & Penthouses in Nueva Andalucia',
-    description: 'New-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banus. From €450,000, with floorplans and delivery dates.',
+    description: 'New-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banús. From €450,000, with floorplans and delivery dates.',
     path: '/new-build-apartments-penthouses-nueva-andalucia.html',
     type: 'website'
   },
