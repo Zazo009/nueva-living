@@ -15,6 +15,7 @@ import { FOOTER_PAGE_ENTRIES_GROUP_B } from './footer_page_translations_group_b.
 import { FOOTER_PAGE_ENTRIES_GROUP_C } from './footer_page_translations_group_c.mjs';
 import { FOOTER_PAGE_ENTRIES_GROUP_D } from './footer_page_translations_group_d.mjs';
 import { FOOTER_PAGE_ENTRIES_GROUP_E } from './footer_page_translations_group_e.mjs';
+import { FOOTER_PAGE_ENTRIES_GROUP_F } from './footer_page_translations_group_f.mjs';
 
 export const FOOTER_PAGE_ENTRIES = [
   ...CARD_CHROME_ENTRIES,
@@ -22,5 +23,6 @@ export const FOOTER_PAGE_ENTRIES = [
   ...FOOTER_PAGE_ENTRIES_GROUP_B,
   ...FOOTER_PAGE_ENTRIES_GROUP_C,
   ...FOOTER_PAGE_ENTRIES_GROUP_D,
-  ...FOOTER_PAGE_ENTRIES_GROUP_E
+  ...FOOTER_PAGE_ENTRIES_GROUP_E,
+  ...FOOTER_PAGE_ENTRIES_GROUP_F
 ];

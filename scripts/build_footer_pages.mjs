@@ -884,7 +884,6 @@ const pages = [
     // English only: statutory content we have verified against the
     // consolidated text of the law. We do not publish translations of it
     // that have not been through native-language legal review.
-    englishOnly: true,
     body: `<section class="section"><div class="section-inner">
       <div class="guide-intro g-reveal">
         <p class="body-copy">When you buy off-plan you pay for a home that does not exist yet. Spanish law answers that with a specific mechanism: the money you hand over during construction has to be guaranteed, held apart from the developer's own funds, and returned with interest if the home is never delivered. Knowing exactly how that protection works -- and the one point at which it does not yet apply -- is the difference between an informed off-plan purchase and a hopeful one.</p>
