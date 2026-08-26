@@ -946,7 +946,6 @@ const pages = [
     // English only: statutory content we have verified against the
     // consolidated text of the law. We do not publish translations of it
     // that have not been through native-language legal review.
-    englishOnly: true,
     body: `<section class="section"><div class="section-inner">
       <div class="guide-intro g-reveal">
         <p class="body-copy">Off-plan purchases are paid in stages, and the stages are not standardised. The figures below are not a market average taken from elsewhere -- they are the actual schedules supplied by the developers of the projects listed on this site, which is why the ranges are narrower and less tidy than the ones you will read in a generic guide.</p>
