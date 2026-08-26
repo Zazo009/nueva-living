@@ -98,10 +98,10 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     es: `Situado sobre Marbella, Benahavís es conocido por sus urbanizaciones cerradas, el golf, las villas y un ritmo de vida más tranquilo.`,
     fr: `Situé au-dessus de Marbella, Benahavís est réputé pour ses résidences sécurisées, le golf, les villas et un rythme de vie plus paisible.`,
     de: `Oberhalb von Marbella gelegen, ist Benahavís bekannt für bewachte Wohnanlagen, Golf, Villen und ein ruhigeres Lebenstempo.`,
-    ru: `Расположенный над Марбельей, Бенаависе славится закрытыми резиденциями, гольфом, виллами и более спокойным темпом жизни.`,
+    ru: `Расположенный над Марбельей, Бенаавис славится закрытыми резиденциями, гольфом, виллами и более спокойным темпом жизни.`,
     ar: `تقع بيناهافيس فوق ماربيا، وتشتهر بالمجمعات المسوّرة والغولف والفلل ووتيرة حياة أكثر هدوءًا.`, nl: `Boven Marbella gelegen staat Benahavís bekend om zijn afgesloten woonwijken, golf, villa's en een rustiger levensritme.`, pl: `Położona nad Marbellą Benahavís znana jest z zamkniętych osiedli, pól golfowych, willi i spokojniejszego tempa życia.`, sv: `Beläget ovanför Marbella är Benahavís känt för inhägnade bostadsområden, golf, villor och ett lugnare livstempo.`, no: `Beliggende over Marbella er Benahavís kjent for gjerdeomkransede boligområder, golf, villaer og et roligere livstempo.`,
   },
-  { find: `Explore Benahavis`, es: `Explorar Benahavís`, fr: `Découvrir Benahavís`, de: `Benahavís Entdecken`, ru: `Смотреть Бенаависе`, ar: `استكشف بيناهافيس`, nl: `Ontdek Benahavís`, pl: `Poznaj Benahavís`, sv: `Utforska Benahavís`, no: `Utforsk Benahavís` },
+  { find: `Explore Benahavis`, es: `Explorar Benahavís`, fr: `Découvrir Benahavís`, de: `Benahavís Entdecken`, ru: `Смотреть Бенаавис`, ar: `استكشف بيناهافيس`, nl: `Ontdek Benahavís`, pl: `Poznaj Benahavís`, sv: `Utforska Benahavís`, no: `Utforsk Benahavís` },
   { find: `Golf Valley living`, es: `Vivir en el Valle del Golf`, fr: `Vivre dans le Golf Valley`, de: `Leben im Golf Valley`, ru: `Жизнь в долине для гольфа`, ar: `الحياة في وادي الغولف`, nl: `Wonen in Golf Valley`, pl: `Życie w Golf Valley`, sv: `Att bo i Golf Valley`, no: `Å bo i Golf Valley` },
   {
     find: `Close to Puerto Banus and surrounded by golf courses, Nueva Andalucia works well for buyers who want restaurants, services and year-round activity nearby.`,
