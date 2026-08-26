@@ -10,9 +10,21 @@ import { CARD_CHROME_ENTRIES } from './card_chrome_translations.mjs';
 // English. Only visible label text between > < is translated.
 
 // Filter-pill labels and card tag chips share one vocabulary. Place-name
-// style tags (Golden Mile, Rio Real, Estepona, ...) intentionally have no
-// entry: the site-wide convention keeps proper-noun area labels as-is.
+// style tags (Rio Real, Cortijo Blanco, ...) intentionally have no entry: the
+// site-wide convention keeps proper-noun area labels as-is.
+//
+// That convention now stops at the two languages that do not use the Latin
+// alphabet. A Russian reader scanning a row of filters written in Cyrillic
+// hits "Marbella East" as a foreign object, and in Arabic a Latin run inside
+// right-to-left text breaks the line's direction outright. The entries below
+// therefore translate only the descriptive half -- East, Golden, Valley --
+// and only where a language has a form; Spanish, German and the rest keep the
+// Latin they already read as a name.
 export const TAG_LABELS = {
+  'Marbella East': { es: 'Marbella Este', fr: 'Marbella Est', de: 'Marbella Ost', ru: 'Восточная Марбелья', ar: 'ماربيا الشرقية', nl: 'Marbella Oost', pl: 'Marbella Wschód', sv: 'Marbella Öst', no: 'Marbella Øst' },
+  'New Golden Mile': { es: 'Nueva Milla de Oro', fr: 'New Golden Mile', de: 'New Golden Mile', ru: 'Новая Золотая миля', ar: 'الميل الذهبي الجديد', nl: 'New Golden Mile', pl: 'New Golden Mile', sv: 'New Golden Mile', no: 'New Golden Mile' },
+  'Golden Mile': { es: 'Milla de Oro', fr: 'Golden Mile', de: 'Golden Mile', ru: 'Золотая миля', ar: 'الميل الذهبي', nl: 'Golden Mile', pl: 'Golden Mile', sv: 'Golden Mile', no: 'Golden Mile' },
+  'Golf Valley': { es: 'Golf Valley', fr: 'Golf Valley', de: 'Golf Valley', ru: 'Гольф-долина', ar: 'وادي الغولف', nl: 'Golf Valley', pl: 'Golf Valley', sv: 'Golf Valley', no: 'Golf Valley' },
   'Sea View': { es: 'Vistas al mar', fr: 'Vue mer', de: 'Meerblick', ru: 'Вид на море', ar: 'إطلالة على البحر', nl: 'Zeezicht', pl: 'Widok na morze', sv: 'Havsutsikt', no: 'Sjøutsikt'  },
   'Beachside': { es: 'Junto a la playa', fr: 'Bord de mer', de: 'Strandnähe', ru: 'У пляжа', ar: 'بجوار الشاطئ', nl: 'Aan het Strand', pl: 'Przy plaży', sv: 'Vid stranden', no: 'Ved stranden'  },
   'Golf Living': { es: 'Vida de golf', fr: 'Vie golf', de: 'Golf-Wohnen', ru: 'Гольф-Резиденции', ar: 'حياة الغولف', nl: 'Golfleven', pl: 'Życie przy polu golfowym', sv: 'Golfboende', no: 'Golfliv'  },

@@ -77,6 +77,13 @@ function cardImageAltReplacements(locale) {
 // every locale, because the label is plain segment data rather than a string
 // key. Falls back to the English label so a new segment without a key still
 // builds.
+// The breadcrumb's own label was raw English too -- "Elviria" sat under a
+// Russian trail, while its sibling segments happened to read correctly only
+// because "Apartments & Penthouses" has a translation-table entry.
+function localizedBreadcrumbLabel(segment, locale) {
+  return segment.breadcrumbLabelKey ? t(segment.breadcrumbLabelKey, locale) : segment.breadcrumbLabel;
+}
+
 function localizedAreaLabel(segment, locale) {
   return segment.areaLabelKey ? t(segment.areaLabelKey, locale) : segment.areaLabel;
 }
@@ -474,7 +481,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
   const amenities = collectAmenities(matches);
 
   const highlightsSection = `<section class="section segment-subareas"><div class="section-inner">
-    <div class="section-head"><span class="label">${esc(segment.areaLabel)} In Detail</span><div class="rule"></div><h2 class="section-title">${segment.subareasHeadlineHtml}</h2></div>
+    <div class="section-head"><span class="label">${esc(t('segment.inDetail', locale, { area: localizedAreaLabel(segment, locale) }))}</span><div class="rule"></div><h2 class="section-title">${segment.subareasHeadlineHtml}</h2></div>
     <div class="cards">
       ${segment.subareas.map(([title, copy], index) => `<article class="card"><div class="card-number">${String(index + 1).padStart(2, '0')}</div><h3>${esc(title)}</h3><p>${esc(copy)}</p></article>`).join('\n      ')}
     </div>
@@ -542,7 +549,7 @@ ${JSON.stringify(schema, null, 2)}
 </head>
 <body class="segment-page">
   ${nav(locale, segment.output)}
-  ${breadcrumb(segment.breadcrumbLabel, [[t('breadcrumb.developments', locale), 'developments.html'], [localizedAreaLabel(segment, locale), segment.areaHref]], locale)}
+  ${breadcrumb(localizedBreadcrumbLabel(segment, locale), [[t('breadcrumb.developments', locale), 'developments.html'], [localizedAreaLabel(segment, locale), segment.areaHref]], locale)}
   <main>
     <section class="page-hero">
       ${heroPicture(segment.hero)}
@@ -903,6 +910,7 @@ const SEGMENTS = [
     areaHref: 'area-marbella.html',
     propertyTypes: ['apartment', 'penthouse', 'villa'],
     breadcrumbLabel: 'San Pedro & Guadalmina',
+    breadcrumbLabelKey: 'segment.newBuildHomes',
     cardHeading: 'New-Build Homes in San Pedro & Guadalmina',
     title: '{count} New-Build Homes in San Pedro & Guadalmina, Marbella',
     description: 'New-build apartments, penthouses and villas in San Pedro Alcantara and Guadalmina, western Marbella, from EUR 527,500. Real availability and delivery dates.',
@@ -960,6 +968,7 @@ const SEGMENTS = [
     areaHref: 'area-marbella.html',
     propertyTypes: ['apartment', 'penthouse', 'villa', 'townhouse'],
     breadcrumbLabel: 'Elviria',
+    breadcrumbLabelKey: 'segment.newBuildHomes',
     cardHeading: 'New-Build Homes in Elviria',
     title: '{count} New-Build Homes in Elviria, Marbella East',
     description: 'New-build apartments, townhouses and villas in Elviria on Marbella East, from EUR 690,000. Real availability, floorplans and delivery dates.',
@@ -1025,6 +1034,7 @@ const SEGMENTS = [
     areaHref: 'area-estepona.html',
     propertyTypes: ['apartment', 'penthouse', 'villa'],
     breadcrumbLabel: 'New Golden Mile',
+    breadcrumbLabelKey: 'segment.newBuildHomes',
     // "New Golden Mile in the New Golden Mile" is what the default card
     // heading produces for a cluster whose label already names the place.
     cardHeading: 'New-Build Homes on the New Golden Mile',

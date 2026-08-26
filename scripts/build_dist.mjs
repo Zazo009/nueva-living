@@ -405,6 +405,15 @@ for (const area of areas) {
   };
 }
 
+const cardLocationProjects = fs.existsSync(projectsDir)
+  ? fs.readdirSync(projectsDir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => path.join(projectsDir, entry.name, 'project.json'))
+    .filter((file) => fs.existsSync(file))
+    .map((file) => JSON.parse(fs.readFileSync(file, 'utf8')))
+    .sort((a, b) => (b.card?.label || '').length - (a.card?.label || '').length)
+  : [];
+
 function loadProjectPages() {
   if (!fs.existsSync(projectsDir)) return [];
 
@@ -1316,6 +1325,28 @@ function loadDiscoveryTagDictionary() {
 //
 // Regenerating the block from the same renderer the builders use is what stops
 // these copies drifting again; patching the labels in place would not.
+// The project card's location line had no translation path at all.
+//
+// Cards are rendered once in English and translated afterwards by literal
+// replacement, and card.description has a pass for exactly that -- but the
+// location eyebrow above the price never got one. So a Russian listing page
+// showed "Elviria West" and "Marbella East" above prices written in roubles'
+// own formatting, on every page that carries a card.
+//
+// Only ru and ar need this in practice, but the pass is locale-generic: a
+// label is replaced wherever the project supplies a translated one.
+function localiseCardLocations(html, locale) {
+  let out = html;
+  for (const project of cardLocationProjects) {
+    const english = project.card?.label;
+    const translated = project.i18n?.[locale]?.card?.label;
+    if (!english || !translated || english === translated) continue;
+    out = out.split(`<div class="dev-loc">${english}</div>`)
+      .join(`<div class="dev-loc">${translated}</div>`);
+  }
+  return out;
+}
+
 function localiseNavDisclosures(html, locale) {
   const menus = { Areas: renderAreasMenu(locale), Guides: renderGuidesMenu(locale) };
   return html.replace(
@@ -1465,6 +1496,7 @@ function localiseGalleryChrome(html, locale) {
   out = injectNavInteractions(out);
   out = injectSkipLink(out, locale);
   out = localiseNavDisclosures(out, locale);
+  out = localiseCardLocations(out, locale);
   out = localiseDiscoveryTags(out, locale);
   out = localiseGalleryChrome(out, locale);
   out = localiseChromeTemplates(out, locale);

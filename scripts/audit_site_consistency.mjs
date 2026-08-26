@@ -866,6 +866,44 @@ let drawerRowHeights = 0;
 // Read the modules rather than the built pages: a table that is missing a
 // locale is the cause, and the page is only where it shows.
 const ENTRY_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+let breadcrumbTrailsChecked = 0;
+
+// A breadcrumb may not say the same thing twice.
+//
+// Three segment pages named themselves after their own parent area, so the
+// trail read "Elviria > Elviria" -- invisible until both crumbs were finally
+// translated, because before that one said "Эльвирия" and the other "Elviria"
+// and the repetition looked like two different places. Naming the page type
+// instead then collided with the Developments crumb in Russian, where both
+// are "Новостройки". Two different mistakes, one shape.
+{
+  for (const locale of ['', ...ENTRY_LOCALES]) {
+    const dir = path.join(root, locale);
+    if (!fs.existsSync(dir)) continue;
+    for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.html'))) {
+      const html = fs.readFileSync(path.join(dir, file), 'utf8');
+      const trail = /<ol class="breadcrumb-list">([\s\S]*?)<\/ol>/.exec(html);
+      if (!trail) continue;
+      breadcrumbTrailsChecked += 1;
+      const crumbs = [...trail[1].matchAll(/>([^<>]+)<\/(?:a|span)>/g)]
+        .map((m) => m[1].trim())
+        .filter(Boolean);
+      const seen = new Set();
+      for (const crumb of crumbs) {
+        if (seen.has(crumb)) {
+          fail(`${locale ? `${locale}/` : ''}${file}`,
+            `breadcrumb repeats "${crumb}": ${crumbs.join(' > ')}. `
+            + 'Each crumb names a different level, so two identical ones mean a '
+            + 'page is named after its own parent, or two labels collided in '
+            + 'this language.');
+          break;
+        }
+        seen.add(crumb);
+      }
+    }
+  }
+}
+
 let survivingFindStrings = 0;
 
 // A translated page must not still contain the English string a translation
@@ -996,5 +1034,6 @@ if (failures.length) {
     + `${breadcrumbOffsetsChecked} breadcrumb offsets checked against the header height, `
     + `${drawerRowHeights} drawer row heights checked for one target size, `
     + `${translationEntriesChecked} translation entries checked for all nine locales, `
-    + `${survivingFindStrings === 0 ? 'no' : survivingFindStrings} English source string(s) left unreplaced in translated pages.`);
+    + `${survivingFindStrings === 0 ? 'no' : survivingFindStrings} English source string(s) left unreplaced in translated pages, `
+    + `${breadcrumbTrailsChecked} breadcrumb trails checked for a repeated crumb.`);
 }
