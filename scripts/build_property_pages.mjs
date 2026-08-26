@@ -2082,6 +2082,59 @@ const UNTRANSLATED_TAG = new RegExp(
 // locales, and only on the handful of projects that use a multi-part size --
 // so it is invisible unless someone happens to open one of those pages in a
 // language they read.
+// One area unit and one decimal mark per language.
+//
+// The corpus had drifted: French wrote "m2" 503 times and "m²" 175, with a
+// decimal point where French uses a comma; Swedish and Norwegian mixed "kvm"
+// with "m²"; Russian ran 394 decimal points against 203 commas, and eight
+// Arabic and Russian values carried a Latin m² instead of م² and м².
+//
+// None of it broke a page, which is why it survived. It reads as sloppy to
+// the one reader who matters -- the one buying in that language.
+const AREA_UNIT = {
+  es: 'm²', fr: 'm²', de: 'm²', ru: 'м²', ar: 'م²', nl: 'm²', pl: 'm²', sv: 'm²', no: 'm²'
+};
+const AREA_DECIMAL = {
+  es: ',', fr: ',', de: ',', ru: ',', ar: '.', nl: ',', pl: ',', sv: ',', no: ','
+};
+
+function assertAreaFormatting(projects) {
+  const wrong = [];
+  const visit = (value, locale, slug) => {
+    if (typeof value === 'string') {
+      // /assets/ paths carry words like "garden" and digits; they are not copy.
+      if (value.includes('assets/liora/')) return;
+      const unit = AREA_UNIT[locale];
+      const foreign = value.match(/\d\s*(?:m2|kvm|sqm|m²|м²|م²)/g) || [];
+      for (const hit of foreign) {
+        const symbol = hit.replace(/[\d\s]/g, '');
+        if (symbol !== unit) wrong.push(`${slug} [${locale}] uses "${symbol}" where ${locale} uses "${unit}"`);
+      }
+      const decimals = value.match(new RegExp(`\\d+([.,])\\d{2}\\s*${unit}`, 'g')) || [];
+      for (const hit of decimals) {
+        const mark = /,\d{2}\s*$/.test(hit.replace(unit, '')) ? ',' : '.';
+        if (mark !== AREA_DECIMAL[locale]) {
+          wrong.push(`${slug} [${locale}] writes "${hit.trim()}" with "${mark}" where ${locale} uses "${AREA_DECIMAL[locale]}"`);
+        }
+      }
+      return;
+    }
+    if (Array.isArray(value)) { for (const item of value) visit(item, locale, slug); return; }
+    if (value && typeof value === 'object') { for (const item of Object.values(value)) visit(item, locale, slug); }
+  };
+  for (const project of projects) {
+    for (const locale of TAG_LOCALES) visit(project.i18n?.[locale], locale, project.slug);
+  }
+  if (wrong.length) {
+    const shown = [...new Set(wrong)].slice(0, 8);
+    throw new Error(
+      `${wrong.length} area value(s) use the wrong unit or decimal mark:\n  ${shown.join('\n  ')}`
+      + `${wrong.length > shown.length ? `\n  … and ${wrong.length - shown.length} more` : ''}`
+    );
+  }
+  return projects;
+}
+
 function assertSizeLabels(projects) {
   const missing = new Map();
   for (const project of projects) {
@@ -2212,8 +2265,8 @@ function assertAvailability(project) {
 export function loadProjects() {
   // assertTagVocabulary needs the whole set -- a clash is between two projects,
   // not inside one -- so it wraps the list rather than each file.
-  return assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
-    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))))))
+  return assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file }))))))))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;
