@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
+import { pathToFileURL } from 'node:url';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -853,6 +854,51 @@ let drawerRowHeights = 0;
   }
 }
 
+// Every find/replace entry must carry all nine locales.
+//
+// footer_page_translations_group_c.mjs was written when the site had five
+// languages and never extended: all 33 of its entries covered es, fr, de, ru
+// and ar and none covered nl, pl, sv or no. The off-plan versus resale guide
+// was a third English in those four languages -- rendered perfectly, in the
+// wrong language, which is why every earlier pass over "missing translations"
+// walked straight past it.
+//
+// Read the modules rather than the built pages: a table that is missing a
+// locale is the cause, and the page is only where it shows.
+const ENTRY_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+let translationEntriesChecked = 0;
+
+{
+  const dir = path.join(root, 'scripts', 'lib');
+  const files = fs.existsSync(dir)
+    ? fs.readdirSync(dir).filter((f) => /translations.*\.mjs$/.test(f))
+    : [];
+  for (const file of files) {
+    let mod;
+    try {
+      mod = await import(pathToFileURL(path.join(dir, file)).href);
+    } catch {
+      continue;
+    }
+    const gaps = new Map();
+    for (const value of Object.values(mod)) {
+      if (!Array.isArray(value)) continue;
+      for (const entry of value) {
+        if (!entry || typeof entry !== 'object' || typeof entry.find !== 'string') continue;
+        translationEntriesChecked += 1;
+        const missing = ENTRY_LOCALES.filter((l) => typeof entry[l] !== 'string');
+        if (missing.length) gaps.set(entry.find.slice(0, 60), missing);
+      }
+    }
+    if (gaps.size) {
+      const shown = [...gaps].slice(0, 4)
+        .map(([find, missing]) => `"${find}" missing ${missing.join(', ')}`);
+      fail(`scripts/lib/${file}`, `${gaps.size} entr${gaps.size === 1 ? 'y does' : 'ies do'} not cover `
+        + `every locale: ${shown.join('; ')}${gaps.size > 4 ? `; …and ${gaps.size - 4} more` : ''}`);
+    }
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -876,5 +922,6 @@ if (failures.length) {
     + `${reachabilityChecked} submitted pages checked for reachability from the homepage, `
     + `locale attribute text checked for untranslated values, `
     + `${breadcrumbOffsetsChecked} breadcrumb offsets checked against the header height, `
-    + `${drawerRowHeights} drawer row heights checked for one target size.`);
+    + `${drawerRowHeights} drawer row heights checked for one target size, `
+    + `${translationEntriesChecked} translation entries checked for all nine locales.`);
 }
