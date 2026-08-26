@@ -80,6 +80,23 @@ function cardImageAltReplacements(locale) {
 // The breadcrumb's own label was raw English too -- "Elviria" sat under a
 // Russian trail, while its sibling segments happened to read correctly only
 // because "Apartments & Penthouses" has a translation-table entry.
+// Amenities were Title-Cased for display and then looked up in a dictionary
+// keyed in sentence case, so the lookup never matched and every locale showed
+// "Wellness Room With Sauna And Hammam" in English. Translating first fixes
+// the match; Title Case then has to stop at English, because it is wrong
+// typography in Spanish, French and the rest -- German capitalises its nouns
+// through the translation itself.
+const AMENITY_DICTIONARY = JSON.parse(
+  readFileSync(join(process.cwd(), 'content', 'i18n', 'amenities.json'), 'utf8')
+);
+
+function localizedAmenity(amenity, locale) {
+  const titleCase = (value) => value.replace(/(^|[\s-])[a-z]/g, (c) => c.toUpperCase());
+  if (locale === DEFAULT_LOCALE) return titleCase(amenity);
+  const translated = AMENITY_DICTIONARY[amenity]?.[locale];
+  return translated || titleCase(amenity);
+}
+
 function localizedBreadcrumbLabel(segment, locale) {
   return segment.breadcrumbLabelKey ? t(segment.breadcrumbLabelKey, locale) : segment.breadcrumbLabel;
 }
@@ -497,7 +514,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
   const amenitiesSection = amenities.length ? `<section class="section quiet-band segment-amenities"><div class="section-inner">
     <div class="section-head"><span class="label">What To Expect</span><div class="rule"></div><h2 class="section-title">${segment.amenitiesHeadlineHtml}</h2><p class="body-copy">${esc(segment.amenitiesIntro)}</p></div>
     <ul class="segment-amenity-list">
-      ${amenities.map((amenity) => `<li>${esc(amenity.replace(/(^|[\s-])[a-z]/g, (c) => c.toUpperCase()))}</li>`).join('\n      ')}
+      ${amenities.map((amenity) => `<li>${esc(localizedAmenity(amenity, locale))}</li>`).join('\n      ')}
     </ul>
   </div></section>` : '';
 
