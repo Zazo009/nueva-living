@@ -1817,7 +1817,11 @@ const extensionlessRedirects = [];
           // and these ten rules would have shipped doing nothing at all.
           extensionlessRedirects.push(`${withExt} /${prefix} 301!`);
         } else {
-          extensionlessRedirects.push(`${withExt.slice(0, -'.html'.length)} ${withExt} 301`);
+          // Forced, like the homepage rules. Netlify's Pretty URLs resolution
+          // answers /about from /about.html before an unforced rule is
+          // consulted -- measured against the live site, where the forced
+          // /sv/index.html rule redirected and the unforced /about did not.
+          extensionlessRedirects.push(`${withExt.slice(0, -'.html'.length)} ${withExt} 301!`);
         }
       }
     }

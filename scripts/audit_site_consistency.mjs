@@ -899,6 +899,18 @@ let redirectRulesChecked = 0;
         + `never run: ${shadowed.slice(0, 4).join(', ')}. Netlify serves the file unless the `
         + 'status carries a trailing "!".');
     }
+    // Pretty URLs answers the extensionless form from the .html file, so an
+    // unforced rule here is consulted only after Netlify has already served
+    // the page. Every rule folding one URL form into another has to be forced.
+    const unforced = rules
+      .filter(([from, to, status]) => status === '301' && to && to.endsWith('.html')
+        && from === to.slice(0, -'.html'.length))
+      .map(([from]) => from);
+    if (unforced.length) {
+      fail('dist/_redirects', `${unforced.length} extensionless rule(s) are not forced: `
+        + `${unforced.slice(0, 4).join(', ')}. Netlify's Pretty URLs answers these from the `
+        + '.html file before an unforced rule runs, so they do nothing.');
+    }
     if (duplicated.length) {
       fail('dist/_redirects', `${duplicated.length} duplicated from-path(s): `
         + `${duplicated.slice(0, 4).join(', ')}. Only the first rule for a path ever runs.`);
