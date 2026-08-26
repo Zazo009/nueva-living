@@ -503,7 +503,14 @@ const SEGMENT_LINKS = {
 
 function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
   const area = localizeProject(sourceArea, locale);
-  const priceItems = area.prices.map((price) => `<div class="area-price-item"><span>${esc(price.label)}</span><strong>${esc(price.value)}</strong></div>`).join('');
+  // "Marbella average asking price" is a place name plus a phrase. Translating
+  // the phrase and keeping the name means the six areas need no per-area
+  // overlay for it -- they had none, in any of the nine locales.
+  const priceLabel = (label) => {
+    const match = /^(.+?)\s+average asking price$/i.exec(String(label || '').trim());
+    return match ? t('area.averageAskingPrice', locale, { name: match[1] }) : label;
+  };
+  const priceItems = area.prices.map((price) => `<div class="area-price-item"><span>${esc(priceLabel(price.label))}</span><strong>${esc(price.value)}</strong></div>`).join('');
   const highlights = area.highlights.map(([title, copy], index) => `<article class="area-highlight"><span>${String(index + 1).padStart(2, '0')}</span><h3>${esc(title)}</h3><p>${esc(copy)}</p></article>`).join('');
   const paragraphs = area.intro.paragraphs.map((paragraph) => `<p class="body-copy">${esc(paragraph)}</p>`).join('');
   const spotlightSection = area.spotlight ? `
