@@ -12,6 +12,7 @@
 // loaded) -- importing it from another script would silently re-run the
 // entire property-page build a second time.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { curateViewingScenes } from './viewing_scene_curation.mjs';
 import path from 'node:path';
 import { DEFAULT_LOCALE, localizeProject, t, hasString } from './i18n.mjs';
 
@@ -67,8 +68,10 @@ const VIEWING_SCENE_OVERLAY = 'linear-gradient(to right, rgba(10,9,8,0.42), rgba
 
 function renderViewingScenesJs(sourceProject, locale = DEFAULT_LOCALE) {
   const project = localizeProject(sourceProject, locale);
-  const items = project.media?.items || [];
-  if (!items.length) return null;
+  const allItems = project.media?.items || [];
+  if (!allItems.length) return null;
+  // The gallery keeps every frame; the sequence gets a curated subset.
+  const items = curateViewingScenes(allItems).map((index) => allItems[index]);
 
   const scenes = items.map((item, index) => {
     const num = String(index + 1).padStart(2, '0');
@@ -138,6 +141,33 @@ function renderViewingProjectEntryJs(sourceProject, locale = DEFAULT_LOCALE) {
   return `  ${JSON.stringify(sourceProject.slug)}: ${JSON.stringify(entry, null, 4).replace(/\n/g, '\n  ')}`;
 }
 
+// A cinematic sequence stays short enough to watch.
+//
+// Two earlier versions of this check were worthless. The first asserted that
+// no subject appeared twice -- which the curation cannot produce anyway, since
+// it takes one frame per subject. The second called curateViewingScenes itself
+// and so kept passing when the renderer stopped calling it. This one counts
+// the scenes in the block that is actually written to the page, which is the
+// only thing a reader ever sees. Before the curation, Cortijo Blanco played 55.
+const MAX_SCENES = 24;
+
+function assertSequencesStayWatchable(scenesBlock) {
+  const tooLong = [];
+  const perProject = scenesBlock.split(/\n {2}"/).slice(1);
+  for (const chunk of perProject) {
+    const slug = chunk.slice(0, chunk.indexOf('"'));
+    const count = (chunk.match(/\n {6}img: /g) || []).length;
+    if (count > MAX_SCENES) tooLong.push(`  ${slug}: ${count} scenes`);
+  }
+  if (tooLong.length) {
+    throw new Error(`${tooLong.length} cinematic sequence(s) run past ${MAX_SCENES} scenes:\n`
+      + `${tooLong.slice(0, 5).join('\n')}\n`
+      + 'The gallery holds every frame; the sequence is meant to be a curated '
+      + 'subset -- check curateViewingScenes still runs, and that its group caps '
+      + 'still cover the filenames this project uses.');
+  }
+}
+
 export function renderViewingBlocks(projects, locale = DEFAULT_LOCALE) {
   const sorted = [...projects].sort((a, b) => (a.discovery?.priority ?? a.card?.order ?? 999) - (b.discovery?.priority ?? b.card?.order ?? 999));
   const defaultId = sorted[0]?.slug || '';
@@ -155,5 +185,6 @@ ${sorted.map((project) => renderViewingScenesJs(project, locale)).filter(Boolean
   };
   /* NUEVA GENERATED VIEWING SCENES END */`;
 
+  assertSequencesStayWatchable(scenesBlock);
   return { projectsBlock, scenesBlock };
 }
