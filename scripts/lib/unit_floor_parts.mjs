@@ -20,6 +20,9 @@ export const FLOOR_PARTS = {
   'garden': { es: 'Jardín', fr: 'Jardin', de: 'Garten', ru: 'Сад', ar: 'حديقة', nl: 'Tuin', pl: 'Ogród', sv: 'Trädgård', no: 'Hage' },
   'garden level': { es: 'Planta jardín', fr: 'Niveau jardin', de: 'Gartenebene', ru: 'Садовый уровень', ar: 'مستوى الحديقة', nl: 'Tuinniveau', pl: 'Poziom ogrodu', sv: 'Trädgårdsplan', no: 'Hagenivå' },
   'solarium': { es: 'Solárium', fr: 'Solarium', de: 'Solarium', ru: 'Солярий', ar: 'سولاريوم', nl: 'Solarium', pl: 'Solarium', sv: 'Solterrass', no: 'Solterrasse' },
+  'duplex': { es: 'Dúplex', fr: 'Duplex', de: 'Maisonette', ru: 'Дуплекс', ar: 'دوبلكس', nl: 'Duplex', pl: 'Dwupoziomowy', sv: 'Etagelägenhet', no: 'Toetasjes leilighet' },
+  '1st floor': { es: 'Planta primera', fr: 'Premier étage', de: 'Erster Stock', ru: 'Второй этаж', ar: 'الطابق الأول', nl: 'Eerste verdieping', pl: 'Pierwsze piętro', sv: 'Första våningen', no: 'Andre etasje' },
+  '2nd floor': { es: 'Planta segunda', fr: 'Deuxième étage', de: 'Zweiter Stock', ru: 'Третий этаж', ar: 'الطابق الثاني', nl: 'Tweede verdieping', pl: 'Drugie piętro', sv: 'Andra våningen', no: 'Tredje etasje' },
   'penthouse': { es: 'Ático', fr: 'Penthouse', de: 'Penthaus', ru: 'Пентхаус', ar: 'بنتهاوس', nl: 'Penthouse', pl: 'Penthouse', sv: 'Takvåning', no: 'Toppleilighet' },
   'duplex penthouse': { es: 'Ático dúplex', fr: 'Penthouse duplex', de: 'Maisonette-Penthaus', ru: 'Двухуровневый пентхаус', ar: 'بنتهاوس دوبلكس', nl: 'Duplex penthouse', pl: 'Penthouse dwupoziomowy', sv: 'Duplex-takvåning', no: 'Duplex-toppleilighet' },
   'south building': { es: 'Edificio sur', fr: 'Bâtiment sud', de: 'Südgebäude', ru: 'Южный корпус', ar: 'المبنى الجنوبي', nl: 'Zuidgebouw', pl: 'Budynek południowy', sv: 'Södra huset', no: 'Sørbygget' },
@@ -37,6 +40,7 @@ export const FLOOR_PARTS = {
 // Words that take an identifier after them: "Block 4", "Building A1",
 // "Portal 2", "Level 3". The identifier is never translated.
 export const FLOOR_PREFIXES = {
+  'unit': { es: 'Unidad', fr: 'Unité', de: 'Einheit', ru: 'Юнит', ar: 'وحدة', nl: 'Unit', pl: 'Lokal', sv: 'Enhet', no: 'Enhet' },
   block: { es: 'Bloque', fr: 'Bloc', de: 'Block', ru: 'Блок', ar: 'مبنى', nl: 'Blok', pl: 'Blok', sv: 'Hus', no: 'Hus' },
   bloque: { es: 'Bloque', fr: 'Bloc', de: 'Block', ru: 'Блок', ar: 'مبنى', nl: 'Blok', pl: 'Blok', sv: 'Hus', no: 'Hus' },
   building: { es: 'Edificio', fr: 'Bâtiment', de: 'Gebäude', ru: 'Корпус', ar: 'مبنى', nl: 'Gebouw', pl: 'Budynek', sv: 'Byggnad', no: 'Bygg' },

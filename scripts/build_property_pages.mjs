@@ -19,7 +19,7 @@ import {
   renderAreasMenu,
   guidesMobileLinks,
   renderDrawerActions,
-  LANG_SWITCHER_SCRIPT } from './lib/i18n.mjs';
+  LANG_SWITCHER_SCRIPT, stringLocaleGaps } from './lib/i18n.mjs';
 import { localizeMonthDate } from './lib/dates.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 import { FLOOR_PARTS, FLOOR_PREFIXES } from './lib/unit_floor_parts.mjs';
@@ -250,11 +250,23 @@ function localizedFloorSegment(segment, locale) {
     if (head) return `${head} ${tagged[2]}`;
   }
 
-  // "Third Floor (Penthouse)", "Building B (Penthouse)"
+  // "341 Penthouse", "203 Duplex" -- a number naming the unit, then its type.
+  // Every target language puts the type first, so the pieces swap.
+  const numbered = /^(\d+)\s+(.+)$/.exec(trimmed);
+  if (numbered) {
+    const head = FLOOR_PARTS[numbered[2].toLowerCase()]?.[locale];
+    if (head) return `${head} ${numbered[1]}`;
+  }
+
+  // "Third Floor (Penthouse)", "Building B (Penthouse)",
+  // "Unit 14 (Building 4, 1st floor, G)" -- the parenthetical can itself be a
+  // comma-separated list, so each piece goes back through this function.
   const suffixed = /^(.+?)\s+\((.+)\)$/.exec(trimmed);
   if (suffixed) {
     const head = localizedFloorSegment(suffixed[1], locale);
-    const tail = FLOOR_PARTS[suffixed[2].toLowerCase()]?.[locale] || suffixed[2];
+    const tail = suffixed[2].split(/,\s*/)
+      .map((piece) => localizedFloorSegment(piece, locale))
+      .join(', ');
     if (head !== suffixed[1] || tail !== suffixed[2]) return `${head} (${tail})`;
   }
 
@@ -276,7 +288,7 @@ function localizedUnitBedrooms(value, locale = DEFAULT_LOCALE) {
   if (!value || locale === DEFAULT_LOCALE) return value;
   const raw = String(value).trim();
 
-  const typePrefix = /^(Apartment|Villa|Penthouse|Townhouse)\s*·\s*(.+)$/i.exec(raw);
+  const typePrefix = /^(Apartment|Villa|Penthouse|Townhouse|Duplex)\s*·\s*(.+)$/i.exec(raw);
   if (typePrefix) {
     const typeKey = `unit.type${typePrefix[1][0].toUpperCase()}${typePrefix[1].slice(1).toLowerCase()}`;
     const type = t(typeKey, locale);
@@ -791,7 +803,11 @@ function renderUnitCard(unit, project, locale) {
   const beds = unitBedCount(unit);
   const price = unitPriceValue(unit);
   const thumb = floorplanThumb(unit.floorplan);
-  const reference = esc(unit.reference);
+  // The unit table and floorplan labels showed the English reference on
+  // every locale -- "Ground Floor C", "341 Penthouse" -- while the floor
+  // column beside them was translated. The CRM intent below deliberately
+  // keeps the English reference, so lead data stays comparable.
+  const reference = esc(localizedUnitFloor(unit.reference, locale));
 
   const media = thumb
     ? `<a class="unit-card-plan" href="${esc(unit.floorplan)}" target="_blank" rel="noopener" aria-label="${t('availability.floorplanOf', locale, { reference })}">
@@ -875,7 +891,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
     const beds = unitBedCount(unit);
     const price = unitPriceValue(unit);
     return `<tr${beds === null ? '' : ` data-beds="${beds}"`}${price === null ? '' : ` data-price="${price}"`}>
-                <td data-label="${t('availability.reference', locale)}"><strong>${esc(unit.reference)}</strong></td>${hasFloor ? `
+                <td data-label="${t('availability.reference', locale)}"><strong>${esc(localizedUnitFloor(unit.reference, locale))}</strong></td>${hasFloor ? `
                 <td data-label="${t('availability.floor', locale)}">${esc(localizedUnitFloor(unit.floor, locale))}</td>` : ''}
                 <td data-label="${t('availability.bedrooms', locale)}">${esc(localizedUnitBedrooms(unit.bedrooms, locale))}</td>${hasSize ? `
                 <td data-label="${t('availability.size', locale)}">${renderSizeCell(unit.size, locale)}</td>` : ''}
@@ -2221,6 +2237,30 @@ function floorSegmentIsKnown(segment) {
 // Penthouses", "Apartments und Penthäuser", "Wohnungen & Penthäuser") and two
 // ways in Russian, Arabic and Norwegian. Each page read fine on its own; only
 // the set read wrong, and the set is what a search engine sees.
+// Every property type needs its unit.type* string.
+//
+// localizedUnitBedrooms builds the key name from the type at runtime and
+// falls back to the English word when the key is missing -- so penthouse,
+// townhouse and duplex units were labelled in English in all nine languages
+// and nothing failed. A key built by concatenation needs a check that the
+// key exists, because the lookup itself cannot tell you it does not.
+function assertUnitTypeStrings() {
+  const missing = [];
+  for (const type of PROPERTY_TYPES) {
+    const key = `unit.type${type[0].toUpperCase()}${type.slice(1)}`;
+    const gaps = stringLocaleGaps(key, ['en', ...TAG_LOCALES]);
+    if (gaps.length) missing.push(`${key} (${gaps.join(', ')})`);
+  }
+  if (missing.length) {
+    throw new Error(
+      `${missing.length} property type(s) have no unit.type string: ${missing.join('; ')}. `
+      + 'localizedUnitBedrooms builds this key from PROPERTY_TYPES and silently '
+      + 'falls back to English when it is absent.'
+    );
+  }
+}
+assertUnitTypeStrings();
+
 function assertPropertyTypeLabels(projects) {
   const byType = new Map(); // english -> locale -> Map<rendering, slug>
   for (const project of projects) {

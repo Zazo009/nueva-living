@@ -75,6 +75,15 @@ export function hasString(key) {
   return Object.prototype.hasOwnProperty.call(strings, key);
 }
 
+// Which locales a key is missing. hasString() answers "does this key exist",
+// which is not the same question: a key present but short a locale renders in
+// English through t()'s fallback, so nothing looks broken and nothing fails.
+export function stringLocaleGaps(key, locales) {
+  const entry = strings[key];
+  if (!entry) return [...locales];
+  return locales.filter((locale) => typeof entry[locale] !== 'string' || !entry[locale].trim());
+}
+
 export function localizeProject(project, locale) {
   if (locale === DEFAULT_LOCALE) return project;
   const overlay = project.i18n?.[locale];
