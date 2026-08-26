@@ -916,7 +916,7 @@ const SEGMENTS = [
     description: 'New-build apartments, penthouses and villas in San Pedro Alcantara and Guadalmina, western Marbella, from EUR 527,500. Real availability and delivery dates.',
     kicker: 'Marbella West &middot; San Pedro &amp; Guadalmina',
     heroTitleHtml: '{count} New-Build Homes for Sale in <em>San Pedro &amp; Guadalmina</em>',
-    heroLead: 'Western Marbella between the town and Puerto Ban\u00fas: a working Spanish high street on one side, four golf courses on the other, and the beach within walking distance of both.',
+    heroLead: 'Western Marbella between the town and Puerto Banus: a working Spanish high street on one side, four golf courses on the other, and the beach within walking distance of both.',
     hero: {
       image: 'assets/liora/projects/marbella-west-garden-residences/hero.jpg',
       alt: 'New-build residences with gardens in western Marbella between San Pedro Alcantara and Puerto Banus',
@@ -929,7 +929,7 @@ const SEGMENTS = [
     areaLinkHtml: 'Comparing across the municipality? Our guide to <a href="area-marbella.html">where to buy in Marbella, area by area</a> sets this stretch against Marbella East and the Golden Mile.',
     introParagraphs: [
       'San Pedro Alc\u00e1ntara is the part of Marbella that does not empty out in winter. It has its own high street, a plaza people actually use, schools, health centres and a boulevard down to the beach -- the things a resort address usually sends you elsewhere for. Guadalmina sits immediately west of it, quieter and built around the golf.',
-      'The two together cover an unusually wide range: apartments from EUR 527,500 through to villas above EUR 4,000,000, within a few minutes of each other. Puerto Ban\u00fas is five minutes east, which is close enough to use and far enough not to live in.'
+      'The two together cover an unusually wide range: apartments from EUR 527,500 through to villas above EUR 4,000,000, within a few minutes of each other. Puerto Banus is five minutes east, which is close enough to use and far enough not to live in.'
     ],
     quickFacts: [
       ['Buyer Profile', 'Suits year-round residents, families using the international schools, and buyers who want Puerto Banus nearby without living beside it.'],
@@ -941,7 +941,7 @@ const SEGMENTS = [
     subareas: [
       ['San Pedro Alc\u00e1ntara', 'A real town rather than a development: high street, market, schools and a boulevard to the beach. Walkable, level, and busy all year. The apartment stock sits here.'],
       ['Guadalmina', 'West of San Pedro and built around Guadalmina Golf, lower density and quieter. Established rather than growing, and where the golf-side apartments and villas are.'],
-      ['Cortijo Blanco', 'The pocket between San Pedro and Puerto Ban\u00fas, a few streets back from the promenade. Level, established, and within walking distance of both.']
+      ['Cortijo Blanco', 'The pocket between San Pedro and Puerto Banus, a few streets back from the promenade. Level, established, and within walking distance of both.']
     ],
     developmentsHeadlineHtml: 'Current <em>developments</em>',
     amenitiesHeadlineHtml: 'Amenities to expect',
@@ -949,10 +949,10 @@ const SEGMENTS = [
     comparisonHeadlineHtml: 'San Pedro or <em>Puerto Ban&uacute;s?</em>',
     comparison: [
       ['San Pedro & Guadalmina', 'More space for the money, a neighbourhood that functions year-round, and parking you can find. Five minutes from Puerto Banus by car. The trade is that the marina glamour is somewhere you visit rather than live in.'],
-      ['Puerto Ban\u00fas itself', 'The address, the marina and the walk-out nightlife, at a clear premium and with far less new-build stock. Better suited to short stays than to a household that needs a school run.']
+      ['Puerto Banus itself', 'The address, the marina and the walk-out nightlife, at a clear premium and with far less new-build stock. Better suited to short stays than to a household that needs a school run.']
     ],
     faq: [
-      ['How far is San Pedro from Puerto Ban\u00fas?', 'About five minutes by car, or a walk along the promenade from the eastern edge of San Pedro. Close enough to use the marina without living with its noise or its parking.'],
+      ['How far is San Pedro from Puerto Banus?', 'About five minutes by car, or a walk along the promenade from the eastern edge of San Pedro. Close enough to use the marina without living with its noise or its parking.'],
       ['Is San Pedro a real town or a resort?', 'A real town. It has a high street, a weekly market, schools, health centres and a resident population that stays through the winter -- which is not true of every address in Marbella. That is the main reason buyers choose it over the Golden Mile.'],
       ['What is the difference between San Pedro and Guadalmina?', 'San Pedro is the town: walkable, level, busy. Guadalmina is immediately west, lower density and organised around the golf course, with larger plots and less foot traffic. Prices in Guadalmina are generally higher for the same built area.'],
       ['Are the international schools nearby?', 'Yes. Several of the Costa del Sol\u2019s international schools sit in and around San Pedro and Guadalmina, which is a large part of why the area holds its year-round population. We can confirm distances for a specific development.'],

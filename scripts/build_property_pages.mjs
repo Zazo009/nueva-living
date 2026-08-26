@@ -2282,6 +2282,63 @@ const IDENTICAL_BY_DESIGN = new Set([
   'nl|New Golden Mile, <em>in El Campanario</em>',
 ]);
 
+// An overlay that is English with a few accents pasted on is still English.
+//
+// assertOverlaysAreTranslated only catches an overlay identical to its source.
+// Someone had once run a naive "A" -> "À" pass over the French overlays, so a
+// dozen of them read "À collection of 72 apartments across seven buildings" --
+// one character different from the English, invisible to an equality check,
+// and to a French reader worse than plain English: it looks like a broken
+// translation rather than a missing one.
+//
+// Counting English function words was the obvious check and it is too weak;
+// "Bedroom opening onto à terrace with mountain views" contains two. What
+// separates a translation from a retouched original is how much of the source
+// survives word for word. A real translation keeps the proper nouns and the
+// numbers and little else.
+// Letters only, and only the words the English itself leaves lowercase.
+//
+// Numbers survive translation by definition, so counting them made "350 000
+// EUR - 1 100 000 EUR" look untranslated. Proper nouns survive it too, and
+// counting those flagged "Rio Real Golf & Country Club nearby" in all nine
+// languages -- correctly translated strings that happen to be mostly a venue
+// name. What is left is the ordinary vocabulary, which a translation replaces.
+const WORD = /\p{L}+/gu;
+
+function survivingWordRatio(english, overlay) {
+  const source = (english.match(WORD) || [])
+    .filter((word) => word.length > 2 && word === word.toLowerCase())
+    .map((word) => word.toLowerCase());
+  if (source.length < 6) return 0;
+  const kept = new Set((overlay.toLowerCase().match(WORD) || []));
+  return source.filter((word) => kept.has(word)).length / source.length;
+}
+
+function assertOverlaysAreNotEnglish(projects) {
+  const english = [];
+  for (const project of projects) {
+    const base = { ...project };
+    delete base.i18n;
+    for (const locale of TAG_LOCALES) {
+      const overlay = project.i18n?.[locale];
+      if (!overlay) continue;
+      walkPair(base, overlay, null, (source, translated, path) => {
+        if (path.endsWith('.src') || path.endsWith('.href') || path.endsWith('.floorplan')) return;
+        if (survivingWordRatio(source, translated) < 0.8) return;
+        english.push(`  [${locale}] ${project.slug}${path}: "${translated.slice(0, 58)}…"`);
+      });
+    }
+  }
+  if (english.length) {
+    throw new Error(
+      `${english.length} translation overlay value(s) keep four fifths of the English word for word:\n`
+      + `${english.slice(0, 6).join('\n')}\n`
+      + 'That is an original with accents pasted on, not a translation.'
+    );
+  }
+  return projects;
+}
+
 function assertOverlaysAreTranslated(projects) {
   const untranslated = [];
   for (const project of projects) {
@@ -2309,17 +2366,18 @@ function assertOverlaysAreTranslated(projects) {
 }
 
 // Visit every string that appears at the same path in both trees and is equal.
-function walkPair(english, overlay, onMatch) {
+function walkPair(english, overlay, onMatch, onPair, path = '') {
   if (typeof english === 'string' && typeof overlay === 'string') {
-    if (english === overlay) onMatch(english);
+    if (onPair && english !== overlay) onPair(english, overlay, path);
+    if (onMatch && english === overlay) onMatch(english);
   } else if (english && overlay && !Array.isArray(english) && typeof english === 'object'
              && !Array.isArray(overlay) && typeof overlay === 'object') {
     for (const key of Object.keys(english)) {
-      if (key in overlay) walkPair(english[key], overlay[key], onMatch);
+      if (key in overlay) walkPair(english[key], overlay[key], onMatch, onPair, `${path}.${key}`);
     }
   } else if (Array.isArray(english) && Array.isArray(overlay)) {
     for (let i = 0; i < Math.min(english.length, overlay.length); i += 1) {
-      walkPair(english[i], overlay[i], onMatch);
+      walkPair(english[i], overlay[i], onMatch, onPair, `${path}[${i}]`);
     }
   }
 }
@@ -2548,8 +2606,8 @@ function assertAvailability(project) {
 export function loadProjects() {
   // assertTagVocabulary needs the whole set -- a clash is between two projects,
   // not inside one -- so it wraps the list rather than each file.
-  return assertOverlaysAreTranslated(assertPropertyTypeLabels(assertFloorLabels(assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
-    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))))))))))
+  return assertOverlaysAreNotEnglish(assertOverlaysAreTranslated(assertPropertyTypeLabels(assertFloorLabels(assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file }))))))))))))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;
