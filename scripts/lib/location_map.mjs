@@ -55,9 +55,62 @@ const esc = (value) => String(value ?? '')
 // neighbour or clips the frame, so the map uses the short form of a name where
 // one exists ("San Pedro", not "San Pedro de Alcantara centre"). The ledger has
 // a full 380px column and always prints the full name.
+// Towns keep their own name in Russian and Arabic; venues do not.
+//
+// The rule above -- place names never translate -- is right for the venues on
+// these maps. "Valderrama", "Finca Cortesin" and "Aloha" ARE the names of
+// those golf courses, and a Russian golfer looking for Valderrama is looking
+// for Valderrama. It reads wrong only for the towns, where the rest of the
+// site says Марбелья and ماربيا everywhere else and only the map said
+// "Marbella", leaving "Центр Marbella" beside "Гольф-клуб Río Real".
+//
+// Arabic is the sharper case: a Latin run inside right-to-left text breaks the
+// line's direction, which no amount of familiarity fixes.
+//
+// Every form below is the one already dominant in the built corpus, so this
+// introduces no new spelling. Atalaya and Cabopino are absent deliberately --
+// they are urbanisations with no established Cyrillic or Arabic form.
+const TOWN_NAMES = {
+  'Marbella': { ru: 'Марбелья', ruGen: 'Марбельи', ar: 'ماربيا' },
+  'Estepona': { ru: 'Эстепона', ruGen: 'Эстепоны', ar: 'إستيبونا' },
+  'Málaga': { ru: 'Малага', ruGen: 'Малаги', ar: 'مالقة' },
+  'Fuengirola': { ru: 'Фуэнхирола', ruGen: 'Фуэнхиролы', ar: 'فوينخيرولا' },
+  'San Pedro de Alcántara': { ru: 'Сан-Педро-де-Алькантара', ar: 'سان بيدرو دي الكانتارا' },
+  'San Pedro': { ru: 'Сан-Педро', ar: 'سان بيدرو' },
+  'Puerto Banús': { ru: 'Пуэрто-Банус', ruGen: 'Пуэрто-Бануса', ar: 'بويرتو بانوس' },
+  'Benahavís': { ru: 'Бенаавис', ruGen: 'Бенаависа', ar: 'بيناهافيس' },
+  'Guadalmina': { ru: 'Гуадальмина', ruGen: 'Гуадальмины', ar: 'غوادالمينا' },
+  'Mijas Pueblo': { ru: 'Михас-Пуэбло', ar: 'ميخاس بويبلو' },
+  'Gibraltar': { ru: 'Гибралтар', ruGen: 'Гибралтара', ar: 'جبل طارق' },
+  'La Cala': { ru: 'Ла-Кала', ruGen: 'Ла-Калы', ar: 'لا كالا' }
+};
+
+// A half-added town is worse than an absent one: it would render natively in
+// Russian and stay Latin in Arabic on the same map, which is the exact split
+// this table exists to close.
+for (const [name, forms] of Object.entries(TOWN_NAMES)) {
+  const missing = ['ru', 'ar'].filter((locale) => !forms[locale]);
+  if (missing.length) {
+    throw new Error(`TOWN_NAMES["${name}"] is missing ${missing.join(' and ')}. `
+      + 'Add every locale at once, or leave the town out and let it stay Latin.');
+  }
+}
+
+// "Центр" and "Аэропорт" govern the genitive; "Гольф-клуб X" is an
+// apposition and stays nominative. San Pedro and Mijas Pueblo do not decline,
+// so they carry no genitive form and fall back to the nominative.
+const RU_GENITIVE_CATEGORIES = new Set(['centre', 'airport']);
+
+function localTownName(name, locale, category) {
+  const town = TOWN_NAMES[name];
+  if (!town) return name;
+  if (locale === 'ru' && RU_GENITIVE_CATEGORIES.has(category)) return town.ruGen || town.ru;
+  return town[locale] || name;
+}
+
 function referenceLabel(row, locale, { short = false } = {}) {
   if (row.category === 'beach') return t('locmap.beach', locale);
-  const name = (short && row.short) || row.proper || '';
+  const name = localTownName((short && row.short) || row.proper || '', locale, row.category);
   const template = short && row.short && row.category === 'centre'
     ? name // a bare town name reads as the town on the map; "Centre of X" does not fit
     : t(`locmap.${row.category}`, locale, { name });
