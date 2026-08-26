@@ -866,6 +866,78 @@ let drawerRowHeights = 0;
 // Read the modules rather than the built pages: a table that is missing a
 // locale is the cause, and the page is only where it shows.
 const ENTRY_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+let survivingFindStrings = 0;
+
+// A translated page must not still contain the English string a translation
+// table was written to replace. Whenever it does, the replacement silently
+// never fired -- because the table lives in a module that page's builder does
+// not import, because the builder hardcodes the English instead of calling
+// t(), or because the markup carries "&amp;" where the JSON-LD carries a raw
+// "&". All three shapes were live at once: 558 pages served an English phone
+// placeholder, 54 served an English schema.org name, and a breadcrumb named
+// the area in English under a translated <h1>.
+//
+// Filter keys are the deliberate exception: data-card-type and friends carry
+// the English vocabulary the discovery JS matches on, so they are stripped
+// before the scan rather than reported every run.
+{
+  const dir = path.join(root, 'scripts', 'lib');
+  const entries = [];
+  const files = fs.existsSync(dir)
+    ? fs.readdirSync(dir).filter((f) => /translations.*\.mjs$/.test(f))
+    : [];
+  for (const file of files) {
+    let mod;
+    try {
+      mod = await import(pathToFileURL(path.join(dir, file)).href);
+    } catch {
+      continue;
+    }
+    for (const value of Object.values(mod)) {
+      if (!Array.isArray(value)) continue;
+      for (const entry of value) {
+        if (!entry || typeof entry.find !== 'string' || entry.find.length <= 25) continue;
+        entries.push(entry);
+      }
+    }
+  }
+  const stripFilterKeys = (html) => html
+    .replace(/ data-[a-z-]+="[^"]*\|[^"]*"/g, '')
+    .replace(/ data-card-type="[^"]*"/g, '')
+    .replace(/<option value="[^"]*">/g, '<option>');
+  const survivors = new Map();
+  // dist/ is the last stage: build_dist runs localisation passes of its own
+  // on top of the per-locale pages, so a string still English in the repo
+  // root may well be translated by the time it deploys. Scan the deployed
+  // output when it exists, and fall back to the repo root otherwise.
+  const distRoot = path.join(root, 'dist');
+  const scanRoot = fs.existsSync(distRoot) ? distRoot : root;
+  for (const locale of ENTRY_LOCALES) {
+    const localeDir = path.join(scanRoot, locale);
+    if (!fs.existsSync(localeDir)) continue;
+    const candidates = entries.filter((e) => e[locale] && e[locale] !== e.find);
+    for (const file of fs.readdirSync(localeDir).filter((f) => f.endsWith('.html'))) {
+      const html = stripFilterKeys(fs.readFileSync(path.join(localeDir, file), 'utf8'));
+      for (const entry of candidates) {
+        const raw = entry.find.split('&amp;').join('&');
+        if (html.includes(entry.find) || (raw !== entry.find && html.includes(raw))) {
+          survivingFindStrings += 1;
+          const key = `${entry.find.slice(0, 55)}`;
+          if (!survivors.has(key)) survivors.set(key, `${locale}/${file}`);
+        }
+      }
+    }
+  }
+  if (survivors.size) {
+    const shown = [...survivors].slice(0, 4).map(([find, where]) => `"${find}" (${where})`);
+    fail('locale pages', `${survivors.size} English string(s) a translation table covers are still `
+      + `present in translated pages: ${shown.join('; ')}`
+      + `${survivors.size > 4 ? `; …and ${survivors.size - 4} more` : ''}. `
+      + 'The replacement never fired -- check that the page\'s builder imports that table, '
+      + 'calls t() instead of hardcoding, and matches the "&" form the markup actually uses.');
+  }
+}
+
 let translationEntriesChecked = 0;
 
 {
@@ -923,5 +995,6 @@ if (failures.length) {
     + `locale attribute text checked for untranslated values, `
     + `${breadcrumbOffsetsChecked} breadcrumb offsets checked against the header height, `
     + `${drawerRowHeights} drawer row heights checked for one target size, `
-    + `${translationEntriesChecked} translation entries checked for all nine locales.`);
+    + `${translationEntriesChecked} translation entries checked for all nine locales, `
+    + `${survivingFindStrings === 0 ? 'no' : survivingFindStrings} English source string(s) left unreplaced in translated pages.`);
 }

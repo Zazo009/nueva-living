@@ -1994,7 +1994,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
             </div>
             <div class="field">
               <label for="f-phone">${t('form.phone', locale)}</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international">
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="${t('form.phonePlaceholder', locale)}">
             </div>
             <div class="field full">
               <label for="f-msg">${t('form.message', locale)}</label>
@@ -2213,6 +2213,47 @@ function floorSegmentIsKnown(segment) {
   return !/[A-Za-z]{4,}/.test(trimmed);
 }
 
+// One English property type, one rendering per language.
+//
+// hero.type drives the page title, and it is translated in each project's own
+// overlay -- so "Apartments & Penthouses" came out four different ways in
+// German across the portfolio ("Apartments & Penthäuser", "Apartments und
+// Penthouses", "Apartments und Penthäuser", "Wohnungen & Penthäuser") and two
+// ways in Russian, Arabic and Norwegian. Each page read fine on its own; only
+// the set read wrong, and the set is what a search engine sees.
+function assertPropertyTypeLabels(projects) {
+  const byType = new Map(); // english -> locale -> Map<rendering, slug>
+  for (const project of projects) {
+    const english = project.hero?.type;
+    if (!english) continue;
+    if (!byType.has(english)) byType.set(english, new Map());
+    const locales = byType.get(english);
+    for (const locale of TAG_LOCALES) {
+      const rendered = project.i18n?.[locale]?.hero?.type;
+      if (!rendered) continue;
+      if (!locales.has(locale)) locales.set(locale, new Map());
+      locales.get(locale).set(rendered, project.slug);
+    }
+  }
+  const drift = [];
+  for (const [english, locales] of byType) {
+    for (const [locale, renderings] of locales) {
+      if (renderings.size < 2) continue;
+      const shown = [...renderings].map(([text, slug]) => `"${text}" (${slug})`).join(' vs ');
+      drift.push(`  "${english}" [${locale}]: ${shown}`);
+    }
+  }
+  if (drift.length) {
+    throw new Error(
+      `${drift.length} property type(s) render more than one way in a language:\n`
+      + `${drift.slice(0, 5).join('\n')}\n`
+      + 'Pick the form that matches content/i18n/tags.json, so a project\'s type '
+      + 'reads the same as the filter chip for it.'
+    );
+  }
+  return projects;
+}
+
 function assertFloorLabels(projects) {
   const unknown = new Map();
   for (const project of projects) {
@@ -2404,8 +2445,8 @@ function assertAvailability(project) {
 export function loadProjects() {
   // assertTagVocabulary needs the whole set -- a clash is between two projects,
   // not inside one -- so it wraps the list rather than each file.
-  return assertFloorLabels(assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
-    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))))))))
+  return assertPropertyTypeLabels(assertFloorLabels(assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file }))))))))))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;

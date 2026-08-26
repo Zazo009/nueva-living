@@ -73,6 +73,14 @@ function cardImageAltReplacements(locale) {
   return replacements;
 }
 
+// The breadcrumb and its BreadcrumbList both named the area in English on
+// every locale, because the label is plain segment data rather than a string
+// key. Falls back to the English label so a new segment without a key still
+// builds.
+function localizedAreaLabel(segment, locale) {
+  return segment.areaLabelKey ? t(segment.areaLabelKey, locale) : segment.areaLabel;
+}
+
 function applySegmentPageTranslations(html, locale) {
   if (locale === DEFAULT_LOCALE) return html;
   let result = html;
@@ -86,6 +94,15 @@ function applySegmentPageTranslations(html, locale) {
     const replacement = entry[locale];
     if (!replacement) continue;
     result = result.split(entry.find).join(replacement);
+    // The same sentence appears twice on these pages: once in the visible
+    // markup with "&amp;", once inside the JSON-LD with a raw "&". Entries
+    // are written against the markup, so the structured data was never
+    // touched -- six segment pages per locale served Google an English
+    // schema.org name under a fully translated <h1>.
+    if (entry.find.includes('&amp;')) {
+      result = result.split(entry.find.split('&amp;').join('&'))
+        .join(replacement.split('&amp;').join('&'));
+    }
   }
   for (const [find, replace] of cardDescriptionReplacements(locale)) {
     result = result.split(find).join(replace);
@@ -402,7 +419,7 @@ function faqSection(faqs) {
   </div></section>`;
 }
 
-function segmentSchema(segment, matches) {
+function segmentSchema(segment, matches, locale) {
   const url = `${siteUrl}/${segment.output}`;
   // The {count} placeholder has to be resolved here too. The <title> and the
   // H1 both run through resolveCount(); the JSON-LD did not, so structured
@@ -433,7 +450,7 @@ function segmentSchema(segment, matches) {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Developments', item: `${siteUrl}/developments.html` },
-        { '@type': 'ListItem', position: 2, name: segment.areaLabel, item: `${siteUrl}/${segment.areaHref}` },
+        { '@type': 'ListItem', position: 2, name: localizedAreaLabel(segment, locale), item: `${siteUrl}/${segment.areaHref}` },
         { '@type': 'ListItem', position: 3, name: segment.breadcrumbLabel, item: url }
       ]
     },
@@ -500,7 +517,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
     </ul>
   </div></section>`;
 
-  const schema = segmentSchema(segment, matches);
+  const schema = segmentSchema(segment, matches, locale);
 
   const html = `<!doctype html>
 <html lang="${meta.htmlLang}" dir="${meta.dir}">
@@ -525,7 +542,7 @@ ${JSON.stringify(schema, null, 2)}
 </head>
 <body class="segment-page">
   ${nav(locale, segment.output)}
-  ${breadcrumb(segment.breadcrumbLabel, [[t('breadcrumb.developments', locale), 'developments.html'], [segment.areaLabel, segment.areaHref]], locale)}
+  ${breadcrumb(segment.breadcrumbLabel, [[t('breadcrumb.developments', locale), 'developments.html'], [localizedAreaLabel(segment, locale), segment.areaHref]], locale)}
   <main>
     <section class="page-hero">
       ${heroPicture(segment.hero)}
@@ -882,6 +899,7 @@ const SEGMENTS = [
     area: 'marbella',
     slugs: ['marbella-west-garden-residences', 'nueva-alcantara-residences', 'alisios-residences', 'cortijo-blanco-villa-collection'],
     areaLabel: 'San Pedro & Guadalmina',
+    areaLabelKey: 'area.sanPedroGuadalmina',
     areaHref: 'area-marbella.html',
     propertyTypes: ['apartment', 'penthouse', 'villa'],
     breadcrumbLabel: 'San Pedro & Guadalmina',
@@ -938,6 +956,7 @@ const SEGMENTS = [
     area: 'marbella',
     slugs: ['elviria-hills-residences', 'laurel-hill-residences', 'elviria-woodland-residences'],
     areaLabel: 'Elviria',
+    areaLabelKey: 'area.elviria',
     areaHref: 'area-marbella.html',
     propertyTypes: ['apartment', 'penthouse', 'villa', 'townhouse'],
     breadcrumbLabel: 'Elviria',
@@ -1002,6 +1021,7 @@ const SEGMENTS = [
       'bel-air-villa-collection'
     ],
     areaLabel: 'the New Golden Mile',
+    areaLabelKey: 'area.newGoldenMile',
     areaHref: 'area-estepona.html',
     propertyTypes: ['apartment', 'penthouse', 'villa'],
     breadcrumbLabel: 'New Golden Mile',
@@ -1059,6 +1079,7 @@ const SEGMENTS = [
     output: 'new-build-apartments-penthouses-mijas-fuengirola.html',
     area: 'mijas-fuengirola',
     areaLabel: 'Mijas & Fuengirola',
+    areaLabelKey: 'area.mijasFuengirola',
     areaHref: 'area-mijas-fuengirola.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
@@ -1113,6 +1134,7 @@ const SEGMENTS = [
     output: 'new-build-apartments-penthouses-marbella.html',
     area: 'marbella',
     areaLabel: 'Marbella',
+    areaLabelKey: 'area.marbella',
     areaHref: 'area-marbella.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
@@ -1167,6 +1189,7 @@ const SEGMENTS = [
     output: 'new-build-apartments-penthouses-estepona.html',
     area: 'estepona',
     areaLabel: 'Estepona',
+    areaLabelKey: 'area.estepona',
     areaHref: 'area-estepona.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
@@ -1220,6 +1243,7 @@ const SEGMENTS = [
     output: 'new-build-apartments-penthouses-nueva-andalucia.html',
     area: 'nueva-andalucia',
     areaLabel: 'Nueva Andalucía',
+    areaLabelKey: 'area.nuevaAndalucia',
     areaHref: 'area-nueva-andalucia.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
