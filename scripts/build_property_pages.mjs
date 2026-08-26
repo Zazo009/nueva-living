@@ -22,6 +22,7 @@ import {
   LANG_SWITCHER_SCRIPT } from './lib/i18n.mjs';
 import { localizeMonthDate } from './lib/dates.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
+import { FLOOR_PARTS, FLOOR_PREFIXES } from './lib/unit_floor_parts.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
 import { realEstateAgentSchema } from './lib/brand.mjs';
 // The homepage and developments grids are rendered in English and then
@@ -178,9 +179,97 @@ function renderSizeCell(value, locale = DEFAULT_LOCALE) {
   return facts.map(([label, val]) => `<span class="unit-size-part"><strong>${esc(val)}</strong> <em>${esc(label)}</em></span>`).join('');
 }
 
+// A floor label is built from parts -- "Ground Floor, Block 2" -- so it is
+// translated from parts. UNIT_FLOORS still wins when it has the whole string,
+// because a few labels read better written out than composed; everything else
+// is split on commas and "&", each segment translated, and anything
+// unrecognised passed through. An identifier like "A1" or "(Olive Tree)" is
+// meant to survive untranslated.
+// "EUR 458,000" in English, and in every locale whose overlay happens to
+// carry a price. Eighteen projects had no overlay for their units, so five
+// languages printed the English form -- an English thousands comma and a
+// currency code where the language uses a symbol or a word.
+//
+// The shapes below are the ones the existing overlays already use, so a
+// project with an overlay and one without now read the same.
+const PRICE_FORMAT = {
+  es: (n) => `${n.replace(/,/g, '.')} €`,
+  fr: (n) => `${n.replace(/,/g, ' ')} EUR`,
+  de: (n) => `EUR ${n.replace(/,/g, '.')}`,
+  ru: (n) => `${n.replace(/,/g, ' ')} евро`,
+  ar: (n) => `${n} يورو`,
+  nl: (n) => `€ ${n.replace(/,/g, '.')}`,
+  pl: (n) => `${n.replace(/,/g, ' ')} EUR`,
+  sv: (n) => `${n.replace(/,/g, ' ')} EUR`,
+  no: (n) => `${n.replace(/,/g, ' ')} EUR`
+};
+
+function localizedUnitPrice(value, locale = DEFAULT_LOCALE) {
+  if (!value || locale === DEFAULT_LOCALE) return value;
+  const match = /^EUR\s*([\d,]+)$/.exec(String(value).trim());
+  if (!match) return value;
+  return PRICE_FORMAT[locale] ? PRICE_FORMAT[locale](match[1]) : value;
+}
+
+// A range is two prices with a dash between them, or a single price when the
+// project has one unit left. Either way each side goes through the same
+// formatter as a unit price.
+function localizedPriceRange(value, locale = DEFAULT_LOCALE) {
+  if (!value || locale === DEFAULT_LOCALE) return value || '';
+  return String(value)
+    .split(/(\s*[-–—]\s*)/)
+    .map((piece) => (/^\s*[-–—]\s*$/.test(piece) ? piece : localizedUnitPrice(piece, locale)))
+    .join('');
+}
+
+function localizedFloorSegment(segment, locale) {
+  const trimmed = segment.trim();
+  if (!trimmed) return trimmed;
+
+  const whole = FLOOR_PARTS[trimmed.toLowerCase()]?.[locale];
+  if (whole) return whole;
+
+  // "Block 4", "Building A1", "Portal 2", "Level 3"
+  const prefixed = /^([A-Za-zÁ-ú-]+)\s+(.+)$/.exec(trimmed);
+  if (prefixed) {
+    const word = FLOOR_PREFIXES[prefixed[1].toLowerCase()]?.[locale];
+    if (word) return `${word} ${prefixed[2]}`;
+  }
+
+  // "4th Floor", "1st Floor"
+  const ordinal = /^(\d+)(?:st|nd|rd|th)\s+floor$/i.exec(trimmed);
+  if (ordinal) {
+    const word = FLOOR_PREFIXES.floor[locale];
+    if (word) return `${word} ${ordinal[1]}`;
+  }
+
+  // "First Floor A" -- a known part with a unit identifier hanging off it.
+  const tagged = /^(.+?)\s+([A-Z]\d?)$/.exec(trimmed);
+  if (tagged) {
+    const head = FLOOR_PARTS[tagged[1].toLowerCase()]?.[locale];
+    if (head) return `${head} ${tagged[2]}`;
+  }
+
+  // "Third Floor (Penthouse)", "Building B (Penthouse)"
+  const suffixed = /^(.+?)\s+\((.+)\)$/.exec(trimmed);
+  if (suffixed) {
+    const head = localizedFloorSegment(suffixed[1], locale);
+    const tail = FLOOR_PARTS[suffixed[2].toLowerCase()]?.[locale] || suffixed[2];
+    if (head !== suffixed[1] || tail !== suffixed[2]) return `${head} (${tail})`;
+  }
+
+  return trimmed;
+}
+
 function localizedUnitFloor(value, locale = DEFAULT_LOCALE) {
   if (!value || locale === DEFAULT_LOCALE) return value;
-  return UNIT_FLOORS[String(value).trim()]?.[locale] || value;
+  const raw = String(value).trim();
+  const whole = UNIT_FLOORS[raw]?.[locale];
+  if (whole) return whole;
+  return raw
+    .split(/(,\s*|\s+&\s+)/)
+    .map((piece) => (/^(,\s*|\s+&\s+)$/.test(piece) ? piece : localizedFloorSegment(piece, locale)))
+    .join('');
 }
 
 function localizedUnitBedrooms(value, locale = DEFAULT_LOCALE) {
@@ -727,7 +816,7 @@ function renderUnitCard(unit, project, locale) {
                   <dl class="unit-card-facts">
                     ${facts.map(([label, value]) => `<div><dt>${label}</dt><dd>${esc(value)}</dd></div>`).join('\n                    ')}
                   </dl>
-                  <p class="unit-card-price">${esc(unit.price)}</p>
+                  <p class="unit-card-price">${esc(localizedUnitPrice(unit.price, locale))}</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=${encodeURIComponent(`${project.name} - ${unit.reference}`)}">${t('availability.askAboutUnit', locale, { reference })}</a>
                 </div>
               </article>`;
@@ -790,7 +879,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
                 <td data-label="${t('availability.floor', locale)}">${esc(localizedUnitFloor(unit.floor, locale))}</td>` : ''}
                 <td data-label="${t('availability.bedrooms', locale)}">${esc(localizedUnitBedrooms(unit.bedrooms, locale))}</td>${hasSize ? `
                 <td data-label="${t('availability.size', locale)}">${renderSizeCell(unit.size, locale)}</td>` : ''}
-                <td data-label="${t('availability.price', locale)}"><strong>${esc(unit.price)}</strong></td>
+                <td data-label="${t('availability.price', locale)}"><strong>${esc(localizedUnitPrice(unit.price, locale))}</strong></td>
                 <td data-label="${t('availability.status', locale)}"><span class="availability-status">${t('availability.available', locale)}</span></td>${hasFloorplans ? `
                 <td data-label="${t('availability.floorplan', locale)}">${unit.floorplan ? `<a class="availability-floorplan-link" href="${esc(unit.floorplan)}" target="_blank" rel="noopener">${t('availability.viewPdf', locale)}</a>` : ''}</td>` : ''}
               </tr>`;
@@ -799,8 +888,8 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   return `<div class="availability-release reveal-soft">
           <div class="availability-release-stats" aria-label="${t('aria.currentReleaseSummary', locale)}">
             <div><span>${t('availability.availableHomes', locale)}</span><strong>${units.length}</strong></div>
-            <div><span>${t('cinematic.startingPrice', locale)}</span><strong>${esc(availability.startingPrice || project.hero?.startingPrice || '')}</strong></div>
-            <div><span>${t('availability.priceRange', locale)}</span><strong>${esc(availability.priceRange || '')}</strong></div>
+            <div><span>${t('cinematic.startingPrice', locale)}</span><strong>${esc(localizedUnitPrice(availability.startingPrice, locale) || project.hero?.startingPrice || '')}</strong></div>
+            <div><span>${t('availability.priceRange', locale)}</span><strong>${esc(localizedPriceRange(availability.priceRange, locale))}</strong></div>
             <div><span>${t('availability.checked', locale)}</span><strong>${esc(localizeMonthDate(availability.checkedDate, locale) || '')}</strong></div>
           </div>
           <details class="availability-disclosure">
@@ -2098,6 +2187,56 @@ const AREA_DECIMAL = {
   es: ',', fr: ',', de: ',', ru: ',', ar: '.', nl: ',', pl: ',', sv: ',', no: ','
 };
 
+// Every floor label must be built from parts the composer recognises.
+//
+// UNIT_FLOORS enumerated whole strings, so each new pairing of a block number
+// and a level needed its own row: 139 of 166 values had none, and five locales
+// printed the English label on eighteen projects.
+//
+// The check is recognition, not change. Asking "did the string come out
+// different?" fails on labels that are legitimately the same word in the
+// target language -- "Penthouse" in French, Dutch and Polish -- and on base
+// values that are already Spanish, like "Bloque 4". Asking "is every segment
+// a part I know?" has neither problem.
+function floorSegmentIsKnown(segment) {
+  const trimmed = segment.trim();
+  if (!trimmed) return true;
+  if (FLOOR_PARTS[trimmed.toLowerCase()]) return true;
+  const prefixed = /^([A-Za-zÁ-ú-]+)\s+(.+)$/.exec(trimmed);
+  if (prefixed && FLOOR_PREFIXES[prefixed[1].toLowerCase()]) return true;
+  if (/^(\d+)(?:st|nd|rd|th)\s+floor$/i.test(trimmed)) return true;
+  const tagged = /^(.+?)\s+([A-Z]\d?)$/.exec(trimmed);
+  if (tagged && FLOOR_PARTS[tagged[1].toLowerCase()]) return true;
+  const suffixed = /^(.+?)\s+\((.+)\)$/.exec(trimmed);
+  if (suffixed) return floorSegmentIsKnown(suffixed[1]);
+  // No letters worth translating -- an identifier such as "A1" or "No. 7".
+  return !/[A-Za-z]{4,}/.test(trimmed);
+}
+
+function assertFloorLabels(projects) {
+  const unknown = new Map();
+  for (const project of projects) {
+    for (const unit of (project.availability || {}).units || []) {
+      const floor = unit.floor;
+      if (!floor || UNIT_FLOORS[String(floor).trim()]) continue;
+      for (const segment of String(floor).split(/,|\s+&\s+/)) {
+        if (!floorSegmentIsKnown(segment)) unknown.set(segment.trim(), project.slug);
+      }
+    }
+  }
+  if (unknown.size) {
+    const shown = [...unknown].slice(0, 6).map(([seg, slug]) => `  "${seg}" (${slug})`);
+    throw new Error(
+      `${unknown.size} floor label segment(s) are not in the parts vocabulary:\n`
+      + `${shown.join('\n')}\n`
+      + 'Add them to FLOOR_PARTS or FLOOR_PREFIXES in '
+      + 'scripts/lib/unit_floor_parts.mjs -- an unknown segment prints in English '
+      + 'on every locale.'
+    );
+  }
+  return projects;
+}
+
 function assertAreaFormatting(projects) {
   const wrong = [];
   const visit = (value, locale, slug) => {
@@ -2265,8 +2404,8 @@ function assertAvailability(project) {
 export function loadProjects() {
   // assertTagVocabulary needs the whole set -- a clash is between two projects,
   // not inside one -- so it wraps the list rather than each file.
-  return assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
-    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file }))))))))
+  return assertFloorLabels(assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))))))))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;
