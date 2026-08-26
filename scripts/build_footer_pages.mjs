@@ -11,6 +11,7 @@ import {
   baseHrefTag,
   renderLanguageSwitcher,
   renderGuidesMenu,
+  renderAreasMenu,
   guidesMobileLinks,
   renderDrawerActions,
   LANG_SWITCHER_SCRIPT,
@@ -94,10 +95,12 @@ const home = 'index.html';
 const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>`;
 
+// Areas and Guides are disclosures rather than flat links, so they are not in
+// this list -- nav() places them by name. Slicing this array by index is what
+// broke when Areas moved out of it, so the positions are written out instead.
 function navLinks(locale) {
   return [
     [t('nav.developments', locale), 'developments.html'],
-    [t('nav.areas', locale), 'areas.html'],
     [t('nav.about', locale), 'about.html'],
     [t('nav.advisory', locale), 'advisory.html'],
     [t('nav.contactUs', locale), 'contact.html'],
@@ -116,7 +119,7 @@ function footerLinks(locale) {
     projects: [
       [t('nav.developments', locale), 'developments.html'],
       [t('nav.buyingGuides', locale), 'guides.html'],
-      [t('nav.areas', locale), 'areas.html'],
+      [t('nav.allAreas', locale), 'areas.html'],
       [t('area.marbella', locale), 'area-marbella.html'],
       [t('area.estepona', locale), 'area-estepona.html'],
       [t('area.casares', locale), 'area-casares.html'],
@@ -134,19 +137,25 @@ function footerLinks(locale) {
 
 function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html', langFallback = null) {
   const links = navLinks(locale);
+  const link = (index) => {
+    const [label, href] = links[index];
+    return `<a href="${href}">${label}</a>`;
+  };
   const switcher = renderLanguageSwitcher(currentOutputPath, locale, langFallback);
   return `<nav class="site-nav">
     <div class="nav-links nav-links-left">
-      ${links.slice(0, 3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${link(0)}
+      ${renderAreasMenu(locale)}
+      ${link(1)}
     </div>
     <a class="nav-logo" href="${home}" aria-label="${t('nav.home', locale)}">
       <img class="nav-wordmark" src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
       <span class="nav-wordmark-text" aria-hidden="true">Nueva Living</span>
     </a>
     <div class="nav-links nav-links-right">
-      ${links.slice(3, 4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${link(2)}
       ${renderGuidesMenu(locale)}
-      ${links.slice(4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${link(3)}
       <span class="nav-divider" aria-hidden="true"></span>
       ${switcher}
     </div>
@@ -155,9 +164,12 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html', langFall
     </button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    ${links.slice(0, 4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${link(0)}
+    ${renderAreasMenu(locale)}
+    ${link(1)}
+    ${link(2)}
     ${guidesMobileLinks(locale)}
-    ${links.slice(4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${link(3)}
     ${renderDrawerActions(locale)}
     ${renderLanguageSwitcher(currentOutputPath, locale, langFallback)}
   </div>`;
@@ -170,7 +182,7 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html', langFall
 const BREADCRUMB_PARENT_KEYS = {
   'guides.html': 'nav.buyingGuides',
   'developments.html': 'nav.developments',
-  'areas.html': 'nav.areas'
+  'areas.html': 'nav.allAreas'
 };
 
 function breadcrumb(currentLabel, parents = [], locale = DEFAULT_LOCALE) {
@@ -509,7 +521,7 @@ function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
     title: (area.seo?.title || t('area.areaGuide', locale, { name: area.name }))
       .replace(/\s*\|\s*Nueva Living\s*$/, ''),
     breadcrumbTitle: area.name,
-    breadcrumbs: [[t('nav.areas', locale), 'areas.html']],
+    breadcrumbs: [[t('nav.allAreas', locale), 'areas.html']],
     description: area.seo.description,
     heroImage: area.hero.image,
     heroAlt: area.hero.alt,

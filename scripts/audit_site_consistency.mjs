@@ -142,10 +142,13 @@ for (const name of htmlFiles) {
     fail(name, `expected 2 language switchers (desktop + mobile), found ${switcherCount}`);
   }
 
-  // Likewise the Guides submenu, which shares the same injection risk.
+  // Likewise the nav submenus, which share the same injection risk. There are
+  // two of them now -- Areas and Guides -- and each appears once in the desktop
+  // nav and once in the drawer. Counting the total would hide one submenu going
+  // missing while the other doubled, so count each by the label it opens with.
   const dropdownCount = (html.match(/<details class="nav-dropdown"/g) || []).length;
-  if (dropdownCount !== 2) {
-    fail(name, `expected 2 Guides submenus (desktop + mobile), found ${dropdownCount}`);
+  if (dropdownCount !== 4) {
+    fail(name, `expected 4 nav submenus (Areas and Guides, desktop + mobile), found ${dropdownCount}`);
   }
 
   const attributes = [...html.matchAll(/\s(?:href|src|poster)="([^"]+)"/gi)];
@@ -590,6 +593,10 @@ const NAV_DESTINATIONS = new Set([
   'developments.html', 'areas.html', 'guides.html', 'advisory.html',
   'contact.html', 'about.html', 'why-nueva.html', 'compare.html', 'referrals.html',
   'privacy-policy.html', 'legal-notice.html', 'cookie-policy.html'
+  // The area guides stay out even though Areas is now a submenu: segment
+  // pages name them by the sub-area they cover ("Elviria", "Marbella Öster")
+  // from their own breadcrumb and footer, and that is a description of the
+  // page doing the linking, not a second name for the guide.
 ]);
 const navLabels = new Map(); // `${locale}|${target}` -> Map<label, firstFile>
 let navLabelsChecked = 0;

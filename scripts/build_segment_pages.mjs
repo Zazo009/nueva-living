@@ -12,6 +12,7 @@ import {
   baseHrefTag,
   renderLanguageSwitcher,
   renderGuidesMenu,
+  renderAreasMenu,
   guidesMobileLinks,
   renderDrawerActions,
   LANG_SWITCHER_SCRIPT,
@@ -133,7 +134,6 @@ function formatEuro(value) {
 function navLinks(locale) {
   return [
     [t('nav.developments', locale), 'developments.html'],
-    [t('nav.areas', locale), 'areas.html'],
     [t('nav.about', locale), 'about.html'],
     [t('nav.advisory', locale), 'advisory.html'],
     [t('nav.contactUs', locale), 'contact.html'],
@@ -142,19 +142,25 @@ function navLinks(locale) {
 
 function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
   const links = navLinks(locale);
+  const link = (index) => {
+    const [label, href] = links[index];
+    return `<a href="${href}">${label}</a>`;
+  };
   const switcher = renderLanguageSwitcher(currentOutputPath, locale);
   return `<nav class="site-nav">
     <div class="nav-links nav-links-left">
-      ${links.slice(0, 3).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${link(0)}
+      ${renderAreasMenu(locale)}
+      ${link(1)}
     </div>
     <a class="nav-logo" href="${home}" aria-label="${t('nav.home', locale)}">
       <img class="nav-wordmark" src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
       <span class="nav-wordmark-text" aria-hidden="true">Nueva Living</span>
     </a>
     <div class="nav-links nav-links-right">
-      ${links.slice(3, 4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${link(2)}
       ${renderGuidesMenu(locale)}
-      ${links.slice(4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n      ')}
+      ${link(3)}
       <span class="nav-divider" aria-hidden="true"></span>
       ${switcher}
     </div>
@@ -163,9 +169,12 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html') {
     </button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    ${links.slice(0, 4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${link(0)}
+    ${renderAreasMenu(locale)}
+    ${link(1)}
+    ${link(2)}
     ${guidesMobileLinks(locale)}
-    ${links.slice(4).map(([label, href]) => `<a href="${href}">${label}</a>`).join('\n    ')}
+    ${link(3)}
     ${renderDrawerActions(locale)}
     ${renderLanguageSwitcher(currentOutputPath, locale)}
   </div>`;
@@ -204,7 +213,7 @@ function footer(locale = DEFAULT_LOCALE) {
         <ul>
           <li><a href="developments.html">${t('nav.developments', locale)}</a></li>
           <li><a href="guides.html">${t('nav.buyingGuides', locale)}</a></li>
-          <li><a href="areas.html">${t('nav.areas', locale)}</a></li>
+          <li><a href="areas.html">${t('nav.allAreas', locale)}</a></li>
           <li><a href="area-marbella.html">${t('area.marbella', locale)}</a></li>
           <li><a href="area-estepona.html">${t('area.estepona', locale)}</a></li>
           <li><a href="area-casares.html">${t('area.casares', locale)}</a></li>

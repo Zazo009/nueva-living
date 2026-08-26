@@ -316,6 +316,10 @@ export function guidesMobileLinks(locale, prefix = '') {
   return renderGuidesMenu(locale, prefix);
 }
 
+export function areasMobileLinks(locale, prefix = '') {
+  return renderAreasMenu(locale, prefix);
+}
+
 // The burger drawer's two contact actions, sitting directly under the nav
 // list. WhatsApp is the primary (filled) action, email the secondary
 // (outlined) -- keep that hierarchy. Numbers match the general business
@@ -333,20 +337,43 @@ export function renderDrawerActions(locale) {
     </div>`;
 }
 
-export function renderGuidesMenu(locale, prefix = '') {
-  const options = guidesMenuItems(locale)
-    .map(([label, href]) => `<a class="nav-dropdown-option" href="${prefix}${href}">${label}</a>`)
+function areasMenuItems(locale) {
+  return [
+    [t('nav.allAreas', locale), localizedPath('areas.html', locale)],
+    [t('area.marbella', locale), localizedPath('area-marbella.html', locale)],
+    [t('area.nuevaAndalucia', locale), localizedPath('area-nueva-andalucia.html', locale)],
+    [t('area.benahavis', locale), localizedPath('area-benahavis.html', locale)],
+    [t('area.estepona', locale), localizedPath('area-estepona.html', locale)],
+    [t('area.casares', locale), localizedPath('area-casares.html', locale)],
+    [t('area.mijasFuengirola', locale), localizedPath('area-mijas-fuengirola.html', locale)]
+  ];
+}
+
+// Guides and Areas are the same component with a different list. Writing the
+// markup out twice is how the two would drift -- one gaining a caret or an
+// aria attribute the other never got -- so there is one renderer.
+function renderNavDisclosure(label, items, prefix) {
+  const options = items
+    .map(([text, href]) => `<a class="nav-dropdown-option" href="${prefix}${href}">${text}</a>`)
     .join('\n          ');
 
   return `<details class="nav-dropdown" data-nav-dropdown>
       <summary class="nav-dropdown-toggle">
-        <span>${t('nav.guides', locale)}</span>
+        <span>${label}</span>
         <svg class="nav-dropdown-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </summary>
       <div class="nav-dropdown-panel" role="menu">
           ${options}
       </div>
     </details>`;
+}
+
+export function renderGuidesMenu(locale, prefix = '') {
+  return renderNavDisclosure(t('nav.guides', locale), guidesMenuItems(locale), prefix);
+}
+
+export function renderAreasMenu(locale, prefix = '') {
+  return renderNavDisclosure(t('nav.areas', locale), areasMenuItems(locale), prefix);
 }
 
 // Shared close-on-outside-click / close-on-route-change behaviour for the

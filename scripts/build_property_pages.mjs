@@ -16,6 +16,7 @@ import {
   baseHrefTag,
   renderLanguageSwitcher,
   renderGuidesMenu,
+  renderAreasMenu,
   guidesMobileLinks,
   renderDrawerActions,
   LANG_SWITCHER_SCRIPT } from './lib/i18n.mjs';
@@ -1031,7 +1032,7 @@ function nav(project, locale = DEFAULT_LOCALE) {
   return `<nav class="site-nav">
     <div class="nav-links nav-links-left">
       <a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a>
-      <a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a>
+      ${renderAreasMenu(locale, p)}
       <a href="${p}${localizedPath('about.html', locale)}">${t('nav.about', locale)}</a>
     </div>
     <a class="nav-logo" href="${p}${localizedPath('index.html', locale)}" aria-label="${t('nav.home', locale)}">
@@ -1052,7 +1053,7 @@ function nav(project, locale = DEFAULT_LOCALE) {
 
   <div class="mobile-menu" id="mobileMenu">
     <a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a>
-    <a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a>
+    ${renderAreasMenu(locale, p)}
     <a href="${p}${localizedPath('about.html', locale)}">${t('nav.about', locale)}</a>
     <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
     ${guidesMobileLinks(locale, p)}
@@ -1222,7 +1223,7 @@ function footer(project, locale = DEFAULT_LOCALE) {
           <li><a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a></li>
           <li><a href="${p}${localizedPath(project.output, locale)}">${esc(project.shortName || project.name)}</a></li>
           <li><a href="${p}${localizedPath('guides.html', locale)}">${t('nav.buyingGuides', locale)}</a></li>
-          <li><a href="${p}${localizedPath('areas.html', locale)}">${t('nav.areas', locale)}</a></li>
+          <li><a href="${p}${localizedPath('areas.html', locale)}">${t('nav.allAreas', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-marbella.html', locale)}">${t('area.marbella', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-estepona.html', locale)}">${t('area.estepona', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-casares.html', locale)}">${t('area.casares', locale)}</a></li>

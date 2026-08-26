@@ -98,6 +98,8 @@ function navFooterReplacements(locale) {
   return [
     ['>Developments<', `>${t('nav.developments', locale)}<`],
     ['>Areas<', `>${t('nav.areas', locale)}<`],
+    ['>All Areas<', `>${t('nav.allAreas', locale)}<`],
+    ['>Mijas &amp; Fuengirola<', `>${t('area.mijasFuengirola', locale)}<`],
     ['>About<', `>${t('nav.about', locale)}<`],
     ['>Advisory<', `>${t('nav.advisory', locale)}<`],
     ['>Guides<', `>${t('nav.guides', locale)}<`],
