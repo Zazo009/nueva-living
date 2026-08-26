@@ -1785,12 +1785,54 @@ const legacyRedirects = [
   '/liora-cookie-policy.html /cookie-policy.html 301',
 ];
 
+
+// One URL per page.
+//
+// Netlify serves /about as well as /about.html, both 200, no redirect -- so
+// every page had two live URLs and Google indexed a mix of the two forms:
+// /about.html alongside /ru/about and /es/area-estepona. The canonical tag
+// resolved them correctly, which is why 207 pages sat in "alternate page with
+// proper canonical tag": Google doing the right thing with a duplicate that
+// should not have existed, and spending crawl on it.
+//
+// The site's own signals -- canonical, sitemap and 6,801 internal links --
+// all say .html, so that is the form that survives. Rules are written out one
+// per page rather than as a wildcard: a wildcard here would also catch asset
+// paths and the locale directories, and this file is generated anyway.
+//
+// Homepages are the exception in the other direction: they are canonical at
+// their directory, so /sv/index.html folds into /sv/.
+const extensionlessRedirects = [];
+{
+  const walkHtml = (dir, prefix = '') => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isDirectory()) {
+        if (entry.name === 'assets') continue;
+        walkHtml(path.join(dir, entry.name), `${prefix}${entry.name}/`);
+      } else if (entry.name.endsWith('.html')) {
+        const withExt = `/${prefix}${entry.name}`;
+        if (entry.name === 'index.html') {
+          // 301! -- the trailing bang forces the redirect. Without it Netlify
+          // serves the file, because a static file wins over a redirect rule,
+          // and these ten rules would have shipped doing nothing at all.
+          extensionlessRedirects.push(`${withExt} /${prefix} 301!`);
+        } else {
+          extensionlessRedirects.push(`${withExt.slice(0, -'.html'.length)} ${withExt} 301`);
+        }
+      }
+    }
+  };
+  walkHtml(dist);
+}
+
 // Locale-scoped 404s before the global catch-all, so a missing /es/...
 // URL gets the Spanish 404 page rather than the English one.
 const locale404Redirects = nonDefaultLocales
   .filter((locale) => fs.existsSync(path.join(root, locale.urlPrefix, '404.html')))
   .map((locale) => `/${locale.urlPrefix}/* /${locale.urlPrefix}/404.html 404`);
-fs.writeFileSync(path.join(dist, '_redirects'), `${legacyRedirects.join('\n')}\n${locale404Redirects.join('\n')}\n/* /404.html 404\n`);
+fs.writeFileSync(path.join(dist, '_redirects'),
+  `${legacyRedirects.join('\n')}\n${extensionlessRedirects.join('\n')}\n`
+  + `${locale404Redirects.join('\n')}\n/* /404.html 404\n`);
 
 fs.writeFileSync(path.join(dist, '_headers'), `/*.html
   Cache-Control: public, max-age=0, must-revalidate

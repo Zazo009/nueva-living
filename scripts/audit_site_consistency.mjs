@@ -866,6 +866,46 @@ let drawerRowHeights = 0;
 // Read the modules rather than the built pages: a table that is missing a
 // locale is the cause, and the page is only where it shows.
 const ENTRY_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+let redirectRulesChecked = 0;
+
+// A redirect rule that a real file shadows does nothing.
+//
+// Netlify serves a matching static file in preference to a redirect rule
+// unless the rule is forced with a trailing "!". The ten rules folding
+// /sv/index.html into /sv/ are exactly that shape, and without the bang they
+// would have shipped looking correct and doing nothing. Duplicated from-paths
+// are the other silent case: the second rule never runs.
+{
+  const redirectsPath = path.join(root, 'dist', '_redirects');
+  if (fs.existsSync(redirectsPath)) {
+    const rules = fs.readFileSync(redirectsPath, 'utf8').split('\n')
+      .map((line) => line.trim()).filter(Boolean)
+      .map((line) => line.split(/\s+/));
+    redirectRulesChecked = rules.length;
+    const seen = new Set();
+    const duplicated = [];
+    const shadowed = [];
+    for (const [from, , status] of rules) {
+      if (seen.has(from)) duplicated.push(from);
+      seen.add(from);
+      if (from.endsWith('*') || from === '/') continue;
+      const target = path.join(root, 'dist', from.replace(/^\//, ''));
+      if (fs.existsSync(target) && fs.statSync(target).isFile() && !String(status).endsWith('!')) {
+        shadowed.push(from);
+      }
+    }
+    if (shadowed.length) {
+      fail('dist/_redirects', `${shadowed.length} rule(s) are shadowed by a real file and will `
+        + `never run: ${shadowed.slice(0, 4).join(', ')}. Netlify serves the file unless the `
+        + 'status carries a trailing "!".');
+    }
+    if (duplicated.length) {
+      fail('dist/_redirects', `${duplicated.length} duplicated from-path(s): `
+        + `${duplicated.slice(0, 4).join(', ')}. Only the first rule for a path ever runs.`);
+    }
+  }
+}
+
 let placeSpellingsChecked = 0;
 
 // Place names have one spelling.
@@ -1091,5 +1131,6 @@ if (failures.length) {
     + `${translationEntriesChecked} translation entries checked for all nine locales, `
     + `${survivingFindStrings === 0 ? 'no' : survivingFindStrings} English source string(s) left unreplaced in translated pages, `
     + `${breadcrumbTrailsChecked} breadcrumb trails checked for a repeated crumb, `
-    + `${placeSpellingsChecked} place names checked for one spelling.`);
+    + `${placeSpellingsChecked} place names checked for one spelling, `
+    + `${redirectRulesChecked} redirect rules checked for shadowing and duplication.`);
 }
