@@ -1003,7 +1003,6 @@ const pages = [
     // English only: statutory content we have verified against the
     // consolidated text of the law. We do not publish translations of it
     // that have not been through native-language legal review.
-    englishOnly: true,
     body: `<section class="section"><div class="section-inner">
       <div class="guide-intro g-reveal">
         <p class="body-copy">A new-build comes with statutory cover against defects, and it is not one warranty but three, each running for a different length of time and each pointing at a different party. Knowing which clock applies to a given problem is what turns a snagging list from a favour the developer might do into a claim with a legal basis.</p>
