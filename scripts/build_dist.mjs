@@ -3,7 +3,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import vm from 'node:vm';
-import { LOCALES, DEFAULT_LOCALE, localizedPath, t, clampDescription} from './lib/i18n.mjs';
+import { LOCALES, DEFAULT_LOCALE, localizedPath, t, clampDescription,
+  renderAreasMenu, renderGuidesMenu } from './lib/i18n.mjs';
 import { MONTH_NAMES, localizeMonthDate } from './lib/dates.mjs';
 
 // writeHtml() below is called once per output file across the whole site
@@ -1307,6 +1308,22 @@ function loadDiscoveryTagDictionary() {
   return discoveryTagDictionary;
 }
 
+// The four hand-authored pages (404, compare, developments, thank-you) carry
+// a static copy of the nav disclosures, so they kept the English "Areas" label
+// and English area names beside nav items that were translated -- the area
+// names have no translation entries precisely because Spanish, French and the
+// rest spell them the same, and only Russian and Arabic ever needed one.
+//
+// Regenerating the block from the same renderer the builders use is what stops
+// these copies drifting again; patching the labels in place would not.
+function localiseNavDisclosures(html, locale) {
+  const menus = { Areas: renderAreasMenu(locale), Guides: renderGuidesMenu(locale) };
+  return html.replace(
+    /<details class="nav-dropdown" data-nav-dropdown>\s*<summary class="nav-dropdown-toggle">\s*<span>(Areas|Guides)<\/span>[\s\S]*?<\/details>/g,
+    (whole, label) => menus[label] || whole
+  );
+}
+
 function localiseDiscoveryTags(html, locale) {
   if (locale === DEFAULT_LOCALE) return html;
   const dict = loadDiscoveryTagDictionary();
@@ -1447,6 +1464,7 @@ function localiseGalleryChrome(html, locale) {
   out = injectShortlist(out);
   out = injectNavInteractions(out);
   out = injectSkipLink(out, locale);
+  out = localiseNavDisclosures(out, locale);
   out = localiseDiscoveryTags(out, locale);
   out = localiseGalleryChrome(out, locale);
   out = localiseChromeTemplates(out, locale);

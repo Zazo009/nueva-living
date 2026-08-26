@@ -949,7 +949,7 @@ const MAP_LANDMARKS = {
   estepona: { x: 150, y: 295, label: 'Estepona' },
   newGoldenMile: { x: 310, y: 278, label: 'New Golden Mile', key: 'map.newGoldenMile' },
   sanPedro: { x: 420, y: 268, label: 'San Pedro' },
-  benahavis: { x: 460, y: 145, label: 'Benahávis' },
+  benahavis: { x: 460, y: 145, label: 'Benahavís' },
   puertoBanus: { x: 560, y: 255, label: 'Puerto Banús' },
   nuevaAndalucia: { x: 600, y: 165, label: 'Nueva Andalucía' },
   goldenMile: { x: 680, y: 233, label: 'Golden Mile', key: 'map.goldenMile' },
@@ -2261,6 +2261,65 @@ function assertUnitTypeStrings() {
 }
 assertUnitTypeStrings();
 
+// A translation overlay that repeats the English is not a translation.
+//
+// Nineteen fields carried the full English sentence inside i18n.es, i18n.ru
+// and the rest -- an entire project card description among them, English on
+// all nine locales. Nothing failed, because the overlay key existed and the
+// builder only ever asks whether one is present.
+//
+// IDENTICAL_BY_DESIGN holds the strings where matching English is the correct
+// translation. Keep it small and keep the reason with each entry: a growing
+// list here means the check is being silenced rather than answered.
+const IDENTICAL_BY_DESIGN = new Set([
+  // "in" is spelled the same in German and Dutch, and both flanking names are
+  // proper nouns, so there is nothing left to translate.
+  'de|New Golden Mile, <em>in El Campanario</em>',
+  'nl|New Golden Mile, <em>in El Campanario</em>',
+]);
+
+function assertOverlaysAreTranslated(projects) {
+  const untranslated = [];
+  for (const project of projects) {
+    const base = { ...project };
+    delete base.i18n;
+    for (const locale of TAG_LOCALES) {
+      const overlay = project.i18n?.[locale];
+      if (!overlay) continue;
+      walkPair(base, overlay, (english) => {
+        if (english.length <= 40 || english.split(/\s+/).length < 6) return;
+        if (IDENTICAL_BY_DESIGN.has(`${locale}|${english}`)) return;
+        untranslated.push(`  [${locale}] ${project.slug}: "${english.slice(0, 70)}…"`);
+      });
+    }
+  }
+  if (untranslated.length) {
+    throw new Error(
+      `${untranslated.length} translation overlay value(s) still repeat the English:\n`
+      + `${untranslated.slice(0, 5).join('\n')}\n`
+      + 'Translate them, or add the string to IDENTICAL_BY_DESIGN with the reason '
+      + 'it is correct as it stands.'
+    );
+  }
+  return projects;
+}
+
+// Visit every string that appears at the same path in both trees and is equal.
+function walkPair(english, overlay, onMatch) {
+  if (typeof english === 'string' && typeof overlay === 'string') {
+    if (english === overlay) onMatch(english);
+  } else if (english && overlay && !Array.isArray(english) && typeof english === 'object'
+             && !Array.isArray(overlay) && typeof overlay === 'object') {
+    for (const key of Object.keys(english)) {
+      if (key in overlay) walkPair(english[key], overlay[key], onMatch);
+    }
+  } else if (Array.isArray(english) && Array.isArray(overlay)) {
+    for (let i = 0; i < Math.min(english.length, overlay.length); i += 1) {
+      walkPair(english[i], overlay[i], onMatch);
+    }
+  }
+}
+
 function assertPropertyTypeLabels(projects) {
   const byType = new Map(); // english -> locale -> Map<rendering, slug>
   for (const project of projects) {
@@ -2485,8 +2544,8 @@ function assertAvailability(project) {
 export function loadProjects() {
   // assertTagVocabulary needs the whole set -- a clash is between two projects,
   // not inside one -- so it wraps the list rather than each file.
-  return assertPropertyTypeLabels(assertFloorLabels(assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
-    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file }))))))))))
+  return assertOverlaysAreTranslated(assertPropertyTypeLabels(assertFloorLabels(assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))))))))))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;
