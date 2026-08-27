@@ -1,4 +1,5 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
+import { organizationSchema } from './lib/brand.mjs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import {
@@ -452,6 +453,9 @@ function segmentSchema(segment, matches, locale) {
   const stats = computeStats(matches);
   const name = resolveCount(segment.title, stats);
   return [
+    // Who publishes this. Locale segment pages carried a CollectionPage and
+    // nothing identifying the company behind it.
+    organizationSchema(siteUrl, { description: t('org.description', locale) }),
     {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
@@ -794,6 +798,7 @@ function renderGuidesPage(locale = DEFAULT_LOCALE) {
   const title = 'Costa del Sol Buying Guides | Nueva Living';
   const description = 'Compare new-build apartments and penthouses by area across the Costa del Sol, with real prices, availability and local buying guidance from Nueva Living.';
   const schema = [
+    organizationSchema(siteUrl, { description: t('org.description', locale) }),
     {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',

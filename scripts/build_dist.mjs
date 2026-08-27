@@ -1,4 +1,4 @@
-import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema, FOUNDERS, organizationId, personId } from './lib/brand.mjs';
+import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema, FOUNDERS, organizationId, personId, founderRefs } from './lib/brand.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -317,7 +317,7 @@ const basePageMeta = {
     // these people work for -- which is the one fact this page exists to
     // assert. The AboutPage names them as its subject for the same reason.
     schema: [
-      organizationSchema(siteUrl),
+      organizationSchema(siteUrl, founderRefs(siteUrl)),
       ...personSchemas(siteUrl),
       {
         '@context': 'https://schema.org',

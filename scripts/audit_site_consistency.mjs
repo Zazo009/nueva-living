@@ -866,6 +866,69 @@ let drawerRowHeights = 0;
 // Read the modules rather than the built pages: a table that is missing a
 // locale is the cause, and the page is only where it shows.
 const ENTRY_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+let entityPagesChecked = 0;
+
+// Every indexable page says who publishes it, in its own language.
+//
+// The organisation schema -- name, address, geo, sameAs, founders -- lived on
+// the English pages alone. Nine language versions carried a WebPage and a
+// BreadcrumbList and nothing identifying the company, so to a crawler
+// arriving in Spanish or German the site asserted no entity at all. That is
+// the signal that separates this company from the similarly named one that
+// currently owns the brand query.
+//
+// The description is checked for being translated, not merely present: a
+// schema description is read as text, and an English sentence inside Swedish
+// structured data is an assertion in the wrong language.
+{
+  const distRoot = path.join(root, 'dist');
+  if (fs.existsSync(distRoot)) {
+    const missing = [];
+    const englishText = [];
+    const enDescription = /"description":\s*"([^"]{40,})"/;
+    const readOrg = (file) => {
+      const html = fs.readFileSync(file, 'utf8');
+      if (/name="robots"\s+content="[^"]*noindex/.test(html)) return undefined;
+      const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+      for (const [, raw] of blocks) {
+        let parsed;
+        try { parsed = JSON.parse(raw); } catch { continue; }
+        const nodes = Array.isArray(parsed) ? parsed : (parsed['@graph'] || [parsed]);
+        for (const node of nodes) {
+          if (node && (node['@type'] === 'Organization' || node['@type'] === 'RealEstateAgent')) return node;
+        }
+      }
+      return null;
+    };
+    for (const locale of ENTRY_LOCALES) {
+      const dir = path.join(distRoot, locale);
+      if (!fs.existsSync(dir)) continue;
+      const english = new Map();
+      for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.html'))) {
+        const node = readOrg(path.join(dir, file));
+        if (node === undefined) continue;
+        entityPagesChecked += 1;
+        if (!node) { missing.push(`${locale}/${file}`); continue; }
+        const englishNode = readOrg(path.join(distRoot, file));
+        if (englishNode && englishNode.description
+            && node.description === englishNode.description) {
+          englishText.push(`${locale}/${file}`);
+        }
+      }
+    }
+    if (missing.length) {
+      fail('dist', `${missing.length} indexable locale page(s) carry no organisation schema: `
+        + `${missing.slice(0, 4).join(', ')}`
+        + `${missing.length > 4 ? `, …and ${missing.length - 4} more` : ''}.`);
+    }
+    if (englishText.length) {
+      fail('dist', `${englishText.length} page(s) assert the organisation description in English `
+        + `inside another language: ${englishText.slice(0, 4).join(', ')}`
+        + `${englishText.length > 4 ? `, …and ${englishText.length - 4} more` : ''}.`);
+    }
+  }
+}
+
 let ogLocalesChecked = 0;
 
 // og:locale is language_TERRITORY, not a bare language code.
@@ -1346,5 +1409,6 @@ if (failures.length) {
     + `${sitemapPagesChecked} indexable pages matched against the sitemap, `
     + `${uniqueMetaChecked} titles and descriptions checked for uniqueness within a language, `
     + `${descriptionRatiosChecked} translated descriptions measured against their English source, `
-    + `${ogLocalesChecked} og:locale values checked for the language_TERRITORY form.`);
+    + `${ogLocalesChecked} og:locale values checked for the language_TERRITORY form, `
+    + `${entityPagesChecked} locale pages checked for a translated organisation schema.`);
 }

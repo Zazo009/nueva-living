@@ -1571,7 +1571,10 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   // and logo -- Google reads structured data as an assertion about the
   // business, and 84 pages asserting a thinner version of it is worse than
   // one consistent claim.
-  const agentSchema = realEstateAgentSchema(siteUrl, { areaServed: 'Costa del Sol' });
+  const agentSchema = realEstateAgentSchema(siteUrl, {
+    areaServed: 'Costa del Sol',
+    description: t('org.description', locale)
+  });
   const faqs = [...defaultFaqs(locale), ...(project.faq || [])];
   const faqSchema = {
     '@context': 'https://schema.org',

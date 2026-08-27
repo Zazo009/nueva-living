@@ -12,6 +12,8 @@
 // project.json's own i18n overlay, and data-i18n-* attributes feeding
 // liora-discovery.js's runtime strings. Untranslated strings keep English.
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+
+const ORG_DESCRIPTION_EN = "Nueva Living is a new-build and off-plan property advisory based in Marbella, working with buyers across Marbella, Estepona, Benahavís and the wider Costa del Sol.";
 import path from 'node:path';
 import {
   LOCALES,
@@ -21,7 +23,8 @@ import {
   hreflangLinks,
   renderLanguageSwitcher,
   LANG_SWITCHER_SCRIPT,
-  localizeInternalLinks
+  localizeInternalLinks,
+  t
 } from './lib/i18n.mjs';
 import {
   DEVELOPMENTS_PAGE_ENTRIES,
@@ -196,6 +199,11 @@ for (const meta of LOCALES) {
     .join(`<meta property="og:url" content="${localeUrl}">`);
   html = html.split(`"url": "${siteUrl}/developments.html"`).join(`"url": "${localeUrl}"`);
   html = html.replace('<meta property="og:locale" content="en_US">', `<meta property="og:locale" content="${meta.ogLocale}">`);
+
+  // The organisation node travels with the clone, so its description has to
+  // be swapped too -- otherwise nine languages assert who the company is in
+  // English inside their own structured data.
+  html = html.split(ORG_DESCRIPTION_EN).join(t('org.description', locale));
 
   // Reciprocal hreflang after the canonical tag.
   html = html.replace(

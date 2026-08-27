@@ -63,7 +63,19 @@ const IDENTITY = {
   legalName: 'LIORA LIVING SL.',
   taxID: 'B88827472',
   email: 'contact@nuevaliving.com',
-  telephone: '+34645446624'
+  telephone: '+34645446624',
+  // One sentence saying what this company is. The organisation schema
+  // carried no description at all, which is the field an AI overview lifts a
+  // definition from -- and for the brand query the overview currently
+  // describes Nuva Living, a temporary-rental company in Madrid, because
+  // that is the entity Google is confident about. Naming the business, the
+  // market and the coast in one line is the part of that we can assert.
+  //
+  // Every clause is stated in visible copy on /about, which is the condition
+  // for putting it here at all.
+  description: 'Nueva Living is a new-build and off-plan property advisory based in '
+    + 'Marbella, working with buyers across Marbella, Estepona, Benahavís and the '
+    + 'wider Costa del Sol.'
 };
 
 /**
@@ -202,4 +214,16 @@ export function webSiteSchema(siteUrl) {
     url: `${siteUrl}/`,
     publisher: { '@type': 'Organization', name: IDENTITY.name, url: siteUrl }
   };
+}
+
+// Founder references for a page that also carries the Person nodes.
+//
+// Attaching these to every organisation node dangled the reference on every
+// page that does not define the people -- the guides reference an author, not
+// both founders -- and the audit is right to fail that: a parser reaching a
+// bare @id has to go and find the node somewhere else to learn anything.
+// Pass this into organizationSchema's `extra` on /about, where the Person
+// nodes sit beside it.
+export function founderRefs(siteUrl) {
+  return { founder: FOUNDERS.map((person) => ({ '@id': personId(siteUrl, person) })) };
 }

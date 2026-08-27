@@ -8,6 +8,7 @@
 // directory, which keeps the cinematic presentation, animations and
 // hydration-free architecture completely unaffected.
 import { readFileSync } from 'node:fs';
+import { organizationSchema, organizationId } from './brand.mjs';
 import path from 'node:path';
 
 const root = process.cwd();
@@ -157,6 +158,13 @@ export function pageUrl(outputPath, locale, siteUrl = 'https://nuevaliving.com')
 // in any language (90 indexable pages), which is what breadcrumb rich
 // results in search are built from. `trail` is [[label, outputPath], ...]
 // from the page's own visible breadcrumb, so the two always agree.
+// The organisation, on every locale page rather than only the English ones.
+//
+// Nine language versions carried WebPage and BreadcrumbList and nothing that
+// said who the company is -- no name, address, sameAs, geo or founders. All
+// of that lived on the English pages alone, so for a reader arriving in
+// Spanish or German the site asserted no entity at all. The description is
+// translated because a schema description is read as text, not as a key.
 export function pageSchema({ outputPath, locale, title, description, trail = [], siteUrl = 'https://nuevaliving.com' }) {
   const items = [
     { name: 'Nueva Living', path: 'index.html' },
@@ -171,8 +179,10 @@ export function pageSchema({ outputPath, locale, title, description, trail = [],
       description,
       url: pageUrl(outputPath, locale, siteUrl),
       inLanguage: localeMeta(locale).htmlLang,
-      isPartOf: { '@type': 'WebSite', name: 'Nueva Living', url: siteUrl }
+      isPartOf: { '@type': 'WebSite', name: 'Nueva Living', url: siteUrl },
+      publisher: { '@id': organizationId(siteUrl) }
     },
+    organizationSchema(siteUrl, { description: t('org.description', locale) }),
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
