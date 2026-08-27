@@ -866,6 +866,46 @@ let drawerRowHeights = 0;
 // Read the modules rather than the built pages: a table that is missing a
 // locale is the cause, and the page is only where it shows.
 const ENTRY_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+let ogLocalesChecked = 0;
+
+// og:locale is language_TERRITORY, not a bare language code.
+//
+// English shipped "en_US" and every other language shipped its bare code --
+// "de", "es", "ar". Open Graph defines the value as language_TERRITORY, so
+// the nine locale versions were malformed and simply ignored by the networks
+// that read it. It looked right in a diff, which is why it survived: the
+// value matched the page's own lang attribute, and lang is where a bare code
+// is correct.
+{
+  const distRoot = path.join(root, 'dist');
+  if (fs.existsSync(distRoot)) {
+    const malformed = [];
+    const walk = (dir) => {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+          if (entry.name !== 'assets') walk(full);
+        } else if (entry.name.endsWith('.html')) {
+          const value = /<meta property="og:locale" content="([^"]*)"/
+            .exec(fs.readFileSync(full, 'utf8'))?.[1];
+          if (!value) continue;
+          ogLocalesChecked += 1;
+          if (!/^[a-z]{2}_[A-Z]{2}$/.test(value)) {
+            malformed.push(`${path.relative(distRoot, full)} ("${value}")`);
+          }
+        }
+      }
+    };
+    walk(distRoot);
+    if (malformed.length) {
+      fail('dist', `${malformed.length} page(s) carry a malformed og:locale: `
+        + `${malformed.slice(0, 4).join(', ')}`
+        + `${malformed.length > 4 ? `, …and ${malformed.length - 4} more` : ''}. `
+        + 'Open Graph wants language_TERRITORY (de_DE), not the bare language code.');
+    }
+  }
+}
+
 let descriptionRatiosChecked = 0;
 
 // A translated description must carry the same substance as the English.
@@ -1305,5 +1345,6 @@ if (failures.length) {
     + `${redirectRulesChecked} redirect rules checked for shadowing and duplication, `
     + `${sitemapPagesChecked} indexable pages matched against the sitemap, `
     + `${uniqueMetaChecked} titles and descriptions checked for uniqueness within a language, `
-    + `${descriptionRatiosChecked} translated descriptions measured against their English source.`);
+    + `${descriptionRatiosChecked} translated descriptions measured against their English source, `
+    + `${ogLocalesChecked} og:locale values checked for the language_TERRITORY form.`);
 }

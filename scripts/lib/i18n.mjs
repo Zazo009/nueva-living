@@ -208,7 +208,7 @@ export function seoTags(outputPath, locale, { title, description, siteUrl = 'htt
   return [
     `<link rel="canonical" href="${esc(url)}">`,
     `<meta property="og:site_name" content="Nueva Living">`,
-    `<meta property="og:locale" content="${esc(meta.htmlLang)}">`,
+    `<meta property="og:locale" content="${esc(meta.ogLocale)}">`,
     `<meta property="og:type" content="${esc(type)}">`,
     `<meta property="og:title" content="${esc(title)}">`,
     `<meta property="og:description" content="${esc(description)}">`,

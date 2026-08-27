@@ -195,7 +195,7 @@ for (const meta of LOCALES) {
   html = html.split(`<meta property="og:url" content="${siteUrl}/developments.html">`)
     .join(`<meta property="og:url" content="${localeUrl}">`);
   html = html.split(`"url": "${siteUrl}/developments.html"`).join(`"url": "${localeUrl}"`);
-  html = html.replace('<meta property="og:locale" content="en_US">', `<meta property="og:locale" content="${meta.htmlLang}">`);
+  html = html.replace('<meta property="og:locale" content="en_US">', `<meta property="og:locale" content="${meta.ogLocale}">`);
 
   // Reciprocal hreflang after the canonical tag.
   html = html.replace(

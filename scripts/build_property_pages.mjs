@@ -1601,7 +1601,7 @@ ${hreflangLinks(sourceProject.output, siteUrl)}
   <meta property="og:description" content="${esc(project.description)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${esc(canonicalHref)}">
-  <meta property="og:locale" content="${localeMetaInfo.htmlLang}">
+  <meta property="og:locale" content="${localeMetaInfo.ogLocale}">
   <meta property="og:image" content="${esc(assetUrl(heroImage.src))}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(pageTitle)}">
