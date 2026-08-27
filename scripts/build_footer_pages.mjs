@@ -18,7 +18,8 @@ import {
   localizeProject,
   localizeInternalLinks,
   seoTags,
-  pageSchema
+  pageSchema,
+  pageUrl
 } from './lib/i18n.mjs';
 import { MONTH_NAMES, localizeMonthDate } from './lib/dates.mjs';
 import { GUIDE_AUTHOR, organizationSchema, personSchemas, organizationId, personId } from './lib/brand.mjs';
@@ -387,9 +388,50 @@ function guideRevealScript() {
     <\/script>`;
 }
 
+// FAQ structured data, derived from the FAQ the page actually renders.
+//
+// The eight general questions existed in two places: strings.json, which the
+// visible accordion reads through t(), and a hardcoded English copy inside
+// build_dist.mjs that produced the schema. Only the English root pages got
+// that copy, so all six guides shipped with no FAQ markup in any language,
+// and advisory, index and referrals had none in their nine locale versions.
+//
+// Writing the questions a third time would repeat the mistake, so the schema
+// is parsed back out of the page's own markup instead.
+//
+// It has to run AFTER applyFooterPageTranslations, not before. That pass is a
+// literal find/replace over the whole document, JSON-LD included, and the
+// table translates the string "FAQ" -- so a schema written before it came out
+// the other side as "@type": "Vanliga frågorPage" in eight of nine languages.
+// Deriving it from the translated markup fixes both halves at once: the
+// questions are in the reader's language, and the type token never passes
+// through the replacement at all.
+function withFaqSchema(html, file, locale) {
+  const items = [...html.matchAll(
+    /<details class="segment-faq-item"[^>]*>\s*<summary>([\s\S]*?)<\/summary>\s*<p>([\s\S]*?)<\/p>/g)];
+  if (items.length < 2) return html;
+  const strip = (fragment) => fragment.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${pageUrl(file, locale, 'https://nuevaliving.com')}#faq`,
+    inLanguage: localeMeta(locale).htmlLang,
+    mainEntity: items.map(([, question, answer]) => ({
+      '@type': 'Question',
+      name: strip(question),
+      acceptedAnswer: { '@type': 'Answer', text: strip(answer) }
+    }))
+  };
+  const block = `  <script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n  </script>\n`;
+  return html.replace('</head>', `${block}</head>`);
+}
+
 function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '', englishOnly = false, datePublished }, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
+  // Rendered once, so the FAQ schema below can be read out of the same string
+  // the page ships rather than being written a second time.
+  const renderedBody = typeof body === 'function' ? body(locale) : body;
   const html = `<!doctype html>
 <html lang="${meta.htmlLang}" dir="${meta.dir}">
 <head>
@@ -427,7 +469,7 @@ ${fontPreloadBlock}
 ${datePublished ? `        <p class="guide-byline"><span>${t('guide.writtenBy', locale)} <a href="about.html" rel="author">${esc(GUIDE_AUTHOR.name)}</a></span><span class="guide-byline-sep" aria-hidden="true">&middot;</span><span>${t('guide.updated', locale)} <time data-guide-updated datetime="${datePublished}">${esc(humanDate(datePublished, locale))}</time></span></p>` : ''}
       </div>
     </section>
-    ${typeof body === 'function' ? body(locale) : body}
+    ${renderedBody}
     ${bodyClass === 'guide-article-page' ? guideTail() : ''}
   </main>
   ${footer(locale)}
@@ -456,7 +498,7 @@ ${datePublished ? `        <p class="guide-byline"><span>${t('guide.writtenBy', 
   ${bodyClass === 'guide-article-page' ? guideRevealScript() : ''}
 </body>
 </html>`;
-  return localizeInternalLinks(applyFooterPageTranslations(html, locale), locale);
+  return withFaqSchema(localizeInternalLinks(applyFooterPageTranslations(html, locale), locale), file, locale);
 }
 
 function esc(value) {

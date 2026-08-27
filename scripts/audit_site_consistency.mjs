@@ -936,6 +936,61 @@ const allEntries = fs.existsSync(entriesModule)
   ? (await import(pathToFileURL(entriesModule).href)).FOOTER_PAGE_ENTRIES || []
   : [];
 
+let faqSchemaChecked = 0;
+
+// A visible FAQ must be marked up as one, in the reader's language.
+//
+// The general questions lived in strings.json for the visible accordion and in
+// a second hardcoded English copy in build_dist.mjs for the schema. Only the
+// English root pages got the copy, so all six guides shipped with no FAQ
+// markup in any language and advisory, index and referrals had none in their
+// nine locale versions -- 88 pages with a visible FAQ that no search engine
+// could read as one.
+//
+// The first attempt at fixing it built the schema before the translation pass,
+// which is a literal find/replace over the whole document including JSON-LD.
+// The table translates the string "FAQ", so the type token itself came out as
+// "@type": "Vanliga frågorPage" in eight of nine languages -- valid JSON,
+// meaningless to a parser. So this checks three things at once: the schema
+// exists, its @type survived, and its first question is the first question the
+// page actually shows.
+{
+  const distRoot = path.join(root, 'dist');
+  const missing = [];
+  const mismatched = [];
+  for (const file of fs.existsSync(distRoot) ? everyHtmlFile(distRoot) : []) {
+    const html = fs.readFileSync(file, 'utf8');
+    const visible = html.match(
+      /<details class="segment-faq-item"[^>]*>\s*<summary>([\s\S]*?)<\/summary>/);
+    if (!visible) continue;
+    faqSchemaChecked += 1;
+    const rel = path.relative(distRoot, file);
+    const strip = (fragment) => fragment.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    let faq = null;
+    for (const block of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      let parsed;
+      try { parsed = JSON.parse(block[1]); } catch { continue; }
+      for (const node of (Array.isArray(parsed) ? parsed : (parsed['@graph'] || [parsed]))) {
+        if (node && node['@type'] === 'FAQPage') faq = node;
+      }
+    }
+    if (!faq) { missing.push(rel); continue; }
+    const first = faq.mainEntity?.[0]?.name;
+    if (strip(first || '') !== strip(visible[1])) {
+      mismatched.push(`${rel} (schema "${String(first).slice(0, 30)}" vs page "${strip(visible[1]).slice(0, 30)}")`);
+    }
+  }
+  if (missing.length) {
+    fail('dist', `${missing.length} page(s) render a FAQ but ship no FAQPage schema: `
+      + `${missing.slice(0, 4).join(', ')}`
+      + `${missing.length > 4 ? `, …and ${missing.length - 4} more` : ''}.`);
+  }
+  if (mismatched.length) {
+    fail('dist', `${mismatched.length} page(s) carry FAQ schema that does not match the FAQ shown: `
+      + `${mismatched.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let registerPagesChecked = 0;
 
 // One form of address per language, across every page type.
@@ -1684,5 +1739,6 @@ if (failures.length) {
     + `${revealPagesChecked} pages checked for the script that unhides their scroll-revealed content, `
     + `${translationConflictsChecked} English strings checked for exactly one translation each, `
     + `${sharedFragmentsChecked} guides compared against their nine locale builds for untranslated text, `
-    + `${registerPagesChecked} pages checked for one form of address per language.`);
+    + `${registerPagesChecked} pages checked for one form of address per language, `
+    + `${faqSchemaChecked} visible FAQs matched against their structured data.`);
 }
