@@ -247,7 +247,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
   },
   {
     find: 'That is the acquisition cost. It does not include mortgage arrangement and valuation fees if you are borrowing, furnishing, or the running costs that start after completion -- IBI, community fees and utilities.',
-    es: 'Ese es el coste de adquisición. No incluye los gastos de apertura y tasación si financias con hipoteca, el amueblamiento ni los costes recurrentes que empiezan tras la entrega: IBI, cuotas de comunidad y suministros.',
+    es: 'Ese es el coste de adquisición. No incluye los gastos de apertura y tasación si financia con hipoteca, el amueblamiento ni los costes recurrentes que empiezan tras la entrega: IBI, cuotas de comunidad y suministros.',
     fr: 'Il s’agit du coût d’acquisition. Il n’inclut pas les frais de dossier et d’expertise si vous empruntez, l’ameublement, ni les charges courantes qui démarrent après la livraison : IBI, charges de copropriété et abonnements.',
     de: 'Das sind die Erwerbskosten. Nicht enthalten sind Bearbeitungs- und Bewertungsgebühren bei Finanzierung, die Möblierung sowie die laufenden Kosten ab Übergabe – IBI, Hausgeld und Nebenkosten.',
     ru: 'Это стоимость приобретения. Сюда не входят комиссия за оформление ипотеки и оценка объекта при кредите, меблировка и текущие расходы, которые начинаются после передачи ключей: IBI, взносы в сообщество собственников и коммунальные услуги.',
@@ -259,7 +259,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
   },
   {
     find: 'The IVA rate is national and the AJD rate is set by Andaluc&iacute;a; both can change, and the reduced rates carry conditions that depend on your circumstances. This page is general information about how the costs are structured, not tax or legal advice. Confirm the figures for your own purchase with your lawyer or tax adviser before you commit to anything. Nueva Living provides a written cost breakdown for a specific residence on request.',
-    es: 'El tipo de IVA es estatal y el de AJD lo fija Andalucía; ambos pueden cambiar, y los tipos reducidos están sujetos a condiciones que dependen de tu situación. Esta página es información general sobre cómo se estructuran los costes, no asesoramiento fiscal ni jurídico. Confirma las cifras de tu compra con tu abogado o asesor fiscal antes de comprometerte a nada. Nueva Living facilita un desglose de costes por escrito para una vivienda concreta a petición.',
+    es: 'El tipo de IVA es estatal y el de AJD lo fija Andalucía; ambos pueden cambiar, y los tipos reducidos están sujetos a condiciones que dependen de su situación. Esta página es información general sobre cómo se estructuran los costes, no asesoramiento fiscal ni jurídico. Confirme las cifras de su compra con su abogado o asesor fiscal antes de comprometerse a nada. Nueva Living facilita un desglose de costes por escrito para una vivienda concreta a petición.',
     fr: 'Le taux d’IVA est national et le taux d’AJD est fixé par l’Andalousie ; les deux peuvent évoluer, et les taux réduits sont soumis à des conditions liées à votre situation. Cette page constitue une information générale sur la structure des coûts, et non un conseil fiscal ou juridique. Faites confirmer les chiffres de votre achat par votre avocat ou votre conseiller fiscal avant de vous engager. Nueva Living fournit sur demande une estimation écrite des coûts pour un logement précis.',
     de: 'Der IVA-Satz ist landesweit festgelegt, der AJD-Satz von Andalusien; beide können sich ändern, und die ermäßigten Sätze sind an Bedingungen geknüpft, die von Ihrer Situation abhängen. Diese Seite ist allgemeine Information zur Kostenstruktur, keine Steuer- oder Rechtsberatung. Lassen Sie die Zahlen für Ihren Kauf von Ihrem Anwalt oder Steuerberater bestätigen, bevor Sie sich binden. Nueva Living erstellt auf Wunsch eine schriftliche Kostenaufstellung für eine konkrete Wohnung.',
     ru: 'Ставка IVA устанавливается на общенациональном уровне, ставка AJD — Андалусией; обе могут измениться, а пониженные ставки применяются на условиях, зависящих от вашей ситуации. Эта страница — общая информация о структуре расходов, а не налоговая или юридическая консультация. Подтвердите цифры по своей сделке у юриста или налогового консультанта, прежде чем брать на себя обязательства. По запросу Nueva Living предоставляет письменную смету расходов по конкретному объекту.',
@@ -353,7 +353,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
   },
   {
     find: 'Before You Rely On This',
-    es: 'Antes de basarte en esto', fr: 'Avant de vous y fier', de: 'Bevor Sie sich darauf verlassen',
+    es: 'Antes de basarse en esto', fr: 'Avant de vous y fier', de: 'Bevor Sie sich darauf verlassen',
     ru: 'Прежде чем на это полагаться', ar: 'قبل الاعتماد على هذه الأرقام', nl: 'Voordat u hierop vertrouwt',
     pl: 'Zanim się Państwo na tym oprą', sv: 'Innan ni förlitar er på detta', no: 'Før du baserer deg på dette'
   },

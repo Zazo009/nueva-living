@@ -966,8 +966,15 @@ let registerPagesChecked = 0;
     // but not the imperatives Polish UI conventionally uses on buttons
     // (Zapisz, Napisz, Wyślij), which are not read as addressing anyone.
     pl: word('\\w*(?:esz|asz|isz|ysz|łeś|łaś)|Ci|Ciebie|Cię|Tobie|Twój|Twoja|Twoje|Twoim|Twoich|Twojej|Twoją', 'gu'),
+    // Spanish: tú possessives and clitics, plus infinitives carrying an
+    // enclitic -te (ayudarte, ponerte). The allowlist below covers the nouns
+    // that merely end in -te and the ones that are not clitics at all.
+    es: word('tu|tú|tus|tuyo|tuya|tuyos|tuyas|ti|contigo|te|\\w+(?:ar|er|ir)te', 'giu'),
   };
-  const ALLOWED = { pl: /^(nasz|Nasz|wasz|Wasz|Zapisz|zapisz|Napisz|napisz|Podpisz|podpisz|Opisz|opisz|Wpisz|wpisz)$/ };
+  const ALLOWED = {
+    pl: /^(nasz|Nasz|wasz|Wasz|Zapisz|zapisz|Napisz|napisz|Podpisz|podpisz|Opisz|opisz|Wpisz|wpisz)$/,
+    es: /^(parte|aparte|convierte|fuerte|reparte|arte|corte|norte|deporte|soporte|reporte|suerte|muerte|puente|frente)$/i,
+  };
   const offenders = [];
   for (const [locale, pattern] of Object.entries(INFORMAL)) {
     const dir = path.join(distRoot, locale);

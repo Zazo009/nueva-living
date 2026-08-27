@@ -19,7 +19,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   {
     find: 'A step-by-step guide to buying a new-build home on the Costa del Sol, from your first shortlist to collecting the keys.',
-    es: 'Una guía paso a paso para comprar una vivienda de obra nueva en la Costa del Sol, desde tu primera preselección hasta recoger las llaves.',
+    es: 'Una guía paso a paso para comprar una vivienda de obra nueva en la Costa del Sol, desde su primera preselección hasta recoger las llaves.',
     fr: 'Un guide étape par étape pour l’achat d’un bien neuf sur la Costa del Sol, de votre première présélection jusqu’à la remise des clés.',
     de: 'Ein Schritt-für-Schritt-Leitfaden für den Kauf einer Neubauimmobilie an der Costa del Sol – von Ihrer ersten Vorauswahl bis zur Schlüsselübergabe.',
     ru: 'Пошаговое руководство по покупке новостройки на Коста-дель-Соль — от первого шорт-листа до получения ключей.',
@@ -55,7 +55,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   {
     find: 'Off-plan and new-build purchases work differently from buying a resale home. Here is exactly how the process runs, from your first shortlist to collecting the keys.',
-    es: 'Las compras sobre plano y de obra nueva funcionan de forma distinta a la compra de una vivienda de reventa. Así es exactamente como funciona el proceso, desde tu primera preselección hasta recoger las llaves.',
+    es: 'Las compras sobre plano y de obra nueva funcionan de forma distinta a la compra de una vivienda de reventa. Así es exactamente como funciona el proceso, desde su primera preselección hasta recoger las llaves.',
     fr: 'L’achat sur plan ou dans le neuf fonctionne différemment de l’achat d’un bien de revente. Voici exactement comment se déroule le processus, de votre première présélection jusqu’à la remise des clés.',
     de: 'Der Kauf einer Immobilie vom Plan oder eines Neubaus unterscheidet sich vom Kauf einer Bestandsimmobilie. Hier erfahren Sie genau, wie der Prozess abläuft – von Ihrer ersten Vorauswahl bis zur Schlüsselübergabe.',
     ru: 'Покупка на стадии строительства и новостроек отличается от покупки вторичного жилья. Вот как именно проходит этот процесс — от первого шорт-листа до получения ключей.',
@@ -80,9 +80,9 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     no: 'Nybygg og kjøp under bygging følger en annen rekkefølge enn et bruktkjøp: trinnvise betalinger, en privat kjøpekontrakt og utbyggerens byggetidsplan i stedet for en umiddelbar innflyttingsdato. Syv trinn, fra start til slutt.'
   },
   { find: 'See the Full Journey', es: 'Ver el recorrido completo', fr: 'Voir le parcours complet', de: 'Den gesamten Ablauf ansehen', ru: 'Смотреть весь путь', ar: 'عرض الرحلة الكاملة', nl: 'Bekijk het volledige traject', pl: 'Zobacz cały przebieg', sv: 'Se hela resan', no: 'Se hele reisen' },
-  { find: 'Speak With an Advisor', es: 'Habla con un asesor', fr: 'Parler à un conseiller', de: 'Mit einem Berater sprechen', ru: 'Поговорить с консультантом', ar: 'تحدث مع مستشار', nl: 'Spreek met een adviseur', pl: 'Porozmawiaj z doradcą', sv: 'Prata med en rådgivare', no: 'Snakk med en rådgiver' },
+  { find: 'Speak With an Advisor', es: 'Hable con un asesor', fr: 'Parler à un conseiller', de: 'Mit einem Berater sprechen', ru: 'Поговорить с консультантом', ar: 'تحدث مع مستشار', nl: 'Spreek met een adviseur', pl: 'Porozmawiaj z doradcą', sv: 'Prata med en rådgivare', no: 'Snakk med en rådgiver' },
   { find: 'Steps, Reservation to Keys', es: 'Pasos, de la reserva a las llaves', fr: 'Étapes, de la réservation aux clés', de: 'Schritte, von der Reservierung bis zum Schlüssel', ru: 'Шагов от резервирования до ключей', ar: 'خطوات، من الحجز إلى المفاتيح', nl: 'Stappen, van Reservering tot Sleutels', pl: 'Kroków, od rezerwacji do kluczy', sv: 'Steg, från bokning till nycklar', no: 'Trinn, fra reservasjon til nøkler' },
-  { find: 'People Involved: You, Nueva Living, Your Lawyer', es: 'Personas involucradas: tú, Nueva Living, tu abogado', fr: 'Personnes impliquées : vous, Nueva Living, votre avocat', de: 'Beteiligte Personen: Sie, Nueva Living, Ihr Anwalt', ru: 'Участника: вы, Nueva Living, ваш юрист', ar: 'أطراف معنية: أنت، Nueva Living، محاميك', nl: 'Betrokken partijen: u, Nueva Living, uw advocaat', pl: 'Zaangażowane osoby: Państwo, Nueva Living, Państwa prawnik', sv: 'Inblandade parter: ni, Nueva Living, er advokat', no: 'Involverte parter: deg, Nueva Living, din advokat' },
+  { find: 'People Involved: You, Nueva Living, Your Lawyer', es: 'Personas involucradas: usted, Nueva Living, su abogado', fr: 'Personnes impliquées : vous, Nueva Living, votre avocat', de: 'Beteiligte Personen: Sie, Nueva Living, Ihr Anwalt', ru: 'Участника: вы, Nueva Living, ваш юрист', ar: 'أطراف معنية: أنت، Nueva Living، محاميك', nl: 'Betrokken partijen: u, Nueva Living, uw advocaat', pl: 'Zaangażowane osoby: Państwo, Nueva Living, Państwa prawnik', sv: 'Inblandade parter: ni, Nueva Living, er advokat', no: 'Involverte parter: deg, Nueva Living, din advokat' },
   { find: 'Needed Before You Sign', es: 'Necesario antes de firmar', fr: 'Nécessaire avant de signer', de: 'Erforderlich vor der Unterschrift', ru: 'Требуется до подписания', ar: 'مطلوب قبل التوقيع', nl: 'Benodigd vóór ondertekening', pl: 'Potrzebne przed podpisaniem', sv: 'Behövs innan ni skriver under', no: 'Nødvendig før du signerer' },
   { find: 'Weeks, Reservation to Contract', es: 'Semanas, de la reserva al contrato', fr: 'Semaines, de la réservation au contrat', de: 'Wochen, von der Reservierung bis zum Vertrag', ru: 'Недель от резервирования до контракта', ar: 'أسابيع، من الحجز إلى العقد', nl: 'Weken, van Reservering tot Contract', pl: 'Tygodni, od rezerwacji do umowy', sv: 'Veckor, från bokning till kontrakt', no: 'Uker, fra reservasjon til kontrakt' },
 
@@ -102,10 +102,10 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 1 ---
-  { find: 'Work Out What You Actually Want', es: 'Define lo que realmente quieres', fr: 'Déterminez ce que vous voulez vraiment', de: 'Klären Sie, was Sie wirklich wollen', ru: 'Определите, чего вы на самом деле хотите', ar: 'حدّد ما تريده فعلاً', nl: 'Bepaal wat u werkelijk wilt', pl: 'Ustal, czego naprawdę Państwo chcą', sv: 'Klargör vad ni verkligen vill ha', no: 'Finn ut hva du egentlig vil ha' },
+  { find: 'Work Out What You Actually Want', es: 'Define lo que realmente quiere', fr: 'Déterminez ce que vous voulez vraiment', de: 'Klären Sie, was Sie wirklich wollen', ru: 'Определите, чего вы на самом деле хотите', ar: 'حدّد ما تريده فعلاً', nl: 'Bepaal wat u werkelijk wilt', pl: 'Ustal, czego naprawdę Państwo chcą', sv: 'Klargör vad ni verkligen vill ha', no: 'Finn ut hva du egentlig vil ha' },
   {
     find: 'Be clear on budget, area, property type and timing before looking at a single project. Off-plan homes can be sold years before delivery, so timing matters here more than for a resale purchase.',
-    es: 'Ten claro tu presupuesto, la zona, el tipo de vivienda y el calendario antes de mirar un solo proyecto. Las viviendas sobre plano pueden venderse años antes de su entrega, por lo que el momento importa más aquí que en una compra de reventa.',
+    es: 'Ten claro su presupuesto, la zona, el tipo de vivienda y el calendario antes de mirar un solo proyecto. Las viviendas sobre plano pueden venderse años antes de su entrega, por lo que el momento importa más aquí que en una compra de reventa.',
     fr: 'Définissez clairement votre budget, la zone, le type de bien et le calendrier avant même de regarder un seul projet. Les biens sur plan peuvent être vendus des années avant leur livraison, le calendrier compte donc ici davantage que pour un achat de revente.',
     de: 'Klären Sie Budget, Lage, Immobilientyp und Zeitrahmen, bevor Sie sich auch nur ein einziges Projekt ansehen. Neubauten vom Plan können Jahre vor der Fertigstellung verkauft werden, daher spielt das Timing hier eine größere Rolle als bei einem Bestandskauf.',
     ru: 'Определитесь с бюджетом, районом, типом недвижимости и сроками, прежде чем смотреть хотя бы один проект. Жильё на стадии строительства может продаваться за годы до сдачи, поэтому сроки здесь важнее, чем при покупке вторичного жилья.',
@@ -115,10 +115,10 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'Var tydlig med budget, område, bostadstyp och tidsplan innan ni ens tittar på ett enda projekt. Bostäder under uppförande kan säljas flera år före tillträde, så timing spelar större roll här än vid ett andrahandsköp.',
     no: 'Vær tydelig på budsjett, område, boligtype og timing før du ser på et eneste prosjekt. Boliger under bygging kan selges flere år før overlevering, så timing betyr mer her enn ved et bruktkjøp.'
   },
-  { find: 'What You Do', es: 'Lo que haces tú', fr: 'Ce que vous faites', de: 'Was Sie tun', ru: 'Что делаете вы', ar: 'ما تقوم به', nl: 'Wat u doet', pl: 'Co robią Państwo', sv: 'Vad ni gör', no: 'Hva du gjør' },
+  { find: 'What You Do', es: 'Lo que haces usted', fr: 'Ce que vous faites', de: 'Was Sie tun', ru: 'Что делаете вы', ar: 'ما تقوم به', nl: 'Wat u doet', pl: 'Co robią Państwo', sv: 'Vad ni gör', no: 'Hva du gjør' },
   {
     find: 'Decide your budget, preferred areas, property type and rough timing.',
-    es: 'Decide tu presupuesto, las zonas preferidas, el tipo de vivienda y un calendario aproximado.',
+    es: 'Decide su presupuesto, las zonas preferidas, el tipo de vivienda y un calendario aproximado.',
     fr: 'Définissez votre budget, vos zones préférées, le type de bien et un calendrier approximatif.',
     de: 'Legen Sie Ihr Budget, bevorzugte Gebiete, den Immobilientyp und einen groben Zeitrahmen fest.',
     ru: 'Определите свой бюджет, предпочтительные районы, тип недвижимости и примерные сроки.',
@@ -131,7 +131,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'What Nueva Living Does', es: 'Lo que hace Nueva Living', fr: 'Ce que fait Nueva Living', de: 'Was Nueva Living tut', ru: 'Что делает Nueva Living', ar: 'ما تقوم به Nueva Living', nl: 'Wat Nueva Living doet', pl: 'Co robi Nueva Living', sv: 'Vad Nueva Living gör', no: 'Hva Nueva Living gjør' },
   {
     find: 'Helps you weigh off-plan against a completed, move-in-ready home for your situation.',
-    es: 'Te ayuda a valorar la opción sobre plano frente a una vivienda terminada y lista para entrar, según tu situación.',
+    es: 'Le ayuda a valorar la opción sobre plano frente a una vivienda terminada y lista para entrar, según su situación.',
     fr: 'Vous aide à comparer un achat sur plan et un bien terminé, prêt à emménager, selon votre situation.',
     de: 'Hilft Ihnen, den Kauf vom Plan gegen eine fertiggestellte, bezugsfertige Immobilie für Ihre Situation abzuwägen.',
     ru: 'Поможет сравнить вариант на стадии строительства с готовым жильём, в которое можно сразу заселиться, с учётом вашей ситуации.',
@@ -144,7 +144,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Good to know: off-plan or completed?', es: '¿Lo sabías? Sobre plano o terminada', fr: 'Bon à savoir : sur plan ou terminé ?', de: 'Gut zu wissen: vom Plan oder fertiggestellt?', ru: 'Полезно знать: на стадии строительства или готовое жильё?', ar: 'من المفيد معرفته: على الخارطة أم جاهز؟', nl: 'Goed om te weten: op plan of afgewerkt?', pl: 'Warto wiedzieć: na etapie budowy czy gotowe?', sv: 'Bra att veta: under uppförande eller färdigställd?', no: 'Greit å vite: under bygging eller ferdigstilt?' },
   {
     find: 'Off-plan usually means a lower entry price and payments staged over the build period, at the cost of waiting. A completed home costs more upfront but you can see and move into it now. See our <a href="guide-off-plan-vs-resale.html">full off-plan vs resale comparison</a> for the detail.',
-    es: 'Comprar sobre plano suele implicar un precio de entrada más bajo y pagos escalonados durante el período de construcción, a cambio de esperar. Una vivienda terminada cuesta más por adelantado, pero puedes verla y mudarte ya. Consulta nuestra <a href="guide-off-plan-vs-resale.html">comparativa completa entre sobre plano y reventa</a> para más detalle.',
+    es: 'Comprar sobre plano suele implicar un precio de entrada más bajo y pagos escalonados durante el período de construcción, a cambio de esperar. Una vivienda terminada cuesta más por adelantado, pero puede verla y mudarse ya. Consulte nuestra <a href="guide-off-plan-vs-resale.html">comparativa completa entre sobre plano y reventa</a> para más detalle.',
     fr: 'Acheter sur plan signifie généralement un prix d’entrée plus bas et des paiements échelonnés pendant la période de construction, en échange de l’attente. Un bien terminé coûte plus cher au départ, mais vous pouvez le voir et y emménager dès maintenant. Consultez notre <a href="guide-off-plan-vs-resale.html">comparatif complet entre le neuf sur plan et la revente</a> pour plus de détails.',
     de: 'Ein Kauf vom Plan bedeutet in der Regel einen niedrigeren Einstiegspreis und über die Bauzeit gestaffelte Zahlungen – dafür müssen Sie warten. Eine fertiggestellte Immobilie kostet im Voraus mehr, aber Sie können sie sofort besichtigen und beziehen. Details finden Sie in unserem <a href="guide-off-plan-vs-resale.html">vollständigen Vergleich zwischen Kauf vom Plan und Bestandsimmobilie</a>.',
     ru: 'Покупка на стадии строительства обычно означает более низкую цену входа и поэтапные платежи в течение периода строительства — ценой ожидания. Готовое жильё стоит дороже сразу, но вы можете увидеть его и въехать уже сейчас. Подробности смотрите в нашем <a href="guide-off-plan-vs-resale.html">полном сравнении покупки на стадии строительства и вторичного жилья</a>.',
@@ -171,7 +171,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   {
     find: 'Share your budget, areas and requirements.',
-    es: 'Comparte tu presupuesto, las zonas y tus requisitos.',
+    es: 'Comparta su presupuesto, las zonas y sus requisitos.',
     fr: 'Communiquez votre budget, vos zones et vos exigences.',
     de: 'Teilen Sie Ihr Budget, Ihre Gebiete und Anforderungen mit.',
     ru: 'Сообщите свой бюджет, районы и требования.',
@@ -183,7 +183,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   {
     find: 'Compares confirmed current pricing, availability and developer track record across projects for you.',
-    es: 'Compara por ti los precios actuales confirmados, la disponibilidad y el historial del promotor entre distintos proyectos.',
+    es: 'Compara por usted los precios actuales confirmados, la disponibilidad y el historial del promotor entre distintos proyectos.',
     fr: 'Compare pour vous les prix actuels confirmés, la disponibilité et le track record du promoteur entre les projets.',
     de: 'Vergleicht für Sie bestätigte aktuelle Preise, Verfügbarkeit und die Erfolgsbilanz der Bauträger projektübergreifend.',
     ru: 'Сравнивает для вас подтверждённые актуальные цены, доступность и репутацию застройщиков по разным проектам.',
@@ -196,7 +196,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Good to know: do I need to be in Spain to start?', es: '¿Lo sabías? ¿Necesito estar en España para empezar?', fr: 'Bon à savoir : dois-je être en Espagne pour commencer ?', de: 'Gut zu wissen: Muss ich für den Start in Spanien sein?', ru: 'Полезно знать: нужно ли быть в Испании, чтобы начать?', ar: 'من المفيد معرفته: هل يجب أن أكون في إسبانيا للبدء؟', nl: 'Goed om te weten: moet ik in Spanje zijn om te beginnen?', pl: 'Warto wiedzieć: czy muszę być w Hiszpanii, aby zacząć?', sv: 'Bra att veta: måste jag vara i Spanien för att komma igång?', no: 'Greit å vite: må jeg være i Spania for å starte?' },
   {
     find: 'No. Most of this stage -- comparing projects, reviewing floorplans and pricing, even a private cinematic presentation of a project -- can be done remotely before you commit to a viewing trip.',
-    es: 'No. La mayor parte de esta etapa -- comparar proyectos, revisar planos y precios, incluso una presentación cinematográfica privada de un proyecto -- puede hacerse a distancia antes de comprometerte a un viaje de visita.',
+    es: 'No. La mayor parte de esta etapa -- comparar proyectos, revisar planos y precios, incluso una presentación cinematográfica privada de un proyecto -- puede hacerse a distancia antes de comprometerse a un viaje de visita.',
     fr: 'Non. La majeure partie de cette étape -- comparer les projets, examiner les plans et les prix, voire assister à une présentation cinématographique privée d’un projet -- peut se faire à distance avant de vous engager pour un voyage de visite.',
     de: 'Nein. Der größte Teil dieser Phase -- Projekte vergleichen, Grundrisse und Preise prüfen, sogar eine private, filmische Projektpräsentation -- kann aus der Ferne erfolgen, bevor Sie sich auf eine Besichtigungsreise festlegen.',
     ru: 'Нет. Большую часть этого этапа -- сравнение проектов, изучение планировок и цен, даже частную кинематографичную презентацию проекта -- можно провести удалённо, прежде чем решиться на поездку для осмотра.',
@@ -208,7 +208,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 3 ---
-  { find: 'View the Projects', es: 'Visita los proyectos', fr: 'Visitez les projets', de: 'Besichtigen Sie die Projekte', ru: 'Осмотрите проекты', ar: 'عاين المشاريع', nl: 'Bezichtig de projecten', pl: 'Obejrzyj projekty', sv: 'Besök projekten', no: 'Se prosjektene' },
+  { find: 'View the Projects', es: 'Visite los proyectos', fr: 'Visitez les projets', de: 'Besichtigen Sie die Projekte', ru: 'Осмотрите проекты', ar: 'عاين المشاريع', nl: 'Bezichtig de projecten', pl: 'Obejrzyj projekty', sv: 'Besök projekten', no: 'Se prosjektene' },
   {
     find: 'For off-plan projects this usually means visiting the site and a show apartment if one exists. For completed developments, you view the actual residence you would be buying.',
     es: 'En proyectos sobre plano, esto suele significar visitar el emplazamiento y un piso piloto si existe. En promociones terminadas, visitas la vivienda concreta que comprarías.',
@@ -250,7 +250,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Reserve Your Chosen Residence', es: 'Reserva la vivienda elegida', fr: 'Réservez le bien choisi', de: 'Reservieren Sie Ihre gewählte Immobilie', ru: 'Зарезервируйте выбранное жильё', ar: 'احجز المسكن الذي اخترته', nl: 'Reserveer uw gekozen woning', pl: 'Zarezerwuj wybraną nieruchomość', sv: 'Boka er valda bostad', no: 'Reserver din valgte bolig' },
   {
     find: 'A reservation takes the specific residence off the market while your private purchase contract is prepared, typically within two to four weeks.',
-    es: 'Una reserva retira del mercado la vivienda concreta mientras se prepara tu contrato de compraventa privado, normalmente en un plazo de dos a cuatro semanas.',
+    es: 'Una reserva retira del mercado la vivienda concreta mientras se prepara su contrato de compraventa privado, normalmente en un plazo de dos a cuatro semanas.',
     fr: 'Une réservation retire le bien concerné du marché pendant que votre contrat de réservation privé est préparé, généralement dans un délai de deux à quatre semaines.',
     de: 'Eine Reservierung nimmt die konkrete Immobilie vom Markt, während Ihr privater Kaufvertrag vorbereitet wird -- in der Regel innerhalb von zwei bis vier Wochen.',
     ru: 'Резервирование снимает конкретное жильё с продажи на время подготовки вашего частного договора купли-продажи, обычно в течение двух-четырёх недель.',
@@ -274,7 +274,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   {
     find: 'Confirms the reservation terms and what happens to the amount if you do not proceed.',
-    es: 'Confirma las condiciones de la reserva y qué ocurre con el importe si finalmente no sigues adelante.',
+    es: 'Confirme las condiciones de la reserva y qué ocurre con el importe si finalmente no sigues adelante.',
     fr: 'Confirme les conditions de réservation et ce qu’il advient du montant si vous ne donnez pas suite.',
     de: 'Bestätigt die Reservierungsbedingungen und was mit dem Betrag geschieht, falls Sie nicht fortfahren.',
     ru: 'Подтверждает условия резервирования и то, что произойдёт с суммой, если вы не продолжите сделку.',
@@ -287,7 +287,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Good to know: how much is the reservation?', es: '¿Lo sabías? ¿Cuánto cuesta la reserva?', fr: 'Bon à savoir : quel est le montant de la réservation ?', de: 'Gut zu wissen: Wie hoch ist die Reservierung?', ru: 'Полезно знать: сколько стоит резервирование?', ar: 'من المفيد معرفته: كم تبلغ قيمة الحجز؟', nl: 'Goed om te weten: hoeveel bedraagt de reservering?', pl: 'Warto wiedzieć: ile wynosi rezerwacja?', sv: 'Bra att veta: hur mycket kostar bokningen?', no: 'Greit å vite: hvor mye koster reservasjonen?' },
   {
     find: 'It varies by developer and project, from a few thousand euros up to around 1% of the price on some developments. A reservation is not the point of no return, but it is a real commitment -- confirm the terms before you pay it.',
-    es: 'Varía según el promotor y el proyecto, desde unos pocos miles de euros hasta alrededor del 1% del precio en algunas promociones. Una reserva no es un punto de no retorno, pero sí un compromiso real -- confirma las condiciones antes de pagarla.',
+    es: 'Varía según el promotor y el proyecto, desde unos pocos miles de euros hasta alrededor del 1% del precio en algunas promociones. Una reserva no es un punto de no retorno, pero sí un compromiso real -- confirme las condiciones antes de pagarla.',
     fr: 'Cela varie selon le promoteur et le projet, de quelques milliers d’euros jusqu’à environ 1 % du prix pour certaines résidences. Une réservation n’est pas un point de non-retour, mais c’est un véritable engagement -- confirmez les conditions avant de la payer.',
     de: 'Der Betrag variiert je nach Bauträger und Projekt, von wenigen Tausend Euro bis zu etwa 1 % des Preises bei manchen Anlagen. Eine Reservierung ist kein Punkt ohne Wiederkehr, aber ein echtes Commitment -- bestätigen Sie die Bedingungen, bevor Sie sie bezahlen.',
     ru: 'Сумма варьируется в зависимости от застройщика и проекта -- от нескольких тысяч евро до примерно 1% от цены в некоторых комплексах. Резервирование -- это не точка невозврата, но реальное обязательство -- уточните условия, прежде чем платить.',
@@ -299,10 +299,10 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 5 ---
-  { find: 'Sign the Private Purchase Contract', es: 'Firma el contrato de compraventa privado', fr: 'Signez le contrat de réservation privé', de: 'Unterzeichnen Sie den privaten Kaufvertrag', ru: 'Подпишите частный договор купли-продажи', ar: 'وقّع عقد الشراء الخاص', nl: 'Onderteken het particuliere koopcontract', pl: 'Podpisanie prywatnej umowy kupna', sv: 'Skriv under det privata köpekontraktet', no: 'Signer den private kjøpekontrakten' },
+  { find: 'Sign the Private Purchase Contract', es: 'Firme el contrato de compraventa privado', fr: 'Signez le contrat de réservation privé', de: 'Unterzeichnen Sie den privaten Kaufvertrag', ru: 'Подпишите частный договор купли-продажи', ar: 'وقّع عقد الشراء الخاص', nl: 'Onderteken het particuliere koopcontract', pl: 'Podpisanie prywatnej umowy kupna', sv: 'Skriv under det privata köpekontraktet', no: 'Signer den private kjøpekontrakten' },
   {
     find: 'The binding agreement setting out price, payment schedule, specification and delivery terms. You will need an NIE before or shortly after this stage.',
-    es: 'El acuerdo vinculante que establece el precio, el calendario de pagos, las especificaciones y las condiciones de entrega. Necesitarás tu NIE antes o poco después de esta etapa.',
+    es: 'El acuerdo vinculante que establece el precio, el calendario de pagos, las especificaciones y las condiciones de entrega. Necesitará su NIE antes o poco después de esta etapa.',
     fr: 'L’accord contraignant qui fixe le prix, l’échéancier de paiement, les spécifications et les conditions de livraison. Vous aurez besoin d’un NIE avant ou peu après cette étape.',
     de: 'Die verbindliche Vereinbarung, die Preis, Zahlungsplan, Ausstattung und Übergabebedingungen festlegt. Sie benötigen Ihre NIE vor oder kurz nach dieser Phase.',
     ru: 'Обязывающее соглашение, определяющее цену, график платежей, спецификацию и условия передачи. NIE потребуется до или вскоре после этого этапа.',
@@ -314,7 +314,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   {
     find: 'Obtain your NIE if you do not already have one, and review the contract.',
-    es: 'Obtén tu NIE si aún no lo tienes y revisa el contrato.',
+    es: 'Obtén su NIE si aún no lo tiene y revise el contrato.',
     fr: 'Obtenez votre NIE si vous n’en avez pas déjà un, et examinez le contrat.',
     de: 'Besorgen Sie sich Ihre NIE, falls Sie noch keine haben, und prüfen Sie den Vertrag.',
     ru: 'Получите NIE, если у вас его ещё нет, и изучите договор.',
@@ -336,10 +336,10 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'Samordnar pappersarbetet och tidsplanen med byggherren.',
     no: 'Koordinerer papirarbeidet og tidsplanen med utbyggeren.'
   },
-  { find: 'What Your Lawyer Does', es: 'Lo que hace tu abogado', fr: 'Ce que fait votre avocat', de: 'Was Ihr Anwalt tut', ru: 'Что делает ваш юрист', ar: 'ما يقوم به محاميك', nl: 'Wat uw advocaat doet', pl: 'Co robi Państwa prawnik', sv: 'Vad er advokat gör', no: 'Hva din advokat gjør' },
+  { find: 'What Your Lawyer Does', es: 'Lo que hace su abogado', fr: 'Ce que fait votre avocat', de: 'Was Ihr Anwalt tut', ru: 'Что делает ваш юрист', ar: 'ما يقوم به محاميك', nl: 'Wat uw advocaat doet', pl: 'Co robi Państwa prawnik', sv: 'Vad er advokat gör', no: 'Hva din advokat gjør' },
   {
     find: 'Reviews the contract terms and confirms the bank guarantee before you sign.',
-    es: 'Revisa las condiciones del contrato y confirma el aval bancario antes de que firmes.',
+    es: 'Revise las condiciones del contrato y confirme el aval bancario antes de que firmes.',
     fr: 'Examine les termes du contrat et confirme la garantie bancaire avant votre signature.',
     de: 'Prüft die Vertragsbedingungen und bestätigt die Bankgarantie, bevor Sie unterschreiben.',
     ru: 'Проверяет условия договора и подтверждает банковскую гарантию до подписания.',
@@ -352,7 +352,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Good to know: what if the developer does not finish the project?', es: '¿Lo sabías? ¿Qué pasa si el promotor no termina el proyecto?', fr: 'Bon à savoir : et si le promoteur ne termine pas le projet ?', de: 'Gut zu wissen: Was, wenn der Bauträger das Projekt nicht fertigstellt?', ru: 'Полезно знать: что если застройщик не завершит проект?', ar: 'من المفيد معرفته: ماذا لو لم يُكمل المطوّر المشروع؟', nl: 'Goed om te weten: wat als de ontwikkelaar het project niet afmaakt?', pl: 'Warto wiedzieć: co jeśli deweloper nie ukończy projektu?', sv: 'Bra att veta: vad händer om byggherren inte slutför projektet?', no: 'Greit å vite: hva skjer hvis utbyggeren ikke fullfører prosjektet?' },
   {
     find: 'For off-plan purchases, payments from this point are usually staged across construction milestones. Spanish law requires developers to bank-guarantee off-plan payments made before completion, so staged payments are protected if the development is not delivered -- confirming that guarantee is in place is one of the checks your lawyer carries out.',
-    es: 'En las compras sobre plano, los pagos a partir de este punto suelen escalonarse conforme a los hitos de construcción. La ley española exige a los promotores avalar bancariamente los pagos sobre plano realizados antes de la finalización, por lo que los pagos escalonados están protegidos si la promoción no se entrega -- confirmar que ese aval existe es una de las comprobaciones que realiza tu abogado.',
+    es: 'En las compras sobre plano, los pagos a partir de este punto suelen escalonarse conforme a los hitos de construcción. La ley española exige a los promotores avalar bancariamente los pagos sobre plano realizados antes de la finalización, por lo que los pagos escalonados están protegidos si la promoción no se entrega -- confirmar que ese aval existe es una de las comprobaciones que realiza su abogado.',
     fr: 'Pour les achats sur plan, les paiements à partir de ce stade sont généralement échelonnés selon les jalons de construction. La loi espagnole impose aux promoteurs de garantir bancairement les paiements sur plan effectués avant l’achèvement, de sorte que les paiements échelonnés sont protégés si la résidence n’est pas livrée -- vérifier que cette garantie est en place fait partie des contrôles effectués par votre avocat.',
     de: 'Bei Käufen vom Plan werden Zahlungen ab diesem Punkt in der Regel entlang der Baumeilensteine gestaffelt. Das spanische Recht verpflichtet Bauträger, Zahlungen vor Fertigstellung bankgarantiert abzusichern, sodass gestaffelte Zahlungen geschützt sind, falls das Projekt nicht geliefert wird -- die Prüfung, dass diese Garantie besteht, ist einer der Punkte, die Ihr Anwalt kontrolliert.',
     ru: 'При покупках на стадии строительства платежи с этого момента обычно распределяются по этапам строительства. Испанское законодательство требует, чтобы застройщики предоставляли банковскую гарантию на платежи, внесённые до завершения строительства на стадии проекта, поэтому поэтапные платежи защищены, если объект не будет сдан -- проверка наличия этой гарантии -- одна из задач вашего юриста.',
@@ -367,7 +367,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Legal Checks and Independent Representation', es: 'Comprobaciones legales y representación independiente', fr: 'Vérifications juridiques et représentation indépendante', de: 'Rechtsprüfungen und unabhängige Vertretung', ru: 'Юридическая проверка и независимое представительство', ar: 'الفحوصات القانونية والتمثيل المستقل', nl: 'Juridische controles en onafhankelijke vertegenwoordiging', pl: 'Kontrole prawne i niezależna reprezentacja', sv: 'Juridiska kontroller och oberoende representation', no: 'Juridiske kontroller og uavhengig representasjon' },
   {
     find: 'We strongly recommend independent legal representation -- a lawyer acting for you, not the developer or the selling agency.',
-    es: 'Recomendamos encarecidamente contar con representación legal independiente -- un abogado que actúe para ti, no para el promotor ni para la agencia de venta.',
+    es: 'Recomendamos encarecidamente contar con representación legal independiente -- un abogado que actúe para usted, no para el promotor ni para la agencia de venta.',
     fr: 'Nous recommandons vivement une représentation juridique indépendante -- un avocat qui agit pour vous, et non pour le promoteur ou l’agence de vente.',
     de: 'Wir empfehlen dringend eine unabhängige rechtliche Vertretung -- einen Anwalt, der für Sie handelt, nicht für den Bauträger oder die Verkaufsagentur.',
     ru: 'Мы настоятельно рекомендуем независимое юридическое представительство -- юриста, работающего в ваших интересах, а не в интересах застройщика или агентства продаж.',
@@ -391,7 +391,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   {
     find: 'Can introduce you to independent lawyers experienced in Costa del Sol property.',
-    es: 'Puede presentarte a abogados independientes con experiencia en propiedades de la Costa del Sol.',
+    es: 'Puede presentarle a abogados independientes con experiencia en propiedades de la Costa del Sol.',
     fr: 'Peut vous mettre en relation avec des avocats indépendants expérimentés dans l’immobilier de la Costa del Sol.',
     de: 'Kann Sie mit unabhängigen Anwälten mit Erfahrung in Immobilien an der Costa del Sol in Kontakt bringen.',
     ru: 'Может познакомить вас с независимыми юристами, имеющими опыт работы с недвижимостью Коста-дель-Соль.',
@@ -416,7 +416,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Good to know: financing', es: '¿Lo sabías? Financiación', fr: 'Bon à savoir : le financement', de: 'Gut zu wissen: Finanzierung', ru: 'Полезно знать: финансирование', ar: 'من المفيد معرفته: التمويل', nl: 'Goed om te weten: financiering', pl: 'Warto wiedzieć: finansowanie', sv: 'Bra att veta: finansiering', no: 'Greit å vite: finansiering' },
   {
     find: 'Many non-resident buyers arrange a mortgage at this stage. Spanish banks do lend to non-residents, usually financing a portion of the price, though exact terms depend on the bank and your financial profile.',
-    es: 'Muchos compradores no residentes gestionan una hipoteca en esta etapa. Los bancos españoles sí conceden préstamos a no residentes, financiando normalmente una parte del precio, aunque las condiciones exactas dependen del banco y de tu perfil financiero.',
+    es: 'Muchos compradores no residentes gestionan una hipoteca en esta etapa. Los bancos españoles sí conceden préstamos a no residentes, financiando normalmente una parte del precio, aunque las condiciones exactas dependen del banco y de su perfil financiero.',
     fr: 'De nombreux acheteurs non-résidents mettent en place un prêt hypothécaire à ce stade. Les banques espagnoles prêtent effectivement aux non-résidents, finançant généralement une partie du prix, bien que les conditions exactes dépendent de la banque et de votre profil financier.',
     de: 'Viele nicht ansässige Käufer organisieren in dieser Phase eine Hypothek. Spanische Banken vergeben tatsächlich Kredite an Nicht-Residenten und finanzieren in der Regel einen Teil des Preises, wobei die genauen Konditionen von der Bank und Ihrem finanziellen Profil abhängen.',
     ru: 'Многие покупатели-нерезиденты оформляют ипотеку именно на этом этапе. Испанские банки действительно кредитуют нерезидентов, обычно финансируя часть стоимости, хотя точные условия зависят от банка и вашего финансового профиля.',
@@ -431,7 +431,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Completion and Handover', es: 'Finalización y entrega', fr: 'Achèvement et remise des clés', de: 'Abschluss und Übergabe', ru: 'Завершение сделки и передача', ar: 'الإنجاز والتسليم', nl: 'Afronding en overdracht', pl: 'Finalizacja i przekazanie', sv: 'Slutförande och överlämning', no: 'Fullføring og overlevering' },
   {
     find: 'Completion happens at the notary, where the final balance is paid and the deed of sale is signed and registered in your name.',
-    es: 'La finalización tiene lugar ante notario, donde se abona el saldo final y se firma la escritura de compraventa, que se inscribe a tu nombre.',
+    es: 'La finalización tiene lugar ante notario, donde se abona el saldo final y se firma la escritura de compraventa, que se inscribe a su nombre.',
     fr: 'L’achèvement a lieu chez le notaire, où le solde final est payé et l’acte de vente est signé et enregistré à votre nom.',
     de: 'Der Abschluss erfolgt beim Notar, wo der Restbetrag bezahlt und die Kaufurkunde unterzeichnet und auf Ihren Namen eingetragen wird.',
     ru: 'Завершение сделки происходит у нотариуса, где выплачивается окончательный остаток, подписывается и регистрируется на ваше имя нотариальный акт купли-продажи.',
@@ -455,7 +455,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   {
     find: 'Coordinates handover and helps you inspect the property against the agreed specification.',
-    es: 'Coordina la entrega y te ayuda a comprobar que la vivienda cumple con las especificaciones acordadas.',
+    es: 'Coordina la entrega y le ayuda a comprobar que la vivienda cumple con las especificaciones acordadas.',
     fr: 'Coordonne la remise des clés et vous aide à vérifier le bien par rapport aux spécifications convenues.',
     de: 'Koordiniert die Übergabe und hilft Ihnen, die Immobilie gegen die vereinbarte Ausstattung zu prüfen.',
     ru: 'Координирует передачу и помогает проверить соответствие объекта согласованной спецификации.',
@@ -467,7 +467,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
   {
     find: 'Confirms the deed of sale and its registration.',
-    es: 'Confirma la escritura de compraventa y su inscripción.',
+    es: 'Confirme la escritura de compraventa y su inscripción.',
     fr: 'Confirme l’acte de vente et son enregistrement.',
     de: 'Bestätigt die Kaufurkunde und deren Eintragung.',
     ru: 'Подтверждает нотариальный акт купли-продажи и его регистрацию.',
@@ -505,13 +505,13 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'En snabb <em>checklista</em>',
     no: 'En rask <em>sjekkliste</em>'
   },
-  { find: 'Define your budget', es: 'Define tu presupuesto', fr: 'Définissez votre budget', de: 'Legen Sie Ihr Budget fest', ru: 'Определите бюджет', ar: 'حدّد ميزانيتك', nl: 'Bepaal uw budget', pl: 'Określ swój budżet', sv: 'Bestäm er budget', no: 'Bestem budsjettet ditt' },
+  { find: 'Define your budget', es: 'Define su presupuesto', fr: 'Définissez votre budget', de: 'Legen Sie Ihr Budget fest', ru: 'Определите бюджет', ar: 'حدّد ميزانيتك', nl: 'Bepaal uw budget', pl: 'Określ swój budżet', sv: 'Bestäm er budget', no: 'Bestem budsjettet ditt' },
   { find: 'Decide off-plan or completed', es: 'Decide entre sobre plano o terminada', fr: 'Choisissez entre le neuf sur plan ou un bien terminé', de: 'Entscheiden Sie sich für vom Plan oder fertiggestellt', ru: 'Определитесь: на стадии строительства или готовое жильё', ar: 'قرّر بين الشراء على الخارطة أو الجاهز', nl: 'Kies tussen op plan of afgewerkt', pl: 'Zdecyduj: budowa czy gotowe', sv: 'Bestäm er för under uppförande eller färdigställd', no: 'Bestem deg for under bygging eller ferdigstilt' },
-  { find: 'Apply for your NIE', es: 'Solicita tu NIE', fr: 'Demandez votre NIE', de: 'Beantragen Sie Ihre NIE', ru: 'Подайте заявление на NIE', ar: 'تقدّم بطلب للحصول على رقم NIE', nl: 'Vraag uw NIE aan', pl: 'Złóż wniosek o numer NIE', sv: 'Ansök om ert NIE-nummer', no: 'Søk om ditt NIE-nummer' },
+  { find: 'Apply for your NIE', es: 'Solicite su NIE', fr: 'Demandez votre NIE', de: 'Beantragen Sie Ihre NIE', ru: 'Подайте заявление на NIE', ar: 'تقدّم بطلب للحصول على رقم NIE', nl: 'Vraag uw NIE aan', pl: 'Złóż wniosek o numer NIE', sv: 'Ansök om ert NIE-nummer', no: 'Søk om ditt NIE-nummer' },
   { find: 'Select an independent lawyer', es: 'Elige un abogado independiente', fr: 'Choisissez un avocat indépendant', de: 'Wählen Sie einen unabhängigen Anwalt', ru: 'Выберите независимого юриста', ar: 'اختر محاميًا مستقلاً', nl: 'Selecteer een onafhankelijke advocaat', pl: 'Wybierz niezależnego prawnika', sv: 'Välj en oberoende advokat', no: 'Velg en uavhengig advokat' },
   { find: 'Consider a Spanish bank account', es: 'Valora abrir una cuenta bancaria española', fr: 'Envisagez un compte bancaire espagnol', de: 'Erwägen Sie ein spanisches Bankkonto', ru: 'Рассмотрите открытие испанского банковского счёта', ar: 'فكّر في فتح حساب مصرفي إسباني', nl: 'Overweeg een Spaanse bankrekening', pl: 'Rozważ założenie hiszpańskiego konta bankowego', sv: 'Överväg ett spanskt bankkonto', no: 'Vurder en spansk bankkonto' },
   { find: 'Prepare proof of funds', es: 'Prepara la justificación de fondos', fr: 'Préparez votre justificatif de fonds', de: 'Bereiten Sie einen Herkunftsnachweis der Mittel vor', ru: 'Подготовьте подтверждение наличия средств', ar: 'جهّز إثبات توفر الأموال', nl: 'Bereid een bewijs van vermogen voor', pl: 'Przygotuj dowód posiadania środków', sv: 'Förbered ett bevis på tillgångar', no: 'Forbered dokumentasjon på finansiering' },
-  { find: 'Clarify how you will use the property', es: 'Aclara cómo vas a usar la propiedad', fr: 'Clarifiez l’usage que vous ferez du bien', de: 'Klären Sie, wie Sie die Immobilie nutzen werden', ru: 'Определитесь с назначением использования недвижимости', ar: 'وضّح كيف ستستخدم العقار', nl: 'Verduidelijk hoe u de woning gaat gebruiken', pl: 'Ustal, w jaki sposób będą Państwo korzystać z nieruchomości', sv: 'Klargör hur ni kommer att använda bostaden', no: 'Avklar hvordan du skal bruke boligen' },
+  { find: 'Clarify how you will use the property', es: 'Aclara cómo va a usar la propiedad', fr: 'Clarifiez l’usage que vous ferez du bien', de: 'Klären Sie, wie Sie die Immobilie nutzen werden', ru: 'Определитесь с назначением использования недвижимости', ar: 'وضّح كيف ستستخدم العقار', nl: 'Verduidelijk hoe u de woning gaat gebruiken', pl: 'Ustal, w jaki sposób będą Państwo korzystać z nieruchomości', sv: 'Klargör hur ni kommer att använda bostaden', no: 'Avklar hvordan du skal bruke boligen' },
   { find: 'Reset Checklist', es: 'Reiniciar lista', fr: 'Réinitialiser la check-list', de: 'Checkliste zurücksetzen', ru: 'Сбросить чек-лист', ar: 'إعادة تعيين قائمة التحقق', nl: 'Checklist resetten', pl: 'Zresetuj listę kontrolną', sv: 'Återställ checklistan', no: 'Tilbakestill sjekklisten' },
 
   // --- glossary section ---
@@ -544,7 +544,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Reservation Agreement', es: 'Contrato de reserva', fr: 'Contrat de réservation', de: 'Reservierungsvereinbarung', ru: 'Договор резервирования', ar: 'اتفاقية الحجز', nl: 'Reserveringsovereenkomst', pl: 'Umowa rezerwacyjna', sv: 'Bokningsavtal', no: 'Reservasjonsavtale' },
   {
     find: 'The document and payment that takes a specific residence off the market while your private purchase contract is prepared.',
-    es: 'El documento y el pago que retiran del mercado una vivienda concreta mientras se prepara tu contrato de compraventa privado.',
+    es: 'El documento y el pago que retiran del mercado una vivienda concreta mientras se prepara su contrato de compraventa privado.',
     fr: 'Le document et le paiement qui retirent un bien précis du marché pendant que votre contrat de réservation privé est préparé.',
     de: 'Das Dokument und die Zahlung, die eine bestimmte Immobilie vom Markt nehmen, während Ihr privater Kaufvertrag vorbereitet wird.',
     ru: 'Документ и платёж, снимающие конкретное жильё с продажи на время подготовки вашего частного договора купли-продажи.',
@@ -570,7 +570,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Bank Guarantee', es: 'Aval bancario', fr: 'Garantie bancaire', de: 'Bankgarantie', ru: 'Банковская гарантия', ar: 'الضمان المصرفي', nl: 'Bankgarantie', pl: 'Gwarancja bankowa', sv: 'Bankgaranti', no: 'Bankgaranti' },
   {
     find: 'Legally required protection for off-plan payments made before completion, covering you if the development is not delivered.',
-    es: 'Protección legalmente obligatoria para los pagos sobre plano realizados antes de la finalización, que te cubre si la promoción no llega a entregarse.',
+    es: 'Protección legalmente obligatoria para los pagos sobre plano realizados antes de la finalización, que le cubre si la promoción no llega a entregarse.',
     fr: 'Protection légalement obligatoire pour les paiements sur plan effectués avant l’achèvement, vous couvrant si la résidence n’est pas livrée.',
     de: 'Gesetzlich vorgeschriebener Schutz für Zahlungen vom Plan vor Fertigstellung, der Sie absichert, falls das Projekt nicht geliefert wird.',
     ru: 'Юридически обязательная защита для платежей на стадии строительства, внесённых до завершения, покрывающая вас в случае несдачи объекта.',
@@ -596,7 +596,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Escritura', es: 'Escritura', fr: 'Escritura', de: 'Escritura', ru: 'Escritura', ar: 'Escritura', nl: 'Escritura', pl: 'Escritura', sv: 'Escritura', no: 'Escritura' },
   {
     find: 'The deed of sale signed at the notary and registered in your name at completion.',
-    es: 'La escritura de compraventa firmada ante notario e inscrita a tu nombre en el momento de la finalización.',
+    es: 'La escritura de compraventa firmada ante notario e inscrita a su nombre en el momento de la finalización.',
     fr: 'L’acte de vente signé chez le notaire et enregistré à votre nom lors de l’achèvement.',
     de: 'Die beim Notar unterzeichnete und bei Abschluss auf Ihren Namen eingetragene Kaufurkunde.',
     ru: 'Нотариальный акт купли-продажи, подписанный у нотариуса и зарегистрированный на ваше имя при завершении сделки.',
@@ -609,7 +609,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   { find: 'Land Registry', es: 'Registro de la propiedad', fr: 'Registre foncier', de: 'Grundbuchamt', ru: 'Земельный реестр', ar: 'السجل العقاري', nl: 'Kadaster', pl: 'Księgi wieczyste', sv: 'Fastighetsregistret', no: 'Grunnboken' },
   {
     find: 'The official record of property ownership and charges, checked by your lawyer before you sign.',
-    es: 'El registro oficial de la titularidad y las cargas de la propiedad, que tu abogado comprueba antes de que firmes.',
+    es: 'El registro oficial de la titularidad y las cargas de la propiedad, que su abogado comprueba antes de que firmes.',
     fr: 'Le registre officiel de propriété et des charges, vérifié par votre avocat avant votre signature.',
     de: 'Das amtliche Verzeichnis von Eigentum und Belastungen der Immobilie, das Ihr Anwalt vor der Unterschrift prüft.',
     ru: 'Официальный реестр права собственности и обременений, проверяемый вашим юристом перед подписанием.',
@@ -623,7 +623,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   // --- disclaimer & closing CTA ---
   {
     find: 'This guide is general information about the typical off-plan buying process on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.',
-    es: 'Esta guía es información general sobre el proceso habitual de compra sobre plano en la Costa del Sol. No constituye asesoramiento legal, fiscal ni financiero, y no sustituye el asesoramiento profesional independiente adaptado a tu situación.',
+    es: 'Esta guía es información general sobre el proceso habitual de compra sobre plano en la Costa del Sol. No constituye asesoramiento legal, fiscal ni financiero, y no sustituye el asesoramiento profesional independiente adaptado a su situación.',
     fr: 'Ce guide est une information générale sur le processus habituel d’achat sur plan sur la Costa del Sol. Il ne constitue pas un conseil juridique, fiscal ou financier et ne remplace pas un avis professionnel indépendant adapté à votre situation.',
     de: 'Dieser Leitfaden bietet allgemeine Informationen zum typischen Kaufprozess vom Plan an der Costa del Sol. Er stellt keine Rechts-, Steuer- oder Finanzberatung dar und ersetzt keine unabhängige, auf Ihre Situation zugeschnittene fachliche Beratung.',
     ru: 'Это руководство содержит общую информацию о типичном процессе покупки на стадии строительства на Коста-дель-Соль. Оно не является юридической, налоговой или финансовой консультацией и не заменяет независимую профессиональную консультацию с учётом вашей ситуации.',
@@ -634,7 +634,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     no: 'Denne guiden er generell informasjon om den vanlige kjøpsprosessen for boliger under bygging på Costa del Sol. Den er ikke juridisk, skattemessig eller finansiell rådgivning, og erstatter ikke uavhengig, profesjonell rådgivning tilpasset din situasjon.'
   },
   { find: 'Ready to Start', es: 'Listos para empezar', fr: 'Prêt à commencer', de: 'Bereit für den Start', ru: 'Готовы начать', ar: 'مستعد للبدء', nl: 'Klaar om te beginnen', pl: 'Gotowy na start', sv: 'Redo att börja', no: 'Klar til å starte' },
-  { find: 'Let\'s find your fit.', es: 'Encontremos lo que encaja contigo.', fr: 'Trouvons ce qui vous correspond.', de: 'Lassen Sie uns das Passende für Sie finden.', ru: 'Найдём то, что подходит именно вам.', ar: 'لنجد ما يناسبك.', nl: 'Laten we vinden wat bij u past.', pl: 'Znajdźmy to, co pasuje do Państwa.', sv: 'Låt oss hitta det som passar er.', no: 'La oss finne det som passer for deg.' },
+  { find: 'Let\'s find your fit.', es: 'Encontremos lo que encaja con usted.', fr: 'Trouvons ce qui vous correspond.', de: 'Lassen Sie uns das Passende für Sie finden.', ru: 'Найдём то, что подходит именно вам.', ar: 'لنجد ما يناسبك.', nl: 'Laten we vinden wat bij u past.', pl: 'Znajdźmy to, co pasuje do Państwa.', sv: 'Låt oss hitta det som passar er.', no: 'La oss finne det som passer for deg.' },
   // Checklist progress counter: the baked-in initial text and the inline
   // JS template literal that re-renders it on every checkbox change.
   { find: 'data-checklist-count>0 of 7<', es: 'data-checklist-count>0 de 7<', fr: 'data-checklist-count>0 sur 7<', de: 'data-checklist-count>0 von 7<', ru: 'data-checklist-count>0 из 7<', ar: 'data-checklist-count>0 من 7<', nl: 'data-checklist-count>0 van 7<', pl: 'data-checklist-count>0 z 7<', sv: 'data-checklist-count>0 av 7<', no: 'data-checklist-count>0 av 7<' },

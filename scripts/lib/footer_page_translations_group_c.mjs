@@ -24,7 +24,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Off-plan vs resale: <em>which fits your plan</em>",
-    es: "Sobre plano o reventa: <em>cuál se ajusta a tu plan</em>",
+    es: "Sobre plano o reventa: <em>cuál se ajusta a su plan</em>",
     fr: "Sur plan ou revente : <em>quelle option correspond à votre projet</em>",
     de: "Neubau oder Bestandsimmobilie: <em>was zu Ihrem Plan passt</em>",
     ru: "Строящееся жильё или вторичное: <em>что подходит именно вам</em>",
@@ -36,7 +36,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Both are legitimate ways to buy on the Costa del Sol. The right one depends on your timeline, your appetite for construction risk, and what you actually want the property to do for you.",
-    es: "Ambas son formas legítimas de comprar en la Costa del Sol. La adecuada depende de tu plazo de tiempo, tu tolerancia al riesgo de construcción y de lo que realmente quieres que la propiedad haga por ti.",
+    es: "Ambas son formas legítimas de comprar en la Costa del Sol. La adecuada depende de su plazo de tiempo, su tolerancia al riesgo de construcción y de lo que realmente quiere que la propiedad haga por usted.",
     fr: "Les deux sont des façons parfaitement légitimes d’acheter sur la Costa del Sol. Le bon choix dépend de votre calendrier, de votre tolérance au risque de construction et de ce que vous attendez réellement du bien.",
     de: "Beide Wege sind auf der Costa del Sol völlig legitim. Die richtige Wahl hängt von Ihrem Zeitrahmen, Ihrer Risikobereitschaft gegenüber der Bauphase und davon ab, was die Immobilie tatsächlich für Sie leisten soll.",
     ru: "Оба варианта покупки на Коста-дель-Соль вполне законны. Правильный выбор зависит от ваших сроков, готовности к строительным рискам и того, что вы на самом деле хотите получить от недвижимости.",
@@ -48,7 +48,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Neither is inherently the better investment -- they suit different buyers, timelines and risk tolerances. Compare them below on the points that actually affect your decision.",
-    es: "Ninguna opción es inherentemente la mejor inversión: se adaptan a distintos compradores, plazos y niveles de tolerancia al riesgo. Compáralas a continuación en los puntos que realmente afectan tu decisión.",
+    es: "Ninguna opción es inherentemente la mejor inversión: se adaptan a distintos compradores, plazos y niveles de tolerancia al riesgo. Compáralas a continuación en los puntos que realmente afectan su decisión.",
     fr: "Aucune des deux n’est intrinsèquement le meilleur investissement : elles conviennent à des acheteurs, des délais et des niveaux de tolérance au risque différents. Comparez-les ci-dessous sur les points qui influencent réellement votre décision.",
     de: "Keine der beiden Optionen ist grundsätzlich die bessere Investition – sie passen zu unterschiedlichen Käufern, Zeitplänen und Risikoprofilen. Vergleichen Sie sie unten anhand der Punkte, die für Ihre Entscheidung wirklich zählen.",
     ru: "Ни один из вариантов не является заведомо лучшей инвестицией — они подходят разным покупателям, срокам и уровням готовности к риску. Сравните их ниже по пунктам, которые действительно влияют на ваше решение.",
@@ -228,7 +228,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Usually priced below a comparable finished home, since you are committing years ahead of delivery and taking on construction timeline risk. That gap narrows, or closes, as a project moves toward its final released units.",
-    es: "Normalmente con un precio inferior al de una vivienda terminada comparable, ya que te comprometes con años de antelación a la entrega y asumes el riesgo del calendario de construcción. Esa diferencia se reduce, o desaparece, a medida que el proyecto se acerca a sus últimas unidades disponibles.",
+    es: "Normalmente con un precio inferior al de una vivienda terminada comparable, ya que le comprometes con años de antelación a la entrega y asumes el riesgo del calendario de construcción. Esa diferencia se reduce, o desaparece, a medida que el proyecto se acerca a sus últimas unidades disponibles.",
     fr: "Généralement proposé à un prix inférieur à celui d’un bien achevé comparable, car vous vous engagez des années avant la livraison et assumez le risque du calendrier de construction. Cet écart se réduit, voire disparaît, à mesure que le projet approche de ses derniers lots disponibles.",
     de: "In der Regel günstiger als eine vergleichbare fertiggestellte Immobilie, da Sie sich Jahre vor der Übergabe verpflichten und das Risiko des Bauzeitplans tragen. Dieser Preisunterschied verringert sich – oder verschwindet –, je näher das Projekt an seine letzten verfügbaren Einheiten kommt.",
     ru: "Обычно цена ниже, чем на сопоставимое готовое жильё, поскольку вы берёте на себя обязательства за годы до сдачи объекта и принимаете риск сроков строительства. Этот разрыв сокращается или исчезает по мере приближения проекта к последним доступным объектам.",
@@ -300,7 +300,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "A formal snagging inspection happens before or at handover, with defects listed for the developer to fix under the build warranty. You are working from the developer's finish standard, not judging an existing property.",
-    es: "Se realiza una inspección formal de defectos antes de la entrega o en el momento de esta, con un listado de fallos para que el promotor los corrija bajo la garantía de construcción. Aquí partes del estándar de acabado del promotor, no estás valorando una propiedad ya existente.",
+    es: "Se realiza una inspección formal de defectos antes de la entrega o en el momento de esta, con un listado de fallos para que el promotor los corrija bajo la garantía de construcción. Aquí partes del estándar de acabado del promotor, no está valorando una propiedad ya existente.",
     fr: "Une inspection formelle de levée de réserves a lieu avant ou au moment de la remise des clés, avec une liste de défauts à corriger par le promoteur au titre de la garantie de construction. Vous partez du niveau de finition défini par le promoteur, sans avoir à juger un bien existant.",
     de: "Eine formelle Mängelabnahme findet vor oder bei der Übergabe statt, wobei Mängel aufgelistet werden, die der Bauträger im Rahmen der Baugewährleistung beheben muss. Sie beurteilen den vom Bauträger festgelegten Ausstattungsstandard, nicht eine bestehende Immobilie.",
     ru: "Формальный осмотр на предмет дефектов проводится до или во время передачи объекта, с составлением списка недочётов, которые застройщик обязан устранить по гарантии. Вы оцениваете стандарт отделки застройщика, а не существующий объект.",
@@ -312,7 +312,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Completion depends on the developer obtaining the first occupation license and certificate of completion before the deed can be signed at the notary. Your lawyer confirms these are in place before you complete.",
-    es: "La finalización depende de que el promotor obtenga la licencia de primera ocupación y el certificado de fin de obra antes de poder firmar la escritura ante notario. Tu abogado confirma que estos documentos están en regla antes de completar la compra.",
+    es: "La finalización depende de que el promotor obtenga la licencia de primera ocupación y el certificado de fin de obra antes de poder firmar la escritura ante notario. Su abogado confirme que estos documentos están en regla antes de completar la compra.",
     fr: "La finalisation dépend de l’obtention par le promoteur de la licence de première occupation et du certificat de fin de travaux avant que l’acte puisse être signé chez le notaire. Votre avocat confirme que ces documents sont en règle avant la signature finale.",
     de: "Der Abschluss hängt davon ab, dass der Bauträger die Erstbezugsgenehmigung und die Fertigstellungsbescheinigung erhält, bevor die Urkunde beim Notar unterzeichnet werden kann. Ihr Anwalt bestätigt, dass diese vorliegen, bevor Sie den Kauf abschließen.",
     ru: "Завершение сделки зависит от получения застройщиком разрешения на ввод в эксплуатацию и акта о завершении строительства, прежде чем документ можно будет подписать у нотариуса. Ваш юрист подтверждает наличие этих документов перед завершением сделки.",
@@ -336,7 +336,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Costs more upfront, but you are paying for a known quantity: the actual finish, the actual view, the actual noise level, none of which you can fully judge from a floorplan and a render.",
-    es: "Cuesta más por adelantado, pero pagas por algo conocido: el acabado real, las vistas reales, el nivel de ruido real, nada de lo cual puedes valorar del todo a partir de un plano y una infografía.",
+    es: "Cuesta más por adelantado, pero paga por algo conocido: el acabado real, las vistas reales, el nivel de ruido real, nada de lo cual puede valorar del todo a partir de un plano y una infografía.",
     fr: "Coûte plus cher au départ, mais vous payez pour une réalité connue : la finition réelle, la vue réelle, le niveau sonore réel, autant d’éléments impossibles à évaluer pleinement à partir d’un plan et d’un rendu 3D.",
     de: "Kostet im Voraus mehr, aber Sie zahlen für eine bekannte Größe: die tatsächliche Ausstattung, die tatsächliche Aussicht, den tatsächlichen Geräuschpegel – all das lässt sich anhand eines Grundrisses und einer Visualisierung nicht vollständig beurteilen.",
     ru: "Стоит дороже сразу, но вы платите за известную величину: реальную отделку, реальный вид, реальный уровень шума — всё то, что невозможно в полной мере оценить по планировке и рендеру.",
@@ -360,7 +360,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Removed entirely. What you see is what you get, and you can inspect the actual property before committing to anything.",
-    es: "Eliminado por completo. Lo que ves es lo que obtienes, y puedes inspeccionar la propiedad real antes de comprometerte a nada.",
+    es: "Eliminado por completo. Lo que ves es lo que obtienes, y puede inspeccionar la propiedad real antes de comprometerse a nada.",
     fr: "Totalement éliminé. Ce que vous voyez est ce que vous obtenez, et vous pouvez inspecter le bien réel avant de vous engager.",
     de: "Vollständig ausgeschlossen. Was Sie sehen, ist, was Sie bekommen, und Sie können die tatsächliche Immobilie besichtigen, bevor Sie sich verpflichten.",
     ru: "Полностью отсутствует. Что вы видите, то и получаете, и вы можете осмотреть реальный объект, прежде чем брать на себя какие-либо обязательства.",
@@ -372,7 +372,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Fixed. A limitation if you wanted something different, an advantage if you would rather judge real materials and workmanship than a specification sheet.",
-    es: "Fijo. Una limitación si querías algo diferente, una ventaja si prefieres valorar materiales y acabados reales en lugar de una ficha técnica.",
+    es: "Fijo. Una limitación si querías algo diferente, una ventaja si prefiere valorar materiales y acabados reales en lugar de una ficha técnica.",
     fr: "Fixe. Une contrainte si vous souhaitiez quelque chose de différent, un avantage si vous préférez juger des matériaux et de la finition réels plutôt qu’une fiche technique.",
     de: "Festgelegt. Eine Einschränkung, wenn Sie sich etwas anderes gewünscht hätten, ein Vorteil, wenn Sie lieber echte Materialien und Verarbeitung beurteilen als ein Ausstattungsblatt.",
     ru: "Фиксированная. Ограничение, если вы хотели чего-то другого, и преимущество, если вы предпочитаете оценивать реальные материалы и качество отделки, а не спецификацию на бумаге.",
@@ -408,7 +408,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Not applicable in the same way. Any defects are whatever the current owner has or has not addressed, so a professional survey before you commit matters more here than a developer warranty.",
-    es: "No aplica de la misma manera. Cualquier defecto es lo que el propietario actual haya solucionado o no, por lo que una inspección profesional antes de comprometerte importa aquí más que la garantía de un promotor.",
+    es: "No aplica de la misma manera. Cualquier defecto es lo que el propietario actual haya solucionado o no, por lo que una inspección profesional antes de comprometerse importa aquí más que la garantía de un promotor.",
     fr: "Ne s’applique pas de la même façon. Les éventuels défauts sont ceux que le propriétaire actuel a corrigés ou non, si bien qu’une expertise professionnelle avant l’engagement compte ici davantage qu’une garantie de promoteur.",
     de: "Gilt hier nicht in gleicher Weise. Etwaige Mängel sind das, was der aktuelle Eigentümer behoben hat oder nicht, weshalb ein professionelles Gutachten vor Ihrer Zusage hier wichtiger ist als eine Bauträgergarantie.",
     ru: "Здесь всё иначе. Любые дефекты зависят от того, что текущий владелец устранил, а что нет, поэтому профессиональная экспертиза перед сделкой здесь важнее, чем гарантия застройщика.",
@@ -420,7 +420,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Already issued and checkable: your lawyer verifies the existing title, license history and any charges on the property at the Land Registry before you sign.",
-    es: "Ya emitida y verificable: tu abogado comprueba el título de propiedad existente, el historial de licencias y cualquier carga sobre la propiedad en el Registro de la Propiedad antes de firmar.",
+    es: "Ya emitida y verificable: su abogado comprueba el título de propiedad existente, el historial de licencias y cualquier carga sobre la propiedad en el Registro de la Propiedad antes de firmar.",
     fr: "Déjà délivrée et vérifiable : votre avocat vérifie le titre de propriété existant, l’historique des licences et toute charge grevant le bien auprès du registre foncier avant la signature.",
     de: "Bereits ausgestellt und überprüfbar: Ihr Anwalt prüft vor der Unterzeichnung den bestehenden Eigentumstitel, die Genehmigungshistorie und etwaige Lasten der Immobilie im Grundbuch.",
     ru: "Уже выданы и проверяемы: ваш юрист проверяет существующий правоустанавливающий документ, историю разрешений и любые обременения на объект в Земельном реестре перед подписанием.",
@@ -432,7 +432,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Set by you and the seller, typically 30 to 60 days after signing, with no construction or licensing timeline to depend on.",
-    es: "La fijáis tú y el vendedor, normalmente entre 30 y 60 días después de la firma, sin ningún calendario de construcción o de licencias del que depender.",
+    es: "La fijáis usted y el vendedor, normalmente entre 30 y 60 días después de la firma, sin ningún calendario de construcción o de licencias del que depender.",
     fr: "Fixée par vous et le vendeur, généralement 30 à 60 jours après la signature, sans dépendre d’un calendrier de construction ou d’autorisation.",
     de: "Wird von Ihnen und dem Verkäufer festgelegt, in der Regel 30 bis 60 Tage nach Unterzeichnung, ohne Abhängigkeit von einem Bau- oder Genehmigungszeitplan.",
     ru: "Определяется вами и продавцом, как правило, через 30–60 дней после подписания, без зависимости от сроков строительства или получения разрешений.",
@@ -468,7 +468,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Which one <em>actually fits you</em>",
-    es: "Cuál se ajusta <em>realmente a ti</em>",
+    es: "Cuál se ajusta <em>realmente a usted</em>",
     fr: "Quelle option vous <em>correspond réellement</em>",
     de: "Was wirklich <em>zu Ihnen passt</em>",
     ru: "Что на самом деле <em>подходит именно вам</em>",
@@ -504,7 +504,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Most buyers are not purely one or the other. The honest way to decide is to compare specific projects against your own budget, timeline and risk tolerance, rather than deciding on off-plan versus resale as an abstract category first. For the full step-by-step process once you have decided, see <a href=\"guide-how-buying-works.html\">how buying works</a>.",
-    es: "La mayoría de los compradores no son puramente uno u otro. La forma honesta de decidir es comparar proyectos concretos con tu propio presupuesto, plazos y tolerancia al riesgo, en lugar de decidir primero entre sobre plano y reventa como una categoría abstracta. Para conocer el proceso completo paso a paso una vez que hayas decidido, consulta <a href=\"guide-how-buying-works.html\">cómo funciona la compra</a>.",
+    es: "La mayoría de los compradores no son puramente uno u otro. La forma honesta de decidir es comparar proyectos concretos con su propio presupuesto, plazos y tolerancia al riesgo, en lugar de decidir primero entre sobre plano y reventa como una categoría abstracta. Para conocer el proceso completo paso a paso una vez que hayas decidido, consulta <a href=\"guide-how-buying-works.html\">cómo funciona la compra</a>.",
     fr: "La plupart des acheteurs ne se rangent pas uniquement dans l’une ou l’autre catégorie. La façon la plus honnête de décider est de comparer des projets concrets à votre propre budget, calendrier et tolérance au risque, plutôt que de trancher d’abord entre sur plan et revente comme catégorie abstraite. Pour le déroulé complet une fois votre décision prise, consultez <a href=\"guide-how-buying-works.html\">comment se déroule un achat</a>.",
     de: "Die meisten Käufer gehören nicht ausschließlich der einen oder anderen Kategorie an. Der ehrliche Weg zur Entscheidung besteht darin, konkrete Projekte mit Ihrem eigenen Budget, Zeitrahmen und Ihrer Risikobereitschaft zu vergleichen, statt sich zuerst abstrakt zwischen Neubau und Bestand zu entscheiden. Den vollständigen Ablauf nach Ihrer Entscheidung finden Sie unter <a href=\"guide-how-buying-works.html\">wie der Kaufprozess funktioniert</a>.",
     ru: "Большинство покупателей не относятся строго к одной из категорий. Честный способ принять решение — сравнить конкретные проекты с вашим бюджетом, сроками и готовностью к риску, а не выбирать сначала между строящимся и вторичным жильём как абстрактной категорией. Полный пошаговый процесс после принятия решения смотрите в разделе <a href=\"guide-how-buying-works.html\">как проходит покупка</a>.",
@@ -528,7 +528,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "<summary>Bank Guarantee</summary><p>Legally required protection for off-plan payments made before completion, covering you if the development is not delivered.</p>",
-    es: "<summary>Aval Bancario</summary><p>Protección exigida legalmente para los pagos sobre plano realizados antes de la finalización, que te cubre si la promoción no se llega a entregar.</p>",
+    es: "<summary>Aval Bancario</summary><p>Protección exigida legalmente para los pagos sobre plano realizados antes de la finalización, que le cubre si la promoción no se llega a entregar.</p>",
     fr: "<summary>Garantie Bancaire</summary><p>Protection légalement obligatoire pour les paiements sur plan effectués avant la livraison, qui vous couvre si la résidence n’est pas livrée.</p>",
     de: "<summary>Bankgarantie</summary><p>Gesetzlich vorgeschriebener Schutz für vor der Fertigstellung geleistete Neubauzahlungen, der Sie absichert, falls die Wohnanlage nicht übergeben wird.</p>",
     ru: "<summary>Банковская гарантия</summary><p>Обязательная по закону защита платежей за строящееся жильё, внесённых до завершения строительства, покрывающая вас в случае, если объект не будет сдан.</p>",
@@ -576,7 +576,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "<summary>Escritura</summary><p>The deed of sale signed at the notary and registered in your name at completion.</p>",
-    es: "<summary>Escritura</summary><p>La escritura de compraventa firmada ante notario e inscrita a tu nombre en el momento de la finalización.</p>",
+    es: "<summary>Escritura</summary><p>La escritura de compraventa firmada ante notario e inscrita a su nombre en el momento de la finalización.</p>",
     fr: "<summary>Escritura</summary><p>L’acte de vente signé chez le notaire et inscrit à votre nom lors de la signature finale.</p>",
     de: "<summary>Escritura</summary><p>Die beim Notar unterzeichnete und bei Abschluss auf Ihren Namen eingetragene Kaufurkunde.</p>",
     ru: "<summary>Escritura</summary><p>Акт купли-продажи, подписанный у нотариуса и зарегистрированный на ваше имя при завершении сделки.</p>",
@@ -588,7 +588,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "This guide is general information to help you compare off-plan and resale purchases on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.",
-    es: "Esta guía ofrece información general para ayudarte a comparar las compras sobre plano y de reventa en la Costa del Sol. No constituye asesoramiento legal, fiscal o financiero, y no sustituye el asesoramiento profesional independiente adaptado a tu situación.",
+    es: "Esta guía ofrece información general para ayudarle a comparar las compras sobre plano y de reventa en la Costa del Sol. No constituye asesoramiento legal, fiscal o financiero, y no sustituye el asesoramiento profesional independiente adaptado a su situación.",
     fr: "Ce guide fournit des informations générales pour vous aider à comparer les achats sur plan et de revente sur la Costa del Sol. Il ne constitue pas un conseil juridique, fiscal ou financier, et ne remplace pas un avis professionnel indépendant adapté à votre situation.",
     de: "Dieser Ratgeber bietet allgemeine Informationen, die Ihnen den Vergleich von Neubau- und Bestandskäufen an der Costa del Sol erleichtern sollen. Er stellt keine Rechts-, Steuer- oder Finanzberatung dar und ersetzt keine unabhängige, auf Ihre Situation zugeschnittene Fachberatung.",
     ru: "Это руководство содержит общую информацию, которая поможет вам сравнить покупку строящегося и вторичного жилья на Коста-дель-Соль. Оно не является юридической, налоговой или финансовой консультацией и не заменяет независимую профессиональную консультацию, учитывающую вашу конкретную ситуацию.",
@@ -612,7 +612,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Not sure which fits? Let's talk.",
-    es: "¿No sabes cuál se ajusta a ti? Hablemos.",
+    es: "¿No sabe cuál se ajusta a usted? Hablemos.",
     fr: "Vous hésitez encore ? Parlons-en.",
     de: "Unsicher, was passt? Sprechen wir darüber.",
     ru: "Не уверены, что подходит именно вам? Давайте поговорим.",
