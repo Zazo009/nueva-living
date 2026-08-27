@@ -866,6 +866,56 @@ let drawerRowHeights = 0;
 // Read the modules rather than the built pages: a table that is missing a
 // locale is the cause, and the page is only where it shows.
 const ENTRY_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+let sitemapPagesChecked = 0;
+
+// The sitemap lists every indexable page, and only those.
+//
+// This was checked by hand and the hand got it wrong: comparing the
+// sitemap's URL count against the audit's page count suggested a hundred
+// pages were going unsubmitted, when the two numbers were simply counting
+// different things -- the audit walks the repo root and the locale
+// directories, the sitemap describes dist. The real answer was an exact
+// match. A count that has to be interpreted is a count worth automating.
+{
+  const distRoot = path.join(root, 'dist');
+  const sitemapPath = path.join(distRoot, 'sitemap.xml');
+  if (fs.existsSync(sitemapPath)) {
+    const listed = new Set([...fs.readFileSync(sitemapPath, 'utf8')
+      .matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]));
+    const indexable = new Map();
+    const walk = (dir) => {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+          if (entry.name !== 'assets') walk(full);
+        } else if (entry.name.endsWith('.html')) {
+          const html = fs.readFileSync(full, 'utf8');
+          if (/name="robots"\s+content="[^"]*noindex/.test(html)) continue;
+          const rel = path.relative(distRoot, full).split(path.sep).join('/');
+          const url = rel.endsWith('index.html')
+            ? `https://nuevaliving.com/${rel.slice(0, -'index.html'.length)}`
+            : `https://nuevaliving.com/${rel}`;
+          indexable.set(url, rel);
+        }
+      }
+    };
+    walk(distRoot);
+    sitemapPagesChecked = indexable.size;
+    const unsubmitted = [...indexable.keys()].filter((url) => !listed.has(url));
+    const orphaned = [...listed].filter((url) => !indexable.has(url));
+    if (unsubmitted.length) {
+      fail('dist/sitemap.xml', `${unsubmitted.length} indexable page(s) are not in the sitemap: `
+        + `${unsubmitted.slice(0, 4).map((u) => indexable.get(u)).join(', ')}`
+        + `${unsubmitted.length > 4 ? `, …and ${unsubmitted.length - 4} more` : ''}.`);
+    }
+    if (orphaned.length) {
+      fail('dist/sitemap.xml', `${orphaned.length} sitemap URL(s) point at a page that is `
+        + `noindex or missing: ${orphaned.slice(0, 4).join(', ')}`
+        + `${orphaned.length > 4 ? `, …and ${orphaned.length - 4} more` : ''}.`);
+    }
+  }
+}
+
 let redirectRulesChecked = 0;
 
 // A redirect rule that a real file shadows does nothing.
@@ -1144,5 +1194,6 @@ if (failures.length) {
     + `${survivingFindStrings === 0 ? 'no' : survivingFindStrings} English source string(s) left unreplaced in translated pages, `
     + `${breadcrumbTrailsChecked} breadcrumb trails checked for a repeated crumb, `
     + `${placeSpellingsChecked} place names checked for one spelling, `
-    + `${redirectRulesChecked} redirect rules checked for shadowing and duplication.`);
+    + `${redirectRulesChecked} redirect rules checked for shadowing and duplication, `
+    + `${sitemapPagesChecked} indexable pages matched against the sitemap.`);
 }
