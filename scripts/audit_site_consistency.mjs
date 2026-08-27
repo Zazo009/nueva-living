@@ -969,6 +969,24 @@ let revealPagesChecked = 0;
         + `script, so the body never becomes visible: ${missingScript.slice(0, 4).join(', ')}`
         + `${missingScript.length > 4 ? `, …and ${missingScript.length - 4} more` : ''}.`);
     }
+    // Same failure, different element: the closing disclaimer and CTA band were
+    // pasted into two guides' body copy, so four guides ended on the last FAQ
+    // answer with no advice notice and no way to contact anyone.
+    const badTail = [];
+    for (const file of everyHtmlFile(distRoot)) {
+      const html = fs.readFileSync(file, 'utf8');
+      if (!html.includes('guide-article-page')) continue;
+      const ctas = (html.match(/class="cta-band"/g) || []).length;
+      const discs = (html.match(/class="guide-disclaimer/g) || []).length;
+      if (ctas !== 1 || discs !== 1) {
+        badTail.push(`${path.relative(distRoot, file)} (${ctas} CTA, ${discs} disclaimer)`);
+      }
+    }
+    if (badTail.length) {
+      fail('dist', `${badTail.length} guide page(s) do not end with exactly one disclaimer and one `
+        + `CTA band: ${badTail.slice(0, 4).join(', ')}`
+        + `${badTail.length > 4 ? `, …and ${badTail.length - 4} more` : ''}.`);
+    }
     if (duplicateScript.length) {
       fail('dist', `${duplicateScript.length} page(s) ship the reveal script more than once, which `
         + `means it is pasted into page bodies instead of the shared template: `

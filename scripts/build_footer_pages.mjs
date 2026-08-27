@@ -337,6 +337,16 @@ function guideArticleSchema({ file, title, description, heroImage, datePublished
 // hides .g-reveal under that class, so if this script never runs the content
 // simply shows, which is the behaviour a reader should get when something
 // goes wrong rather than a blank page.
+function guideTail() {
+  // The disclaimer and the closing CTA belong to every guide, so they live in
+  // the template. They used to be pasted into two guides' own body copy, which
+  // is why the other four ended on the last FAQ answer with no advice notice
+  // and no way to contact anyone -- the same one-string-two-places failure that
+  // left those guides' body copy invisible.
+  return `<section class="section guide-tail"><div class="section-inner"><p class="guide-disclaimer g-reveal">This guide is general information about buying a new-build home on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.</p></div></section>
+    <section class="cta-band"><div class="cta-inner"><div><span class="label">Ready to Start</span><h2 class="cta-title">Let's find your fit.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>`;
+}
+
 function guideRevealScript() {
   // An IntersectionObserver samples once per frame, so an element that goes from
   // fully below the viewport to fully above it between two samples never reports
@@ -418,6 +428,7 @@ ${datePublished ? `        <p class="guide-byline"><span>${t('guide.writtenBy', 
       </div>
     </section>
     ${typeof body === 'function' ? body(locale) : body}
+    ${bodyClass === 'guide-article-page' ? guideTail() : ''}
   </main>
   ${footer(locale)}
   <script>
@@ -843,9 +854,7 @@ const pages = [
       </div>
     </div></section>
     ${generalFaqSection()}
-    <div class="section-inner"><p class="guide-disclaimer g-reveal">This guide is general information about the typical off-plan buying process on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.</p></div>
-    <section class="cta-band"><div class="cta-inner"><div><span class="label">Ready to Start</span><h2 class="cta-title">Let's find your fit.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>
-    <script>
+        <script>
       (() => {
         document.querySelectorAll('[data-guide-checklist]').forEach((panel) => {
           const id = panel.dataset.checklistId || 'default';
@@ -1123,7 +1132,7 @@ const pages = [
 
     <section class="section"><div class="section-inner">
       <div class="section-head center g-reveal"><span class="label">Before You Rely On This</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Schedules change <em>per project</em></h2></div>
-      <p class="body-copy g-reveal">The ranges above describe the written schedules held for the projects listed on this site as of August 2026. They are not a rule, and they are not an offer -- an individual developer can and does structure payments differently, and terms change between releases. Nueva Living reconfirms the current payment structure in writing for a specific residence before any reservation. This page is general information, not legal, tax or financial advice.</p>
+      <p class="body-copy g-reveal">The ranges above describe the written schedules held for the projects listed on this site as of August 2026. They are not a rule, and they are not an offer -- an individual developer can and does structure payments differently, and terms change between releases. Nueva Living reconfirms the current payment structure in writing for a specific residence before any reservation.</p>
       <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
         <a class="btn" href="contact.html#contact-form">Request a Payment Structure</a>
         <a class="btn ghost" href="guide-how-buying-works.html">How Buying a New-Build Works</a>
@@ -1498,8 +1507,7 @@ const pages = [
         <details class="guide-glossary-item"><summary>Escritura</summary><p>The deed of sale signed at the notary and registered in your name at completion.</p></details>
       </div>
     </div></section>
-    <div class="section-inner"><p class="body-copy g-reveal" style="text-align:center;">The two routes are also taxed differently: new-build carries IVA and AJD, resale carries ITP. See <a href="guide-purchase-costs-andalucia.html">what a new-build actually costs in Andalucia</a> for the figures.</p><p class="guide-disclaimer g-reveal">This guide is general information to help you compare off-plan and resale purchases on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.</p></div>
-    <section class="cta-band"><div class="cta-inner"><div><span class="label">Compare Real Options</span><h2 class="cta-title">Not sure which fits? Let's talk.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>
+    <div class="section-inner"><p class="body-copy g-reveal" style="text-align:center;">The two routes are also taxed differently: new-build carries IVA and AJD, resale carries ITP. See <a href="guide-purchase-costs-andalucia.html">what a new-build actually costs in Andalucia</a> for the figures.</p></div>
     <script>
       (() => {
         document.querySelectorAll('[data-guide-tabs]').forEach((wrap) => {
