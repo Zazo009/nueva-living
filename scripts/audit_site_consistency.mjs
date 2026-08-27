@@ -936,6 +936,57 @@ const allEntries = fs.existsSync(entriesModule)
   ? (await import(pathToFileURL(entriesModule).href)).FOOTER_PAGE_ENTRIES || []
   : [];
 
+let sharedFragmentsChecked = 0;
+
+// Text with no translation entry at all is invisible to the unreplaced-source
+// check, because that check can only look for strings the table knows about.
+//
+// The guides shipped nine such gaps: compare-table cells ("Covered", "Resale"),
+// card headings ("Broker", "Refuse", "Valuation") and a hero kicker reading
+// "How to Buy a New-Build on the Costa del Sol · 7 Steps for 2026" in all nine
+// languages. Each was short enough to read as a design element rather than as
+// copy, which is how they survived several translation passes.
+//
+// So compare the built pages instead of the table: any text node that is
+// byte-identical in English and in every one of the nine locales is either a
+// proper noun, a number, or a string nobody translated.
+{
+  const distRoot = path.join(root, 'dist');
+  const KEEP = /^(IVA|AJD|ITP|NIE|LOE|Nueva Living|Costa del Sol|Sasan Raftari|Sami Altun|aval|seguro|tasaci|basura)/;
+  const NUMERIC = /^[\d\s%€.,·/–—&;a-z-]+$/;
+  const textNodes = (file) => {
+    const html = fs.readFileSync(file, 'utf8');
+    const main = html.match(/<main[\s\S]*?<\/main>/);
+    if (!main) return null;
+    return new Set(main[0].replace(/<script[\s\S]*?<\/script>/g, ' ')
+      .split(/<[^>]+>/).map((t) => t.replace(/\s+/g, ' ').trim()).filter(Boolean));
+  };
+  const untranslated = [];
+  for (const file of fs.existsSync(distRoot) ? fs.readdirSync(distRoot) : []) {
+    if (!file.startsWith('guide-') || !file.endsWith('.html')) continue;
+    const english = textNodes(path.join(distRoot, file));
+    if (!english) continue;
+    let shared = english;
+    for (const locale of ENTRY_LOCALES) {
+      const localePage = path.join(distRoot, locale, file);
+      if (!fs.existsSync(localePage)) continue;
+      const here = textNodes(localePage);
+      if (!here) continue;
+      shared = new Set([...shared].filter((t) => here.has(t)));
+    }
+    sharedFragmentsChecked += 1;
+    for (const text of shared) {
+      if (text.length <= 3 || NUMERIC.test(text) || KEEP.test(text)) continue;
+      untranslated.push(`${file}: "${text.slice(0, 44)}"`);
+    }
+  }
+  if (untranslated.length) {
+    fail('dist', `${untranslated.length} text fragment(s) are identical in English and in all nine `
+      + `locales, so they were never translated: ${untranslated.slice(0, 5).join('; ')}`
+      + `${untranslated.length > 5 ? `, …and ${untranslated.length - 5} more` : ''}.`);
+  }
+}
+
 let titleCaseChecked = 0;
 
 // Sentence case in every language but German.
@@ -1570,5 +1621,6 @@ if (failures.length) {
     + `${ogLocalesChecked} og:locale values checked for the language_TERRITORY form, `
     + `${entityPagesChecked} locale pages checked for a translated organisation schema, `
     + `${revealPagesChecked} pages checked for the script that unhides their scroll-revealed content, `
-    + `${translationConflictsChecked} English strings checked for exactly one translation each.`);
+    + `${translationConflictsChecked} English strings checked for exactly one translation each, `
+    + `${sharedFragmentsChecked} guides compared against their nine locale builds for untranslated text.`);
 }
