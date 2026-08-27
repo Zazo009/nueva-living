@@ -866,6 +866,64 @@ let drawerRowHeights = 0;
 // Read the modules rather than the built pages: a table that is missing a
 // locale is the cause, and the page is only where it shows.
 const ENTRY_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+let uniqueMetaChecked = 0;
+
+// Within one language, no two pages share a title or a description.
+//
+// Fifteen of the thirty projects carried their seoDescription in English on
+// all nine locales -- 135 meta descriptions, the text that actually appears
+// in a result, identical across languages and untranslated. Nothing caught
+// it, because the sweep for surviving English only ever read visible text.
+//
+// Per language, not across languages: Swedish and Norwegian both write "Om
+// oss", Dutch and German both write "Villa in Estepona". Those are different
+// URLs with different lang attributes and reciprocal hreflang, and rewriting
+// one of them to satisfy a counter would be worse copy for no gain.
+{
+  const distRoot = path.join(root, 'dist');
+  if (fs.existsSync(distRoot)) {
+    const byLocale = new Map();
+    const walk = (dir, locale) => {
+      for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+          if (entry.name === 'assets') continue;
+          walk(full, ENTRY_LOCALES.includes(entry.name) ? entry.name : locale);
+        } else if (entry.name.endsWith('.html')) {
+          const html = fs.readFileSync(full, 'utf8');
+          if (/name="robots"\s+content="[^"]*noindex/.test(html)) continue;
+          if (!byLocale.has(locale)) byLocale.set(locale, { title: new Map(), desc: new Map() });
+          const bucket = byLocale.get(locale);
+          const rel = path.relative(distRoot, full).split(path.sep).join('/');
+          for (const [field, pattern] of [['title', /<title>([^<]*)<\/title>/],
+                                          ['desc', /<meta name="description" content="([^"]*)"/]]) {
+            const value = pattern.exec(html)?.[1]?.trim();
+            if (!value) continue;
+            uniqueMetaChecked += 1;
+            if (!bucket[field].has(value)) bucket[field].set(value, []);
+            bucket[field].get(value).push(rel);
+          }
+        }
+      }
+    };
+    walk(distRoot, 'en');
+    const clashes = [];
+    for (const [locale, bucket] of byLocale) {
+      for (const field of ['title', 'desc']) {
+        for (const [value, files] of bucket[field]) {
+          if (files.length > 1) {
+            clashes.push(`  [${locale}] ${field}: ${files.slice(0, 3).join(', ')} share "${value.slice(0, 45)}…"`);
+          }
+        }
+      }
+    }
+    if (clashes.length) {
+      fail('dist', `${clashes.length} page(s) in one language share a title or description:\n`
+        + `${clashes.slice(0, 5).join('\n')}`);
+    }
+  }
+}
+
 let sitemapPagesChecked = 0;
 
 // The sitemap lists every indexable page, and only those.
@@ -1195,5 +1253,6 @@ if (failures.length) {
     + `${breadcrumbTrailsChecked} breadcrumb trails checked for a repeated crumb, `
     + `${placeSpellingsChecked} place names checked for one spelling, `
     + `${redirectRulesChecked} redirect rules checked for shadowing and duplication, `
-    + `${sitemapPagesChecked} indexable pages matched against the sitemap.`);
+    + `${sitemapPagesChecked} indexable pages matched against the sitemap, `
+    + `${uniqueMetaChecked} titles and descriptions checked for uniqueness within a language.`);
 }
