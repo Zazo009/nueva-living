@@ -327,6 +327,56 @@ function guideArticleSchema({ file, title, description, heroImage, datePublished
   ];
 }
 
+// Reveal-on-scroll for guide pages, in one place.
+//
+// This observer used to live inside two guides' body copy, pasted in twice,
+// and the other four never got it -- so their entire article was hidden by
+// CSS with nothing to unhide it. It belongs to the page type, not to a page.
+//
+// It adds .reveal-ready to <body> before observing anything. The CSS only
+// hides .g-reveal under that class, so if this script never runs the content
+// simply shows, which is the behaviour a reader should get when something
+// goes wrong rather than a blank page.
+function guideRevealScript() {
+  // An IntersectionObserver samples once per frame, so an element that goes from
+  // fully below the viewport to fully above it between two samples never reports
+  // isIntersecting -- momentum scrolling and anchor jumps do exactly that. Those
+  // elements then keep their full height at opacity 0, which is what made the
+  // guides read as long empty stretches you scroll past. So we also reveal on the
+  // non-intersecting entry when the element has ended up above the viewport, and
+  // sweep once on load for anything the observer never got an entry for.
+  return `<script>
+      (() => {
+        const items = document.querySelectorAll('.g-reveal');
+        if (!items.length) return;
+        document.body.classList.add('reveal-ready');
+        const show = (el) => el.classList.add('in');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reducedMotion || !('IntersectionObserver' in window)) {
+          items.forEach(show);
+          return;
+        }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            const scrolledPast = entry.boundingClientRect.bottom < 0;
+            if (!entry.isIntersecting && !scrolledPast) return;
+            show(entry.target);
+            observer.unobserve(entry.target);
+          });
+        }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+        items.forEach((item) => observer.observe(item));
+        const sweep = () => {
+          items.forEach((item) => {
+            if (item.classList.contains('in')) return;
+            if (item.getBoundingClientRect().top < window.innerHeight) show(item);
+          });
+        };
+        window.addEventListener('load', sweep);
+        window.addEventListener('scroll', sweep, { passive: true });
+      })();
+    <\/script>`;
+}
+
 function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '', englishOnly = false, datePublished }, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
@@ -392,6 +442,7 @@ ${datePublished ? `        <p class="guide-byline"><span>${t('guide.writtenBy', 
     }
   </script>
   ${LANG_SWITCHER_SCRIPT}
+  ${bodyClass === 'guide-article-page' ? guideRevealScript() : ''}
 </body>
 </html>`;
   return localizeInternalLinks(applyFooterPageTranslations(html, locale), locale);
@@ -796,23 +847,6 @@ const pages = [
     <section class="cta-band"><div class="cta-inner"><div><span class="label">Ready to Start</span><h2 class="cta-title">Let's find your fit.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>
     <script>
       (() => {
-        const items = document.querySelectorAll('.g-reveal');
-        if (!items.length) return;
-        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reducedMotion || !('IntersectionObserver' in window)) {
-          items.forEach((item) => item.classList.add('in'));
-          return;
-        }
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('in');
-            observer.unobserve(entry.target);
-          });
-        }, { threshold: 0.12 });
-        items.forEach((item) => observer.observe(item));
-      })();
-      (() => {
         document.querySelectorAll('[data-guide-checklist]').forEach((panel) => {
           const id = panel.dataset.checklistId || 'default';
           const storageKey = \`nueva-guide-checklist-\${id}\`;
@@ -1144,6 +1178,59 @@ const pages = [
     </div></section>
 
     <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Who Answers</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Who you can <em>actually claim against</em></h2></div>
+      <p class="body-copy g-reveal">"The building agents" is a category, not an address. It covers the developer, the constructor, the architect who designed it and the technical architect who supervised the work, and each of them answers for their own part.</p>
+      <p class="body-copy g-reveal">The practical point is the one buyers rarely hear: where the responsibility for a defect cannot be apportioned between them, they answer jointly and severally -- and the developer answers jointly with all of them in any case. You do not have to establish which professional caused a problem before you can raise it. You raise it with the developer, and the apportioning is theirs to work out.</p>
+    </div></section>
+
+    <section class="section quiet-band"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">The Second Clock</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Two years <em>to act on it</em></h2></div>
+      <p class="body-copy g-reveal">There are two timers, and confusing them is the most expensive mistake available here.</p>
+      <div class="guide-compare-grid g-reveal">
+        <div class="guide-compare-row"><div class="guide-compare-label">The cover</div><div><p>Ten, three or one year from reception of the works. This is the window in which a defect has to appear to be covered at all.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">The claim</div><div><p>Two years from when the damage appears, to bring the action. A defect that shows up in year nine is covered, and the claim for it still has to be brought within two years of showing up.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">What that means</div><div><p>Noticing a crack and waiting to see whether it worsens can move you out of time while the ten-year cover is still running. Record the date you saw it and start the conversation then.</p></div></div>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">In Practice</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">What to do <em>when you find one</em></h2></div>
+      <p class="body-copy g-reveal">Most defects are resolved by the developer without any of the above being invoked. The steps below are what keep that route open and the formal one available if it closes.</p>
+      <div class="cards g-reveal">
+        <article class="card"><h3>Date it</h3><p>Photograph it with something that fixes the date, and write down when you first saw it. The two-year clock runs from the damage appearing, and your own record is usually the only evidence of when that was.</p></article>
+        <article class="card"><h3>Report it in writing</h3><p>Email is enough to start. What matters is that a dated record exists showing you raised it and when, rather than a phone call neither side can later describe the same way.</p></article>
+        <article class="card"><h3>Do not repair it first</h3><p>Fixing a defect before it has been inspected removes the evidence of what it was. Make it safe if it needs making safe, and document the state it was in.</p></article>
+        <article class="card"><h3>Get it looked at</h3><p>For anything structural, an independent technical report is what turns "there is a crack" into a description of a cause. It is also what a claim would be built on if one becomes necessary.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section segment-faq-section"><div class="section-inner">
+      <div class="section-head"><span class="label">Common Questions</span><div class="rule"></div><h2 class="section-title">What buyers <em>ask us about defects</em></h2></div>
+      <div class="segment-faq-list">
+        <details class="segment-faq-item" open>
+          <summary>Does the warranty transfer if I sell?</summary>
+          <p>The cover attaches to the building rather than to you, so a buyer who acquires within the periods inherits what is left of them. It is worth telling them the reception date, since that is where their remaining time is measured from.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>What counts as structural?</summary>
+          <p>Damage from defects affecting foundations, supports, beams, floor slabs, load-bearing walls and similar elements. Cracked tiling is not structural because it is unpleasant; a crack that traces to movement in the structure is, and telling those apart is what a technical report does.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Who pays for the snagging inspection?</summary>
+          <p>You do, where you engage someone independent, and it is usually money well spent. The developer's own handover walkthrough is not the same exercise and is not conducted in your interest.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>What if the developer no longer exists?</summary>
+          <p>For the ten-year structural cover, this is precisely why the insurance is compulsory: the claim runs against the insurer. For the one and three-year periods, which are liabilities rather than insurances, a dissolved developer is a genuine practical problem, and that is worth knowing before it is one.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Can I refuse to complete because of defects?</summary>
+          <p>That depends on their severity and on your contract, and it is a question for your lawyer rather than a rule. What is generally available is completing with reservations recorded, which shifts the start of the periods until those are put right.</p>
+        </details>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
       <div class="section-head center g-reveal"><span class="label">Before You Rely On This</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Sourced from the <em>consolidated statute</em></h2></div>
       <p class="body-copy g-reveal">The periods and liabilities described here are taken from articles 17 and 19 of Ley 38/1999 and its second additional provision, as consolidated, and are current as of August 2026. This page is general information about how the cover is structured, not legal advice. Whether a particular defect falls in a particular period is a question of fact for your lawyer and, usually, a surveyor. Nueva Living can provide the warranty and insurance documentation held for a specific project on request.</p>
       <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
@@ -1414,23 +1501,6 @@ const pages = [
     <div class="section-inner"><p class="body-copy g-reveal" style="text-align:center;">The two routes are also taxed differently: new-build carries IVA and AJD, resale carries ITP. See <a href="guide-purchase-costs-andalucia.html">what a new-build actually costs in Andalucia</a> for the figures.</p><p class="guide-disclaimer g-reveal">This guide is general information to help you compare off-plan and resale purchases on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.</p></div>
     <section class="cta-band"><div class="cta-inner"><div><span class="label">Compare Real Options</span><h2 class="cta-title">Not sure which fits? Let's talk.</h2></div><a class="btn" href="contact.html#contact-form">Start Your Search</a></div></section>
     <script>
-      (() => {
-        const items = document.querySelectorAll('.g-reveal');
-        if (!items.length) return;
-        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reducedMotion || !('IntersectionObserver' in window)) {
-          items.forEach((item) => item.classList.add('in'));
-          return;
-        }
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('in');
-            observer.unobserve(entry.target);
-          });
-        }, { threshold: 0.12 });
-        items.forEach((item) => observer.observe(item));
-      })();
       (() => {
         document.querySelectorAll('[data-guide-tabs]').forEach((wrap) => {
           const tabs = [...wrap.querySelectorAll('[role="tab"]')];

@@ -929,6 +929,54 @@ let entityPagesChecked = 0;
   }
 }
 
+let revealPagesChecked = 0;
+
+// A page that hides content on scroll must ship the code that unhides it.
+//
+// The guides styled .g-reveal to opacity 0 by default, but the observer that
+// adds .in lived inside two guides' own body copy instead of the shared
+// template. The other four shipped a hero followed by 1,200 words of invisible
+// text still holding its full height -- in all ten languages. Nothing failed,
+// because the CSS and the script were authored in different files and neither
+// knew the other was required. So: every built page carrying .g-reveal must
+// carry exactly one reveal script, and the CSS must gate hiding on the class
+// that script sets, so hiding can never outlive the unhiding.
+{
+  const distRoot = path.join(root, 'dist');
+  const cssFile = path.join(root, 'assets', 'liora', 'liora-pages.css');
+  if (fs.existsSync(distRoot) && fs.existsSync(cssFile)) {
+    const css = fs.readFileSync(cssFile, 'utf8');
+    const hidingRules = css.match(/^[^{}\n]*\.g-reveal(?![-\w])[^{}]*\{[^}]*opacity:\s*0[^}]*\}/gm) || [];
+    const ungated = hidingRules.filter((rule) => !rule.split('{')[0].includes('.reveal-ready'));
+    if (ungated.length) {
+      fail('assets/liora/liora-pages.css',
+        `${ungated.length} rule(s) hide .g-reveal without gating on .reveal-ready, so the content `
+        + 'stays invisible on any page whose reveal script is missing or throws.');
+    }
+    const missingScript = [];
+    const duplicateScript = [];
+    for (const file of everyHtmlFile(distRoot)) {
+      const html = fs.readFileSync(file, 'utf8');
+      if (!html.includes('g-reveal')) continue;
+      revealPagesChecked += 1;
+      const observers = (html.match(/querySelectorAll\('\.g-reveal'\)/g) || []).length;
+      const rel = path.relative(distRoot, file);
+      if (observers === 0) missingScript.push(rel);
+      else if (observers > 1) duplicateScript.push(rel);
+    }
+    if (missingScript.length) {
+      fail('dist', `${missingScript.length} page(s) hide content behind .g-reveal but ship no reveal `
+        + `script, so the body never becomes visible: ${missingScript.slice(0, 4).join(', ')}`
+        + `${missingScript.length > 4 ? `, …and ${missingScript.length - 4} more` : ''}.`);
+    }
+    if (duplicateScript.length) {
+      fail('dist', `${duplicateScript.length} page(s) ship the reveal script more than once, which `
+        + `means it is pasted into page bodies instead of the shared template: `
+        + `${duplicateScript.slice(0, 4).join(', ')}.`);
+    }
+  }
+}
+
 let ogLocalesChecked = 0;
 
 // og:locale is language_TERRITORY, not a bare language code.
@@ -1410,5 +1458,6 @@ if (failures.length) {
     + `${uniqueMetaChecked} titles and descriptions checked for uniqueness within a language, `
     + `${descriptionRatiosChecked} translated descriptions measured against their English source, `
     + `${ogLocalesChecked} og:locale values checked for the language_TERRITORY form, `
-    + `${entityPagesChecked} locale pages checked for a translated organisation schema.`);
+    + `${entityPagesChecked} locale pages checked for a translated organisation schema, `
+    + `${revealPagesChecked} pages checked for the script that unhides their scroll-revealed content.`);
 }
