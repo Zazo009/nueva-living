@@ -56,7 +56,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ar: 'تكتفي كل الأدلة الموجهة لإسبانيا ككل بذكر نسبة تتراوح بين 8 و13 بالمئة. أما العقارات الجديدة في الأندلس فلها رقم محدد، ويمكن معرفته قبل تقديم أي عرض.',
     nl: 'Elke kostengids voor heel Spanje noemt 8 tot 13 procent. Nieuwbouw in Andalusië is een concreet getal, en dat is bekend vóórdat u een bod doet.',
     pl: 'Każdy ogólnohiszpański poradnik kosztów podaje od 8 do 13 procent. W przypadku nowego budownictwa w Andaluzji to konkretna liczba, którą można poznać przed złożeniem oferty.',
-    sv: 'Alla kostnadsguider för Spanien som helhet anger 8 till 13 procent. Nyproduktion i Andalusien är en bestämd siffra, och den går att räkna ut innan du lägger bud.',
+    sv: 'Alla kostnadsguider för Spanien som helhet anger 8 till 13 procent. Nyproduktion i Andalusien är en bestämd siffra, och den går att räkna ut innan ni lägger bud.',
     no: 'Alle kostnadsguider for Spania som helhet oppgir 8 til 13 prosent. Nybygg i Andalusia er et konkret tall, og det er mulig å vite før du gir bud.'
   },
   {
@@ -242,7 +242,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ar: '<strong>نحو 57,000 يورو، أي حوالي 12.5% فوق السعر.</strong> منها 50,400 يورو ضرائب ثابتة، والباقي يتوقف على من تختاره من المهنيين.',
     nl: '<strong>Ongeveer € 57.000, oftewel zo’n 12,5% bovenop de prijs.</strong> Daarvan is € 50.400 vaste belasting; de rest hangt af van wie u inschakelt.',
     pl: '<strong>Około 57 000 €, czyli mniej więcej 12,5% ponad cenę.</strong> Z tego 50 400 € to stałe podatki; reszta zależy od tego, kogo zatrudnisz.',
-    sv: '<strong>Cirka 57 000 €, eller ungefär 12,5% utöver priset.</strong> Av det är 50 400 € fasta skatter; resten beror på vilka du anlitar.',
+    sv: '<strong>Cirka 57 000 €, eller ungefär 12,5% utöver priset.</strong> Av det är 50 400 € fasta skatter; resten beror på vilka ni anlitar.',
     no: '<strong>Rundt 57 000 €, eller omtrent 12,5% over prisen.</strong> Av dette er 50 400 € faste skatter; resten avhenger av hvem du engasjerer.'
   },
   {
@@ -254,7 +254,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ar: 'هذه هي تكلفة الاستحواذ. ولا تشمل رسوم ترتيب الرهن العقاري والتقييم في حال الاقتراض، ولا الأثاث، ولا التكاليف الجارية التي تبدأ بعد التسليم: ضريبة IBI ورسوم الاتحاد المالكين والمرافق.',
     nl: 'Dat zijn de verwervingskosten. Niet inbegrepen zijn afsluit- en taxatiekosten als u financiert, de inrichting, en de doorlopende lasten die na oplevering beginnen: IBI, servicekosten en nutsvoorzieningen.',
     pl: 'To koszt nabycia. Nie obejmuje opłat za uruchomienie kredytu i wycenę, jeśli finansujesz zakup, umeblowania ani kosztów bieżących, które zaczynają się po odbiorze: IBI, opłat wspólnoty i mediów.',
-    sv: 'Det är förvärvskostnaden. Den omfattar inte uppläggnings- och värderingsavgifter om du lånar, möblering eller de löpande kostnader som börjar efter tillträdet: IBI, samfällighetsavgifter och el, vatten och avlopp.',
+    sv: 'Det är förvärvskostnaden. Den omfattar inte uppläggnings- och värderingsavgifter om ni lånar, möblering eller de löpande kostnader som börjar efter tillträdet: IBI, samfällighetsavgifter och el, vatten och avlopp.',
     no: 'Dette er ervervskostnaden. Den omfatter ikke etablerings- og takseringsgebyrer hvis du låner, møblering eller de løpende kostnadene som starter etter overtakelse: IBI, sameieavgifter og strøm, vann og avløp.'
   },
   {
@@ -266,7 +266,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ar: 'تُحدَّد نسبة IVA على المستوى الوطني بينما تحدد الأندلس نسبة AJD؛ وكلتاهما قابلة للتغيير، وتخضع النسب المخفّضة لشروط تعتمد على ظروفك. هذه الصفحة معلومات عامة عن بنية التكاليف، وليست استشارة ضريبية أو قانونية. تأكد من الأرقام الخاصة بصفقتك مع محاميك أو مستشارك الضريبي قبل الالتزام بأي شيء. وتقدّم نويفا ليفينغ عند الطلب بيانًا مكتوبًا بتفصيل التكاليف لعقار محدد.',
     nl: 'Het IVA-tarief is landelijk en het AJD-tarief wordt door Andalusië vastgesteld; beide kunnen wijzigen, en aan de verlaagde tarieven zijn voorwaarden verbonden die van uw situatie afhangen. Deze pagina is algemene informatie over hoe de kosten zijn opgebouwd, geen fiscaal of juridisch advies. Laat de cijfers voor uw eigen aankoop bevestigen door uw advocaat of belastingadviseur voordat u zich ergens aan verbindt. Nueva Living verstrekt op verzoek een schriftelijke kostenopgave voor een specifieke woning.',
     pl: 'Stawka IVA jest ogólnokrajowa, a stawkę AJD ustala Andaluzja; obie mogą się zmienić, a stawki obniżone obwarowane są warunkami zależnymi od Twojej sytuacji. Ta strona to ogólna informacja o strukturze kosztów, a nie porada podatkowa ani prawna. Potwierdź liczby dotyczące Twojego zakupu u swojego prawnika lub doradcy podatkowego, zanim się do czegokolwiek zobowiążesz. Na życzenie Nueva Living przygotowuje pisemne zestawienie kosztów dla konkretnej nieruchomości.',
-    sv: 'IVA-satsen är nationell och AJD-satsen bestäms av Andalusien; båda kan ändras, och de reducerade satserna är förenade med villkor som beror på din situation. Den här sidan är allmän information om hur kostnaderna är uppbyggda, inte skatte- eller juridisk rådgivning. Bekräfta siffrorna för ditt eget köp med din advokat eller skatterådgivare innan du binder dig. Nueva Living tar på begäran fram en skriftlig kostnadsspecifikation för en bestämd bostad.',
+    sv: 'IVA-satsen är nationell och AJD-satsen bestäms av Andalusien; båda kan ändras, och de reducerade satserna är förenade med villkor som beror på er situation. Den här sidan är allmän information om hur kostnaderna är uppbyggda, inte skatte- eller juridisk rådgivning. Bekräfta siffrorna för ert eget köp med er advokat eller skatterådgivare innan ni binder er. Nueva Living tar på begäran fram en skriftlig kostnadsspecifikation för en bestämd bostad.',
     no: 'IVA-satsen er nasjonal og AJD-satsen fastsettes av Andalusia; begge kan endres, og de reduserte satsene har vilkår som avhenger av din situasjon. Denne siden er generell informasjon om hvordan kostnadene er bygget opp, ikke skatte- eller juridisk rådgivning. Få tallene for ditt eget kjøp bekreftet av advokaten eller skatterådgiveren din før du forplikter deg. Nueva Living utarbeider på forespørsel en skriftlig kostnadsoversikt for en bestemt bolig.'
   },
   {
@@ -355,7 +355,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     find: 'Before You Rely On This',
     es: 'Antes de basarte en esto', fr: 'Avant de vous y fier', de: 'Bevor Sie sich darauf verlassen',
     ru: 'Прежде чем на это полагаться', ar: 'قبل الاعتماد على هذه الأرقام', nl: 'Voordat u hierop vertrouwt',
-    pl: 'Zanim się na tym oprzesz', sv: 'Innan du förlitar dig på detta', no: 'Før du baserer deg på dette'
+    pl: 'Zanim się na tym oprzesz', sv: 'Innan ni förlitar er på detta', no: 'Før du baserer deg på dette'
   },
   {
     find: 'See the Breakdown',

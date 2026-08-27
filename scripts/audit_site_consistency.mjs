@@ -936,6 +936,54 @@ const allEntries = fs.existsSync(entriesModule)
   ? (await import(pathToFileURL(entriesModule).href)).FOOTER_PAGE_ENTRIES || []
   : [];
 
+let registerPagesChecked = 0;
+
+// One form of address per language, across every page type.
+//
+// The site said "ni" on its advisory and about pages and "du" in its guides,
+// so a Swedish visitor was addressed differently depending on where they
+// landed -- and the shared CTA band ended up with a heading in one register
+// above a button in the other. The copy lives in six different places
+// (translation tables, strings.json, per-project i18n overlays, the areas
+// file, the homepage builder and the segment tables), which is why no single
+// pass ever caught it.
+//
+// Norwegian is deliberately absent: "De" is archaic there, so "du" IS the
+// correct formal address and converting it would be an error.
+{
+  const distRoot = path.join(root, 'dist');
+  // JavaScript's \b is ASCII-only, so /\btes\b/ matches inside "êtes" and
+  // /\bdu\b/ inside "födu". Every one of these languages has accented letters,
+  // so the boundaries have to be Unicode letter lookarounds instead.
+  const word = (alternatives, flags = 'gu') =>
+    new RegExp(`(?<!\\p{L})(?:${alternatives})(?!\\p{L})`, flags);
+  const INFORMAL = {
+    sv: word('du|dig|din|ditt|dina', 'giu'),
+    de: word('du|dich|dir|dein|deine|deinen|deinem|deiner', 'giu'),
+    nl: word('jij|jou|jouw|jullie', 'giu'),
+    fr: word('tu|ton|tes|toi', 'gu'),
+  };
+  const offenders = [];
+  for (const [locale, pattern] of Object.entries(INFORMAL)) {
+    const dir = path.join(distRoot, locale);
+    if (!fs.existsSync(dir)) continue;
+    for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.html'))) {
+      const html = fs.readFileSync(path.join(dir, file), 'utf8');
+      const main = html.match(/<main[\s\S]*?<\/main>/);
+      if (!main) continue;
+      registerPagesChecked += 1;
+      const text = main[0].replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ');
+      const found = text.match(pattern);
+      if (found) offenders.push(`${locale}/${file} ("${found[0]}", ${found.length}x)`);
+    }
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page(s) address the reader informally in a language the site `
+      + `addresses formally: ${offenders.slice(0, 4).join(', ')}`
+      + `${offenders.length > 4 ? `, …and ${offenders.length - 4} more` : ''}.`);
+  }
+}
+
 let sharedFragmentsChecked = 0;
 
 // Text with no translation entry at all is invisible to the unreplaced-source
@@ -1622,5 +1670,6 @@ if (failures.length) {
     + `${entityPagesChecked} locale pages checked for a translated organisation schema, `
     + `${revealPagesChecked} pages checked for the script that unhides their scroll-revealed content, `
     + `${translationConflictsChecked} English strings checked for exactly one translation each, `
-    + `${sharedFragmentsChecked} guides compared against their nine locale builds for untranslated text.`);
+    + `${sharedFragmentsChecked} guides compared against their nine locale builds for untranslated text, `
+    + `${registerPagesChecked} pages checked for one form of address per language.`);
 }
