@@ -597,7 +597,7 @@ const pages = [
   {
     file: 'advisory.html',
     title: 'Advisory',
-    description: 'Buyer-focused advisory for Costa del Sol new development purchases.',
+    description: 'Independent help comparing Costa del Sol developers, contracts, payment schedules and bank guarantees before you reserve an off-plan home.',
     heroImage: 'assets/liora/advisory-property.jpg',
     heroKicker: 'Advisory',
     seoContext: 'Off-Plan Buyer Advisory, Costa del Sol',
@@ -1346,7 +1346,7 @@ const pages = [
   {
     file: 'about.html',
     title: 'About',
-    description: 'About Nueva Living, a Costa del Sol new development advisory firm.',
+    description: 'Meet Sasan Raftari and Sami Altun. Nueva Living works with 40+ developers across Marbella, Estepona and the Costa del Sol on new-build and off-plan homes.',
     heroImage: 'assets/liora/viewing/scene-19.jpg',
     heroKicker: 'About Nueva Living',
     seoContext: 'Nueva Living: New-Build Specialists on the Costa del Sol',
@@ -1363,7 +1363,7 @@ const pages = [
     file: 'contact.html',
     title: 'Contact Us',
     breadcrumbTitle: 'Contact Us',
-    description: 'Tell Nueva Living what kind of new home you are looking for on the Costa del Sol.',
+    description: 'Tell us your budget, area and timing and we will send a personal shortlist of Costa del Sol new developments, usually within one working day.',
     heroImage: 'assets/liora/viewing/scene-08.jpg',
     heroKicker: 'Contact Nueva Living',
     seoContext: 'Get Your Costa del Sol New-Build Shortlist',

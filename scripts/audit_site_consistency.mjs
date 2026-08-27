@@ -866,6 +866,56 @@ let drawerRowHeights = 0;
 // Read the modules rather than the built pages: a table that is missing a
 // locale is the cause, and the page is only where it shows.
 const ENTRY_LOCALES = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+let descriptionRatiosChecked = 0;
+
+// A translated description must carry the same substance as the English.
+//
+// About, advisory and contact each had a full English description --
+// "Meet Sasan Raftari and Sami Altun... 40+ developers", "usually within one
+// working day", "contracts, payment schedules and bank guarantees" -- and a
+// generic one-liner in all nine languages, roughly half the length, with
+// every specific dropped. Nothing was untranslated, so no check for English
+// could see it. The English text had been improved in build_dist's pageMeta
+// and the builders' own copy, which is what the locale pages use, never
+// followed.
+//
+// Length is a proxy, and a crude one: a language can be terser than English
+// and still say everything. Two thirds is loose enough to allow that and
+// tight enough to catch a sentence that has been replaced by a label.
+const MIN_DESCRIPTION_RATIO = 0.7;
+
+{
+  const distRoot = path.join(root, 'dist');
+  const readDescription = (file) => {
+    if (!fs.existsSync(file)) return null;
+    const html = fs.readFileSync(file, 'utf8');
+    if (/name="robots"\s+content="[^"]*noindex/.test(html)) return null;
+    return /<meta name="description" content="([^"]*)"/.exec(html)?.[1] || null;
+  };
+  if (fs.existsSync(distRoot)) {
+    const thin = [];
+    for (const entry of fs.readdirSync(distRoot).filter((f) => f.endsWith('.html'))) {
+      const english = readDescription(path.join(distRoot, entry));
+      if (!english) continue;
+      for (const locale of ENTRY_LOCALES) {
+        const translated = readDescription(path.join(distRoot, locale, entry));
+        if (!translated) continue;
+        descriptionRatiosChecked += 1;
+        const ratio = translated.length / english.length;
+        if (ratio < MIN_DESCRIPTION_RATIO) {
+          thin.push(`  ${locale}/${entry}: ${translated.length} chars against ${english.length} (${ratio.toFixed(2)})`);
+        }
+      }
+    }
+    if (thin.length) {
+      fail('dist', `${thin.length} translated description(s) are far shorter than the English:\n`
+        + `${thin.slice(0, 5).join('\n')}\n`
+        + 'Check the translation still carries the specifics -- the names, the '
+        + 'numbers, the promise -- rather than having been reduced to a label.');
+    }
+  }
+}
+
 let uniqueMetaChecked = 0;
 
 // Within one language, no two pages share a title or a description.
@@ -1254,5 +1304,6 @@ if (failures.length) {
     + `${placeSpellingsChecked} place names checked for one spelling, `
     + `${redirectRulesChecked} redirect rules checked for shadowing and duplication, `
     + `${sitemapPagesChecked} indexable pages matched against the sitemap, `
-    + `${uniqueMetaChecked} titles and descriptions checked for uniqueness within a language.`);
+    + `${uniqueMetaChecked} titles and descriptions checked for uniqueness within a language, `
+    + `${descriptionRatiosChecked} translated descriptions measured against their English source.`);
 }
