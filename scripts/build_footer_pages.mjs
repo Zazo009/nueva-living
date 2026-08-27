@@ -1109,6 +1109,65 @@ const pages = [
     </div></section>
 
     <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">With a Mortgage</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">What a mortgage <em>adds to the total</em></h2></div>
+      <p class="body-copy g-reveal">If you are borrowing, three of the four costs below fall on you and one does not. The one that does not is the one older guides still list as yours.</p>
+      <div class="cards g-reveal">
+        <article class="card"><h3>Valuation</h3><p>The tasaci&oacute;n, &euro;300 to &euro;600, paid before the bank will issue a binding offer. The report is valid for six months, and the bank lends against the lower of valuation and price.</p></article>
+        <article class="card"><h3>Arrangement fee</h3><p>The comisi&oacute;n de apertura, 0% to 1% of the loan. Negotiable, and often waived on non-resident lending at a conservative loan-to-value.</p></article>
+        <article class="card"><h3>AJD on the mortgage</h3><p>Nothing. The lender has paid the stamp duty on the mortgage deed since Real Decreto-ley 17/2018. Any guide still listing it as a buyer cost predates that change.</p></article>
+        <article class="card"><h3>Broker</h3><p>0.5% to 1% of the loan, or a fixed fee, if you use one. Worth it where a broker reaches lenders that price non-resident files differently.</p></article>
+      </div>
+      <p class="body-copy g-reveal">Non-resident lending on this coast typically runs to 60% or 70% of the lower of price and valuation. The cash you need is the deposit plus everything on this page, not the deposit alone.</p>
+    </div></section>
+
+    <section class="section quiet-band"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">When It Falls Due</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">The costs do not <em>arrive together</em></h2></div>
+      <p class="body-copy g-reveal">A single percentage makes it sound like one bill at the end. In practice the tax arrives in instalments and the professional fees arrive at the deed.</p>
+      <div class="guide-compare-grid g-reveal">
+        <div class="guide-compare-row"><div class="guide-compare-label">At reservation</div><div><p>Nothing beyond the reservation fee itself, and that counts towards the price rather than sitting on top of it.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">During construction</div><div><p>IVA at 10% is charged on each stage payment as you make it, not held back to completion. This is the line most budgets get wrong: the cash required at each stage is the percentage plus a tenth of it again.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">At the deed</div><div><p>The balance of the price, the AJD in full, notary, Land Registry and your lawyer's fee. This is where the largest single transfer happens.</p></div></div>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">After Completion</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">The costs that <em>start rather than stop</em></h2></div>
+      <p class="body-copy g-reveal">Acquisition cost is the number people compare. Running cost is the number they live with, and it is knowable before you reserve.</p>
+      <div class="cards g-reveal">
+        <article class="card"><h3>IBI</h3><p>Municipal property tax, charged on the valor catastral rather than the market price, broadly 0.4% to 1.1% of it a year. Because the catastral value is a fraction of what you paid, the bill is usually a few hundred to a couple of thousand euros.</p></article>
+        <article class="card"><h3>Community fees</h3><p>Set per home by participation quota. A development with a spa, heated pools and a concierge costs more to run than a small block, and the community budget exists before you reserve. Ask for it.</p></article>
+        <article class="card"><h3>Refuse</h3><p>The basura charge, billed by the town hall, modest, usually annually or quarterly depending on the municipality.</p></article>
+        <article class="card"><h3>Non-resident income tax</h3><p>Spain taxes an imputed income on a second home even when it is never let, declared on Modelo 210. Residents of the EU and EEA are taxed at 19%, others at 24%.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section segment-faq-section"><div class="section-inner">
+      <div class="section-head"><span class="label">Common Questions</span><div class="rule"></div><h2 class="section-title">What buyers <em>ask us about cost</em></h2></div>
+      <div class="segment-faq-list">
+        <details class="segment-faq-item" open>
+          <summary>Is the 11.2% negotiable?</summary>
+          <p>No. IVA is set nationally and AJD by Andaluc&iacute;a, and neither moves on a private purchase. What is negotiable is the legal fee, and the arrangement fee if you borrow.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Do I pay plusval&iacute;a municipal?</summary>
+          <p>No. That tax falls on the seller, and on a new-build the seller is the developer. It is a resale question that follows buyers into new-build guides where it does not belong.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Is the IVA paid in one payment at the end?</summary>
+          <p>No. It is charged on each stage payment as that payment is made. A schedule quoting 30% at contract means 30% plus IVA on that 30%, and the same at every stage after it.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>What is the 3% retention I keep reading about?</summary>
+          <p>It applies where the seller is a non-resident, which makes it a resale matter. Buying from a Spanish developer it does not arise at all.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Can I reclaim the IVA?</summary>
+          <p>Only where the buyer is a business and the property is put to a taxable activity, and that brings its own obligations. On a home bought privately, no.</p>
+        </details>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
       <div class="section-head center g-reveal"><span class="label">Before You Rely On This</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Figures current at <em>August 2026</em></h2></div>
       <p class="body-copy g-reveal">The IVA rate is national and the AJD rate is set by Andaluc&iacute;a; both can change, and the reduced rates carry conditions that depend on your circumstances. This page is general information about how the costs are structured, not tax or legal advice. Confirm the figures for your own purchase with your lawyer or tax adviser before you commit to anything. Nueva Living provides a written cost breakdown for a specific residence on request.</p>
       <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
