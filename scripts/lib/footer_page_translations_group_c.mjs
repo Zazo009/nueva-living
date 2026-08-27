@@ -12,8 +12,8 @@
 export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   {
     find: "Off-Plan vs Resale",
-    es: "Sobre Plano vs Reventa",
-    fr: "Sur Plan ou Revente",
+    es: "Sobre plano vs reventa",
+    fr: "Sur plan ou revente",
     de: "Neubau vs. Bestandsimmobilie",
     ru: "Строящееся жильё или вторичный рынок",
     ar: "على الخريطة أم إعادة بيع",
@@ -21,30 +21,6 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     pl: "Rynek pierwotny a wtórny",
     sv: "Nyproduktion mot begagnat",
     no: "Nybygg mot bruktbolig"
-  },
-  {
-    find: "How buying off-plan and buying a completed resale home actually compare on the Costa del Sol, across price, risk, payment terms and appreciation.",
-    es: "Cómo se comparan realmente comprar sobre plano y comprar una vivienda de reventa terminada en la Costa del Sol, en precio, riesgo, condiciones de pago y revalorización.",
-    fr: "Comment l’achat sur plan et l’achat d’un bien de revente déjà achevé se comparent réellement sur la Costa del Sol, en matière de prix, de risque, de conditions de paiement et de valorisation.",
-    de: "Wie sich der Kauf einer Neubauimmobilie und einer fertiggestellten Bestandsimmobilie an der Costa del Sol tatsächlich unterscheiden – bei Preis, Risiko, Zahlungsbedingungen und Wertsteigerung.",
-    ru: "Как на самом деле соотносятся покупка строящейся недвижимости и готового жилья на вторичном рынке Коста-дель-Соль — по цене, рискам, условиям оплаты и росту стоимости.",
-    ar: "مقارنة واقعية بين شراء عقار على الخريطة وشراء عقار معاد للبيع مكتمل في كوستا ديل سول، من حيث السعر والمخاطر وشروط الدفع والقيمة المضافة.",
-    nl: "Hoe kopen op plan en het kopen van een opgeleverde bestaande woning zich aan de Costa del Sol werkelijk verhouden: prijs, risico, betalingsvoorwaarden en waardegroei.",
-    pl: "Jak zakup na etapie projektu i zakup gotowego lokalu z rynku wtórnego wypadają na Costa del Sol: cena, ryzyko, warunki płatności i wzrost wartości.",
-    sv: "Hur köp på ritning och köp av en färdig begagnad bostad faktiskt står sig mot varandra på Costa del Sol — pris, risk, betalningsvillkor och värdeutveckling.",
-    no: "Hvordan kjøp på tegning og kjøp av en ferdig bruktbolig faktisk står seg mot hverandre på Costa del Sol — pris, risiko, betalingsvilkår og verdiutvikling."
-  },
-  {
-    find: "Buying Guide",
-    es: "Guía de Compra",
-    fr: "Guide d’Achat",
-    de: "Kaufratgeber",
-    ru: "Руководство покупателя",
-    ar: "دليل الشراء",
-    nl: "Koopgids",
-    pl: "Poradnik zakupu",
-    sv: "Köpguide",
-    no: "Kjøpsguide"
   },
   {
     find: "Off-plan vs resale: <em>which fits your plan</em>",
@@ -84,8 +60,8 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Compare Now",
-    es: "Comparar Ahora",
-    fr: "Comparer Maintenant",
+    es: "Comparar ahora",
+    fr: "Comparer maintenant",
     de: "Jetzt Vergleichen",
     ru: "Сравнить Сейчас",
     ar: "قارن الآن",
@@ -95,20 +71,8 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     no: "Sammenlign nå"
   },
   {
-    find: "Speak With an Advisor",
-    es: "Hablar con un Asesor",
-    fr: "Parler à un Conseiller",
-    de: "Mit einem Berater Sprechen",
-    ru: "Поговорить с консультантом",
-    ar: "تحدث مع مستشار",
-    nl: "Spreek een adviseur",
-    pl: "Porozmawiaj z doradcą",
-    sv: "Tala med en rådgivare",
-    no: "Snakk med en rådgiver"
-  },
-  {
     find: "Side by Side",
-    es: "Lado a Lado",
+    es: "Lado a lado",
     fr: "Côte à Côte",
     de: "Im Direktvergleich",
     ru: "Сравнение бок о бок",
@@ -132,8 +96,8 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Off-Plan / New Development",
-    es: "Sobre Plano / Nueva Promoción",
-    fr: "Sur Plan / Nouvelle Résidence",
+    es: "Sobre plano / nueva promoción",
+    fr: "Sur plan / nouvelle résidence",
     de: "Neubau / Neue Wohnanlage",
     ru: "Строящееся жильё / Новостройка",
     ar: "على الخريطة / مشروع جديد",
@@ -144,8 +108,8 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Completed / Resale",
-    es: "Terminada / Reventa",
-    fr: "Achevé / Revente",
+    es: "Terminada / reventa",
+    fr: "Achevé / revente",
     de: "Fertiggestellt / Bestand",
     ru: "Готовое жильё / Вторичный рынок",
     ar: "مكتمل / إعادة بيع",
@@ -551,30 +515,6 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     no: "De fleste kjøpere er ikke rendyrket det ene eller det andre. Den ærlige måten å avgjøre på er å måle konkrete prosjekter mot deres eget budsjett, tidsramme og risikovilje, framfor først å velge mellom nybygg og bruktbolig som abstrakt kategori. For hele prosessen steg for steg når dere har bestemt dere, se <a href=\"guide-how-buying-works.html\">slik foregår et kjøp</a>."
   },
   {
-    find: "Key Terms",
-    es: "Términos Clave",
-    fr: "Termes Clés",
-    de: "Wichtige Begriffe",
-    ru: "Ключевые термины",
-    ar: "مصطلحات أساسية",
-    nl: "Kernbegrippen",
-    pl: "Kluczowe pojęcia",
-    sv: "Centrala begrepp",
-    no: "Sentrale begreper"
-  },
-  {
-    find: "A short <em>glossary</em>",
-    es: "Un breve <em>glosario</em>",
-    fr: "Un court <em>glossaire</em>",
-    de: "Ein kurzes <em>Glossar</em>",
-    ru: "Краткий <em>глоссарий</em>",
-    ar: "<em>قاموس</em> موجز",
-    nl: "Een korte <em>woordenlijst</em>",
-    pl: "Krótki <em>słowniczek</em>",
-    sv: "En kort <em>ordlista</em>",
-    no: "En kort <em>ordliste</em>"
-  },
-  {
     find: "<summary>Private Purchase Contract</summary><p>Contrato de compraventa -- the binding agreement setting out price, payment schedule, specification and delivery terms, signed after reservation.</p>",
     es: "<summary>Contrato Privado de Compraventa</summary><p>Contrato de compraventa -- el acuerdo vinculante que establece el precio, el calendario de pagos, los acabados y las condiciones de entrega, firmado tras la reserva.</p>",
     fr: "<summary>Contrat de Réservation Privé</summary><p>Contrato de compraventa -- l’accord contraignant définissant le prix, l’échéancier de paiement, les prestations et les conditions de livraison, signé après la réservation.</p>",
@@ -660,8 +600,8 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Compare Real Options",
-    es: "Compara Opciones Reales",
-    fr: "Comparez de Vraies Options",
+    es: "Compara opciones reales",
+    fr: "Comparez de vraies options",
     de: "Echte Optionen Vergleichen",
     ru: "Сравните реальные варианты",
     ar: "قارن خيارات حقيقية",
@@ -682,16 +622,4 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     sv: "Osäker på vad som passar? Hör av er.",
     no: "Usikker på hva som passer? Ta kontakt."
   },
-  {
-    find: "Start Your Search",
-    es: "Comienza tu Búsqueda",
-    fr: "Commencez Votre Recherche",
-    de: "Starten Sie Ihre Suche",
-    ru: "Начните поиск",
-    ar: "ابدأ بحثك",
-    nl: "Start uw zoektocht",
-    pl: "Rozpocznij poszukiwania",
-    sv: "Börja er sökning",
-    no: "Start søket deres"
-  }
 ];

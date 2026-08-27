@@ -79,8 +79,8 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'Nybyggnation och köp av projekt under uppförande följer en annan ordning än ett andrahandsköp: etappvisa betalningar, ett privat köpekontrakt och byggherrens byggtidsplan i stället för ett omedelbart inflyttningsdatum. Sju steg, från start till mål.',
     no: 'Nybygg og kjøp under bygging følger en annen rekkefølge enn et bruktkjøp: trinnvise betalinger, en privat kjøpekontrakt og utbyggerens byggetidsplan i stedet for en umiddelbar innflyttingsdato. Syv trinn, fra start til slutt.'
   },
-  { find: 'See the Full Journey', es: 'Ver el recorrido completo', fr: 'Voir le parcours complet', de: 'Den gesamten Ablauf ansehen', ru: 'Смотреть весь путь', ar: 'عرض الرحلة الكاملة', nl: 'Bekijk het Volledige Traject', pl: 'Zobacz cały przebieg', sv: 'Se hela resan', no: 'Se hele reisen' },
-  { find: 'Speak With an Advisor', es: 'Habla con un asesor', fr: 'Parler à un conseiller', de: 'Mit einem Berater sprechen', ru: 'Поговорить с консультантом', ar: 'تحدث مع مستشار', nl: 'Spreek met een Adviseur', pl: 'Porozmawiaj z doradcą', sv: 'Prata med en rådgivare', no: 'Snakk med en rådgiver' },
+  { find: 'See the Full Journey', es: 'Ver el recorrido completo', fr: 'Voir le parcours complet', de: 'Den gesamten Ablauf ansehen', ru: 'Смотреть весь путь', ar: 'عرض الرحلة الكاملة', nl: 'Bekijk het volledige traject', pl: 'Zobacz cały przebieg', sv: 'Se hela resan', no: 'Se hele reisen' },
+  { find: 'Speak With an Advisor', es: 'Habla con un asesor', fr: 'Parler à un conseiller', de: 'Mit einem Berater sprechen', ru: 'Поговорить с консультантом', ar: 'تحدث مع مستشار', nl: 'Spreek met een adviseur', pl: 'Porozmawiaj z doradcą', sv: 'Prata med en rådgivare', no: 'Snakk med en rådgiver' },
   { find: 'Steps, Reservation to Keys', es: 'Pasos, de la reserva a las llaves', fr: 'Étapes, de la réservation aux clés', de: 'Schritte, von der Reservierung bis zum Schlüssel', ru: 'Шагов от резервирования до ключей', ar: 'خطوات، من الحجز إلى المفاتيح', nl: 'Stappen, van Reservering tot Sleutels', pl: 'Kroków, od rezerwacji do kluczy', sv: 'Steg, från bokning till nycklar', no: 'Trinn, fra reservasjon til nøkler' },
   { find: 'People Involved: You, Nueva Living, Your Lawyer', es: 'Personas involucradas: tú, Nueva Living, tu abogado', fr: 'Personnes impliquées : vous, Nueva Living, votre avocat', de: 'Beteiligte Personen: Sie, Nueva Living, Ihr Anwalt', ru: 'Участника: вы, Nueva Living, ваш юрист', ar: 'أطراف معنية: أنت، Nueva Living، محاميك', nl: 'Betrokken partijen: u, Nueva Living, uw advocaat', pl: 'Zaangażowane osoby: Państwo, Nueva Living, Państwa prawnik', sv: 'Inblandade parter: du, Nueva Living, din advokat', no: 'Involverte parter: deg, Nueva Living, din advokat' },
   { find: 'Needed Before You Sign', es: 'Necesario antes de firmar', fr: 'Nécessaire avant de signer', de: 'Erforderlich vor der Unterschrift', ru: 'Требуется до подписания', ar: 'مطلوب قبل التوقيع', nl: 'Benodigd vóór ondertekening', pl: 'Potrzebne przed podpisaniem', sv: 'Behövs innan du skriver under', no: 'Nødvendig før du signerer' },
@@ -156,7 +156,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 2 ---
-  { find: 'Build a Real Shortlist', es: 'Elabora una preselección real', fr: 'Établissez une vraie présélection', de: 'Erstellen Sie eine echte Vorauswahl', ru: 'Составьте реальный шорт-лист', ar: 'أعدّ قائمة مختصرة حقيقية', nl: 'Stel een Echte Shortlist Samen', pl: 'Stwórz prawdziwą listę wyboru', sv: 'Skapa en riktig urvalslista', no: 'Lag en ekte shortliste' },
+  { find: 'Build a Real Shortlist', es: 'Elabora una preselección real', fr: 'Établissez une vraie présélection', de: 'Erstellen Sie eine echte Vorauswahl', ru: 'Составьте реальный шорт-лист', ar: 'أعدّ قائمة مختصرة حقيقية', nl: 'Stel een echte shortlist samen', pl: 'Stwórz prawdziwą listę wyboru', sv: 'Skapa en riktig urvalslista', no: 'Lag en ekte shortliste' },
   {
     find: 'Property portals tend to show broad price ranges and renders rather than confirmed, current availability. A useful shortlist compares a small number of genuinely suitable projects on the details that matter.',
     es: 'Los portales inmobiliarios suelen mostrar rangos de precios amplios e imágenes renderizadas en lugar de disponibilidad confirmada y actual. Una preselección útil compara un número reducido de proyectos realmente adecuados en los detalles que importan.',
@@ -208,7 +208,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 3 ---
-  { find: 'View the Projects', es: 'Visita los proyectos', fr: 'Visitez les projets', de: 'Besichtigen Sie die Projekte', ru: 'Осмотрите проекты', ar: 'عاين المشاريع', nl: 'Bezichtig de Projecten', pl: 'Obejrzyj projekty', sv: 'Besök projekten', no: 'Se prosjektene' },
+  { find: 'View the Projects', es: 'Visita los proyectos', fr: 'Visitez les projets', de: 'Besichtigen Sie die Projekte', ru: 'Осмотрите проекты', ar: 'عاين المشاريع', nl: 'Bezichtig de projecten', pl: 'Obejrzyj projekty', sv: 'Besök projekten', no: 'Se prosjektene' },
   {
     find: 'For off-plan projects this usually means visiting the site and a show apartment if one exists. For completed developments, you view the actual residence you would be buying.',
     es: 'En proyectos sobre plano, esto suele significar visitar el emplazamiento y un piso piloto si existe. En promociones terminadas, visitas la vivienda concreta que comprarías.',
@@ -299,7 +299,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 5 ---
-  { find: 'Sign the Private Purchase Contract', es: 'Firma el contrato de compraventa privado', fr: 'Signez le contrat de réservation privé', de: 'Unterzeichnen Sie den privaten Kaufvertrag', ru: 'Подпишите частный договор купли-продажи', ar: 'وقّع عقد الشراء الخاص', nl: 'Onderteken het Particuliere Koopcontract', pl: 'Podpisz prywatną umowę kupna', sv: 'Skriv under det privata köpekontraktet', no: 'Signer den private kjøpekontrakten' },
+  { find: 'Sign the Private Purchase Contract', es: 'Firma el contrato de compraventa privado', fr: 'Signez le contrat de réservation privé', de: 'Unterzeichnen Sie den privaten Kaufvertrag', ru: 'Подпишите частный договор купли-продажи', ar: 'وقّع عقد الشراء الخاص', nl: 'Onderteken het particuliere koopcontract', pl: 'Podpisz prywatną umowę kupna', sv: 'Skriv under det privata köpekontraktet', no: 'Signer den private kjøpekontrakten' },
   {
     find: 'The binding agreement setting out price, payment schedule, specification and delivery terms. You will need an NIE before or shortly after this stage.',
     es: 'El acuerdo vinculante que establece el precio, el calendario de pagos, las especificaciones y las condiciones de entrega. Necesitarás tu NIE antes o poco después de esta etapa.',
@@ -364,7 +364,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 6 ---
-  { find: 'Legal Checks and Independent Representation', es: 'Comprobaciones legales y representación independiente', fr: 'Vérifications juridiques et représentation indépendante', de: 'Rechtsprüfungen und unabhängige Vertretung', ru: 'Юридическая проверка и независимое представительство', ar: 'الفحوصات القانونية والتمثيل المستقل', nl: 'Juridische Controles en Onafhankelijke Vertegenwoordiging', pl: 'Kontrole prawne i niezależna reprezentacja', sv: 'Juridiska kontroller och oberoende representation', no: 'Juridiske kontroller og uavhengig representasjon' },
+  { find: 'Legal Checks and Independent Representation', es: 'Comprobaciones legales y representación independiente', fr: 'Vérifications juridiques et représentation indépendante', de: 'Rechtsprüfungen und unabhängige Vertretung', ru: 'Юридическая проверка и независимое представительство', ar: 'الفحوصات القانونية والتمثيل المستقل', nl: 'Juridische controles en onafhankelijke vertegenwoordiging', pl: 'Kontrole prawne i niezależna reprezentacja', sv: 'Juridiska kontroller och oberoende representation', no: 'Juridiske kontroller og uavhengig representasjon' },
   {
     find: 'We strongly recommend independent legal representation -- a lawyer acting for you, not the developer or the selling agency.',
     es: 'Recomendamos encarecidamente contar con representación legal independiente -- un abogado que actúe para ti, no para el promotor ni para la agencia de venta.',
@@ -428,7 +428,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 7 ---
-  { find: 'Completion and Handover', es: 'Finalización y entrega', fr: 'Achèvement et remise des clés', de: 'Abschluss und Übergabe', ru: 'Завершение сделки и передача', ar: 'الإنجاز والتسليم', nl: 'Afronding en Overdracht', pl: 'Finalizacja i przekazanie', sv: 'Slutförande och överlämning', no: 'Fullføring og overlevering' },
+  { find: 'Completion and Handover', es: 'Finalización y entrega', fr: 'Achèvement et remise des clés', de: 'Abschluss und Übergabe', ru: 'Завершение сделки и передача', ar: 'الإنجاز والتسليم', nl: 'Afronding en overdracht', pl: 'Finalizacja i przekazanie', sv: 'Slutförande och överlämning', no: 'Fullføring og overlevering' },
   {
     find: 'Completion happens at the notary, where the final balance is paid and the deed of sale is signed and registered in your name.',
     es: 'La finalización tiene lugar ante notario, donde se abona el saldo final y se firma la escritura de compraventa, que se inscribe a tu nombre.',
@@ -606,7 +606,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'Köpebrevet som undertecknas hos notarien och registreras i ditt namn vid slutförandet.',
     no: 'Skjøtet som signeres hos notarius og registreres i ditt navn ved fullføring.'
   },
-  { find: 'Land Registry', es: 'Registro de la propiedad', fr: 'Registre foncier', de: 'Grundbuchamt', ru: 'Земельный реестр', ar: 'السجل العقاري', nl: 'Kadaster', pl: 'Rejestr gruntów', sv: 'Fastighetsregistret', no: 'Grunnboken' },
+  { find: 'Land Registry', es: 'Registro de la propiedad', fr: 'Registre foncier', de: 'Grundbuchamt', ru: 'Земельный реестр', ar: 'السجل العقاري', nl: 'Kadaster', pl: 'Księgi wieczyste', sv: 'Fastighetsregistret', no: 'Grunnboken' },
   {
     find: 'The official record of property ownership and charges, checked by your lawyer before you sign.',
     es: 'El registro oficial de la titularidad y las cargas de la propiedad, que tu abogado comprueba antes de que firmes.',
@@ -633,9 +633,8 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'Den här guiden är allmän information om den vanliga köpprocessen för objekt under uppförande på Costa del Sol. Den utgör inte juridisk, skattemässig eller finansiell rådgivning och ersätter inte oberoende professionell rådgivning anpassad efter din situation.',
     no: 'Denne guiden er generell informasjon om den vanlige kjøpsprosessen for boliger under bygging på Costa del Sol. Den er ikke juridisk, skattemessig eller finansiell rådgivning, og erstatter ikke uavhengig, profesjonell rådgivning tilpasset din situasjon.'
   },
-  { find: 'Ready to Start', es: 'Listos para empezar', fr: 'Prêt à commencer', de: 'Bereit für den Start', ru: 'Готовы начать', ar: 'مستعد للبدء', nl: 'Klaar om te Beginnen', pl: 'Gotowy na start', sv: 'Redo att börja', no: 'Klar til å starte' },
+  { find: 'Ready to Start', es: 'Listos para empezar', fr: 'Prêt à commencer', de: 'Bereit für den Start', ru: 'Готовы начать', ar: 'مستعد للبدء', nl: 'Klaar om te beginnen', pl: 'Gotowy na start', sv: 'Redo att börja', no: 'Klar til å starte' },
   { find: 'Let\'s find your fit.', es: 'Encontremos lo que encaja contigo.', fr: 'Trouvons ce qui vous correspond.', de: 'Lassen Sie uns das Passende für Sie finden.', ru: 'Найдём то, что подходит именно вам.', ar: 'لنجد ما يناسبك.', nl: 'Laten we vinden wat bij u past.', pl: 'Znajdźmy to, co pasuje do Państwa.', sv: 'Låt oss hitta det som passar dig.', no: 'La oss finne det som passer for deg.' },
-  { find: 'Start Your Search', es: 'Empieza tu búsqueda', fr: 'Démarrez votre recherche', de: 'Starten Sie Ihre Suche', ru: 'Начните поиск', ar: 'ابدأ بحثك', nl: 'Start uw zoekopdracht', pl: 'Rozpocznij wyszukiwanie', sv: 'Starta din sökning', no: 'Start søket ditt' },
   // Checklist progress counter: the baked-in initial text and the inline
   // JS template literal that re-renders it on every checkbox change.
   { find: 'data-checklist-count>0 of 7<', es: 'data-checklist-count>0 de 7<', fr: 'data-checklist-count>0 sur 7<', de: 'data-checklist-count>0 von 7<', ru: 'data-checklist-count>0 из 7<', ar: 'data-checklist-count>0 من 7<', nl: 'data-checklist-count>0 van 7<', pl: 'data-checklist-count>0 z 7<', sv: 'data-checklist-count>0 av 7<', no: 'data-checklist-count>0 av 7<' },

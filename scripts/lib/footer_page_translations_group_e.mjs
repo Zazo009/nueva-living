@@ -369,11 +369,6 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     pl: 'AJD (opłata skarbowa)', sv: 'AJD (stämpelskatt)', no: 'AJD (stempelavgift)'
   },
   {
-    find: 'Land Registry',
-    es: 'Registro de la Propiedad', fr: 'Registre foncier', de: 'Grundbuchamt', ru: 'Регистрация собственности',
-    ar: 'السجل العقاري', nl: 'Kadaster', pl: 'Księgi wieczyste', sv: 'Fastighetsregister', no: 'Eiendomsregister'
-  },
-  {
     find: 'Worked Example',
     es: 'Ejemplo práctico', fr: 'Exemple chiffré', de: 'Rechenbeispiel', ru: 'Пример расчёта',
     ar: 'مثال محسوب', nl: 'Rekenvoorbeeld', pl: 'Przykład wyliczenia', sv: 'Räkneexempel', no: 'Regneeksempel'
@@ -425,9 +420,4 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     es: 'Impuestos totales', fr: 'Fiscalité totale', de: 'Steuern gesamt', ru: 'Итого налогов',
     ar: 'إجمالي الضرائب', nl: 'Totale belasting', pl: 'Podatki łącznie', sv: 'Total skatt', no: 'Skatt totalt'
   },
-  {
-    find: 'Notary',
-    es: 'Notaría', fr: 'Notaire', de: 'Notar', ru: 'Нотариус', ar: 'التوثيق',
-    nl: 'Notaris', pl: 'Notariusz', sv: 'Notarie', no: 'Notar'
-  }
 ];

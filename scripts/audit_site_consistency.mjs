@@ -929,6 +929,98 @@ let entityPagesChecked = 0;
   }
 }
 
+// Every translation entry, loaded once for the checks that reason about the
+// table as a whole rather than about a built page.
+const entriesModule = path.join(root, 'scripts', 'lib', 'footer_page_translations.mjs');
+const allEntries = fs.existsSync(entriesModule)
+  ? (await import(pathToFileURL(entriesModule).href)).FOOTER_PAGE_ENTRIES || []
+  : [];
+
+let titleCaseChecked = 0;
+
+// Sentence case in every language but German.
+//
+// Twenty-three translations copied the English Title Case straight across --
+// "Stel een Echte Shortlist Samen", "Compara Opciones Reales". Dutch, Spanish
+// and French capitalise a heading's first word and its proper nouns, nothing
+// else, so this read as machine output in exactly the languages the site is
+// trying to sound native in. German is exempt: it capitalises every noun.
+{
+  const PROPER = /^(Nueva|Living|Costa|del|Sol|Marbell[a-zę]*|Estepon[aęy]*|Benah[aá]v[ií]s|M[aá]laga|Andaluc[ií]a|Andalousie|Mijas|Fuengirol[aęy]*|Ban[uú]s|Puerto|Golf|Valley|Sotogrande|Casares|Espa[nñ]a|Espagne|Spanje|Spani\w*|Hiszpani\w*|Andaluz\w*|Andalusi\w*|Andalousie|Sasan[a]?|Raftari(ego)?|Sami(ego)?|Altun[a]?|IVA|AJD|ITP|NIE|LOE|Ley)$/;
+  const CASED = ['es', 'fr', 'nl', 'pl', 'sv', 'no'];
+  const offenders = [];
+  // Only entries whose English source is itself Title Case -- a heading or a
+  // button label. Those are the ones a translator copies the casing from. In a
+  // full English sentence a mid-string capital is a proper noun, not a style.
+  const isTitleCase = (text) => {
+    if (/[.?!:;,]/.test(text) || text.includes('<')) return false;
+    const words = text.split(/\s+/).filter(Boolean);
+    if (words.length < 2) return false;
+    const significant = words.filter((w) => w.length > 3);
+    return significant.length >= 2 && significant.every((w) => /^[A-Z]/.test(w));
+  };
+  for (const entry of allEntries) {
+    if (!isTitleCase(entry.find)) { titleCaseChecked += 1; continue; }
+    for (const locale of CASED) {
+      const value = entry[locale];
+      if (typeof value !== 'string' || value.includes('<') || value.includes('&')) continue;
+      // Each sentence capitalises its own first word, so check sentences, not
+      // the whole string -- otherwise "¿Lo sabías? Financiación" reads as a
+      // violation when it is simply a second sentence.
+      for (const sentence of value.split(/[.?!:¿¡]+/)) {
+        const words = sentence.split(/\s+/).filter(Boolean);
+        if (words.length < 2) continue;
+        const tail = words.slice(1).filter((w) => !PROPER.test(w.replace(/[.,:;?!/'’]/g, '')));
+        if (!tail.length) continue;
+        const capped = tail.filter((w) => /^[A-ZÁÉÍÓÚÑÅÄÖŁŚŻŹĆĘĄ][a-záéíóúñåäöłśżźćęą]{2,}$/.test(w));
+        if (capped.length) {
+          offenders.push(`${locale}: "${sentence.trim().slice(0, 44)}"`);
+          break;
+        }
+      }
+    }
+    titleCaseChecked += 1;
+  }
+  if (offenders.length) {
+    fail('scripts/lib/footer_page_translations.mjs',
+      `${offenders.length} translation(s) carry English Title Case into a language that uses `
+      + `sentence case: ${offenders.slice(0, 5).join('; ')}`
+      + `${offenders.length > 5 ? `, …and ${offenders.length - 5} more` : ''}.`);
+  }
+}
+
+let translationConflictsChecked = 0;
+
+// One English string, one translation per language.
+//
+// Fourteen find strings were authored twice with different translations --
+// "Start Your Search" three times. Which one the site rendered was decided by
+// the order the group files happen to be concatenated in, not by the page. It
+// showed: the shared guide CTA read "Låt oss hitta det som passar dig" above a
+// button saying "Starta er sökning", two different registers of Swedish "you"
+// inside one band, because the heading and the button matched entries from
+// different files. Nothing failed, because each entry was internally complete.
+{
+  const byFind = new Map();
+  for (const entry of allEntries) {
+    if (!byFind.has(entry.find)) byFind.set(entry.find, []);
+    byFind.get(entry.find).push(entry);
+  }
+  const conflicts = [];
+  for (const [find, list] of byFind) {
+    translationConflictsChecked += 1;
+    if (list.length < 2) continue;
+    const differing = ENTRY_LOCALES.filter((l) => new Set(list.map((e) => e[l])).size > 1);
+    if (differing.length) conflicts.push(`"${find.slice(0, 48)}" (${differing.join(', ')})`);
+  }
+  if (conflicts.length) {
+    fail('scripts/lib/footer_page_translations.mjs',
+      `${conflicts.length} English string(s) carry more than one translation, so which one renders `
+      + `depends on file order rather than on the page: ${conflicts.slice(0, 4).join('; ')}`
+      + `${conflicts.length > 4 ? `, …and ${conflicts.length - 4} more` : ''}.`);
+  }
+}
+
 let revealPagesChecked = 0;
 
 // A page that hides content on scroll must ship the code that unhides it.
@@ -1477,5 +1569,6 @@ if (failures.length) {
     + `${descriptionRatiosChecked} translated descriptions measured against their English source, `
     + `${ogLocalesChecked} og:locale values checked for the language_TERRITORY form, `
     + `${entityPagesChecked} locale pages checked for a translated organisation schema, `
-    + `${revealPagesChecked} pages checked for the script that unhides their scroll-revealed content.`);
+    + `${revealPagesChecked} pages checked for the script that unhides their scroll-revealed content, `
+    + `${translationConflictsChecked} English strings checked for exactly one translation each.`);
 }
