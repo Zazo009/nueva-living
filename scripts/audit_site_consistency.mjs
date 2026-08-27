@@ -1068,8 +1068,36 @@ let sharedFragmentsChecked = 0;
 // proper noun, a number, or a string nobody translated.
 {
   const distRoot = path.join(root, 'dist');
+  // Proper nouns are supposed to be identical in every language, so they are
+  // read out of the source data rather than listed here -- a new project or
+  // area then needs no edit to this check, and cannot be quietly exempted by
+  // someone widening a hardcoded pattern.
+  const properNouns = new Set();
+  const areasFile = path.join(root, 'content', 'nueva-areas.json');
+  if (fs.existsSync(areasFile)) {
+    for (const area of JSON.parse(fs.readFileSync(areasFile, 'utf8'))) {
+      properNouns.add(area.name);
+      for (const price of area.prices || []) properNouns.add(price.label);
+      for (const item of area.spotlight?.items || []) properNouns.add(item[0]);
+    }
+  }
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  if (fs.existsSync(projectsDir)) {
+    for (const dir of fs.readdirSync(projectsDir)) {
+      const file = path.join(projectsDir, dir, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      const project = JSON.parse(fs.readFileSync(file, 'utf8'));
+      properNouns.add(project.name);
+      properNouns.add(project.shortName);
+      // The location shown on a project card ("Rio Real", "Golf Valley") is a
+      // place name too, and appears on the area pages that list the project.
+      properNouns.add(project.card?.label);
+      properNouns.add(project.hero?.location);
+    }
+  }
   const KEEP = /^(IVA|AJD|ITP|NIE|LOE|Nueva Living|Costa del Sol|Sasan Raftari|Sami Altun|aval|seguro|tasaci|basura)/;
-  const NUMERIC = /^[\d\s%€.,·/–—&;a-z-]+$/;
+  // Numbers, measurements, price bands and bare HTML entities carry no language.
+  const NUMERIC = /^(?:[\d\s%€.,·\/–—&;a-z-]+|&#\d+;|[\d\s,.]+[–-][\d\s,.]+\s*m²|[\d\s,.]+\s*m²|&euro;[\d,]+\+?|Phase \d+|€[\d,.\s]+\s*\/\s*m²)$/;
   const textNodes = (file) => {
     const html = fs.readFileSync(file, 'utf8');
     const main = html.match(/<main[\s\S]*?<\/main>/);
@@ -1079,7 +1107,9 @@ let sharedFragmentsChecked = 0;
   };
   const untranslated = [];
   for (const file of fs.existsSync(distRoot) ? fs.readdirSync(distRoot) : []) {
-    if (!file.startsWith('guide-') || !file.endsWith('.html')) continue;
+    // Guides and area pages: both are long-form, both are hand-authored in
+    // English first, and both are where untranslated copy hides longest.
+    if (!/^(guide|area)-/.test(file) || !file.endsWith('.html')) continue;
     const english = textNodes(path.join(distRoot, file));
     if (!english) continue;
     let shared = english;
@@ -1093,6 +1123,7 @@ let sharedFragmentsChecked = 0;
     sharedFragmentsChecked += 1;
     for (const text of shared) {
       if (text.length <= 3 || NUMERIC.test(text) || KEEP.test(text)) continue;
+      if (properNouns.has(text) || properNouns.has(text.replace(/&amp;/g, '&'))) continue;
       untranslated.push(`${file}: "${text.slice(0, 44)}"`);
     }
   }

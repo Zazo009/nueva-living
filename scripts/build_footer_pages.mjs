@@ -570,7 +570,15 @@ function areaPriceSources(area, locale = DEFAULT_LOCALE) {
   const sources = area.priceSources || [{ label: t('area.viewMarketReference', locale), url: area.priceSource }];
   return sources
     .filter((source) => source.url)
-    .map((source) => `<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(source.label)}</a>`)
+    // "<Place> market reference" is a place name plus a phrase, exactly like the
+    // price labels above. Translating the phrase and keeping the name means the
+    // per-area source lists need no overlay -- Mijas and Fuengirola shipped
+    // theirs in English in all nine locales because the label bypassed t().
+    .map((source) => {
+      const match = /^(.+?)\s+market reference$/i.exec(String(source.label || '').trim());
+      const label = match ? t('area.marketReferenceFor', locale, { name: match[1] }) : source.label;
+      return `<a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a>`;
+    })
     .join('');
 }
 
@@ -605,6 +613,24 @@ const SEGMENT_LINKS = {
   'nueva-andalucia': { href: 'new-build-apartments-penthouses-nueva-andalucia.html', area: 'Nueva Andaluc&iacute;a' },
 };
 
+// Area FAQ. Deliberately the same markup the guides and segment pages use,
+// because withFaqSchema() reads that shape back out to build the FAQPage
+// node -- a different wrapper here would render fine and silently ship no
+// structured data, which is the failure this whole area started from.
+function areaFaqSection(area, locale = DEFAULT_LOCALE) {
+  if (!area.faq?.length) return '';
+  const items = area.faq.map(([question, answer], index) => `<details class="segment-faq-item"${index === 0 ? ' open' : ''}>
+        <summary>${esc(question)}</summary>
+        <p>${esc(answer)}</p>
+      </details>`).join('\n      ');
+  return `<section class="section segment-faq-section"><div class="section-inner">
+    <div class="section-head"><span class="label">${t('section.faq', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.faqHeadline', locale, { name: esc(area.name) })}</h2></div>
+    <div class="segment-faq-list">
+      ${items}
+    </div>
+  </div></section>`;
+}
+
 function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
   const area = localizeProject(sourceArea, locale);
   // "Marbella average asking price" is a place name plus a phrase. Translating
@@ -618,7 +644,7 @@ function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
   const highlights = area.highlights.map(([title, copy], index) => `<article class="area-highlight"><span>${String(index + 1).padStart(2, '0')}</span><h3>${esc(title)}</h3><p>${esc(copy)}</p></article>`).join('');
   const paragraphs = area.intro.paragraphs.map((paragraph) => `<p class="body-copy">${esc(paragraph)}</p>`).join('');
   const spotlightSection = area.spotlight ? `
-    <section class="section area-spotlight"><div class="section-inner"><div class="section-head"><span class="label">${t('area.localKnowledge', locale)}</span><div class="rule"></div><h2 class="section-title">${area.spotlight.headlineHtml}</h2><p class="body-copy">${esc(area.spotlight.intro)}</p></div><div class="cards spotlight-cards">${area.spotlight.items.map(([title, copy, image], index) => `<article class="card spotlight-card">${image ? `<div class="spotlight-card-image"><img src="${esc(image.src)}" alt="${esc(image.alt || title)}" width="${image.width || 800}" height="${image.height || 600}" loading="lazy" decoding="async"></div>` : ''}<div class="spotlight-card-body"><div class="card-number">${String(index + 1).padStart(2, '0')}</div><h3>${esc(title)}</h3><p>${esc(copy)}</p></div></article>`).join('')}</div>${area.spotlight.photoCredits ? `<p class="spotlight-photo-credits">${esc(area.spotlight.photoCredits)}</p>` : ''}</div></section>` : '';
+    <section class="section area-spotlight"><div class="section-inner"><div class="section-head"><span class="label">${t('area.localKnowledge', locale)}</span><div class="rule"></div><h2 class="section-title">${area.spotlight.headlineHtml}</h2><p class="body-copy">${esc(area.spotlight.intro)}</p></div><div class="cards spotlight-cards">${area.spotlight.items.map(([title, copy, image], index) => `<article class="card spotlight-card">${image ? `<div class="spotlight-card-image"><img src="${esc(image.src)}" alt="${esc(image.alt || title)}" width="${image.width || 800}" height="${image.height || 600}" loading="lazy" decoding="async"></div>` : ''}<div class="spotlight-card-body"><div class="card-number">${String(index + 1).padStart(2, '0')}</div><h3>${esc(title)}</h3><p>${esc(copy)}</p></div></article>`).join('')}</div>${area.spotlight.photoCredits ? `<p class="spotlight-photo-credits">${esc(String(area.spotlight.photoCredits).replace(/^Photography:/, `${t('area.photography', locale)}:`))}</p>` : ''}</div></section>` : '';
 
   return {
     file: area.output,
@@ -646,6 +672,7 @@ function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
     body: `<section class="section area-introduction"><div class="section-inner area-intro-layout"><div><span class="label">${t('area.livingIn', locale, { name: esc(area.name) })}</span><div class="rule"></div><h2 class="section-title">${area.intro.headlineHtml}</h2>${paragraphs}</div><div class="area-highlights">${highlights}</div></div></section>${spotlightSection}
     <section class="section quiet-band area-market"><div class="section-inner area-market-layout"><div><span class="label">${t('area.priceContext', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.currentAskingPriceReference', locale)}</h2><p class="body-copy">${t('area.priceContextIntro', locale)}</p></div><div class="area-price-panel">${priceItems}<p>${esc(area.priceNote)}</p><div class="area-price-sources">${areaPriceSources(area, locale)}</div></div></div></section>
     <section class="section area-developments"><div class="section-inner"><div class="section-head"><span class="label">${t('area.currentMatch', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.projectsIn', locale, { name: esc(area.name) })}</h2><p class="body-copy">${t('area.projectsMatchingNote', locale)}</p>${SEGMENT_LINKS[area.slug] ? `<a class="project-link area-guide-link" href="${SEGMENT_LINKS[area.slug].href}">${t('area.readFullGuide', locale, { area: SEGMENT_LINKS[area.slug].area })}</a>` : ''}</div><div class="project-grid area-project-grid">${areaProjects(area, locale)}</div></div></section>
+    ${areaFaqSection(area, locale)}
     <section class="section area-enquiry-section" id="area-enquiry"><div class="section-inner"><div class="section-head center"><span class="label">${t('area.askAbout', locale, { name: esc(area.name) })}</span><div class="rule"></div><h2 class="section-title">${t('area.requestRelevantShortlist', locale)}</h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">${t('area.shortlistNote', locale)}</p></div>${areaForm(area, locale)}</div></section>`,
   };
 }
