@@ -31,7 +31,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ru: 'Эти два варианта облагаются налогом по-разному: новостройка — IVA и AJD, вторичное жильё — ITP. Цифры приведены в материале <a href="guide-purchase-costs-andalucia.html">во что на самом деле обходится новостройка в Андалусии</a>.',
     ar: 'يختلف المساران ضريبيًا أيضًا: العقار الجديد يخضع لضريبتي IVA وAJD، أما إعادة البيع فتخضع لضريبة ITP. اطّلع على <a href="guide-purchase-costs-andalucia.html">التكلفة الفعلية للعقار الجديد في الأندلس</a> لمعرفة الأرقام.',
     nl: 'Beide routes worden ook anders belast: nieuwbouw valt onder IVA en AJD, bestaande bouw onder ITP. Zie <a href="guide-purchase-costs-andalucia.html">wat nieuwbouw in Andalusië werkelijk kost</a> voor de cijfers.',
-    pl: 'Obie ścieżki są też inaczej opodatkowane: nowe budownictwo objęte jest IVA i AJD, rynek wtórny — ITP. Liczby znajdziesz w tekście <a href="guide-purchase-costs-andalucia.html">ile naprawdę kosztuje nowa nieruchomość w Andaluzji</a>.',
+    pl: 'Obie ścieżki są też inaczej opodatkowane: nowe budownictwo objęte jest IVA i AJD, rynek wtórny — ITP. Liczby znajdą Państwo w tekście <a href="guide-purchase-costs-andalucia.html">ile naprawdę kosztuje nowa nieruchomość w Andaluzji</a>.',
     sv: 'De två vägarna beskattas också olika: nyproduktion belastas med IVA och AJD, andrahandsköp med ITP. Se <a href="guide-purchase-costs-andalucia.html">vad nyproduktion faktiskt kostar i Andalusien</a> för siffrorna.',
     no: 'De to veiene beskattes også ulikt: nybygg belastes med IVA og AJD, videresalg med ITP. Se <a href="guide-purchase-costs-andalucia.html">hva nybygg faktisk koster i Andalusia</a> for tallene.'
   },
@@ -241,7 +241,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ru: '<strong>Около 57 000 €, то есть примерно 12,5% сверх цены.</strong> Из них 50 400 € — фиксированные налоги; остальное зависит от того, кого вы наймёте.',
     ar: '<strong>نحو 57,000 يورو، أي حوالي 12.5% فوق السعر.</strong> منها 50,400 يورو ضرائب ثابتة، والباقي يتوقف على من تختاره من المهنيين.',
     nl: '<strong>Ongeveer € 57.000, oftewel zo’n 12,5% bovenop de prijs.</strong> Daarvan is € 50.400 vaste belasting; de rest hangt af van wie u inschakelt.',
-    pl: '<strong>Około 57 000 €, czyli mniej więcej 12,5% ponad cenę.</strong> Z tego 50 400 € to stałe podatki; reszta zależy od tego, kogo zatrudnisz.',
+    pl: '<strong>Około 57 000 €, czyli mniej więcej 12,5% ponad cenę.</strong> Z tego 50 400 € to stałe podatki; reszta zależy od tego, kogo Państwo zatrudnią.',
     sv: '<strong>Cirka 57 000 €, eller ungefär 12,5% utöver priset.</strong> Av det är 50 400 € fasta skatter; resten beror på vilka ni anlitar.',
     no: '<strong>Rundt 57 000 €, eller omtrent 12,5% over prisen.</strong> Av dette er 50 400 € faste skatter; resten avhenger av hvem du engasjerer.'
   },
@@ -253,7 +253,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ru: 'Это стоимость приобретения. Сюда не входят комиссия за оформление ипотеки и оценка объекта при кредите, меблировка и текущие расходы, которые начинаются после передачи ключей: IBI, взносы в сообщество собственников и коммунальные услуги.',
     ar: 'هذه هي تكلفة الاستحواذ. ولا تشمل رسوم ترتيب الرهن العقاري والتقييم في حال الاقتراض، ولا الأثاث، ولا التكاليف الجارية التي تبدأ بعد التسليم: ضريبة IBI ورسوم الاتحاد المالكين والمرافق.',
     nl: 'Dat zijn de verwervingskosten. Niet inbegrepen zijn afsluit- en taxatiekosten als u financiert, de inrichting, en de doorlopende lasten die na oplevering beginnen: IBI, servicekosten en nutsvoorzieningen.',
-    pl: 'To koszt nabycia. Nie obejmuje opłat za uruchomienie kredytu i wycenę, jeśli finansujesz zakup, umeblowania ani kosztów bieżących, które zaczynają się po odbiorze: IBI, opłat wspólnoty i mediów.',
+    pl: 'To koszt nabycia. Nie obejmuje opłat za uruchomienie kredytu i wycenę, jeśli finansują Państwo zakup, umeblowania ani kosztów bieżących, które zaczynają się po odbiorze: IBI, opłat wspólnoty i mediów.',
     sv: 'Det är förvärvskostnaden. Den omfattar inte uppläggnings- och värderingsavgifter om ni lånar, möblering eller de löpande kostnader som börjar efter tillträdet: IBI, samfällighetsavgifter och el, vatten och avlopp.',
     no: 'Dette er ervervskostnaden. Den omfatter ikke etablerings- og takseringsgebyrer hvis du låner, møblering eller de løpende kostnadene som starter etter overtakelse: IBI, sameieavgifter og strøm, vann og avløp.'
   },
@@ -265,7 +265,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ru: 'Ставка IVA устанавливается на общенациональном уровне, ставка AJD — Андалусией; обе могут измениться, а пониженные ставки применяются на условиях, зависящих от вашей ситуации. Эта страница — общая информация о структуре расходов, а не налоговая или юридическая консультация. Подтвердите цифры по своей сделке у юриста или налогового консультанта, прежде чем брать на себя обязательства. По запросу Nueva Living предоставляет письменную смету расходов по конкретному объекту.',
     ar: 'تُحدَّد نسبة IVA على المستوى الوطني بينما تحدد الأندلس نسبة AJD؛ وكلتاهما قابلة للتغيير، وتخضع النسب المخفّضة لشروط تعتمد على ظروفك. هذه الصفحة معلومات عامة عن بنية التكاليف، وليست استشارة ضريبية أو قانونية. تأكد من الأرقام الخاصة بصفقتك مع محاميك أو مستشارك الضريبي قبل الالتزام بأي شيء. وتقدّم نويفا ليفينغ عند الطلب بيانًا مكتوبًا بتفصيل التكاليف لعقار محدد.',
     nl: 'Het IVA-tarief is landelijk en het AJD-tarief wordt door Andalusië vastgesteld; beide kunnen wijzigen, en aan de verlaagde tarieven zijn voorwaarden verbonden die van uw situatie afhangen. Deze pagina is algemene informatie over hoe de kosten zijn opgebouwd, geen fiscaal of juridisch advies. Laat de cijfers voor uw eigen aankoop bevestigen door uw advocaat of belastingadviseur voordat u zich ergens aan verbindt. Nueva Living verstrekt op verzoek een schriftelijke kostenopgave voor een specifieke woning.',
-    pl: 'Stawka IVA jest ogólnokrajowa, a stawkę AJD ustala Andaluzja; obie mogą się zmienić, a stawki obniżone obwarowane są warunkami zależnymi od Twojej sytuacji. Ta strona to ogólna informacja o strukturze kosztów, a nie porada podatkowa ani prawna. Potwierdź liczby dotyczące Twojego zakupu u swojego prawnika lub doradcy podatkowego, zanim się do czegokolwiek zobowiążesz. Na życzenie Nueva Living przygotowuje pisemne zestawienie kosztów dla konkretnej nieruchomości.',
+    pl: 'Stawka IVA jest ogólnokrajowa, a stawkę AJD ustala Andaluzja; obie mogą się zmienić, a stawki obniżone obwarowane są warunkami zależnymi od Państwa sytuacji. Ta strona to ogólna informacja o strukturze kosztów, a nie porada podatkowa ani prawna. Prosimy potwierdzić liczby dotyczące Państwa zakupu u swojego prawnika lub doradcy podatkowego, zanim zobowiążą się Państwo do czegokolwiek. Na życzenie Nueva Living przygotowuje pisemne zestawienie kosztów dla konkretnej nieruchomości.',
     sv: 'IVA-satsen är nationell och AJD-satsen bestäms av Andalusien; båda kan ändras, och de reducerade satserna är förenade med villkor som beror på er situation. Den här sidan är allmän information om hur kostnaderna är uppbyggda, inte skatte- eller juridisk rådgivning. Bekräfta siffrorna för ert eget köp med er advokat eller skatterådgivare innan ni binder er. Nueva Living tar på begäran fram en skriftlig kostnadsspecifikation för en bestämd bostad.',
     no: 'IVA-satsen er nasjonal og AJD-satsen fastsettes av Andalusia; begge kan endres, og de reduserte satsene har vilkår som avhenger av din situasjon. Denne siden er generell informasjon om hvordan kostnadene er bygget opp, ikke skatte- eller juridisk rådgivning. Få tallene for ditt eget kjøp bekreftet av advokaten eller skatterådgiveren din før du forplikter deg. Nueva Living utarbeider på forespørsel en skriftlig kostnadsoversikt for en bestemt bolig.'
   },
@@ -355,7 +355,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     find: 'Before You Rely On This',
     es: 'Antes de basarte en esto', fr: 'Avant de vous y fier', de: 'Bevor Sie sich darauf verlassen',
     ru: 'Прежде чем на это полагаться', ar: 'قبل الاعتماد على هذه الأرقام', nl: 'Voordat u hierop vertrouwt',
-    pl: 'Zanim się na tym oprzesz', sv: 'Innan ni förlitar er på detta', no: 'Før du baserer deg på dette'
+    pl: 'Zanim się Państwo na tym oprą', sv: 'Innan ni förlitar er på detta', no: 'Før du baserer deg på dette'
   },
   {
     find: 'See the Breakdown',

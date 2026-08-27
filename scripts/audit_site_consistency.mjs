@@ -962,7 +962,12 @@ let registerPagesChecked = 0;
     de: word('du|dich|dir|dein|deine|deinen|deinem|deiner', 'giu'),
     nl: word('jij|jou|jouw|jullie', 'giu'),
     fr: word('tu|ton|tes|toi', 'gu'),
+    // Polish: second-person singular verb endings and the polite dative Ci,
+    // but not the imperatives Polish UI conventionally uses on buttons
+    // (Zapisz, Napisz, Wyślij), which are not read as addressing anyone.
+    pl: word('\\w*(?:esz|asz|isz|ysz|łeś|łaś)|Ci|Ciebie|Cię|Tobie|Twój|Twoja|Twoje|Twoim|Twoich|Twojej|Twoją', 'gu'),
   };
+  const ALLOWED = { pl: /^(nasz|Nasz|wasz|Wasz|Zapisz|zapisz|Napisz|napisz|Podpisz|podpisz|Opisz|opisz|Wpisz|wpisz)$/ };
   const offenders = [];
   for (const [locale, pattern] of Object.entries(INFORMAL)) {
     const dir = path.join(distRoot, locale);
@@ -973,8 +978,9 @@ let registerPagesChecked = 0;
       if (!main) continue;
       registerPagesChecked += 1;
       const text = main[0].replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]+>/g, ' ');
-      const found = text.match(pattern);
-      if (found) offenders.push(`${locale}/${file} ("${found[0]}", ${found.length}x)`);
+      const allowed = ALLOWED[locale];
+      const found = (text.match(pattern) || []).filter((w) => !allowed || !allowed.test(w));
+      if (found.length) offenders.push(`${locale}/${file} ("${found[0]}", ${found.length}x)`);
     }
   }
   if (offenders.length) {

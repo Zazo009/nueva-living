@@ -299,7 +299,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   },
 
   // --- Step 5 ---
-  { find: 'Sign the Private Purchase Contract', es: 'Firma el contrato de compraventa privado', fr: 'Signez le contrat de réservation privé', de: 'Unterzeichnen Sie den privaten Kaufvertrag', ru: 'Подпишите частный договор купли-продажи', ar: 'وقّع عقد الشراء الخاص', nl: 'Onderteken het particuliere koopcontract', pl: 'Podpisz prywatną umowę kupna', sv: 'Skriv under det privata köpekontraktet', no: 'Signer den private kjøpekontrakten' },
+  { find: 'Sign the Private Purchase Contract', es: 'Firma el contrato de compraventa privado', fr: 'Signez le contrat de réservation privé', de: 'Unterzeichnen Sie den privaten Kaufvertrag', ru: 'Подпишите частный договор купли-продажи', ar: 'وقّع عقد الشراء الخاص', nl: 'Onderteken het particuliere koopcontract', pl: 'Podpisanie prywatnej umowy kupna', sv: 'Skriv under det privata köpekontraktet', no: 'Signer den private kjøpekontrakten' },
   {
     find: 'The binding agreement setting out price, payment schedule, specification and delivery terms. You will need an NIE before or shortly after this stage.',
     es: 'El acuerdo vinculante que establece el precio, el calendario de pagos, las especificaciones y las condiciones de entrega. Necesitarás tu NIE antes o poco después de esta etapa.',
@@ -320,7 +320,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     ru: 'Получите NIE, если у вас его ещё нет, и изучите договор.',
     ar: 'احصل على رقم NIE إذا لم يكن لديك بالفعل، وراجع العقد.',
     nl: 'Vraag uw NIE aan als u er nog geen heeft en bekijk het contract.',
-    pl: 'Uzyskaj numer NIE, jeśli jeszcze go nie masz, i przejrzyj umowę.',
+    pl: 'Uzyskują Państwo numer NIE, jeśli jeszcze go nie mają, i analizują umowę.',
     sv: 'Skaffa ert NIE-nummer om ni inte redan har ett, och granska kontraktet.',
     no: 'Skaff deg et NIE-nummer hvis du ikke allerede har et, og gjennomgå kontrakten.'
   },
@@ -449,7 +449,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     ru: 'Оплатите окончательный остаток и подпишите документы у нотариуса.',
     ar: 'ادفع الرصيد النهائي ووقّع لدى كاتب العدل.',
     nl: 'Betaal het resterende bedrag en teken bij de notaris.',
-    pl: 'Zapłać ostateczną kwotę i podpisz dokumenty u notariusza.',
+    pl: 'Płacą Państwo pozostałą kwotę i podpisują dokumenty u notariusza.',
     sv: 'Betala slutbeloppet och skriv under hos notarien.',
     no: 'Betal sluttbeløpet og signer hos notarius.'
   },

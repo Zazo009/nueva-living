@@ -30,7 +30,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Строящееся жильё или вторичное: <em>что подходит именно вам</em>",
     ar: "على الخريطة أم إعادة بيع: <em>أيهما يناسب خطتك</em>",
     nl: "Nieuwbouw of bestaande bouw: <em>wat past bij uw plan</em>",
-    pl: "Rynek pierwotny czy wtórny: <em>co pasuje do twojego planu</em>",
+    pl: "Rynek pierwotny czy wtórny: <em>co pasuje do Państwa planu</em>",
     sv: "Nyproduktion eller begagnat: <em>vad som passar er plan</em>",
     no: "Nybygg eller bruktbolig: <em>hva som passer planen deres</em>"
   },
@@ -42,7 +42,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Оба варианта покупки на Коста-дель-Соль вполне законны. Правильный выбор зависит от ваших сроков, готовности к строительным рискам и того, что вы на самом деле хотите получить от недвижимости.",
     ar: "يمثل الخياران طريقتين مشروعتين للشراء في كوستا ديل سول. ويعتمد الخيار المناسب على جدولك الزمني، ومدى استعدادك لتحمل مخاطر البناء، وما تريد فعليًا أن تحققه لك العقار.",
     nl: "Beide zijn legitieme manieren om aan de Costa del Sol te kopen. Welke past, hangt af van uw tijdlijn, uw bereidheid tot bouwrisico en wat u de woning werkelijk wilt laten doen.",
-    pl: "Obie drogi zakupu na Costa del Sol są w pełni uzasadnione. Wybór zależy od twojego horyzontu czasowego, gotowości na ryzyko budowy i tego, czemu nieruchomość ma naprawdę służyć.",
+    pl: "Obie drogi zakupu na Costa del Sol są w pełni uzasadnione. Wybór zależy od Państwa horyzontu czasowego, gotowości na ryzyko budowy i tego, czemu nieruchomość ma naprawdę służyć.",
     sv: "Båda är fullt rimliga sätt att köpa på Costa del Sol. Vilket som passar beror på er tidsram, er inställning till byggrisk och vad ni faktiskt vill att bostaden ska göra för er.",
     no: "Begge er fullt rimelige måter å kjøpe på Costa del Sol. Hvilken som passer avhenger av tidsrammen deres, holdningen til byggerisiko og hva dere faktisk vil at boligen skal gjøre for dere."
   },
@@ -234,7 +234,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Обычно цена ниже, чем на сопоставимое готовое жильё, поскольку вы берёте на себя обязательства за годы до сдачи объекта и принимаете риск сроков строительства. Этот разрыв сокращается или исчезает по мере приближения проекта к последним доступным объектам.",
     ar: "يكون السعر عادةً أقل من سعر وحدة مماثلة مكتملة، لأنك تلتزم قبل سنوات من التسليم وتتحمل مخاطر الجدول الزمني للبناء. وتتقلص هذه الفجوة، أو تنتهي، مع اقتراب المشروع من آخر وحداته المطروحة.",
     nl: "Meestal geprijsd onder een vergelijkbare opgeleverde woning, omdat u jaren voor oplevering vastlegt en het risico van de bouwplanning draagt. Dat verschil wordt kleiner, of verdwijnt, naarmate een project zijn laatste vrijgegeven woningen bereikt.",
-    pl: "Zwykle wyceniane poniżej porównywalnego gotowego lokalu, bo zobowiązujesz się lata przed odbiorem i bierzesz na siebie ryzyko harmonogramu budowy. Ta różnica maleje lub znika, gdy inwestycja zbliża się do ostatnich wprowadzanych lokali.",
+    pl: "Zwykle wyceniane poniżej porównywalnego gotowego lokalu, bo zobowiązują się Państwo lata przed odbiorem i biorą na siebie ryzyko harmonogramu budowy. Ta różnica maleje lub znika, gdy inwestycja zbliża się do ostatnich wprowadzanych lokali.",
     sv: "Prissätts oftast under en jämförbar färdig bostad, eftersom ni binder er år före tillträdet och tar risken i byggtidplanen. Det gapet krymper, eller försvinner, när ett projekt närmar sig sina sista släppta enheter.",
     no: "Prises som regel under en tilsvarende ferdig bolig, siden dere binder dere år før overtakelse og tar risikoen i byggeplanen. Det gapet krymper, eller forsvinner, når et prosjekt nærmer seg sine siste frigitte enheter."
   },
@@ -294,7 +294,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Идея в том, чтобы купить ниже рыночной цены готового жилья, а стоимость сократит этот разрыв к моменту сдачи. Это зависит от того, оправдает ли конкретный проект и район ожидания — гарантий здесь нет.",
     ar: "تكمن الفكرة في الشراء بسعر أقل من سعر السوق للعقارات المكتملة، على أن تردم القيمة هذه الفجوة بحلول موعد التسليم. ويعتمد ذلك على أداء المشروع والمنطقة المحددين كما هو متوقع — وليس ضمانًا.",
     nl: "Het idee is kopen onder de marktprijs van een opgeleverde woning, waarbij de waarde dat gat tegen oplevering dicht. Dat hangt af van het specifieke project en gebied — het is geen garantie.",
-    pl: "Założenie: kupujesz poniżej ceny rynkowej gotowego lokalu, a wartość domyka tę różnicę do odbioru. Zależy to od konkretnej inwestycji i okolicy — to nie gwarancja.",
+    pl: "Założenie: kupują Państwo poniżej ceny rynkowej gotowego lokalu, a wartość domyka tę różnicę do odbioru. Zależy to od konkretnej inwestycji i okolicy — to nie gwarancja.",
     sv: "Tanken är att köpa under marknadspriset för en färdig bostad, och att värdet sluter det gapet till tillträdet. Det förutsätter att just det projektet och området utvecklas som väntat — det är ingen garanti.",
     no: "Tanken er å kjøpe under markedsprisen for en ferdig bolig, og at verdien tetter det gapet fram til overtakelse. Det forutsetter at nettopp det prosjektet og området utvikler seg som ventet — det er ingen garanti."
   },
@@ -318,7 +318,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Завершение сделки зависит от получения застройщиком разрешения на ввод в эксплуатацию и акта о завершении строительства, прежде чем документ можно будет подписать у нотариуса. Ваш юрист подтверждает наличие этих документов перед завершением сделки.",
     ar: "يعتمد إتمام الصفقة على حصول المطور على رخصة الإشغال الأولى وشهادة إتمام البناء قبل التمكن من توقيع العقد لدى الكاتب العدل. ويؤكد محاميك جاهزية هذه المستندات قبل الإتمام.",
     nl: "De overdracht hangt ervan af dat de ontwikkelaar de eerste bewoningsvergunning en het opleveringscertificaat verkrijgt voordat de akte bij de notaris kan worden getekend. Uw advocaat bevestigt dat deze er zijn voordat u afneemt.",
-    pl: "Przeniesienie własności zależy od uzyskania przez dewelopera pozwolenia na użytkowanie i świadectwa ukończenia, zanim akt zostanie podpisany u notariusza. Twój prawnik potwierdza, że dokumenty są, zanim sfinalizujesz zakup.",
+    pl: "Przeniesienie własności zależy od uzyskania przez dewelopera pozwolenia na użytkowanie i świadectwa ukończenia, zanim akt zostanie podpisany u notariusza. Państwa prawnik potwierdza, że dokumenty są, zanim sfinalizują Państwo zakup.",
     sv: "Tillträdet förutsätter att byggherren fått inflyttningstillstånd och slutbevis innan köpebrevet kan skrivas hos notarien. Er jurist bekräftar att de finns på plats innan ni tillträder.",
     no: "Overtakelsen forutsetter at utbygger har fått innflyttingstillatelse og ferdigattest før skjøtet kan signeres hos notaren. Juristen deres bekrefter at de foreligger før dere overtar."
   },
@@ -342,7 +342,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Стоит дороже сразу, но вы платите за известную величину: реальную отделку, реальный вид, реальный уровень шума — всё то, что невозможно в полной мере оценить по планировке и рендеру.",
     ar: "يكلف أكثر مقدمًا، لكنك تدفع ثمن أمر معروف: التشطيب الفعلي، والإطلالة الفعلية، ومستوى الضوضاء الفعلي، وكلها أمور لا يمكنك تقييمها بالكامل من مخطط وصورة افتراضية.",
     nl: "Kost vooraf meer, maar u betaalt voor een bekende grootheid: de werkelijke afwerking, het werkelijke uitzicht, het werkelijke geluidsniveau — geen daarvan volledig te beoordelen op een plattegrond en een render.",
-    pl: "Kosztuje więcej z góry, ale płacisz za wielkość znaną: realne wykończenie, realny widok, realny poziom hałasu — czego nie ocenisz w pełni z rzutu i wizualizacji.",
+    pl: "Kosztuje więcej z góry, ale płacą Państwo za wielkość znaną: realne wykończenie, realny widok, realny poziom hałasu — czego nie da się w pełni ocenić z rzutu i wizualizacji.",
     sv: "Kostar mer i förskott, men ni betalar för något känt: den faktiska finishen, den faktiska utsikten, den faktiska ljudnivån — inget av det går att bedöma fullt ut från en planlösning och en rendering.",
     no: "Koster mer i starten, men dere betaler for noe kjent: den faktiske finishen, den faktiske utsikten, det faktiske støynivået — ingenting av det lar seg vurdere fullt ut fra en planløsning og en rendering."
   },
@@ -366,7 +366,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Полностью отсутствует. Что вы видите, то и получаете, и вы можете осмотреть реальный объект, прежде чем брать на себя какие-либо обязательства.",
     ar: "منعدم تمامًا. ما تراه هو ما تحصل عليه، ويمكنك معاينة العقار الفعلي قبل الالتزام بأي شيء.",
     nl: "Volledig weg. Wat u ziet is wat u krijgt, en u kunt de woning zelf inspecteren voordat u zich ergens aan bindt.",
-    pl: "Całkowicie zniesione. Widzisz dokładnie to, co kupujesz, i możesz obejrzeć nieruchomość przed podjęciem zobowiązania.",
+    pl: "Całkowicie zniesione. Widzą Państwo dokładnie to, co kupują, i mogą obejrzeć nieruchomość przed podjęciem zobowiązania.",
     sv: "Helt borta. Ni får det ni ser, och kan besiktiga bostaden innan ni binder er vid något.",
     no: "Helt borte. Dere får det dere ser, og kan besiktige boligen før dere binder dere til noe."
   },
@@ -378,7 +378,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Фиксированная. Ограничение, если вы хотели чего-то другого, и преимущество, если вы предпочитаете оценивать реальные материалы и качество отделки, а не спецификацию на бумаге.",
     ar: "ثابت. وهو قيد إذا أردت شيئًا مختلفًا، وميزة إذا كنت تفضل تقييم المواد وجودة التنفيذ الفعلية بدلًا من ورقة مواصفات.",
     nl: "Vast. Een beperking als u iets anders wilde, een voordeel als u liever echte materialen en afwerking beoordeelt dan een specificatieblad.",
-    pl: "Ustalony. Ograniczenie, jeśli chciałeś czegoś innego; zaleta, jeśli wolisz ocenić realne materiały i wykonanie niż kartę standardu.",
+    pl: "Ustalony. Ograniczenie, jeśli chcieli Państwo czegoś innego; zaleta, jeśli wolą Państwo ocenić realne materiały i wykonanie niż kartę standardu.",
     sv: "Fast. En begränsning om ni ville ha något annat, en fördel om ni hellre bedömer verkligt material och utförande än ett specifikationsblad.",
     no: "Fast. En begrensning om dere ville hatt noe annet, en fordel om dere heller vurderer faktiske materialer og utførelse enn et spesifikasjonsark."
   },
@@ -438,7 +438,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Определяется вами и продавцом, как правило, через 30–60 дней после подписания, без зависимости от сроков строительства или получения разрешений.",
     ar: "تحددها أنت والبائع، عادةً خلال 30 إلى 60 يومًا بعد التوقيع، دون الاعتماد على جدول زمني للبناء أو التراخيص.",
     nl: "Bepaald door u en de verkoper, doorgaans 30 tot 60 dagen na ondertekening, zonder afhankelijkheid van bouw of vergunningen.",
-    pl: "Ustalany przez ciebie i sprzedającego, zwykle 30–60 dni po podpisaniu, bez zależności od budowy czy pozwoleń.",
+    pl: "Ustalany przez Państwa i sprzedającego, zwykle 30–60 dni po podpisaniu, bez zależności od budowy czy pozwoleń.",
     sv: "Bestäms av er och säljaren, vanligen 30 till 60 dagar efter undertecknandet, utan bygg- eller tillståndstider att förhålla sig till.",
     no: "Avtales mellom dere og selger, vanligvis 30 til 60 dager etter signering, uten bygge- eller tillatelsesfrister å forholde seg til."
   },
@@ -474,7 +474,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Что на самом деле <em>подходит именно вам</em>",
     ar: "أيهما يناسبك <em>فعليًا</em>",
     nl: "Welke <em>echt bij u past</em>",
-    pl: "Co <em>naprawdę pasuje do ciebie</em>",
+    pl: "Co <em>naprawdę pasuje do Państwa</em>",
     sv: "Vilket som <em>faktiskt passar er</em>",
     no: "Hva som <em>faktisk passer dere</em>"
   },
@@ -510,7 +510,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Большинство покупателей не относятся строго к одной из категорий. Честный способ принять решение — сравнить конкретные проекты с вашим бюджетом, сроками и готовностью к риску, а не выбирать сначала между строящимся и вторичным жильём как абстрактной категорией. Полный пошаговый процесс после принятия решения смотрите в разделе <a href=\"guide-how-buying-works.html\">как проходит покупка</a>.",
     ar: "معظم المشترين لا ينتمون تمامًا إلى فئة واحدة. والطريقة الصادقة للقرار هي مقارنة مشاريع محددة بميزانيتك وجدولك الزمني ومستوى تحملك للمخاطرة، بدلًا من الحسم أولًا بين الشراء على الخريطة وإعادة البيع كفئة مجردة. ولمعرفة العملية الكاملة خطوة بخطوة بعد اتخاذ قرارك، راجع <a href=\"guide-how-buying-works.html\">كيفية سير عملية الشراء</a>.",
     nl: "De meeste kopers zijn niet zuiver het een of het ander. De eerlijke manier om te beslissen is specifieke projecten afzetten tegen uw eigen budget, tijdlijn en risicobereidheid, in plaats van eerst abstract te kiezen tussen nieuwbouw en bestaande bouw. Voor het volledige stappenplan zodra u besloten heeft, zie <a href=\"guide-how-buying-works.html\">hoe kopen werkt</a>.",
-    pl: "Większość kupujących nie mieści się wyłącznie w jednej kategorii. Uczciwy sposób decydowania to zestawienie konkretnych inwestycji z własnym budżetem, terminem i tolerancją ryzyka, zamiast rozstrzygania abstrakcyjnie między rynkiem pierwotnym a wtórnym. Pełny przebieg krok po kroku po podjęciu decyzji znajdziesz w <a href=\"guide-how-buying-works.html\">jak wygląda zakup</a>.",
+    pl: "Większość kupujących nie mieści się wyłącznie w jednej kategorii. Uczciwy sposób decydowania to zestawienie konkretnych inwestycji z własnym budżetem, terminem i tolerancją ryzyka, zamiast rozstrzygania abstrakcyjnie między rynkiem pierwotnym a wtórnym. Pełny przebieg krok po kroku po podjęciu decyzji znajdą Państwo w <a href=\"guide-how-buying-works.html\">jak wygląda zakup</a>.",
     sv: "De flesta köpare är inte renodlat det ena eller det andra. Det ärliga sättet att avgöra är att ställa konkreta projekt mot er egen budget, tidsram och riskvilja, i stället för att först välja mellan nyproduktion och begagnat som abstrakt kategori. För hela processen steg för steg när ni bestämt er, se <a href=\"guide-how-buying-works.html\">så går ett köp till</a>.",
     no: "De fleste kjøpere er ikke rendyrket det ene eller det andre. Den ærlige måten å avgjøre på er å måle konkrete prosjekter mot deres eget budsjett, tidsramme og risikovilje, framfor først å velge mellom nybygg og bruktbolig som abstrakt kategori. For hele prosessen steg for steg når dere har bestemt dere, se <a href=\"guide-how-buying-works.html\">slik foregår et kjøp</a>."
   },
@@ -534,7 +534,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "<summary>Банковская гарантия</summary><p>Обязательная по закону защита платежей за строящееся жильё, внесённых до завершения строительства, покрывающая вас в случае, если объект не будет сдан.</p>",
     ar: "<summary>الضمان البنكي</summary><p>حماية مطلوبة قانونًا للمبالغ المدفوعة على الخريطة قبل الإتمام، وتحميك إذا لم يُسلّم المشروع.</p>",
     nl: "<summary>Bankgarantie</summary><p>Wettelijk verplichte bescherming voor betalingen op plan vóór oplevering, die u dekt als het project niet wordt opgeleverd.</p>",
-    pl: "<summary>Gwarancja bankowa</summary><p>Wymagana prawem ochrona wpłat dokonanych przed odbiorem, zabezpieczająca cię, gdyby inwestycja nie została ukończona.</p>",
+    pl: "<summary>Gwarancja bankowa</summary><p>Wymagana prawem ochrona wpłat dokonanych przed odbiorem, zabezpieczająca Państwa, gdyby inwestycja nie została ukończona.</p>",
     sv: "<summary>Bankgaranti</summary><p>Lagstadgat skydd för betalningar på ritning som görs före tillträdet, som täcker er om projektet inte levereras.</p>",
     no: "<summary>Bankgaranti</summary><p>Lovpålagt beskyttelse for betalinger på tegning gjort før overtakelse, som dekker dere dersom prosjektet ikke leveres.</p>"
   },
@@ -582,7 +582,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "<summary>Escritura</summary><p>Акт купли-продажи, подписанный у нотариуса и зарегистрированный на ваше имя при завершении сделки.</p>",
     ar: "<summary>العقد (Escritura)</summary><p>صك البيع الموقّع لدى الكاتب العدل والمسجّل باسمك عند الإتمام.</p>",
     nl: "<summary>Escritura</summary><p>De koopakte die bij de notaris wordt getekend en bij de overdracht op uw naam wordt ingeschreven.</p>",
-    pl: "<summary>Escritura</summary><p>Akt sprzedaży podpisywany u notariusza i wpisywany na twoje nazwisko przy finalizacji.</p>",
+    pl: "<summary>Escritura</summary><p>Akt sprzedaży podpisywany u notariusza i wpisywany na Państwa nazwisko przy finalizacji.</p>",
     sv: "<summary>Escritura</summary><p>Köpebrevet som undertecknas hos notarien och registreras i ert namn vid tillträdet.</p>",
     no: "<summary>Escritura</summary><p>Skjøtet som signeres hos notaren og tinglyses i deres navn ved overtakelse.</p>"
   },
@@ -594,7 +594,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Это руководство содержит общую информацию, которая поможет вам сравнить покупку строящегося и вторичного жилья на Коста-дель-Соль. Оно не является юридической, налоговой или финансовой консультацией и не заменяет независимую профессиональную консультацию, учитывающую вашу конкретную ситуацию.",
     ar: "يقدم هذا الدليل معلومات عامة لمساعدتك على المقارنة بين الشراء على الخريطة وإعادة البيع في كوستا ديل سول. وهو لا يشكّل استشارة قانونية أو ضريبية أو مالية، ولا يغني عن استشارة مهنية مستقلة مصممة خصيصًا لوضعك.",
     nl: "Deze gids biedt algemene informatie om nieuwbouw en bestaande bouw aan de Costa del Sol te vergelijken. Het is geen juridisch, fiscaal of financieel advies en vervangt geen onafhankelijk professioneel advies dat op uw situatie is afgestemd.",
-    pl: "Ten poradnik zawiera informacje ogólne, pomocne przy porównaniu zakupu na rynku pierwotnym i wtórnym na Costa del Sol. Nie stanowi porady prawnej, podatkowej ani finansowej i nie zastępuje niezależnej porady dopasowanej do twojej sytuacji.",
+    pl: "Ten poradnik zawiera informacje ogólne, pomocne przy porównaniu zakupu na rynku pierwotnym i wtórnym na Costa del Sol. Nie stanowi porady prawnej, podatkowej ani finansowej i nie zastępuje niezależnej porady dopasowanej do Państwa sytuacji.",
     sv: "Den här guiden är allmän information för att jämföra köp på ritning och begagnat på Costa del Sol. Den är inte juridisk, skattemässig eller finansiell rådgivning och ersätter inte oberoende professionell rådgivning anpassad till er situation.",
     no: "Denne guiden er generell informasjon for å sammenligne kjøp på tegning og bruktbolig på Costa del Sol. Den er ikke juridisk, skattemessig eller finansiell rådgivning og erstatter ikke uavhengig profesjonell rådgivning tilpasset deres situasjon."
   },
@@ -618,7 +618,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Не уверены, что подходит именно вам? Давайте поговорим.",
     ar: "لست متأكدًا من الخيار المناسب؟ دعنا نتحدث.",
     nl: "Niet zeker wat past? Laten we praten.",
-    pl: "Nie wiesz, co wybrać? Porozmawiajmy.",
+    pl: "Nie wiedzą Państwo, co wybrać? Porozmawiajmy.",
     sv: "Osäker på vad som passar? Hör av er.",
     no: "Usikker på hva som passer? Ta kontakt."
   },
