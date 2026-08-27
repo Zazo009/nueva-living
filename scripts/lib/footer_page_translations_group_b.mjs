@@ -633,7 +633,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     sv: 'Den här guiden är allmän information om den vanliga köpprocessen för objekt under uppförande på Costa del Sol. Den utgör inte juridisk, skattemässig eller finansiell rådgivning och ersätter inte oberoende professionell rådgivning anpassad efter er situation.',
     no: 'Denne guiden er generell informasjon om den vanlige kjøpsprosessen for boliger under bygging på Costa del Sol. Den er ikke juridisk, skattemessig eller finansiell rådgivning, og erstatter ikke uavhengig, profesjonell rådgivning tilpasset din situasjon.'
   },
-  { find: 'Ready to Start', es: 'Listos para empezar', fr: 'Prêt à commencer', de: 'Bereit für den Start', ru: 'Готовы начать', ar: 'مستعد للبدء', nl: 'Klaar om te beginnen', pl: 'Gotowy na start', sv: 'Redo att börja', no: 'Klar til å starte' },
+  { find: 'Ready to Start', es: 'Listos para empezar', fr: 'Prêt à commencer', de: 'Bereit für den Start', ru: 'Готовы начать', ar: 'مستعد للبدء', nl: 'Klaar om te beginnen', pl: 'Gotowi na start', sv: 'Redo att börja', no: 'Klar til å starte' },
   { find: 'Let\'s find your fit.', es: 'Encontremos lo que encaja con usted.', fr: 'Trouvons ce qui vous correspond.', de: 'Lassen Sie uns das Passende für Sie finden.', ru: 'Найдём то, что подходит именно вам.', ar: 'لنجد ما يناسبك.', nl: 'Laten we vinden wat bij u past.', pl: 'Znajdźmy to, co pasuje do Państwa.', sv: 'Låt oss hitta det som passar er.', no: 'La oss finne det som passer for deg.' },
   // Checklist progress counter: the baked-in initial text and the inline
   // JS template literal that re-renders it on every checkbox change.
