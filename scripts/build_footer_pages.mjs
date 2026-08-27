@@ -426,12 +426,13 @@ function withFaqSchema(html, file, locale) {
   return html.replace('</head>', `${block}</head>`);
 }
 
-function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '', englishOnly = false, datePublished }, locale = DEFAULT_LOCALE) {
+function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '', englishOnly = false, datePublished, area }, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
   // Rendered once, so the FAQ schema below can be read out of the same string
   // the page ships rather than being written a second time.
   const renderedBody = typeof body === 'function' ? body(locale) : body;
+  const areaSchemaBlock = area ? areaItemListSchema(area, locale) : '';
   const html = `<!doctype html>
 <html lang="${meta.htmlLang}" dir="${meta.dir}">
 <head>
@@ -498,7 +499,13 @@ ${datePublished ? `        <p class="guide-byline"><span>${t('guide.writtenBy', 
   ${bodyClass === 'guide-article-page' ? guideRevealScript() : ''}
 </body>
 </html>`;
-  return withFaqSchema(localizeInternalLinks(applyFooterPageTranslations(html, locale), locale), file, locale);
+  const translated = withFaqSchema(
+    localizeInternalLinks(applyFooterPageTranslations(html, locale), locale), file, locale);
+  // Same reason as the FAQ schema: built after the find/replace pass so no
+  // schema.org token can be translated into something meaningless.
+  return areaSchemaBlock
+    ? translated.replace('</head>', `${areaSchemaBlock}</head>`)
+    : translated;
 }
 
 function esc(value) {
@@ -583,8 +590,11 @@ function areaPriceSources(area, locale = DEFAULT_LOCALE) {
 }
 
 function areaForm(area, locale = DEFAULT_LOCALE) {
+  // value stays the English formArea -- it is the key the CRM stores. Only the
+  // label the visitor reads is localized; it was showing English area names in
+  // all nine languages because this read the raw area, not the overlay.
   const areaOptions = areas.map((option) => (
-    `<option value="${esc(option.formArea)}"${option.slug === area.slug ? ' selected' : ''}>${esc(option.name)}</option>`
+    `<option value="${esc(option.formArea)}"${option.slug === area.slug ? ' selected' : ''}>${esc(localizeProject(option, locale).name)}</option>`
   )).join('');
 
   return `<form class="form-panel area-form" name="nueva-${esc(area.slug)}-enquiry" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
@@ -617,6 +627,51 @@ const SEGMENT_LINKS = {
 // because withFaqSchema() reads that shape back out to build the FAQPage
 // node -- a different wrapper here would render fine and silently ship no
 // structured data, which is the failure this whole area started from.
+// Internal links out of an area page. The segment pages have had this since
+// they were built; the area pages ended on the enquiry form, which meant a
+// visitor who decided the area was wrong had nowhere to go but the back
+// button, and the six pages linked to each other only through the nav.
+// The projects an area page lists, as an ItemList. The segment pages have
+// emitted this since they were built; the area pages listed the same projects
+// with no markup at all, so a crawler saw prose where the segment pages
+// offered a structured list of the same homes.
+function areaItemListSchema(area, locale) {
+  const selected = area.featuredProjects
+    .map((projectSlug) => projects.find((project) => project.slug === projectSlug))
+    .filter(Boolean);
+  if (selected.length < 2) return '';
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${pageUrl(area.output, locale, 'https://nuevaliving.com')}#projects`,
+    name: t('area.currentMatch', locale),
+    numberOfItems: selected.length,
+    itemListElement: selected.map((project, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: pageUrl(project.output, locale, 'https://nuevaliving.com'),
+      name: localizeProject(project, locale).name
+    }))
+  };
+  return `  <script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n  </script>\n`;
+}
+
+function areaRelatedSection(area, locale = DEFAULT_LOCALE) {
+  const others = areas.filter((other) => other.slug !== area.slug);
+  if (!others.length) return '';
+  const items = others
+    .map((other) => `<li><a href="${esc(other.output)}">${esc(localizeProject(other, locale).name)}</a></li>`)
+    .join('\n      ');
+  return `<section class="section quiet-band segment-related"><div class="section-inner">
+    <div class="section-head"><span class="label">${t('area.otherAreas', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.moreAreaGuides', locale)}</h2></div>
+    <ul class="segment-related-list">
+      ${items}
+      <li><a href="areas.html">${esc(t('nav.allAreas', locale))}</a></li>
+      <li><a href="guides.html">${esc(t('nav.buyingGuides', locale))}</a></li>
+    </ul>
+  </div></section>`;
+}
+
 function areaFaqSection(area, locale = DEFAULT_LOCALE) {
   if (!area.faq?.length) return '';
   const items = area.faq.map(([question, answer], index) => `<details class="segment-faq-item"${index === 0 ? ' open' : ''}>
@@ -647,6 +702,7 @@ function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
     <section class="section area-spotlight"><div class="section-inner"><div class="section-head"><span class="label">${t('area.localKnowledge', locale)}</span><div class="rule"></div><h2 class="section-title">${area.spotlight.headlineHtml}</h2><p class="body-copy">${esc(area.spotlight.intro)}</p></div><div class="cards spotlight-cards">${area.spotlight.items.map(([title, copy, image], index) => `<article class="card spotlight-card">${image ? `<div class="spotlight-card-image"><img src="${esc(image.src)}" alt="${esc(image.alt || title)}" width="${image.width || 800}" height="${image.height || 600}" loading="lazy" decoding="async"></div>` : ''}<div class="spotlight-card-body"><div class="card-number">${String(index + 1).padStart(2, '0')}</div><h3>${esc(title)}</h3><p>${esc(copy)}</p></div></article>`).join('')}</div>${area.spotlight.photoCredits ? `<p class="spotlight-photo-credits">${esc(String(area.spotlight.photoCredits).replace(/^Photography:/, `${t('area.photography', locale)}:`))}</p>` : ''}</div></section>` : '';
 
   return {
+    area,
     file: area.output,
     // The localized seo.title if the area overlay carries one, otherwise the
     // generic template. Without this the locale pages all read "Områdesguide
@@ -673,6 +729,7 @@ function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
     <section class="section quiet-band area-market"><div class="section-inner area-market-layout"><div><span class="label">${t('area.priceContext', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.currentAskingPriceReference', locale)}</h2><p class="body-copy">${t('area.priceContextIntro', locale)}</p></div><div class="area-price-panel">${priceItems}<p>${esc(area.priceNote)}</p><div class="area-price-sources">${areaPriceSources(area, locale)}</div></div></div></section>
     <section class="section area-developments"><div class="section-inner"><div class="section-head"><span class="label">${t('area.currentMatch', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.projectsIn', locale, { name: esc(area.name) })}</h2><p class="body-copy">${t('area.projectsMatchingNote', locale)}</p>${SEGMENT_LINKS[area.slug] ? `<a class="project-link area-guide-link" href="${SEGMENT_LINKS[area.slug].href}">${t('area.readFullGuide', locale, { area: SEGMENT_LINKS[area.slug].area })}</a>` : ''}</div><div class="project-grid area-project-grid">${areaProjects(area, locale)}</div></div></section>
     ${areaFaqSection(area, locale)}
+    ${areaRelatedSection(area, locale)}
     <section class="section area-enquiry-section" id="area-enquiry"><div class="section-inner"><div class="section-head center"><span class="label">${t('area.askAbout', locale, { name: esc(area.name) })}</span><div class="rule"></div><h2 class="section-title">${t('area.requestRelevantShortlist', locale)}</h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">${t('area.shortlistNote', locale)}</p></div>${areaForm(area, locale)}</div></section>`,
   };
 }

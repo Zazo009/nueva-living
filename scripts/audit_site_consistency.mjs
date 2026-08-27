@@ -936,6 +936,49 @@ const allEntries = fs.existsSync(entriesModule)
   ? (await import(pathToFileURL(entriesModule).href)).FOOTER_PAGE_ENTRIES || []
   : [];
 
+let areaNamesChecked = 0;
+
+// One spelling of an area's name per page.
+//
+// The Swedish area page called the place "Mijas och Fuengirola" thirteen times
+// and "Mijas & Fuengirola" eleven times, because the locale overlay translated
+// some strings and left the ampersand standing in others -- the hero title,
+// the section heading, the German page title. Nothing failed: each string was
+// internally fine, and the untranslated-fragment check could not see it
+// because the surrounding sentence WAS translated.
+//
+// The English form is allowed inside a form control value, which is the key
+// the CRM stores rather than anything a reader sees.
+{
+  const distRoot = path.join(root, 'dist');
+  const areasFile = path.join(root, 'content', 'nueva-areas.json');
+  const offenders = [];
+  if (fs.existsSync(distRoot) && fs.existsSync(areasFile)) {
+    const areaData = JSON.parse(fs.readFileSync(areasFile, 'utf8'));
+    for (const area of areaData) {
+      const englishName = area.name;
+      if (!/[&]/.test(englishName)) continue;   // only names with a conjunction can diverge
+      const escaped = englishName.replace(/&/g, '&amp;');
+      for (const [locale, overlay] of Object.entries(area.i18n || {})) {
+        const localName = overlay.name;
+        if (!localName || localName === englishName) continue;
+        const file = path.join(distRoot, locale, path.basename(area.output));
+        if (!fs.existsSync(file)) continue;
+        areaNamesChecked += 1;
+        // Strip form controls: their value is the CRM key, not reader-facing.
+        const html = fs.readFileSync(file, 'utf8').replace(/<option[^>]*>/g, ' ');
+        const strays = (html.match(new RegExp(escaped.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g')) || []).length;
+        if (strays) offenders.push(`${locale}/${path.basename(area.output)} ("${englishName}" x${strays}, page otherwise says "${localName}")`);
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page(s) spell an area name two different ways: `
+      + `${offenders.slice(0, 4).join(', ')}`
+      + `${offenders.length > 4 ? `, …and ${offenders.length - 4} more` : ''}.`);
+  }
+}
+
 let faqSchemaChecked = 0;
 
 // A visible FAQ must be marked up as one, in the reader's language.
@@ -1771,5 +1814,6 @@ if (failures.length) {
     + `${translationConflictsChecked} English strings checked for exactly one translation each, `
     + `${sharedFragmentsChecked} guides compared against their nine locale builds for untranslated text, `
     + `${registerPagesChecked} pages checked for one form of address per language, `
-    + `${faqSchemaChecked} visible FAQs matched against their structured data.`);
+    + `${faqSchemaChecked} visible FAQs matched against their structured data, `
+    + `${areaNamesChecked} locale area pages checked for one spelling of the area name.`);
 }
