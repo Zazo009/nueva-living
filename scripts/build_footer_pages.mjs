@@ -1189,6 +1189,100 @@ const pages = [
     </div></section>`,
   },
   {
+    file: 'guide-buying-from-abroad-spain.html',
+    datePublished: '2026-08-28',
+    title: 'Buying from Abroad: NIE and Power of Attorney',
+    description: 'What a Costa del Sol purchase actually needs you present for: the NIE, a power of attorney, proof of funds and how the money reaches the developer. Written for buyers outside Spain.',
+    heroImage: 'assets/nueva/journey/project-review-v2-1200.webp',
+    heroKicker: 'Buying Guide',
+    seoContext: 'Buying from Abroad · 2026 Guide',
+    heroTitle: 'What you actually have to <em>be here for</em>',
+    heroLead: 'Most of a new-build purchase can be done from where you already live. Three things cannot be done by email, and knowing which three is the difference between a smooth purchase and a delayed one.',
+    breadcrumbs: [['Guides', 'guides.html']],
+    bodyClass: 'guide-article-page',
+    body: `<section class="section"><div class="section-inner">
+      <div class="guide-intro g-reveal">
+        <p class="body-copy">Comparing projects, reviewing floorplans and prices, even a private presentation of a development, all happen remotely. What cannot happen by email is the part that involves the Spanish state and your bank: a tax number, a signature the notary will accept, and money that arrives from a source you can evidence. Each of those has a lead time, and each of them delays a purchase when it is started late rather than early.</p>
+        <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+          <a class="btn" href="contact.html#contact-form">Ask What Your Purchase Needs</a>
+          <a class="btn ghost" href="guide-how-buying-works.html">How Buying a New-Build Works</a>
+        </div>
+      </div>
+    </div></section>
+  <section class="section quiet-band"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">The NIE</span><div class="rule"></div><h2 class="section-title">The number <em>everything else waits for</em></h2></div>
+    <p class="body-copy g-reveal">An NIE, N&uacute;mero de Identificaci&oacute;n de Extranjero, is a tax identification number required for any property purchase in Spain by a non-Spanish national. It is not a residence permit and it does not make you a tax resident. It is an identifier, and without one the purchase cannot be registered in your name.</p>
+    <p class="body-copy g-reveal">It is needed before you sign the private purchase contract, not at the deed, which is earlier than most buyers assume. Applications are made in person, either at a Spanish consulate in your own country or in Spain, and a representative acting under a power of attorney can apply on your behalf. Which of those routes is quickest depends on your consulate rather than on any general rule, so the sequence to follow is: ask what your consulate currently requires, then start.</p>
+    <div class="cards g-reveal">
+      <article class="card"><div class="card-number">01</div><h3>What it is</h3><p>A tax identifier for foreign nationals, required for the purchase to be registered in your name. Not a residence permit, and not a declaration of tax residency.</p></article>
+      <article class="card"><div class="card-number">02</div><h3>When it is needed</h3><p>Before the private purchase contract, which on an off-plan purchase comes weeks after reservation rather than months.</p></article>
+      <article class="card"><div class="card-number">03</div><h3>Who can apply</h3><p>You, in person, or a representative holding a power of attorney that covers it. Both routes are ordinary; the choice is usually about timing.</p></article>
+    </div>
+  </div></section>
+  <section class="section"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">Power of Attorney</span><div class="rule"></div><h2 class="section-title">The document that makes <em>the rest remote</em></h2></div>
+    <p class="body-copy g-reveal">A power of attorney, a <em>poder</em>, authorises someone in Spain to act for you within limits you set. In a property purchase that is usually your lawyer, and it is what allows a contract to be signed and a deed to be completed while you are elsewhere. It is the single document that decides whether the purchase needs you in the country.</p>
+    <p class="body-copy g-reveal">It is signed before a notary. Signed in Spain, that is the end of it. Signed outside Spain, it generally needs to be legalised for use in Spain and translated, and that adds time rather than difficulty. The scope matters more than the mechanics: a power drawn for one specific purchase is a different document from a general one, and your lawyer should be drafting it to the narrower shape.</p>
+    <div class="guide-compare-grid g-reveal">
+      <div class="guide-compare-row"><div class="guide-compare-label">Signed in Spain</div><p>Before a Spanish notary, in one appointment, usually on the same trip as a viewing.</p></div>
+      <div class="guide-compare-row"><div class="guide-compare-label">Signed abroad</div><p>Before a notary where you live, then legalised for use in Spain and translated. Plan for it rather than around it.</p></div>
+      <div class="guide-compare-row"><div class="guide-compare-label">Scope</div><p>Specific to the purchase, not general. Ask to read what it authorises before you sign it.</p></div>
+    </div>
+  </div></section>
+  <section class="section quiet-band"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">Proof of Funds</span><div class="rule"></div><h2 class="section-title">Where the money came from, <em>on paper</em></h2></div>
+    <p class="body-copy g-reveal">Spanish banks, notaries and lawyers are required to establish the origin of the funds in a property purchase. This is routine, it applies to everyone, and it is not a judgement about you. It becomes a problem only when it is left until the week of the deed, because the evidence often has to come from institutions in another country and on their timetable.</p>
+    <p class="body-copy g-reveal">The practical version: whatever the money's history is, it should be documentable from the account it leaves. A sale, a transfer between your own accounts, an inheritance, a bonus. Assemble that early, and the question is answered when it is asked rather than sending you back to a bank abroad at the worst possible moment.</p>
+  </div></section>
+  <section class="section"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">Moving the Money</span><div class="rule"></div><h2 class="section-title">Getting it there, <em>and to the right account</em></h2></div>
+    <p class="body-copy g-reveal">Two things matter here and they are separate. The first is where the money goes. On an off-plan purchase, payments made before completion must reach the special account named in your contract, not a general company account. That is a legal requirement rather than an administrative preference, and it is covered in full in <a href="guide-bank-guarantee-off-plan-spain.html">what actually protects your money</a>.</p>
+    <p class="body-copy g-reveal">The second is what it costs to get there. A staged purchase paid from a currency other than the euro is a series of conversions rather than one, spread across the build, and the schedule says nothing about that. <a href="guide-off-plan-payment-schedules.html">How off-plan payments are staged</a> sets out the timing that exposure follows.</p>
+    <p class="body-copy g-reveal">A Spanish bank account is not strictly required to complete a purchase, which surprises people. It becomes necessary afterwards, because community fees, IBI and utilities are collected by direct debit from a Spanish account. Opening one takes an NIE, so the sequence runs in the order this page does.</p>
+  </div></section>
+  <section class="section quiet-band"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">In Practice</span><div class="rule"></div><h2 class="section-title">What is genuinely worth <em>being here for</em></h2></div>
+    <p class="body-copy g-reveal">With a power of attorney in place, a purchase can complete without you setting foot in Spain. That is worth knowing, and it is not always worth doing. Two moments repay a trip more than any document does.</p>
+    <div class="cards g-reveal">
+      <article class="card"><div class="card-number">01</div><h3>Seeing the setting</h3><p>Not the show home. The road in, the noise at the hour you would actually be there, how far the shops really are. A renderer cannot put those in an image and a floorplan cannot hold them.</p></article>
+      <article class="card"><div class="card-number">02</div><h3>Handover</h3><p>The walkthrough where defects are written down. The date on that record starts the warranty periods, so it is the appointment with the longest tail. <a href="guide-new-build-warranties-snagging.html">Why that date matters</a>.</p></article>
+    </div>
+  </div></section>
+  <section class="section"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">Before You Rely On This</span><div class="rule"></div><h2 class="section-title">Procedure changes, <em>and it varies by consulate</em></h2></div>
+    <p class="body-copy g-reveal">This page describes how a purchase from abroad is structured, not the current paperwork of any one consulate. Requirements, appointment availability and the exact documents differ between countries and change without much notice, and the only reliable version is the one your own consulate publishes today. Nueva Living confirms what a specific purchase requires and coordinates the sequence with your lawyer.</p>
+  </div></section>
+  <section class="section segment-faq-section"><div class="section-inner">
+    <div class="section-head"><span class="label">Common Questions</span><div class="rule"></div><h2 class="section-title">What buyers ask us <em>about buying remotely</em></h2></div>
+    <div class="segment-faq-list">
+      <details class="segment-faq-item" open>
+        <summary>Can I buy a property in Spain without going there?</summary>
+        <p>Yes, with a power of attorney authorising someone in Spain to sign for you. It is ordinary practice rather than a workaround. Whether it is the right choice is a separate question, and it usually turns on whether you have seen the setting rather than on the paperwork.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>When do I need the NIE?</summary>
+        <p>Before the private purchase contract, not at the deed. On an off-plan purchase that contract follows the reservation by a matter of weeks, so the application is worth starting as soon as you reserve rather than once the contract is drafted.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Do I need a Spanish bank account to buy?</summary>
+        <p>Not to complete the purchase itself. You will want one afterwards, because community fees, IBI and utilities are collected by direct debit from a Spanish account. Opening one requires an NIE, which is why the two run in that order.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Why is my lawyer asking where my money came from?</summary>
+        <p>Because they are required to establish it, as are the notary and the bank. It applies to every buyer and says nothing about you. The only real risk is leaving it late, since the evidence often has to come from an institution in another country on their schedule rather than yours.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Can my lawyer apply for the NIE for me?</summary>
+        <p>A representative holding a power of attorney that covers it can apply on your behalf. Which route is faster, that or an appointment at your own consulate, depends on the consulate rather than on any general rule, so it is worth asking before choosing.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Does buying property in Spain make me a tax resident?</summary>
+        <p>No. An NIE is an identifier, not a residence permit, and owning a home does not by itself make you resident. Tax residency turns on your own circumstances and is a question for a tax adviser rather than for a property page.</p>
+      </details>
+    </div>
+  </div></section>`,
+  },
+  {
     file: 'guide-off-plan-payment-schedules.html',
     datePublished: '2026-08-24',
     title: 'Off-Plan Payment Schedules on the Costa del Sol',

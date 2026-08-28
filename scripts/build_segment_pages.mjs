@@ -701,11 +701,15 @@ function guidesCalculatorSection() {
 
 const PROCESS_GUIDES = [
   {
+    output: 'guide-buying-from-abroad-spain.html',
+    kicker: 'Buying Guide',
+    title: 'Buying from Abroad',
+    description: 'What a purchase actually needs you present for: when the NIE is required, what a power of attorney covers, and how the money reaches the developer.',
+    image: 'assets/nueva/journey/project-review-v2-1200.webp',
+    alt: 'Buyer reviewing project documents remotely'
+  },
+  {
     output: 'guide-bank-guarantee-off-plan-spain.html',
-    // Built in English only, so it is only offered on the English hub --
-    // linking a Swedish reader to an English-bodied page is a worse
-    // experience than not showing the card.
-    englishOnly: true,
     kicker: 'Buying Guide',
     title: 'Bank Guarantees Explained',
     description: 'What actually protects an off-plan deposit under Spanish law, and the point in the timeline at which the statutory guarantee has not started yet.',
@@ -714,10 +718,6 @@ const PROCESS_GUIDES = [
   },
   {
     output: 'guide-off-plan-payment-schedules.html',
-    // Built in English only, so it is only offered on the English hub --
-    // linking a Swedish reader to an English-bodied page is a worse
-    // experience than not showing the card.
-    englishOnly: true,
     kicker: 'Buying Guide',
     title: 'Off-Plan Payment Schedules',
     description: 'The staged payment structures the developers on this site have supplied in writing, from reservation through to the balance at deed.',
@@ -726,10 +726,6 @@ const PROCESS_GUIDES = [
   },
   {
     output: 'guide-new-build-warranties-snagging.html',
-    // Built in English only, so it is only offered on the English hub --
-    // linking a Swedish reader to an English-bodied page is a worse
-    // experience than not showing the card.
-    englishOnly: true,
     kicker: 'Buying Guide',
     title: 'Warranties and Snagging',
     description: 'The ten, three and one-year guarantees on a Spanish new-build, who is liable under each, and why the handover inspection starts the clock.',

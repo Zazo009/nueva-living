@@ -69,6 +69,7 @@ const baseHtmlFiles = [
   'guide-bank-guarantee-off-plan-spain.html',
   'guide-off-plan-payment-schedules.html',
   'guide-new-build-warranties-snagging.html',
+  'guide-buying-from-abroad-spain.html',
   'why-nueva.html',
   'areas.html',
   ...areas.map((area) => area.output),
@@ -177,6 +178,12 @@ const basePageMeta = {
     title: 'New-Build Warranties and Snagging in Spain (2026)',
     description: 'The ten, three and one-year guarantees on a Spanish new-build: who is liable under each, which one is insured by law, and when the clock starts.',
     path: '/guide-new-build-warranties-snagging.html',
+    type: 'article'
+  },
+  'guide-buying-from-abroad-spain.html': {
+    title: 'Buying in Spain from Abroad: NIE and Power of Attorney',
+    description: 'What a Costa del Sol purchase needs you present for: when the NIE is required, what a power of attorney covers, proof of funds, and how the money reaches the developer.',
+    path: '/guide-buying-from-abroad-spain.html',
     type: 'article'
   },
   'guides.html': {
