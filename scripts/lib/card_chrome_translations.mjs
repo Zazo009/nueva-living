@@ -59,6 +59,10 @@ export const CARD_CHROME_ENTRIES = [
   // Status badge over the image
   { find: 'dev-badge">Completed, Ready To Move In', es: 'dev-badge">Finalizado, listo para entrar', fr: 'dev-badge">Terminé, prêt à emménager', de: 'dev-badge">Fertiggestellt, bezugsfertig', ru: 'dev-badge">Завершено, готово к заселению', ar: 'dev-badge">مكتمل، جاهز للسكن', nl: 'dev-badge">Voltooid, klaar om te betrekken', pl: 'dev-badge">Ukończone, gotowe do zamieszkania', sv: 'dev-badge">Färdigställd, inflyttningsklar', no: 'dev-badge">Ferdigstilt, klar for innflytting' },
   { find: 'dev-badge">Current Release', es: 'dev-badge">Fase actual', fr: 'dev-badge">Phase actuelle', de: 'dev-badge">Aktuelle Phase', ru: 'dev-badge">Текущая очередь', ar: 'dev-badge">المرحلة الحالية', nl: 'dev-badge">Huidige fase', pl: 'dev-badge">Bieżąca pula', sv: 'dev-badge">Aktuell fas', no: 'dev-badge">Gjeldende fase' },
+  // Same label, different wrapper. The dev-badge entry above only ever
+  // matched the card badge; the fact row underneath it renders through
+  // dev-fact-sub and stayed English on 145 locale placements.
+  { find: 'dev-fact-sub">Current Release', es: 'dev-badge">Fase actual', fr: 'dev-badge">Phase actuelle', de: 'dev-badge">Aktuelle Phase', ru: 'dev-badge">Текущая очередь', ar: 'dev-badge">المرحلة الحالية', nl: 'dev-badge">Huidige fase', pl: 'dev-badge">Bieżąca pula', sv: 'dev-badge">Aktuell fas', no: 'dev-badge">Gjeldende fase' },
   { find: 'dev-badge">Off-plan, Private Availability', es: 'dev-badge">Sobre plano, disponibilidad privada', fr: 'dev-badge">Sur plan, disponibilité privée', de: 'dev-badge">Off-Plan, private Verfügbarkeit', ru: 'dev-badge">На этапе строительства, закрытая продажа', ar: 'dev-badge">على المخطط، إتاحة حصرية', nl: 'dev-badge">Op plan, privébeschikbaarheid', pl: 'dev-badge">Sprzedaż z planu, dostępność prywatna', sv: 'dev-badge">Under projektering, privat tillgänglighet', no: 'dev-badge">Under prosjektering, privat tilgjengelighet' },
   { find: 'dev-badge">Off-Plan', es: 'dev-badge">Sobre plano', fr: 'dev-badge">Sur plan', de: 'dev-badge">Off-Plan', ru: 'dev-badge">На этапе строительства', ar: 'dev-badge">على المخطط', nl: 'dev-badge">Op plan', pl: 'dev-badge">Sprzedaż z planu', sv: 'dev-badge">Under projektering', no: 'dev-badge">Under prosjektering' },
   { find: 'dev-badge">Key Ready', es: 'dev-badge">Listo para entrar', fr: 'dev-badge">Prêt à emménager', de: 'dev-badge">Bezugsfertig', ru: 'dev-badge">Готово к заселению', ar: 'dev-badge">جاهز للسكن', nl: 'dev-badge">Sleutelklaar', pl: 'dev-badge">Gotowe do odbioru kluczy', sv: 'dev-badge">Nyckelklar', no: 'dev-badge">Nøkkelklar' },
@@ -85,7 +89,14 @@ function projects() {
   return out;
 }
 
-const derived = [];
+const derived = [  // Card fact labels that render outside the badge wrapper: a build phase
+  // and the on-request price. Anchored on the angle brackets so the digits
+  // cannot match inside a longer string.
+  { find: '>Price on request<', es: '>Precio a consultar<', fr: '>Prix sur demande<', de: '>Preis auf Anfrage<', ru: '>Цена по запросу<', ar: '>السعر عند الطلب<', nl: '>Prijs op aanvraag<', pl: '>Cena na zapytanie<', sv: '>Pris på förfrågan<', no: '>Pris på forespørsel<' },
+  { find: '>Phase 1<', es: '>Fase 1<', fr: '>Phase 1<', de: '>Phase 1<', ru: '>Очередь 1<', ar: '>المرحلة 1<', nl: '>Fase 1<', pl: '>Etap 1<', sv: '>Etapp 1<', no: '>Fase 1<' },
+  { find: '>Phase 2<', es: '>Fase 2<', fr: '>Phase 2<', de: '>Phase 2<', ru: '>Очередь 2<', ar: '>المرحلة 2<', nl: '>Fase 2<', pl: '>Etap 2<', sv: '>Etapp 2<', no: '>Fase 2<' },
+  { find: '>Phase 6<', es: '>Fase 6<', fr: '>Phase 6<', de: '>Phase 6<', ru: '>Очередь 6<', ar: '>المرحلة 6<', nl: '>Fase 6<', pl: '>Etap 6<', sv: '>Etapp 6<', no: '>Fase 6<' },
+];
 const seen = new Set();
 const push = (entry) => {
   if (seen.has(entry.find)) return;
