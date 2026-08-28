@@ -1872,5 +1872,6 @@ if (failures.length) {
     + `${sharedFragmentsChecked} guides compared against their nine locale builds for untranslated text, `
     + `${registerPagesChecked} pages checked for one form of address per language, `
     + `${faqSchemaChecked} visible FAQs matched against their structured data, `
-    + `${areaNamesChecked} locale area pages checked for one spelling of the area name.`);
+    + `${areaNamesChecked} locale area pages checked for one spelling of the area name, `
+    + `${segmentLinkChecked} area-to-segment links checked in both directions.`);
 }
