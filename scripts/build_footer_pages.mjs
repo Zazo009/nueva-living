@@ -309,7 +309,8 @@ const siteUrl = 'https://nuevaliving.com';
 function guideArticleSchema({ file, title, description, heroImage, datePublished, locale }) {
   const author = { '@id': personId(siteUrl, GUIDE_AUTHOR) };
   return [
-    organizationSchema(siteUrl),
+    // The Article below references the publisher by @id and pageSchema()
+    // declares it, so declaring it again here gave every guide two copies.
     ...personSchemas(siteUrl).filter((person) => person['@id'] === author['@id']),
     {
       '@context': 'https://schema.org',

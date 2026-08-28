@@ -98,18 +98,22 @@ export function realEstateAgentSchema(siteUrl, extra = {}) {
   };
 }
 
+// One organisation entity, one shape, one @id.
+//
+// This used to return a plain Organization while realEstateAgentSchema()
+// returned a RealEstateAgent -- both under the same @id. The homepage emitted
+// both, so a consumer resolving nuevaliving.com/#organization found two nodes
+// disagreeing about the entity's type and about its url (one with a trailing
+// slash, one without). Sixty-two pages carried the @id twice. For a site
+// whose problem is that a differently-spelled competitor owns its own brand
+// query, contradicting yourself about your own identity is the last thing you
+// want to be doing.
+//
+// RealEstateAgent is a subtype of Organization, so it is both more specific
+// and still correct wherever an Organization was expected. The entity's type
+// does not change from page to page, so neither does this.
 export function organizationSchema(siteUrl, extra = {}) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': organizationId(siteUrl),
-    ...IDENTITY,
-    url: siteUrl,
-    logo: `${siteUrl}/assets/liora/brand/nueva-living-lockup-espresso-transparent.png`,
-    address: ADDRESS,
-    ...(SAME_AS.length ? { sameAs: SAME_AS } : {}),
-    ...extra
-  };
+  return realEstateAgentSchema(siteUrl, extra);
 }
 
 // The two founders, for Person schema on /about. Every field here is stated

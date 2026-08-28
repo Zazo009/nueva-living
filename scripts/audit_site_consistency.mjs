@@ -979,6 +979,60 @@ let areaNamesChecked = 0;
   }
 }
 
+let entityIdChecked = 0;
+
+// One entity, one declaration, one description of itself.
+//
+// Sixty-two pages declared nuevaliving.com/#organization twice. On the
+// homepage the two copies disagreed about the entity's @type -- RealEstateAgent
+// against Organization -- and about its url, one with a trailing slash and one
+// without. A third, hand-written copy sat inside pages/developments.html and
+// was the one that disagreed with both. For a site whose problem is that a
+// differently-spelled competitor owns its own brand query, publishing three
+// versions of your own identity is the last thing you want to be doing.
+{
+  const distRoot = path.join(root, 'dist');
+  const declared = new Map();
+  const duplicates = [];
+  const missing = [];
+  for (const file of fs.existsSync(distRoot) ? everyHtmlFile(distRoot) : []) {
+    const html = fs.readFileSync(file, 'utf8');
+    if (/<meta name="robots" content="[^"]*noindex/i.test(html)) continue;
+    entityIdChecked += 1;
+    const rel = path.relative(distRoot, file);
+    let count = 0;
+    for (const block of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      let parsed;
+      try { parsed = JSON.parse(block[1]); } catch { continue; }
+      for (const node of (Array.isArray(parsed) ? parsed : (parsed['@graph'] || [parsed]))) {
+        if (!node || typeof node !== 'object') continue;
+        if (!String(node['@id'] || '').endsWith('#organization')) continue;
+        // A node carrying only @id is a reference, not a declaration.
+        if (!Object.keys(node).some((k) => k !== '@id' && k !== '@context')) continue;
+        count += 1;
+        for (const key of ['@type', 'url', 'name', 'legalName', 'taxID']) {
+          const seen = declared.get(key);
+          if (seen === undefined) declared.set(key, node[key]);
+          else if (seen !== node[key] && !duplicates.some((d) => d.startsWith(`${key}:`))) {
+            duplicates.push(`${key}: "${seen}" on one page, "${node[key]}" on ${rel}`);
+          }
+        }
+      }
+    }
+    if (count === 0) missing.push(rel);
+    else if (count > 1) duplicates.push(`${rel} declares it ${count} times`);
+  }
+  if (missing.length) {
+    fail('dist', `${missing.length} indexable page(s) declare no organisation entity: `
+      + `${missing.slice(0, 4).join(', ')}`
+      + `${missing.length > 4 ? `, …and ${missing.length - 4} more` : ''}.`);
+  }
+  if (duplicates.length) {
+    fail('dist', `the organisation entity is not described consistently across the site: `
+      + `${duplicates.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let segmentLinkChecked = 0;
 
 // Internal linking between area guides and segment pages runs both ways.
@@ -1873,5 +1927,6 @@ if (failures.length) {
     + `${registerPagesChecked} pages checked for one form of address per language, `
     + `${faqSchemaChecked} visible FAQs matched against their structured data, `
     + `${areaNamesChecked} locale area pages checked for one spelling of the area name, `
-    + `${segmentLinkChecked} area-to-segment links checked in both directions.`);
+    + `${segmentLinkChecked} area-to-segment links checked in both directions, `
+    + `${entityIdChecked} indexable pages checked for one consistent organisation entity.`);
 }

@@ -131,11 +131,12 @@ const basePageMeta = {
     path: '/',
     type: 'website',
     schema: [
+      // organizationSchema() returns this same node, so declaring both here
+      // put two copies of #organization on the homepage.
       realEstateAgentSchema(siteUrl, {
         areaServed: ['Marbella', 'Estepona', 'Benahavis', 'Costa del Sol'],
         knowsAbout: ['New developments', 'Off-plan property', 'Luxury real estate advisory']
       }),
-      organizationSchema(siteUrl),
       webSiteSchema(siteUrl)
     ]
   },
@@ -143,6 +144,11 @@ const basePageMeta = {
     title: 'New Developments on the Costa del Sol - {count} Projects',
     description: 'Browse 30 new-build and off-plan developments from Marbella to Benalmadena, with guide prices from €305,000, delivery dates and live availability.',
     path: '/developments.html',
+    // The organisation node used to be hand-written into developments.html
+    // itself -- a third copy of the identity, and the one that disagreed with
+    // the others about @type and about the trailing slash on url. It comes
+    // from the single source now, like every other page's.
+    schema: organizationSchema(siteUrl),
     type: 'website'
     // No `schema` here: developments.html already carries its own inline
     // CollectionPage JSON-LD, and seoBlock() does not strip existing
@@ -702,6 +708,91 @@ function seoBlock(file) {
     meta.schema ? `<script type="application/ld+json">\n${JSON.stringify(meta.schema, null, 2)}\n  </script>` : ''
   ].filter(Boolean);
   return lines.map((line) => `  ${line}`).join('\n');
+}
+
+// One declaration per @id, per page.
+//
+// Several builders contribute JSON-LD to the same page, and more than one of
+// them declared the organisation. Sixty-two pages carried
+// nuevaliving.com/#organization twice, and on the homepage the two copies
+// disagreed about the entity's type -- RealEstateAgent against Organization --
+// and about its url, one with a trailing slash and one without. A consumer
+// resolving that @id found two nodes contradicting each other about the same
+// business.
+//
+// The individual duplicates are fixed at their source. This is the backstop:
+// where the same @id is declared more than once on a page, the last and
+// richest declaration is kept. /about is the case that needs it -- its
+// organisation node carries the founder references that are the whole point of
+// the page, and it has to survive the generic one.
+// Every indexable page declares who published it.
+//
+// Nine locale versions of developments.html had no organisation node at all,
+// because the English source carried a hand-written copy that the locale
+// builder simply inherited -- and when that copy was removed, nothing put one
+// back. Rather than listing the pages that need it, this makes it a property
+// of every indexable page: if the node is absent after deduplication, the
+// canonical one is added, with the description in the page's own language.
+function ensureOrganisationSchema(html, locale) {
+  if (/<meta name="robots" content="[^"]*noindex/i.test(html)) return html;
+  const id = organizationId(siteUrl);
+  for (const [, body] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    let parsed;
+    try { parsed = JSON.parse(body); } catch { continue; }
+    for (const node of (Array.isArray(parsed) ? parsed : (parsed['@graph'] || [parsed]))) {
+      if (node && node['@id'] === id && Object.keys(node).some((k) => k !== '@id' && k !== '@context')) {
+        return html;
+      }
+    }
+  }
+  const schema = organizationSchema(siteUrl, { description: t('org.description', locale) });
+  const block = `  <script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n  </script>\n`;
+  return html.replace('</head>', `${block}</head>`);
+}
+
+function dedupeSchemaIds(html) {
+  const pattern = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g;
+  const parse = (body) => { try { return JSON.parse(body); } catch { return null; } };
+  const nodesOf = (parsed) => (Array.isArray(parsed) ? parsed : (parsed['@graph'] || [parsed]));
+  // A node that carries only @id is a reference to an entity declared
+  // elsewhere, not a second declaration of it, and must be left alone.
+  const isDeclaration = (node) => node && typeof node === 'object' && node['@id']
+    && Object.keys(node).some((key) => key !== '@id' && key !== '@context');
+
+  const merged = new Map();
+  const lastDeclaringBlock = new Map();
+  let blockIndex = 0;
+  for (const [, body] of html.matchAll(pattern)) {
+    const parsed = parse(body);
+    blockIndex += 1;
+    if (!parsed) continue;
+    for (const node of nodesOf(parsed)) {
+      if (!isDeclaration(node)) continue;
+      const previous = merged.get(node['@id']);
+      merged.set(node['@id'], previous ? { ...previous, ...node } : node);
+      lastDeclaringBlock.set(node['@id'], blockIndex);
+    }
+  }
+
+  let index = 0;
+  return html.replace(pattern, (whole, body) => {
+    index += 1;
+    const parsed = parse(body);
+    if (!parsed) return whole;
+    const wasArray = Array.isArray(parsed);
+    const kept = [];
+    for (const node of nodesOf(parsed)) {
+      if (!isDeclaration(node)) { kept.push(node); continue; }
+      // The merged node ships once, at its last declaration, so the richest
+      // version wins -- /about's organisation carries the founder references
+      // that are the whole point of that page.
+      if (lastDeclaringBlock.get(node['@id']) !== index) continue;
+      kept.push(merged.get(node['@id']));
+    }
+    if (!kept.length) return '';
+    const payload = wasArray || kept.length > 1 ? kept : kept[0];
+    return `<script type="application/ld+json">\n${JSON.stringify(payload, null, 2)}\n  </script>`;
+  });
 }
 
 function stripSeo(html) {
@@ -1477,6 +1568,8 @@ function localiseGalleryChrome(html, locale) {
   out = localiseImageAlts(out, locale);
   out = injectSystemStyles(out);
   out = injectGtm(out);
+  out = dedupeSchemaIds(out);
+  out = ensureOrganisationSchema(out, locale);
   out = clampMetaDescriptions(out);
   out = stampAssetVersions(out);
   const productionHtml = externalizeHomepageController(out, publicName);
