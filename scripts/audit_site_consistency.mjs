@@ -1200,7 +1200,22 @@ let titleCaseChecked = 0;
     const significant = words.filter((w) => w.length > 3);
     return significant.length >= 2 && significant.every((w) => /^[A-Z]/.test(w));
   };
+  // Place names are Title Case in every language -- "Marbella Este", "La Milla
+  // de Oro", "Złoty Trójkąt". They are read out of the area data rather than
+  // pattern-matched, so a new sub-area is exempt because it IS a place, not
+  // because someone loosened the check.
+  const placeNames = new Set();
+  const areasSource = path.join(root, 'content', 'nueva-areas.json');
+  if (fs.existsSync(areasSource)) {
+    for (const area of JSON.parse(fs.readFileSync(areasSource, 'utf8'))) {
+      placeNames.add(area.name);
+      for (const item of area.subareas?.items || []) placeNames.add(item[0]);
+      for (const item of area.spotlight?.items || []) placeNames.add(item[0]);
+      for (const price of area.prices || []) placeNames.add(price.label);
+    }
+  }
   for (const entry of allEntries) {
+    if (placeNames.has(entry.find)) { titleCaseChecked += 1; continue; }
     if (!isTitleCase(entry.find)) { titleCaseChecked += 1; continue; }
     for (const locale of CASED) {
       const value = entry[locale];

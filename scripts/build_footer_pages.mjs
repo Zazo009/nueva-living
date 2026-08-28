@@ -635,6 +635,21 @@ const SEGMENT_LINKS = {
 // emitted this since they were built; the area pages listed the same projects
 // with no markup at all, so a crawler saw prose where the segment pages
 // offered a structured list of the same homes.
+// Sub-areas. The page title promises "area by area", and until now the page
+// answered it in one paragraph of the intro. Every card is grounded in copy
+// the site already publishes -- the project location descriptions and the
+// per-zone price figures -- rather than in general knowledge about the coast.
+function areaSubareasSection(area, locale = DEFAULT_LOCALE) {
+  const sub = area.subareas;
+  if (!sub?.items?.length) return '';
+  const cards = sub.items.map(([title, copy], index) =>
+    `<article class="card"><div class="card-number">${String(index + 1).padStart(2, '0')}</div><h3>${esc(title)}</h3><p>${esc(copy)}</p></article>`).join('');
+  return `<section class="section segment-subareas"><div class="section-inner">
+    <div class="section-head"><span class="label">${t('area.whereToBuy', locale)}</span><div class="rule"></div><h2 class="section-title">${esc(sub.headline)}</h2></div>
+    <div class="cards">${cards}</div>
+  </div></section>`;
+}
+
 function areaItemListSchema(area, locale) {
   const selected = area.featuredProjects
     .map((projectSlug) => projects.find((project) => project.slug === projectSlug))
@@ -726,6 +741,7 @@ function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
     heroLead: area.hero.lead,
     bodyClass: 'area-detail-page',
     body: `<section class="section area-introduction"><div class="section-inner area-intro-layout"><div><span class="label">${t('area.livingIn', locale, { name: esc(area.name) })}</span><div class="rule"></div><h2 class="section-title">${area.intro.headlineHtml}</h2>${paragraphs}</div><div class="area-highlights">${highlights}</div></div></section>${spotlightSection}
+    ${areaSubareasSection(area, locale)}
     <section class="section quiet-band area-market"><div class="section-inner area-market-layout"><div><span class="label">${t('area.priceContext', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.currentAskingPriceReference', locale)}</h2><p class="body-copy">${t('area.priceContextIntro', locale)}</p></div><div class="area-price-panel">${priceItems}<p>${esc(area.priceNote)}</p><div class="area-price-sources">${areaPriceSources(area, locale)}</div></div></div></section>
     <section class="section area-developments"><div class="section-inner"><div class="section-head"><span class="label">${t('area.currentMatch', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.projectsIn', locale, { name: esc(area.name) })}</h2><p class="body-copy">${t('area.projectsMatchingNote', locale)}</p>${SEGMENT_LINKS[area.slug] ? `<a class="project-link area-guide-link" href="${SEGMENT_LINKS[area.slug].href}">${t('area.readFullGuide', locale, { area: SEGMENT_LINKS[area.slug].area })}</a>` : ''}</div><div class="project-grid area-project-grid">${areaProjects(area, locale)}</div></div></section>
     ${areaFaqSection(area, locale)}

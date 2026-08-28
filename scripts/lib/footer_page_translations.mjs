@@ -17,6 +17,7 @@ import { FOOTER_PAGE_ENTRIES_GROUP_D } from './footer_page_translations_group_d.
 import { FOOTER_PAGE_ENTRIES_GROUP_E } from './footer_page_translations_group_e.mjs';
 import { FOOTER_PAGE_ENTRIES_GROUP_F } from './footer_page_translations_group_f.mjs';
 import { AREA_FAQ_ENTRIES } from './area_faq_translations.mjs';
+import { AREA_SUBAREA_ENTRIES } from './area_subarea_translations.mjs';
 
 export const FOOTER_PAGE_ENTRIES = [
   ...CARD_CHROME_ENTRIES,
@@ -26,5 +27,6 @@ export const FOOTER_PAGE_ENTRIES = [
   ...FOOTER_PAGE_ENTRIES_GROUP_D,
   ...FOOTER_PAGE_ENTRIES_GROUP_E,
   ...FOOTER_PAGE_ENTRIES_GROUP_F,
-  ...AREA_FAQ_ENTRIES
+  ...AREA_FAQ_ENTRIES,
+  ...AREA_SUBAREA_ENTRIES
 ];
