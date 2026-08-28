@@ -677,9 +677,26 @@ function areaRelatedSection(area, locale = DEFAULT_LOCALE) {
   const items = others
     .map((other) => `<li><a href="${esc(other.output)}">${esc(localizeProject(other, locale).name)}</a></li>`)
     .join('\n      ');
+  // The segment pages link to all six area pages; until now the area pages
+  // linked back to at most one of them, and three linked to none. That left
+  // the most commercial destinations on the site -- "new-build apartments in
+  // X" -- reachable from the homepage and from each other but not from the
+  // area guide that ranks for the same place. Listed first, because they are
+  // the more specific next step for someone reading about the area.
+  // The place name is an i18n key, not a literal: compound names differ per
+  // language ("Mijas & Fuengirola" is "Mijas y Fuengirola" in Spanish), and a
+  // literal here shipped the English joining word inside an otherwise Spanish
+  // label. The whole label is escaped at the end rather than the pattern
+  // carrying &amp; itself, so the ampersand is escaped exactly once.
+  const segmentItems = (area.relatedSegments || []).map(([kind, output, nameKey]) => {
+    const pattern = kind === 'homes' ? 'segment.homesIn' : kind === 'homesOn' ? 'segment.homesOn' : 'segment.apartmentsIn';
+    return `<li><a href="${esc(output)}">${esc(t(pattern, locale, { name: t(nameKey, locale) }))}</a></li>`;
+  }).join('\n      ');
+
   return `<section class="section quiet-band segment-related"><div class="section-inner">
     <div class="section-head"><span class="label">${t('area.otherAreas', locale)}</span><div class="rule"></div><h2 class="section-title">${t('area.moreAreaGuides', locale)}</h2></div>
     <ul class="segment-related-list">
+      ${segmentItems}
       ${items}
       <li><a href="areas.html">${esc(t('nav.allAreas', locale))}</a></li>
       <li><a href="guides.html">${esc(t('nav.buyingGuides', locale))}</a></li>

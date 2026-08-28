@@ -979,6 +979,48 @@ let areaNamesChecked = 0;
   }
 }
 
+let segmentLinkChecked = 0;
+
+// Internal linking between area guides and segment pages runs both ways.
+//
+// The segment pages linked to all six area pages; the area pages linked back
+// to at most one of them, and three linked to none. That left the site's most
+// commercial destinations -- "new-build apartments in X" -- unreachable from
+// the area guide that ranks for the same place.
+//
+// The mapping lives in nueva-areas.json, so this checks it against what is
+// actually built: every listed target has to exist, and every segment page
+// has to be reachable from at least one area page.
+{
+  const distRoot = path.join(root, 'dist');
+  const areasSource = path.join(root, 'content', 'nueva-areas.json');
+  if (fs.existsSync(distRoot) && fs.existsSync(areasSource)) {
+    const areas = JSON.parse(fs.readFileSync(areasSource, 'utf8'));
+    const linked = new Set();
+    const dangling = [];
+    for (const area of areas) {
+      for (const [, output] of area.relatedSegments || []) {
+        segmentLinkChecked += 1;
+        linked.add(output);
+        if (!fs.existsSync(path.join(distRoot, output))) {
+          dangling.push(`${area.slug} -> ${output}`);
+        }
+      }
+    }
+    const orphans = fs.readdirSync(distRoot)
+      .filter((f) => f.startsWith('new-build-') && f.endsWith('.html') && !linked.has(f));
+    if (dangling.length) {
+      fail('content/nueva-areas.json',
+        `${dangling.length} area page(s) link to a segment page that is not built: ${dangling.join(', ')}.`);
+    }
+    if (orphans.length) {
+      fail('content/nueva-areas.json',
+        `${orphans.length} segment page(s) are not linked from any area guide, so the linking runs `
+        + `one way only: ${orphans.join(', ')}.`);
+    }
+  }
+}
+
 let faqSchemaChecked = 0;
 
 // A visible FAQ must be marked up as one, in the reader's language.
