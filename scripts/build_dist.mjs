@@ -1495,6 +1495,36 @@ const CHROME_LITERALS = {
   'Last name': { es: 'Apellidos', fr: 'Nom', de: 'Nachname', ru: 'Фамилия', ar: 'اسم العائلة', nl: 'Achternaam', pl: 'Nazwisko', sv: 'Efternamn', no: 'Etternavn' }
 };
 
+// Payment-stage labels from the projects' construction timelines. They recur
+// across projects, so they belong in one table rather than in thirty i18n
+// overlays -- and they are visible text rather than attributes, which is why
+// CHROME_LITERALS above cannot carry them.
+//
+// Anchored on their own two classes so a short label like "Reservation" can
+// never match the same word inside a sentence somewhere else on the page.
+const TIMELINE_LABELS = {
+  'Reservation': { es: 'Reserva', fr: 'Réservation', de: 'Reservierung', ru: 'Бронирование', ar: 'الحجز', nl: 'Reservering', pl: 'Rezerwacja', sv: 'Reservation', no: 'Reservasjon' },
+  'On Private Purchase Contract': { es: 'A la firma del contrato privado', fr: 'À la signature du contrat privé', de: 'Bei Unterzeichnung des privaten Kaufvertrags', ru: 'При подписании частного договора', ar: 'عند توقيع عقد الشراء الخاص', nl: 'Bij ondertekening van het private koopcontract', pl: 'Przy podpisaniu prywatnej umowy kupna', sv: 'Vid undertecknandet av det privata köpekontraktet', no: 'Ved signering av den private kjøpekontrakten' },
+  'On Notary Signing': { es: 'A la firma ante notario', fr: 'À la signature chez le notaire', de: 'Bei der notariellen Beurkundung', ru: 'При подписании у нотариуса', ar: 'عند التوقيع لدى الموثّق', nl: 'Bij ondertekening bij de notaris', pl: 'Przy podpisaniu u notariusza', sv: 'Vid undertecknandet hos notarie', no: 'Ved signering hos notarius' },
+  'Due on signing': { es: 'Pagadero a la firma', fr: 'Exigible à la signature', de: 'Fällig bei Unterzeichnung', ru: 'К оплате при подписании', ar: 'مستحق عند التوقيع', nl: 'Verschuldigd bij ondertekening', pl: 'Płatne przy podpisaniu', sv: 'Betalas vid undertecknande', no: 'Betales ved signering' },
+  'Paid at title deed signing': { es: 'Se paga a la firma de la escritura', fr: 'Payé à la signature de l’acte', de: 'Zahlbar bei der Beurkundung', ru: 'Оплачивается при подписании купчей', ar: 'يُدفع عند توقيع سند الملكية', nl: 'Betaald bij het passeren van de akte', pl: 'Płatne przy akcie notarialnym', sv: 'Betalas vid köpebrevet', no: 'Betales ved skjøtet' },
+  'Bank-guaranteed': { es: 'Con garantía bancaria', fr: 'Sous garantie bancaire', de: 'Bankgarantiert', ru: 'Под банковскую гарантию', ar: 'مضمون مصرفياً', nl: 'Met bankgarantie', pl: 'Objęte gwarancją bankową', sv: 'Med bankgaranti', no: 'Med bankgaranti' }
+};
+
+function localiseTimelineLabels(html, locale) {
+  if (locale === DEFAULT_LOCALE) return html;
+  let out = html;
+  for (const [english, byLocale] of Object.entries(TIMELINE_LABELS)) {
+    const translated = byLocale[locale];
+    if (!translated) continue;
+    for (const cls of ['timeline-payment-label', 'timeline-payment-note']) {
+      out = out.split(`<span class="${cls}">${english}</span>`)
+        .join(`<span class="${cls}">${translated}</span>`);
+    }
+  }
+  return out;
+}
+
 function localiseChromeTemplates(html, locale) {
   if (locale === DEFAULT_LOCALE) return html;
   let out = html;
@@ -1576,6 +1606,7 @@ function localiseGalleryChrome(html, locale) {
   out = localiseDiscoveryTags(out, locale);
   out = localiseGalleryChrome(out, locale);
   out = localiseChromeTemplates(out, locale);
+  out = localiseTimelineLabels(out, locale);
   out = localiseImageAlts(out, locale);
   out = injectSystemStyles(out);
   out = injectGtm(out);

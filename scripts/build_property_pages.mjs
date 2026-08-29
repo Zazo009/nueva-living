@@ -106,6 +106,22 @@ function localizedUnitSize(value, locale = DEFAULT_LOCALE) {
   const pool = /^(.+?),\s*private pool$/i.exec(raw);
   if (pool) return t('unit.withPrivatePool', locale, { size: localizedUnitSize(pool[1], locale) });
 
+  // Some projects bake the label into the value -- "149.74 m² total built"
+  // rather than a figure and a separate label -- so it never reaches
+  // localizedSizeLabel() and shipped in English on all nine locales. Match a
+  // trailing label against the same SIZE_LABELS table the split path uses, so
+  // both spellings of the same data end up in the same place.
+  const trailing = /^(.+?\s*(?:m²|sqm))\s+([a-z][a-z ]*)$/i.exec(raw);
+  if (trailing) {
+    const label = SIZE_LABELS[trailing[2].trim().toLowerCase()]?.[locale];
+    // Localise the unit in the same pass, otherwise one project prints m² and
+    // another sqm on the same locale for the same kind of measurement.
+    if (label) {
+      const figure = trailing[1].replace(/\bsqm\b/i, SIZE_UNIT[locale] || 'sqm');
+      return `${figure} ${label}`;
+    }
+  }
+
   return raw;
 }
 

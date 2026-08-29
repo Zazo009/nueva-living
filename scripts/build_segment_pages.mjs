@@ -26,6 +26,7 @@ import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
 import { SEGMENT_CLUSTER_ENTRIES } from './lib/segment_page_translations_clusters.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
 import { PROJECT_CARD_ENTRIES } from './lib/developments_page_translations.mjs';
+import { GUIDE_CARD_ENTRIES } from './lib/guide_card_translations.mjs';
 
 // Same approach as applyFooterPageTranslations() in build_footer_pages.mjs:
 // literal find/replace of translated prose over already-rendered English
@@ -38,7 +39,7 @@ import { PROJECT_CARD_ENTRIES } from './lib/developments_page_translations.mjs';
 // the shared project-card meta labels/values and CTA (same set used on
 // developments.html); per-project card descriptions come from each
 // project.json's own i18n overlay.
-const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...SEGMENT_CLUSTER_ENTRIES, ...PROJECT_CARD_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
+const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...SEGMENT_CLUSTER_ENTRIES, ...GUIDE_CARD_ENTRIES, ...PROJECT_CARD_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
   .sort((a, b) => b.find.length - a.find.length);
 
 function cardDescriptionReplacements(locale) {
