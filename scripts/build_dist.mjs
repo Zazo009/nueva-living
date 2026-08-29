@@ -127,7 +127,11 @@ function segmentTitle(template, area, types = ['apartment', 'penthouse']) {
 
 const basePageMeta = {
   'index.html': {
-    title: 'Nueva Living | New-Build & Off-Plan Property, Costa del Sol',
+    // The query leads, the brand follows. Every other page type on the site
+    // already does this; the homepage was the one exception, and it spent its
+    // most valuable characters on the brand -- which appears in the title
+    // regardless on a brand query, and buys nothing on a category one.
+    title: 'New-Build & Off-Plan Property, Costa del Sol | Nueva Living',
     description: 'Independent advice on new-build and off-plan homes in Marbella, Estepona, Benahavis and Nueva Andalucia - real prices, availability and delivery dates.',
     path: '/',
     type: 'website',

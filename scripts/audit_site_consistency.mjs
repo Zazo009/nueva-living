@@ -979,6 +979,36 @@ let areaNamesChecked = 0;
   }
 }
 
+let titleLeadChecked = 0;
+
+// The query leads a title, not the brand.
+//
+// Every page type on the site already did this -- "Where to Buy in Casares",
+// "106 New-Build Apartments & Penthouses in Estepona", "How to Buy a
+// New-Build in Spain". The ten homepages were the exception and opened with
+// "Nueva Living |", spending the most valuable characters in the tag on the
+// one thing that appears in the result regardless: on a brand query Google
+// matches the name wherever it sits, and on a category query those leading
+// characters are the whole point.
+{
+  const distRoot = path.join(root, 'dist');
+  const offenders = [];
+  for (const file of fs.existsSync(distRoot) ? everyHtmlFile(distRoot) : []) {
+    const html = fs.readFileSync(file, 'utf8');
+    if (/<meta name="robots" content="[^"]*noindex/i.test(html)) continue;
+    const title = html.match(/<title>([\s\S]*?)<\/title>/);
+    if (!title) continue;
+    titleLeadChecked += 1;
+    const text = title[1].replace(/&amp;/g, '&').trim();
+    if (/^Nueva Living/i.test(text)) offenders.push(path.relative(distRoot, file));
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page title(s) open with the brand rather than the query: `
+      + `${offenders.slice(0, 4).join(', ')}`
+      + `${offenders.length > 4 ? `, …and ${offenders.length - 4} more` : ''}.`);
+  }
+}
+
 let h1VisibilityChecked = 0;
 
 // Nothing inside an h1 may be hidden with display: none.
@@ -2001,5 +2031,6 @@ if (failures.length) {
     + `${areaNamesChecked} locale area pages checked for one spelling of the area name, `
     + `${segmentLinkChecked} area-to-segment links checked in both directions, `
     + `${entityIdChecked} indexable pages checked for one consistent organisation entity, `
-    + `${h1VisibilityChecked} classes inside h1 elements checked for display: none.`);
+    + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
+    + `${titleLeadChecked} titles checked for leading with the query rather than the brand.`);
 }
