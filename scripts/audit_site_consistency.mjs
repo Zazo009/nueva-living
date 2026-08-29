@@ -979,6 +979,88 @@ let areaNamesChecked = 0;
   }
 }
 
+let overlayCaseChecked = 0;
+
+// One capitalisation per word inside the per-project i18n overlays.
+//
+// The Title Case check above reads the translation tables. It never saw the
+// thirty project overlays, where Polish had drifted into two conventions for
+// the same label: "Pierwsze piętro, Blok 2" against "Pierwsze Piętro, Budynek
+// A1", "Warunki Płatności" against ordinary sentence case elsewhere.
+//
+// Scoped to structural words -- floor, building, block, level, phase, and the
+// payment-stage vocabulary. Those are never proper nouns, so a capital on one
+// and not the other is always drift.
+//
+// The first version of this check compared every word that appeared both ways
+// and found 259, most of them legitimate: "Golf" in Golf Valley against golf
+// the sport is two correct spellings of two different things. A defined
+// vocabulary is narrower than the problem but it is right, which the general
+// version was not.
+{
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  const CASED = ['es', 'fr', 'nl', 'pl', 'sv', 'no'];
+  const STRUCTURAL = new Set([
+    'piętro', 'parter', 'blok', 'budynek', 'poziom', 'klatka', 'faza', 'etap',
+    'płatności', 'umowa', 'umowie', 'odbiorze', 'budowy', 'sypialniami', 'ogrodem',
+    'planta', 'bloque', 'edificio', 'fase', 'nivel', 'construcción', 'dormitorios',
+    'étage', 'bâtiment', 'bloc', 'niveau', 'chambres',
+    'verdieping', 'gebouw', 'bouwnummer', 'slaapkamers',
+    'våning', 'huset', 'etapp', 'sovrum', 'byggnad',
+    'etasje', 'bygg', 'trinn', 'soverom'
+  ]);
+  const seen = new Map();
+  if (fs.existsSync(projectsDir)) {
+    for (const dir of fs.readdirSync(projectsDir)) {
+      const file = path.join(projectsDir, dir, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      let project;
+      try { project = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { continue; }
+      for (const locale of CASED) {
+        const overlay = project.i18n?.[locale];
+        if (!overlay) continue;
+        const walk = (node) => {
+          if (typeof node === 'string') {
+            if (node.length > 58 || node.includes('<')) return;
+            for (const match of node.matchAll(/\p{L}{3,}/gu)) {
+              const word = match[0];
+              if (!STRUCTURAL.has(word.toLowerCase())) continue;
+              // En satsinledning stavas med versal oavsett register, så "Fase 1 / Etap 2"
+              // och "aktuell fase" är två korrekta stavningar av samma ord. Räkna bara
+              // förekomster mitt i en fras.
+              const before = node.slice(0, match.index).replace(/\s+$/, '');
+              if (!before || /[/:.;—–|]$/.test(before)) continue;
+              // "Fase 1", "Etap II" är etappens egennamn; "aktuell fase" är substantivet.
+              const after = node.slice(match.index + word.length).trimStart();
+              if (/^(?:\d|[IVX]+\b)/.test(after)) continue;
+              const key = `${locale}:${word.toLowerCase()}`;
+              if (!seen.has(key)) seen.set(key, { upper: null, lower: null });
+              const bucket = seen.get(key);
+              if (word[0] === word[0].toUpperCase()) bucket.upper = bucket.upper || `${dir}: "${node}"`;
+              else bucket.lower = bucket.lower || `${dir}: "${node}"`;
+            }
+            return;
+          }
+          if (Array.isArray(node)) { node.forEach(walk); return; }
+          if (node && typeof node === 'object') Object.values(node).forEach(walk);
+        };
+        walk(overlay);
+      }
+    }
+  }
+  const conflicts = [];
+  for (const [key, bucket] of seen) {
+    overlayCaseChecked += 1;
+    if (bucket.upper && bucket.lower) {
+      conflicts.push(`${key.split(':')[1]} — ${bucket.upper.slice(0, 44)} vs ${bucket.lower.slice(0, 44)}`);
+    }
+  }
+  if (conflicts.length) {
+    fail('content/liora-projects', `${conflicts.length} word(s) are capitalised inconsistently inside `
+      + `the project overlays: ${conflicts.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let stickyOffsetChecked = 0;
 
 // A sticky bar's offset is derived from the header height, never restated.
@@ -2077,5 +2159,6 @@ if (failures.length) {
     + `${entityIdChecked} indexable pages checked for one consistent organisation entity, `
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
-    + `${stickyOffsetChecked} sticky rules checked for a derived header offset.`);
+    + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each.`);
 }
