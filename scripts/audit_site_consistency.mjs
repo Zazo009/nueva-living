@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { pathToFileURL } from 'node:url';
+import { FLOOR_PARTS } from './lib/unit_floor_parts.mjs';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -978,6 +979,52 @@ let areaNamesChecked = 0;
       + `${offenders.length > 4 ? `, …and ${offenders.length - 4} more` : ''}.`);
   }
 }
+
+let floorSegmentCaseChecked = 0;
+
+// FLOOR_PARTS stores every part as a standalone label, so each one is
+// capitalised. localizedUnitFloor glues parts together with ", " and " & ", and
+// only the first one still starts a phrase -- "Parter, poziom ogrodu", not
+// "Parter, Poziom Ogrodu". German capitalises nouns in any position and Arabic
+// is caseless, so both are exempt. A few parts start with a name rather than a
+// noun and keep their capital wherever they sit.
+function checkFloorSegmentCase() {
+  const NOUN_CASE = new Set(['de', 'ar']);
+  const PROPER = /^(?:Sky|Premium|Deluxe|Superior)\b/;
+  const locales = fs.readdirSync(dist, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && /^[a-z]{2}$/.test(e.name) && !NOUN_CASE.has(e.name))
+    .map((e) => e.name);
+  const offenders = [];
+  for (const locale of locales) {
+    const parts = [...new Set(Object.values(FLOOR_PARTS)
+      .map((row) => row[locale])
+      .filter((v) => v && !PROPER.test(v) && v[0] !== v[0].toLocaleLowerCase()))];
+    if (!parts.length) continue;
+    const pattern = new RegExp(
+      `(?:,\\s|\\s&(?:amp;)?\\s)(${parts.map((v) => v.replace(/[.*+?^$(){}|[\]\\]/g, '\\$&')).join('|')})\\b`,
+      'g');
+    const dir = path.join(dist, locale);
+    for (const name of fs.readdirSync(dir).filter((f) => f.endsWith('.html'))) {
+      const file = path.join(dir, name);
+      const html = fs.readFileSync(file, 'utf8');
+      // Only the unit table's own cells. The same words appear in prose and in
+      // type lists ("Appartements, penthouses & duplex") where a capital is
+      // somebody else's decision, not this assembly's.
+      const cells = [...html.matchAll(/<(?:td|dd)\b[^>]*>([^<]*)</g)].map((c) => c[1]).join('\n');
+      for (const m of cells.matchAll(pattern)) {
+        offenders.push(`${path.relative('dist', file)}: "${m[0].trim()}"`);
+        break;
+      }
+    }
+    floorSegmentCaseChecked += parts.length;
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} floor label(s) capitalise a segment that does not `
+      + `start the phrase: ${[...new Set(offenders)].slice(0, 4).join('; ')}.`);
+  }
+}
+
+checkFloorSegmentCase();
 
 let overlayCaseChecked = 0;
 
@@ -2160,5 +2207,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case.`);
 }

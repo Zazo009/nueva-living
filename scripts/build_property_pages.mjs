@@ -242,6 +242,22 @@ function localizedPriceRange(value, locale = DEFAULT_LOCALE) {
     .join('');
 }
 
+// German capitalises common nouns in any position and Arabic is caseless, so a
+// mid-phrase segment keeps the capital it was stored with.
+const NOUN_CASE_LOCALES = new Set(['de', 'ar']);
+
+// A few stored parts start with a name rather than a noun -- "Sky Villa ...",
+// "Villa Premium" -- and those keep their capital wherever they sit.
+const PROPER_SEGMENT_START = new Set(['Sky', 'Premium', 'Deluxe', 'Superior']);
+
+function lowercaseSegmentStart(segment) {
+  const first = segment.split(/\s+/)[0];
+  if (PROPER_SEGMENT_START.has(first)) return segment;
+  const lower = segment[0]?.toLocaleLowerCase();
+  if (!lower || lower === segment[0]) return segment;
+  return lower + segment.slice(1);
+}
+
 function localizedFloorSegment(segment, locale) {
   const trimmed = segment.trim();
   if (!trimmed) return trimmed;
@@ -298,9 +314,23 @@ function localizedUnitFloor(value, locale = DEFAULT_LOCALE) {
   const raw = String(value).trim();
   const whole = UNIT_FLOORS[raw]?.[locale];
   if (whole) return whole;
+  let seenSegment = false;
   return raw
     .split(/(,\s*|\s+&\s+)/)
-    .map((piece) => (/^(,\s*|\s+&\s+)$/.test(piece) ? piece : localizedFloorSegment(piece, locale)))
+    .map((piece) => {
+      if (/^(,\s*|\s+&\s+)$/.test(piece)) return piece;
+      const out = localizedFloorSegment(piece, locale);
+      // FLOOR_PARTS stores each part as a standalone label, so every one of them
+      // is capitalised. Glued together -- "Parter, Poziom ogrodu" -- only the
+      // first segment still starts a phrase; the rest are ordinary nouns and
+      // read as Title Case if left alone. German capitalises nouns anywhere and
+      // Arabic has no case, so both keep the stored form.
+      const lowered = seenSegment && !NOUN_CASE_LOCALES.has(locale)
+        ? lowercaseSegmentStart(out)
+        : out;
+      seenSegment = true;
+      return lowered;
+    })
     .join('');
 }
 
