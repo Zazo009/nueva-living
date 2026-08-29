@@ -2107,7 +2107,11 @@ input[type="submit"]:disabled {
 
 .legal-nav {
   position: sticky;
-  top: 106px;
+  /* 17px of clearance below the header, expressed as clearance rather than as
+     a total. The 106px this replaced was the desktop header plus that gap
+     baked into one number, so it drifted the moment the header changed height
+     -- which is how the project nav and the breadcrumb bar both broke. */
+  top: calc(var(--nueva-header-h) + 17px);
   align-self: start;
   display: grid;
   gap: 12px;

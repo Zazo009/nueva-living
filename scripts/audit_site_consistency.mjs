@@ -979,6 +979,50 @@ let areaNamesChecked = 0;
   }
 }
 
+let stickyOffsetChecked = 0;
+
+// A sticky bar's offset is derived from the header height, never restated.
+//
+// This bug has now appeared three times in three components. The header is
+// 59px below 1121px and 89px above it, and each time someone wrote the number
+// instead of the variable, the bar stuck at the wrong place on one breakpoint
+// and the page scrolled through the gap behind it. The breadcrumb bar was
+// fixed once with a comment explaining exactly this; the project nav and the
+// legal sidebar still had 76px and 106px hardcoded.
+//
+// Only position: sticky is checked. The language panel is position: fixed and
+// is offset from the control it hangs off, not from the header, so a literal
+// there is correct.
+{
+  const cssDir = path.join(root, 'assets', 'liora');
+  const offenders = [];
+  if (fs.existsSync(cssDir)) {
+    for (const name of fs.readdirSync(cssDir).filter((f) => f.endsWith('.css'))) {
+      const css = fs.readFileSync(path.join(cssDir, name), 'utf8');
+      const stack = [];
+      let start = 0;
+      for (let i = 0; i < css.length; i += 1) {
+        if (css[i] === '{') { stack.push(css.slice(start, i).trim()); start = i + 1; continue; }
+        if (css[i] !== '}') continue;
+        const selector = stack.pop() || '';
+        const body = css.slice(start, i);
+        start = i + 1;
+        if (selector.startsWith('@') || !selector) continue;
+        if (!/position\s*:\s*sticky/.test(body)) continue;
+        stickyOffsetChecked += 1;
+        const top = body.match(/(?<![-\w])top\s*:\s*(\d+)px/);
+        if (top && top[1] !== '0') {
+          offenders.push(`${name}: "${selector.trim().slice(0, 40)}" top: ${top[1]}px`);
+        }
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('assets/liora', `${offenders.length} sticky rule(s) hardcode an offset instead of deriving it `
+      + `from --nueva-header-h, so they sit wrong on one breakpoint: ${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let titleLeadChecked = 0;
 
 // The query leads a title, not the brand.
@@ -2032,5 +2076,6 @@ if (failures.length) {
     + `${segmentLinkChecked} area-to-segment links checked in both directions, `
     + `${entityIdChecked} indexable pages checked for one consistent organisation entity, `
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
-    + `${titleLeadChecked} titles checked for leading with the query rather than the brand.`);
+    + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
+    + `${stickyOffsetChecked} sticky rules checked for a derived header offset.`);
 }

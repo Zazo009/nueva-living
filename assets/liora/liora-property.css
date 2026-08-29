@@ -456,7 +456,11 @@ body {
   --project-nav-surface-rgb: 251, 247, 239;
   --project-nav-edge: max(0px, calc((100vw - var(--max)) / 2));
   position: sticky;
-  top: 76px;
+  /* Tracks the header rather than restating its height. Hardcoded 76px stuck
+     the bar 17px below a 59px header on everything under 1121px, and the page
+     scrolled through the gap. The breadcrumb bar had exactly this bug and was
+     fixed the same way; this component never got the same treatment. */
+  top: var(--nueva-header-h);
   z-index: 120;
   background: rgba(251, 247, 239, 0.88);
   border-bottom: 1px solid var(--line);
