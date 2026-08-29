@@ -1,37 +1,34 @@
-.DS_Store
-.env
-.env.*
+
 !.env.example
-
-node_modules/
-.netlify/
-dist/
-dist 2/
-artifacts/
-tmp/
-
-*.zip
-*.log
-
-liora-public-preview-*/
-liora-netlify-export-*/
-liora-claude-updated-html-with-assets/
-
-Liora_Living_SOLENNE_POLISHED.html
-Liora_Living_Logo_Refined.svg
-Liora_Living_Logo_Refined_Plate.svg
-Liora_Living_Logo_Refined_Preview.html
-Liora_Living_Monogram_Refined.svg
-
+# Edit pages/, never these.
 # The five hand-authored pages live in pages/. Every builder reads them from
-# the repo root, injects into them and writes them back, so the root copies are
 # build output -- scripts/stage_pages.mjs restores them from pages/ before each
 # build. Tracking them made the source and the artifact the same file, which is
 # how a hand edit could be silently overwritten and how an injection that
 # stopped stripping accumulated 25 copies of one script into production.
-# Edit pages/, never these.
-/nueva-living-home.html
-/developments.html
-/compare.html
-/thank-you.html
+# the repo root, injects into them and writes them back, so the root copies are
+*.log
+*.zip
+.DS_Store
+.env
+.env.*
+.netlify/
 /404.html
+/compare.html
+/developments.html
+/nueva-living-home.html
+/thank-you.html
+Liora_Living_Logo_Refined.svg
+Liora_Living_Logo_Refined_Plate.svg
+Liora_Living_Logo_Refined_Preview.html
+Liora_Living_Monogram_Refined.svg
+Liora_Living_SOLENNE_POLISHED.html
+artifacts/
+dist 2/
+dist-social/
+dist/
+liora-claude-updated-html-with-assets/
+liora-netlify-export-*/
+liora-public-preview-*/
+node_modules/
+tmp/
