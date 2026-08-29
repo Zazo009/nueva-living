@@ -112,17 +112,26 @@
       if (!entry) return;
 
       setActiveSection(id);
+      programmaticUntil = Date.now() + (reducedMotion ? 0 : 1200);
       window.scrollTo({
         top: Math.max(0, entry.section.getBoundingClientRect().top + window.scrollY - stickyOffset()),
         behavior: reducedMotion ? 'auto' : 'smooth'
       });
+      if ('onscrollend' in window) {
+        window.addEventListener('scrollend', () => { programmaticUntil = 0; requestActiveUpdate(); }, { once: true });
+      }
 
       if (shouldWriteHash) window.history.replaceState(null, '', `#${id}`);
     }
 
+    // While a click-initiated smooth scroll is in flight, the scroll handler
+    // would otherwise recompute the active tab from every intermediate
+    // position and fight the tab the reader actually pressed.
+    let programmaticUntil = 0;
     let scrollTicking = false;
     function updateActiveFromScroll() {
       scrollTicking = false;
+      if (Date.now() < programmaticUntil) return;
       const current = sectionFromScrollPosition();
       if (current) setActiveSection(current.id);
     }
@@ -143,32 +152,19 @@
       });
     });
 
-    if ('IntersectionObserver' in window) {
-      const observerRoot = () => `-${stickyOffset() + 8}px 0px -62% 0px`;
-      let sectionObserver = new IntersectionObserver((entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
-        if (visible[0]) setActiveSection(visible[0].target.id);
-      }, { rootMargin: observerRoot(), threshold: [0, 0.12, 0.24] });
-
-      navEntries.forEach(({ section }) => sectionObserver.observe(section));
-
-      window.addEventListener('resize', () => {
-        sectionObserver.disconnect();
-        sectionObserver = new IntersectionObserver((entries) => {
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
-          if (visible[0]) setActiveSection(visible[0].target.id);
-        }, { rootMargin: observerRoot(), threshold: [0, 0.12, 0.24] });
-        navEntries.forEach(({ section }) => sectionObserver.observe(section));
-        requestActiveUpdate();
-      }, { passive: true });
-    } else {
-      window.addEventListener('scroll', requestActiveUpdate, { passive: true });
-      window.addEventListener('resize', requestActiveUpdate, { passive: true });
-    }
+    // The active tab is decided from scroll position, not from which sections
+    // an IntersectionObserver happened to report.
+    //
+    // The observer this replaces filtered only the entries delivered in a
+    // given callback and sorted them by Math.abs(boundingClientRect.top), so a
+    // section that had just scrolled past the top edge -- top of -10 -- beat
+    // the one the reader was actually looking at at +100. Which of the two the
+    // browser batched into the same callback decided the outcome, so clicking
+    // a tab left the marker on the previous one some of the time and not
+    // others. sectionFromScrollPosition() walks every section in document
+    // order and is the same answer every time.
+    window.addEventListener('scroll', requestActiveUpdate, { passive: true });
+    window.addEventListener('resize', requestActiveUpdate, { passive: true });
 
     window.addEventListener('load', () => {
       const hashId = decodeURIComponent(window.location.hash.replace(/^#/, ''));
