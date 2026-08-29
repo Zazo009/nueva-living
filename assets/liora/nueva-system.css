@@ -2283,9 +2283,25 @@ so Latin numerals in the price still render in
 @media (max-width: 768px) {
   /* The eyebrow drops its place-name and its leading rule: at 9.5px the full
      "Costa del Sol · New Development Specialist" ran to two lines in most
-     locales, and the rule ate width the label needed. */
+     locales, and the rule ate width the label needed.
+
+     Clipped rather than display: none. Google indexes mobile-first, so a
+     display: none here took "on the Costa del Sol" out of the rendered h1
+     that actually gets indexed -- on the one heading that matters most, for a
+     business whose entire market is that coast. Clipping takes the same zero
+     space visually while keeping the words in the rendered text and in the
+     accessibility tree, so a screen reader on a phone hears the full heading
+     too. */
   #hero .hero-eyebrow-place {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   #hero .hero-eyebrow::before,

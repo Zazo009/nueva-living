@@ -979,6 +979,78 @@ let areaNamesChecked = 0;
   }
 }
 
+let h1VisibilityChecked = 0;
+
+// Nothing inside an h1 may be hidden with display: none.
+//
+// The hero eyebrow's place-name was hidden below 768px, which is a reasonable
+// layout decision and a bad indexing one: Google crawls mobile-first, so the
+// h1 it actually indexed on all ten homepages had no geography in it at all.
+// On the locale pages that meant losing "Costa del Sol" from the heading
+// entirely, on a site that sells nothing anywhere else.
+//
+// Clipping keeps the words in the rendered text and in the accessibility tree
+// while taking the same zero space, so the rule is: hide it however you like,
+// but not with display: none, and not inside the h1.
+{
+  const distRoot = path.join(root, 'dist');
+  const cssDir = path.join(root, 'assets', 'liora');
+  if (fs.existsSync(distRoot) && fs.existsSync(cssDir)) {
+    const insideH1 = new Set();
+    for (const file of everyHtmlFile(distRoot)) {
+      const html = fs.readFileSync(file, 'utf8');
+      for (const h1 of html.matchAll(/<h1[\s\S]*?<\/h1>/g)) {
+        for (const cls of h1[0].matchAll(/class="([^"]+)"/g)) {
+          for (const name of cls[1].split(/\s+/)) if (name) insideH1.add(name);
+        }
+      }
+    }
+    h1VisibilityChecked = insideH1.size;
+    const offenders = [];
+    const sources = fs.readdirSync(cssDir).filter((f) => f.endsWith('.css'))
+      .map((f) => [f, fs.readFileSync(path.join(cssDir, f), 'utf8')]);
+    // A naive /([^{}]+)\{([^}]*)\}/ reads an @media block as one rule whose
+    // selector is the @media query itself, so the rule inside it never gets
+    // its selector examined -- which is exactly where this bug lived. Walk the
+    // braces instead and collect selector/body pairs at any nesting depth.
+    const rules = (css) => {
+      const out = [];
+      let depth = 0, start = 0;
+      const stack = [];
+      for (let i = 0; i < css.length; i += 1) {
+        if (css[i] === '{') {
+          stack.push(css.slice(start, i).trim());
+          depth += 1; start = i + 1;
+        } else if (css[i] === '}') {
+          const selector = stack.pop();
+          if (selector && !selector.startsWith('@')) out.push([selector, css.slice(start, i)]);
+          depth -= 1; start = i + 1;
+        }
+      }
+      return out;
+    };
+    for (const [name, css] of sources) {
+      for (const rule of rules(css)) {
+        if (!/display\s*:\s*none/.test(rule[1])) continue;
+        // Only selector parts that target the element itself. Hiding a
+        // ::before or ::after removes decoration, not text.
+        const parts = rule[0].split(',').map((x) => x.trim()).filter((x) => !x.includes('::'));
+        for (const cls of insideH1) {
+          if (parts.some((part) => part.includes(`.${cls}`))) {
+            offenders.push(`${name}: "${rule[0].trim().slice(0, 46)}"`);
+            break;
+          }
+        }
+      }
+    }
+    if (offenders.length) {
+      fail('assets/liora', `${offenders.length} CSS rule(s) hide something inside an h1 with `
+        + `display: none, which removes it from the heading Google indexes: `
+        + `${offenders.slice(0, 3).join('; ')}.`);
+    }
+  }
+}
+
 let entityIdChecked = 0;
 
 // One entity, one declaration, one description of itself.
@@ -1928,5 +2000,6 @@ if (failures.length) {
     + `${faqSchemaChecked} visible FAQs matched against their structured data, `
     + `${areaNamesChecked} locale area pages checked for one spelling of the area name, `
     + `${segmentLinkChecked} area-to-segment links checked in both directions, `
-    + `${entityIdChecked} indexable pages checked for one consistent organisation entity.`);
+    + `${entityIdChecked} indexable pages checked for one consistent organisation entity, `
+    + `${h1VisibilityChecked} classes inside h1 elements checked for display: none.`);
 }
