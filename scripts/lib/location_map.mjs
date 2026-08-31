@@ -189,8 +189,15 @@ function mapPayload(data, locale) {
   };
 }
 
+// Leaflet's stylesheet used to block the first paint of every property page,
+// on a third-party origin, for a map that is the fifth section down. The
+// container is a fixed 600px tall, so the late stylesheet cannot shift
+// anything above it. Same media="print" swap the site already uses for its
+// own below-the-fold CSS, with the noscript fallback that goes with it.
 export function leafletHead() {
-  return `  <link rel="stylesheet" href="https://unpkg.com/leaflet@${LEAFLET_VERSION}/dist/leaflet.css" integrity="${LEAFLET_CSS_SRI}" crossorigin="anonymous" />
+  const css = `https://unpkg.com/leaflet@${LEAFLET_VERSION}/dist/leaflet.css`;
+  return `  <link rel="stylesheet" href="${css}" integrity="${LEAFLET_CSS_SRI}" crossorigin="anonymous" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="${css}" integrity="${LEAFLET_CSS_SRI}" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@${LEAFLET_VERSION}/dist/leaflet.js" integrity="${LEAFLET_JS_SRI}" crossorigin="anonymous" defer></script>`;
 }
 

@@ -1027,6 +1027,45 @@ let areaNamesChecked = 0;
   }
 }
 
+let blockingCssChecked = 0;
+
+// No stylesheet from another origin blocks the first paint.
+//
+// Leaflet's CSS did, on all 30 property pages, for a map that is the fifth
+// section down: a DNS lookup and a TLS handshake to unpkg.com before anything
+// could be painted. It now loads with the media="print" swap the site already
+// uses for its own below-the-fold CSS, and the map container is a fixed 600px
+// so nothing above it can move when the styles arrive.
+//
+// The noscript fallback is a blocking link by design -- it only runs where the
+// swap cannot -- so noscript blocks are cut out before looking.
+{
+  const offenders = [];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) { if (entry.name !== 'assets') walk(full); continue; }
+      if (!entry.name.endsWith('.html')) continue;
+      const head = fs.readFileSync(full, 'utf8').split('</head>')[0]
+        .replace(/<noscript>[\s\S]*?<\/noscript>/gi, ' ');
+      for (const m of head.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*>/gi)) {
+        const tag = m[0];
+        if (/\bmedia=/.test(tag)) continue;
+        const href = /href="([^"]+)"/.exec(tag)?.[1] || '';
+        if (/^https?:\/\//i.test(href)) {
+          offenders.push(`${path.relative(dist, full)}: ${href.slice(0, 46)}`);
+        }
+      }
+      blockingCssChecked += 1;
+    }
+  };
+  if (fs.existsSync(dist)) walk(dist);
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page(s) block the first paint on a third-party `
+      + `stylesheet: ${[...new Set(offenders)].slice(0, 3).join('; ')}.`);
+  }
+}
+
 let layoutReadChecked = 0;
 
 // No script reads a layout property at module top level.
@@ -2475,5 +2514,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS.`);
 }
