@@ -318,7 +318,11 @@ function localizedUnitFloor(value, locale = DEFAULT_LOCALE) {
   return raw
     .split(/(,\s*|\s+&\s+)/)
     .map((piece) => {
-      if (/^(,\s*|\s+&\s+)$/.test(piece)) return piece;
+      // The separator comes from the English source, so Arabic inherited a Latin
+      // comma into text that uses the Arabic one everywhere else.
+      if (/^(,\s*|\s+&\s+)$/.test(piece)) {
+        return locale === 'ar' && piece.startsWith(',') ? piece.replace(',', '،') : piece;
+      }
       const out = localizedFloorSegment(piece, locale);
       // FLOOR_PARTS stores each part as a standalone label, so every one of them
       // is capitalised. Glued together -- "Parter, Poziom ogrodu" -- only the
@@ -460,8 +464,13 @@ function paragraphs(items = []) {
   return items.map((item) => `<p>${esc(item)}</p>`).join('\n');
 }
 
+// A highlight is either a whole sentence or a [label, detail] pair. The pair
+// form used to fall through to String(array), which printed the separator the
+// language never asked for -- "Glazing,Anodised black aluminium" -- in all ten
+// locales on the three projects that use it.
 function featureList(items = []) {
-  return `<ul class="feature-list">\n${items.map((item) => `            <li>${esc(item)}</li>`).join('\n')}\n          </ul>`;
+  const line = (item) => (Array.isArray(item) ? item.filter(Boolean).join(' — ') : item);
+  return `<ul class="feature-list">\n${items.map((item) => `            <li>${esc(line(item))}</li>`).join('\n')}\n          </ul>`;
 }
 
 // Matterport embeds accept flags that strip their chrome. title=0 removes the

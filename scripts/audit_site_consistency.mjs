@@ -996,6 +996,86 @@ let areaNamesChecked = 0;
   }
 }
 
+// Two ways a separator goes wrong in the rendered page.
+//
+// A [label, detail] highlight used to reach the template as an array, and
+// String(array) printed a comma nobody wrote: "Glazing,Anodised aluminium".
+// The signature is a letter, a comma and an immediate capital -- no space.
+//
+// Arabic writes its comma as U+060C. The unit floor separator came from the
+// English source, so two labels carried a Latin comma into a page that uses
+// the Arabic one 4,000 times over.
+{
+  const offenders = [];
+  const distLocales = ['', ...fs.readdirSync(dist, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && /^[a-z]{2}$/.test(e.name)).map((e) => e.name)];
+  for (const locale of distLocales) {
+    const dir = path.join(dist, locale);
+    for (const name of fs.readdirSync(dir).filter((f) => f.endsWith('.html'))) {
+      const html = fs.readFileSync(path.join(dir, name), 'utf8');
+      const glued = html.match(/<li>[^<]*\p{L},\p{Lu}[^<]*/u);
+      if (glued) offenders.push(`${locale || 'en'}/${name}: "${glued[0].slice(4, 44)}"`);
+      if (locale === 'ar') {
+        const latin = html.match(/[\u0600-\u06FF]\s*,\s*[\u0600-\u06FF]/u);
+        if (latin) offenders.push(`ar/${name}: Latin comma in "${latin[0]}"`);
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page(s) print a separator the language did not ask for: `
+      + `${offenders.slice(0, 4).join('; ')}.`);
+  }
+}
+
+let overlayFloorChecked = 0;
+
+// A project may hand-write its floor labels in the i18n overlay instead of
+// letting FLOOR_PARTS translate them. When the English floor is a plain
+// FLOOR_PARTS key, the two must say the same thing: otherwise the same floor
+// reads "Erster Stock" on one project and "Erstes Obergeschoss" on the next,
+// which is what 24 units did. An overlay that adds to the label -- "Segunda
+// planta y solárium" -- is saying something the key does not cover and is left
+// alone.
+{
+  const CONJUNCTION = /\s+(?:y|e|et|und|en|i|oraz|och|og)\s+/i;
+  const collectFloors = (node, acc) => {
+    if (Array.isArray(node)) { node.forEach((n) => collectFloors(n, acc)); return acc; }
+    if (node && typeof node === 'object') {
+      if (typeof node.floor === 'string') acc.push(node.floor);
+      Object.values(node).forEach((n) => collectFloors(n, acc));
+    }
+    return acc;
+  };
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  const offenders = [];
+  if (fs.existsSync(projectsDir)) {
+    for (const dir of fs.readdirSync(projectsDir)) {
+      const file = path.join(projectsDir, dir, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      let project;
+      try { project = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { continue; }
+      const english = collectFloors(project, []);
+      for (const [locale, overlay] of Object.entries(project.i18n || {})) {
+        const translated = collectFloors(overlay, []);
+        for (let i = 0; i < Math.min(english.length, translated.length); i += 1) {
+          const part = FLOOR_PARTS[String(english[i]).trim().toLowerCase()];
+          if (!part?.[locale]) continue;
+          const value = String(translated[i]).trim();
+          if (CONJUNCTION.test(value) || value.includes(',') || value.includes('&')) continue;
+          overlayFloorChecked += 1;
+          if (value.toLocaleLowerCase() !== part[locale].toLocaleLowerCase()) {
+            offenders.push(`${dir} [${locale}]: "${value}" vs FLOOR_PARTS "${part[locale]}"`);
+          }
+        }
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('content/liora-projects', `${offenders.length} overlay floor label(s) disagree with `
+      + `FLOOR_PARTS: ${[...new Set(offenders)].slice(0, 4).join('; ')}.`);
+  }
+}
+
 let floorSegmentCaseChecked = 0;
 
 // FLOOR_PARTS stores every part as a standalone label, so each one is
@@ -2223,5 +2303,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS.`);
 }
