@@ -1040,7 +1040,11 @@ let englishLeakChecked = 0;
 {
   const SCRIPT_TAG = /<(script|style)\b[\s\S]*?<\/\1>/gi;
   const VISIBLE = /<(a|button|li|p|h[1-6]|dt|dd|td|th|figcaption|blockquote)\b[^>]*>([^<]{8,300})<\/\1>/gi;
-  const ENGLISH = /\b(the|and|with|your|what|which|from|you|are|than|into|more|each|every|of|it|not|this|that|these|those|have|has|been|will|would|should|about|where|when|why|how|buying|homes|prices|before|after)\b/gi;
+  const ENGLISH = /\b(the|and|with|your|what|which|from|you|are|than|into|more|each|every|of|it|not|this|that|these|those|have|has|been|will|would|should|about|where|when|why|how|buying|homes|prices|before|after|explore|happens|next|read|learn)\b/gi;
+  // A long string needs two English words to outweigh a coincidence; a two- or
+  // three-word button label has room for only one. "What Happens Next" sat on
+  // the thank-you page in all nine locales because its row was keyed to an h3
+  // and the heading had since become an h2.
   const decode = (t) => t.replace(/&amp;/g, '&').replace(/&#39;|&apos;/g, "'")
     .replace(/&quot;/g, '"').replace(/&nbsp;/g, ' ').replace(/&[a-z]+;/gi, ' ')
     .replace(/\s+/g, ' ').trim();
@@ -1049,7 +1053,7 @@ let englishLeakChecked = 0;
     const out = new Set();
     for (const m of html.matchAll(VISIBLE)) {
       const text = decode(m[2]);
-      if (text.split(' ').length >= 4) out.add(text);
+      if (text.split(' ').length >= 2) out.add(text);
     }
     return out;
   };
@@ -1065,7 +1069,8 @@ let englishLeakChecked = 0;
       englishLeakChecked += 1;
       for (const text of visibleStrings(file)) {
         if (!english.has(text)) continue;
-        if ((text.match(ENGLISH) || []).length < 2) continue;
+        const words = text.split(' ').length;
+        if ((text.match(ENGLISH) || []).length < (words >= 4 ? 2 : 1)) continue;
         offenders.push(`${locale}/${name}: "${text.slice(0, 44)}"`);
         break;
       }
