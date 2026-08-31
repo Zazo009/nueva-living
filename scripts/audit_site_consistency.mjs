@@ -1027,6 +1027,56 @@ let areaNamesChecked = 0;
   }
 }
 
+let englishLeakChecked = 0;
+
+// A visible string that is byte-identical to the English page's is untranslated
+// -- unless it is a phone number, an address or a project name, which are
+// identical on purpose. Requiring two English function words separates them.
+//
+// The word list is the part that needs care: "for" is Norwegian, "over" is
+// Dutch, "to" and "on" are Polish, "in" is German. A first pass with those
+// included reported eleven perfectly good Norwegian sentences. Only words that
+// exist in no target language are listed here.
+{
+  const SCRIPT_TAG = /<(script|style)\b[\s\S]*?<\/\1>/gi;
+  const VISIBLE = /<(a|button|li|p|h[1-6]|dt|dd|td|th|figcaption|blockquote)\b[^>]*>([^<]{8,300})<\/\1>/gi;
+  const ENGLISH = /\b(the|and|with|your|what|which|from|you|are|than|into|more|each|every|of|it|not|this|that|these|those|have|has|been|will|would|should|about|where|when|why|how|buying|homes|prices|before|after)\b/gi;
+  const decode = (t) => t.replace(/&amp;/g, '&').replace(/&#39;|&apos;/g, "'")
+    .replace(/&quot;/g, '"').replace(/&nbsp;/g, ' ').replace(/&[a-z]+;/gi, ' ')
+    .replace(/\s+/g, ' ').trim();
+  const visibleStrings = (file) => {
+    const html = fs.readFileSync(file, 'utf8').replace(SCRIPT_TAG, ' ');
+    const out = new Set();
+    for (const m of html.matchAll(VISIBLE)) {
+      const text = decode(m[2]);
+      if (text.split(' ').length >= 4) out.add(text);
+    }
+    return out;
+  };
+  const locales = fs.readdirSync(dist, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && /^[a-z]{2}$/.test(e.name)).map((e) => e.name);
+  const offenders = [];
+  for (const name of fs.readdirSync(dist).filter((f) => f.endsWith('.html'))) {
+    const english = visibleStrings(path.join(dist, name));
+    if (!english.size) continue;
+    for (const locale of locales) {
+      const file = path.join(dist, locale, name);
+      if (!fs.existsSync(file)) continue;
+      englishLeakChecked += 1;
+      for (const text of visibleStrings(file)) {
+        if (!english.has(text)) continue;
+        if ((text.match(ENGLISH) || []).length < 2) continue;
+        offenders.push(`${locale}/${name}: "${text.slice(0, 44)}"`);
+        break;
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page(s) still print English body copy: `
+      + `${offenders.slice(0, 4).join('; ')}.`);
+  }
+}
+
 let kickerChecked = 0;
 
 // The h1 kicker comes from seoContext, which no one had put in a translation
@@ -2339,5 +2389,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy.`);
 }
