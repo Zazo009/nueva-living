@@ -1027,6 +1027,42 @@ let areaNamesChecked = 0;
   }
 }
 
+let kickerChecked = 0;
+
+// The h1 kicker comes from seoContext, which no one had put in a translation
+// table. Every footer and guide page led its heading with English on all nine
+// locales -- and where a shorter row matched part of the line, with a half
+// translated one. A kicker identical to the English page's kicker is the
+// signature, and a handful of one-word kickers ("Legal") are the same word in
+// more than one language, so identical is only a fault when the English has
+// more than one word.
+{
+  const kicker = /<h1\b[^>]*>\s*<span class="kicker">([\s\S]*?)<\/span>/;
+  const text = (html) => {
+    const m = kicker.exec(html);
+    return m ? m[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim() : null;
+  };
+  const locales = fs.readdirSync(dist, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && /^[a-z]{2}$/.test(e.name)).map((e) => e.name);
+  const offenders = [];
+  for (const name of fs.readdirSync(dist).filter((f) => f.endsWith('.html'))) {
+    const english = text(fs.readFileSync(path.join(dist, name), 'utf8'));
+    if (!english || english.split(/\s+/).length < 2) continue;
+    for (const locale of locales) {
+      const file = path.join(dist, locale, name);
+      if (!fs.existsSync(file)) continue;
+      kickerChecked += 1;
+      if (text(fs.readFileSync(file, 'utf8')) === english) {
+        offenders.push(`${locale}/${name}: "${english.slice(0, 40)}"`);
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page heading(s) still carry the English kicker: `
+      + `${offenders.slice(0, 4).join('; ')}.`);
+  }
+}
+
 let overlayFloorChecked = 0;
 
 // A project may hand-write its floor labels in the i18n overlay instead of
@@ -2303,5 +2339,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation.`);
 }
