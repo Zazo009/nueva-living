@@ -706,7 +706,7 @@ function seoBlock(file) {
     `<link rel="canonical" href="${escapeHtml(url)}">`,
     meta.robots ? `<meta name="robots" content="${escapeHtml(meta.robots)}">` : '',
     `<meta property="og:site_name" content="Nueva Living">`,
-    `<meta property="og:locale" content="en_US">`,
+    `<meta property="og:locale" content="en_GB">`,
     `<meta property="og:type" content="${escapeHtml(meta.type || 'website')}">`,
     `<meta property="og:title" content="${escapeHtml(meta.title)}">`,
     `<meta property="og:description" content="${escapeHtml(meta.description)}">`,

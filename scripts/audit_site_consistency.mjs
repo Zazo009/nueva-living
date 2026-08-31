@@ -1903,6 +1903,40 @@ let revealPagesChecked = 0;
 
 let ogLocalesChecked = 0;
 
+// Every page carries og:locale, and the English one says en_GB.
+//
+// The earlier guard checked the shape of the value but not its presence, so
+// compare.html, thank-you.html and 404.html shipped without one in all nine
+// locales: build_dist stamps it on the English pages and runs after the pass
+// that clones them, so there was nothing for the clone to copy. English said
+// en_US while every word of the copy is British -- "Coloured", "neighbouring",
+// "organised", "metre", and not one American spelling anywhere.
+{
+  const missing = [];
+  let wrongEnglish = 0;
+  const walk = (dir, locale) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name !== 'assets') walk(full, /^[a-z]{2}$/.test(entry.name) ? entry.name : locale);
+      } else if (entry.name.endsWith('.html')) {
+        const value = /<meta property="og:locale" content="([^"]*)"/
+          .exec(fs.readFileSync(full, 'utf8'))?.[1];
+        if (!value) missing.push(path.relative(dist, full));
+        else if (!locale && value !== 'en_GB') wrongEnglish += 1;
+      }
+    }
+  };
+  if (fs.existsSync(dist)) walk(dist, null);
+  if (missing.length) {
+    fail('dist', `${missing.length} page(s) have no og:locale: ${missing.slice(0, 4).join(', ')}.`);
+  }
+  if (wrongEnglish) {
+    fail('dist', `${wrongEnglish} English page(s) declare an og:locale other than en_GB, `
+      + `which is the variety the copy is written in.`);
+  }
+}
+
 // og:locale is language_TERRITORY, not a bare language code.
 //
 // English shipped "en_US" and every other language shipped its bare code --

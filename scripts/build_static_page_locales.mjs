@@ -137,6 +137,17 @@ for (const page of PAGES) {
       }
     }
 
+    // build_dist stamps og:locale onto the English pages, and it runs after
+    // this pass -- so a locale clone taken from the pre-build source has no
+    // og:locale to rewrite and shipped without one. These three were the only
+    // pages in the site missing it.
+    if (!/<meta property="og:locale"/i.test(html)) {
+      html = html.replace(
+        /(<meta name="description"[^>]*>)/i,
+        `$1\n  <meta property="og:locale" content="${meta.ogLocale}">`
+      );
+    }
+
     if (page.robots && !/<meta name="robots"/i.test(html)) {
       html = html.replace(
         /(<meta name="description"[^>]*>)/i,
