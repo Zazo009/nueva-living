@@ -3,6 +3,7 @@ import path from 'node:path';
 import vm from 'node:vm';
 import { pathToFileURL } from 'node:url';
 import { FLOOR_PARTS } from './lib/unit_floor_parts.mjs';
+import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -977,6 +978,21 @@ let areaNamesChecked = 0;
     fail('dist', `${offenders.length} page(s) spell an area name two different ways: `
       + `${offenders.slice(0, 4).join(', ')}`
       + `${offenders.length > 4 ? `, …and ${offenders.length - 4} more` : ''}.`);
+  }
+}
+
+// Two tables translate a floor label, and localizedUnitFloor tries UNIT_FLOORS
+// first. A key present in both means the whole-string table silently shadows
+// the parts table, and the same English floor renders as two different strings
+// depending on which project a visitor is looking at -- "Primera planta" on one,
+// "Planta primera" on another. UNIT_FLOORS is for multi-part labels the parts
+// table cannot assemble; anything it can assemble belongs to it alone.
+{
+  const shadowed = Object.keys(UNIT_FLOORS).filter((key) => FLOOR_PARTS[key.toLowerCase()]);
+  if (shadowed.length) {
+    fail('scripts/lib/unit_floor_translations.mjs',
+      `${shadowed.length} key(s) shadow FLOOR_PARTS and must be removed from UNIT_FLOORS: `
+      + `${shadowed.slice(0, 6).join(', ')}.`);
   }
 }
 

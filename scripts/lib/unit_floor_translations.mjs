@@ -5,16 +5,7 @@
 // in the source data ("Bloque 3"), which are left exactly as the developer
 // supplied them.
 export const UNIT_FLOORS = {
-  'Ground Floor': { es: 'Planta Baja', fr: 'Rez-de-chaussée', de: 'Erdgeschoss', ru: 'Первый этаж', ar: 'الطابق الأرضي', nl: 'Begane Grond', pl: 'Parter', sv: 'Bottenvåning', no: 'Første Etasje' },
-  'Ground floor': { es: 'Planta baja', fr: 'Rez-de-chaussée', de: 'Erdgeschoss', ru: 'Первый этаж', ar: 'الطابق الأرضي', nl: 'Begane grond', pl: 'Parter', sv: 'Bottenvåning', no: 'Første etasje' },
-  'First floor': { es: 'Primera planta', fr: 'Premier étage', de: 'Erstes Obergeschoss', ru: 'Второй этаж', ar: 'الطابق الأول', nl: 'Eerste verdieping', pl: 'Pierwsze piętro', sv: 'Första våningen', no: 'Andre etasje' },
-  '1st Floor': { es: '1.ª Planta', fr: '1er Étage', de: '1. Obergeschoss', ru: '2-й этаж', ar: 'الطابق الأول', nl: '1e Verdieping', pl: '1. Piętro', sv: '1:a Våningen', no: '2. Etasje' },
-  'Second floor': { es: 'Segunda planta', fr: 'Deuxième étage', de: 'Zweites Obergeschoss', ru: 'Третий этаж', ar: 'الطابق الثاني', nl: 'Tweede verdieping', pl: 'Drugie piętro', sv: 'Andra våningen', no: 'Tredje etasje' },
-  '2nd Floor': { es: '2.ª Planta', fr: '2e Étage', de: '2. Obergeschoss', ru: '3-й этаж', ar: 'الطابق الثاني', nl: '2e Verdieping', pl: '2. Piętro', sv: '2:a Våningen', no: '3. Etasje' },
-  'Third floor': { es: 'Tercera planta', fr: 'Troisième étage', de: 'Drittes Obergeschoss', ru: 'Четвёртый этаж', ar: 'الطابق الثالث', nl: 'Derde verdieping', pl: 'Trzecie piętro', sv: 'Tredje våningen', no: 'Fjerde etasje' },
-  'Fourth floor': { es: 'Cuarta planta', fr: 'Quatrième étage', de: 'Viertes Obergeschoss', ru: 'Пятый этаж', ar: 'الطابق الرابع', nl: 'Vierde verdieping', pl: 'Czwarte piętro', sv: 'Fjärde våningen', no: 'Femte etasje' },
-  '4th Floor': { es: '4.ª Planta', fr: '4e Étage', de: '4. Obergeschoss', ru: '5-й этаж', ar: 'الطابق الرابع', nl: '4e Verdieping', pl: '4. Piętro', sv: '4:e Våningen', no: '5. Etasje' },
-  'Penthouse': { es: 'Ático', fr: 'Penthouse', de: 'Penthouse', ru: 'Пентхаус', ar: 'بنتهاوس', nl: 'Penthouse', pl: 'Penthouse', sv: 'Takvåning', no: 'Toppleilighet' },
+  '4th Floor': { es: '4.ª planta', fr: '4e étage', de: '4. Obergeschoss', ru: '5-й этаж', ar: 'الطابق الرابع', nl: '4e verdieping', pl: '4. piętro', sv: '4:e våningen', no: '5. etasje' },
   'Basement, Ground & First Floor': { es: 'Sótano, planta baja y primera planta', fr: 'Sous-sol, rez-de-chaussée et premier étage', de: 'Untergeschoss, Erdgeschoss und erstes Obergeschoss', ru: 'Цокольный, первый и второй этажи', ar: 'الطابق السفلي والأرضي والأول', nl: 'Kelder, begane grond en eerste verdieping', pl: 'Piwnica, parter i pierwsze piętro', sv: 'Källare, bottenvåning och första våningen', no: 'Kjeller, første og andre etasje' },
   'Block 1 (Palm Tree)': { es: 'Bloque 1 (Palmera)', fr: 'Bloc 1 (Palmier)', de: 'Block 1 (Palme)', ru: 'Корпус 1 (Пальма)', ar: 'المبنى 1 (النخلة)', nl: 'Blok 1 (Palmboom)', pl: 'Blok 1 (Palma)', sv: 'Hus 1 (Palm)', no: 'Blokk 1 (Palme)' },
   'Block 2 (Olive Tree)': { es: 'Bloque 2 (Olivo)', fr: 'Bloc 2 (Olivier)', de: 'Block 2 (Olivenbaum)', ru: 'Корпус 2 (Олива)', ar: 'المبنى 2 (شجرة الزيتون)', nl: 'Blok 2 (Olijfboom)', pl: 'Blok 2 (Oliwka)', sv: 'Hus 2 (Olivträd)', no: 'Blokk 2 (Oliventre)' },
