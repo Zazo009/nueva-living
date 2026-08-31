@@ -1027,6 +1027,53 @@ let areaNamesChecked = 0;
   }
 }
 
+let layoutReadChecked = 0;
+
+// No script reads a layout property at module top level.
+//
+// nueva-tracking.js cached window.innerWidth there to keep the read out of the
+// payload builder. The file is deferred, so top level is before the first
+// layout, and the read made the browser lay out the whole document on the
+// critical path: 34ms of forced reflow in Lighthouse. Moving a read is not the
+// same as removing it -- at top level it is at its most expensive.
+//
+// A brace is treated as opening a function when its line mentions `function`
+// or `=>`, which is rough but enough to tell "runs at parse" from "runs when
+// something calls it".
+{
+  const LAYOUT = /\b(innerWidth|innerHeight|offsetWidth|offsetHeight|offsetTop|offsetLeft|clientWidth|clientHeight|scrollWidth|scrollHeight|scrollTop|getBoundingClientRect|getComputedStyle)\b/;
+  const assetsDir = path.join(root, 'assets', 'liora');
+  const offenders = [];
+  if (fs.existsSync(assetsDir)) {
+    for (const name of fs.readdirSync(assetsDir).filter((f) => f.endsWith('.js'))) {
+      const source = fs.readFileSync(path.join(assetsDir, name), 'utf8');
+      const lines = source.split('\n');
+      const stack = [];
+      // An IIFE wrapper runs immediately, so its body is parse-time code even
+      // though it sits inside a function. Every file here is wrapped in one,
+      // and counting it as a function made this guard pass a deliberate break.
+      const wrapped = /^\s*(?:\/\/[^\n]*\n|\s)*\(\s*(?:function\b|\(\s*\)\s*=>)/.test(source);
+      let functionDepth = wrapped ? -1 : 0;
+      lines.forEach((raw, index) => {
+        const line = raw.replace(/\/\/.*$/, '');
+        if (functionDepth <= 0 && LAYOUT.test(line)) {
+          offenders.push(`${name}:${index + 1}: ${line.trim().slice(0, 46)}`);
+        }
+        const opensFunction = /function|=>/.test(line);
+        for (const ch of line) {
+          if (ch === '{') { stack.push(opensFunction); if (opensFunction) functionDepth += 1; }
+          else if (ch === '}') { if (stack.pop()) functionDepth -= 1; }
+        }
+      });
+      layoutReadChecked += 1;
+    }
+  }
+  if (offenders.length) {
+    fail('assets/liora', `${offenders.length} script(s) read a layout property at top level, `
+      + `which forces a reflow before the first paint: ${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let englishLeakChecked = 0;
 
 // A visible string that is byte-identical to the English page's is untranslated
@@ -2428,5 +2475,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads.`);
 }

@@ -1,14 +1,26 @@
 (() => {
   'use strict';
 
-// Cached once at parse time. Reading window.innerWidth/Height inside the
-// payload builder forced a synchronous layout on every send.
-let viewportWidth = window.innerWidth;
-let viewportHeight = window.innerHeight;
-window.addEventListener('resize', () => {
+// Cached, because reading window.innerWidth/Height inside the payload builder
+// forced a synchronous layout on every send. Caching it at parse time only
+// moved the cost: this file is deferred, so it runs before the first layout,
+// and the read made the browser lay the whole document out then and there --
+// 34ms of forced reflow on the critical path.
+//
+// So the read waits for load, by which point the page has been laid out for
+// its own sake and the read is free. Not requestAnimationFrame: that does not
+// fire in a background tab, and a visitor who opens the site in one would
+// leave the value unread for as long as the tab stays hidden. A send that
+// beats the load event reads on the spot.
+let viewportWidth = 0;
+let viewportHeight = 0;
+function readViewport() {
   viewportWidth = window.innerWidth;
   viewportHeight = window.innerHeight;
-}, { passive: true });
+}
+if (document.readyState === 'complete') readViewport();
+else window.addEventListener('load', readViewport, { once: true });
+window.addEventListener('resize', readViewport, { passive: true });
 
   const endpoint = '/.netlify/functions/nueva-track';
   const sessionKey = '_nl_sid';
@@ -155,8 +167,8 @@ window.addEventListener('resize', () => {
       // Read once at load rather than mid-payload: querying innerWidth after
       // the DOM has been touched forces a synchronous layout, which PSI
       // measured at 66ms of forced reflow.
-      viewport_width: viewportWidth,
-      viewport_height: viewportHeight,
+      viewport_width: viewportWidth || (readViewport(), viewportWidth),
+      viewport_height: viewportHeight || (readViewport(), viewportHeight),
       utm_source: acquisition.utm_source || '',
       utm_medium: acquisition.utm_medium || '',
       utm_campaign: acquisition.utm_campaign || '',
