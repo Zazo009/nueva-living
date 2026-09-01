@@ -18,6 +18,7 @@ export const FLOOR_PARTS = {
   'fourth floor': { es: 'Cuarta planta', fr: 'Quatrième étage', de: 'Viertes Obergeschoss', ru: 'Пятый этаж', ar: 'الطابق الرابع', nl: 'Vierde verdieping', pl: 'Czwarte piętro', sv: 'Fjärde våningen', no: 'Femte etasje' },
   'semi-basement': { es: 'Semisótano', fr: 'Demi-sous-sol', de: 'Souterrain', ru: 'Цокольный этаж', ar: 'شبه قبو', nl: 'Souterrain', pl: 'Półsuterena', sv: 'Souterräng', no: 'Underetasje' },
   'garden': { es: 'Jardín', fr: 'Jardin', de: 'Garten', ru: 'Сад', ar: 'حديقة', nl: 'Tuin', pl: 'Ogród', sv: 'Trädgård', no: 'Hage' },
+  'lower level': { es: 'Planta inferior', fr: 'Niveau inférieur', de: 'Untergeschoss', ru: 'Нижний уровень', ar: 'المستوى السفلي', nl: 'Onderste niveau', pl: 'Poziom dolny', sv: 'Nedre plan', no: 'Nedre plan' },
   'garden level': { es: 'Planta jardín', fr: 'Niveau jardin', de: 'Gartenebene', ru: 'Садовый уровень', ar: 'مستوى الحديقة', nl: 'Tuinniveau', pl: 'Poziom ogrodu', sv: 'Trädgårdsplan', no: 'Hagenivå' },
   'solarium': { es: 'Solárium', fr: 'Solarium', de: 'Solarium', ru: 'Солярий', ar: 'سولاريوم', nl: 'Solarium', pl: 'Solarium', sv: 'Solterrass', no: 'Solterrasse' },
   'duplex': { es: 'Dúplex', fr: 'Duplex', de: 'Maisonette', ru: 'Дуплекс', ar: 'دوبلكس', nl: 'Duplex', pl: 'Dwupoziomowy', sv: 'Etagelägenhet', no: 'Toetasjes leilighet' },
