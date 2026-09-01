@@ -1027,6 +1027,66 @@ let areaNamesChecked = 0;
   }
 }
 
+let contrastChecked = 0;
+
+// Text colours meet WCAG AA against the grounds they sit on.
+//
+// The gold read 2.64 against sand and the card label 2.80 against the card
+// surface -- 9px uppercase, below even the large-text floor. Transparency was
+// the harder half: gold at 0.6 alpha cannot reach 4.5 against a light ground
+// no matter how dark the base is, since pure black at that alpha only reaches
+// 5.64 and any hue lands lower. Those three had to become solid.
+//
+// The pairs are listed rather than derived. Working out which ground a colour
+// actually lands on needs the cascade, and a guess there would either miss a
+// failure or invent one.
+{
+  const TEXT_ON = [
+    ['--nueva-gold', ['--nueva-ivory', '--nueva-cream', '--nueva-sand']],
+    ['--card-label', ['--card-surface']],
+    ['--card-gold', ['--card-surface']],
+    ['--card-muted', ['--card-surface']],
+    ['--card-body', ['--card-surface']],
+    ['--card-ink', ['--card-surface']],
+    ['--bronze', ['--nueva-ivory', '--nueva-cream']]
+  ];
+  const css = ['nueva-system.css', 'liora-pages.css']
+    .map((f) => path.join(root, 'assets', 'liora', f))
+    .filter((f) => fs.existsSync(f))
+    .map((f) => fs.readFileSync(f, 'utf8')).join('\n');
+  const token = (name) => {
+    const m = new RegExp(`${name}:\\s*(#[0-9a-fA-F]{6})`).exec(css);
+    return m ? m[1] : null;
+  };
+  const channel = (v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
+  const luminance = (hex) => {
+    const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+    return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+  };
+  const contrast = (a, b) => {
+    const [la, lb] = [luminance(a), luminance(b)];
+    return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+  };
+  const offenders = [];
+  for (const [fg, grounds] of TEXT_ON) {
+    const ink = token(fg);
+    if (!ink) continue;
+    for (const bgName of grounds) {
+      const ground = token(bgName);
+      if (!ground) continue;
+      contrastChecked += 1;
+      const value = contrast(ink, ground);
+      if (value < 4.5) {
+        offenders.push(`${fg} ${ink} on ${bgName} ${ground}: ${value.toFixed(2)}`);
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('assets/liora', `${offenders.length} text colour(s) fall below the 4.5 contrast `
+      + `floor: ${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let blockingCssChecked = 0;
 
 // No stylesheet from another origin blocks the first paint.
@@ -2514,5 +2574,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast.`);
 }
