@@ -1027,6 +1027,38 @@ let areaNamesChecked = 0;
   }
 }
 
+let cardPriceChecked = 0;
+
+// The card's "From" label only belongs in front of a figure. A villa quoted on
+// request rendered "From Price on request", because the label was printed
+// unconditionally alongside whatever the price string happened to be.
+{
+  const PRICE_BLOCK = /<div class="dev-price">([\s\S]{0,400}?)<\/div>/g;
+  const offenders = [];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) { if (entry.name !== 'assets') walk(full); continue; }
+      if (!entry.name.endsWith('.html')) continue;
+      const html = fs.readFileSync(full, 'utf8');
+      for (const m of html.matchAll(PRICE_BLOCK)) {
+        const block = m[1];
+        if (!block.includes('dev-price-label')) continue;
+        const amount = /<span class="dev-price-amount">([^<]*)</.exec(block)?.[1] || '';
+        cardPriceChecked += 1;
+        if (!/\d/.test(amount)) {
+          offenders.push(`${path.relative(dist, full)}: "${amount.slice(0, 30)}"`);
+        }
+      }
+    }
+  };
+  if (fs.existsSync(dist)) walk(dist);
+  if (offenders.length) {
+    fail('dist', `${offenders.length} card(s) print the "from" label in front of something `
+      + `that is not a figure: ${[...new Set(offenders)].slice(0, 3).join('; ')}.`);
+  }
+}
+
 let contrastChecked = 0;
 
 // Text colours meet WCAG AA against the grounds they sit on.
@@ -2574,5 +2606,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${cardPriceChecked} card price labels checked against their amount.`);
 }

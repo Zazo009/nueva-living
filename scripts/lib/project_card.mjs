@@ -81,6 +81,9 @@ export function renderUnifiedCard(card) {
 
   const classes = ['project-card', 'dev-card', className].filter(Boolean).join(' ');
   const cleanPrice = String(price ?? '').replace(TAX_SUFFIX, '');
+  // "From" only makes sense in front of a figure. A villa quoted on request
+  // read "From Price on request" on its card.
+  const showsFromLabel = /\d/.test(cleanPrice);
 
   // Badge row: status, plus the unit count when the project has one.
   const crm = project.crm || {};
@@ -110,7 +113,7 @@ export function renderUnifiedCard(card) {
           <div class="dev-overlay">
             ${badges ? `<div class="dev-badges">${badges}</div>` : ''}
             ${location ? `<div class="dev-loc">${esc(location)}</div>` : ''}
-            ${cleanPrice ? `<div class="dev-price"><span class="dev-price-label">${esc(t('card.from'))}</span><span class="dev-price-amount">${esc(cleanPrice)}</span></div>` : ''}
+            ${cleanPrice ? `<div class="dev-price">${showsFromLabel ? `<span class="dev-price-label">${esc(t('card.from'))}</span>` : ''}<span class="dev-price-amount">${esc(cleanPrice)}</span></div>` : ''}
           </div>
         </div>
         <div class="dev-body">
