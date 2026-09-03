@@ -1296,6 +1296,48 @@ let kickerChecked = 0;
   }
 }
 
+let overlayMediaChecked = 0;
+
+// A translated media item keeps the image it is describing.
+//
+// An overlay carries the translated alt and caption; src, width and height are
+// not translatable, so it is tempting to leave them out. The card gallery
+// builds its image list from items that have a src, so an overlay without one
+// leaves the localised project with no images at all: the fullscreen button
+// disappears and the gallery ships with no image manifest.
+//
+// The card check catches this only where a card shows more than one image.
+// Here it is caught directly, and for every project.
+{
+  const offenders = [];
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  if (fs.existsSync(projectsDir)) {
+    for (const dir of fs.readdirSync(projectsDir)) {
+      const file = path.join(projectsDir, dir, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      let project;
+      try { project = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { continue; }
+      const english = project.media?.items || [];
+      if (!english.length) continue;
+      for (const [locale, overlay] of Object.entries(project.i18n || {})) {
+        const items = overlay.media?.items;
+        if (!Array.isArray(items) || !items.length) continue;
+        overlayMediaChecked += 1;
+        if (items.length !== english.length) {
+          offenders.push(`${dir} [${locale}]: ${items.length} media items against ${english.length}`);
+          continue;
+        }
+        const missing = items.filter((item) => item && typeof item === 'object' && !item.src).length;
+        if (missing) offenders.push(`${dir} [${locale}]: ${missing} media item(s) with no src`);
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('content/liora-projects', `${offenders.length} overlay media list(s) lost the image they `
+      + `describe: ${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let overlayFloorChecked = 0;
 
 // A project may hand-write its floor labels in the i18n overlay instead of
@@ -2606,5 +2648,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${cardPriceChecked} card price labels checked against their amount.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${cardPriceChecked} card price labels checked against their amount.`);
 }
