@@ -1,0 +1,120 @@
+/* Cookie consent banner.
+ *
+ * Uses the site's own tokens and type so it reads as part of the page and
+ * restyles nothing that was already here. It is the only new visible surface
+ * on the site: everything else it touches is a script tag.
+ *
+ * Accept and reject carry the same weight, size and prominence. A reject
+ * button that is quieter than accept is what EU regulators have repeatedly
+ * ruled is not a free choice.
+ */
+.nueva-consent {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 9000;
+  display: none;
+  padding: 18px 20px calc(18px + env(safe-area-inset-bottom, 0px));
+  background: var(--nueva-deep, #2f2417);
+  border-top: 1px solid rgba(216, 189, 133, 0.35);
+  color: var(--nueva-cream, #f4ead9);
+  font-family: var(--nueva-ui, "Montserrat", Arial, sans-serif);
+  box-shadow: 0 -14px 40px rgba(20, 13, 7, 0.35);
+}
+
+.nueva-consent[data-open] { display: block; }
+
+.nueva-consent-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px 28px;
+  align-items: center;
+}
+
+.nueva-consent-heading {
+  margin: 0 0 6px;
+  font-family: var(--nueva-display, "Cinzel", Georgia, serif);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.nueva-consent-body {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: rgba(244, 234, 217, 0.9);
+  text-wrap: pretty;
+}
+
+.nueva-consent-body a {
+  color: var(--nueva-gold-light, #c7a36b);
+  text-underline-offset: 3px;
+}
+
+.nueva-consent-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nueva-consent-button {
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid rgba(216, 189, 133, 0.55);
+  border-radius: 0;
+  background: none;
+  color: var(--nueva-cream, #f4ead9);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.nueva-consent-button:hover,
+.nueva-consent-button:focus-visible {
+  background: rgba(216, 189, 133, 0.16);
+}
+
+.nueva-consent-button:focus-visible {
+  outline: 2px solid var(--nueva-gold-light, #c7a36b);
+  outline-offset: 2px;
+}
+
+.nueva-consent-button--primary {
+  background: var(--nueva-gold-light, #c7a36b);
+  border-color: var(--nueva-gold-light, #c7a36b);
+  color: var(--nueva-deep, #2f2417);
+}
+
+.nueva-consent-button--primary:hover,
+.nueva-consent-button--primary:focus-visible {
+  background: #d8bd85;
+  color: var(--nueva-deep, #2f2417);
+}
+
+[lang="ar"] .nueva-consent-button { letter-spacing: 0; text-transform: none; }
+
+@media (max-width: 860px) {
+  .nueva-consent-inner { grid-template-columns: 1fr; gap: 14px; }
+  .nueva-consent-actions .nueva-consent-button { flex: 1 1 auto; }
+}
+
+/* The footer link that reopens the banner after a choice has been made.
+   Withdrawing consent has to be as easy as giving it. */
+.nueva-consent-reopen {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

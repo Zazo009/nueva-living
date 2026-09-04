@@ -593,6 +593,8 @@ const assetFiles = [
   'assets/liora/liora-compare.css',
   'assets/liora/liora-compare.js',
   'assets/liora/nueva-system.css',
+  'assets/liora/nueva-consent.css',
+  'assets/liora/nueva-consent.js',
   'assets/liora/brand/nueva-living-hero-logo.png',
   'assets/liora/brand/nueva-living-hero-logo-sand.png',
   'assets/liora/brand/nueva-living-lockup-espresso.png',
@@ -989,6 +991,19 @@ const gtmHeadSnippet = `<!-- Google Tag Manager + Google tag (gtag.js) -->
     // whichever comes first.
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consent Mode v2 defaults, written before anything else touches
+    // dataLayer. Everything measurable is denied until the visitor chooses,
+    // and wait_for_update holds the tags briefly so a stored choice replayed
+    // by nueva-consent.js arrives before the first hit rather than after it.
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
     dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
     gtag('js', new Date());
     gtag('config', '${GA4_ID}');
@@ -1023,6 +1038,31 @@ const gtmHeadSnippet = `<!-- Google Tag Manager + Google tag (gtag.js) -->
     })(window, document);
   </script>
   <!-- End Google Tag Manager + Google tag -->`;
+// The cookie banner. It is the one new visible surface on the site, and it
+// exists because GA4 and the tag container were loading unconditionally: in
+// Spain that is an LSSI problem, and in the EEA Google restricts ads
+// personalisation and remarketing without consent signals.
+//
+// Accept and reject are the same size and weight. A quieter reject button is
+// what EU regulators have repeatedly ruled is not a free choice.
+function consentBanner(locale) {
+  const policy = localizedPath('cookie-policy.html', locale);
+  return `<div class="nueva-consent" data-consent-banner role="dialog" aria-modal="false"`
+    + ` aria-label="${escapeHtml(t('consent.regionLabel', locale))}">
+    <div class="nueva-consent-inner">
+      <div>
+        <p class="nueva-consent-heading">${escapeHtml(t('consent.heading', locale))}</p>
+        <p class="nueva-consent-body">${escapeHtml(t('consent.body', locale))}
+          <a href="${escapeHtml(policy)}">${escapeHtml(t('consent.policyLink', locale))}</a></p>
+      </div>
+      <div class="nueva-consent-actions">
+        <button type="button" class="nueva-consent-button" data-consent-action="reject">${escapeHtml(t('consent.essentialOnly', locale))}</button>
+        <button type="button" class="nueva-consent-button nueva-consent-button--primary" data-consent-action="accept">${escapeHtml(t('consent.acceptAll', locale))}</button>
+      </div>
+    </div>
+  </div>`;
+}
+
 const gtmBodySnippet = `<!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -1033,6 +1073,41 @@ const gtmBodySnippet = `<!-- Google Tag Manager (noscript) -->
 // gtag.js directly means GA4 reports even if no GA4 tag is configured
 // inside the GTM container. They share window.dataLayer safely -- gtag()
 // pushes onto the same queue GTM already created.
+function injectConsent(html, locale) {
+  if (html.includes('data-consent-banner')) return html;
+  let out = html;
+  // Withdrawing consent has to be as easy as giving it, so the footer carries
+  // a control that reopens the banner. It sits after the cookie policy link,
+  // where a reader already goes looking for this.
+  if (!out.includes('data-consent-reopen')) {
+    const policyLink = new RegExp(
+      `(<li><a href="[^"]*${localizedPath('cookie-policy.html', locale).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>[^<]*</a></li>)`
+    );
+    out = out.replace(policyLink, (match) => `${match}\n            <li><button type="button" class="nueva-consent-reopen" data-consent-reopen>`
+      + `${escapeHtml(t('consent.manage', locale))}</button></li>`);
+  }
+  // Before the system stylesheet, not after: that one has to stay last so it
+  // wins the cascade, and an audit rule enforces it. The banner's own
+  // selectors are unique, so nothing here needs to come later.
+  if (!out.includes('assets/liora/nueva-consent.css')) {
+    const systemInline = '<style data-nueva-system>';
+    const systemLink = /<link rel="stylesheet" href="[^"]*nueva-system\.css[^"]*"[^>]*>/i;
+    if (out.includes(systemInline)) {
+      out = out.replace(systemInline,
+        `<link rel="stylesheet" href="assets/liora/nueva-consent.css">\n  ${systemInline}`);
+    } else if (systemLink.test(out)) {
+      out = out.replace(systemLink, (m) =>
+        `<link rel="stylesheet" href="assets/liora/nueva-consent.css">\n  ${m}`);
+    } else {
+      out = out.replace(/<\/head>/i,
+        '  <link rel="stylesheet" href="assets/liora/nueva-consent.css">\n</head>');
+    }
+  }
+  out = out.replace(/\n<\/body>/i,
+    `\n  ${consentBanner(locale)}\n  <script src="assets/liora/nueva-consent.js" defer><\/script>\n</body>`);
+  return out;
+}
+
 function injectGtm(html) {
   let next = html;
   // Warm the connection to Google's tag origin. Both GTM and GA4 load from
@@ -1610,6 +1685,7 @@ function localiseGalleryChrome(html, locale) {
   out = localiseImageAlts(out, locale);
   out = injectSystemStyles(out);
   out = injectGtm(out);
+  out = injectConsent(out, locale);
   out = dedupeSchemaIds(out);
   out = ensureOrganisationSchema(out, locale);
   out = clampMetaDescriptions(out);

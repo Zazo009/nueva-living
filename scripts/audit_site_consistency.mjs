@@ -1027,6 +1027,55 @@ let areaNamesChecked = 0;
   }
 }
 
+let consentChecked = 0;
+
+// Consent Mode defaults are written before the tag loader, and every page
+// carries the banner.
+//
+// GA4 and the tag container used to load unconditionally, which is an LSSI
+// problem in Spain and costs ads personalisation and remarketing in the EEA.
+// The order is the part that silently breaks: a default written after the
+// container has started is a default that arrived too late.
+//
+// Accept and reject are checked for the same button class, because a reject
+// button that is quieter than accept is what regulators have ruled is not a
+// free choice, and that is exactly the kind of thing a later styling tweak
+// takes away without anyone noticing.
+{
+  const offenders = [];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) { if (entry.name !== 'assets') walk(full); continue; }
+      if (!entry.name.endsWith('.html')) continue;
+      const html = fs.readFileSync(full, 'utf8');
+      if (!/googletagmanager\.com\/gtm\.js/.test(html)) continue;
+      consentChecked += 1;
+      const where = path.relative(dist, full);
+      const dflt = html.indexOf("gtag('consent', 'default'");
+      const start = html.indexOf("'gtm.start'");
+      const loader = html.indexOf('gtm.js?id=');
+      if (dflt < 0) { offenders.push(`${where}: no consent default`); continue; }
+      if (!(dflt < start && start < loader)) {
+        offenders.push(`${where}: consent default is not before the tag loader`);
+        continue;
+      }
+      if (!/data-consent-banner/.test(html)) { offenders.push(`${where}: no consent banner`); continue; }
+      const accept = /class="([^"]*)"[^>]*data-consent-action="accept"/.exec(html)?.[1] || '';
+      const reject = /class="([^"]*)"[^>]*data-consent-action="reject"/.exec(html)?.[1] || '';
+      if (!accept || !reject) { offenders.push(`${where}: banner is missing accept or reject`); continue; }
+      if (!accept.includes('nueva-consent-button') || !reject.includes('nueva-consent-button')) {
+        offenders.push(`${where}: accept and reject do not share the button class`);
+      }
+    }
+  };
+  if (fs.existsSync(dist)) walk(dist);
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page(s) load Google tags without working consent: `
+      + `${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let cardPriceChecked = 0;
 
 // The card's "From" label only belongs in front of a figure. A villa quoted on
@@ -2648,5 +2697,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${cardPriceChecked} card price labels checked against their amount.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
 }
