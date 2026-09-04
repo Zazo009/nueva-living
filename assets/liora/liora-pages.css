@@ -4294,3 +4294,71 @@ li,
     letter-spacing: 0.1em;
   }
 }
+
+/* Area price comparison on areas.html. New component, not a restyle: it
+   borrows the availability table's visual language from the property pages,
+   which are not loaded here. */
+.area-price-table-wrap {
+  overflow-x: auto;
+  border-top: 1px solid var(--line);
+  margin-top: 26px;
+}
+
+.area-price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+}
+
+.area-price-table th,
+.area-price-table td {
+  padding: 15px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: start;
+  vertical-align: top;
+}
+
+.area-price-table thead th {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  color: rgba(74, 59, 40, 0.62);
+  white-space: nowrap;
+}
+
+.area-price-table tbody th {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--nueva-espresso, #4a3b28);
+  white-space: nowrap;
+}
+
+.area-price-table tbody th a { color: inherit; text-underline-offset: 3px; }
+
+.area-price-table tbody td:first-of-type {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--nueva-gold, #7a5f36);
+  white-space: nowrap;
+}
+
+.area-price-table tbody td:last-child {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--nueva-espresso, #4a3b28);
+  min-width: 260px;
+}
+
+.area-price-source {
+  margin: 16px 0 0;
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 11.5px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(74, 59, 40, 0.7);
+}
+
+[lang="ar"] .area-price-table thead th { letter-spacing: 0; text-transform: none; }
