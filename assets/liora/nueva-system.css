@@ -2585,6 +2585,35 @@ so Latin numerals in the price still render in
   }
 }
 
+/* The narrow end of the desktop header, where the full menu only just fits.
+   The wordmark is centred in the bar, but the right-hand group (Advisory,
+   Guides, Contact Us, the language control and the shortlist heart) is far
+   wider than the left, so it crowds the wordmark from one side only. Measured
+   from the last link to the wordmark, the space on the right fell from 197px
+   at 1680 to 47px at 1280, 9px at 1180, and at 1130 the group overlapped the
+   wordmark by 9px.
+
+   The rule above already tried to fix this by letting the side columns shrink
+   with minmax(0, 1fr). That lets the columns shrink but not their contents,
+   so the links kept overflowing towards the centre.
+
+   Only the spacing changes, and only between 1121px and 1300px: the padding
+   at the bar's ends and the gap between links. The wordmark keeps its size,
+   weight, tracking and true centre at every width, and nothing above 1300px
+   is touched. */
+@media (min-width: 1121px) and (max-width: 1300px) {
+  .site-nav,
+  #nav {
+    padding: 0 28px;
+    column-gap: 20px;
+  }
+
+  .site-nav .nav-links,
+  #nav .nav-links {
+    gap: 20px;
+  }
+}
+
 /* Skip link -- off-screen until it takes keyboard focus, so it is invisible in
    normal use and the first Tab on any page can jump past the navigation. */
 .skip-link {
