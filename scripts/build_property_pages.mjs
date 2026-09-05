@@ -122,6 +122,13 @@ function localizedUnitSize(value, locale = DEFAULT_LOCALE) {
     }
   }
 
+  // A bare figure with no qualifier -- "89.66 sqm" -- matched none of the
+  // branches above and returned unchanged, so the English unit and decimal
+  // point printed on every translated page while a labelled size right next
+  // to it read "m²". This is the commonest shape on the site.
+  const bare = /^([\d.,]+)\s*(?:m²|sqm)$/i.exec(raw);
+  if (bare) return localizedSizeFigure(bare[1], locale);
+
   return raw;
 }
 
@@ -224,9 +231,15 @@ const PRICE_FORMAT = {
   no: (n) => `${n.replace(/,/g, ' ')} EUR`
 };
 
+// Projects store a unit price either as "EUR 527,500" or as "€527,500", and
+// only the first shape was matched here. The other 269 of the site's 543 unit
+// prices fell straight through and printed English formatting on every one of
+// the nine translated pages -- "€527,500" where Spanish writes "527.500 €".
+// Nothing failed, because a price is a price: only reading the Spanish page
+// next to the English one showed it.
 function localizedUnitPrice(value, locale = DEFAULT_LOCALE) {
   if (!value || locale === DEFAULT_LOCALE) return value;
-  const match = /^EUR\s*([\d,]+)$/.exec(String(value).trim());
+  const match = /^(?:EUR|€)\s*([\d,]+)$/.exec(String(value).trim());
   if (!match) return value;
   return PRICE_FORMAT[locale] ? PRICE_FORMAT[locale](match[1]) : value;
 }

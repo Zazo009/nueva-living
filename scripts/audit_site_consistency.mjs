@@ -1231,6 +1231,58 @@ let deliveryDateChecked = 0;
   }
 }
 
+let unitCellChecked = 0;
+
+// A unit's price and size are localised on a translated page.
+//
+// The builder localises the floor and the bedroom count of every availability
+// row, so a Spanish page read "Primera planta, 2 dormitorios" and then, in the
+// same row, "89.66 sqm" and "€527,500". The price formatter matched only the
+// "EUR 527,500" spelling and not the "€527,500" one that 269 of the site's 543
+// unit prices use, and a size with no trailing qualifier matched no branch at
+// all. Half the table was translated and half was not, on 13 projects.
+//
+// The check is the rendered page rather than the data: it is the English
+// string appearing on a translated page that is the defect.
+{
+  const offenders = [];
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  const dist = path.join(root, 'dist');
+  if (fs.existsSync(projectsDir) && fs.existsSync(dist)) {
+    for (const dir of fs.readdirSync(projectsDir)) {
+      const file = path.join(projectsDir, dir, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      let project;
+      try { project = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { continue; }
+      const units = Array.isArray(project.availability?.units) ? project.availability.units : [];
+      if (!units.length || !project.output) continue;
+      // Only the shapes the builder is expected to convert.
+      const english = new Set();
+      for (const unit of units) {
+        const price = String(unit?.price ?? '').trim();
+        const size = String(unit?.size ?? '').trim();
+        if (/^(?:EUR|€)\s*[\d,]+$/.test(price)) english.add(price);
+        if (/^[\d.,]+\s*sqm$/i.test(size)) english.add(size);
+      }
+      if (!english.size) continue;
+      for (const locale of ATTR_LOCALES) {
+        const page = path.join(dist, locale, project.output);
+        if (!fs.existsSync(page)) continue;
+        const html = fs.readFileSync(page, 'utf8');
+        unitCellChecked += 1;
+        const leaked = [...english].filter((value) => html.includes(`>${value}<`));
+        if (leaked.length) {
+          offenders.push(`${dir} [${locale}]: ${leaked.length} cell(s) still English, e.g. "${leaked[0]}"`);
+        }
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} availability table(s) print a unit price or size in English on a `
+      + `translated page: ${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let realNameChecked = 0;
 
 // A project's real name never reaches its own published pages.
@@ -2947,5 +2999,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
 }
