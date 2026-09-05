@@ -1170,6 +1170,56 @@ let contrastChecked = 0;
   }
 }
 
+let consentLayerChecked = 0;
+
+// The consent banner sits above every other fixed layer.
+//
+// It shipped at z-index 9000 while the property pages' sticky mobile CTA bar
+// sits at 30100, both pinned to the bottom of the screen. On a phone the
+// banner was visible but its accept and reject buttons were painted
+// underneath that bar, so the only way to answer the banner was to guess
+// where the buttons were. Nothing failed: the markup was correct, the text
+// was readable, and only the controls were covered.
+{
+  const cssDir = path.join(root, 'assets', 'liora');
+  const files = fs.existsSync(cssDir)
+    ? fs.readdirSync(cssDir).filter((f) => f.endsWith('.css'))
+    : [];
+  const layers = [];
+  let bannerLayer = null;
+  for (const file of files) {
+    const css = fs.readFileSync(path.join(cssDir, file), 'utf8');
+    // Rule blocks, shallow: a selector followed by declarations with no
+    // nested braces. That misses rules inside @media, so strip the at-rule
+    // wrappers first and let their contents be scanned as ordinary blocks.
+    const flat = css.replace(/@media[^{]*\{/g, '').replace(/@supports[^{]*\{/g, '');
+    for (const m of flat.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+      const [, selector, body] = m;
+      if (!/position\s*:\s*fixed/.test(body)) continue;
+      const z = /z-index\s*:\s*(-?\d+)/.exec(body);
+      if (!z) continue;
+      const entry = { selector: selector.trim().replace(/\s+/g, ' '), z: Number(z[1]), file };
+      if (entry.selector.includes('.nueva-consent')) {
+        if (!bannerLayer || entry.z > bannerLayer.z) bannerLayer = entry;
+      } else {
+        layers.push(entry);
+      }
+    }
+  }
+  if (!bannerLayer) {
+    fail('assets/liora', 'the consent banner has no fixed-position z-index, so nothing '
+      + 'guarantees its buttons are not painted under another fixed layer.');
+  } else {
+    const over = layers.filter((entry) => entry.z >= bannerLayer.z);
+    consentLayerChecked = layers.length + 1;
+    if (over.length) {
+      fail('assets/liora', `${over.length} fixed layer(s) sit at or above the consent banner's `
+        + `z-index (${bannerLayer.z}), which can cover its accept and reject buttons: `
+        + `${over.slice(0, 3).map((e) => `${e.selector} ${e.z} in ${e.file}`).join('; ')}.`);
+    }
+  }
+}
+
 let blockingCssChecked = 0;
 
 // No stylesheet from another origin blocks the first paint.
@@ -2699,5 +2749,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
 }

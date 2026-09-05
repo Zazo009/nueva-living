@@ -1050,7 +1050,7 @@ function consentBanner(locale) {
   return `<div class="nueva-consent" data-consent-banner role="dialog" aria-modal="false"`
     + ` aria-label="${escapeHtml(t('consent.regionLabel', locale))}">
     <div class="nueva-consent-inner">
-      <div>
+      <div class="nueva-consent-text">
         <p class="nueva-consent-heading">${escapeHtml(t('consent.heading', locale))}</p>
         <p class="nueva-consent-body">${escapeHtml(t('consent.body', locale))}
           <a href="${escapeHtml(policy)}">${escapeHtml(t('consent.policyLink', locale))}</a></p>

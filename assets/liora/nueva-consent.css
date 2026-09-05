@@ -12,7 +12,19 @@
   position: fixed;
   inset-inline: 0;
   bottom: 0;
-  z-index: 9000;
+  /* Above every other fixed layer on the site, the shortlist drawer at 60000
+     included. It shipped at 9000, below the property pages' sticky mobile CTA
+     bar at 30100; that bar is pinned to the bottom of the screen too, so on a
+     phone the banner was visible while its accept and reject buttons were
+     painted underneath it. Consent has to stay answerable whatever else is
+     open, so this layer is the top one and the audit keeps it there. */
+  z-index: 70000;
+  /* A phone in landscape, or a long translation, can make the banner taller
+     than the screen. Cap it and let the text scroll inside, so the two
+     buttons stay on screen at every viewport height. dvh follows the mobile
+     browser's shrinking chrome; vh is the fallback where it is unsupported. */
+  max-height: 80vh;
+  max-height: 80dvh;
   display: none;
   padding: 18px 20px calc(18px + env(safe-area-inset-bottom, 0px));
   background: var(--nueva-deep, #2f2417);
@@ -22,15 +34,25 @@
   box-shadow: 0 -14px 40px rgba(20, 13, 7, 0.35);
 }
 
-.nueva-consent[data-open] { display: block; }
+.nueva-consent[data-open] { display: flex; }
 
 .nueva-consent-inner {
+  flex: 1;
+  min-height: 0;
   max-width: 1180px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 18px 28px;
   align-items: center;
+}
+
+/* Only the wording scrolls. The actions row is a grid track of its own, so
+   it keeps its height and stays in view however long the text runs. */
+.nueva-consent-text {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .nueva-consent-heading {
@@ -102,7 +124,16 @@
 [lang="ar"] .nueva-consent-button { letter-spacing: 0; text-transform: none; }
 
 @media (max-width: 860px) {
-  .nueva-consent-inner { grid-template-columns: 1fr; gap: 14px; }
+  /* One column, so the actions become the second row rather than a side
+     column. minmax(0, auto) lets the text row shrink and scroll while the
+     actions row keeps its full height. */
+  .nueva-consent-inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, auto) auto;
+    gap: 14px;
+    align-items: start;
+  }
+
   .nueva-consent-actions .nueva-consent-button { flex: 1 1 auto; }
 }
 
