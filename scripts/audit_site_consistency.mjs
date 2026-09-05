@@ -1231,6 +1231,52 @@ let deliveryDateChecked = 0;
   }
 }
 
+let realNameChecked = 0;
+
+// A project's real name never reaches its own published pages.
+//
+// Projects are published under a name of our own, and crm.realName holds the
+// developer's name for internal use only. Nothing enforced that: the rule
+// lived in a person's head while the name sat in a file the build reads, one
+// careless copy away from a page.
+//
+// Only a project's own pages are checked, in every locale. A name that
+// belongs to one project can legitimately be an ordinary word elsewhere:
+// "Breeze" is the real name of one development and, separately, the name of a
+// villa inside another, so a site-wide scan for these strings reports a leak
+// that is not one.
+{
+  const offenders = [];
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  const dist = path.join(root, 'dist');
+  if (fs.existsSync(projectsDir) && fs.existsSync(dist)) {
+    const locales = ['', ...ATTR_LOCALES];
+    for (const dir of fs.readdirSync(projectsDir)) {
+      const file = path.join(projectsDir, dir, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      let project;
+      try { project = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { continue; }
+      const real = String(project.crm?.realName || '').trim();
+      // La Morelia is a resale and is published under its own name, so its
+      // real name and its published name are the same string.
+      if (!real || real === project.name) continue;
+      const pattern = new RegExp(`(?<![A-Za-z0-9])${real.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z0-9])`);
+      for (const locale of locales) {
+        const page = path.join(dist, locale, project.output || '');
+        if (!project.output || !fs.existsSync(page)) continue;
+        realNameChecked += 1;
+        if (pattern.test(fs.readFileSync(page, 'utf8'))) {
+          offenders.push(`${dir}: "${real}" appears on ${path.relative(dist, page)}`);
+        }
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page(s) publish the developer's own name for the project, `
+      + `which is held for internal use only: ${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let quarterLabelChecked = 0;
 
 // One way of writing a delivery quarter per language.
@@ -2901,5 +2947,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
 }
