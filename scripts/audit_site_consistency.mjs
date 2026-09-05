@@ -1129,7 +1129,9 @@ let contrastChecked = 0;
     ['--card-muted', ['--card-surface']],
     ['--card-body', ['--card-surface']],
     ['--card-ink', ['--card-surface']],
-    ['--bronze', ['--nueva-ivory', '--nueva-cream']]
+    ['--bronze', ['--nueva-ivory', '--nueva-cream']],
+    // The filled primary button: cream label on the brand gold.
+    ['--nueva-cream', ['--nueva-gold']]
   ];
   const css = ['nueva-system.css', 'liora-pages.css']
     .map((f) => path.join(root, 'assets', 'liora', f))

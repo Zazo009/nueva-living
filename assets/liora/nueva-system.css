@@ -222,10 +222,12 @@ h6,
 ) {
   border-color: var(--nueva-gold);
   background: var(--nueva-gold);
-  /* Darker than --nueva-deep: gold-on-deep only hits 4.34:1, just under
-     WCAG AA's 4.5:1 for normal-size text. This shade clears it (5.26:1)
-     without changing the brand gold. */
-  color: #1a130b;
+  /* Cream, not a dark ink. The brand gold is a dark bronze, so dark-on-gold
+     technically passed AA but read as a muddy block: over a photographic hero
+     the filled primary looked less prominent than the outlined secondary next
+     to it, which is backwards. Cream clears AA at 5.07:1 and gives the primary
+     the brighter label. */
+  color: var(--nueva-cream);
 }
 
 /* Tonal fill: the shape itself reads as a button before anyone parses the

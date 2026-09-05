@@ -1075,7 +1075,13 @@ function locationMap(project, locale = DEFAULT_LOCALE) {
   return `<div class="location-map-card">
             <svg class="location-map-svg" viewBox="0 0 1200 620" role="img" aria-labelledby="${esc(titleId)} ${esc(descId)}" focusable="false">
               <title id="${esc(titleId)}">${esc(project.name)} location map</title>
-              <desc id="${esc(descId)}">Indicative map showing ${esc(project.name)} in ${esc(project.hero?.location || project.location?.mapLabelHtml || 'Costa del Sol')}, relative to ${context.map((key) => esc(mapLandmarkLabel(MAP_LANDMARKS[key], locale))).join(', ')}.</desc>
+              <desc id="${esc(descId)}">${esc(t('map.indicativeDesc', locale, {
+                project: project.name,
+                location: project.hero?.location || project.location?.mapLabelPlain || 'Costa del Sol',
+                context: context
+                  .map((key) => mapLandmarkLabel(MAP_LANDMARKS[key], locale))
+                  .join(t('map.listSeparator', locale)),
+              }))}</desc>
               <defs>
                 <linearGradient id="mapSeaGradient" x1="0" x2="1" y1="0" y2="1">
                   <stop offset="0" stop-color="#BFDCE0"/>
