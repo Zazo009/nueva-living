@@ -1765,28 +1765,45 @@ let stickyOffsetChecked = 0;
 // Only position: sticky is checked. The language panel is position: fixed and
 // is offset from the control it hangs off, not from the header, so a literal
 // there is correct.
+//
+// The first version of this only read blocks that declared position: sticky
+// themselves, so it passed a fourth instance of the same bug: a media query
+// that set nothing but `top: 66px` on .project-nav, overriding the correct
+// base rule underneath it. The section tabs then stuck 7px below a 59px
+// header on every phone, and the page scrolled through the strip. A rule is
+// now judged by the selector it targets, wherever that rule sits.
 {
   const cssDir = path.join(root, 'assets', 'liora');
   const offenders = [];
+  const rules = [];
+  const sticky = new Set();
   if (fs.existsSync(cssDir)) {
     for (const name of fs.readdirSync(cssDir).filter((f) => f.endsWith('.css'))) {
       const css = fs.readFileSync(path.join(cssDir, name), 'utf8');
-      const stack = [];
-      let start = 0;
-      for (let i = 0; i < css.length; i += 1) {
-        if (css[i] === '{') { stack.push(css.slice(start, i).trim()); start = i + 1; continue; }
-        if (css[i] !== '}') continue;
-        const selector = stack.pop() || '';
-        const body = css.slice(start, i);
-        start = i + 1;
-        if (selector.startsWith('@') || !selector) continue;
-        if (!/position\s*:\s*sticky/.test(body)) continue;
-        stickyOffsetChecked += 1;
-        const top = body.match(/(?<![-\w])top\s*:\s*(\d+)px/);
-        if (top && top[1] !== '0') {
-          offenders.push(`${name}: "${selector.trim().slice(0, 40)}" top: ${top[1]}px`);
-        }
+      // Drop comments first: they sit between a rule's closing brace and the
+      // next selector, so they land inside the selector capture and stop it
+      // matching the same selector written bare somewhere else. Then drop the
+      // at-rule wrappers so their contents read as ordinary rules; a media
+      // query is exactly where the overriding literal hides.
+      const flat = css
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .replace(/@(?:media|supports|container)[^{]*\{/g, '');
+      for (const match of flat.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+        const selectors = match[1].split(',').map((s) => s.trim()).filter(Boolean);
+        const body = match[2];
+        if (!selectors.length) continue;
+        rules.push({ name, selectors, body });
+        if (/position\s*:\s*sticky/.test(body)) selectors.forEach((s) => sticky.add(s));
       }
+    }
+  }
+  for (const rule of rules) {
+    const targets = rule.selectors.filter((s) => sticky.has(s));
+    if (!targets.length) continue;
+    stickyOffsetChecked += 1;
+    const top = rule.body.match(/(?<![-\w])top\s*:\s*(\d+)px/);
+    if (top && top[1] !== '0') {
+      offenders.push(`${rule.name}: "${targets[0].slice(0, 40)}" top: ${top[1]}px`);
     }
   }
   if (offenders.length) {

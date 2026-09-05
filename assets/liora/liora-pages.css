@@ -2337,9 +2337,12 @@ footer {
     width: min(224px, 58vw);
   }
 
+  /* Same offset as everywhere else. This restated 66px, the old bar height,
+     so the drawer opened 7px below a 59px header with the page showing
+     through the strip. */
   .mobile-menu {
-    top: 66px;
-    max-height: calc(100svh - 66px);
+    top: var(--nueva-header-h);
+    max-height: calc(100svh - var(--nueva-header-h));
   }
 
   .page-hero {

@@ -519,6 +519,11 @@ body {
   gap: clamp(18px, 2.8vw, 38px);
   overflow-x: auto;
   scroll-snap-type: x proximity;
+  /* Snap to the page gutter, not to the scrollport edge. Without this the
+     first tab snapped its own left edge to x=0 on load, which scrolled the
+     gutter away and left "Overview" touching the screen edge, out of line
+     with every other section on the page. Logical so Arabic mirrors it. */
+  scroll-padding-inline-start: var(--x);
   scrollbar-width: none;
   overscroll-behavior-inline: contain;
   -webkit-overflow-scrolling: touch;
@@ -2396,9 +2401,11 @@ body {
     width: 100%;
   }
 
-  .project-nav {
-    top: 66px;
-  }
+  /* No mobile override of the sticky offset. The base rule already reads
+     var(--nueva-header-h); this restated the old 66px bar height, and the
+     header is 59px here, so the section tabs stuck 7px below it and the page
+     scrolled through the strip between them. Restating the offset as a number
+     is what broke the breadcrumb bar and this bar before. */
 
   .project-nav::after {
     width: 64px;
