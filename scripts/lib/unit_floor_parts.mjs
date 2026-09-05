@@ -11,6 +11,9 @@
 // recognise through untouched -- which is what you want for an identifier like
 // "A1" or "(Olive Tree)".
 export const FLOOR_PARTS = {
+  // Garden apartments sit at the lowest residential level, with the garden
+  // rather than a floor number as their identity.
+  'garden floor': { es: 'Planta jardín', fr: 'Niveau jardin', de: 'Gartenebene', ru: 'Садовый уровень', ar: 'مستوى الحديقة', nl: 'Tuinniveau', pl: 'Poziom ogrodowy', sv: 'Trädgårdsplan', no: 'Hageplan' },
   'ground floor': { es: 'Planta baja', fr: 'Rez-de-chaussée', de: 'Erdgeschoss', ru: 'Первый этаж', ar: 'الطابق الأرضي', nl: 'Begane grond', pl: 'Parter', sv: 'Bottenvåning', no: 'Første etasje' },
   'first floor': { es: 'Primera planta', fr: 'Premier étage', de: 'Erstes Obergeschoss', ru: 'Второй этаж', ar: 'الطابق الأول', nl: 'Eerste verdieping', pl: 'Pierwsze piętro', sv: 'Första våningen', no: 'Andre etasje' },
   'second floor': { es: 'Segunda planta', fr: 'Deuxième étage', de: 'Zweites Obergeschoss', ru: 'Третий этаж', ar: 'الطابق الثاني', nl: 'Tweede verdieping', pl: 'Drugie piętro', sv: 'Andra våningen', no: 'Tredje etasje' },
