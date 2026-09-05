@@ -36,6 +36,11 @@
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css?v=9">
   <link rel="stylesheet" href="assets/liora/liora-property.css?v=d64b843e8cff">
+  <link rel="stylesheet" href="assets/liora/nueva-location-map.css?v=4754aeca5b2c">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
+  <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
   <script src="assets/liora/liora-property.js?v=204bab702abc" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
@@ -548,74 +553,49 @@
     </section>
 
     <section class="project-section" id="location">
-      <div class="project-inner location-layout">
+      <div class="project-inner location-stack">
         <div class="reveal-soft">
           <span class="section-kicker">Emplacement</span>
           <div class="rule"></div>
           <h2 class="section-headline">Valle Romano, <em>Estepona</em></h2>
-          <p class="project-lead">Une résidence de golf sur les hauteurs d’Estepona, la ville et la plage à quelques minutes en contrebas.</p>
-          <div class="distance-grid" style="margin-top:32px;">
-            <div class="distance"><span>Plages d’Estepona</span><strong>Environ 5 minutes</strong></div>
-<div class="distance"><span>Centre d’Estepona</span><strong>Env. 8 minutes</strong></div>
-<div class="distance"><span>Marbella et Puerto Banús</span><strong>Env. 20 minutes</strong></div>
-          </div>
+          <p class="project-lead">Une résidence de golf sur les hauteurs d’Estepona, au-dessus de la ville et de la côte.</p>
         </div>
-        <div class="map-panel reveal-soft" aria-label="Carte indicative de localisation de Valle Romano Hilltop Villas">
-          <div class="location-map-card">
-            <svg class="location-map-svg" viewBox="0 0 1200 620" role="img" aria-labelledby="valle-romano-hilltop-villas-map-title valle-romano-hilltop-villas-map-desc" focusable="false">
-              <title id="valle-romano-hilltop-villas-map-title">Valle Romano Hilltop Villas location map</title>
-              <desc id="valle-romano-hilltop-villas-map-desc">Carte indicative situant Valle Romano Hilltop Villas à Valle Romano, Estepona, par rapport à Puerto Banús, Centre de Marbella, Aéroport de Malaga.</desc>
-              <defs>
-                <linearGradient id="mapSeaGradient" x1="0" x2="1" y1="0" y2="1">
-                  <stop offset="0" stop-color="#BFDCE0"/>
-                  <stop offset="1" stop-color="#5C8E98"/>
-                </linearGradient>
-                <radialGradient id="mapProjectGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0" stop-color="#A8834A" stop-opacity="0.34"/>
-                  <stop offset="0.58" stop-color="#A8834A" stop-opacity="0.12"/>
-                  <stop offset="1" stop-color="#A8834A" stop-opacity="0"/>
-                </radialGradient>
-                <filter id="mapSoftShadow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#2F2417" flood-opacity="0.14"/>
-                </filter>
-              </defs>
-              <rect class="map-paper" width="1200" height="620"/>
-              <path class="map-hills" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232 L1200 0 L0 0 Z"/>
-              <path class="map-sea" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232 L1200 620 L0 620 Z"/>
-              <path class="map-coast" d="M0 400 C180 372 330 394 470 366 C650 332 810 348 1010 296 C1090 276 1150 256 1200 232"/>
-              <path class="map-road map-road-secondary" d="M100 210 C270 176 425 182 585 156 C775 126 940 114 1115 74"/>
-              <text x="140" y="188" class="map-road-label">AP-7</text>
-              <path class="map-road map-road-main" d="M95 300 C245 272 390 282 535 258 C695 232 845 214 1098 168"/>
-              <text x="850" y="248" class="map-road-label">Route Côtière A-7</text>
-              <g class="map-node" transform="translate(560 255)">
-                <circle r="6"/>
-                <text x="-12" y="-18" text-anchor="end">Puerto Banús</text>
-              </g>
-              <g class="map-node map-node-muted" transform="translate(800 218)">
-                <circle r="5"/>
-                <text x="-12" y="4" text-anchor="end">Centre de Marbella</text>
-              </g>
-              <g class="map-node map-node-muted" transform="translate(1080 165)">
-                <circle r="5"/>
-                <text x="-12" y="4" text-anchor="end">Aéroport de Malaga</text>
-              </g>
-              <g class="map-marker" transform="translate(150 295)" filter="url(#mapSoftShadow)">
-                <circle class="map-marker-glow" r="58"/>
-                <circle class="map-marker-disc" r="34"/>
-                <circle class="map-marker-dot" r="5"/>
-              </g>
-              <text class="map-project-label" x="150" y="357" text-anchor="middle">
-                <tspan x="150">Valle Romano, Estepona</tspan>
-              </text>
-              <text class="map-water-label" x="150" y="502">Mer Méditerranée</text>
-              <text class="map-note" x="60" y="52">Emplacement indicatif</text>
-            </svg>
-            <div class="map-legend" aria-hidden="true">
-              <span><i class="legend-pin"></i> Zone du projet</span>
-              <span><i class="legend-road"></i> Accès côtier</span>
-              <span><i class="legend-sea"></i> Méditerranée</span>
+        <div class="reveal-soft">
+        <div class="locmap" lang="fr">
+          <div class="locmap-map" id="locmap-valle-romano-hilltop-villas" data-locmap='{&quot;site&quot;:[36.438,-5.203],&quot;sea&quot;:[36.411,-5.203],&quot;seaLabel&quot;:&quot;Méditerranée&quot;,&quot;labels&quot;:[{&quot;ll&quot;:[36.42573,-5.14548],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Centre de Estepona&quot;,&quot;sub&quot;:&quot;8,2 km · 19 min&quot;},{&quot;ll&quot;:[36.41459,-5.15727],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:0,&quot;golf&quot;:false,&quot;name&quot;:&quot;Puerto Estepona&quot;,&quot;sub&quot;:&quot;9,1 km · 18 min&quot;},{&quot;ll&quot;:[36.41297,-5.21219],&quot;side&quot;:&quot;left&quot;,&quot;dy&quot;:0,&quot;golf&quot;:true,&quot;name&quot;:&quot;Golf Estepona&quot;,&quot;sub&quot;:&quot;5,3 km · 14 min&quot;},{&quot;ll&quot;:[36.4106,-5.18261],&quot;side&quot;:&quot;right&quot;,&quot;dy&quot;:-46,&quot;golf&quot;:false,&quot;name&quot;:&quot;Plage&quot;,&quot;sub&quot;:&quot;8,4 km · 16 min&quot;}]}' role="img" aria-label="Carte indicative de localisation de Valle Romano Hilltop Villas"></div>
+          <aside class="locmap-panel">
+            <span class="locmap-kicker">Emplacement indicatif</span>
+            <h3 class="locmap-name">Valle Romano Hilltop Villas</h3>
+            <p class="locmap-place">Valle Romano, Estepona</p>
+            <div class="locmap-ledger">
+            <div class="locmap-row">
+              <span class="locmap-row-label">Plage</span>
+              <span class="locmap-row-figure"><bdi>8,4 km</bdi> <em><bdi>16 min</bdi></em></span>
             </div>
-          </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Puerto de Estepona</span>
+              <span class="locmap-row-figure"><bdi>9,1 km</bdi> <em><bdi>18 min</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Centre de Estepona</span>
+              <span class="locmap-row-figure"><bdi>8,2 km</bdi> <em><bdi>19 min</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Estepona</span>
+              <span class="locmap-row-figure"><bdi>5,3 km</bdi> <em><bdi>14 min</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Golf Finca Cortesín</span>
+              <span class="locmap-row-figure"><bdi>9,5 km</bdi> <em><bdi>20 min</bdi></em></span>
+            </div>
+            <div class="locmap-row">
+              <span class="locmap-row-label">Aéroport de Gibraltar</span>
+              <span class="locmap-row-figure"><bdi>47 km</bdi> <em><bdi>50 min</bdi></em></span>
+            </div>
+            </div>
+            <p class="locmap-note">Distances mesurées par la route depuis la limite de la parcelle. Carte fournie à titre d’orientation ; limites indicatives.</p>
+          </aside>
+        </div>
         </div>
       </div>
     </section>
@@ -976,7 +956,7 @@
             <span class="section-kicker">Art de vivre</span>
             <div class="rule"></div>
             <h2 class="section-headline">Valle Romano, <em>au-dessus du parcours</em></h2>
-            <p>Valle Romano est une résidence de golf sur les hauteurs d’Estepona, à quelques minutes de la ville et de la plage.</p>
+            <p>Valle Romano est une résidence de golf sur les hauteurs d’Estepona, au-dessus de la ville et de la côte.</p>
           </div>
         </div>
       </div>
