@@ -20,13 +20,37 @@ export const MONTH_NAMES = {
   December: { en: 'December', es: 'diciembre', fr: 'décembre', de: 'Dezember', ru: 'декабря', ar: 'ديسمبر', nl: 'december', pl: 'grudnia', sv: 'december', no: 'desember' }
 };
 
+// The nominative month, for the languages whose table above is genitive
+// because it is written for "15 August 2026". Only these two decline it.
+export const BARE_MONTH_NAMES = {
+  January: { ru: 'январь', pl: 'styczeń' },
+  February: { ru: 'февраль', pl: 'luty' },
+  March: { ru: 'март', pl: 'marzec' },
+  April: { ru: 'апрель', pl: 'kwiecień' },
+  May: { ru: 'май', pl: 'maj' },
+  June: { ru: 'июнь', pl: 'czerwiec' },
+  July: { ru: 'июль', pl: 'lipiec' },
+  August: { ru: 'август', pl: 'sierpień' },
+  September: { ru: 'сентябрь', pl: 'wrzesień' },
+  October: { ru: 'октябрь', pl: 'październik' },
+  November: { ru: 'ноябрь', pl: 'listopad' },
+  December: { ru: 'декабрь', pl: 'grudzień' }
+};
+
 export function localizeMonthDate(value, locale) {
   if (!value || locale === DEFAULT_LOCALE) return value;
   const match = /^(?:(\d{1,2})\s+)?([A-Z][a-z]+)\s+(\d{4})$/.exec(value.trim());
   if (!match) return value.replace(/[A-Z][a-z]+/, (month) => MONTH_NAMES[month]?.[locale] || month);
   const [, day, monthName, year] = match;
   const month = MONTH_NAMES[monthName]?.[locale] || monthName;
-  if (!day) return `${month} ${year}`;
+  if (!day) {
+    // A month standing on its own, with no day in front of it. Russian and
+    // Polish decline the month after a day ("15 августа"), so the table above
+    // holds the genitive; on its own the month is nominative. Spanish joins a
+    // bare month to its year with "de".
+    const bare = BARE_MONTH_NAMES[monthName]?.[locale] || month;
+    return locale === 'es' ? `${bare} de ${year}` : `${bare} ${year}`;
+  }
   if (locale === 'es') return `${day} de ${month} de ${year}`;
   if (locale === 'de') return `${day}. ${month} ${year}`;
   return `${day} ${month} ${year}`;

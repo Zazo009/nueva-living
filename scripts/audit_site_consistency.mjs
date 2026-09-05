@@ -1170,6 +1170,67 @@ let contrastChecked = 0;
   }
 }
 
+let deliveryDateChecked = 0;
+
+// A translated fact keeps the date the English fact states.
+//
+// The quick-facts delivery row had been overwritten with a status word in
+// German and Russian on six projects: the row read "Fertigstellung: Off-Plan"
+// and "Срок сдачи: На стадии строительства" where the English page said
+// "Q1 2029". The date was right in the same overlay's hero a few lines above,
+// so nothing looked broken on either page on its own -- only a German reader
+// was quietly denied a completion date the English reader gets.
+//
+// The same overlays also each restated availability.checkedDate, which the
+// builder already localises from the English value. 126 hand-written copies
+// had drifted into four spellings of one Spanish month, so they are gone and
+// this keeps them from coming back.
+{
+  const offenders = [];
+  const YEAR = /\b20\d\d\b/;
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  if (fs.existsSync(projectsDir)) {
+    for (const dir of fs.readdirSync(projectsDir)) {
+      const file = path.join(projectsDir, dir, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      let project;
+      try { project = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { continue; }
+      const englishFacts = Array.isArray(project.quickFacts) ? project.quickFacts : [];
+      for (const [locale, overlay] of Object.entries(project.i18n || {})) {
+        if (overlay?.availability && 'checkedDate' in overlay.availability) {
+          offenders.push(`${dir} [${locale}]: restates availability.checkedDate, which the `
+            + 'builder localises from the English value');
+        }
+        const facts = Array.isArray(overlay?.quickFacts) ? overlay.quickFacts : [];
+        englishFacts.forEach((row, index) => {
+          const value = Array.isArray(row) ? String(row[1] ?? '') : '';
+          if (!YEAR.test(value)) return;
+          const translated = Array.isArray(facts[index]) ? String(facts[index][1] ?? '') : '';
+          if (!translated) return;
+          deliveryDateChecked += 1;
+          if (!YEAR.test(translated)) {
+            offenders.push(`${dir} [${locale}]: quick fact ${index} is "${translated}" where `
+              + `English states "${value}"`);
+          }
+        });
+        const heroEn = String(project.hero?.delivery ?? '');
+        const heroTr = String(overlay?.hero?.delivery ?? '');
+        if (YEAR.test(heroEn) && heroTr) {
+          deliveryDateChecked += 1;
+          if (!YEAR.test(heroTr)) {
+            offenders.push(`${dir} [${locale}]: hero delivery is "${heroTr}" where English `
+              + `states "${heroEn}"`);
+          }
+        }
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('content/liora-projects', `${offenders.length} translated fact(s) drop a date the English `
+      + `page states: ${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let quarterLabelChecked = 0;
 
 // One way of writing a delivery quarter per language.
@@ -2823,5 +2884,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
 }
