@@ -1170,6 +1170,80 @@ let contrastChecked = 0;
   }
 }
 
+let quarterLabelChecked = 0;
+
+// One way of writing a delivery quarter per language.
+//
+// The same quarter appeared as "3T 2026" on one project and "T3 2027" on the
+// next, "K1 2028" beside "Q1 2029", "1. kvartal 2029" beside "K1 2029". Worse,
+// several translated labels kept the English "Q": a Spanish page read
+// "Estimada Q1 2028" and a Russian one "Ожидается Q2 2027". Nothing failed,
+// because each label was correct on its own page; only reading two projects
+// side by side showed it.
+//
+// Headline prose is exempt. A sentence spells the quarter out ("Im Zeitplan
+// für das 4. Quartal 2028"), and those all carry an <em> for the emphasis.
+{
+  // The token each language uses, and the tokens that therefore must not
+  // appear in it. Arabic spells the ordinal out and has no short form.
+  // Case-sensitive and bounded on both sides. Without the boundaries a
+  // case-insensitive "T2" matches the middle of "August 2026", which is a
+  // month, not a quarter.
+  const CANON = {
+    es: { token: /\bT[1-4]\b/, wrong: /\bQ[1-4]\b|\bK[1-4]\b|\bkw\./ },
+    fr: { token: /\bT[1-4]\b/, wrong: /\bQ[1-4]\b|\bK[1-4]\b|\bkw\./ },
+    de: { token: /\bQ[1-4]\b/, wrong: /\bT[1-4]\b|\bK[1-4]\b|\bkw\./ },
+    ru: { token: /[1-4]\s?кв\./, wrong: /\bQ[1-4]\b|\bK[1-4]\b|\bT[1-4]\b/ },
+    nl: { token: /\bK[1-4]\b/, wrong: /\bQ[1-4]\b|\bT[1-4]\b|\bkw\./ },
+    pl: { token: /\b(?:I|II|III|IV)\s?kw\./, wrong: /\bQ[1-4]\b|\bK[1-4]\b|\bT[1-4]\b/ },
+    sv: { token: /\bK[1-4]\b/, wrong: /\bQ[1-4]\b|\bT[1-4]\b|\bkw\./ },
+    no: { token: /\bK[1-4]\b/, wrong: /\bQ[1-4]\b|\bT[1-4]\b|\bkw\./ },
+    ar: { token: /الربع/, wrong: /\bQ[1-4]\b|\bK[1-4]\b|\bT[1-4]\b/ },
+  };
+  // Anything that names a quarter, in any language the site has used. The
+  // short tokens stay case-sensitive; only the spelled-out words are not.
+  const TOKENS = /\bQ\s?[1-4]\b|\b[1-4]\s?T\b|\bT\s?[1-4]\b|\bK\s?[1-4]\b|[1-4]\s*кв|\bkw\.|الربع/;
+  const LONG = /kwarta[łl]|kvartal|kwartaal|trimestre|Quartal|квартал|\bkv\./i;
+  const NAMES = { test: (s) => TOKENS.test(s) || LONG.test(s) };
+  const offenders = [];
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  if (fs.existsSync(projectsDir)) {
+    for (const dir of fs.readdirSync(projectsDir)) {
+      const file = path.join(projectsDir, dir, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      let project;
+      try { project = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { continue; }
+      for (const [locale, overlay] of Object.entries(project.i18n || {})) {
+        const rules = CANON[locale];
+        if (!rules) continue;
+        const visit = (node) => {
+          if (typeof node === 'string') {
+            // A short label, not a sentence, naming a quarter of a year.
+            if (node.length > 46 || node.includes('<em>')) return;
+            if (!/20\d\d/.test(node) || !NAMES.test(node)) return;
+            quarterLabelChecked += 1;
+            if (rules.wrong.test(node)) {
+              offenders.push(`${dir} [${locale}]: "${node}" uses another language's quarter`);
+            } else if (LONG.test(node)) {
+              offenders.push(`${dir} [${locale}]: "${node}" spells the quarter out`);
+            } else if (!rules.token.test(node)) {
+              offenders.push(`${dir} [${locale}]: "${node}" has no recognised quarter`);
+            }
+            return;
+          }
+          if (Array.isArray(node)) { node.forEach(visit); return; }
+          if (node && typeof node === 'object') Object.values(node).forEach(visit);
+        };
+        visit(overlay);
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('content/liora-projects', `${offenders.length} delivery label(s) write the quarter in a `
+      + `form the language does not use elsewhere: ${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let consentLayerChecked = 0;
 
 // The consent banner sits above every other fixed layer.
@@ -2749,5 +2823,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
 }
