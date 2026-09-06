@@ -1108,6 +1108,51 @@ let cardPriceChecked = 0;
   }
 }
 
+let priceRangeChecked = 0;
+
+// The price slider's bounds have to bracket the cards it filters. The ceiling
+// was authored once at 2,500,000 and then stayed there while projects were
+// added above and below it, so the top handle read "EUR 2.5M+" over a set
+// reaching 14.6M and the floor sat 195,000 above the cheapest project. Neither
+// end fails visibly: the slider still slides, and at rest both ends are
+// treated as unbounded, so nothing looks wrong until someone drags a handle.
+{
+  const FIELD = /data-range-field="price"[^>]*data-range-min="(\d+)"[^>]*data-range-max="(\d+)"/;
+  const CARD_PRICE = /data-price="(\d+)"/g;
+  const seen = new Map();
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) { if (entry.name !== 'assets') walk(full); continue; }
+      if (entry.name !== 'developments.html') continue;
+      const html = fs.readFileSync(full, 'utf8');
+      const bounds = FIELD.exec(html);
+      if (!bounds) { fail(path.relative(dist, full), 'the price filter has no min/max bounds.'); continue; }
+      const min = Number(bounds[1]);
+      const max = Number(bounds[2]);
+      const prices = [...html.matchAll(CARD_PRICE)].map((m) => Number(m[1])).filter((n) => n > 0);
+      if (!prices.length) continue;
+      priceRangeChecked += 1;
+      seen.set(path.relative(dist, full), `${min}-${max}`);
+      const cheapest = Math.min(...prices);
+      if (min > cheapest) {
+        fail(path.relative(dist, full), `the price filter starts at ${min} but the cheapest `
+          + `project on the page is ${cheapest}, so raising the minimum at all hides it.`);
+      }
+      if (!prices.some((price) => price >= max)) {
+        fail(path.relative(dist, full), `the price filter's top handle reads "${max}+" but no `
+          + 'project on the page is priced at or above it.');
+      }
+    }
+  };
+  if (fs.existsSync(dist)) walk(dist);
+  const distinct = new Set(seen.values());
+  if (distinct.size > 1) {
+    fail('dist', `the price filter carries ${distinct.size} different bounds across the locale `
+      + `copies: ${[...seen].map(([file, range]) => `${file} ${range}`).slice(0, 3).join('; ')}.`);
+  }
+}
+
 let contrastChecked = 0;
 
 // Text colours meet WCAG AA against the grounds they sit on.
@@ -2999,5 +3044,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
 }
