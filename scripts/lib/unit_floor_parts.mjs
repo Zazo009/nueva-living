@@ -13,6 +13,9 @@
 export const FLOOR_PARTS = {
   // Garden apartments sit at the lowest residential level, with the garden
   // rather than a floor number as their identity.
+  // A townhouse occupies the whole building, so its "floor" is the house
+  // itself rather than a level within one.
+  'townhouse': { es: 'Adosado', fr: 'Maison de ville', de: 'Reihenhaus', ru: 'Таунхаус', ar: 'منزل متلاصق', nl: 'Rijwoning', pl: 'Dom szeregowy', sv: 'Radhus', no: 'Rekkehus' },
   'garden floor': { es: 'Planta jardín', fr: 'Niveau jardin', de: 'Gartenebene', ru: 'Садовый уровень', ar: 'مستوى الحديقة', nl: 'Tuinniveau', pl: 'Poziom ogrodowy', sv: 'Trädgårdsplan', no: 'Hageplan' },
   'ground floor': { es: 'Planta baja', fr: 'Rez-de-chaussée', de: 'Erdgeschoss', ru: 'Первый этаж', ar: 'الطابق الأرضي', nl: 'Begane grond', pl: 'Parter', sv: 'Bottenvåning', no: 'Første etasje' },
   'first floor': { es: 'Primera planta', fr: 'Premier étage', de: 'Erstes Obergeschoss', ru: 'Второй этаж', ar: 'الطابق الأول', nl: 'Eerste verdieping', pl: 'Pierwsze piętro', sv: 'Första våningen', no: 'Andre etasje' },
