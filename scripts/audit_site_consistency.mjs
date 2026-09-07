@@ -1300,6 +1300,53 @@ let sizeLabelChecked = 0;
   }
 }
 
+let cardFilterChecked = 0;
+
+// Every project card must be reachable from the developments filter. The card
+// carries data-area, data-property-types and data-status, and the filter
+// matches them against its own <option> values, so a project typed "duplex"
+// -- a word the filter has no option for -- simply never came back from a
+// property-type search. Nothing looks broken: the card is on the page, it just
+// vanishes the moment anyone filters.
+{
+  const options = (html, name) => {
+    const block = new RegExp(`<select data-filter-select="${name}">[\\s\\S]*?</select>`).exec(html);
+    if (!block) return null;
+    return new Set([...block[0].matchAll(/<option value="([^"]*)"/g)].map((m) => m[1]).filter(Boolean));
+  };
+  const file = path.join(dist, 'developments.html');
+  if (fs.existsSync(file)) {
+    const html = fs.readFileSync(file, 'utf8');
+    const areas = options(html, 'area');
+    const types = options(html, 'propertyType');
+    const statuses = options(html, 'status');
+    const offenders = [];
+    if (!areas || !types || !statuses) {
+      fail('dist/developments.html', 'the filter selects could not be read, so the cards cannot be checked against them.');
+    } else {
+      for (const card of html.matchAll(/<article class="project-card[^>]*>/g)) {
+        const tag = card[0];
+        const get = (name) => (new RegExp(`${name}="([^"]*)"`).exec(tag) || [])[1];
+        const id = get('id') || get('data-title') || '?';
+        if (!/data-project-card/.test(tag)) continue;
+        cardFilterChecked += 1;
+        const area = get('data-area');
+        const status = get('data-status');
+        const list = (get('data-property-types') || '').split('|').filter(Boolean);
+        const missing = [];
+        if (area && !areas.has(area)) missing.push(`area "${area}"`);
+        if (status && !statuses.has(status)) missing.push(`status "${status}"`);
+        for (const value of list) if (!types.has(value)) missing.push(`type "${value}"`);
+        if (missing.length) offenders.push(`${id}: ${missing.join(', ')} not offered by the filter`);
+      }
+    }
+    if (offenders.length) {
+      fail('dist/developments.html', `${offenders.length} project card(s) cannot be found through the `
+        + `filter: ${offenders.slice(0, 3).join('; ')}.`);
+    }
+  }
+}
+
 let priceRangeChecked = 0;
 
 // The price slider's bounds have to bracket the cards it filters. The ceiling
@@ -3236,5 +3283,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
 }
