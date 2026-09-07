@@ -3227,6 +3227,32 @@ let survivingFindStrings = 0;
   }
 }
 
+let landmarkCoordsChecked = 0;
+// Every landmark this site quotes a drive time to sits on the Costa del Sol.
+// "Los Flamingos Golf" geocoded to Bahía de Banderas in Mexico and sat in
+// content/geo/landmarks.json for months: the published distances happened to
+// come from an older cached coordinate, so nothing looked wrong, and the next
+// re-geocode would have printed a drive time across the Atlantic.
+{
+  const BOX = { minLat: 36.0, maxLat: 37.2, minLon: -5.7, maxLon: -4.2 };
+  const file = path.join(root, 'content/geo/landmarks.json');
+  if (fs.existsSync(file)) {
+    const offenders = [];
+    for (const entry of JSON.parse(fs.readFileSync(file, 'utf8')).landmarks || []) {
+      if (!Array.isArray(entry.ll) || entry.ll.length !== 2) continue;
+      landmarkCoordsChecked += 1;
+      const [lat, lon] = entry.ll;
+      if (lat < BOX.minLat || lat > BOX.maxLat || lon < BOX.minLon || lon > BOX.maxLon) {
+        offenders.push(`${entry.key} at ${lat}, ${lon}`);
+      }
+    }
+    if (offenders.length) {
+      fail('content/geo/landmarks.json', `${offenders.length} landmark(s) sit outside the `
+        + `Costa del Sol, so any distance routed to them is meaningless: ${offenders.join('; ')}.`);
+    }
+  }
+}
+
 let translationEntriesChecked = 0;
 
 {
@@ -3305,5 +3331,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol.`);
 }
