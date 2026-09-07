@@ -154,6 +154,9 @@ const SIZE_LABELS = {
   terrace: { es: 'terraza', fr: 'terrasse', de: 'Terrasse', ru: 'терраса', ar: 'تراس', nl: 'terras', pl: 'taras', sv: 'terrass', no: 'terrasse' },
   plot: { es: 'parcela', fr: 'parcelle', de: 'Grundstück', ru: 'участок', ar: 'قطعة أرض', nl: 'perceel', pl: 'działka', sv: 'tomt', no: 'tomt' },
   garden: { es: 'jardín', fr: 'jardin', de: 'Garten', ru: 'сад', ar: 'حديقة', nl: 'tuin', pl: 'ogród', sv: 'trädgård', no: 'hage' },
+  // A private pool is a labelled area on this scheme's plans, so it needs a
+  // word here as well as the "370 m², private pool" phrase handled above.
+  'private pool': { es: 'piscina privada', fr: 'piscine privée', de: 'Privatpool', ru: 'частный бассейн', ar: 'مسبح خاص', nl: 'privézwembad', pl: 'basen prywatny', sv: 'egen pool', no: 'eget basseng' },
   solarium: { es: 'solárium', fr: 'solarium', de: 'Solarium', ru: 'солярий', ar: 'سولاريوم', nl: 'solarium', pl: 'solarium', sv: 'solterrass', no: 'solterrasse' },
   interior: { es: 'interior', fr: 'intérieur', de: 'Innenfläche', ru: 'внутренняя площадь', ar: 'مساحة داخلية', nl: 'binnenoppervlak', pl: 'powierzchnia wewnętrzna', sv: 'inneryta', no: 'innvendig areal' },
   total: { es: 'en total', fr: 'au total', de: 'gesamt', ru: 'всего', ar: 'الإجمالي', nl: 'totaal', pl: 'łącznie', sv: 'totalt', no: 'totalt' }
