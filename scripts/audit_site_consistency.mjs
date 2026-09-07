@@ -1247,6 +1247,59 @@ let localePriceChecked = 0;
   }
 }
 
+let sizeLabelChecked = 0;
+
+// One word per measurement inside a project. A unit size reads "122.74 sqm
+// built, 45.75 sqm terrace", and each project overlay translates those labels
+// itself, so one row can say "byggyta" while the row under it says "boyta" --
+// three different words for "built" appeared in one Swedish, Dutch and Polish
+// table. The site-wide "one translation per English string" check misses it,
+// because the surrounding figures make every string unique.
+{
+  const SEG = /^([\d.,]+)\s*(?:sqm|m²)\s+(.+)$/i;
+  const offenders = [];
+  const dir = path.join(root, 'content', 'liora-projects');
+  if (fs.existsSync(dir)) {
+    for (const entry of fs.readdirSync(dir)) {
+      const file = path.join(dir, entry, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      const project = JSON.parse(fs.readFileSync(file, 'utf8'));
+      const english = (project.availability?.units || []).map((unit) => String(unit.size || ''));
+      for (const [locale, overlay] of Object.entries(project.i18n || {})) {
+        const rows = overlay.availability?.units || [];
+        const seen = new Map();
+        rows.forEach((unit, index) => {
+          const source = english[index];
+          if (!source) return;
+          // Split on a comma FOLLOWED BY A SPACE: the translated figures use a
+          // decimal comma ("122,74 m²"), so a bare comma split cuts every number
+          // in half and the two sides stop lining up.
+          const from = source.split(/,\s+/);
+          const to = String(unit.size || '').split(/,\s+/);
+          if (from.length !== to.length) return;
+          from.forEach((segment, i) => {
+            const a = SEG.exec(segment.trim());
+            const b = /^([\d.,]+)\s*(?:sqm|m²|м²|م²)\s+(.+)$/.exec(to[i].trim());
+            if (!a || !b) return;
+            sizeLabelChecked += 1;
+            const label = a[2].toLowerCase();
+            const word = b[2].trim();
+            const key = `${locale}|${label}`;
+            if (!seen.has(key)) seen.set(key, word);
+            else if (seen.get(key) !== word) {
+              offenders.push(`${entry} [${locale}] "${label}" is both "${seen.get(key)}" and "${word}"`);
+            }
+          });
+        });
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('content/liora-projects', `${offenders.length} unit size label(s) are translated two ways `
+      + `inside one project: ${[...new Set(offenders)].slice(0, 3).join('; ')}.`);
+  }
+}
+
 let priceRangeChecked = 0;
 
 // The price slider's bounds have to bracket the cards it filters. The ceiling
@@ -3183,5 +3236,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
 }
