@@ -3227,6 +3227,40 @@ let survivingFindStrings = 0;
   }
 }
 
+let areaHeroChecked = 0;
+// Every area guide opens with a photograph of the place, kept in
+// assets/liora/areas/ with its licence recorded in SOURCES.md. Casares had
+// none and borrowed a developer render from one of its own projects instead,
+// so the municipality's guide opened on a computer-generated building and
+// looked thinner than the other five for a reason nobody could name.
+{
+  const file = path.join(root, 'content/nueva-areas.json');
+  if (fs.existsSync(file)) {
+    const sourcesFile = path.join(root, 'assets/liora/areas/SOURCES.md');
+    const sources = fs.existsSync(sourcesFile) ? fs.readFileSync(sourcesFile, 'utf8') : '';
+    const offenders = [];
+    for (const area of JSON.parse(fs.readFileSync(file, 'utf8'))) {
+      areaHeroChecked += 1;
+      const image = area.hero?.image || '';
+      if (!image.startsWith('assets/liora/areas/')) {
+        offenders.push(`${area.slug} opens on ${image || '(no image)'}`);
+        continue;
+      }
+      if (!fs.existsSync(path.join(root, image))) {
+        offenders.push(`${area.slug}: ${image} is not on disk`);
+        continue;
+      }
+      if (!sources.includes(path.basename(image))) {
+        offenders.push(`${area.slug}: ${path.basename(image)} has no line in areas/SOURCES.md`);
+      }
+    }
+    if (offenders.length) {
+      fail('content/nueva-areas.json', `${offenders.length} area guide(s) do not open on their own `
+        + `licensed photograph: ${offenders.join('; ')}.`);
+    }
+  }
+}
+
 let areaPlaceNamesChecked = 0;
 // The area guides carried the same Spanish place names both with and without
 // their accents -- "Doña Julia" in the sub-area list and "Dona Julia" in the
@@ -3455,5 +3489,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph.`);
 }
