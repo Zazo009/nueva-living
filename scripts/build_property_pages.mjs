@@ -1222,7 +1222,6 @@ function nav(project, locale = DEFAULT_LOCALE) {
       <span class="nav-wordmark-text" aria-hidden="true">Nueva Living</span>
     </a>
     <div class="nav-links nav-links-right">
-      <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
       ${renderGuidesMenu(locale, p)}
       <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
       <span class="nav-divider" aria-hidden="true"></span>
@@ -1237,7 +1236,6 @@ function nav(project, locale = DEFAULT_LOCALE) {
     <a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a>
     ${renderAreasMenu(locale, p)}
     <a href="${p}${localizedPath('about.html', locale)}">${t('nav.about', locale)}</a>
-    <a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a>
     ${guidesMobileLinks(locale, p)}
     <a href="${p}${localizedPath('contact.html', locale)}">${t('nav.contactUs', locale)}</a>
     ${renderDrawerActions(locale)}

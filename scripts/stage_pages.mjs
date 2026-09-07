@@ -16,7 +16,7 @@
 // structurally impossible: injections can no longer accumulate across builds,
 // because each build begins from the same source. The root copies are build
 // artifacts and are gitignored; edit pages/ instead.
-import { copyFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
@@ -33,5 +33,15 @@ if (!staged.length) {
   process.exit(1);
 }
 
-for (const file of staged) copyFileSync(path.join(source, file), path.join(root, file));
-console.log(`Staged ${staged.length} hand-authored pages from pages/: ${staged.join(', ')}`);
+// Overwriting the root copy is the whole point, but it also means an edit made
+// to the root copy by hand vanishes with no message -- which is exactly how an
+// hour of nav work on nueva-living-home.html was lost. A warning here would be
+// pure noise, because later build steps inject into these same root copies by
+// design and so every one of them differs on the next run. The banner goes in
+// the file instead, where someone about to edit the wrong copy will see it.
+const banner = (file) => `<!-- Generated from pages/${file} on every build. `
+  + `Edit that file, not this one: changes here are overwritten. -->\n`;
+for (const file of staged) {
+  const html = readFileSync(path.join(source, file), 'utf8');
+  writeFileSync(path.join(root, file), banner(file) + html);
+}

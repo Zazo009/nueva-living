@@ -324,6 +324,7 @@ export function renderLanguageSwitcher(outputPath, locale, fallbackPath = null) 
 function guidesMenuItems(locale) {
   return [
     [t('nav.buyingGuides', locale), localizedPath('guides.html', locale)],
+    [t('nav.advisory', locale), localizedPath('advisory.html', locale)],
     [t('nav.mortgageCalculator', locale), `${localizedPath('guides.html', locale)}#mortgage-calculator`],
     [t('nav.referralAmbassador', locale), localizedPath('referrals.html', locale)]
   ];

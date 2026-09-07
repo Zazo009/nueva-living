@@ -100,13 +100,16 @@ const fontPreloadBlock = `  <link rel="preload" href="assets/fonts/google/co3bmX
 // Areas and Guides are disclosures rather than flat links, so they are not in
 // this list -- nav() places them by name. Slicing this array by index is what
 // broke when Areas moved out of it, so the positions are written out instead.
+// Keyed by name, not position. Advisory used to sit here and the nav read it
+// as link(2); moving it into the Guides submenu would have shifted Contact
+// into its slot with nothing failing, which is the same index bug the comment
+// above records.
 function navLinks(locale) {
-  return [
-    [t('nav.developments', locale), 'developments.html'],
-    [t('nav.about', locale), 'about.html'],
-    [t('nav.advisory', locale), 'advisory.html'],
-    [t('nav.contactUs', locale), 'contact.html'],
-  ];
+  return {
+    developments: [t('nav.developments', locale), 'developments.html'],
+    about: [t('nav.about', locale), 'about.html'],
+    contact: [t('nav.contactUs', locale), 'contact.html'],
+  };
 }
 
 function footerLinks(locale) {
@@ -139,25 +142,24 @@ function footerLinks(locale) {
 
 function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html', langFallback = null) {
   const links = navLinks(locale);
-  const link = (index) => {
-    const [label, href] = links[index];
+  const link = (name) => {
+    const [label, href] = links[name];
     return `<a href="${href}">${label}</a>`;
   };
   const switcher = renderLanguageSwitcher(currentOutputPath, locale, langFallback);
   return `<nav class="site-nav">
     <div class="nav-links nav-links-left">
-      ${link(0)}
+      ${link('developments')}
       ${renderAreasMenu(locale)}
-      ${link(1)}
+      ${link('about')}
     </div>
     <a class="nav-logo" href="${home}" aria-label="${t('nav.home', locale)}">
       <img class="nav-wordmark" src="assets/liora/brand/nueva-living-hero-logo-transparent.png?v=7" alt="Nueva Living" width="420" height="100">
       <span class="nav-wordmark-text" aria-hidden="true">Nueva Living</span>
     </a>
     <div class="nav-links nav-links-right">
-      ${link(2)}
       ${renderGuidesMenu(locale)}
-      ${link(3)}
+      ${link('contact')}
       <span class="nav-divider" aria-hidden="true"></span>
       ${switcher}
     </div>
@@ -166,12 +168,11 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html', langFall
     </button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    ${link(0)}
+    ${link('developments')}
     ${renderAreasMenu(locale)}
-    ${link(1)}
-    ${link(2)}
+    ${link('about')}
     ${guidesMobileLinks(locale)}
-    ${link(3)}
+    ${link('contact')}
     ${renderDrawerActions(locale)}
     ${renderLanguageSwitcher(currentOutputPath, locale, langFallback)}
   </div>`;
