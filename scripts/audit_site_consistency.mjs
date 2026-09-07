@@ -3227,6 +3227,46 @@ let survivingFindStrings = 0;
   }
 }
 
+let areaPlaceNamesChecked = 0;
+// The area guides carried the same Spanish place names both with and without
+// their accents -- "Doña Julia" in the sub-area list and "Dona Julia" in the
+// highlight beside it, on one page. Twenty-six strings across four guides.
+// Scoped to this file's display text because the unaccented forms are correct
+// elsewhere: "formArea" is the key the CRM stores, and the discovery filter
+// matches on an unaccented "Nueva Andalucia".
+{
+  const PLAIN = [['Bahia de Casares', 'Bahía de Casares'], ['Dona Julia', 'Doña Julia'],
+    ['Finca Cortesin', 'Finca Cortesín'], ['Benahavis', 'Benahavís'],
+    ['Nueva Andalucia', 'Nueva Andalucía'], ['Malaga', 'Málaga']];
+  const file = path.join(root, 'content/nueva-areas.json');
+  if (fs.existsSync(file)) {
+    const offenders = [];
+    const walk = (value, where, key) => {
+      if (typeof value === 'string') {
+        if (key === 'formArea') return;
+        areaPlaceNamesChecked += 1;
+        for (const [plain, accented] of PLAIN) {
+          const pattern = new RegExp(`(?<![\\p{L}/-])${plain}(?![\\p{L}/-])`, 'u');
+          if (pattern.test(value)) offenders.push(`${where}: "${plain}" should be "${accented}"`);
+        }
+        return;
+      }
+      if (Array.isArray(value)) { value.forEach((item, i) => walk(item, `${where}[${i}]`, key)); return; }
+      if (value && typeof value === 'object') {
+        for (const [k, item] of Object.entries(value)) {
+          if (k === 'i18n') continue;
+          walk(item, `${where}.${k}`, k);
+        }
+      }
+    };
+    for (const area of JSON.parse(fs.readFileSync(file, 'utf8'))) walk(area, area.slug, null);
+    if (offenders.length) {
+      fail('content/nueva-areas.json', `${offenders.length} area-guide string(s) drop a Spanish `
+        + `accent the same page uses elsewhere: ${offenders.slice(0, 4).join('; ')}.`);
+    }
+  }
+}
+
 let badgeSpellingChecked = 0;
 // The card chrome table is keyed on the exact English string, so
 // "Current Release" and "Current release" were two rows with two different
@@ -3415,5 +3455,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents.`);
 }
