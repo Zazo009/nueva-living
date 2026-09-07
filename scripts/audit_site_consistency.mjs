@@ -3227,6 +3227,90 @@ let survivingFindStrings = 0;
   }
 }
 
+let badgeSpellingChecked = 0;
+// The card chrome table is keyed on the exact English string, so
+// "Current Release" and "Current release" were two rows with two different
+// translations in every language -- "Aktuell fas" on some cards and "Aktuell
+// försäljning" on others, for the same badge. Nothing failed, because each
+// row matched its own spelling.
+{
+  const chromeFile = path.join(root, 'scripts/lib/card_chrome_translations.mjs');
+  if (fs.existsSync(chromeFile)) {
+    const chromeSrc = fs.readFileSync(chromeFile, 'utf8');
+    const finds = [...chromeSrc.matchAll(/find: '([^']*)'/g)].map((m) => m[1]);
+    const chromeRows = chromeSrc.split('\n').filter((line) => line.includes("find: '"))
+      .map((line) => Object.fromEntries(
+        [...line.matchAll(/(es|fr|de|ru|ar|nl|pl|sv|no): '([^']*)'/g)].map((m) => [m[1], m[2]])));
+    const byFold = new Map();
+    for (const find of finds) {
+      badgeSpellingChecked += 1;
+      const key = find.toLowerCase();
+      // A row rewrites the whole matched string, class attribute included, so a
+      // replacement carrying a different class silently restyles the element
+      // on all nine locales. dev-fact-sub">Current Release did exactly that,
+      // turning the phase caption into a badge everywhere but English.
+      const findClass = /^([a-z-]+)">/.exec(find)?.[1];
+      if (findClass) {
+        for (const locale of ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no']) {
+          const replacementClass = /^([a-z-]+)">/.exec(chromeRows[badgeSpellingChecked - 1]?.[locale] || '')?.[1];
+          if (replacementClass && replacementClass !== findClass) {
+            fail('scripts/lib/card_chrome_translations.mjs', `the "${find}" row replaces class `
+              + `"${findClass}" with "${replacementClass}" in ${locale}, which restyles the `
+              + `element on every translated page.`);
+            break;
+          }
+        }
+      }
+      if (byFold.has(key) && byFold.get(key) !== find) {
+        fail('scripts/lib/card_chrome_translations.mjs', `"${byFold.get(key)}" and "${find}" differ `
+          + `only in case, so they are two rows for one string and each carries its own `
+          + `translation. Keep one spelling.`);
+      }
+      byFold.set(key, find);
+    }
+  }
+}
+
+let areaProjectsChecked = 0;
+// Each area page lists the projects in that area from a hand-kept
+// "featuredProjects" array. Nothing tied it to the projects themselves, so a
+// new project appeared on the developments page and the map and nowhere on
+// the area guide for its own municipality. Nine were missing at once.
+{
+  const AREA_OF = { marbella: 'marbella', marbellaEast: 'marbella', marbellaCentre: 'marbella',
+    goldenMile: 'marbella', sanPedro: 'marbella', estepona: 'estepona', newGoldenMile: 'estepona',
+    casares: 'casares', benahavis: 'benahavis', nuevaAndalucia: 'nueva-andalucia',
+    mijasFuengirola: 'mijas-fuengirola' };
+  const areasFile = path.join(root, 'content/nueva-areas.json');
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  if (fs.existsSync(areasFile) && fs.existsSync(projectsDir)) {
+    const featured = new Map();
+    for (const area of JSON.parse(fs.readFileSync(areasFile, 'utf8'))) {
+      featured.set(area.slug, new Set(area.featuredProjects || []));
+    }
+    const offenders = [];
+    for (const entry of fs.readdirSync(projectsDir)) {
+      const file = path.join(projectsDir, entry, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      const project = JSON.parse(fs.readFileSync(file, 'utf8'));
+      const mapArea = project.location?.mapArea;
+      const areaSlug = AREA_OF[mapArea];
+      if (!areaSlug) {
+        offenders.push(`${project.slug}: mapArea "${mapArea}" belongs to no area page`);
+        continue;
+      }
+      areaProjectsChecked += 1;
+      if (!featured.get(areaSlug)?.has(project.slug)) {
+        offenders.push(`${project.slug} is missing from area-${areaSlug}`);
+      }
+    }
+    if (offenders.length) {
+      fail('content/nueva-areas.json', `${offenders.length} project(s) do not appear on the area `
+        + `page for their own municipality: ${offenders.slice(0, 4).join('; ')}.`);
+    }
+  }
+}
+
 let landmarkCoordsChecked = 0;
 // Every landmark this site quotes a drive time to sits on the Costa del Sol.
 // "Los Flamingos Golf" geocoded to Bahía de Banderas in Mexico and sat in
@@ -3331,5 +3415,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each.`);
 }
