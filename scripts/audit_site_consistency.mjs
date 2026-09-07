@@ -1174,9 +1174,31 @@ let overlayPriceChecked = 0;
     ar: 'ضريبة القيمة المضافة', nl: 'btw', pl: 'VAT', sv: 'moms', no: 'mva' };
   const ANY_TAX = /^(VAT|IVA|TVA|MwSt\.?|НДС|btw|moms|mva|skatt|ضريبة)[.,]?$/;
   const TAX_AFTER = /(?:€|\d|%)[   ]*\+[   ]*(\S+)/g;
+  // The "+ VAT" shape above only reads the token that follows a plus sign, so
+  // "excluding IVA" written into a Dutch overlay named the Spanish tax with no
+  // visible symptom. Read every standalone tax token instead, wherever in the
+  // sentence it sits.
+  const TAX_ANYWHERE = /(?<![\p{L}\p{N}])(VAT|IVA|TVA|MwSt\.?|НДС|btw|moms|mva|skatt|ضريبة)(?![\p{L}\p{N}])/gu;
   const taxOffenders = [];
   const walkTax = (value, locale, file, path) => {
     if (typeof value === 'string') {
+      const seen = new Set();
+      for (const m of value.matchAll(TAX_ANYWHERE)) {
+        const word = m[1];
+        const want = TAX_WORD[locale];
+        const bare = word.replace(/[.,]$/, '');
+        if (bare === want.replace(/\.$/, '') || want.startsWith(bare)) continue;
+        // The site's own convention is to name the Spanish tax and gloss it,
+        // "plus IVA (VAT)". Either order is fine; what is never fine is the
+        // foreign word standing alone, which is how "excluding IVA" reached a
+        // Dutch overlay with no visible symptom.
+        const around = value.slice(Math.max(0, m.index - want.length - 4),
+          m.index + word.length + want.length + 4);
+        if (around.includes(want) || (locale === 'ar' && around.includes('ضريبة'))) continue;
+        if (seen.has(bare)) continue;
+        seen.add(bare);
+        taxOffenders.push(`${file} [${locale}] ${path}: "${word}" should be "${want}"`);
+      }
       for (const m of value.matchAll(TAX_AFTER)) {
         const word = m[1];
         if (!ANY_TAX.test(word)) continue;
