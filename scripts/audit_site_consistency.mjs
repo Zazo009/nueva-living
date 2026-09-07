@@ -1108,6 +1108,145 @@ let cardPriceChecked = 0;
   }
 }
 
+let overlayPriceChecked = 0;
+
+// One spelling of a price per language. A project overlay may pre-format its
+// own prices, and whatever it leaves alone is rendered by PRICE_FORMAT in
+// build_property_pages.mjs, so a project that writes "470 250 EUR" while the
+// formatter writes "470 250 €" puts both on the same page. Twenty-four of the
+// thirty-six projects did, and some carried English grouping ("€470,250") or a
+// non-breaking space into a translated page. Nothing fails when they diverge:
+// each string is valid on its own, and only a reader comparing two rows sees it.
+{
+  const SHAPES = {
+    es: /^\d{1,3}(?:\.\d{3})*\s€$/,
+    fr: /^\d{1,3}(?:\s\d{3})*\s€$/,
+    de: /^\d{1,3}(?:\.\d{3})*\s€$/,
+    ru: /^\d{1,3}(?:\s\d{3})*\s€$/,
+    ar: /^\d{1,3}(?:,\d{3})*\s€$/,
+    nl: /^€\s\d{1,3}(?:\.\d{3})*$/,
+    pl: /^\d{1,3}(?:\s\d{3})*\s€$/,
+    sv: /^\d{1,3}(?:\s\d{3})*\s€$/,
+    no: /^\d{1,3}(?:\s\d{3})*\s€$/
+  };
+  // A price is a grouped number next to a currency token, however the project
+  // spelled either half. Groups are exactly three digits, so the comma in
+  // "reservering van EUR 10.000, 30% plus btw" ends the number rather than
+  // joining it.
+  const NUM = String.raw`\d{1,3}(?:[.,\u00a0\u202f ]\d{3})+|\d{4,}`;
+  const CUR = String.raw`EUR|€|يورو|евро`;
+  const FIND = new RegExp(`(?:(?:${CUR})[\u00a0\u202f ]*(?:${NUM})|(?:${NUM})[\u00a0\u202f ]*(?:${CUR}))`, 'g');
+  const offenders = [];
+  const walk = (value, locale, file, path) => {
+    if (typeof value === 'string') {
+      for (const hit of value.match(FIND) || []) {
+        const digits = hit.replace(/\D/g, '');
+        if (digits.length < 4) continue;
+        overlayPriceChecked += 1;
+        if (!SHAPES[locale].test(hit.trim())) {
+          offenders.push(`${file} [${locale}] ${path}: "${hit.trim()}"`);
+        }
+      }
+      return;
+    }
+    if (Array.isArray(value)) { value.forEach((item, i) => walk(item, locale, file, `${path}[${i}]`)); return; }
+    if (value && typeof value === 'object') {
+      for (const [key, item] of Object.entries(value)) walk(item, locale, file, path ? `${path}.${key}` : key);
+    }
+  };
+  const dir = path.join(root, 'content', 'liora-projects');
+  if (fs.existsSync(dir)) {
+    for (const entry of fs.readdirSync(dir)) {
+      const file = path.join(dir, entry, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      const project = JSON.parse(fs.readFileSync(file, 'utf8'));
+      for (const [locale, overlay] of Object.entries(project.i18n || {})) {
+        if (!SHAPES[locale]) continue;
+        walk(overlay, locale, entry, '');
+      }
+    }
+  }
+  // The same tax, one word per language. Swedish carried three across projects
+  // -- "moms", "skatt" and the English "VAT" -- and Dutch, Norwegian and Arabic
+  // each carried the English word next to their own, because "+ VAT" sits at
+  // the end of a price string that otherwise looked correctly translated.
+  const TAX_WORD = { es: 'IVA', fr: 'TVA', de: 'MwSt.', ru: 'НДС',
+    ar: 'ضريبة القيمة المضافة', nl: 'btw', pl: 'VAT', sv: 'moms', no: 'mva' };
+  const ANY_TAX = /^(VAT|IVA|TVA|MwSt\.?|НДС|btw|moms|mva|skatt|ضريبة)[.,]?$/;
+  const TAX_AFTER = /(?:€|\d|%)[   ]*\+[   ]*(\S+)/g;
+  const taxOffenders = [];
+  const walkTax = (value, locale, file, path) => {
+    if (typeof value === 'string') {
+      for (const m of value.matchAll(TAX_AFTER)) {
+        const word = m[1];
+        if (!ANY_TAX.test(word)) continue;
+        const want = TAX_WORD[locale];
+        const bare = word.replace(/[.,]$/, '');
+        if (bare !== want.replace(/\.$/, '') && !want.startsWith(bare)) {
+          taxOffenders.push(`${file} [${locale}] ${path}: "+ ${word}" should be "+ ${want}"`);
+        }
+      }
+      return;
+    }
+    if (Array.isArray(value)) { value.forEach((item, i) => walkTax(item, locale, file, `${path}[${i}]`)); return; }
+    if (value && typeof value === 'object') {
+      for (const [key, item] of Object.entries(value)) walkTax(item, locale, file, path ? `${path}.${key}` : key);
+    }
+  };
+  if (fs.existsSync(dir)) {
+    for (const entry of fs.readdirSync(dir)) {
+      const file = path.join(dir, entry, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      const project = JSON.parse(fs.readFileSync(file, 'utf8'));
+      for (const [locale, overlay] of Object.entries(project.i18n || {})) {
+        if (!TAX_WORD[locale]) continue;
+        walkTax(overlay, locale, entry, '');
+      }
+    }
+  }
+  if (taxOffenders.length) {
+    fail('content/liora-projects', `${taxOffenders.length} overlay price(s) name the tax in `
+      + `another language: ${taxOffenders.slice(0, 3).join('; ')}.`);
+  }
+  if (offenders.length) {
+    fail('content/liora-projects', `${offenders.length} overlay price(s) do not match their `
+      + `language's one spelling: ${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
+let localePriceChecked = 0;
+
+// No English price on a translated page. The cards are generated in English
+// and the locale pages clone them, so "€3,990,000" printed beside a translated
+// "From" label on every developments, area, segment and home page, and the
+// homepage budget dropdown carried five more. The symbol-first, comma-grouped
+// shape is English by construction, so finding one anywhere in a locale page's
+// markup outside <script> is enough to fail.
+{
+  const ENGLISH_PRICE = /€\s?\d{1,3}(?:,\d{3})+/g;
+  const offenders = [];
+  const walk = (dir, locale) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) { walk(full, locale); continue; }
+      if (!entry.name.endsWith('.html')) continue;
+      const html = fs.readFileSync(full, 'utf8').replace(/<script[\s\S]*?<\/script>/g, '');
+      localePriceChecked += 1;
+      const hits = html.match(ENGLISH_PRICE);
+      if (hits) offenders.push(`${path.relative(dist, full)}: ${hits.length} × "${hits[0]}"`);
+    }
+  };
+  const locales = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+  for (const locale of locales) {
+    const dir = path.join(dist, locale);
+    if (fs.existsSync(dir)) walk(dir, locale);
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} translated page(s) print a price in English formatting: `
+      + `${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let priceRangeChecked = 0;
 
 // The price slider's bounds have to bracket the cards it filters. The ceiling
@@ -3044,5 +3183,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader.`);
 }

@@ -21,6 +21,7 @@ import {
   pageSchema,
   pageUrl
 } from './lib/i18n.mjs';
+import { localizeCardPrices } from './lib/prices.mjs';
 import { MONTH_NAMES, localizeMonthDate } from './lib/dates.mjs';
 import { GUIDE_AUTHOR, organizationSchema, personSchemas, organizationId, personId } from './lib/brand.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
@@ -501,7 +502,7 @@ ${datePublished ? `        <p class="guide-byline"><span>${t('guide.writtenBy', 
 </body>
 </html>`;
   const translated = withFaqSchema(
-    localizeInternalLinks(applyFooterPageTranslations(html, locale), locale), file, locale);
+    localizeCardPrices(localizeInternalLinks(applyFooterPageTranslations(html, locale), locale), locale), file, locale);
   // Same reason as the FAQ schema: built after the find/replace pass so no
   // schema.org token can be translated into something meaningless.
   return areaSchemaBlock

@@ -16,6 +16,7 @@ import {
   LANG_SWITCHER_SCRIPT,
   localizeInternalLinks
 } from './lib/i18n.mjs';
+import { localizeCardPrices } from './lib/prices.mjs';
 import { CHROME_ENTRIES } from './lib/developments_page_translations.mjs';
 import {
   THANK_YOU_ENTRIES,
@@ -190,6 +191,7 @@ for (const page of PAGES) {
     const outPath = path.join(root, meta.urlPrefix, page.file);
     mkdirSync(path.dirname(outPath), { recursive: true });
     html = localizeInternalLinks(html, locale);
+    html = localizeCardPrices(html, locale);
     writeFileSync(outPath, html);
     written.push(`${meta.urlPrefix}/${page.file}`);
   }

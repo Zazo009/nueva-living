@@ -28,6 +28,7 @@ import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 import { renderViewingBlocks } from './lib/viewing.mjs';
 import { FLOOR_PARTS, FLOOR_PREFIXES } from './lib/unit_floor_parts.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
+import { PRICE_FORMAT } from './lib/prices.mjs';
 import { realEstateAgentSchema } from './lib/brand.mjs';
 // The homepage and developments grids are rendered in English and then
 // localized by find/replace entry tables, so the card resolves its strings
@@ -219,17 +220,6 @@ function renderSizeCell(value, locale = DEFAULT_LOCALE) {
 //
 // The shapes below are the ones the existing overlays already use, so a
 // project with an overlay and one without now read the same.
-const PRICE_FORMAT = {
-  es: (n) => `${n.replace(/,/g, '.')} €`,
-  fr: (n) => `${n.replace(/,/g, ' ')} EUR`,
-  de: (n) => `EUR ${n.replace(/,/g, '.')}`,
-  ru: (n) => `${n.replace(/,/g, ' ')} евро`,
-  ar: (n) => `${n} يورو`,
-  nl: (n) => `€ ${n.replace(/,/g, '.')}`,
-  pl: (n) => `${n.replace(/,/g, ' ')} EUR`,
-  sv: (n) => `${n.replace(/,/g, ' ')} EUR`,
-  no: (n) => `${n.replace(/,/g, ' ')} EUR`
-};
 
 // Projects store a unit price either as "EUR 527,500" or as "€527,500", and
 // only the first shape was matched here. The other 269 of the site's 543 unit
@@ -239,9 +229,15 @@ const PRICE_FORMAT = {
 // next to the English one showed it.
 function localizedUnitPrice(value, locale = DEFAULT_LOCALE) {
   if (!value || locale === DEFAULT_LOCALE) return value;
-  const match = /^(?:EUR|€)\s*([\d,]+)$/.exec(String(value).trim());
+  // A price is sometimes quoted with the tax on the end -- "€772,000 + VAT" --
+  // and that trailing qualifier stopped the match, so those prices printed
+  // English grouping and the English word on all nine translated pages while
+  // the plain ones beside them were localised.
+  const match = /^(?:EUR|€)\s*([\d,]+)(\s*\+\s*(?:VAT|IVA))?$/.exec(String(value).trim());
   if (!match) return value;
-  return PRICE_FORMAT[locale] ? PRICE_FORMAT[locale](match[1]) : value;
+  if (!PRICE_FORMAT[locale]) return value;
+  const price = PRICE_FORMAT[locale](match[1]);
+  return match[2] ? t('unit.priceWithVat', locale, { price }) : price;
 }
 
 // A range is two prices with a dash between them, or a single price when the
@@ -1551,6 +1547,17 @@ function heroTitleContext(project, sourceProject, locale) {
   return esc(parts.join(' \u00b7 '));
 }
 
+// The twitter card falls back from twitterDescription to description, and the
+// merged project keeps the English twitterDescription when an overlay has no
+// translated one -- so the untranslated field beat the translated fallback and
+// twenty-one projects shipped an English twitter card on all nine locale
+// pages. Only reach for the field when this locale actually translated it.
+function twitterDescription(project, sourceProject, locale) {
+  if (locale === DEFAULT_LOCALE) return project.twitterDescription || project.description;
+  const overlay = sourceProject.i18n?.[locale] || {};
+  return overlay.twitterDescription || project.description;
+}
+
 function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const project = localizeProject(sourceProject, locale);
   const rtl = isRtl(locale);
@@ -1682,7 +1689,7 @@ ${hreflangLinks(sourceProject.output, siteUrl)}
   <meta property="og:image" content="${esc(assetUrl(heroImage.src))}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(pageTitle)}">
-  <meta name="twitter:description" content="${esc(project.twitterDescription || project.description)}">
+  <meta name="twitter:description" content="${esc(twitterDescription(project, sourceProject, locale))}">
   <meta name="twitter:image" content="${esc(assetUrl(heroImage.src))}">
   <link rel="icon" href="${p}assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
   <link rel="icon" href="${p}assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">

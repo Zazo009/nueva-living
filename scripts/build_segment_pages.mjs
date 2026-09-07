@@ -20,6 +20,7 @@ import {
   localizeInternalLinks,
   seoTags
 } from './lib/i18n.mjs';
+import { localizeCardPrices } from './lib/prices.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
@@ -619,7 +620,7 @@ ${JSON.stringify(schema, null, 2)}
   ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>`;
-  return localizeInternalLinks(applySegmentPageTranslations(html, locale), locale);
+  return localizeCardPrices(localizeInternalLinks(applySegmentPageTranslations(html, locale), locale), locale);
 }
 
 function lowestPriceAcrossSegments() {
@@ -890,7 +891,7 @@ ${JSON.stringify(schema, null, 2)}
   ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>`;
-  return localizeInternalLinks(applySegmentPageTranslations(html, locale), locale);
+  return localizeCardPrices(localizeInternalLinks(applySegmentPageTranslations(html, locale), locale), locale);
 }
 
 // Same general buyer-process FAQ used on every property page

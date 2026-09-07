@@ -26,6 +26,7 @@ import {
   localizeInternalLinks,
   t
 } from './lib/i18n.mjs';
+import { localizeCardPrices } from './lib/prices.mjs';
 import {
   DEVELOPMENTS_PAGE_ENTRIES,
   TAG_LABELS,
@@ -252,6 +253,7 @@ for (const meta of LOCALES) {
   const outPath = path.join(root, meta.urlPrefix, 'developments.html');
   mkdirSync(path.dirname(outPath), { recursive: true });
   html = localizeInternalLinks(html, locale);
+  html = localizeCardPrices(html, locale);
   writeFileSync(outPath, html);
   written.push(`${meta.urlPrefix}/developments.html`);
 }
