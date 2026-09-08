@@ -1773,6 +1773,7 @@ let blockingCssChecked = 0;
 // swap cannot -- so noscript blocks are cut out before looking.
 {
   const offenders = [];
+  const firstPartyOffenders = [];
   const walk = (dir) => {
     for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
       const full = path.join(dir, entry.name);
@@ -1786,6 +1787,19 @@ let blockingCssChecked = 0;
         const href = /href="([^"]+)"/.exec(tag)?.[1] || '';
         if (/^https?:\/\//i.test(href)) {
           offenders.push(`${path.relative(dist, full)}: ${href.slice(0, 46)}`);
+          continue;
+        }
+        // First-party stylesheets block too. nueva-consent.css was 4.4 KB at
+        // the tail of the critical chain -- ~220 ms on the homepage -- for a
+        // banner most visits never see; it is inlined now. The five below are
+        // the page layout itself and block by design, so a stylesheet that is
+        // not one of them has been added to the critical path and should
+        // either join this list deliberately or be inlined.
+        const BLOCKING_BY_DESIGN = ['liora-pages.css', 'liora-property.css',
+          'nueva-location-map.css', 'liora-rtl.css', 'liora-compare.css'];
+        const name = href.split('?')[0].split('/').pop();
+        if (name && !BLOCKING_BY_DESIGN.includes(name)) {
+          firstPartyOffenders.push(`${path.relative(dist, full)}: ${name}`);
         }
       }
       blockingCssChecked += 1;
@@ -1795,6 +1809,12 @@ let blockingCssChecked = 0;
   if (offenders.length) {
     fail('dist', `${offenders.length} page(s) block the first paint on a third-party `
       + `stylesheet: ${[...new Set(offenders)].slice(0, 3).join('; ')}.`);
+  }
+  if (firstPartyOffenders.length) {
+    fail('dist', `${firstPartyOffenders.length} page(s) block the first paint on a first-party `
+      + `stylesheet that is not one of the five that block by design: `
+      + `${[...new Set(firstPartyOffenders)].slice(0, 3).join('; ')}. Inline it, give it the `
+      + `media="print" swap, or add it to BLOCKING_BY_DESIGN on purpose.`);
   }
 }
 
@@ -3227,6 +3247,59 @@ let survivingFindStrings = 0;
   }
 }
 
+let inlineContrastChecked = 0;
+// Homepage body text written as rgba(), checked against the ground it actually
+// lands on.
+//
+// .journey-intro was authored at 0.72 alpha against #fffaf3, but the section
+// it sits in paints #f7f1e7, and over that darker cream 15px text measures
+// 4.43 -- under the 4.5 AA floor by enough for PageSpeed to flag it and little
+// enough that nobody would spot it by eye.
+//
+// The grounds are named per rule rather than derived from the file. A first
+// version swept every background the page declares and reported three
+// failures that were not failures: a border colour it mistook for text, gold
+// on the dark hero, and a card tagline the cascade overrides. Which ground a
+// rule lands on needs the cascade to answer, so each pair here was measured
+// on the rendered page.
+{
+  const PAIRS = [
+    // selector prefix in the inline CSS, the ground it renders on, its size
+    ['#journey .journey-intro', '#f7f1e7', 15]
+  ];
+  const file = path.join(root, 'pages/nueva-living-home.html');
+  if (fs.existsSync(file)) {
+    const src = fs.readFileSync(file, 'utf8');
+    const channel = (v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4);
+    const lum = ([r, g, b]) => 0.2126 * channel(r / 255) + 0.7152 * channel(g / 255) + 0.0722 * channel(b / 255);
+    const contrast = (a, b) => {
+      const [la, lb] = [lum(a), lum(b)];
+      return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
+    };
+    const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+    for (const [selector, ground, size] of PAIRS) {
+      const rule = new RegExp(`${selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{[^}]*?(?:^|[;{\\s])color:\\s*rgba\\(\\s*(\\d+)\\s*,\\s*(\\d+)\\s*,\\s*(\\d+)\\s*,\\s*([\\d.]+)\\s*\\)`, 'm');
+      const m = rule.exec(src);
+      if (!m) {
+        fail('pages/nueva-living-home.html', `the contrast guard has a pair for "${selector}" but no `
+          + `rgba colour declaration to measure. Update the pair list or the rule.`);
+        continue;
+      }
+      inlineContrastChecked += 1;
+      const fg = [Number(m[1]), Number(m[2]), Number(m[3])];
+      const alpha = Number(m[4]);
+      const bg = hex(ground);
+      const composite = fg.map((c, i) => c * alpha + bg[i] * (1 - alpha));
+      const need = size >= 24 ? 3 : 4.5;
+      const got = contrast(composite, bg);
+      if (got < need) {
+        fail('pages/nueva-living-home.html', `${selector} reaches only ${got.toFixed(2)}:1 over `
+          + `${ground} at ${size}px, under the ${need} AA floor.`);
+      }
+    }
+  }
+}
+
 let areaHeroChecked = 0;
 // Every area guide opens with a photograph of the place, kept in
 // assets/liora/areas/ with its licence recorded in SOURCES.md. Casares had
@@ -3489,5 +3562,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds.`);
 }

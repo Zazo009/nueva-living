@@ -4391,7 +4391,10 @@
     #journey .journey-intro {
       max-width: 43ch;
       margin: 0 0 5px;
-      color: rgba(74, 59, 40, 0.72);
+      /* 0.72 was written against #fffaf3, but the cream this section actually
+         paints is rgb(247,241,231), and at 15px that lands on 4.43:1 -- under
+         the 4.5 AA floor. 0.78 reads the same and measures 5.19. */
+      color: rgba(74, 59, 40, 0.78);
       font-size: 15px;
       line-height: 1.75;
     }

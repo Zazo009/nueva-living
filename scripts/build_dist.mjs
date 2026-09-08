@@ -1089,18 +1089,16 @@ function injectConsent(html, locale) {
   // Before the system stylesheet, not after: that one has to stay last so it
   // wins the cascade, and an audit rule enforces it. The banner's own
   // selectors are unique, so nothing here needs to come later.
-  if (!out.includes('assets/liora/nueva-consent.css')) {
+  if (!out.includes('data-nueva-consent')) {
+    const consentInline = `<style data-nueva-consent>${consentStylesheetCss}</style>`;
     const systemInline = '<style data-nueva-system>';
     const systemLink = /<link rel="stylesheet" href="[^"]*nueva-system\.css[^"]*"[^>]*>/i;
     if (out.includes(systemInline)) {
-      out = out.replace(systemInline,
-        `<link rel="stylesheet" href="assets/liora/nueva-consent.css">\n  ${systemInline}`);
+      out = out.replace(systemInline, `${consentInline}\n  ${systemInline}`);
     } else if (systemLink.test(out)) {
-      out = out.replace(systemLink, (m) =>
-        `<link rel="stylesheet" href="assets/liora/nueva-consent.css">\n  ${m}`);
+      out = out.replace(systemLink, (m) => `${consentInline}\n  ${m}`);
     } else {
-      out = out.replace(/<\/head>/i,
-        '  <link rel="stylesheet" href="assets/liora/nueva-consent.css">\n</head>');
+      out = out.replace(/<\/head>/i, `  ${consentInline}\n</head>`);
     }
   }
   out = out.replace(/\n<\/body>/i,
@@ -1185,6 +1183,10 @@ function injectNavInteractions(html) {
 // position (last in <head>, so cascade order is unchanged), one less
 // blocking request. Pages already inline their critical CSS the same way.
 const systemStylesheetCss = fs.readFileSync(path.join(root, systemStylesheetPath), 'utf8');
+// Inlined rather than linked: at 4.4 KB it cost a render-blocking request of its own
+// at the tail of the critical chain, ~220 ms on the homepage, for a banner that is
+// hidden on most visits. Same treatment the system stylesheet already gets.
+const consentStylesheetCss = fs.readFileSync(path.join(root, 'assets/liora/nueva-consent.css'), 'utf8');
 
 // Descriptions are translated by find/replace keyed on the English text, so
 // trimming them at the source would stop the entries matching and leave the
