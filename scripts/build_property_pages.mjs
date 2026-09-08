@@ -870,6 +870,62 @@ function responsiveThumb(src, alt) {
                   </picture>`;
 }
 
+
+// A layout spin is twenty-one renders of the same apartment, a full circle in
+// eighteen-degree steps, lifted from the developer's own type pages. The set
+// weighs more than a megabyte, so the page carries one still and loads the
+// rest only when a visitor asks -- the same bargain the Matterport block makes.
+// Without JavaScript the still is the whole section, and it still says what
+// the layout is.
+function renderLayoutSpins(project, sourceProject, locale) {
+  const layouts = project.layouts;
+  if (!layouts?.types?.length) return '';
+  // A locale overlay replaces the whole types array, so a translated card
+  // carries the name and the meta rows and nothing else: no frame path, no
+  // poster, no count. Those belong to the render, not to the language, and are
+  // read back off the English project by position -- the same positional
+  // contract the residence cards already work under, and guarded alongside it.
+  const plates = sourceProject.layouts?.types || [];
+  const cards = layouts.types.map((type, position) => {
+    const plate = plates[position] || {};
+    const stillAlt = plate.alt || '';
+    const posterBase = String(plate.poster || '').replace(/\.jpe?g$/i, '');
+    return `<article class="layout-spin reveal-soft" data-spin-base="${esc(plate.path)}" data-spin-frames="${Number(plate.frames) || 0}" data-spin-label="${esc(t('layout.viewOf', locale, { index: '{index}', total: '{total}' }))}">
+            <h3>${esc(type.name)}</h3>
+            <div class="res-meta">
+              ${pairs(type.meta)}
+            </div>
+            <div class="layout-spin-stage" style="aspect-ratio:${Number(plate.width) || 960} / ${Number(plate.height) || 720}" data-spin-stage>
+              <picture class="layout-spin-poster" data-spin-poster>
+                <source type="image/webp" srcset="${esc(posterBase)}-640.webp 640w, ${esc(posterBase)}-960.webp 960w" sizes="(max-width: 768px) 88vw, 30vw">
+                <img src="${esc(plate.poster)}" alt="${esc(stillAlt)}" width="${Number(plate.width) || 960}" height="${Number(plate.height) || 720}" loading="lazy" decoding="async">
+              </picture>
+            </div>
+            <p class="layout-spin-status" data-spin-status aria-live="polite"></p>${type.caption ? `
+            <p class="layout-spin-caption">${esc(type.caption)}</p>` : ''}
+            <div class="layout-spin-foot">
+              <button type="button" class="btn ghost project-btn layout-spin-start" data-spin-start>${t('layout.turn', locale)}</button>
+              <p class="layout-spin-hint">${t('layout.hint', locale)}</p>
+            </div>
+          </article>`;
+  }).join('\n          ');
+
+  return `    <section class="project-section" id="layouts">
+      <div class="project-inner">
+        <div class="reveal-soft">
+          <span class="section-kicker">${t('section.layouts', locale)}</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">${layouts.headlineHtml}</h2>
+          <p class="project-lead">${esc(layouts.copy)}</p>
+        </div>
+        <div class="layout-spin-grid">
+          ${cards}
+        </div>
+        <p class="layout-spin-note">${esc(layouts.note)}</p>
+      </div>
+    </section>`;
+}
+
 function renderUnitCard(unit, project, locale) {
   const beds = unitBedCount(unit);
   const price = unitPriceValue(unit);
@@ -1580,6 +1636,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const projectMedia = renderProjectMedia(project, locale);
   const constructionTimeline = renderConstructionTimeline(project, locale);
   const furniturePackagesSection = renderFurniturePackages(project, locale);
+  const layoutSpinsSection = renderLayoutSpins(project, sourceProject, locale);
   const availabilityRelease = renderAvailabilityRelease(project, locale);
   const hasPublishedAvailability = Boolean(project.availability?.units?.length);
   const hasFloorplans = Boolean(project.availability?.units?.some((unit) => unit.floorplan));
@@ -1840,7 +1897,7 @@ ${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}  
       </div>
     </section>
 
-${furniturePackagesSection}
+${layoutSpinsSection}${furniturePackagesSection}
 
     <section class="project-section" id="availability">
       <div class="project-inner">
@@ -3085,6 +3142,20 @@ function validateProject(project) {
         throw new Error(`${label}: "i18n.${locale}.residences.items[${index}].name" is "${names[index]}" but English has the unit reference "${ref}" -- unit references must not be translated or reordered, or the translated figures land on the wrong residence.`);
       }
     });
+  }
+  // The layout cards are positional in exactly the way the residence cards
+  // are: the translated array supplies the name and the meta rows, the English
+  // one supplies the frames and the poster. A short or reordered overlay would
+  // hand one layout's plan to another layout's description.
+  const englishLayouts = project.layouts?.types || [];
+  if (englishLayouts.length) {
+    for (const [locale, overlay] of Object.entries(project.i18n || {})) {
+      const translated = overlay?.layouts?.types;
+      if (!translated) continue;
+      if (translated.length !== englishLayouts.length) {
+        throw new Error(`${label}: "i18n.${locale}.layouts.types" has ${translated.length} layouts but English has ${englishLayouts.length} -- the arrays are positional, so a different length puts one layout's plan under another layout's name.`);
+      }
+    }
   }
   // Adding location.site is the whole per-project input for the live map, so a
   // coordinate that has never been routed must not silently fall back to the

@@ -1,5 +1,15 @@
 /* Nueva Living shared interface layer.
    Loaded last in production so common controls keep one identity across pages. */
+
+/* This sheet is the whole stylesheet on pages that never load liora-pages.css,
+   so the rule that makes the `hidden` attribute mean hidden has to be stated
+   here as well. Any class that sets `display` outranks the user agent's rule
+   for [hidden] -- .card-lightbox is a live example -- and the element goes on
+   showing. Kept in step with liora-pages.css by audit_site_consistency. */
+[hidden] {
+  display: none !important;
+}
+
 :root {
   --nueva-sand: #e8dfcd;
   --nueva-ivory: #faf6ee;
@@ -1335,10 +1345,6 @@ body.card-lightbox-open {
   display: flex;
   flex-direction: column;
   background: #0e0a06;
-}
-
-.card-lightbox[hidden] {
-  display: none;
 }
 
 .card-lightbox-bar {

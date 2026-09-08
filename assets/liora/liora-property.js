@@ -535,3 +535,140 @@
     }, { once: true });
   });
 })();
+
+/* The layout spins: twenty-one renders of one apartment, a full circle in
+   eighteen-degree steps. A whole set is well over a megabyte, so nothing but
+   the still is in the page until a visitor asks for it -- the same bargain the
+   tour makes above. Once the set is in, the plan follows a drag, the arrow
+   keys, and a swipe, and the frame index is announced for screen readers. */
+(() => {
+  const SETTLE = 90;
+
+  function frameUrl(base, index, width) {
+    return `${base}/${width}/${String(index).padStart(2, '0')}.webp`;
+  }
+
+  function startSpin(panel) {
+    const base = panel.getAttribute('data-spin-base');
+    const total = Number(panel.getAttribute('data-spin-frames')) || 0;
+    if (!base || !total) return;
+    const stage = panel.querySelector('[data-spin-stage]');
+    const status = panel.querySelector('[data-spin-status]');
+    const button = panel.querySelector('[data-spin-start]');
+    const template = panel.getAttribute('data-spin-label') || '{index}/{total}';
+    // A 640-wide frame is enough for the card on a phone and saves close to
+    // half the bytes; the 960 set is only worth its weight on a wide screen.
+    const width = window.matchMedia('(min-width: 760px)').matches ? 960 : 640;
+
+    panel.classList.add('layout-spin--loading');
+    if (button) button.disabled = true;
+
+    const frames = [];
+    let loaded = 0;
+    let ready = false;
+    let index = 0;
+
+    const announce = () => {
+      if (status) status.textContent = template
+        .replace('{index}', String(index + 1))
+        .replace('{total}', String(total));
+    };
+
+    const show = (next) => {
+      const wrapped = ((next % total) + total) % total;
+      if (wrapped === index && ready) return;
+      index = wrapped;
+      frames.forEach((image, position) => { image.hidden = position !== index; });
+      announce();
+    };
+
+    for (let position = 0; position < total; position += 1) {
+      const image = new Image();
+      image.decoding = 'async';
+      image.alt = '';
+      image.hidden = true;
+      image.src = frameUrl(base, position, width);
+      image.addEventListener('load', () => {
+        loaded += 1;
+        if (loaded < total || ready) return;
+        ready = true;
+        panel.classList.remove('layout-spin--loading');
+        panel.classList.add('layout-spin--ready');
+        if (button) button.remove();
+        // Frame three is the angle the still was cut from, so the plan does
+        // not jump the moment the set arrives.
+        show(3);
+        const poster = panel.querySelector('[data-spin-poster]');
+        // The still is the only element carrying a description, and it is the
+        // one about to be hidden. Move its text onto the stage rather than
+        // writing the description twice in the markup, where the second copy
+        // sits outside the alt dictionary and ships in English on nine
+        // locales.
+        const description = poster?.querySelector('img')?.alt;
+        if (description) {
+          stage.setAttribute('role', 'img');
+          stage.setAttribute('aria-label', description);
+        }
+        if (poster) poster.hidden = true;
+        stage.setAttribute('tabindex', '0');
+      });
+      frames.push(image);
+      stage.appendChild(image);
+    }
+
+    // Dragging is measured against the stage's own width so the plan makes one
+    // full turn per swipe across it, whatever size the card is rendered at.
+    let pointerId = null;
+    let originX = 0;
+    let originIndex = 0;
+
+    stage.addEventListener('pointerdown', (event) => {
+      if (!ready) return;
+      pointerId = event.pointerId;
+      originX = event.clientX;
+      originIndex = index;
+      stage.setPointerCapture(pointerId);
+      panel.classList.add('layout-spin--dragging');
+    });
+
+    stage.addEventListener('pointermove', (event) => {
+      if (pointerId === null || event.pointerId !== pointerId) return;
+      event.preventDefault();
+      const travel = (event.clientX - originX) / Math.max(stage.clientWidth, 1);
+      show(originIndex - Math.round(travel * total));
+    });
+
+    const release = (event) => {
+      if (pointerId === null || event.pointerId !== pointerId) return;
+      stage.releasePointerCapture(pointerId);
+      pointerId = null;
+      panel.classList.remove('layout-spin--dragging');
+    };
+    stage.addEventListener('pointerup', release);
+    stage.addEventListener('pointercancel', release);
+
+    stage.addEventListener('keydown', (event) => {
+      if (!ready) return;
+      // The plan is an object in space, not a line of text, so the arrow keys
+      // turn it the way it is pushed: right pushes the far side away. That is
+      // the same gesture in Arabic, so this deliberately does not mirror.
+      if (event.key === 'ArrowRight') show(index + 1);
+      else if (event.key === 'ArrowLeft') show(index - 1);
+      else return;
+      event.preventDefault();
+    });
+
+    let idle = null;
+    stage.addEventListener('pointerup', () => {
+      window.clearTimeout(idle);
+      idle = window.setTimeout(announce, SETTLE);
+    });
+  }
+
+  document.querySelectorAll('[data-spin-start]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const panel = button.closest('[data-spin-base]');
+      if (panel) startSpin(panel);
+    }, { once: true });
+  });
+})();

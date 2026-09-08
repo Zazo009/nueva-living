@@ -49,6 +49,16 @@ img {
   max-width: 100%;
 }
 
+/* An author rule for a bare element -- the `img` rule directly above -- beats
+   the user agent's `[hidden] { display: none }` however low its specificity,
+   so an image hidden by the attribute goes on showing. That had been found
+   and patched three separate times, once per feature, before the layout spins
+   stacked all twenty-one frames on top of each other and found it a fourth.
+   Settling it once here is what audit_site_consistency now insists on. */
+[hidden] {
+  display: none !important;
+}
+
 .site-nav {
   position: fixed;
   inset: 0 0 auto;
@@ -738,10 +748,6 @@ img {
   display: flex;
   gap: 8px;
   margin-bottom: clamp(20px, 3vw, 30px);
-}
-
-.developments-view-tabs[hidden] {
-  display: none;
 }
 
 .developments-view-tab {

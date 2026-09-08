@@ -3517,6 +3517,33 @@ let translationEntriesChecked = 0;
   }
 }
 
+let hiddenRuleChecked = 0;
+
+// An author rule for a bare element or a class beats the user agent's
+// `[hidden] { display: none }` whatever its specificity, so the attribute
+// stops meaning anything the moment a stylesheet says `img { display: block }`
+// or `.card-lightbox { display: flex }`. Both are real rules here, and the bug
+// they cause is silent: the element is announced as hidden and drawn anyway.
+// Four features had each patched it locally before the layout spins stacked
+// twenty-one frames on one square. Every stylesheet that can be the whole
+// stylesheet for a page now has to carry the rule once, with enough weight.
+{
+  const sheets = ['assets/liora/liora-pages.css', 'assets/liora/nueva-system.css'];
+  // Bare `[hidden]`, not `.something[hidden]`: a rule scoped to one class is
+  // the per-feature patch this guard exists to stop.
+  const wanted = /(?:^|[},;])\s*\[hidden\]\s*\{[^}]*display:\s*none\s*!important/;
+  for (const sheet of sheets) {
+    const file = path.join(root, sheet);
+    if (!fs.existsSync(file)) continue;
+    hiddenRuleChecked += 1;
+    const css = fs.readFileSync(file, 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+    if (!wanted.test(css)) {
+      fail(sheet, 'carries no `[hidden] { display: none !important }` rule, so any element it '
+        + 'gives a display value to goes on showing when JavaScript sets the hidden attribute.');
+    }
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -3562,5 +3589,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides.`);
 }
