@@ -2365,6 +2365,24 @@ const IDENTICAL_BY_DESIGN = new Set([
   // proper nouns, so there is nothing left to translate.
   'de|New Golden Mile, <em>in El Campanario</em>',
   'nl|New Golden Mile, <em>in El Campanario</em>',
+  // Both halves are the place's own name: the district and the town. Russian
+  // and Arabic transliterate them and so differ already; the Latin-script
+  // locales write them exactly as Spanish does, and inventing a difference
+  // would be worse than the repetition.
+  'es|Salto del Agua, <em>San Pedro Alcántara</em>',
+  'fr|Salto del Agua, <em>San Pedro Alcántara</em>',
+  'de|Salto del Agua, <em>San Pedro Alcántara</em>',
+  'nl|Salto del Agua, <em>San Pedro Alcántara</em>',
+  'pl|Salto del Agua, <em>San Pedro Alcántara</em>',
+  'sv|Salto del Agua, <em>San Pedro Alcántara</em>',
+  'no|Salto del Agua, <em>San Pedro Alcántara</em>',
+  'es|Salto del Agua, <em>San Pedro</em>',
+  'fr|Salto del Agua, <em>San Pedro</em>',
+  'de|Salto del Agua, <em>San Pedro</em>',
+  'nl|Salto del Agua, <em>San Pedro</em>',
+  'pl|Salto del Agua, <em>San Pedro</em>',
+  'sv|Salto del Agua, <em>San Pedro</em>',
+  'no|Salto del Agua, <em>San Pedro</em>',
 ]);
 
 // An overlay that is English with a few accents pasted on is still English.
