@@ -264,6 +264,7 @@ function footer(locale = DEFAULT_LOCALE) {
           <li><a href="area-casares.html">${t('area.casares', locale)}</a></li>
           <li><a href="area-benahavis.html">${t('area.benahavis', locale)}</a></li>
           <li><a href="area-nueva-andalucia.html">${t('area.nuevaAndalucia', locale)}</a></li>
+          <li><a href="area-san-pedro-alcantara.html">${t('area.sanPedroAlcantara', locale)}</a></li>
           <li><a href="area-mijas-fuengirola.html">${t('area.mijasFuengirola', locale)}</a></li>
         </ul>
       </div>

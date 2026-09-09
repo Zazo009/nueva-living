@@ -1,4 +1,5 @@
 import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema, FOUNDERS, organizationId, personId, founderRefs } from './lib/brand.mjs';
+import { projectAreaRule } from './lib/project_area.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -242,7 +243,7 @@ const basePageMeta = {
   },
   'areas.html': {
     title: 'Where to Buy on the Costa del Sol: Area Guide 2026',
-    description: 'Compare Marbella, Estepona, Benahavis, Nueva Andalucia and Mijas on price per m2, lifestyle and new-build supply before you choose where to buy.',
+    description: 'Compare Marbella, Estepona, Benahavis, Nueva Andalucia, San Pedro and Mijas on price per m2, lifestyle and new-build supply before you choose where to buy.',
     path: '/areas.html',
     type: 'article'
   },
@@ -418,21 +419,11 @@ function loadProjectPages() {
 }
 
 function projectAreaLabel(project) {
-  const location = `${project.hero?.location || ''} ${project.schema?.areaServed || ''}`.toLowerCase();
-  if (location.includes('nueva andaluc') || location.includes('nueva andalucía')) return 'Nueva Andalucia';
-  if (location.includes('benahav')) return 'Benahavis';
-  if (location.includes('estepona') || location.includes('new golden mile')) return 'Estepona';
-  if (location.includes('mijas') || location.includes('fuengirola')) return 'Mijas & Fuengirola';
-  // Names the real town. It has no area page of its own, but labelling a
-  // Benalmadena development "Mijas & Fuengirola" was a factual error --
-  // see the matching branch in build_property_pages.mjs's projectArea().
-  if (location.includes('benalmad')) return 'Benalmadena';
-  // Kept in step with projectArea() in build_property_pages.mjs. That file
-  // titles the locale variants and this one the English page, so a branch
-  // added there and not here silently gives a project two different areas.
-  if (location.includes('casares')) return 'Casares';
-  if (location.includes('marbella east')) return 'Marbella East';
-  return 'Marbella';
+  // Shared with build_property_pages.mjs through scripts/lib/project_area.mjs:
+  // that file labels the nine locale pages, this one the English page, and a
+  // branch added to one copy and not the other used to give a project two
+  // different areas.
+  return projectAreaRule(project).englishLabel;
 }
 
 // Mirrors seoTitle() in build_property_pages.mjs -- leads with property
@@ -494,7 +485,8 @@ for (const [output, area] of [
     'marbella-west-garden-residences',
     'nueva-alcantara-residences',
     'alisios-residences',
-    'cortijo-blanco-villa-collection'
+    'cortijo-blanco-villa-collection',
+    'salto-del-agua-residences'
   ]],
   ['new-build-homes-new-golden-mile.html', [
     'vista-alta-suites',

@@ -2642,7 +2642,7 @@ let titleCaseChecked = 0;
 // else, so this read as machine output in exactly the languages the site is
 // trying to sound native in. German is exempt: it capitalises every noun.
 {
-  const PROPER = /^(Nueva|Living|Costa|del|Sol|Marbell[a-zę]*|Estepon[aęy]*|Benah[aá]v[ií]s|M[aá]laga|Andaluc[ií]a|Andalousie|Mijas|Fuengirol[aęy]*|Ban[uú]s|Puerto|Golf|Valley|Sotogrande|Casares|Espa[nñ]a|Espagne|Spanje|Spani\w*|Hiszpani\w*|Andaluz\w*|Andalusi\w*|Andalousie|Sasan[a]?|Raftari(ego)?|Sami(ego)?|Altun[a]?|IVA|AJD|ITP|NIE|LOE|Ley)$/;
+  const PROPER = /^(Nueva|Living|Costa|del|Sol|Marbell[a-zę]*|Estepon[aęy]*|Benah[aá]v[ií]s|M[aá]laga|Andaluc[ií]a|Andalousie|Mijas|Fuengirol[aęy]*|Ban[uú]s|Puerto|Golf|Valley|Sotogrande|Casares|San|Pedro|Alc[aá]ntara|Guadalmina|Guadaiza|Espa[nñ]a|Espagne|Spanje|Spani\w*|Hiszpani\w*|Andaluz\w*|Andalusi\w*|Andalousie|Sasan[a]?|Raftari(ego)?|Sami(ego)?|Altun[a]?|IVA|AJD|ITP|NIE|LOE|Ley)$/;
   const CASED = ['es', 'fr', 'nl', 'pl', 'sv', 'no'];
   const offenders = [];
   // Only entries whose English source is itself Title Case -- a heading or a
@@ -3425,7 +3425,7 @@ let areaProjectsChecked = 0;
 // the area guide for its own municipality. Nine were missing at once.
 {
   const AREA_OF = { marbella: 'marbella', marbellaEast: 'marbella', marbellaCentre: 'marbella',
-    goldenMile: 'marbella', sanPedro: 'marbella', estepona: 'estepona', newGoldenMile: 'estepona',
+    goldenMile: 'marbella', sanPedro: 'san-pedro-alcantara', estepona: 'estepona', newGoldenMile: 'estepona',
     casares: 'casares', benahavis: 'benahavis', nuevaAndalucia: 'nueva-andalucia',
     mijasFuengirola: 'mijas-fuengirola' };
   const areasFile = path.join(root, 'content/nueva-areas.json');
@@ -3544,6 +3544,32 @@ let hiddenRuleChecked = 0;
   }
 }
 
+let areaRuleCopyChecked = 0;
+
+// Which area a project belongs to was decided twice: once in
+// build_property_pages.mjs for the nine locale pages and once in
+// build_dist.mjs for the English one. A branch added to one and not the other
+// gave a project two different areas, silently, and both files carried a
+// comment asking the next person to remember. The rules now live in
+// scripts/lib/project_area.mjs, and this stops either file from quietly
+// growing its own copy again: the place-name tests belong to the table.
+{
+  const owner = 'scripts/lib/project_area.mjs';
+  const readers = ['scripts/build_property_pages.mjs', 'scripts/build_dist.mjs'];
+  const tells = ['nueva andaluc', 'benahav', 'new golden mile', 'benalmad', 'marbella east'];
+  for (const file of readers) {
+    const full = path.join(root, file);
+    if (!fs.existsSync(full)) continue;
+    areaRuleCopyChecked += 1;
+    const source = fs.readFileSync(full, 'utf8');
+    const found = tells.filter((tell) => source.includes(`'${tell}'`) || source.includes(`"${tell}"`));
+    if (found.length) {
+      fail(file, `tests for the place name(s) ${found.map((f) => `"${f}"`).join(', ')} itself. Area `
+        + `routing belongs to ${owner}; a second copy here is how one project ends up with two areas.`);
+    }
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -3589,5 +3615,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules.`);
 }

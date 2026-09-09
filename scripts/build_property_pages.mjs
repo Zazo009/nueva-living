@@ -20,6 +20,7 @@ import {
   guidesMobileLinks,
   renderDrawerActions,
   LANG_SWITCHER_SCRIPT, stringLocaleGaps } from './lib/i18n.mjs';
+import { projectAreaRule } from './lib/project_area.mjs';
 import { localizeMonthDate } from './lib/dates.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 // One renderer for the cinematic viewer's data. This file used to carry its
@@ -1300,40 +1301,13 @@ function nav(project, locale = DEFAULT_LOCALE) {
 }
 
 function projectArea(project, locale = DEFAULT_LOCALE) {
-  const location = `${project.hero?.location || ''} ${project.schema?.areaServed || ''}`.toLowerCase();
-  if (location.includes('nueva andaluc') || location.includes('nueva andalucía')) {
-    return { label: t('area.nuevaAndalucia', locale), href: 'area-nueva-andalucia.html' };
-  }
-  if (location.includes('benahav')) {
-    return { label: t('area.benahavis', locale), href: 'area-benahavis.html' };
-  }
-  if (location.includes('estepona') || location.includes('new golden mile')) {
-    return { label: t('area.estepona', locale), href: 'area-estepona.html' };
-  }
-  if (location.includes('mijas') || location.includes('fuengirola')) {
-    return { label: t('area.mijasFuengirola', locale), href: 'area-mijas-fuengirola.html' };
-  }
-  // Benalmadena has no area page of its own and sits between Fuengirola and
-  // Torremolinos, so the nearest covered area page is Mijas & Fuengirola.
-  // The LABEL, however, names the real town: calling a Benalmadena
-  // development "Mijas & Fuengirola" put a factual error in the title tag,
-  // the breadcrumb and the schema. Same treatment as Casares below.
-  if (location.includes('benalmad')) {
-    return { label: t('area.benalmadena', locale), href: 'area-mijas-fuengirola.html' };
-  }
-  // Casares now has its own area guide, so the breadcrumb points there rather
-  // than at Estepona's. Before that page existed this branch still had to be
-  // here: without it a Casares project fell through to the Marbella default
-  // and was breadcrumbed, titled and schema-tagged as Marbella.
-  if (location.includes('casares')) {
-    return { label: t('area.casares', locale), href: 'area-casares.html' };
-  }
-  if (location.includes('marbella east')) {
-    return { label: t('area.marbellaEast', locale), href: 'area-marbella.html' };
-  }
-  return { label: t('area.marbella', locale), href: 'area-marbella.html' };
+  // The rules and their order live in scripts/lib/project_area.mjs, shared
+  // with build_dist.mjs. This file titles the nine locale pages and that one
+  // titles the English page, and when each kept its own copy of the branches
+  // a project could carry two different areas.
+  const rule = projectAreaRule(project);
+  return { label: t(`area.${rule.key}`, locale), href: rule.href };
 }
-
 function breadcrumb(project, locale = DEFAULT_LOCALE) {
   const area = projectArea(project, locale);
   const p = rootPrefix(locale);
@@ -1423,15 +1397,29 @@ function seoTitle(project, locale = DEFAULT_LOCALE) {
   // The comparison uses the area slug, not the translated label: the project
   // names stay in Latin script, so "Marbella West Gardens" never matches
   // "Марбелья" or "ماربيا" and the Russian and Arabic titles kept overrunning.
+  //
+  // The area comes from the shared rules table, not from discovery.area: the
+  // filter files five San Pedro projects under Marbella, so a title for
+  // "Nueva Alcántara" in San Pedro de Alcántara compared its name against
+  // "marbella", found nothing, and kept both halves of the same place name.
+  // Accents are folded before comparing, and only tokens of five letters or
+  // more count, so "san" and "de" do not match half the coast.
   const name = project.shortName || project.name;
-  const areaSlug = String(project.discovery?.area || '').split('-')[0];
-  const redundant = (areaSlug && name.toLowerCase().includes(areaSlug.toLowerCase()))
-    || (area.label && name.toLowerCase().includes(String(area.label).toLowerCase().split(/[\s(]/)[0]));
+  const fold = (value) => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const foldedName = fold(name);
+  const areaTokens = String(projectAreaRule(project).slug || '').split('-').filter((part) => part.length >= 5);
+  const redundant = areaTokens.some((token) => foldedName.includes(token))
+    || (area.label && foldedName.includes(fold(area.label).split(/[\s(]/)[0]));
   if (redundant) {
     const withoutArea = `${firstType || type} — ${name}${BRAND_SUFFIX}`;
     const trimmed = strip(withoutArea);
     if (trimmed.length <= SEO_TITLE_MAX) return trimmed;
   }
+  // Nothing above fitted. A title cut off mid-word in the result loses the
+  // area anyway, so drop it deliberately and keep the type and the name whole.
+  // The area is still the breadcrumb, the H1 context and the schema.
+  const withoutArea = strip(`${firstType || type} — ${name}${BRAND_SUFFIX}`);
+  if (withoutArea.length <= SEO_TITLE_MAX) return withoutArea;
   return withoutBrand;
 }
 
@@ -1465,6 +1453,7 @@ function footer(project, locale = DEFAULT_LOCALE) {
           <li><a href="${p}${localizedPath('area-casares.html', locale)}">${t('area.casares', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-benahavis.html', locale)}">${t('area.benahavis', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-nueva-andalucia.html', locale)}">${t('area.nuevaAndalucia', locale)}</a></li>
+          <li><a href="${p}${localizedPath('area-san-pedro-alcantara.html', locale)}">${t('area.sanPedroAlcantara', locale)}</a></li>
           <li><a href="${p}${localizedPath('area-mijas-fuengirola.html', locale)}">${t('area.mijasFuengirola', locale)}</a></li>
         </ul>
       </div>

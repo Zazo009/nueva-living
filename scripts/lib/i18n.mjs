@@ -362,6 +362,7 @@ function areasMenuItems(locale) {
     [t('nav.allAreas', locale), localizedPath('areas.html', locale)],
     [t('area.marbella', locale), localizedPath('area-marbella.html', locale)],
     [t('area.nuevaAndalucia', locale), localizedPath('area-nueva-andalucia.html', locale)],
+    [t('area.sanPedroAlcantara', locale), localizedPath('area-san-pedro-alcantara.html', locale)],
     [t('area.benahavis', locale), localizedPath('area-benahavis.html', locale)],
     [t('area.estepona', locale), localizedPath('area-estepona.html', locale)],
     [t('area.casares', locale), localizedPath('area-casares.html', locale)],
