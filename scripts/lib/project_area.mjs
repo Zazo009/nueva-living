@@ -37,8 +37,12 @@ export const PROJECT_AREA_RULES = [
     match: (text) => text.includes('casares') },
   { key: 'sanPedroAlcantara', englishLabel: 'San Pedro de Alcantara', slug: 'san-pedro-alcantara', href: 'area-san-pedro-alcantara.html',
     match: (text, mapArea) => mapArea === 'sanPedro' },
+  // Elviria is in Marbella East, but only one of the three projects there
+  // happened to write "Marbella East" into its location line, so the other two
+  // fell through to plain Marbella and the three were breadcrumbed, titled and
+  // filed in the CRM three different ways. The place name settles it.
   { key: 'marbellaEast', englishLabel: 'Marbella East', slug: 'marbella', href: 'area-marbella.html',
-    match: (text) => text.includes('marbella east') },
+    match: (text) => text.includes('marbella east') || text.includes('elviria') },
 ];
 
 export const DEFAULT_PROJECT_AREA = { key: 'marbella', englishLabel: 'Marbella', slug: 'marbella', href: 'area-marbella.html' };
