@@ -171,3 +171,23 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* The dropdown options are anchors inside `.nav-links`, so they inherit the
+   hover sheen and the hairline underline defined for the top-level items
+   above. On a nav word that underline sits under the word. A dropdown option
+   is a full-width block with 26px of side padding, so the same rule stretches
+   the line across the entire panel and drops it below the padding box, which
+   reads as a highlight escaping the menu. The disclosure marks its own hover
+   with colour alone -- see the `.nav-dropdown-option:hover` rules in
+   nueva-system.css -- so the inherited decoration is removed outright rather
+   than restyled. The `#nav` copies are not redundant: the homepage carries its
+   own `#nav .nav-links a:hover::after`, and only an id in the selector here
+   outweighs it. */
+.site-nav .nav-links .nav-dropdown-option::before,
+.site-nav .nav-links .nav-dropdown-option::after,
+#nav .nav-links .nav-dropdown-option::before,
+#nav .nav-links .nav-dropdown-option::after,
+.mobile-menu .nav-dropdown-option::before,
+.mobile-menu .nav-dropdown-option::after {
+  content: none;
+}
