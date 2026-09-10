@@ -112,7 +112,9 @@ for (const project of projects()) {
   // "14 of 88 left" on the badge
   const available = toNumber(crm.availableUnits) ?? (project.availability?.units || []).length;
   const total = toNumber(crm.totalUnits);
-  if (available > 0 && total !== undefined && total > 0) {
+  // Same condition as project_card.mjs and card_facts.mjs: below it the card
+  // prints a bare number, which needs no translating.
+  if (available > 0 && total !== undefined && total > available) {
     push(entryFromKey('dev-badge-units">', 'card.unitsLeft', { available, total }));
     push(entryFromKey('dev-fact-value">', 'card.unitsOf', { available, total }));
   }

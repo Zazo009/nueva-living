@@ -89,7 +89,12 @@ export function renderUnifiedCard(card) {
   const crm = project.crm || {};
   const available = toNumber(crm.availableUnits) ?? (project.availability?.units || []).length;
   const total = toNumber(crm.totalUnits);
-  const hasUnits = available > 0 && total !== undefined && total > 0;
+  // "25 of 25 left" claims that nothing in the scheme has sold, which is a
+  // claim about the whole development, not about the release list we actually
+  // read. Casares Costa said it because its total was set from the length of
+  // its own availability table. A ratio is only worth printing when the two
+  // numbers differ; otherwise the count stands on its own.
+  const hasUnits = available > 0 && total !== undefined && total > available;
   const badges = [
     badge ? `<span class="dev-badge">${esc(badge)}</span>` : '',
     hasUnits ? `<span class="dev-badge-units">${esc(t('card.unitsLeft', { available, total }))}</span>` : ''

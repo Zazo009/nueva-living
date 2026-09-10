@@ -84,10 +84,15 @@ export function cardFacts(project, { t }) {
   // available list, so its length is the same number.
   const available = toNumber(crm.availableUnits) ?? (project.availability?.units || []).length;
   const total = toNumber(crm.totalUnits);
-  if (available > 0 && total !== undefined && total > 0) {
+  // See project_card.mjs: "25 of 25" reads as "none of them has sold", which
+  // is more than the release list we read can support. The ratio is printed
+  // only when the total is genuinely larger than what is left.
+  if (available > 0) {
     columns.push({
       label: t('card.available'),
-      value: t('card.unitsOf', { available, total }),
+      value: (total !== undefined && total > available)
+        ? t('card.unitsOf', { available, total })
+        : String(available),
       sub: project.availability?.phase || '',
       tone: 'gold'
     });

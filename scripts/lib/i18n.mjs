@@ -85,16 +85,40 @@ export function stringLocaleGaps(key, locales) {
   return locales.filter((locale) => typeof entry[locale] !== 'string' || !entry[locale].trim());
 }
 
+// An overlay array of objects used to replace the English array wholesale,
+// which quietly dropped every field the translator had no reason to restate:
+// `availability.units[].floorplan` (nine locales showed no plans at all),
+// `media.items[].src` (nine locales showed no gallery), and
+// `constructionTimeline.points[].milestone`. Nothing failed -- the page just
+// rendered without them. An array of objects of the same length is now merged
+// element by element, so a translated item carries the English item's
+// structural fields unless it overrides them. Arrays of any other shape
+// (quickFacts, why.points, faq -- arrays of arrays or of strings) are still
+// replaced wholesale: a translated table must stand on its own, and a
+// positional merge there has no sane meaning.
+function mergeOverlay(englishValue, value) {
+  if (isPlainObject(value) && isPlainObject(englishValue)) {
+    const merged = { ...englishValue };
+    for (const [key, item] of Object.entries(value)) {
+      merged[key] = mergeOverlay(englishValue[key], item);
+    }
+    return merged;
+  }
+  if (Array.isArray(value) && Array.isArray(englishValue)
+    && value.length === englishValue.length
+    && value.every(isPlainObject) && englishValue.every(isPlainObject)) {
+    return value.map((item, index) => mergeOverlay(englishValue[index], item));
+  }
+  return value;
+}
+
 export function localizeProject(project, locale) {
   if (locale === DEFAULT_LOCALE) return project;
   const overlay = project.i18n?.[locale];
   if (!overlay) return project;
   const merged = { ...project };
   for (const [key, value] of Object.entries(overlay)) {
-    const englishValue = project[key];
-    merged[key] = (isPlainObject(value) && isPlainObject(englishValue))
-      ? { ...englishValue, ...value }
-      : value;
+    merged[key] = mergeOverlay(project[key], value);
   }
   return merged;
 }

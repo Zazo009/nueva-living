@@ -5,6 +5,7 @@ import vm from 'node:vm';
 import { pathToFileURL } from 'node:url';
 import { FLOOR_PARTS } from './lib/unit_floor_parts.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
+import { localizeProject } from './lib/i18n.mjs';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -3652,6 +3653,95 @@ let distanceRowsChecked = 0;
   }
 }
 
+let overlayStructuralChecked = 0;
+
+// A locale overlay only ever restates the prose of an item; the structural
+// fields around it -- an image src, a unit's floorplan, a timeline point's
+// milestone flag -- are the same in every language and are not repeated.
+// localizeProject used to replace an overlay array wholesale, so those fields
+// simply vanished on the nine locale builds: every translated property page
+// shipped with no floorplans, no gallery images and an empty payment
+// schedule, and nothing failed because an absent field renders as nothing.
+// The merge is element-wise now, and this is the proof: whatever English
+// holds at one of these paths, the localized project has to hold too.
+{
+  const dir = path.join(root, 'content', 'liora-projects');
+  const STRUCTURAL = new Set(['src', 'floorplan', 'href', 'width', 'height', 'milestone', 'icon']);
+  const collect = (value, prefix, into) => {
+    if (Array.isArray(value)) {
+      value.forEach((item, index) => collect(item, `${prefix}[${index}]`, into));
+    } else if (value && typeof value === 'object') {
+      for (const [key, item] of Object.entries(value)) {
+        if (key === 'i18n') continue;
+        if (STRUCTURAL.has(key)) into.set(`${prefix}.${key}`, JSON.stringify(item));
+        else collect(item, `${prefix}.${key}`, into);
+      }
+    }
+    return into;
+  };
+  if (fs.existsSync(dir)) {
+    const offenders = [];
+    for (const slug of fs.readdirSync(dir)) {
+      const file = path.join(dir, slug, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      const project = JSON.parse(fs.readFileSync(file, 'utf8'));
+      const english = collect(project, '', new Map());
+      for (const locale of Object.keys(project.i18n || {})) {
+        const localized = collect(localizeProject(project, locale), '', new Map());
+        for (const [key, value] of english) {
+          overlayStructuralChecked += 1;
+          if (localized.get(key) !== value) {
+            offenders.push(`${slug} [${locale}]${key}: ${localized.get(key) ?? 'missing'} against ${value}`);
+          }
+        }
+      }
+    }
+    if (offenders.length) {
+      fail('content/liora-projects', `${offenders.length} structural field(s) are lost when a project is `
+        + `localized: ${offenders.slice(0, 4).join('; ')}.`);
+    }
+  }
+}
+
+let unitRatioChecked = 0;
+
+// Casares Costa shipped a card reading "25 of 25 left". Nobody had counted the
+// scheme: crm.totalUnits had been set from the length of the project's own
+// availability table, so the ratio was the same number twice and the card
+// asserted that not one home had sold. A count we read off a release list is
+// evidence about that list, not about the whole development, so a card only
+// prints a ratio when the total is genuinely larger than what is left. Both
+// numbers are read back out of the rendered card here, in every language,
+// because the English source is only one of ten places this renders.
+{
+  const RATIO = /<span class="dev-(?:badge-units|fact-value)">([^<]*\d[^<]*)<\/span>/g;
+  const offenders = [];
+  const pages = [];
+  for (const entry of fs.readdirSync(dist, { withFileTypes: true })) {
+    if (entry.isFile() && entry.name.endsWith('.html')) pages.push(entry.name);
+    else if (entry.isDirectory() && /^[a-z]{2}$/.test(entry.name)) {
+      for (const name of fs.readdirSync(path.join(dist, entry.name))) {
+        if (name.endsWith('.html')) pages.push(path.join(entry.name, name));
+      }
+    }
+  }
+  for (const file of pages) {
+    const html = fs.readFileSync(path.join(dist, file), 'utf8');
+    for (const [, text] of html.matchAll(RATIO)) {
+      const numbers = (text.match(/\d+/g) || []).map(Number);
+      if (numbers.length !== 2) continue;
+      unitRatioChecked += 1;
+      if (numbers[0] === numbers[1] && numbers[0] > 1) {
+        offenders.push(`${file}: "${text.trim()}"`);
+      }
+    }
+  }
+  if (offenders.length) {
+    fail('cards', `${offenders.length} card(s) claim every home in the scheme is still `
+      + `available: ${[...new Set(offenders)].slice(0, 4).join('; ')}.`);
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -3697,5 +3787,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total.`);
 }
