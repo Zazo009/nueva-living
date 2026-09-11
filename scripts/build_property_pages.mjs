@@ -3145,18 +3145,28 @@ function validateProject(project) {
     throw new Error(`${label}: "location.site" is set but ${project.slug} has no routed map data. Run: node scripts/build_location_maps.mjs --project=${project.slug}`);
   }
   // A tour URL is embedded in an iframe, so it is the one field on a project
-  // that can execute third-party code on the page. Only Matterport's own show
-  // URLs are accepted -- not a shortener, not a redirect, not http.
+  // that can execute third-party code on the page. Hosts are allowlisted one
+  // at a time -- not a shortener, not a redirect, not http.
+  //
+  // aeroscantour.com hosts the Korall 360 tour and was added on the owner's
+  // explicit instruction. Note that its page loads YouTube and Vimeo players
+  // of its own, so allowing the host allows those too; that is the trade for
+  // keeping the visitor on the page rather than sending them off-site.
+  const TOUR_HOSTS = [
+    { match: /(^|\.)matterport\.com$/, path: '/show', requireParam: 'm' },
+    { match: /(^|\.)aeroscantour\.com$/, path: '/' }
+  ];
   const tourUrl = project.media?.tour?.url;
   if (tourUrl !== undefined) {
     let parsed = null;
     try { parsed = new URL(String(tourUrl)); } catch { parsed = null; }
-    const ok = parsed && parsed.protocol === 'https:'
-      && /(^|\.)matterport\.com$/.test(parsed.hostname)
-      && parsed.pathname.startsWith('/show')
-      && parsed.searchParams.get('m');
+    const host = parsed && parsed.protocol === 'https:'
+      && TOUR_HOSTS.find((entry) => entry.match.test(parsed.hostname));
+    const ok = host
+      && parsed.pathname.startsWith(host.path)
+      && (!host.requireParam || parsed.searchParams.get(host.requireParam));
     if (!ok) {
-      throw new Error(`${label}: "media.tour.url" must be an https Matterport show link with an "m" model id (got ${JSON.stringify(tourUrl)}).`);
+      throw new Error(`${label}: "media.tour.url" must be an https link on an allowlisted tour host (got ${JSON.stringify(tourUrl)}).`);
     }
   }
   // location.mapArea is a MAP_LANDMARKS key, not prose. resolveMapArea() falls
