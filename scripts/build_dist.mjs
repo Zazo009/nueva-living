@@ -544,6 +544,14 @@ const htmlFiles = [
     .filter((file) => fs.existsSync(path.join(root, file))))
 ];
 
+// The image a project page is shared with. hero is what the page itself
+// leads with; card is the fallback for the handful of projects that only
+// have one, and both are validated to exist by audit_site_consistency.
+function projectShareImage(project) {
+  const src = project.images?.hero?.src || project.images?.card?.src;
+  return src ? `${siteUrl}/${src}` : socialImage;
+}
+
 const pageMeta = {
   ...basePageMeta,
   ...Object.fromEntries(projectPages.map((project) => [
@@ -552,7 +560,14 @@ const pageMeta = {
       title: projectSeoTitle(project),
       description: project.seo?.description || project.seoDescription || project.description || `${project.name} new development preview by Nueva Living.`,
       path: `/${project.output}`,
-      type: 'website'
+      type: 'website',
+      // The link preview shows the project's own hero, the same image
+      // build_property_pages.mjs puts on the nine locale pages. Without this
+      // the English page fell through to socialImage, so every one of the
+      // forty-six developments was shared -- WhatsApp, Slack, Facebook -- as
+      // the same stock rooftop terrace belonging to none of them, while the
+      // Spanish version of the same page showed the right house.
+      image: projectShareImage(project)
     }
   ]))
 };

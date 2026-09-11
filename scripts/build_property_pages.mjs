@@ -2884,14 +2884,6 @@ function renderHomeCard(project, index) {
   });
 }
 
-const AREA_DISPLAY_NAMES = {
-  marbella: 'Marbella',
-  estepona: 'Estepona',
-  benahavis: 'Benahavís',
-  'nueva-andalucia': 'Nueva Andalucía',
-  'mijas-fuengirola': 'Mijas & Fuengirola'
-};
-
 
 
 

@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { projectAreaRule } from './lib/project_area.mjs';
+import { projectAreaRule, AREA_DISPLAY_NAMES } from './lib/project_area.mjs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { pathToFileURL } from 'node:url';
@@ -3604,6 +3604,111 @@ let crmAreaChecked = 0;
   }
 }
 
+let areaDisplayNameChecked = 0;
+
+// Every area the discovery filter can name has a display name.
+//
+// The viewing panel labels each project with its area, out of a table that
+// had five of the seven filter slugs in it. The two it was missing fell
+// through to the project's own card label, so the five San Pedro schemes
+// introduced themselves as "Guadalmina Golf, Marbella", "Cortijo Blanco",
+// "Marbella West", "San Pedro Alcántara" and "San Pedro": five names for the
+// area whose whole job here is to group them. Nothing failed, because the
+// fallback always produces a string. A sixth area added to the filter
+// tomorrow would do the same thing again, so the slugs are checked against
+// the table rather than against a list written out here.
+//
+// The table also existed twice, dead in build_property_pages.mjs and live in
+// lib/viewing.mjs, which is how it came to be short in the first place.
+{
+  const dir = path.join(root, 'content', 'liora-projects');
+  if (fs.existsSync(dir)) {
+    const missing = new Map();
+    for (const slug of fs.readdirSync(dir)) {
+      const file = path.join(dir, slug, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      const project = JSON.parse(fs.readFileSync(file, 'utf8'));
+      const area = project.discovery?.area;
+      if (!area) continue;
+      areaDisplayNameChecked += 1;
+      if (!AREA_DISPLAY_NAMES[area]) {
+        if (!missing.has(area)) missing.set(area, []);
+        missing.get(area).push(slug);
+      }
+    }
+    if (missing.size) {
+      const lines = [...missing].map(([area, slugs]) => `${area} (${slugs.length} project(s), e.g. ${slugs[0]})`);
+      fail('scripts/lib/project_area.mjs', `AREA_DISPLAY_NAMES has no entry for ${lines.join('; ')}. `
+        + `Those projects fall back to their own card label, so one area gets a different name per project.`);
+    }
+  }
+
+  // And no builder keeps its own copy of the names.
+  for (const file of ['scripts/build_property_pages.mjs', 'scripts/lib/viewing.mjs']) {
+    const full = path.join(root, file);
+    if (!fs.existsSync(full)) continue;
+    const source = fs.readFileSync(full, 'utf8');
+    if (/AREA_DISPLAY_NAMES\s*=/.test(source)) {
+      fail(file, 'declares its own AREA_DISPLAY_NAMES. The names belong to scripts/lib/project_area.mjs; '
+        + 'a second copy is how this table came to be missing two areas.');
+    }
+  }
+}
+
+let shareImageChecked = 0;
+
+// A project page is shared with a picture of that project.
+//
+// og:image was authored twice: build_property_pages.mjs put the project's own
+// hero on the nine locale pages, and build_dist.mjs left the English page to
+// fall through to the site-wide default. So every one of the forty-six
+// developments shared -- WhatsApp, Slack, Facebook, iMessage -- as the same
+// stock rooftop terrace that belongs to none of them, while the Spanish
+// version of the same URL showed the right house. Nothing was broken enough
+// to fail: both tags were present, well-formed and pointed at a real file.
+//
+// Two things are checked, because either alone would have missed it: the
+// image must live under that project's own asset folder, and the English page
+// and its locale siblings must name the same one.
+{
+  const pages = fs.existsSync(dist)
+    ? fs.readdirSync(dist).filter((f) => /^property-.+\.html$/.test(f))
+    : [];
+  const stock = [];
+  const split = [];
+  const ogImage = (file) => {
+    const html = fs.readFileSync(file, 'utf8');
+    const m = html.match(/<meta property="og:image" content="([^"]+)"/);
+    return m ? m[1] : null;
+  };
+  for (const page of pages) {
+    const slug = page.replace(/^property-/, '').replace(/\.html$/, '');
+    const english = ogImage(path.join(dist, page));
+    if (!english) continue;
+    shareImageChecked += 1;
+    if (!english.includes(`/projects/${slug}/`)) {
+      stock.push(`${page} shares ${english.replace(/^https?:\/\/[^/]+\//, '')}`);
+    }
+    for (const locale of ATTR_LOCALES) {
+      const localeFile = path.join(dist, locale, page);
+      if (!fs.existsSync(localeFile)) continue;
+      shareImageChecked += 1;
+      const other = ogImage(localeFile);
+      if (other && other !== english) {
+        split.push(`${page}: English shares ${english.split('/').pop()}, ${locale} shares ${other.split('/').pop()}`);
+      }
+    }
+  }
+  if (stock.length) {
+    fail('dist', `${stock.length} project page(s) share an image from outside their own project folder, so the `
+      + `link preview shows somebody else's building: ${stock.slice(0, 3).join('; ')}.`);
+  }
+  if (split.length) {
+    fail('dist', `${split.length} project page(s) show one image in English and another in a translation: `
+      + `${split.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let distanceRowsChecked = 0;
 
 // location.distances is a positional array, so a locale overlay that has
@@ -3825,5 +3930,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${shareImageChecked} link previews checked for their own project's image.`);
 }

@@ -15,6 +15,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { curateViewingScenes } from './viewing_scene_curation.mjs';
 import path from 'node:path';
 import { DEFAULT_LOCALE, localizeProject, t, hasString } from './i18n.mjs';
+import { AREA_DISPLAY_NAMES } from './project_area.mjs';
 
 const projectsDir = path.resolve('content/liora-projects');
 
@@ -48,14 +49,6 @@ function localizedCategory(category, locale) {
   // there is no key to look up and t() would return the key literal.
   return hasString(key) ? t(key, locale) : category;
 }
-
-const AREA_DISPLAY_NAMES = {
-  marbella: 'Marbella',
-  estepona: 'Estepona',
-  benahavis: 'Benahavís',
-  'nueva-andalucia': 'Nueva Andalucía',
-  'mijas-fuengirola': 'Mijas & Fuengirola'
-};
 
 const VIEWING_SCENE_CATEGORY_TXT = {
   Exteriors: 'exterior',

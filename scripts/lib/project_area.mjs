@@ -52,3 +52,25 @@ export function projectAreaRule(project) {
   const mapArea = project?.location?.mapArea;
   return PROJECT_AREA_RULES.find((rule) => rule.match(text, mapArea)) || DEFAULT_PROJECT_AREA;
 }
+
+// What the viewing panel calls an area, keyed by the discovery filter slug.
+//
+// This lived in scripts/lib/viewing.mjs with five of the seven slugs in it,
+// and there was a second, unreferenced copy in build_property_pages.mjs. The
+// two missing slugs fell through to the project's own card label, so the five
+// San Pedro developments announced themselves as "Guadalmina Golf, Marbella",
+// "Cortijo Blanco", "Marbella West", "San Pedro Alcántara" and "San Pedro" --
+// five names for one area, in the one place the panel is meant to group them.
+//
+// These are display text, not routing, so they carry their accents. That is
+// why they are a table of their own rather than the rules' englishLabel, which
+// is deliberately unaccented for three areas and feeds live titles and schema.
+export const AREA_DISPLAY_NAMES = {
+  marbella: 'Marbella',
+  estepona: 'Estepona',
+  benahavis: 'Benahavís',
+  'nueva-andalucia': 'Nueva Andalucía',
+  'mijas-fuengirola': 'Mijas & Fuengirola',
+  casares: 'Casares',
+  'san-pedro-alcantara': 'San Pedro de Alcántara'
+};
