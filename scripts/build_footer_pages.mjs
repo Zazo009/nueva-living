@@ -450,9 +450,9 @@ ${pageSchema({ outputPath: file, locale, title: breadcrumbTitle || title, descri
   <script type="application/ld+json">
 ${JSON.stringify(guideArticleSchema({ file, title, description, heroImage, datePublished, locale }), null, 2)}
   </script>` : ''}
-  <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
-  <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
+  <link rel="icon" href="assets/liora/liora-favicon-512.png?v=7" type="image/png" sizes="512x512">
+  <link rel="icon" href="assets/liora/favicon-32.png?v=7" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=7" sizes="180x180">
 ${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css">${rtl ? `

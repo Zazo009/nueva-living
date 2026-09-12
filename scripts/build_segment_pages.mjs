@@ -560,9 +560,9 @@ ${baseHrefTag(locale)}  <title>${esc(resolveCount(segment.title, stats))}</title
   <meta name="description" content="${esc(segment.description)}">
 ${hreflangLinks(segment.output, siteUrl)}
 ${seoTags(segment.output, locale, { title: resolveCount(segment.title, stats), description: segment.description, image: `${siteUrl}/${segment.hero.image}` })}
-  <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
-  <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
+  <link rel="icon" href="assets/liora/liora-favicon-512.png?v=7" type="image/png" sizes="512x512">
+  <link rel="icon" href="assets/liora/favicon-32.png?v=7" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=7" sizes="180x180">
 ${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css">${rtl ? `
@@ -828,9 +828,9 @@ ${baseHrefTag(locale)}  <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
 ${hreflangLinks('guides.html', siteUrl)}
 ${seoTags('guides.html', locale, { title, description })}
-  <link rel="icon" href="assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
-  <link rel="icon" href="assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
+  <link rel="icon" href="assets/liora/liora-favicon-512.png?v=7" type="image/png" sizes="512x512">
+  <link rel="icon" href="assets/liora/favicon-32.png?v=7" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=7" sizes="180x180">
 ${fontPreloadBlock}
   <link rel="stylesheet" href="assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="assets/liora/liora-pages.css">${rtl ? `

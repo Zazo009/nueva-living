@@ -1738,9 +1738,9 @@ ${hreflangLinks(sourceProject.output, siteUrl)}
   <meta name="twitter:title" content="${esc(pageTitle)}">
   <meta name="twitter:description" content="${esc(twitterDescription(project, sourceProject, locale))}">
   <meta name="twitter:image" content="${esc(assetUrl(heroImage.src))}">
-  <link rel="icon" href="${p}assets/liora/liora-favicon-512.png?v=6" type="image/png" sizes="512x512">
-  <link rel="icon" href="${p}assets/liora/favicon-32.png?v=6" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="${p}assets/liora/apple-touch-icon.png?v=6" sizes="180x180">
+  <link rel="icon" href="${p}assets/liora/liora-favicon-512.png?v=7" type="image/png" sizes="512x512">
+  <link rel="icon" href="${p}assets/liora/favicon-32.png?v=7" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="${p}assets/liora/apple-touch-icon.png?v=7" sizes="180x180">
 ${fontPreloadBlock(p, locale)}
   <link rel="stylesheet" href="${p}assets/fonts/google/liora-fonts.css">
   <link rel="stylesheet" href="${p}assets/liora/liora-pages.css?v=9">
