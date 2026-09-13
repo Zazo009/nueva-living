@@ -11,6 +11,7 @@ import {
   localizedPath,
   hreflangLinks,
   baseHrefTag,
+  qualifyFragmentLinks,
   renderLanguageSwitcher,
   renderGuidesMenu,
   renderAreasMenu,
@@ -1333,7 +1334,7 @@ for (const segment of SEGMENTS) {
   for (const { code: locale } of LOCALES) {
     const outputPath = localizedPath(segment.output, locale);
     if (outputPath.includes('/')) mkdirSync(outputPath.split('/')[0], { recursive: true });
-    writeFileSync(outputPath, renderSegmentPage(segment, locale));
+    writeFileSync(outputPath, qualifyFragmentLinks(renderSegmentPage(segment, locale), outputPath, locale));
     written.push(outputPath);
   }
 }
@@ -1341,7 +1342,7 @@ for (const segment of SEGMENTS) {
 for (const { code: locale } of LOCALES) {
   const outputPath = localizedPath('guides.html', locale);
   if (outputPath.includes('/')) mkdirSync(outputPath.split('/')[0], { recursive: true });
-  writeFileSync(outputPath, renderGuidesPage(locale));
+  writeFileSync(outputPath, qualifyFragmentLinks(renderGuidesPage(locale), outputPath, locale));
   written.push(outputPath);
 }
 

@@ -1371,6 +1371,42 @@ let cardFilterChecked = 0;
   }
 }
 
+let fragmentLinkChecked = 0;
+
+// A page with <base> has no bare fragment links.
+//
+// Every locale page emits <base href="../"> so its hundreds of relative paths
+// resolve one directory deeper. A fragment-only href is resolved against that
+// base too, not against the document, so href="#availability" on
+// /sv/property-x.html points at the site root: the button leaves the page and
+// lands on the homepage. It is the spec, it is invisible in the markup, and
+// it hit every in-page link on all nine locales at once -- the section nav,
+// the hero buttons and the skip link. English emits no base tag and is fine,
+// which is why it survived so long.
+{
+  const offenders = [];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) { if (entry.name !== 'assets') walk(full); continue; }
+      if (!entry.name.endsWith('.html')) continue;
+      const html = fs.readFileSync(full, 'utf8');
+      if (!/<base\s+href=/.test(html)) continue;
+      fragmentLinkChecked += 1;
+      const bare = [...html.matchAll(/<a\b[^>]*\bhref="#([A-Za-z][\w-]*)"/g)].map((m) => m[1]);
+      if (bare.length) {
+        offenders.push(`${path.relative(dist, full)} (${[...new Set(bare)].slice(0, 3).join(', ')})`);
+      }
+    }
+  };
+  if (fs.existsSync(dist)) walk(dist);
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page(s) with a <base> tag still link to a bare fragment, which `
+      + `resolves against the base and sends the visitor to the site root instead of down the page: `
+      + `${offenders.slice(0, 3).join('; ')}.`);
+  }
+}
+
 let priceRangeChecked = 0;
 
 // The price slider's bounds have to bracket the cards it filters. The ceiling
@@ -1393,6 +1429,22 @@ let priceRangeChecked = 0;
       if (!bounds) { fail(path.relative(dist, full), 'the price filter has no min/max bounds.'); continue; }
       const min = Number(bounds[1]);
       const max = Number(bounds[2]);
+      // The bound is authored twice: once on the wrapper, where the label and
+      // this check read it, and once on each range input, which is what the
+      // browser actually enforces. Lowering only the wrapper left the slider
+      // starting 26,000 above the cheapest project, so it stayed filtered out
+      // of the grid with the label reporting the correct floor above it.
+      for (const control of html.matchAll(/<input type="range"[^>]*data-range-input="(min|max)"[^>]*>/g)) {
+        const tag = control[0];
+        if (!/step="10000"/.test(tag)) continue;
+        const bound = Number((/\bmin="(\d+)"/.exec(tag) || [])[1]);
+        const ceiling = Number((/\bmax="(\d+)"/.exec(tag) || [])[1]);
+        if (bound !== min || ceiling !== max) {
+          fail(path.relative(dist, full), `the price slider's ${control[1]} handle runs `
+            + `${bound}-${ceiling} but the filter declares ${min}-${max}. The handle is what the `
+            + `browser enforces, so the two have to agree.`);
+        }
+      }
       const prices = [...html.matchAll(CARD_PRICE)].map((m) => Number(m[1])).filter((n) => n > 0);
       if (!prices.length) continue;
       priceRangeChecked += 1;
@@ -4092,5 +4144,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${scriptMixChecked} translated strings checked for one alphabet, ${indexFactsChecked} index facts checked against the project list, ${shareImageChecked} link previews checked for their own project's image, ${metricLabelChecked} overlay metric labels checked for one word per language.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${fragmentLinkChecked} based pages checked for bare fragment links, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${scriptMixChecked} translated strings checked for one alphabet, ${indexFactsChecked} index facts checked against the project list, ${shareImageChecked} link previews checked for their own project's image, ${metricLabelChecked} overlay metric labels checked for one word per language.`);
 }

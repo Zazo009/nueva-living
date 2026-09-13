@@ -24,7 +24,8 @@ import {
   renderLanguageSwitcher,
   LANG_SWITCHER_SCRIPT,
   localizeInternalLinks,
-  t
+  t,
+  qualifyFragmentLinks
 } from './lib/i18n.mjs';
 import { localizeCardPrices } from './lib/prices.mjs';
 import {
@@ -254,6 +255,7 @@ for (const meta of LOCALES) {
   mkdirSync(path.dirname(outPath), { recursive: true });
   html = localizeInternalLinks(html, locale);
   html = localizeCardPrices(html, locale);
+  html = qualifyFragmentLinks(html, `${meta.urlPrefix}/developments.html`, locale);
   writeFileSync(outPath, html);
   written.push(`${meta.urlPrefix}/developments.html`);
 }

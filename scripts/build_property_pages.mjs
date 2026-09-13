@@ -14,6 +14,7 @@ import {
   hreflangLinks,
   rootPrefix,
   baseHrefTag,
+  qualifyFragmentLinks,
   renderLanguageSwitcher,
   renderGuidesMenu,
   renderAreasMenu,
@@ -3228,7 +3229,7 @@ for (const project of projects) {
     const html = renderProject(project, locale);
     const fullPath = path.resolve(outputPath);
     mkdirSync(path.dirname(fullPath), { recursive: true });
-    writeFileSync(fullPath, html);
+    writeFileSync(fullPath, qualifyFragmentLinks(html, outputPath, locale));
     written.push(outputPath);
   }
 }

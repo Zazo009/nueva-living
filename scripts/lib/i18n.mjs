@@ -158,6 +158,22 @@ export function rootPrefix() {
   return '';
 }
 
+// `<base href="../">` fixes every relative path on a locale page and breaks
+// every fragment-only one. A bare href="#availability" is resolved against
+// the base, not the document, so on /sv/property-x.html it points at the site
+// root and the button leaves the page for the homepage. That is the spec, not
+// a browser quirk, and it silently hit all thirty in-page links on every
+// locale page -- the section nav, the hero buttons, the skip link.
+//
+// The page's own output path is exactly its address relative to the base, so
+// qualifying each fragment with it restores same-page behaviour and leaves
+// English, which emits no base tag, untouched.
+export function qualifyFragmentLinks(html, outputPath, locale) {
+  if (!localeMeta(locale).urlPrefix) return html;
+  return html.replace(/(<a\b[^>]*\bhref=")#([A-Za-z][\w-]*)"/g,
+    (whole, head, id) => `${head}${outputPath}#${id}"`);
+}
+
 export function baseHrefTag(locale) {
   return localeMeta(locale).urlPrefix ? '  <base href="../">\n' : '';
 }

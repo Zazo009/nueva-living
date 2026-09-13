@@ -9,6 +9,7 @@ import {
   localizedPath,
   hreflangLinks,
   baseHrefTag,
+  qualifyFragmentLinks,
   renderLanguageSwitcher,
   renderGuidesMenu,
   renderAreasMenu,
@@ -2004,7 +2005,7 @@ for (const item of pages) {
     const outputPath = localizedPath(item.file, locale);
     const fullPath = outputPath;
     if (outputPath.includes('/')) mkdirSync(outputPath.split('/')[0], { recursive: true });
-    writeFileSync(fullPath, page(resolvedItem, locale));
+    writeFileSync(fullPath, qualifyFragmentLinks(page(resolvedItem, locale), outputPath, locale));
     written.push(outputPath);
   }
 }

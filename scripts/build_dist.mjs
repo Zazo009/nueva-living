@@ -5,7 +5,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import vm from 'node:vm';
 import { LOCALES, DEFAULT_LOCALE, localizedPath, t, clampDescription,
-  renderAreasMenu, renderGuidesMenu } from './lib/i18n.mjs';
+  renderAreasMenu, renderGuidesMenu, qualifyFragmentLinks } from './lib/i18n.mjs';
 import { MONTH_NAMES, localizeMonthDate } from './lib/dates.mjs';
 
 // writeHtml() below is called once per output file across the whole site
@@ -1270,16 +1270,20 @@ function stampAssetVersions(html) {
 // that each carry their own <body> markup. Hidden until it takes focus, so it
 // changes nothing about how the site looks; the first Tab on any page now
 // jumps past the navigation instead of walking through it.
-function injectSkipLink(html, locale) {
+function injectSkipLink(html, locale, publicName) {
   if (html.includes('data-skip-link')) return html;
   const target = /<main\b[^>]*\sid="/.test(html) ? null : '<main';
   const withId = target
     ? html.replace(/<main\b/, '<main id="main-content"')
     : html;
   const label = t('a11y.skipToContent', locale);
+  // On a locale page <base href="../"> would resolve a bare "#main-content"
+  // against the site root, so the first Tab would leave the page.
+  const href = qualifyFragmentLinks('<a href="#main-content">', publicName, locale)
+    .replace(/^<a href="|">$/g, '');
   return withId.replace(
     /(<body[^>]*>)/i,
-    `$1\n  <a class="skip-link" data-skip-link href="#main-content">${label}</a>`
+    `$1\n  <a class="skip-link" data-skip-link href="${href}">${label}</a>`
   );
 }
 
@@ -1692,7 +1696,7 @@ function localiseGalleryChrome(html, locale) {
   out = injectNewsletter(out, locale);
   out = injectShortlist(out);
   out = injectNavInteractions(out);
-  out = injectSkipLink(out, locale);
+  out = injectSkipLink(out, locale, publicName);
   out = localiseNavDisclosures(out, locale);
   out = localiseCardLocations(out, locale);
   out = localiseDiscoveryTags(out, locale);
