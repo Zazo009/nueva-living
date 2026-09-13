@@ -26,6 +26,9 @@ export const FLOOR_PARTS = {
   'garden': { es: 'Jardín', fr: 'Jardin', de: 'Garten', ru: 'Сад', ar: 'حديقة', nl: 'Tuin', pl: 'Ogród', sv: 'Trädgård', no: 'Hage' },
   'lower level': { es: 'Planta inferior', fr: 'Niveau inférieur', de: 'Untergeschoss', ru: 'Нижний уровень', ar: 'المستوى السفلي', nl: 'Onderste niveau', pl: 'Poziom dolny', sv: 'Nedre plan', no: 'Nedre plan' },
   'garden level': { es: 'Planta jardín', fr: 'Niveau jardin', de: 'Gartenebene', ru: 'Садовый уровень', ar: 'مستوى الحديقة', nl: 'Tuinniveau', pl: 'Poziom ogrodu', sv: 'Trädgårdsplan', no: 'Hagenivå' },
+  // Evoque's ground level mixes homes with a private garden and homes with
+  // a large terrace in its place, and the price list names them apart.
+  'terrace level': { es: 'Planta terraza', fr: 'Niveau terrasse', de: 'Terrassenebene', ru: 'Террасный уровень', ar: 'مستوى التراس', nl: 'Terrasniveau', pl: 'Poziom tarasowy', sv: 'Terrassplan', no: 'Terrasseplan' },
   'solarium': { es: 'Solárium', fr: 'Solarium', de: 'Solarium', ru: 'Солярий', ar: 'سولاريوم', nl: 'Solarium', pl: 'Solarium', sv: 'Solterrass', no: 'Solterrasse' },
   'duplex': { es: 'Dúplex', fr: 'Duplex', de: 'Maisonette', ru: 'Дуплекс', ar: 'دوبلكس', nl: 'Duplex', pl: 'Dwupoziomowy', sv: 'Etagelägenhet', no: 'Toetasjes leilighet' },
   '1st floor': { es: 'Primera planta', fr: 'Premier étage', de: 'Erstes Obergeschoss', ru: 'Второй этаж', ar: 'الطابق الأول', nl: 'Eerste verdieping', pl: 'Pierwsze piętro', sv: 'Första våningen', no: 'Andre etasje' },
