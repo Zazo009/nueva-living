@@ -1990,6 +1990,10 @@ const legacyRedirects = [
   '/liora-privacy-policy.html /privacy-policy.html 301',
   '/liora-legal-notice.html /legal-notice.html 301',
   '/liora-cookie-policy.html /cookie-policy.html 301',
+  // Published as carvajal-wellness-residences from the dossier's "Carvajal
+  // beach 5 min". The owner's own map pin puts the site at El Higueron,
+  // four kilometres inland, so the slug moved with the name.
+  '/property-carvajal-wellness-residences.html /property-higueron-wellness-residences.html 301',
 ];
 
 
