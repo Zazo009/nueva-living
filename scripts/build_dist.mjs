@@ -579,6 +579,7 @@ const assetFiles = [
   'assets/liora/advisory-property-2048.avif',
   'assets/liora/advisory-property-2048.webp',
   'assets/liora/apple-touch-icon.png',
+  'assets/liora/favicon.ico',
   'assets/liora/favicon-16.png',
   'assets/liora/favicon-32.png',
   'assets/liora/liora-discovery.js',
@@ -1964,6 +1965,11 @@ fs.writeFileSync(
   `${JSON.stringify(Object.fromEntries(Object.entries(nextLastmodManifest).sort(([a], [b]) => a.localeCompare(b))), null, 2)}\n`
 );
 
+// Browsers request /favicon.ico on their own, whatever the <link> tags say,
+// and bookmarks and some readers use nothing else. Without it every visit
+// asked for a file that did not exist and got the 71 KB custom 404 back.
+fs.copyFileSync(path.join(root, 'assets/liora/favicon.ico'), path.join(dist, 'favicon.ico'));
+
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
 
 const legacyRedirects = [
@@ -2043,6 +2049,9 @@ fs.writeFileSync(path.join(dist, '_headers'), `/*.html
 
 /robots.txt
   Cache-Control: public, max-age=3600
+
+/favicon.ico
+  Cache-Control: public, max-age=86400
 `);
 
 console.log(`Created clean deploy folder: ${dist}`);
