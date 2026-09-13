@@ -15,6 +15,9 @@ export const FLOOR_PARTS = {
   // rather than a floor number as their identity.
   // A townhouse occupies the whole building, so its "floor" is the house
   // itself rather than a level within one.
+  // A detached house on its own plot: its "floor" is the house itself,
+  // the same way a townhouse's is.
+  'villa': { es: 'Villa', fr: 'Villa', de: 'Villa', ru: 'Вилла', ar: 'فيلا', nl: 'Villa', pl: 'Willa', sv: 'Villa', no: 'Villa' },
   'townhouse': { es: 'Adosado', fr: 'Maison de ville', de: 'Reihenhaus', ru: 'Таунхаус', ar: 'منزل متلاصق', nl: 'Rijwoning', pl: 'Dom szeregowy', sv: 'Radhus', no: 'Rekkehus' },
   'garden floor': { es: 'Planta jardín', fr: 'Niveau jardin', de: 'Gartenebene', ru: 'Садовый уровень', ar: 'مستوى الحديقة', nl: 'Tuinniveau', pl: 'Poziom ogrodowy', sv: 'Trädgårdsplan', no: 'Hageplan' },
   'ground floor': { es: 'Planta baja', fr: 'Rez-de-chaussée', de: 'Erdgeschoss', ru: 'Первый этаж', ar: 'الطابق الأرضي', nl: 'Begane grond', pl: 'Parter', sv: 'Bottenvåning', no: 'Første etasje' },

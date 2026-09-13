@@ -3159,7 +3159,12 @@ function validateProject(project) {
   // keeping the visitor on the page rather than sending them off-site.
   const TOUR_HOSTS = [
     { match: /(^|\.)matterport\.com$/, path: '/show', requireParam: 'm' },
-    { match: /(^|\.)aeroscantour\.com$/, path: '/' }
+    { match: /(^|\.)aeroscantour\.com$/, path: '/' },
+    // Kuula, under the developer's own subdomain, carries the La Resina
+    // aerial tour. Added on the owner's instruction with the same trade as
+    // the host above: the tour's panoramas have the developer's name burnt
+    // into them, which no embed can strip.
+    { match: /(^|\.)viewin360\.co$/, path: '/share' }
   ];
   const tourUrl = project.media?.tour?.url;
   if (tourUrl !== undefined) {
