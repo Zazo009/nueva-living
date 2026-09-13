@@ -148,7 +148,7 @@ const basePageMeta = {
   },
   'developments.html': {
     title: 'New Developments on the Costa del Sol - {count} Projects',
-    description: 'Browse 30 new-build and off-plan developments from Marbella to Benalmadena, with guide prices from €305,000, delivery dates and live availability.',
+    description: 'Browse {count} new-build and off-plan developments from Marbella to Benalmadena, with guide prices from €{minPrice}, delivery dates and live availability.',
     path: '/developments.html',
     // The organisation node used to be hand-written into developments.html
     // itself -- a third copy of the identity, and the one that disagreed with
@@ -512,6 +512,19 @@ for (const [output, area] of [
     entry.title = n >= SEGMENT_COUNT_MIN
       ? entry.title.replace('{count}', String(n))
       : entry.title.replace(/ - \{count\} Projects/, '');
+  }
+  // The description was written out longhand and was never given the same
+  // treatment, so it sat at "30 developments" and "from EUR 305,000" while
+  // the title beside it said 47 and the cheapest project had dropped to
+  // EUR 274,000. Both numbers now come from the same place the title does.
+  if (entry?.description) {
+    const prices = projectPages
+      .map((project) => Number(project.discovery?.price))
+      .filter((value) => Number.isFinite(value) && value > 0);
+    const min = prices.length ? Math.min(...prices) : null;
+    entry.description = entry.description
+      .replace('{count}', String(n))
+      .replace('{minPrice}', min ? min.toLocaleString('en-US') : '');
   }
 }
 const nonDefaultLocales = LOCALES.filter((l) => l.code !== DEFAULT_LOCALE);
