@@ -2407,6 +2407,10 @@ assertUnitTypeStrings();
 // translation. Keep it small and keep the reason with each entry: a growing
 // list here means the check is being silenced rather than answered.
 const IDENTICAL_BY_DESIGN = new Set([
+  // German writes a construction phase as "Phase" and a quarter as "Q",
+  // exactly as English does, and the rest of the label is digits. The
+  // site's other phased schemes differ only where a season is spelled out.
+  'de|Phase 1: Q3 2027 - Q4 2028 / Phase 2: 2028',
   // "in" is spelled the same in German and Dutch, and both flanking names are
   // proper nouns, so there is nothing left to translate.
   'de|New Golden Mile, <em>in El Campanario</em>',
