@@ -14,66 +14,82 @@
   // locale directory, mirroring what the build does for server-rendered
   // markup. Derived from the URL rather than <html lang> so it stays right
   // even if the two ever disagree.
-  const LOCALE_DIRS = ['es', 'fr', 'de', 'ru', 'ar'];
+  const LOCALE_DIRS = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
   const localeDir = LOCALE_DIRS.find((dir) => location.pathname.startsWith('/' + dir + '/')) || '';
   const localeHref = (page) => (localeDir ? localeDir + '/' + page : page);
   const STRINGS = {
-    saveProject: { en: 'Save Project', es: 'Guardar Proyecto', fr: 'Enregistrer le Projet', de: 'Projekt Speichern', ru: 'Сохранить проект', ar: 'حفظ المشروع' },
-    savedToShortlist: { en: 'Saved to Shortlist', es: 'Guardado en tu Lista', fr: 'Enregistré dans la Liste', de: 'Zur Merkliste hinzugefügt', ru: 'Сохранено в списке', ar: 'تم الحفظ في القائمة' },
-    removeFromShortlistTitle: { en: 'Remove from shortlist', es: 'Quitar de la lista', fr: 'Retirer de la liste', de: 'Von der Merkliste entfernen', ru: 'Удалить из списка', ar: 'إزالة من القائمة' },
-    saveToShortlistTitle: { en: 'Save to shortlist', es: 'Guardar en la lista', fr: 'Ajouter à la liste', de: 'Zur Merkliste hinzufügen', ru: 'Сохранить в список', ar: 'حفظ في القائمة' },
-    openShortlistTitle: { en: 'Open shortlist', es: 'Abrir lista', fr: 'Ouvrir la liste', de: 'Merkliste öffnen', ru: 'Открыть список', ar: 'فتح القائمة' },
-    closeShortlist: { en: 'Close shortlist', es: 'Cerrar lista', fr: 'Fermer la liste', de: 'Merkliste schließen', ru: 'Закрыть список', ar: 'إغلاق القائمة' },
-    yourShortlist: { en: 'Your Shortlist', es: 'Tu Lista', fr: 'Votre Liste', de: 'Ihre Merkliste', ru: 'Ваш список', ar: 'قائمتك' },
-    savedProjectsTitle: { en: 'Saved Projects', es: 'Proyectos Guardados', fr: 'Projets Enregistrés', de: 'Gespeicherte Projekte', ru: 'Сохранённые проекты', ar: 'المشاريع المحفوظة' },
-    viewProject: { en: 'View Project', es: 'Ver Proyecto', fr: 'Voir le Projet', de: 'Projekt Ansehen', ru: 'Смотреть проект', ar: 'عرض المشروع' },
-    defaultSelectionLabel: { en: 'Nueva Living selection', es: 'Selección de Nueva Living', fr: 'Sélection Nueva Living', de: 'Nueva Living Auswahl', ru: 'Подборка Nueva Living', ar: 'اختيار Nueva Living' },
+    saveProject: { en: 'Save Project', es: 'Guardar Proyecto', fr: 'Enregistrer le Projet', de: 'Projekt Speichern', ru: 'Сохранить проект', ar: 'حفظ المشروع', nl: 'Project Opslaan', pl: 'Zapisz Projekt', sv: 'Spara Projekt', no: 'Lagre Prosjekt' },
+    savedToShortlist: { en: 'Saved to Shortlist', es: 'Guardado en tu Lista', fr: 'Enregistré dans la Liste', de: 'Zur Merkliste hinzugefügt', ru: 'Сохранено в списке', ar: 'تم الحفظ في القائمة', nl: 'Opgeslagen in Lijst', pl: 'Zapisano na Liście', sv: 'Sparad i Listan', no: 'Lagret i Listen' },
+    removeFromShortlistTitle: { en: 'Remove from shortlist', es: 'Quitar de la lista', fr: 'Retirer de la liste', de: 'Von der Merkliste entfernen', ru: 'Удалить из списка', ar: 'إزالة من القائمة', nl: 'Uit de lijst verwijderen', pl: 'Usuń z listy', sv: 'Ta bort från listan', no: 'Fjern fra listen' },
+    saveToShortlistTitle: { en: 'Save to shortlist', es: 'Guardar en la lista', fr: 'Ajouter à la liste', de: 'Zur Merkliste hinzufügen', ru: 'Сохранить в список', ar: 'حفظ في القائمة', nl: 'Opslaan in de lijst', pl: 'Zapisz na liście', sv: 'Spara i listan', no: 'Lagre i listen' },
+    openShortlistTitle: { en: 'Open shortlist', es: 'Abrir lista', fr: 'Ouvrir la liste', de: 'Merkliste öffnen', ru: 'Открыть список', ar: 'فتح القائمة', nl: 'Lijst openen', pl: 'Otwórz listę', sv: 'Öppna listan', no: 'Åpne listen' },
+    closeShortlist: { en: 'Close shortlist', es: 'Cerrar lista', fr: 'Fermer la liste', de: 'Merkliste schließen', ru: 'Закрыть список', ar: 'إغلاق القائمة', nl: 'Lijst sluiten', pl: 'Zamknij listę', sv: 'Stäng listan', no: 'Lukk listen' },
+    yourShortlist: { en: 'Your Shortlist', es: 'Tu Lista', fr: 'Votre Liste', de: 'Ihre Merkliste', ru: 'Ваш список', ar: 'قائمتك', nl: 'Uw Lijst', pl: 'Twoja Lista', sv: 'Er Lista', no: 'Din Liste' },
+    savedProjectsTitle: { en: 'Saved Projects', es: 'Proyectos Guardados', fr: 'Projets Enregistrés', de: 'Gespeicherte Projekte', ru: 'Сохранённые проекты', ar: 'المشاريع المحفوظة', nl: 'Opgeslagen Projecten', pl: 'Zapisane Inwestycje', sv: 'Sparade Projekt', no: 'Lagrede Prosjekter' },
+    viewProject: { en: 'View Project', es: 'Ver Proyecto', fr: 'Voir le Projet', de: 'Projekt Ansehen', ru: 'Смотреть проект', ar: 'عرض المشروع', nl: 'Project Bekijken', pl: 'Zobacz Inwestycję', sv: 'Visa Projekt', no: 'Se Prosjekt' },
+    defaultSelectionLabel: { en: 'Nueva Living selection', es: 'Selección de Nueva Living', fr: 'Sélection Nueva Living', de: 'Nueva Living Auswahl', ru: 'Подборка Nueva Living', ar: 'اختيار Nueva Living', nl: 'Selectie van Nueva Living', pl: 'Wybór Nueva Living', sv: 'Nueva Livings urval', no: 'Nueva Livings utvalg' },
     emptyText: {
       en: 'Tap the heart on any project to build a private shortlist you can keep, compare and send to us.',
       es: 'Toca el corazón de cualquier proyecto para crear una lista privada que podrás guardar, comparar y enviarnos.',
       fr: "Appuyez sur le cœur d'un projet pour créer une liste privée que vous pourrez conserver, comparer et nous envoyer.",
       de: 'Tippen Sie auf das Herz eines Projekts, um eine private Merkliste zu erstellen, die Sie speichern, vergleichen und uns senden können.',
       ru: 'Нажмите на сердечко у любого проекта, чтобы создать личный список, который можно сохранить, сравнить и отправить нам.',
-      ar: 'اضغط على أيقونة القلب في أي مشروع لإنشاء قائمة خاصة يمكنك حفظها ومقارنتها وإرسالها إلينا.'
+      ar: 'اضغط على أيقونة القلب في أي مشروع لإنشاء قائمة خاصة يمكنك حفظها ومقارنتها وإرسالها إلينا.',
+      nl: 'Tik op het hartje bij een project om een eigen lijst samen te stellen die u kunt bewaren, vergelijken en naar ons sturen.',
+      pl: 'Kliknij serce przy dowolnej inwestycji, aby zbudować własną listę, którą można zachować, porównać i przesłać do nas.',
+      sv: 'Tryck på hjärtat vid ett projekt för att bygga en egen lista som ni kan spara, jämföra och skicka till oss.',
+      no: 'Trykk på hjertet ved et prosjekt for å bygge en egen liste du kan lagre, sammenligne og sende til oss.'
     },
-    browseDevelopments: { en: 'Browse Developments', es: 'Ver Promociones', fr: 'Voir les Programmes', de: 'Projekte Durchsuchen', ru: 'Смотреть проекты', ar: 'تصفح المشاريع' },
-    compareSaved: { en: 'Compare Saved Projects', es: 'Comparar Proyectos Guardados', fr: 'Comparer les Projets Enregistrés', de: 'Gespeicherte Projekte Vergleichen', ru: 'Сравнить сохранённые проекты', ar: 'مقارنة المشاريع المحفوظة' },
-    sendYourShortlist: { en: 'Send Your Shortlist', es: 'Enviar tu Lista', fr: 'Envoyer votre Liste', de: 'Merkliste Senden', ru: 'Отправить список', ar: 'إرسال قائمتك' },
+    browseDevelopments: { en: 'Browse Developments', es: 'Ver Promociones', fr: 'Voir les Programmes', de: 'Projekte Durchsuchen', ru: 'Смотреть проекты', ar: 'تصفح المشاريع', nl: 'Projecten Bekijken', pl: 'Zobacz Inwestycje', sv: 'Visa Projekt', no: 'Se Prosjekter' },
+    compareSaved: { en: 'Compare Saved Projects', es: 'Comparar Proyectos Guardados', fr: 'Comparer les Projets Enregistrés', de: 'Gespeicherte Projekte Vergleichen', ru: 'Сравнить сохранённые проекты', ar: 'مقارنة المشاريع المحفوظة', nl: 'Opgeslagen Projecten Vergelijken', pl: 'Porównaj Zapisane Inwestycje', sv: 'Jämför Sparade Projekt', no: 'Sammenlign Lagrede Prosjekter' },
+    sendYourShortlist: { en: 'Send Your Shortlist', es: 'Enviar tu Lista', fr: 'Envoyer votre Liste', de: 'Merkliste Senden', ru: 'Отправить список', ar: 'إرسال قائمتك', nl: 'Uw Lijst Versturen', pl: 'Wyślij Swoją Listę', sv: 'Skicka Er Lista', no: 'Send Listen Din' },
     sendShortlistIntro: {
       en: 'Share the projects you saved and we will come back with current availability, useful comparisons and the right next step.',
       es: 'Comparte los proyectos que has guardado y te responderemos con la disponibilidad actual, comparativas útiles y el siguiente paso adecuado.',
       fr: "Partagez les projets que vous avez enregistrés et nous reviendrons vers vous avec la disponibilité actuelle, des comparaisons utiles et la prochaine étape adaptée.",
       de: 'Teilen Sie die von Ihnen gespeicherten Projekte, und wir melden uns mit aktueller Verfügbarkeit, hilfreichen Vergleichen und dem passenden nächsten Schritt.',
       ru: 'Поделитесь сохранёнными проектами, и мы свяжемся с вами, сообщив актуальную доступность, полезные сравнения и следующий шаг.',
-      ar: 'شارك المشاريع التي حفظتها وسنعاود التواصل معك بمعلومات التوفر الحالية ومقارنات مفيدة والخطوة التالية المناسبة.'
+      ar: 'شارك المشاريع التي حفظتها وسنعاود التواصل معك بمعلومات التوفر الحالية ومقارنات مفيدة والخطوة التالية المناسبة.',
+      nl: 'Deel de projecten die u hebt opgeslagen en wij komen terug met de actuele beschikbaarheid, nuttige vergelijkingen en de juiste volgende stap.',
+      pl: 'Prześlij zapisane inwestycje, a wrócimy z aktualną dostępnością, przydatnymi porównaniami i właściwym kolejnym krokiem.',
+      sv: 'Dela projekten ni har sparat, så återkommer vi med aktuell tillgänglighet, användbara jämförelser och rätt nästa steg.',
+      no: 'Del prosjektene du har lagret, så kommer vi tilbake med aktuell tilgjengelighet, nyttige sammenligninger og riktig neste steg.'
     },
-    firstName: { en: 'First Name', es: 'Nombre', fr: 'Prénom', de: 'Vorname', ru: 'Имя', ar: 'الاسم الأول' },
-    lastName: { en: 'Last Name', es: 'Apellidos', fr: 'Nom', de: 'Nachname', ru: 'Фамилия', ar: 'اسم العائلة' },
-    email: { en: 'Email', es: 'Correo Electrónico', fr: 'E-mail', de: 'E-Mail', ru: 'Email', ar: 'البريد الإلكتروني' },
-    phone: { en: 'Phone / WhatsApp', es: 'Teléfono / WhatsApp', fr: 'Téléphone / WhatsApp', de: 'Telefon / WhatsApp', ru: 'Телефон / WhatsApp', ar: 'الهاتف / واتساب' },
-    anythingWeShouldKnow: { en: 'Anything We Should Know?', es: '¿Algo Más que Debamos Saber?', fr: 'Autre Chose à Savoir ?', de: 'Gibt es Etwas, das Wir Wissen Sollten?', ru: 'Что нам стоит знать?', ar: 'هل هناك ما ينبغي أن نعرفه؟' },
+    firstName: { en: 'First Name', es: 'Nombre', fr: 'Prénom', de: 'Vorname', ru: 'Имя', ar: 'الاسم الأول', nl: 'Voornaam', pl: 'Imię', sv: 'Förnamn', no: 'Fornavn' },
+    lastName: { en: 'Last Name', es: 'Apellidos', fr: 'Nom', de: 'Nachname', ru: 'Фамилия', ar: 'اسم العائلة', nl: 'Achternaam', pl: 'Nazwisko', sv: 'Efternamn', no: 'Etternavn' },
+    email: { en: 'Email', es: 'Correo Electrónico', fr: 'E-mail', de: 'E-Mail', ru: 'Email', ar: 'البريد الإلكتروني', nl: 'E-mail', pl: 'E-mail', sv: 'E-post', no: 'E-post' },
+    phone: { en: 'Phone / WhatsApp', es: 'Teléfono / WhatsApp', fr: 'Téléphone / WhatsApp', de: 'Telefon / WhatsApp', ru: 'Телефон / WhatsApp', ar: 'الهاتف / واتساب', nl: 'Telefoon / WhatsApp', pl: 'Telefon / WhatsApp', sv: 'Telefon / WhatsApp', no: 'Telefon / WhatsApp' },
+    anythingWeShouldKnow: { en: 'Anything We Should Know?', es: '¿Algo Más que Debamos Saber?', fr: 'Autre Chose à Savoir ?', de: 'Gibt es Etwas, das Wir Wissen Sollten?', ru: 'Что нам стоит знать?', ar: 'هل هناك ما ينبغي أن نعرفه؟', nl: 'Nog iets dat wij moeten weten?', pl: 'Coś jeszcze, co powinniśmy wiedzieć?', sv: 'Något mer vi bör veta?', no: 'Noe mer vi bør vite?' },
     consent: {
       en: 'I agree to be contacted and for my data to be stored.',
       es: 'Acepto ser contactado/a y que mis datos sean almacenados.',
       fr: 'J’accepte d’être contacté(e) et que mes données soient conservées.',
       de: 'Ich stimme zu, kontaktiert zu werden und dass meine Daten gespeichert werden.',
       ru: 'Я согласен(на) на связь со мной и на хранение моих данных.',
-      ar: 'أوافق على التواصل معي وعلى تخزين بياناتي.'
+      ar: 'أوافق على التواصل معي وعلى تخزين بياناتي.',
+      nl: 'Ik ga ermee akkoord te worden benaderd en dat mijn gegevens worden bewaard.',
+      pl: 'Zgadzam się na kontakt i na przechowywanie moich danych.',
+      sv: 'Jag samtycker till att bli kontaktad och att mina uppgifter lagras.',
+      no: 'Jeg samtykker i å bli kontaktet og at opplysningene mine lagres.'
     },
-    sendShortlistButton: { en: 'Send Shortlist', es: 'Enviar Lista', fr: 'Envoyer la Liste', de: 'Liste Senden', ru: 'Отправить список', ar: 'إرسال القائمة' },
-    addedToShortlist: { en: '{name} added to your shortlist.', es: '{name} añadido a tu lista.', fr: '{name} ajouté à votre liste.', de: '{name} zur Merkliste hinzugefügt.', ru: '{name} добавлен в ваш список.', ar: 'تمت إضافة {name} إلى قائمتك.' },
-    removedFromShortlist: { en: '{name} removed from your shortlist.', es: '{name} eliminado de tu lista.', fr: '{name} retiré de votre liste.', de: '{name} von der Merkliste entfernt.', ru: '{name} удалён из вашего списка.', ar: 'تمت إزالة {name} من قائمتك.' },
+    sendShortlistButton: { en: 'Send Shortlist', es: 'Enviar Lista', fr: 'Envoyer la Liste', de: 'Liste Senden', ru: 'Отправить список', ar: 'إرسال القائمة', nl: 'Lijst Versturen', pl: 'Wyślij Listę', sv: 'Skicka Lista', no: 'Send Liste' },
+    addedToShortlist: { en: '{name} added to your shortlist.', es: '{name} añadido a tu lista.', fr: '{name} ajouté à votre liste.', de: '{name} zur Merkliste hinzugefügt.', ru: '{name} добавлен в ваш список.', ar: 'تمت إضافة {name} إلى قائمتك.', nl: '{name} is aan uw lijst toegevoegd.', pl: '{name} dodano do Twojej listy.', sv: '{name} har lagts till i er lista.', no: '{name} er lagt til i listen din.' },
+    removedFromShortlist: { en: '{name} removed from your shortlist.', es: '{name} eliminado de tu lista.', fr: '{name} retiré de votre liste.', de: '{name} von der Merkliste entfernt.', ru: '{name} удалён из вашего списка.', ar: 'تمت إزالة {name} من قائمتك.', nl: '{name} is uit uw lijst verwijderd.', pl: '{name} usunięto z Twojej listy.', sv: '{name} har tagits bort från er lista.', no: '{name} er fjernet fra listen din.' },
     shortlistMessageIntro: {
       en: 'I would like to discuss my Nueva Living shortlist:',
       es: 'Me gustaría hablar sobre mi lista de Nueva Living:',
       fr: 'J’aimerais discuter de ma liste Nueva Living :',
       de: 'Ich möchte gerne über meine Nueva Living Merkliste sprechen:',
       ru: 'Я хотел(а) бы обсудить свой список Nueva Living:',
-      ar: 'أود مناقشة قائمتي في Nueva Living:'
+      ar: 'أود مناقشة قائمتي في Nueva Living:',
+      nl: 'Ik wil graag mijn Nueva Living-lijst bespreken:',
+      pl: 'Chciałbym omówić moją listę Nueva Living:',
+      sv: 'Jag vill gärna diskutera min Nueva Living-lista:',
+      no: 'Jeg vil gjerne diskutere Nueva Living-listen min:'
     },
-    openShortlistAria: { en: 'Open shortlist ({count} saved)', es: 'Abrir lista ({count} guardados)', fr: 'Ouvrir la liste ({count} enregistrés)', de: 'Merkliste öffnen ({count} gespeichert)', ru: 'Открыть список ({count} сохранено)', ar: 'فتح القائمة ({count} محفوظ)' },
-    removeProjectAria: { en: 'Remove {name} from shortlist', es: 'Quitar {name} de la lista', fr: 'Retirer {name} de la liste', de: '{name} von der Merkliste entfernen', ru: 'Удалить {name} из списка', ar: 'إزالة {name} من القائمة' },
-    saveProjectAria: { en: 'Save {name} to shortlist', es: 'Guardar {name} en la lista', fr: 'Ajouter {name} à la liste', de: '{name} zur Merkliste hinzufügen', ru: 'Сохранить {name} в список', ar: 'حفظ {name} في القائمة' }
+    openShortlistAria: { en: 'Open shortlist ({count} saved)', es: 'Abrir lista ({count} guardados)', fr: 'Ouvrir la liste ({count} enregistrés)', de: 'Merkliste öffnen ({count} gespeichert)', ru: 'Открыть список ({count} сохранено)', ar: 'فتح القائمة ({count} محفوظ)', nl: 'Lijst openen ({count} opgeslagen)', pl: 'Otwórz listę ({count} zapisanych)', sv: 'Öppna listan ({count} sparade)', no: 'Åpne listen ({count} lagret)' },
+    removeProjectAria: { en: 'Remove {name} from shortlist', es: 'Quitar {name} de la lista', fr: 'Retirer {name} de la liste', de: '{name} von der Merkliste entfernen', ru: 'Удалить {name} из списка', ar: 'إزالة {name} من القائمة', nl: '{name} uit de lijst verwijderen', pl: 'Usuń {name} z listy', sv: 'Ta bort {name} från listan', no: 'Fjern {name} fra listen' },
+    saveProjectAria: { en: 'Save {name} to shortlist', es: 'Guardar {name} en la lista', fr: 'Ajouter {name} à la liste', de: '{name} zur Merkliste hinzufügen', ru: 'Сохранить {name} в список', ar: 'حفظ {name} في القائمة', nl: '{name} opslaan in de lijst', pl: 'Zapisz {name} na liście', sv: 'Spara {name} i listan', no: 'Lagre {name} i listen' }
   };
 
   function t(key, vars) {

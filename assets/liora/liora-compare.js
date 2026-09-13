@@ -11,7 +11,7 @@
   // Locale pages carry <base href="../">, so a bare "developments.html"
   // written from JS would resolve to the ENGLISH page and drop the reader
   // out of their language. See the matching helper in nueva-shortlist.js.
-  const LOCALE_DIRS = ['es', 'fr', 'de', 'ru', 'ar'];
+  const LOCALE_DIRS = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
   const localeDir = LOCALE_DIRS.find((dir) => location.pathname.startsWith('/' + dir + '/')) || '';
   const localeHref = (page) => (localeDir ? localeDir + '/' + page : page);
 
