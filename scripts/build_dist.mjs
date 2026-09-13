@@ -147,7 +147,7 @@ const basePageMeta = {
     ]
   },
   'developments.html': {
-    title: 'New Developments on the Costa del Sol - {count} Projects',
+    title: 'New Build & Off-Plan Developments on the Costa del Sol',
     description: 'Browse {count} new-build and off-plan developments from Marbella to Benalmadena, with guide prices from €{minPrice}, delivery dates and live availability.',
     path: '/developments.html',
     // The organisation node used to be hand-written into developments.html
@@ -508,11 +508,6 @@ for (const [output, area] of [
 {
   const entry = basePageMeta['developments.html'];
   const n = projectPages.length;
-  if (entry?.title) {
-    entry.title = n >= SEGMENT_COUNT_MIN
-      ? entry.title.replace('{count}', String(n))
-      : entry.title.replace(/ - \{count\} Projects/, '');
-  }
   // The description was written out longhand and was never given the same
   // treatment, so it sat at "30 developments" and "from EUR 305,000" while
   // the title beside it said 47 and the cheapest project had dropped to
@@ -924,14 +919,13 @@ function minifyInlineStyles(html) {
 
 function optimizeHtml(html) {
   return minifyInlineStyles(inlineFontStyles(html))
-    // The developments index carries the live project count in its H1 as
-    // well as its title, resolved from the same number so the two can never
-    // contradict each other -- which is exactly what the audit found here,
-    // where the title said "new developments" and the H1 said "luxury
-    // properties for sale".
-    .replace(/\{devCount\}\s*/g, projectPages.length >= SEGMENT_COUNT_MIN
-      ? `${projectPages.length} `
-      : '')
+    // The developments index used to open its title and its H1 with the live
+    // project count. The count told a reader nothing they wanted, and it
+    // spent characters that now carry the terms people actually search, so
+    // the placeholder is stripped rather than resolved. The description below
+    // still counts, where the number reads as inventory rather than as a
+    // label.
+    .replace(/\{devCount\}\s*/g, '')
     // Assets are immutable in production, so content hashes ensure every CSS
     // and form-handler revision reaches both new and returning visitors.
     .replace(
