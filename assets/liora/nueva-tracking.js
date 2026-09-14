@@ -230,10 +230,128 @@ window.addEventListener('resize', readViewport, { passive: true });
     }
   }
 
+
+  // Meta and Google Ads receive the same events, through the same PII guard.
+  //
+  // The site already had one fan-out point, so the ad platforms hang off it
+  // rather than being wired separately into every button: anything that calls
+  // send() reaches all three, and a new event is measurable everywhere the
+  // day it is added. GA4_NEVER applies unchanged -- Meta accepts hashed
+  // identifiers for advanced matching, but nothing here hashes anything, so
+  // raw personal data must not reach it either.
+  //
+  // Both IDs are written by build_dist. Absent, every function below is inert,
+  // which is the state the site ships in until the two accounts exist.
+  const META_PIXEL_ID = window.NUEVA_META_PIXEL_ID || '';
+  const GOOGLE_ADS_ID = window.NUEVA_GOOGLE_ADS_ID || '';
+
+  // Site events mapped onto Meta's standard events, which is what its
+  // optimiser and audience builder understand. Anything unmapped is sent as
+  // a custom event, so it is still available for an audience but does not
+  // pretend to be a conversion.
+  const META_EVENTS = {
+    form_submit_success: 'Lead',
+    newsletter_signup_success: 'Subscribe',
+    private_viewing_request: 'Schedule',
+    whatsapp_click: 'Contact',
+    project_click: 'ViewContent',
+    shortlist_add: 'AddToWishlist',
+    pageview: 'PageView'
+  };
+
+  // Only events worth bidding on. Each value is the conversion label from the
+  // Google Ads conversion action -- the part after the slash in its snippet.
+  // An event with no label here is left to be imported from GA4 instead.
+  const ADS_CONVERSIONS = {
+    form_submit_success: '',
+    private_viewing_request: '',
+    whatsapp_click: ''
+  };
+
+  function adPayload(payload) {
+    const params = {};
+    for (const [key, value] of Object.entries(payload)) {
+      if (GA4_SKIP.has(key) || GA4_NEVER.has(key) || value == null || value === '') continue;
+      params[key] = typeof value === 'number' || typeof value === 'boolean'
+        ? value
+        : String(value).slice(0, 100);
+    }
+    return params;
+  }
+
+  let metaStarted = false;
+  function startMetaPixel() {
+    if (metaStarted || !META_PIXEL_ID || typeof window.fbq !== 'function') return;
+    metaStarted = true;
+    // Downloaded only now, after a granted choice. The queue built by the
+    // stub replays itself once the library evaluates.
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    document.head.appendChild(script);
+    try {
+      window.fbq('init', META_PIXEL_ID);
+    } catch {
+      // A blocked pixel must never interrupt the visitor experience.
+    }
+  }
+
+  if (META_PIXEL_ID) {
+    // The stub queues calls from the first event onwards, so nothing fired
+    // before consent is lost -- it is either replayed on grant or discarded.
+    if (typeof window.fbq !== 'function') {
+      const fbq = function () {
+        fbq.callMethod ? fbq.callMethod.apply(fbq, arguments) : fbq.queue.push(arguments);
+      };
+      fbq.push = fbq;
+      fbq.loaded = true;
+      fbq.version = '2.0';
+      fbq.queue = [];
+      window.fbq = fbq;
+      window._fbq = fbq;
+    }
+    if (window.nuevaConsentState?.() === 'granted') startMetaPixel();
+    window.addEventListener('nueva:consent', (event) => {
+      if (event.detail?.state === 'granted') startMetaPixel();
+    });
+  }
+
+  function sendToMeta(type, payload) {
+    if (!META_PIXEL_ID || typeof window.fbq !== 'function') return;
+    const standard = META_EVENTS[type];
+    try {
+      // eventID lets Meta deduplicate against a future Conversions API send
+      // of the same event, which is the server-side half of this.
+      window.fbq(
+        standard ? 'track' : 'trackCustom',
+        standard || type,
+        adPayload(payload),
+        { eventID: payload.event_id }
+      );
+    } catch {
+      // Analytics must never interrupt the visitor experience.
+    }
+  }
+
+  function sendToAds(type, payload) {
+    const label = ADS_CONVERSIONS[type];
+    if (!GOOGLE_ADS_ID || !label || typeof window.gtag !== 'function') return;
+    try {
+      window.gtag('event', 'conversion', {
+        send_to: `${GOOGLE_ADS_ID}/${label}`,
+        transaction_id: payload.event_id
+      });
+    } catch {
+      // Analytics must never interrupt the visitor experience.
+    }
+  }
+
   function send(type, details = {}, options = {}) {
     storageSet(sessionTimestampKey, String(Date.now()));
     const payload = basePayload(type, details);
     sendToGa4(type, payload);
+    sendToMeta(type, payload);
+    sendToAds(type, payload);
     const body = JSON.stringify(payload);
 
     if (options.beacon && navigator.sendBeacon) {

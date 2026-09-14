@@ -59,7 +59,25 @@
       event: 'nueva_consent',
       nueva_consent_state: state
     });
+    // Non-Google tags cannot read Consent Mode, so they are told directly.
+    // The Meta pixel in nueva-tracking.js listens for this and only then
+    // downloads fbevents.js -- a denied visitor never fetches it at all,
+    // which is a stronger guarantee than loading it and asking it to behave.
+    try {
+      window.dispatchEvent(new CustomEvent('nueva:consent', {
+        detail: { state: state }
+      }));
+    } catch (err) {
+      // A browser without CustomEvent simply never starts the pixel.
+    }
   }
+
+  // Read by tags that start after a choice was already stored, so they do not
+  // have to wait for an update event that has already fired.
+  window.nuevaConsentState = function () {
+    var choice = readChoice();
+    return choice ? choice.state : 'unknown';
+  };
 
   var banner = document.querySelector('[data-consent-banner]');
 

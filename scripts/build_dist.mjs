@@ -991,6 +991,17 @@ function injectSeo(html, file) {
 // the noscript iframe immediately after the opening <body> tag.
 const GTM_ID = 'GTM-NKMT6NZL';
 const GA4_ID = 'G-5WMQ4FZQCM';
+// The two advertising tags. Both are public identifiers -- they are readable
+// in the page source of every site that runs them -- so they live here beside
+// the Google ones rather than in the environment.
+//
+// Empty means off, and off is the state the site ships in: nueva-tracking.js
+// checks each before doing anything, so an unset ID costs nothing and breaks
+// nothing. Fill them in and every existing business event starts reporting,
+// with no other change. The Google Ads conversion labels go in
+// ADS_CONVERSIONS in nueva-tracking.js.
+const META_PIXEL_ID = '';
+const GOOGLE_ADS_ID = '';
 const gtmHeadSnippet = `<!-- Google Tag Manager + Google tag (gtag.js) -->
   <script>
     // The two Google tags together weigh ~445KB and were loading at
@@ -1022,6 +1033,11 @@ const gtmHeadSnippet = `<!-- Google Tag Manager + Google tag (gtag.js) -->
     dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
     gtag('js', new Date());
     gtag('config', '${GA4_ID}');
+    ${GOOGLE_ADS_ID ? `gtag('config', '${GOOGLE_ADS_ID}');` : ''}
+    // Read by nueva-tracking.js. Set here so the tags cannot drift apart:
+    // one place defines whether an ad platform is on.
+    window.NUEVA_META_PIXEL_ID = '${META_PIXEL_ID}';
+    window.NUEVA_GOOGLE_ADS_ID = '${GOOGLE_ADS_ID}';
     (function (w, d) {
       var started = false;
       function start() {
