@@ -1000,7 +1000,7 @@ const GA4_ID = 'G-5WMQ4FZQCM';
 // nothing. Fill them in and every existing business event starts reporting,
 // with no other change. The Google Ads conversion labels go in
 // ADS_CONVERSIONS in nueva-tracking.js.
-const META_PIXEL_ID = '';
+const META_PIXEL_ID = '1021375387530524';
 const GOOGLE_ADS_ID = '';
 const gtmHeadSnippet = `<!-- Google Tag Manager + Google tag (gtag.js) -->
   <script>
