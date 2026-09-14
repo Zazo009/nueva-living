@@ -1,4 +1,4 @@
-const crypto = require('crypto');
+const { hashedUserData, sendMetaEvent } = require('./lib/meta-capi');
 
 const DEFAULT_CRM_WEBHOOK_URL = 'https://marbella-crm.vercel.app/api/webhook/liora';
 const DEFAULT_ALLOWED_ORIGINS = [
@@ -230,104 +230,48 @@ function successResponse(crmResult, origin, browserFormSubmission, localePrefix 
 // tracking prevention or a dropped request all cost an attributed lead, and at
 // these price points there are few enough leads that losing some matters.
 //
-// Three rules hold it in place:
+// The sending itself lives in lib/meta-capi.js, shared with nueva-crm-event.
+// Three rules hold this caller in place:
 //
 // 1. It never sends without consent. The browser records the visitor's choice
-//    and passes it with the lead; anything other than a granted choice returns
-//    before a request is built.
-// 2. It never sends raw personal data. Email and phone are normalised the way
-//    Meta specifies and then SHA-256 hashed, because an unnormalised hash
-//    simply never matches. Name, message and nationality are not sent at all.
+//    and passes it with the lead; anything other than granted returns here.
+// 2. It never sends raw personal data. Only the hashed email and phone, the
+//    pixel cookies and the request metadata go, and name, message and
+//    nationality are not passed in at all.
 // 3. It never breaks a lead. The CRM has already accepted the enquiry by the
-//    time this runs; it is time-boxed and every failure is swallowed and
-//    logged. A visitor must never see an error because Meta was slow.
-const META_API_VERSION = 'v21.0';
-const META_TIMEOUT_MS = 2500;
-
-const sha256 = (value) => crypto.createHash('sha256').update(String(value)).digest('hex');
-
-// Meta's normalisation, not ours. Lowercase and trimmed for email; digits only
-// for phone, which keeps the country code and drops the plus and the spaces.
-const normalizedEmail = (value) => cleanString(value).trim().toLowerCase();
-const normalizedPhone = (value) => cleanString(value).replace(/\D/g, '');
-
-function metaUserData(lead, event) {
-  const userData = {};
-  const email = normalizedEmail(lead.email);
-  if (email) userData.em = [sha256(email)];
-  const phone = normalizedPhone(lead.phone);
-  if (phone) userData.ph = [sha256(phone)];
-
-  // The two strongest match signals that are not personal data at all: the
-  // pixel's own first-party cookie and the click id Meta puts on the landing
-  // URL. Sent verbatim, because Meta matches them unhashed.
-  const fbp = cleanString(lead.meta_fbp);
-  if (fbp) userData.fbp = fbp;
-  const fbc = cleanString(lead.meta_fbc);
-  if (fbc) userData.fbc = fbc;
-
-  const ip = cleanString(event.headers['x-nf-client-connection-ip']
-    || event.headers['x-forwarded-for']).split(',')[0].trim();
-  if (ip) userData.client_ip_address = ip;
-  const agent = cleanString(event.headers['user-agent']);
-  if (agent) userData.client_user_agent = agent;
-  return userData;
-}
-
+//    time this runs, and sendMetaEvent always resolves.
 async function sendMetaConversion(lead, event) {
   const token = cleanEnvironmentValue(process.env.META_CAPI_TOKEN);
   const datasetId = cleanEnvironmentValue(process.env.META_DATASET_ID);
   if (!token || !datasetId) return;
 
-  // Rule 1. Absent or denied both stop here.
   if (cleanString(lead.meta_consent) !== 'granted') return;
 
-  // Rule: without the browser's own event id there is no deduplication, and
-  // sending anyway would double-count every lead against the pixel. Better to
-  // send nothing than to inflate the number the optimiser bids on.
+  // Without the browser's own event id there is no deduplication, and sending
+  // anyway would count every lead twice against the pixel. Better to send
+  // nothing than to inflate the number the optimiser bids on.
   const eventId = cleanString(lead.meta_event_id);
   if (!eventId) {
     console.error('Meta CAPI skipped: lead carried no browser event id');
     return;
   }
 
-  const body = {
-    data: [{
-      event_name: 'Lead',
-      event_time: Math.floor(Date.now() / 1000),
-      event_id: eventId,
-      event_source_url: cleanString(lead.meta_source_url) || undefined,
-      action_source: 'website',
-      user_data: metaUserData(lead, event),
-    }],
-    // In the body rather than the query string, so it stays out of any
-    // request log that records URLs.
-    access_token: token,
-  };
-
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), META_TIMEOUT_MS);
-  try {
-    const res = await fetch(
-      `https://graph.facebook.com/${META_API_VERSION}/${datasetId}/events`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-        signal: controller.signal,
-      }
-    );
-    if (!res.ok) {
-      console.error('Meta CAPI rejected event', {
-        status: res.status,
-        response: cleanString(await res.text()).slice(0, 300),
-      });
-    }
-  } catch (error) {
-    console.error('Meta CAPI request failed', { message: error.message || 'Unknown error' });
-  } finally {
-    clearTimeout(timer);
-  }
+  await sendMetaEvent({
+    token,
+    datasetId,
+    eventName: 'Lead',
+    eventId,
+    sourceUrl: cleanString(lead.meta_source_url) || undefined,
+    actionSource: 'website',
+    userData: hashedUserData({
+      email: lead.email,
+      phone: lead.phone,
+      fbp: lead.meta_fbp,
+      fbc: lead.meta_fbc,
+      ip: event.headers['x-nf-client-connection-ip'] || event.headers['x-forwarded-for'],
+      userAgent: event.headers['user-agent'],
+    }),
+  });
 }
 
 exports.handler = async (event) => {
