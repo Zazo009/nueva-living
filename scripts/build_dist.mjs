@@ -624,8 +624,8 @@ const assetFiles = [
   // where the browser can decode it. hero-mobile-v2.mp4 is deliberately not
   // listed -- it is no longer referenced, and it stays in the repo only as a
   // revert path.
-  'assets/liora/video/hero-mobile-v3.mp4',
-  'assets/liora/video/hero-mobile-v3-hevc.mp4',
+  'assets/liora/video/hero-mobile-v4.mp4',
+  'assets/liora/video/hero-mobile-v4-hevc.mp4',
   'assets/vendor/gsap/gsap.min.js',
   'assets/vendor/gsap/ScrollTrigger.min.js',
 ];
