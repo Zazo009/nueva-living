@@ -1498,6 +1498,29 @@ let priceRangeChecked = 0;
             + `browser enforces, so the two have to agree.`);
         }
       }
+      // Both ends of the slider have to be reachable, and a range input can
+      // only stop on min + n*step. The filter treats a handle parked at its
+      // own bound as "no limit", so if max is not a whole number of steps
+      // above min the top handle stops short, the rule never fires, and every
+      // project at or above the ceiling is hidden. Lowering the floor from
+      // 270,000 to 269,000 for a 269,000 project did exactly that: the top
+      // handle clamped to 4,999,000 and the four projects at or above 5M
+      // vanished from a filter nobody had touched, with the label still
+      // reading the full range.
+      for (const control of html.matchAll(/<input type="range"[^>]*data-range-input="max"[^>]*>/g)) {
+        const tag = control[0];
+        const step = Number((/\bstep="(\d+)"/.exec(tag) || [])[1]);
+        const floor = Number((/\bmin="(\d+)"/.exec(tag) || [])[1]);
+        const ceiling = Number((/\bmax="(\d+)"/.exec(tag) || [])[1]);
+        if (!step || !Number.isFinite(floor) || !Number.isFinite(ceiling)) continue;
+        if ((ceiling - floor) % step !== 0) {
+          const reachable = floor + Math.floor((ceiling - floor) / step) * step;
+          fail(path.relative(dist, full), `the price slider runs ${floor}-${ceiling} in steps of `
+            + `${step}, so its top handle stops at ${reachable} and can never reach ${ceiling}. `
+            + 'A handle parked at its bound is what opens the filter up, so every project priced '
+            + `at or above ${ceiling} stays hidden. Make (max - min) a whole number of steps.`);
+        }
+      }
       const prices = [...html.matchAll(CARD_PRICE)].map((m) => Number(m[1])).filter((n) => n > 0);
       if (!prices.length) continue;
       priceRangeChecked += 1;
