@@ -280,20 +280,48 @@ window.addEventListener('resize', readViewport, { passive: true });
   }
 
   let metaStarted = false;
-  function startMetaPixel() {
-    if (metaStarted || !META_PIXEL_ID || typeof window.fbq !== 'function') return;
-    metaStarted = true;
-    // Downloaded only now, after a granted choice. The queue built by the
-    // stub replays itself once the library evaluates.
+  function loadMetaPixel() {
+    // The download, and only the download. init() has already been queued by
+    // the stub, so the library replays it the moment it evaluates and the
+    // order of everything after it is unchanged.
     const script = document.createElement('script');
     script.async = true;
     script.src = 'https://connect.facebook.net/en_US/fbevents.js';
     document.head.appendChild(script);
+  }
+
+  function startMetaPixel() {
+    if (metaStarted || !META_PIXEL_ID || typeof window.fbq !== 'function') return;
+    metaStarted = true;
     try {
       window.fbq('init', META_PIXEL_ID);
     } catch {
       // A blocked pixel must never interrupt the visitor experience.
     }
+    // fbevents.js is ~90KB and this file is deferred, so a returning visitor
+    // who had already granted consent was fetching it at 68ms -- inside the
+    // window the hero image and the fonts are competing for, and for no gain,
+    // since nothing it does is visible. The Google tags were moved off the
+    // critical path for exactly this reason; the pixel now follows them.
+    //
+    // Nothing is dropped by waiting. The stub queues every call, so an event
+    // fired before the library lands is replayed, not lost -- and a visitor
+    // who interacts gets the download immediately rather than at idle.
+    let started = false;
+    const go = () => {
+      if (started) return;
+      started = true;
+      loadMetaPixel();
+    };
+    ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach((evt) => {
+      window.addEventListener(evt, go, { once: true, passive: true });
+    });
+    const schedule = () => {
+      if ('requestIdleCallback' in window) window.requestIdleCallback(go, { timeout: 3000 });
+      else window.setTimeout(go, 1200);
+    };
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule, { once: true });
   }
 
   if (META_PIXEL_ID) {
