@@ -154,6 +154,22 @@
     return `Hello Nueva Living, I would like to ${intent} about ${subject}.`;
   }
 
+  // The pixel's first-party cookie and Meta's click id. Both are the strongest
+  // match signals the Conversions API can use and neither is personal data, so
+  // they travel with the lead and get sent verbatim from the server.
+  function readCookie(name) {
+    const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+
+  // One id for one enquiry, generated here rather than in either sender,
+  // because the browser event and the server event have to carry the SAME one
+  // or Meta counts the lead twice.
+  function newEventId() {
+    if (window.crypto?.randomUUID) return `evt_${window.crypto.randomUUID()}`;
+    return `evt_${Date.now().toString(36)}_${Math.random().toString(36).slice(2)}`;
+  }
+
   function ensureHidden(form, name, value) {
     let field = form.querySelector(`[name="${CSS.escape(name)}"]`);
     if (!field) {
@@ -303,6 +319,15 @@
     }
 
     const payload = buildLeadPayload(form, requestContext);
+    // Carried to the lead function for the Conversions API, and deliberately
+    // not forwarded to the CRM, which has no use for any of it.
+    payload.meta_event_id = newEventId();
+    payload.meta_fbp = readCookie('_fbp');
+    payload.meta_fbc = readCookie('_fbc');
+    payload.meta_source_url = window.location.href.split('#')[0];
+    payload.meta_consent = typeof window.nuevaConsentState === 'function'
+      ? window.nuevaConsentState()
+      : 'unknown';
     ensureHidden(form, 'first_name', payload.first_name);
     ensureHidden(form, 'last_name', payload.last_name);
     ensureHidden(form, 'budget_min', payload.budget_min);
@@ -316,6 +341,7 @@
 
     return {
       payload,
+      metaEventId: payload.meta_event_id,
       trackingContext: {
         form_name: formName,
         form_type: form.matches('[data-newsletter-form]') ? 'newsletter' : 'enquiry',
@@ -334,7 +360,7 @@
       return;
     }
 
-    const { payload, trackingContext } = enrichForm(form);
+    const { payload, trackingContext, metaEventId } = enrichForm(form);
     form.dataset.submitting = 'true';
     setFormState(
       form,
@@ -349,7 +375,7 @@
         'success',
         form.dataset.successMessage || 'Thank you. Your enquiry has been received and we will contact you shortly.'
       );
-      track('form_submit_success', trackingContext);
+      track('form_submit_success', { ...trackingContext, event_id: metaEventId });
       if (form.matches('[data-newsletter-form]')) {
         track('newsletter_signup_success', trackingContext);
       }

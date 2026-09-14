@@ -1000,6 +1000,12 @@ const GA4_ID = 'G-5WMQ4FZQCM';
 // nothing. Fill them in and every existing business event starts reporting,
 // with no other change. The Google Ads conversion labels go in
 // ADS_CONVERSIONS in nueva-tracking.js.
+// The same id lives in Netlify as META_DATASET_ID, which is what the
+// Conversions API half of this sends to. They are one value in two places and
+// nothing fails loudly if they drift: the browser would report to one dataset
+// and the server to another, both would look alive, and every lead would be
+// counted twice because deduplication only works within a dataset. Change
+// them together.
 const META_PIXEL_ID = '2712264015797471';
 const GOOGLE_ADS_ID = '';
 const gtmHeadSnippet = `<!-- Google Tag Manager + Google tag (gtag.js) -->
