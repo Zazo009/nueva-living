@@ -319,8 +319,11 @@
     }
 
     const payload = buildLeadPayload(form, requestContext);
-    // Carried to the lead function for the Conversions API, and deliberately
-    // not forwarded to the CRM, which has no use for any of it.
+    // Carried to the lead function for the Conversions API. The event id stops
+    // there, since it only exists to stop the browser and server reporting this
+    // one enquiry twice. The two cookies go on to the CRM as well: it reports
+    // stage changes back to Meta months later, and they are what ties a closed
+    // sale to the ad that started it.
     payload.meta_event_id = newEventId();
     payload.meta_fbp = readCookie('_fbp');
     payload.meta_fbc = readCookie('_fbc');
