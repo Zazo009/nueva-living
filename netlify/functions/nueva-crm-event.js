@@ -14,7 +14,7 @@
 // Purchase carries the value. That is the point: given a number, Meta can bid
 // toward revenue rather than toward volume, which for homes between EUR
 // 269,000 and EUR 14,600,000 is a different business entirely.
-const { clean, hashedUserData, sendMetaEvent } = require('./lib/meta-capi');
+const { clean, sha256, normalizedEmail, normalizedPhone, hashedUserData, sendMetaEvent } = require('./lib/meta-capi');
 
 // Meta rejects an event older than seven days on this endpoint.
 const MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
@@ -86,12 +86,26 @@ exports.handler = async (event) => {
   const project = clean(body.project);
   if (project) customData.content_name = project.slice(0, 100);
 
+  // Deduplication must not depend on the CRM remembering to send an id. A
+  // retried Purchase without one is recorded twice, and two reservations at
+  // EUR 676,000 will pull the optimiser hard toward whichever ad "produced"
+  // 1.35M -- the exact silent skew this endpoint exists to prevent.
+  //
+  // So an absent id is derived instead, from the things that identify this
+  // stage change: which stage, which person, and when the CRM says it
+  // happened. Identical inputs give an identical id, which is what makes a
+  // retry idempotent. It only works if occurred_at comes from the CRM's own
+  // record rather than being left out -- so the spec asks for it.
+  const personKey = normalizedEmail(body.email) || normalizedPhone(body.phone);
+  const eventId = clean(body.event_id)
+    || `crm_${sha256(`${stage}|${personKey}|${eventTime}`).slice(0, 32)}`;
+
   const result = await sendMetaEvent({
     token: clean(process.env.META_CAPI_TOKEN),
     datasetId: clean(process.env.META_DATASET_ID),
     eventName: mapping.event,
-    // The CRM's own id for this stage change, so a retry cannot double-count.
-    eventId: clean(body.event_id) || undefined,
+    // The CRM's own id where it sends one, a derived one where it does not.
+    eventId,
     eventTime,
     // Not a browser: this happened in a CRM, days or weeks after the click.
     actionSource: 'other',
