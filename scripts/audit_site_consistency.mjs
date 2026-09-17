@@ -3209,6 +3209,25 @@ let redirectRulesChecked = 0;
       fail('dist/_redirects', `${duplicated.length} duplicated from-path(s): `
         + `${duplicated.slice(0, 4).join(', ')}. Only the first rule for a path ever runs.`);
     }
+
+    // Netlify reads _redirects before netlify.toml, and this file ends in a
+    // catch-all 404. Anything routed only from netlify.toml is therefore dead
+    // on arrival -- the catch-all answers it first. /unsubscribe shipped that
+    // way: the deploy was green, the rule was syntactically fine, and the URL
+    // returned 404 in production because it was never reached.
+    const tomlPath = path.join(root, 'netlify.toml');
+    if (fs.existsSync(tomlPath)) {
+      const unreachable = [...fs.readFileSync(tomlPath, 'utf8')
+        .matchAll(/\[\[redirects\]\][^[]*?from\s*=\s*"([^"]+)"/g)]
+        .map((match) => match[1])
+        .filter((from) => !from.endsWith('*') && !seen.has(from));
+      if (unreachable.length) {
+        fail('netlify.toml', `${unreachable.length} redirect rule(s) are unreachable: `
+          + `${unreachable.slice(0, 4).join(', ')}. dist/_redirects is read first and ends in a `
+          + 'catch-all 404, so a route declared only here never runs. Emit it from '
+          + 'build_dist.mjs instead.');
+      }
+    }
   }
 }
 

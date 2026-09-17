@@ -2071,8 +2071,17 @@ const extensionlessRedirects = [];
 const locale404Redirects = nonDefaultLocales
   .filter((locale) => fs.existsSync(path.join(root, locale.urlPrefix, '404.html')))
   .map((locale) => `/${locale.urlPrefix}/* /${locale.urlPrefix}/404.html 404`);
+// Function routes lead, because this file ends in a catch-all and Netlify
+// processes _redirects before netlify.toml. A route declared only in
+// netlify.toml is therefore unreachable: the 404 rule below answers it first.
+// /unsubscribe shipped that way and 404'd in production while the deploy
+// itself was green -- audit_site_consistency now fails on the repeat.
+const functionRedirects = [
+  '/unsubscribe /.netlify/functions/nueva-unsubscribe 200',
+];
 fs.writeFileSync(path.join(dist, '_redirects'),
-  `${legacyRedirects.join('\n')}\n${extensionlessRedirects.join('\n')}\n`
+  `${functionRedirects.join('\n')}\n`
+  + `${legacyRedirects.join('\n')}\n${extensionlessRedirects.join('\n')}\n`
   + `${locale404Redirects.join('\n')}\n/* /404.html 404\n`);
 
 fs.writeFileSync(path.join(dist, '_headers'), `/*.html
