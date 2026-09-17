@@ -94,6 +94,19 @@ for (const slug of slugs) {
     // the unit count or the built area. The pair-form projects carry no
     // bedroom entry at all, so they fall through to the town, which is
     // translated.
+    // On twenty projects the type tag is a place name rather than a kind of
+    // home, and on fourteen of those it names the same place as the town --
+    // "Estepona, Estepona". Saying Mijas twice is the thing the join was meant
+    // to avoid, but the guard only covered a location string that repeated
+    // itself, not a tag and a town that are the same place. The longer of the
+    // two survives, because it is the more specific: Elviria Sur over Elviria.
+    const sameplace = typeTag && town
+      && (String(typeTag).toLowerCase().includes(String(town).toLowerCase())
+        || String(town).toLowerCase().includes(String(typeTag).toLowerCase()));
+    const placeHeadline = sameplace
+      ? (String(typeTag).length >= String(town).length ? typeTag : town)
+      : `${typeTag}${comma}${town}`;
+
     const bedsIndex = enMeta.findIndex((m) => /bedroom/i.test(metaText(m)));
     const beds = bedsIndex >= 0 ? metaText(localeMeta[bedsIndex] ?? enMeta[bedsIndex]) : '';
 
@@ -108,7 +121,7 @@ for (const slug of slugs) {
         ? Number(project.discovery.price) : null,
       primary_text: description,
       headline_price: fit(VISIBLE.headline, price),
-      headline_place: fit(VISIBLE.headline, `${typeTag}${comma}${town}`, town, typeTag),
+      headline_place: fit(VISIBLE.headline, placeHeadline, town, typeTag),
       description: fit(VISIBLE.description, beds, town, eyebrow),
       cta: 'LEARN_MORE',
       link: `https://nuevaliving.com/${prefix}${project.output}?${params}`,
