@@ -101,7 +101,11 @@ for (const slug of slugs) {
       slug,
       locale,
       area: project.discovery?.area || '',
-      price_from: project.discovery?.price ?? null,
+      // Twenty-one projects carry discovery.price as a string. The page never
+      // noticed -- it reads the number off a data attribute and coerces --
+      // but this file is read by machines that will sort and bucket on it.
+      price_from: Number.isFinite(Number(project.discovery?.price))
+        ? Number(project.discovery.price) : null,
       primary_text: description,
       headline_price: fit(VISIBLE.headline, price),
       headline_place: fit(VISIBLE.headline, `${typeTag}${comma}${town}`, town, typeTag),
