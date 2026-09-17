@@ -53,7 +53,12 @@ for (const slug of slugs) {
     // to say Mijas twice. Arabic separates with an Arabic comma, so splitting
     // on the Latin one left the whole string and the fallback then dropped
     // the type tag to make it fit.
-    const town = String(location).split(/[,\u060C]/)[0].trim();
+    // Projects separate the parts of a location with whichever mark reads well
+    // in their own copy: a comma, an Arabic comma, a slash or a dash. Splitting
+    // on the comma alone left eight locations whole, and at full length they
+    // overflowed the description cap -- as did their eyebrow, so those rows
+    // shipped with no description at all.
+    const town = String(location).split(/[,\u060C\/\u2013\u2014]/)[0].trim();
     // And joined back with the separator that language actually uses.
     const comma = locale === 'ar' ? '\u060C ' : ', ';
     const prefix = locale === 'en' ? '' : `${locale}/`;
@@ -69,10 +74,28 @@ for (const slug of slugs) {
     // sometimes a marketing phrase ("Urban Resort") and the eyebrow is
     // sometimes a whole sentence, and in Russian and Arabic both run long,
     // so a blind join overflowed on 366 of the 510.
+    // Coerces first, so a non-string can never reach the sheet. It used to
+    // measure String(c).length but return c itself, which let an array
+    // through: ["From", "\u20ac690,000"] stringifies to 13 characters, sailed
+    // under the 30-char cap, and shipped as an array in 384 of the 510 rows.
     const fit = (cap, ...candidates) =>
-      candidates.find((c) => c && String(c).length <= cap) || '';
-    const meta = (locale === 'en' ? project.card?.meta : overlay?.card?.meta) || project.card?.meta || [];
-    const beds = meta.find((m) => /\d/.test(m)) || '';
+      candidates.map((c) => (c == null ? '' : String(c)))
+        .find((c) => c && c.length <= cap) || '';
+
+    // card.meta comes in two shapes: a flat list of strings on twelve
+    // projects, and [label, value] pairs on the other thirty-nine. The value
+    // is the part worth showing.
+    const metaText = (m) => (Array.isArray(m) ? String(m[m.length - 1] ?? '') : String(m ?? ''));
+    const enMeta = project.card?.meta || [];
+    const localeMeta = (locale === 'en' ? enMeta : overlay?.card?.meta) || enMeta;
+    // The bedroom count, located in English and then read by position from the
+    // translated list -- "first entry containing a digit" picked whatever came
+    // first, which across these projects is the price, the delivery quarter,
+    // the unit count or the built area. The pair-form projects carry no
+    // bedroom entry at all, so they fall through to the town, which is
+    // translated.
+    const bedsIndex = enMeta.findIndex((m) => /bedroom/i.test(metaText(m)));
+    const beds = bedsIndex >= 0 ? metaText(localeMeta[bedsIndex] ?? enMeta[bedsIndex]) : '';
 
     rows.push({
       slug,
@@ -89,6 +112,18 @@ for (const slug of slugs) {
       video: project.media?.video?.desktopSrc || ''
     });
   }
+}
+
+// Every text field ships as a string or the build stops. The length report
+// below stringifies before measuring, so it cannot catch a wrong type -- it
+// reported all 510 rows inside their caps while 384 carried arrays.
+const TEXT_FIELDS = ['primary_text', 'headline_price', 'headline_place', 'description', 'cta', 'link'];
+const malformed = rows.flatMap((r) => TEXT_FIELDS
+  .filter((f) => typeof r[f] !== 'string')
+  .map((f) => `${r.slug}/${r.locale}.${f} is ${Array.isArray(r[f]) ? 'an array' : typeof r[f]}`));
+if (malformed.length) {
+  console.error(`${malformed.length} field(s) are not strings:\n  ${malformed.slice(0, 6).join('\n  ')}`);
+  process.exit(1);
 }
 
 fs.mkdirSync(path.join(root, 'content', 'ads'), { recursive: true });
