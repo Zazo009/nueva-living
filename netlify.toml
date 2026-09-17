@@ -18,6 +18,15 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# A rewrite, not a redirect. Gmail and Yahoo honour one-click unsubscribe with
+# a POST, and a 3xx would be replayed as a GET -- which this endpoint answers
+# with a confirmation page instead of unsubscribing, so every one-click request
+# would silently do nothing.
+[[redirects]]
+  from = "/unsubscribe"
+  to = "/.netlify/functions/nueva-unsubscribe"
+  status = 200
+
 [[redirects]]
   from = "/*"
   to = "/404.html"
