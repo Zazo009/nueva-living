@@ -36,6 +36,26 @@ const pick = (base, overlay, section, key) => {
   return base?.[section]?.[key] ?? '';
 };
 
+// The region every buyer recognises, even when the town is new to them --
+// someone in Dubai knows Marbella and the Costa del Sol, not Elviria Sur.
+//
+// Harvested rather than written: seven projects already carry the region in
+// their own location string, translated into every locale, so the ads take the
+// spelling those pages use instead of introducing an eighth. Nothing is
+// translated at this step, which is the whole point of this file.
+const REGION = {};
+for (const slug of slugs) {
+  const project = JSON.parse(fs.readFileSync(path.join(projectsDir, slug, 'project.json'), 'utf8'));
+  const en = String(project.hero?.location || '');
+  if (!/costa del sol\s*$/i.test(en)) continue;
+  for (const locale of LOCALES) {
+    if (REGION[locale]) continue;
+    const loc = locale === 'en' ? en : String(project.i18n?.[locale]?.hero?.location || '');
+    const tail = loc.split(/[,\u060C]/).pop()?.trim();
+    if (tail) REGION[locale] = tail;
+  }
+}
+
 const rows = [];
 for (const slug of slugs) {
   const project = JSON.parse(fs.readFileSync(path.join(projectsDir, slug, 'project.json'), 'utf8'));
@@ -107,8 +127,29 @@ for (const slug of slugs) {
       ? (String(typeTag).length >= String(town).length ? typeTag : town)
       : `${typeTag}${comma}${town}`;
 
-    const bedsIndex = enMeta.findIndex((m) => /bedroom/i.test(metaText(m)));
-    const beds = bedsIndex >= 0 ? metaText(localeMeta[bedsIndex] ?? enMeta[bedsIndex]) : '';
+    // Located in English and read back by position from the translated list,
+    // and only when this locale has its own meta to read from. Falling back to
+    // the English base is right for structural fields and wrong for these:
+    // it put "1-4 Bedroom Homes" under an Arabic headline. The region is
+    // translated, so untranslated English is never the better answer.
+    const hasLocaleMeta = locale === 'en' || Boolean(overlay?.card?.meta);
+    const metaPick = (pattern) => {
+      if (!hasLocaleMeta) return '';
+      const i = enMeta.findIndex((m) => pattern.test(Array.isArray(m) ? m.join(' ') : String(m ?? '')));
+      return i >= 0 ? metaText(localeMeta[i] ?? enMeta[i]) : '';
+    };
+    const beds = metaPick(/bedroom/i);
+    // What kind of home, where a project states no bed count -- "Apartments"
+    // tells a reader more than a town the headline has already named.
+    const homeType = metaPick(/\btype\b/i);
+
+    // The description sits directly under the headline, so anything the
+    // headline already says is a wasted line rather than a second signal --
+    // and now that the headline carries the whole location, that is most of
+    // what the description used to fall back to.
+    const placeLine = fit(VISIBLE.headline, location, placeHeadline, town, typeTag);
+    const fresh = [beds, homeType, REGION[locale], town, eyebrow]
+      .filter((c) => c && !placeLine.includes(String(c)));
 
     rows.push({
       slug,
@@ -121,8 +162,14 @@ for (const slug of slugs) {
         ? Number(project.discovery.price) : null,
       primary_text: description,
       headline_price: fit(VISIBLE.headline, price),
-      headline_place: fit(VISIBLE.headline, placeHeadline, town, typeTag),
-      description: fit(VISIBLE.description, beds, town, eyebrow),
+      // The whole location, so the municipality survives: "Elviria Sur,
+      // Marbella" rather than the neighbourhood alone, which names nowhere to
+      // a reader who has not been. Two of the 510 run past the cap and fall
+      // back to the composed form.
+      headline_place: placeLine,
+      // The bed count where a project states one, otherwise the region -- which
+      // the headline no longer repeats now that it carries the municipality.
+      description: fit(VISIBLE.description, ...fresh),
       cta: 'LEARN_MORE',
       link: `https://nuevaliving.com/${prefix}${project.output}?${params}`,
       image: project.images?.card?.src || project.images?.hero?.src || '',
