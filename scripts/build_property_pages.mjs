@@ -1577,6 +1577,51 @@ function renderFurniturePackages(project, locale = DEFAULT_LOCALE) {
 `;
 }
 
+// The developer's memoria de calidades: what the home is actually built with.
+// It used to exist on these pages only as a request button in the project
+// file, so a buyer comparing two developments on finishes had to hand over an
+// email address to learn either one. Rendered only for projects that carry the
+// document, and faithful to it: brand names are the point, since they are what
+// buyers compare on, and nothing is added that the document does not say.
+// A specification is mostly measurements, and a narrow screen will happily
+// break "35 kg/m³" after the 35. Glue a figure to the unit or × that follows
+// it, in every script the site ships, so the data never has to carry
+// non-breaking spaces by hand.
+const SPEC_UNIT = /(\d) (?=(?:×|mm|cm|m²|m³|m\b|kg|мм|см|м²|м³|кг|مم|سم|م²|م³|كغ))/g;
+const SPEC_TIMES = / × /g;
+function keepMeasuresTogether(text) {
+  return text.replace(SPEC_TIMES, ' × ').replace(SPEC_UNIT, '$1 ');
+}
+
+function renderQualitySpecs(project, locale = DEFAULT_LOCALE) {
+  const section = project.qualitySpecs;
+  if (!section?.groups?.length) return '';
+
+  const groups = section.groups.map((group, index) => `<details class="spec-group reveal-soft"${index === 0 ? ' open' : ''}>
+            <summary>${esc(group.name)}<span class="faq-toggle-icon" aria-hidden="true"></span></summary>
+            <ul>
+              ${group.items.map((item) => `<li>${esc(keepMeasuresTogether(item))}</li>`).join('\n              ')}
+            </ul>
+          </details>`).join('\n          ');
+
+  return `    <section class="project-section" id="quality-specifications">
+      <div class="project-inner">
+        <div class="section-head center reveal-soft">
+          <span class="section-kicker">${t('section.qualitySpecs', locale)}</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">${section.headlineHtml}</h2>
+          ${section.copy ? `<p class="project-lead">${esc(section.copy)}</p>` : ''}
+        </div>
+        <div class="spec-list">
+          ${groups}
+        </div>
+        ${section.sourceNote ? `<p class="availability-source-note spec-source-note">${esc(section.sourceNote)}</p>` : ''}
+      </div>
+    </section>
+
+`;
+}
+
 // The H1 used to be the bare project name, which tells a search engine
 // nothing -- the single biggest systematic weakness the Aug 2026 audit found.
 // The name stays the display line; a second, quieter line carries the search
@@ -1626,6 +1671,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const projectMedia = renderProjectMedia(project, locale);
   const constructionTimeline = renderConstructionTimeline(project, locale);
   const furniturePackagesSection = renderFurniturePackages(project, locale);
+  const qualitySpecsSection = renderQualitySpecs(project, locale);
   const layoutSpinsSection = renderLayoutSpins(project, sourceProject, locale);
   const availabilityRelease = renderAvailabilityRelease(project, locale);
   const hasPublishedAvailability = Boolean(project.availability?.units?.length);
@@ -1802,7 +1848,7 @@ ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
         <a href="#overview">${t('navInPage.overview', locale)}</a>
 ${project.media?.items?.length ? `        <a href="#media">${t('navInPage.media', locale)}</a>\n` : ''}        <a href="#location">${t('navInPage.location', locale)}</a>
 ${constructionTimeline ? `        <a href="#construction-timeline">${t('timeline.paymentTerms', locale)}</a>\n` : ''}        <a href="#residences">${t('navInPage.residences', locale)}</a>
-${project.furniturePackages?.items?.length ? `        <a href="#furniture-packages">${t('navInPage.furniture', locale)}</a>\n` : ''}        <a href="#availability">${t('navInPage.availability', locale)}</a>
+${project.furniturePackages?.items?.length ? `        <a href="#furniture-packages">${t('navInPage.furniture', locale)}</a>\n` : ''}${project.qualitySpecs?.groups?.length ? `        <a href="#quality-specifications">${t('navInPage.specifications', locale)}</a>\n` : ''}        <a href="#availability">${t('navInPage.availability', locale)}</a>
         <a href="#calculator">${t('navInPage.affordability', locale)}</a>
         <a href="#why-this-project">${t('navInPage.why', locale)}</a>
         <a href="#architecture">${t('navInPage.architecture', locale)}</a>
@@ -1887,7 +1933,7 @@ ${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}  
       </div>
     </section>
 
-${layoutSpinsSection}${furniturePackagesSection}
+${layoutSpinsSection}${furniturePackagesSection}${qualitySpecsSection}
 
     <section class="project-section" id="availability">
       <div class="project-inner">
@@ -2468,6 +2514,54 @@ function survivingWordRatio(english, overlay) {
   return source.filter((word) => kept.has(word)).length / source.length;
 }
 
+// The translation guards above only compare strings that exist in both the
+// English and the overlay. A locale with no qualitySpecs at all has nothing to
+// compare, so it passes, and that language quietly renders the English section.
+// The same goes for a translator who drops a category or a line: the overlay
+// replaces the list wholesale, and the page loses it with nothing failing.
+// So the shape itself is checked: every locale carries the section, with the
+// same groups and the same number of lines in each.
+function assertQualitySpecs(projects) {
+  const problems = [];
+  const shape = (spec) => (spec?.groups || []).map((group) => group?.items?.length ?? 0);
+  for (const project of projects) {
+    const spec = project.qualitySpecs;
+    if (!spec) continue;
+    const where = project.slug;
+    if (!spec.headlineHtml) problems.push(`  ${where}: no headlineHtml`);
+    if (!spec.groups?.length) problems.push(`  ${where}: qualitySpecs with no groups`);
+    for (const [index, group] of (spec.groups || []).entries()) {
+      if (!group?.name?.trim()) problems.push(`  ${where}: group ${index} has no name`);
+      if (!group?.items?.length || group.items.some((item) => typeof item !== 'string' || !item.trim())) {
+        problems.push(`  ${where}: group "${group?.name}" has an empty or non-text line`);
+      }
+    }
+    const english = shape(spec).join(',');
+    for (const locale of TAG_LOCALES) {
+      const translated = project.i18n?.[locale]?.qualitySpecs;
+      if (!translated) {
+        problems.push(`  [${locale}] ${where}: no qualitySpecs, so the page would show the English`);
+        continue;
+      }
+      if (!translated.headlineHtml) problems.push(`  [${locale}] ${where}: no headlineHtml`);
+      if (shape(translated).join(',') !== english) {
+        problems.push(`  [${locale}] ${where}: lines per group ${shape(translated).join(',')} against English ${english}`);
+      }
+      if ((translated.groups || []).some((group) => !group?.name?.trim())) {
+        problems.push(`  [${locale}] ${where}: a group has no name`);
+      }
+    }
+  }
+  if (problems.length) {
+    throw new Error(
+      `${problems.length} problem(s) in quality specifications:\n${problems.slice(0, 8).join('\n')}\n`
+      + 'Every locale must carry the whole specification: a missing or shortened '
+      + 'one renders English, or drops lines, without anything else failing.'
+    );
+  }
+  return projects;
+}
+
 function assertOverlaysAreNotEnglish(projects) {
   const english = [];
   for (const project of projects) {
@@ -2760,8 +2854,8 @@ function assertAvailability(project) {
 export function loadProjects() {
   // assertTagVocabulary needs the whole set -- a clash is between two projects,
   // not inside one -- so it wraps the list rather than each file.
-  return assertOverlaysAreNotEnglish(assertOverlaysAreTranslated(assertPropertyTypeLabels(assertFloorLabels(assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
-    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file }))))))))))))
+  return assertQualitySpecs(assertOverlaysAreNotEnglish(assertOverlaysAreTranslated(assertPropertyTypeLabels(assertFloorLabels(assertAreaFormatting(assertSizeLabels(assertAmenityTranslations(assertTagTranslations(assertTagVocabulary(projectFiles()
+    .map((file) => assertAvailability(assertPropertyTypes({ ...readJson(file), sourceFile: file })))))))))))))
     .sort((a, b) => {
       const orderA = a.card?.order ?? 999;
       const orderB = b.card?.order ?? 999;

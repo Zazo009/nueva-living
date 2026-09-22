@@ -423,6 +423,78 @@ body {
   line-height: 1.75;
 }
 
+/* Quality specifications. Same accordion as the FAQ so the page reads as one
+   system, but its own classes: nothing that reads FAQ markup should ever
+   mistake a specification for a question. Logical properties, so Arabic
+   mirrors without a separate RTL rule. */
+.spec-list {
+  max-width: 820px;
+  margin: clamp(28px, 4vw, 44px) auto 0;
+  border-top: 1px solid var(--line);
+}
+
+.spec-group {
+  border-bottom: 1px solid var(--line);
+}
+
+.spec-group summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 4px;
+  cursor: pointer;
+  list-style: none;
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.spec-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.spec-group[open] .faq-toggle-icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.spec-group ul {
+  margin: 0 0 20px;
+  padding: 0;
+  padding-inline-end: 34px;
+  list-style: none;
+}
+
+.spec-group li {
+  position: relative;
+  padding-inline-start: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.spec-group li + li {
+  margin-top: 8px;
+}
+
+.spec-group li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.8em;
+  width: 8px;
+  height: 1px;
+  background: var(--bronze, #a8834a);
+}
+
+.spec-source-note {
+  max-width: 820px;
+  margin-inline: auto;
+}
+
 
 .why-point,
 .dossier-card {
