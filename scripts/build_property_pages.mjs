@@ -160,6 +160,10 @@ const SIZE_LABELS = {
   // word here as well as the "370 m², private pool" phrase handled above.
   'private pool': { es: 'piscina privada', fr: 'piscine privée', de: 'Privatpool', ru: 'частный бассейн', ar: 'مسبح خاص', nl: 'privézwembad', pl: 'basen prywatny', sv: 'egen pool', no: 'eget basseng' },
   solarium: { es: 'solárium', fr: 'solarium', de: 'Solarium', ru: 'солярий', ar: 'سولاريوم', nl: 'solarium', pl: 'solarium', sv: 'solterrass', no: 'solterrasse' },
+  // Ground-floor homes that come with a private lower level, listed as a
+  // separate area on the price list. Without a word here the figure reached
+  // every locale page with "basement" still in English.
+  basement: { es: 'sótano', fr: 'sous-sol', de: 'Untergeschoss', ru: 'цокольный этаж', ar: 'قبو', nl: 'kelder', pl: 'piwnica', sv: 'källare', no: 'kjeller' },
   interior: { es: 'interior', fr: 'intérieur', de: 'Innenfläche', ru: 'внутренняя площадь', ar: 'مساحة داخلية', nl: 'binnenoppervlak', pl: 'powierzchnia wewnętrzna', sv: 'inneryta', no: 'innvendig areal' },
   total: { es: 'en total', fr: 'au total', de: 'gesamt', ru: 'всего', ar: 'الإجمالي', nl: 'totaal', pl: 'łącznie', sv: 'totalt', no: 'totalt' }
 };
