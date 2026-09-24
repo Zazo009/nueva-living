@@ -2656,7 +2656,7 @@ let registerPagesChecked = 0;
   };
   const ALLOWED = {
     pl: /^(nasz|Nasz|wasz|Wasz|Zapisz|zapisz|Napisz|napisz|Podpisz|podpisz|Opisz|opisz|Wpisz|wpisz)$/,
-    es: /^(parte|aparte|convierte|fuerte|reparte|arte|corte|norte|deporte|soporte|reporte|suerte|muerte|puente|frente)$/i,
+    es: /^(parte|aparte|convierte|advierte|advierten|fuerte|reparte|arte|corte|norte|deporte|soporte|reporte|suerte|muerte|puente|frente)$/i,
   };
   const offenders = [];
   for (const [locale, pattern] of Object.entries(INFORMAL)) {
