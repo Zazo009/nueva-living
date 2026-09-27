@@ -2200,7 +2200,7 @@ so Latin numerals in the price still render in
    and guessing at that value pushed the second button past the viewport. */
 .mobile-menu-actions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr auto 1fr;
   gap: 8px;
   padding: 18px 0 0;
   margin-inline: 0;
@@ -2265,6 +2265,27 @@ so Latin numerals in the price still render in
 .mobile-menu .mobile-menu-action--secondary {
   border: 1px solid rgba(216, 189, 133, 0.55);
   color: #d8bd85;
+}
+
+/* Instagram sits between the two calls to action, outlined like the second
+   one so it reads as part of the same row rather than a third button
+   competing with them. Icon only: a label would need translating into ten
+   languages to say what the mark already says, and the row has no width to
+   spare -- 48px is what is left once both labels still fit at 375px. */
+.mobile-menu .mobile-menu-action--social {
+  width: 48px;
+  padding: 0;
+  border: 1px solid rgba(216, 189, 133, 0.55);
+  color: #d8bd85;
+}
+
+/* Once the row stacks, the fixed width would leave the icon marooned at one
+   end of a full-width column. This has to come after the rule above, not up
+   in the stacking query, or source order hands the 48px back. */
+@media (max-width: 340px) {
+  .mobile-menu .mobile-menu-action--social {
+    width: auto;
+  }
 }
 
 .mobile-menu .mobile-menu-action:focus-visible {
