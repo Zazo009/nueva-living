@@ -5000,6 +5000,113 @@
     }
 
   
+    /* ── Area guide cards: image-forward tiles ──────────────────────────
+       The cards used to be a small photo above a white body, five to a row,
+       which left each one 237px wide with three lines of copy squeezed
+       underneath. These are one picture with the name over it, sized so the
+       photograph carries the card. Colours stay ours: the scrim is --forest
+       rather than black, the name is --white, the cue is --gold-light.
+       Flex rather than grid so the last row fills the width instead of
+       leaving a hole -- there are five areas, not six.                      */
+    #areas .areas-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: transparent;
+    }
+    #areas .area-card {
+      position: relative;
+      flex: 1 1 285px;
+      height: clamp(286px, 23vw, 344px);
+      display: block;
+      padding: 0;
+      border: none;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--sand-light);
+      box-shadow: none;
+      isolation: isolate;
+    }
+    #areas .area-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+        rgba(47, 36, 23, 0.95) 0%,
+        rgba(47, 36, 23, 0.84) 30%,
+        rgba(47, 36, 23, 0.34) 58%,
+        rgba(47, 36, 23, 0) 82%);
+      transition: opacity 320ms ease;
+      pointer-events: none;
+    }
+    #areas .area-img-wrap {
+      position: absolute;
+      inset: 0;
+      height: auto;
+      background: var(--sand-light);
+    }
+    #areas .area-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    #areas .area-card:hover .area-img-wrap img { transform: scale(1.06); }
+    #areas .area-body {
+      position: absolute;
+      inset: auto 0 0 0;
+      display: block;
+      z-index: 1;
+      padding: 0 26px 24px;
+    }
+    #areas .area-name {
+      color: var(--white);
+      font-size: clamp(19px, 1.5vw, 23px);
+      line-height: 1.2;
+      margin-bottom: 7px;
+      text-shadow: 0 1px 14px rgba(47, 36, 23, 0.4);
+    }
+    #areas .area-desc {
+      color: rgba(255, 250, 243, 0.82);
+      font-size: 12.5px;
+      line-height: 1.62;
+      max-width: 40ch;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    #areas .area-card-cta {
+      width: auto;
+      justify-content: flex-start;
+      gap: 9px;
+      margin-top: 0;
+      padding-top: 13px;
+      border-top: none;
+      color: var(--gold-light);
+      font-size: 10.5px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 300ms ease, transform 300ms ease;
+    }
+    #areas .area-card:hover .area-card-cta,
+    #areas .area-card:focus-visible .area-card-cta { opacity: 1; transform: none; }
+    #areas .area-card:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
+    }
+    /* No hover to reveal it on a touch screen, so it stays put. */
+    @media (hover: none) {
+      #areas .area-card-cta { opacity: 1; transform: none; }
+    }
+    @media (max-width: 900px) {
+      #areas .area-card { flex-basis: 268px; height: clamp(255px, 34vw, 310px); }
+      #areas .area-body { padding: 0 20px 19px; }
+    }
+    @media (max-width: 640px) {
+      #areas .areas-grid { gap: 13px; }
+      #areas .area-card { flex-basis: 100%; height: 252px; }
+      #areas .area-desc { font-size: 13px !important; line-height: 1.6; }
+    }
+
+  
     #nav .lang-switcher, .mobile-menu .lang-switcher { position: relative; }
     #nav .lang-switcher-toggle, .mobile-menu .lang-switcher-toggle {
       display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none;
@@ -5162,6 +5269,7 @@
         </div>
       </div>
     </details></li>
+          <li class="nav-social-item"><a class="nav-social" href="https://www.instagram.com/nuevaliving" target="_blank" rel="noopener" aria-label="Instagram"><svg class="nav-social-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.35" cy="6.65" r="1.15" fill="currentColor" stroke="none"/></svg></a></li>
     </ul>
     <button class="nav-burger" id="burgerBtn" type="button" aria-label="القائمة" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -6632,6 +6740,26 @@
         <div class="area-body">
           <div class="area-name">ميخاس وفوينخيرولا</div>
           <p class="area-desc">توفر ميخاس وفوينخيرولا روابط جيدة مع مالقة، وحياة ساحلية راسخة، ومجموعة واسعة من المساكن الأحدث.</p>
+          <span class="area-card-cta">عرض دليل المنطقة <span aria-hidden="true">&#8594;</span></span>
+        </div>
+      </a>
+      <a class="area-card reveal" href="ar/area-san-pedro-alcantara.html" aria-label="Explore the San Pedro de Alcantara area guide" style="transition-delay:0.48s">
+        <div class="area-img-wrap">
+          <img src="assets/liora/areas/san-pedro-alcantara.jpg" alt="جادة سان بيدرو دي ألكانتارا وممشى الشاطئ" loading="lazy" decoding="async" width="1920" height="1280" />
+        </div>
+        <div class="area-body">
+          <div class="area-name">San Pedro de Alcántara</div>
+          <p class="area-desc">سان بيدرو بلدة تعيش طوال العام إلى جوار بويرتو بانوس، فيها سوق ومدارس وممشى طويل حتى الشاطئ بدل شريط سياحي.</p>
+          <span class="area-card-cta">عرض دليل المنطقة <span aria-hidden="true">&#8594;</span></span>
+        </div>
+      </a>
+      <a class="area-card reveal" href="ar/area-casares.html" aria-label="Explore the Casares area guide" style="transition-delay:0.4s">
+        <div class="area-img-wrap">
+          <img src="assets/liora/areas/casares.jpg" alt="قرية كاساريس البيضاء على المنحدر فوق الساحل" loading="lazy" decoding="async" width="1920" height="1280" />
+        </div>
+        <div class="area-body">
+          <div class="area-name">Casares</div>
+          <p class="area-desc">كاساريس ثلاثة أماكن في آن واحد: قرية بيضاء على قمة تل، ووادٍ للغولف، وشريط ساحلي منخفض الارتفاع، وكلها أهدأ من وسط ماربيا.</p>
           <span class="area-card-cta">عرض دليل المنطقة <span aria-hidden="true">&#8594;</span></span>
         </div>
       </a>

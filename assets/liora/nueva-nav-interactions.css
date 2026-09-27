@@ -191,3 +191,48 @@
 .mobile-menu .nav-dropdown-option::after {
   content: none;
 }
+/* ── Instagram in the top bar ──────────────────────────────────────────
+   Sits last in the static nav markup, which puts it immediately before the
+   shortlist heart: that heart is appended at runtime by nueva-shortlist.js,
+   so anything hard-coded lands to its left. Sized and coloured from the
+   same values as the heart trigger so the pair reads as one set, and the
+   nav's underline sweep is cancelled because there is no word to underline. */
+.site-nav .nav-social,
+#nav .nav-social,
+.site-nav .nav-links .nav-social,
+#nav .nav-links .nav-social {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: rgba(244, 234, 217, 0.94);
+  transition: color 180ms ease, transform 180ms ease;
+}
+.site-nav .nav-social:hover,
+.site-nav .nav-social:focus-visible,
+#nav .nav-social:hover,
+#nav .nav-social:focus-visible {
+  color: #fffaf2;
+  transform: translateY(-1px);
+}
+.site-nav .nav-social:focus-visible,
+#nav .nav-social:focus-visible {
+  outline: 1px solid var(--gold-light, #c9a35f);
+  outline-offset: 3px;
+}
+.site-nav .nav-links .nav-social::before,
+.site-nav .nav-links .nav-social::after,
+#nav .nav-links .nav-social::before,
+#nav .nav-links .nav-social::after { content: none; }
+.nav-social-icon {
+  width: 19px;
+  height: 19px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.nav-social-item { list-style: none; display: inline-flex; align-items: center; }
