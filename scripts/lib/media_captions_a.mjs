@@ -83,13 +83,13 @@ export const CAPTIONS_A = {
     }
   ],
 
-  'altos-de-marbella': [
+  'benahavis-ridge-residences': [
     {
-      es: ['Imagen aérea del promotor de Altos de Marbella al atardecer, con la terraza de la piscina y su entorno en ladera', 'Entorno en ladera al atardecer'],
-      fr: ['Visuel aérien du promoteur d’Altos de Marbella au crépuscule, montrant la terrasse-piscine et son cadre à flanc de colline', 'Cadre à flanc de colline au crépuscule'],
-      de: ['Luftbild-Visualisierung des Bauträgers von Altos de Marbella in der Dämmerung mit Poolterrasse und Hanglage', 'Hanglage in der Dämmerung'],
-      ru: ['Аэровизуализация застройщика Altos de Marbella в сумерках: террасa у бассейна и расположение на склоне', 'Расположение на склоне в сумерках'],
-      ar: ['تصور جوي من المطور لمشروع Altos de Marbella عند الغروب يُظهر تراس المسبح والموقع على المنحدر', 'الموقع على المنحدر عند الغروب']
+      es: ['Imagen aérea del promotor de Benahavís Ridge al atardecer, con la terraza de la piscina y su entorno en ladera', 'Entorno en ladera al atardecer'],
+      fr: ['Visuel aérien du promoteur d’Benahavís Ridge au crépuscule, montrant la terrasse-piscine et son cadre à flanc de colline', 'Cadre à flanc de colline au crépuscule'],
+      de: ['Luftbild-Visualisierung des Bauträgers von Benahavís Ridge in der Dämmerung mit Poolterrasse und Hanglage', 'Hanglage in der Dämmerung'],
+      ru: ['Аэровизуализация застройщика Benahavís Ridge в сумерках: террасa у бассейна и расположение на склоне', 'Расположение на склоне в сумерках'],
+      ar: ['تصور جوي من المطور لمشروع Benahavís Ridge عند الغروب يُظهر تراس المسبح والموقع على المنحدر', 'الموقع على المنحدر عند الغروب']
     },
     {
       es: ['Imagen del promotor del acceso y la entrada al edificio al atardecer', 'Acceso y entrada'],
@@ -106,11 +106,11 @@ export const CAPTIONS_A = {
       ar: ['تصور من المطور للواجهة المنخفضة بتفاصيل من الخشب والحجر', 'تفصيل الواجهة']
     },
     {
-      es: ['Imagen aérea del promotor que muestra Altos de Marbella en su entorno de Marbella Este al anochecer', 'Entorno de Marbella Este'],
-      fr: ['Visuel aérien du promoteur montrant Altos de Marbella dans son cadre de Marbella Est au crépuscule', 'Cadre de Marbella Est'],
-      de: ['Luftbild-Visualisierung des Bauträgers von Altos de Marbella in seiner Umgebung in Marbella Ost in der Abenddämmerung', 'Umgebung Marbella Ost'],
-      ru: ['Аэровизуализация застройщика: Altos de Marbella в окружении района Марбелья-Эст в сумерках', 'Окружение Марбелья-Эст'],
-      ar: ['تصور جوي من المطور يُظهر Altos de Marbella ضمن محيطه في شرق ماربيا عند الغسق', 'محيط شرق ماربيا']
+      es: ['Imagen aérea del promotor de Benahavís Ridge y las colinas del entorno al anochecer', 'Entorno en la ladera'],
+      fr: ['Visuel aérien du promoteur de Benahavís Ridge et des collines environnantes au crépuscule', 'Cadre à flanc de colline'],
+      de: ['Luftbild-Visualisierung des Bauträgers von Benahavís Ridge und den umliegenden Hügeln in der Abenddämmerung', 'Lage am Hang'],
+      ru: ['Аэровизуализация застройщика: Benahavís Ridge и окружающие холмы в сумерках', 'Расположение на склоне'],
+      ar: ['تصور جوي من المطور لمشروع Benahavís Ridge والتلال المحيطة عند الغسق', 'موقع على المنحدر']
     },
     {
       es: ['Imagen aérea del promotor de las terrazas con piscina privada en azotea', 'Terrazas con piscina en azotea'],

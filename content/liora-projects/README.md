@@ -3,10 +3,10 @@
 Create one folder per project:
 
 ```text
-content/liora-projects/altos-de-marbella/project.json
-assets/liora/projects/altos-de-marbella/hero.jpg
-assets/liora/projects/altos-de-marbella/architecture.jpg
-assets/liora/projects/altos-de-marbella/private-viewing.jpg
+content/liora-projects/benahavis-ridge-residences/project.json
+assets/liora/projects/benahavis-ridge-residences/hero.jpg
+assets/liora/projects/benahavis-ridge-residences/architecture.jpg
+assets/liora/projects/benahavis-ridge-residences/private-viewing.jpg
 ```
 
 Use `content/liora-projects/project-template.json` as the starting point. Copy it into a new project folder, rename the folder to the project slug, then replace the placeholder copy and image paths.

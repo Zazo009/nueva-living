@@ -1648,7 +1648,7 @@ const pages = [
     datePublished: '2026-08-12',
     title: 'Off-Plan vs Resale',
     description: 'How buying off-plan and buying a completed resale home actually compare on the Costa del Sol, across price, risk, payment terms and appreciation.',
-    heroImage: 'assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg',
+    heroImage: 'assets/liora/projects/benahavis-ridge-residences/media/aerial-dusk-pool.jpg',
     heroKicker: 'Buying Guide',
     seoContext: 'Off-Plan vs Resale on the Costa del Sol \u00b7 2026 Guide',
     heroTitle: 'Off-plan vs resale: <em>which fits your plan</em>',

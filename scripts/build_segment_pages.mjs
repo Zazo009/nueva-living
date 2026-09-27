@@ -752,7 +752,7 @@ const PROCESS_GUIDES = [
     kicker: 'Buying Guide',
     title: 'Off-Plan vs Resale',
     description: 'How buying off-plan and buying a completed resale home actually compare, across price, risk, payment terms and appreciation.',
-    image: 'assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg',
+    image: 'assets/liora/projects/benahavis-ridge-residences/media/aerial-dusk-pool.jpg',
     alt: 'Aerial dusk view of a new-build Costa del Sol residence and pool terrace'
   },
   {
@@ -849,7 +849,7 @@ ${JSON.stringify(schema, null, 2)}
   ${breadcrumb(t('nav.buyingGuides', locale), [[t('breadcrumb.developments', locale), 'developments.html']], locale)}
   <main>
     <section class="page-hero">
-      ${heroPicture({ image: 'assets/liora/projects/altos-de-marbella/media/aerial-dusk-pool.jpg', alt: 'Aerial dusk view of a new-build Costa del Sol residence and pool terrace', width: 1920, height: 1085 })}
+      ${heroPicture({ image: 'assets/liora/projects/benahavis-ridge-residences/media/aerial-dusk-pool.jpg', alt: 'Aerial dusk view of a new-build Costa del Sol residence and pool terrace', width: 1920, height: 1085 })}
       <div class="hero-inner">
         <span class="kicker">Buying Guides</span>
         <h1 class="display-title">Costa del Sol <em>Buying Guides</em></h1>

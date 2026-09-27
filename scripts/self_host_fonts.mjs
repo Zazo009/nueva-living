@@ -18,7 +18,7 @@ const pages = [
   'developments.html',
   'legal-notice.html',
   'privacy-policy.html',
-  'property-altos-de-marbella.html',
+  'property-benahavis-ridge-residences.html',
 ];
 
 if (!fs.existsSync(remoteCssPath)) {

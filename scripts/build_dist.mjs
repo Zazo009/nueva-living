@@ -2020,6 +2020,20 @@ const legacyRedirects = [
   // beach 5 min". The owner's own map pin puts the site at El Higueron,
   // four kilometres inland, so the slug moved with the name.
   '/property-carvajal-wellness-residences.html /property-higueron-wellness-residences.html 301',
+  // Published as altos-de-marbella from a dossier that placed the scheme in
+  // Marbella East. The owner's own portal and info sheet both put it in
+  // Benahavis, so the slug moved with the name. Unlike the rename above,
+  // the locale copies are redirected too -- all ten were live and indexed.
+  '/property-altos-de-marbella.html /property-benahavis-ridge-residences.html 301',
+  '/ar/property-altos-de-marbella.html /ar/property-benahavis-ridge-residences.html 301',
+  '/de/property-altos-de-marbella.html /de/property-benahavis-ridge-residences.html 301',
+  '/es/property-altos-de-marbella.html /es/property-benahavis-ridge-residences.html 301',
+  '/fr/property-altos-de-marbella.html /fr/property-benahavis-ridge-residences.html 301',
+  '/nl/property-altos-de-marbella.html /nl/property-benahavis-ridge-residences.html 301',
+  '/no/property-altos-de-marbella.html /no/property-benahavis-ridge-residences.html 301',
+  '/pl/property-altos-de-marbella.html /pl/property-benahavis-ridge-residences.html 301',
+  '/ru/property-altos-de-marbella.html /ru/property-benahavis-ridge-residences.html 301',
+  '/sv/property-altos-de-marbella.html /sv/property-benahavis-ridge-residences.html 301',
 ];
 
 
