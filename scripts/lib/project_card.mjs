@@ -1,5 +1,10 @@
 // The listing card -- one definition, used by every grid on the site.
 //
+// v2 (dev-card--v2): nothing sits over the photo. Status badge in a bar above
+// the image, gallery controls in a bar below it, price + units in a band at the
+// ruled row under the name. Styles: the 'Listing card v2' block at the end of
+// assets/liora/nueva-system.css.
+//
 // There used to be two visually different cards, one on the homepage and one
 // on every other grid. They were consolidated into this partial; this is the
 // redesign of that single card.
@@ -53,6 +58,13 @@ const TAX_SUFFIX = /\s*(?:\+\s*(?:VAT|IVA|TVA|НДС|ضريبة|skatt|mva)\.?|zz
 
 const ARROW = '<svg class="dev-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"></path></svg>';
 
+// Quick contact on every card. Same number as the mobile menu, and the same
+// label key: spelled out, "WhatsApp" is identical in nine languages and the
+// untranslated-text guard reads that as a missing translation -- and Arabic
+// does have its own spelling for it.
+const WHATSAPP_NUMBER = '46707576709';
+const WA_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>';
+
 /**
  * @param {object}   card
  * @param {object}   card.project     the (already localized) project, for facts
@@ -79,11 +91,16 @@ export function renderUnifiedCard(card) {
     t, id, className = '', style = '', attrs = '', heading = 'h2', indent = ''
   } = card;
 
-  const classes = ['project-card', 'dev-card', className].filter(Boolean).join(' ');
+  const classes = ['project-card', 'dev-card', 'dev-card--v2', className].filter(Boolean).join(' ');
   const cleanPrice = String(price ?? '').replace(TAX_SUFFIX, '');
   // "From" only makes sense in front of a figure. A villa quoted on request
   // read "From Price on request" on its card.
   const showsFromLabel = /\d/.test(cleanPrice);
+  // Shown with the € sign ("€305,000") instead of "EUR 305,000". Translated
+  // pages then get their own spelling from localizeCardPrices() in prices.mjs,
+  // which already accepts both forms. data-card-price keeps the raw value for
+  // the shortlist/CRM.
+  const displayPrice = cleanPrice.replace(/^EUR\s*(?=\d)/, '€');
 
   // Badge row: status, plus the unit count when the project has one.
   const crm = project.crm || {};
@@ -111,21 +128,30 @@ export function renderUnifiedCard(card) {
           </div>`
     : '';
 
+  const priceMarkup = cleanPrice
+    ? `<div class="dev-price">${showsFromLabel ? `<span class="dev-price-label">${esc(t('card.from'))}</span>` : ''}<span class="dev-price-amount">${esc(displayPrice)}</span></div>`
+    : '';
+  const statusBadge = badge ? `<span class="dev-badge">${esc(badge)}</span>` : '';
+  const unitsBadge = hasUnits ? `<span class="dev-badge-units">${esc(t('card.unitsLeft', { available, total }))}</span>` : '';
+  const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(name || '')}`;
+
   return `<article class="${classes}"${id ? ` id="${esc(id)}"` : ''}${style ? ` style="${style}"` : ''} data-card-url="${esc(href)}"${attrs}${price ? ` data-card-price="${esc(cleanPrice)}"` : ''}${type ? ` data-card-type="${esc(type)}"` : ''}>
         <div class="dev-img-wrap">
           ${gallery}
           <div class="dev-scrim" aria-hidden="true"></div>
-          <div class="dev-overlay">
-            ${badges ? `<div class="dev-badges">${badges}</div>` : ''}
-            ${location ? `<div class="dev-loc">${esc(location)}</div>` : ''}
-            ${cleanPrice ? `<div class="dev-price">${showsFromLabel ? `<span class="dev-price-label">${esc(t('card.from'))}</span>` : ''}<span class="dev-price-amount">${esc(cleanPrice)}</span></div>` : ''}
-          </div>
+          <div class="dev-overlay" aria-hidden="true"></div>
+          ${statusBadge ? `<div class="dev-v2-badges"><div class="dev-badges">${statusBadge}</div></div>` : ''}
         </div>
         <div class="dev-body">
+          ${location ? `<div class="dev-loc">${esc(location)}</div>` : ''}
           <${heading} class="dev-name">${esc(name)}</${heading}>
+          ${priceMarkup || unitsBadge ? `<div class="dev-v2-priceline">${priceMarkup}${unitsBadge}</div>` : ''}
           <p class="dev-tagline">${esc(description)}</p>
           ${factsMarkup}
-          <a class="dev-cta-link" href="${esc(href)}"><span class="dev-cta-label">${esc(t('cta.exploreProject'))}</span>${ARROW}</a>
+          <div class="dev-v2-cta">
+            <a class="dev-cta-link" href="${esc(href)}"><span class="dev-cta-label">${esc(t('cta.exploreProject'))}</span>${ARROW}</a>
+            <a class="dev-v2-whatsapp" href="${esc(waHref)}" target="_blank" rel="noopener">${WA_ICON}<span>${esc(t('cta.whatsappUs'))}</span></a>
+          </div>
         </div>
       </article>`.replace(/\n/g, `\n${indent}`);
 }

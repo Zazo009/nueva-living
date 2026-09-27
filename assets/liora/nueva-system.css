@@ -2688,3 +2688,236 @@ input[type="range"] {
   min-height: 24px;
   background: transparent;
 }
+
+/* ==========================================================================
+   Listing card v2 — "nothing over the photo".
+   Append to the END of assets/liora/nueva-system.css (the homepage does not
+   load liora-pages.css, so it must live here). Scoped to .dev-card--v2:
+   cards without that class are untouched.
+
+   The gallery markup (track, arrows, dots, [data-card-actions], template) is
+   NOT changed — it is re-laid out with grid, so liora-card-gallery.js and
+   nueva-shortlist.js see exactly the DOM they expect.
+
+     row 1  [ badges ............ | ♥ | share | expand ]   56px bar
+     row 2  [            photo (scroll track)          ]
+     row 3  [ ticks ─── ─── ─── ─── ....... | ‹ | › ]      46px bar
+   ========================================================================== */
+
+.dev-card--v2 .dev-img-wrap {
+  position: relative;
+  aspect-ratio: auto;
+  overflow: visible;
+}
+.dev-card--v2 .dev-scrim,
+.dev-card--v2 .dev-overlay { display: none; }
+
+.dev-card--v2 .dev-img-wrap .project-card-gallery {
+  position: relative;
+  inset: auto;
+  z-index: auto;
+  height: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-rows: 56px auto 46px;
+}
+
+/* row 2 — the photo. The track keeps overflow-x:auto / display:flex from
+   nueva-system.css; only its box changes. */
+.dev-card--v2 .dev-img-wrap .project-card-gallery-track {
+  grid-row: 2;
+  grid-column: 1 / -1;
+  aspect-ratio: 1.6;
+  height: auto;
+  border-block: 1px solid var(--card-rule);
+}
+.dev-card--v2 .dev-img-wrap .project-card-gallery-track img { height: 100%; }
+
+/* row 1 — actions (heart is injected first by nueva-shortlist.js) */
+.dev-card--v2 .project-card-actions {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  justify-self: end;
+  position: static;
+  inset: auto;
+  z-index: auto;
+  display: flex;
+  gap: 0;
+}
+.dev-card--v2 .project-card-action,
+.dev-card--v2 .project-card-actions .nueva-favorite-button {
+  position: static;
+  width: 56px;
+  height: 56px;
+  background: transparent;
+  color: var(--card-ink);
+  border: 0;
+  border-inline-start: 1px solid var(--card-rule);
+  border-radius: 0;
+  box-shadow: none;
+}
+.dev-card--v2 .project-card-action:hover,
+.dev-card--v2 .project-card-action:focus-visible,
+.dev-card--v2 .project-card-actions .nueva-favorite-button:hover,
+.dev-card--v2 .project-card-actions .nueva-favorite-button:focus-visible {
+  background: var(--card-rule);
+  color: var(--card-ink);
+}
+.dev-card--v2 .project-card-actions .nueva-favorite-button.is-saved { color: var(--card-gold); }
+
+/* row 1 — badges. They sit outside the gallery in the markup and are laid
+   over the empty start of row 1; pointer-events:none lets a click fall
+   through to the gallery, which navigates exactly as the photo does. */
+.dev-card--v2 .dev-v2-badges {
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 176px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding-inline: 18px;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.dev-card--v2 .dev-badges { flex-wrap: nowrap; gap: 8px; }
+.dev-card--v2 .dev-badge-units {
+  background: transparent;
+  border: 1px solid var(--card-rule);
+  padding: 5px 10px;
+}
+
+/* row 3 — ticks + arrows */
+.dev-card--v2 .project-card-gallery-dots {
+  grid-row: 3;
+  grid-column: 1;
+  align-self: center;
+  position: static;
+  inset: auto;
+  max-width: none;
+  width: auto;
+  transform: none;
+  display: flex;
+  gap: 4px;
+  padding-inline: 18px;
+}
+.dev-card--v2 .project-card-gallery-dot {
+  flex: 1 1 0;
+  width: auto;
+  height: 2px;
+  background: var(--card-rule);
+}
+.dev-card--v2 .project-card-gallery-dot.is-active {
+  width: auto;
+  background: var(--card-gold);
+}
+.dev-card--v2 .project-card-gallery-arrow {
+  grid-row: 3;
+  position: static;
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 46px;
+  margin: 0;
+  border: 0;
+  border-inline-start: 1px solid var(--card-rule);
+  border-radius: 0;
+  background: transparent;
+  color: var(--card-ink);
+  font-size: 22px;
+  line-height: 1;
+}
+.dev-card--v2 .project-card-gallery-arrow--prev { grid-column: 2; }
+.dev-card--v2 .project-card-gallery-arrow--next { grid-column: 3; }
+.dev-card--v2 .project-card-gallery-arrow:hover,
+.dev-card--v2 .project-card-gallery-arrow:focus-visible { background: var(--card-rule); }
+@media (hover: none) {
+  .dev-card--v2 .project-card-gallery .project-card-gallery-arrow { display: inline-flex; opacity: 1; }
+}
+/* A single-image gallery has no dots/arrows: collapse the empty bar. */
+.dev-card--v2 .project-card-gallery:not(:has([data-gallery-dot])) { grid-template-rows: 56px auto; }
+
+/* ---------- body: location, name and price now live here ---------- */
+.dev-card--v2 .dev-name { line-height: 1.2; }
+.dev-card--v2 .dev-loc { margin-bottom: 8px; color: var(--card-gold); }
+/* Price row (2a): its own ruled row under the name, inside .dev-body
+   so the whole row stays part of the card's click area. */
+.dev-card--v2 .dev-v2-priceline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 16px 0;
+  margin: 4px 0 2px;
+  border-top: 1px solid var(--card-rule);
+  border-bottom: 1px solid var(--card-rule);
+}
+.dev-card--v2 .dev-price {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 14px;
+  min-width: 0;
+}
+.dev-card--v2 .dev-price-label { color: var(--card-label); white-space: nowrap; flex: none; }
+.dev-card--v2 .dev-price-amount {
+  font-size: 30px;
+  line-height: 1;
+  color: var(--card-brown);
+  white-space: nowrap;
+}
+.dev-card--v2 .dev-v2-priceline .dev-badge-units {
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--card-gold);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+
+.dev-card--v2 .dev-v2-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  margin-top: auto;
+}
+.dev-card--v2 .dev-v2-cta .dev-cta-link { margin-top: 0; }
+.dev-card--v2 .dev-v2-cta .dev-cta-label { white-space: nowrap; }
+/* Sits above the .dev-cta-link::before overlay that makes the body a link. */
+.dev-card--v2 .dev-v2-whatsapp {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 18px;
+  min-height: 48px;
+  border: 1px solid var(--card-brown);
+  color: var(--card-brown);
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.dev-card--v2 .dev-v2-whatsapp:hover,
+.dev-card--v2 .dev-v2-whatsapp:focus-visible { background: var(--card-rule); }
+.dev-card--v2 .dev-v2-whatsapp svg { width: 17px; height: 17px; flex: none; }
+
+@media (max-width: 640px) {
+  .dev-card--v2 .dev-img-wrap .project-card-gallery { grid-template-rows: 44px auto 44px; }
+  .dev-card--v2 .project-card-action,
+  .dev-card--v2 .project-card-actions .nueva-favorite-button { width: 44px; height: 44px; }
+  .dev-card--v2 .dev-v2-badges { height: 44px; inset-inline-end: 140px; padding-inline: 12px; }
+  .dev-card--v2 .dev-img-wrap .project-card-gallery-track { aspect-ratio: 1.3; }
+  .dev-card--v2 .dev-v2-priceline { padding: 14px 0; }
+  .dev-card--v2 .dev-price-amount { font-size: 26px; }
+  .dev-card--v2 .dev-v2-cta { grid-template-columns: 1fr; }
+}
