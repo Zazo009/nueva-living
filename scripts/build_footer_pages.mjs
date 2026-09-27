@@ -165,6 +165,7 @@ function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html', langFall
       <span class="nav-divider" aria-hidden="true"></span>
       ${switcher}
       <a class="nav-social" href="https://www.instagram.com/nuevaliving" target="_blank" rel="noopener" aria-label="Instagram"><svg class="nav-social-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.35" cy="6.65" r="1.15" fill="currentColor" stroke="none"/></svg></a>
+      <a class="nav-social" href="https://www.facebook.com/nuevaliving" target="_blank" rel="noopener" aria-label="Facebook"><svg class="nav-social-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><path transform="translate(2.69 3.28) scale(0.705)" d="M14.6 21.5v-8h2.7l.4-3.1h-3.1V8.4c0-.9.25-1.5 1.55-1.5h1.65V4.1a22 22 0 0 0-2.4-.12c-2.38 0-4.01 1.45-4.01 4.12v2.3H8.7v3.1h2.69v8Z" fill="currentColor" stroke="none"/></svg></a>
     </div>
     <button class="nav-burger" type="button" aria-label="${t('nav.menu', locale)}" aria-controls="mobileMenu" aria-expanded="false">
       <span></span><span></span><span></span>
