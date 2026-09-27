@@ -2952,3 +2952,21 @@ input[type="range"] {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* The homepage also fixes the height of the card itself:
+   #developments .dev-card:not(.featured-walkthrough-card) is 680px on a wide
+   screen, 640px below that, auto with min-height on a phone. Those numbers
+   were sized for a v1 card, whose photo was capped at 360px and whose body
+   sat under it. A v2 card is taller -- the photo keeps its own ratio and gains
+   a 56px bar above it and a 46px bar below -- so at 613px wide the content
+   runs to about 915px and the fixed height cut off the description, the facts
+   row and both buttons, with overflow:hidden hiding the evidence.
+
+   The card is sized by its content instead. The selector carries .dev-card and
+   .dev-card--v2 so it outweighs the (1,2,0) rule above without !important:
+   this file is inlined ahead of the homepage's own <style>, so a tie would
+   lose on source order. */
+#developments .dev-card.dev-card--v2:not(.featured-walkthrough-card) {
+  height: auto;
+  min-height: 0;
+}
