@@ -1835,6 +1835,17 @@ fs.writeFileSync(path.join(dist, 'README.md'), metadata);
 // The hash deliberately strips `?v=<assethash>` cache-busting query strings
 // first: bumping the shared stylesheet rewrites that token on every page, and
 // a CSS tweak is not a content change to 510 documents.
+//
+// It strips the inlined shared stylesheets for the same reason, and that one
+// matters more: this file inlines three of them into every page as
+// `<style data-nueva-fonts>`, `data-nueva-consent` and `data-nueva-system`,
+// which is 50 KB of the 94 KB of an average page. Stripping the `?v=` token
+// bought nothing while the stylesheet's own bytes sat in the document -- any
+// edit to the design system moved all 860 dates at once, and the manifest had
+// collapsed to a single date for every URL, which is the exact signal the
+// paragraph above says not to send. Adding two @font-face blocks for Polish
+// is what made it visible. A page's own inline <style>, which carries no
+// data-nueva- marker, stays in the hash: that is the page's content.
 // ---------------------------------------------------------------------------
 const buildDate = new Date().toISOString().slice(0, 10);
 const lastmodManifestPath = path.join(root, 'content', 'sitemap-lastmod.json');
@@ -1858,6 +1869,7 @@ function pageContentHash(distRelPath) {
   return createHash('sha256')
     .update(html
       .replace(/\?v=[A-Za-z0-9]+/g, '')
+      .replace(/<style data-nueva-[^>]*>[\s\S]*?<\/style>/g, '')
       // The guide byline and the Article's dateModified are written *from*
       // this hash, so they cannot be part of it -- otherwise stamping the date
       // changes the content, which changes the date, on every build.
