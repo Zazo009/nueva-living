@@ -2699,9 +2699,9 @@ input[type="range"] {
    NOT changed — it is re-laid out with grid, so liora-card-gallery.js and
    nueva-shortlist.js see exactly the DOM they expect.
 
-     row 1  [ badges ............ | ♥ | share | expand ]   56px bar
-     row 2  [            photo (scroll track)          ]
-     row 3  [ ticks ─── ─── ─── ─── ....... | ‹ | › ]      46px bar
+     row 1  [            photo (scroll track)          ]
+     row 2  [ ticks ─── ─── ─── ─── ....... | ‹ | › ]      46px bar
+     row 3  [ badges ............ | ♥ | share | expand ]   56px bar
    ========================================================================== */
 
 .dev-card--v2 .dev-img-wrap {
@@ -2719,13 +2719,13 @@ input[type="range"] {
   height: auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto auto;
-  grid-template-rows: 56px auto 46px;
+  grid-template-rows: auto 46px 56px;
 }
 
-/* row 2 — the photo. The track keeps overflow-x:auto / display:flex from
+/* row 1 — the photo. The track keeps overflow-x:auto / display:flex from
    nueva-system.css; only its box changes. */
 .dev-card--v2 .dev-img-wrap .project-card-gallery-track {
-  grid-row: 2;
+  grid-row: 1;
   grid-column: 1 / -1;
   aspect-ratio: 1.6;
   height: auto;
@@ -2733,9 +2733,9 @@ input[type="range"] {
 }
 .dev-card--v2 .dev-img-wrap .project-card-gallery-track img { height: 100%; }
 
-/* row 1 — actions (heart is injected first by nueva-shortlist.js) */
+/* row 3 — actions (heart is injected first by nueva-shortlist.js) */
 .dev-card--v2 .project-card-actions {
-  grid-row: 1;
+  grid-row: 3;
   grid-column: 1 / -1;
   justify-self: end;
   position: static;
@@ -2765,12 +2765,13 @@ input[type="range"] {
 }
 .dev-card--v2 .project-card-actions .nueva-favorite-button.is-saved { color: var(--card-gold); }
 
-/* row 1 — badges. They sit outside the gallery in the markup and are laid
+/* row 3 — badges. They sit outside the gallery in the markup and are laid
    over the empty start of row 1; pointer-events:none lets a click fall
    through to the gallery, which navigates exactly as the photo does. */
 .dev-card--v2 .dev-v2-badges {
   position: absolute;
-  top: 0;
+  top: auto;
+  bottom: 0;
   inset-inline-start: 0;
   inset-inline-end: 176px;
   height: 56px;
@@ -2788,9 +2789,9 @@ input[type="range"] {
   padding: 5px 10px;
 }
 
-/* row 3 — ticks + arrows */
+/* row 2 — ticks + arrows */
 .dev-card--v2 .project-card-gallery-dots {
-  grid-row: 3;
+  grid-row: 2;
   grid-column: 1;
   align-self: center;
   position: static;
@@ -2813,7 +2814,7 @@ input[type="range"] {
   background: var(--card-gold);
 }
 .dev-card--v2 .project-card-gallery-arrow {
-  grid-row: 3;
+  grid-row: 2;
   position: static;
   transform: none;
   opacity: 1;
@@ -2840,7 +2841,7 @@ input[type="range"] {
   .dev-card--v2 .project-card-gallery .project-card-gallery-arrow { display: inline-flex; opacity: 1; }
 }
 /* A single-image gallery has no dots/arrows: collapse the empty bar. */
-.dev-card--v2 .project-card-gallery:not(:has([data-gallery-dot])) { grid-template-rows: 56px auto; }
+.dev-card--v2 .project-card-gallery:not(:has([data-gallery-dot])) { grid-template-rows: auto 0 56px; }
 
 /* ---------- body: location, name and price now live here ---------- */
 .dev-card--v2 .dev-name { line-height: 1.2; }
@@ -2911,61 +2912,102 @@ input[type="range"] {
 .dev-card--v2 .dev-v2-whatsapp:focus-visible { background: var(--card-rule); }
 .dev-card--v2 .dev-v2-whatsapp svg { width: 17px; height: 17px; flex: none; }
 
+/* The image box must grow with its three rows. Older / page-specific rules
+   give .dev-img-wrap a fixed aspect-ratio; if one wins, the controls bar
+   spills under the body and the title is drawn over it. */
+.dev-card.dev-card--v2 .dev-img-wrap {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+.dev-card.dev-card--v2 .dev-img-wrap .project-card-gallery {
+  position: relative !important;
+  inset: auto !important;
+  height: auto !important;
+}
+/* The card and its body are flex columns with a height set by the grid row.
+   Without this, flex-shrink squeezes the image box and the title below
+   their content and the next element is drawn over them. */
+.dev-card.dev-card--v2 .dev-img-wrap,
+.dev-card.dev-card--v2 .dev-body > * { flex-shrink: 0; }
+
+.dev-card--v2 .dev-badge {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media (max-width: 640px) {
-  .dev-card--v2 .dev-img-wrap .project-card-gallery { grid-template-rows: 44px auto 44px; }
+  /* Compact phone card. Swipe replaces the arrows, so the bottom bar shrinks
+     to a thin progress strip. */
+  .dev-card--v2 .dev-img-wrap .project-card-gallery { grid-template-rows: auto 14px 44px; }
+  .dev-card--v2 .project-card-gallery .project-card-gallery-arrow,
+  .dev-card--v2 .project-card-gallery-arrow { display: none !important; }
+  .dev-card--v2 .project-card-gallery-dots { grid-column: 1 / -1; padding-inline: 0; gap: 3px; }
   .dev-card--v2 .project-card-action,
   .dev-card--v2 .project-card-actions .nueva-favorite-button { width: 44px; height: 44px; }
-  .dev-card--v2 .dev-v2-badges { height: 44px; inset-inline-end: 140px; padding-inline: 12px; }
-  .dev-card--v2 .dev-img-wrap .project-card-gallery-track { aspect-ratio: 1.3; }
-  .dev-card--v2 .dev-v2-priceline { padding: 14px 0; }
-  .dev-card--v2 .dev-price-amount { font-size: 26px; }
-  .dev-card--v2 .dev-v2-cta { grid-template-columns: 1fr; }
+  .dev-card--v2 .dev-v2-badges { height: 44px; inset-inline-end: 132px; padding-inline: 12px; }
+  .dev-card--v2 .dev-badge { font-size: 9px; letter-spacing: 0.16em; padding: 6px 9px; }
+  .dev-card--v2 .dev-img-wrap .project-card-gallery-track { aspect-ratio: 1.45; }
+
+  .dev-card.dev-card--v2 .dev-body { padding: 16px; gap: 10px; }
+  .dev-card.dev-card--v2 .dev-name { font-size: 21px; }
+  .dev-card--v2 .dev-loc { margin-bottom: 2px; }
+  .dev-card--v2 .dev-v2-priceline { padding: 10px 0; margin: 0; }
+  .dev-card.dev-card--v2 .dev-price-amount { font-size: 24px; }
+  /* "36 of 88 left" is repeated by the Available fact right below. */
+  .dev-card--v2 .dev-v2-priceline .dev-badge-units { display: none; }
+  .dev-card.dev-card--v2 .dev-tagline { -webkit-line-clamp: 2; line-clamp: 2; font-size: 14px; }
+  .dev-card--v2 .dev-fact { padding-block: 10px; }
+
+  /* Explore + WhatsApp on one row; WhatsApp becomes a 48px icon button. */
+  .dev-card--v2 .dev-v2-cta { grid-template-columns: minmax(0, 1fr) 48px; }
+  .dev-card--v2 .dev-v2-whatsapp { padding: 0; justify-content: center; }
+  .dev-card--v2 .dev-v2-whatsapp span {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+}
+
+/* ---------- rounded "slot" card ---------- */
+.dev-card.dev-card--v2 {
+  border-radius: 18px;
+  overflow: hidden;           /* clips the photo's top corners */
+  border: 1px solid var(--card-rule);
+  box-shadow: 0 1px 2px rgba(47, 36, 23, 0.06), 0 8px 24px rgba(47, 36, 23, 0.06);
+}
+.dev-card--v2 .dev-badge { border-radius: 999px; }
+.dev-card--v2 .dev-v2-cta .dev-cta-link,
+.dev-card--v2 .dev-v2-whatsapp { border-radius: 12px; }
+.dev-card--v2 .project-card-gallery-dot { border-radius: 2px; }
+/* Focus ring drawn inside, since overflow:hidden would clip an outer one. */
+.dev-card--v2 .project-card-action:focus-visible,
+.dev-card--v2 .project-card-actions .nueva-favorite-button:focus-visible,
+.dev-card--v2 .project-card-gallery-arrow:focus-visible { outline-offset: -3px; }
+@media (max-width: 640px) {
+  .dev-card.dev-card--v2 { border-radius: 14px; }
+  .dev-card--v2 .dev-v2-cta .dev-cta-link,
+  .dev-card--v2 .dev-v2-whatsapp { border-radius: 10px; }
 }
 
 /* --------------------------------------------------------------------------
-   Listing card v2 — homepage corrections
+   Listing card v2 — homepage correction kept on top of the handoff
    -------------------------------------------------------------------------- */
 
-/* The homepage sets its own fixed height on .dev-img-wrap: 260px on a phone,
-   240px narrower still, clamp(260px, 29vw, 360px) above that. v1 could live
-   with it, because the photo filled the whole box. v2 puts a 56px bar above
-   the photo and a 46px bar below it inside that same box, so the box needs
-   about 380px and the gallery overflowed the fixed height -- visibly, because
-   .dev-img-wrap is overflow:visible here, which put the gallery arrows on top
-   of the project name. Those rules are plain .dev-img-wrap, so scoping this to
-   the v2 class is enough to win without !important. */
-.dev-card--v2:not(.featured-walkthrough-card) .dev-img-wrap {
-  height: auto;
-  min-height: 0;
-}
-
-/* The status badge sits in a strip inset a fixed 176px for the action buttons,
-   with overflow:hidden and nowrap, so the longest label ("Off-plan, Private
-   Availability") was cut mid-word on a phone rather than wrapping. The strip
-   is 56px tall and the badge two lines of 9px, so there is room to wrap; the
-   ellipsis is only for a single word longer than the strip. */
-.dev-card--v2 .dev-v2-badges .dev-badges { min-width: 0; }
-.dev-card--v2 .dev-v2-badges .dev-badge {
-  min-width: 0;
-  white-space: normal;
-  line-height: 1.3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* The homepage also fixes the height of the card itself:
+/* The block above frees the image box and stops the flex squeeze, but the
+   homepage also fixes the height of the card itself:
    #developments .dev-card:not(.featured-walkthrough-card) is 680px on a wide
-   screen, 640px below that, auto with min-height on a phone. Those numbers
-   were sized for a v1 card, whose photo was capped at 360px and whose body
-   sat under it. A v2 card is taller -- the photo keeps its own ratio and gains
-   a 56px bar above it and a 46px bar below -- so at 613px wide the content
-   runs to about 915px and the fixed height cut off the description, the facts
-   row and both buttons, with overflow:hidden hiding the evidence.
+   screen and 640px below that, with overflow:hidden. Those numbers were drawn
+   around a v1 card, whose photo was capped at 360px and whose body carried
+   neither the location nor the price. A v2 card at 613px wide runs to about
+   915px, so without this the description, the facts row and both buttons are
+   cut off -- and flex-shrink:0 above makes that worse, not better, because
+   the content refuses to compress into the fixed box.
 
-   The card is sized by its content instead. The selector carries .dev-card and
-   .dev-card--v2 so it outweighs the (1,2,0) rule above without !important:
-   this file is inlined ahead of the homepage's own <style>, so a tie would
-   lose on source order. */
+   The selector carries .dev-card and .dev-card--v2 to outweigh the (1,2,0)
+   rule without !important: this file is inlined ahead of the homepage's own
+   <style>, so a tie would lose on source order. */
 #developments .dev-card.dev-card--v2:not(.featured-walkthrough-card) {
   height: auto;
   min-height: 0;
