@@ -47,8 +47,15 @@ export const PROJECT_AREA_RULES = [
 
 export const DEFAULT_PROJECT_AREA = { key: 'marbella', englishLabel: 'Marbella', slug: 'marbella', href: 'area-marbella.html' };
 
+// Diacritics are stripped before matching. The rules are written unaccented,
+// and "Benalmádena Pueblo" in a location line does not contain "benalmad", so
+// an accented spelling of a town the table names fell through to the Marbella
+// default -- the exact failure the header comment describes, reached by a
+// different route.
+const unaccented = (value) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
 export function projectAreaRule(project) {
-  const text = `${project?.hero?.location || ''} ${project?.schema?.areaServed || ''}`.toLowerCase();
+  const text = unaccented(`${project?.hero?.location || ''} ${project?.schema?.areaServed || ''}`).toLowerCase();
   const mapArea = project?.location?.mapArea;
   return PROJECT_AREA_RULES.find((rule) => rule.match(text, mapArea)) || DEFAULT_PROJECT_AREA;
 }
