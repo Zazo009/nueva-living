@@ -1,0 +1,105 @@
+# -*- coding: utf-8 -*-
+import json, sys
+T={}
+def a(en,es,fr,de,ru,ar,nl,pl,no,sv): T[en]={'es':es,'fr':fr,'de':de,'ru':ru,'ar':ar,'nl':nl,'pl':pl,'no':no,'sv':sv}
+
+a("Architecture that steps <em>with the slope</em>","Arquitectura que se escalona <em>con la ladera</em>",
+ "Une architecture qui épouse <em>la pente</em>","Architektur, die <em>dem Hang folgt</em>",
+ "Архитектура, что следует <em>за склоном</em>","عمارة تتدرج <em>مع المنحدر</em>",
+ "Architectuur die <em>de helling volgt</em>","Architektura schodząca <em>ze zboczem</em>",
+ "Arkitektur som følger <em>skråningen</em>","Arkitektur som följer <em>sluttningen</em>")
+a("Three blocks set into the hillside rather than levelled across it, so the terraces look over the trees towards the coast.",
+ "Tres bloques encajados en la ladera en lugar de nivelarla, de modo que las terrazas miran por encima de los árboles hacia la costa.",
+ "Trois immeubles inscrits dans le coteau plutôt que posés sur un terrain nivelé, si bien que les terrasses regardent par-dessus les arbres vers la côte.",
+ "Drei Gebäude in den Hang gesetzt statt über ihn eingeebnet, sodass die Terrassen über die Bäume hinweg zur Küste blicken.",
+ "Три корпуса вписаны в склон, а не выровнены по нему, поэтому террасы смотрят поверх деревьев в сторону побережья.",
+ "ثلاثة مبانٍ مدمجة في المنحدر بدل تسويته، فتطل الشرفات فوق الأشجار نحو الساحل.",
+ "Drie gebouwen in de helling geplaatst in plaats van erover genivelleerd, zodat de terrassen over de bomen naar de kust kijken.",
+ "Trzy budynki wpisane w zbocze, a nie posadowione na wyrównanym terenie, dzięki czemu tarasy patrzą ponad drzewami ku wybrzeżu.",
+ "Tre bygg satt inn i skråningen i stedet for å planere den, slik at terrassene ser over trærne mot kysten.",
+ "Tre hus insatta i sluttningen i stället för utjämnade över den, så att terrasserna ser över träden mot kusten.")
+a("Minimal white volumes with deep planted balconies, in a scheme built around its gardens and its communal spaces.",
+ "Volúmenes blancos y minimalistas con terrazas ajardinadas profundas, en una promoción construida en torno a sus jardines y sus zonas comunes.",
+ "Des volumes blancs minimalistes aux balcons plantés profonds, dans un programme construit autour de ses jardins et de ses espaces communs.",
+ "Minimalistische weiße Baukörper mit tiefen bepflanzten Balkonen, in einer Anlage, die um ihre Gärten und Gemeinschaftsbereiche herum gebaut ist.",
+ "Минималистичные белые объёмы с глубокими озеленёнными балконами в комплексе, выстроенном вокруг садов и общих зон.",
+ "كتل بيضاء بسيطة بشرفات عميقة مزروعة، في مشروع بُني حول حدائقه ومساحاته المشتركة.",
+ "Minimalistische witte volumes met diepe beplante balkons, in een project dat rond zijn tuinen en gemeenschappelijke ruimten is gebouwd.",
+ "Minimalistyczne białe bryły z głębokimi, obsadzonymi zielenią balkonami, w inwestycji zbudowanej wokół ogrodów i przestrzeni wspólnych.",
+ "Minimalistiske hvite volumer med dype, beplantede balkonger, i et prosjekt bygget rundt hagene og fellesarealene.",
+ "Minimalistiska vita volymer med djupa planterade balkonger, i ett projekt byggt kring sina trädgårdar och gemensamma ytor.")
+a("Terraces face the slope and the sea beyond.","Las terrazas miran a la ladera y al mar al fondo.",
+ "Les terrasses donnent sur la pente et la mer au-delà.","Die Terrassen sind zum Hang und zum Meer dahinter ausgerichtet.",
+ "Террасы обращены к склону и к морю за ним.","تطل الشرفات على المنحدر والبحر خلفه.",
+ "De terrassen kijken uit op de helling en de zee erachter.","Tarasy zwrócone są ku zboczu i morzu w oddali.",
+ "Terrassene vender mot skråningen og havet bak.","Terrasserna vetter mot sluttningen och havet bortom.")
+a("Terraces from 15 sqm, gardens on the ground floor, up to 78 sqm on the penthouses.",
+ "Terrazas desde 15 m², jardines en planta baja y hasta 78 m² en los áticos.",
+ "Terrasses à partir de 15 m², jardins en rez-de-chaussée, jusqu'à 78 m² pour les penthouses.",
+ "Terrassen ab 15 m², Gärten im Erdgeschoss, bis zu 78 m² bei den Penthäusern.",
+ "Террасы от 15 м², сады на первом этаже, до 78 м² у пентхаусов.",
+ "شرفات من 15 م²، وحدائق في الطابق الأرضي، وحتى 78 م² في البنتهاوس.",
+ "Terrassen vanaf 15 m², tuinen op de begane grond, tot 78 m² bij de penthouses.",
+ "Tarasy od 15 m², ogrody na parterze, do 78 m² w penthouse'ach.",
+ "Terrasser fra 15 m², hager i første etasje, opptil 78 m² på toppleilighetene.",
+ "Terrasser från 15 m², trädgårdar på bottenvåningen, upp till 78 m² på takvåningarna.")
+a("Aerothermal hot water, double glazing with a thermal break and photovoltaic panels for the communal services.",
+ "Agua caliente por aerotermia, doble acristalamiento con rotura de puente térmico y placas fotovoltaicas para los servicios comunes.",
+ "Eau chaude par aérothermie, double vitrage à rupture de pont thermique et panneaux photovoltaïques pour les services communs.",
+ "Warmwasser über Aerothermie, Doppelverglasung mit thermischer Trennung und Photovoltaikmodule für die Gemeinschaftsanlagen.",
+ "Горячая вода на аэротермии, двойное остекление с терморазрывом и фотоэлектрические панели для общедомовых нужд.",
+ "ماء ساخن بنظام حراري هوائي، وزجاج مزدوج بفاصل حراري، وألواح كهروضوئية للخدمات المشتركة.",
+ "Warm water via aerothermie, dubbele beglazing met thermische onderbreking en zonnepanelen voor de gemeenschappelijke voorzieningen.",
+ "Ciepła woda z pompy ciepła, podwójne szyby z przekładką termiczną i panele fotowoltaiczne dla części wspólnych.",
+ "Varmtvann fra luft-til-vann-varmepumpe, todelt glass med kuldebrudd og solcellepaneler til fellesanleggene.",
+ "Varmvatten från luftvärmepump, tvåglas med köldbrygga och solceller för de gemensamma anläggningarna.")
+a("A green way to live <em>near the coast</em>","Una forma verde de vivir <em>cerca de la costa</em>",
+ "Une façon verte de vivre <em>près de la côte</em>","Grün wohnen <em>nahe der Küste</em>",
+ "Зелёный образ жизни <em>рядом с побережьем</em>","أسلوب حياة أخضر <em>قرب الساحل</em>",
+ "Groen wonen <em>vlak bij de kust</em>","Zielony sposób na życie <em>blisko wybrzeża</em>",
+ "En grønn måte å bo <em>nær kysten</em>","Ett grönt sätt att bo <em>nära kusten</em>")
+a("The communal side is the point of this scheme rather than an afterthought.",
+ "Las zonas comunes son el eje de esta promoción, no un añadido.",
+ "Les espaces communs sont le cœur de ce programme, pas un supplément.",
+ "Die Gemeinschaftsbereiche sind der Kern dieser Anlage und kein Anhängsel.",
+ "Общие зоны — суть этого комплекса, а не дополнение.",
+ "المساحات المشتركة هي جوهر هذا المشروع لا إضافة عليه.",
+ "De gemeenschappelijke voorzieningen zijn de kern van dit project, geen bijzaak.",
+ "Część wspólna jest istotą tej inwestycji, a nie dodatkiem.",
+ "Fellesarealene er kjernen i dette prosjektet, ikke et tillegg.",
+ "De gemensamma ytorna är kärnan i projektet, inte ett tillägg.")
+a("Two pools","Dos piscinas","Deux piscines","Zwei Pools","Два бассейна","مسبحان","Twee zwembaden","Dwa baseny","To bassenger","Två pooler")
+a("Saltwater pools with night lighting and a solarium, and a separate lap pool.",
+ "Piscinas de cloración salina con iluminación nocturna y solárium, y una piscina de nado independiente.",
+ "Piscines à l'eau salée avec éclairage nocturne et solarium, et un bassin de nage séparé.",
+ "Salzwasserpools mit Nachtbeleuchtung und Sonnenterrasse sowie ein separates Schwimmerbecken.",
+ "Бассейны на солёной воде с ночной подсветкой и солярием и отдельный бассейн для плавания.",
+ "مسابح بالمياه المالحة مع إضاءة ليلية ومصطبة شمسية، ومسبح سباحة منفصل.",
+ "Zoutwaterzwembaden met nachtverlichting en een solarium, en een apart zwembaan-bad.",
+ "Baseny słonowodne z nocnym oświetleniem i solarium oraz osobny basen pływacki.",
+ "Saltvannsbassenger med nattbelysning og solterrasse, og et eget svømmebasseng.",
+ "Saltvattenpooler med nattbelysning och solterrass, och en separat simbassäng.")
+a("Sport","Deporte","Sport","Sport","Спорт","الرياضة","Sport","Sport","Sport","Sport")
+a("Beach padel and pickleball courts, a putting green, an outdoor calisthenics area and a walking trail through the grounds.",
+ "Pistas de pádel playa y pickleball, putting green, zona de calistenia al aire libre y un sendero por la parcela.",
+ "Terrains de beach padel et de pickleball, un putting green, une aire de callisthénie en plein air et un sentier à travers le terrain.",
+ "Beach-Padel- und Pickleball-Plätze, ein Putting Green, ein Calisthenics-Bereich im Freien und ein Wanderweg über das Grundstück.",
+ "Корты для пляжного паделя и пиклбола, паттинг-грин, площадка для калистеники под открытым небом и тропа по территории.",
+ "ملاعب بادل شاطئي وبيكل بول، وملعب بَتّ، ومنطقة كاليسثينيكس في الهواء الطلق، ومسار للمشي عبر الأرض.",
+ "Beachpadel- en pickleballbanen, een puttinggreen, een calisthenicsplek in de open lucht en een wandelpad over het terrein.",
+ "Korty do padla plażowego i pickleballa, putting green, plenerowa strefa kalisteniki i ścieżka spacerowa przez teren.",
+ "Beachpadel- og pickleballbaner, en puttinggreen, et utendørs kalistenikkområde og en tursti gjennom området.",
+ "Beachpadel- och pickleballbanor, en puttinggreen, ett utomhusområde för kalistenik och en gångstig genom området.")
+a("Work and gather","Trabajar y reunirse","Travailler et se retrouver","Arbeiten und zusammenkommen",
+ "Работа и встречи","العمل واللقاء","Werken en samenkomen","Praca i spotkania","Arbeid og samvær","Arbeta och umgås")
+a("A fully equipped gym, a coworking room and an events room.",
+ "Un gimnasio totalmente equipado, una sala de coworking y una sala de eventos.",
+ "Une salle de sport entièrement équipée, un espace de coworking et une salle de réception.",
+ "Ein voll ausgestatteter Fitnessraum, ein Coworking-Raum und ein Veranstaltungsraum.",
+ "Полностью оборудованный тренажёрный зал, коворкинг и зал для мероприятий.",
+ "صالة رياضية مجهّزة بالكامل وغرفة عمل مشترك وقاعة مناسبات.",
+ "Een volledig uitgeruste fitnessruimte, een coworkingruimte en een evenementenruimte.",
+ "W pełni wyposażona siłownia, sala coworkingowa i sala eventowa.",
+ "Et fullt utstyrt treningsrom, et coworking-rom og et selskapsrom.",
+ "Ett fullt utrustat gym, ett coworking-rum och en festlokal.")
+json.dump(T, open(sys.argv[1],'w'), ensure_ascii=False, indent=1); print(len(T))

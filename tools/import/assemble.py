@@ -91,6 +91,10 @@ def mech(src, loc):
     # Anchored to this exact shape so it cannot reach another project's strings.
     m = re.fullmatch(r'Portal (\d+) - (\d[A-F])', src)
     if m: return f'{PORTAL[loc]} {m.group(1)} - {m.group(2)}'
+    # "Block 2, portal 3, first floor C". Passed through unchanged, like every
+    # other unit reference: localizedUnitFloor() rewrites it at render time.
+    if re.fullmatch(r'Block \d+, portal \d+, (?:ground|first|second|third|fourth) floor [A-Z]', src):
+        return src
     return None
 
 
