@@ -1320,7 +1320,8 @@ function injectSystemStyles(html) {
 function newsletterMarkup(locale = DEFAULT_LOCALE) {
   const privacyHref = `/${localizedPath('privacy-policy.html', locale)}`;
   const consent = t('newsletter.consent', locale, { privacyHref });
-  return `    <section class="footer-newsletter" aria-labelledby="footer-newsletter-title">
+  return `    <section class="footer-newsletter-band">
+    <section class="footer-newsletter" aria-labelledby="footer-newsletter-title">
       <div class="footer-newsletter-copy">
         <span class="footer-newsletter-kicker">${t('newsletter.kicker', locale)}</span>
         <h2 id="footer-newsletter-title">${t('newsletter.title', locale)}</h2>
@@ -1355,6 +1356,7 @@ function newsletterMarkup(locale = DEFAULT_LOCALE) {
           <span class="form-response" aria-live="polite"></span>
         </div>
       </form>
+    </section>
     </section>`;
 }
 
@@ -1372,7 +1374,10 @@ function injectNewsletter(html, locale = DEFAULT_LOCALE) {
     const footerMatches = [...next.matchAll(/<footer(?:\s[^>]*)?>/gi)];
     const siteFooter = footerMatches.at(-1);
     if (siteFooter) {
-      const insertAt = siteFooter.index + siteFooter[0].length;
+      // Before the opening tag, not after it. The band used to be the first
+      // section inside <footer> and therefore sat on the dark ground; it is
+      // its own cream block above the footer now.
+      const insertAt = siteFooter.index;
       next = `${next.slice(0, insertAt)}\n${newsletterMarkup(locale)}${next.slice(insertAt)}`;
     }
   }

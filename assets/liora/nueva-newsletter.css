@@ -1,13 +1,26 @@
+/* The newsletter band sits on light cream, above the dark footer rather than
+   inside it. It used to be the top section of <footer>, so every colour below
+   was a light-on-dark value keyed to the footer's #2f2417 -- swapping only the
+   background would have left cream text on cream. Each one is re-derived for
+   the light ground here, with the contrast figures that justify it.
+
+   The band is full-bleed like <footer> itself: same side padding from --x,
+   with the content capped at --max and centred, so the cream edge-to-edge
+   ground lines its inner column up with the footer's. */
+.footer-newsletter-band {
+  padding: clamp(48px, 5vw, 88px) var(--x) clamp(48px, 5vw, 88px);
+  background: #f4ecdf;
+}
+
 .footer-newsletter {
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto clamp(42px, 5vw, 66px);
-  padding: 0 0 clamp(38px, 4vw, 54px);
+  margin: 0 auto;
+  padding: 0;
   display: grid;
   grid-template-columns: minmax(250px, 0.8fr) minmax(560px, 1.2fr);
   align-items: end;
   gap: clamp(36px, 6vw, 96px);
-  border-bottom: 1px solid rgba(244, 234, 217, 0.12);
 }
 
 .footer-newsletter-copy {
@@ -17,10 +30,12 @@
 .footer-newsletter-kicker {
   display: block;
   margin-bottom: 15px;
-  /* Lighter than the standard --nueva-gold: on this dark footer background
-     the standard gold only reaches 4.34:1 against #2f2417, just under
-     WCAG AA's 4.5:1. This shade clears it (5.58:1). */
-  color: #bc975e;
+  /* The light-ground gold. The footer shade #bc975e was picked to clear AA
+     against dark brown and manages 2.32:1 on cream, so it cannot come along.
+     The handoff's #8a6a3a reaches 4.26:1, which is under AA for text this
+     small (9px, uppercase, tracked); three per cent darker clears it at
+     4.53:1 and is not a visible difference. */
+  color: #856638;
   font-family: "Cinzel", serif;
   font-size: 9px;
   font-weight: 500;
@@ -31,7 +46,7 @@
 
 .footer-newsletter h2 {
   margin: 0;
-  color: #f4ead9;
+  color: #31251a;
   font-family: "Cinzel", Georgia, serif;
   font-size: clamp(30px, 3vw, 43px);
   font-weight: 300;
@@ -42,7 +57,7 @@
 .footer-newsletter-copy p {
   max-width: 39rem;
   margin: 16px 0 0;
-  color: rgba(244, 234, 217, 0.6);
+  color: #6b5d4c;
   font-family: "Montserrat", sans-serif;
   font-size: 12.5px;
   font-weight: 300;
@@ -67,7 +82,7 @@
 }
 
 .footer-newsletter-field span {
-  color: rgba(244, 234, 217, 0.6);
+  color: #6f6150;
   font-family: "Montserrat", sans-serif;
   font-size: 9px;
   font-weight: 400;
@@ -81,10 +96,15 @@
   min-width: 0;
   height: 46px;
   padding: 0;
-  color: #f4ead9;
+  color: #31251a;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid rgba(244, 234, 217, 0.3);
+  /* The handoff's rule, kept as drawn at 1.57:1. It is decoration, not the
+     thing that identifies the field: every input here carries a visible
+     label above it and a placeholder inside it, so the component is
+     findable without the line. Darkening it to clear 3:1 would take a 29
+     per cent step, which is the one change here the eye would notice. */
+  border-bottom: 1px solid #cbbda9;
   border-radius: 0;
   outline: 0;
   font-family: "Montserrat", sans-serif;
@@ -94,11 +114,14 @@
 }
 
 .footer-newsletter-field input::placeholder {
-  color: rgba(244, 234, 217, 0.28);
+  /* The handoff's #9c8f7e is 2.70:1; six per cent darker reaches 3.04:1.
+     Placeholders are deliberately quiet here, as they were on the dark
+     ground, but not so quiet they cannot be read. */
+  color: #928676;
 }
 
 .footer-newsletter-field input:focus {
-  border-bottom-color: #a8834a;
+  border-bottom-color: #856638;
 }
 
 .footer-newsletter-submit {
@@ -147,7 +170,7 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  color: rgba(244, 234, 217, 0.6);
+  color: #6f6150;
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   font-size: 10.5px;
@@ -160,20 +183,20 @@
   height: 15px;
   margin: 1px 0 0;
   flex: 0 0 auto;
-  accent-color: #a8834a;
+  accent-color: #8a6a3a;
 }
 
 .footer-newsletter-consent a {
-  color: rgba(244, 234, 217, 0.68);
+  color: #31251a;
   text-decoration: underline;
-  text-decoration-color: rgba(168, 131, 74, 0.52);
+  text-decoration-color: rgba(138, 106, 58, 0.6);
   text-underline-offset: 3px;
 }
 
 .footer-newsletter-form .form-response {
   max-width: 330px;
   margin: 0;
-  color: rgba(244, 234, 217, 0.52);
+  color: #6f6150;
   font-family: "Montserrat", sans-serif;
   font-size: 10.5px;
   font-weight: 300;
@@ -182,11 +205,11 @@
 }
 
 .footer-newsletter-form .form-response.is-sent {
-  color: #d8c39e;
+  color: #6a5028;
 }
 
 .footer-newsletter-form .form-response.is-error {
-  color: #e3a899;
+  color: #a4442e;
 }
 
 .footer-newsletter-honeypot {
@@ -215,8 +238,10 @@
 
 @media (max-width: 760px) {
   .footer-newsletter {
-    margin-bottom: 36px;
-    padding-bottom: 36px;
+    /* The band's own padding closes the gap to the footer now. The 36px of
+       margin and padding here used to hold the separating rule off the
+       footer content below it, and left a dead cream gap once the rule and
+       the dark ground went. */
     gap: 28px;
   }
 
