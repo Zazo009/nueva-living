@@ -79,8 +79,12 @@ def mech(src, loc):
     if re.fullmatch(r'\d{1,4}(\.\d{1,3})?', src): return src
     # A developer's own unit code (OV-3, PN-B1) is an identifier, not words.
     if re.fullmatch(r'[A-Z]{1,4}-?\d{1,4}[A-Z]?', src): return src
-    if re.fullmatch(r'\d{1,3}%', src): return src
-    m = re.fullmatch(r'(\d{1,3}%) \+ VAT', src)
+    if re.fullmatch(r'\d{1,3}(\.\d)?%', src): return src
+    # A bare area, such as a plot figure: the number keeps the locale's
+    # separators and only the unit changes.
+    m = re.fullmatch(r'([\d,.]+) sqm', src)
+    if m: return f'{num(m.group(1),loc)} {SQM[loc]}'
+    m = re.fullmatch(r'(\d{1,3}(?:\.\d)?%) \+ VAT', src)
     if m: return f'{m.group(1)} + {TAX[loc]}'
     # Unit references stay in English: localizedUnitFloor() rewrites them at
     # render time from FLOOR_PREFIXES and FLOOR_PARTS.
@@ -88,6 +92,9 @@ def mech(src, loc):
     if m: return f'{VILLA[loc]} {m.group(1)}'
     m = re.fullmatch(r'Apartment (\d+)', src)
     if m: return f'{APT[loc]} {m.group(1)}'
+    # A unit code that leads with its block -- 22A, 30B, 40C. Kept as printed:
+    # the numbering is the developer's own, not words.
+    if re.fullmatch(r'\d{2,3}[A-Z]', src): return src
     # Anchored to this exact shape so it cannot reach another project's strings.
     m = re.fullmatch(r'Portal (\d+) - (\d[A-F])', src)
     if m: return f'{PORTAL[loc]} {m.group(1)} - {m.group(2)}'

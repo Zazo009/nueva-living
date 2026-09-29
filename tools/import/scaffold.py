@@ -42,11 +42,16 @@ MECH = [r'From EUR [\d,]+', r'EUR [\d,]+ - EUR [\d,]+', r'EUR [\d,]+',
         # listed here too, or scaffold reports it as needing a translation that
         # assemble will then overwrite.
         r'Portal \d+ - \d[A-F]',
+        # A unit code that leads with its block: 22A, 30B, 40C. Numbering is
+        # the developer's own and reads the same in every language.
+        r'\d{2,3}[A-Z]',
         # "Block 2, portal 3, first floor C": the renderer rewrites these from
         # FLOOR_PREFIXES and FLOOR_PARTS, so they stay English in the JSON.
         r'Block \d+, portal \d+, (?:ground|first|second|third|fourth) floor [A-Z]',
         r'\d{1,4}(\.\d{1,3})?',
-        r'[A-Z]{1,4}-?\d{1,4}[A-Z]?', r'\d{1,3}%', r'\d{1,3}% \+ VAT']
+        r'[A-Z]{1,4}-?\d{1,4}[A-Z]?', r'\d{1,3}(\.\d)?%', r'\d{1,3}(\.\d)?% \+ VAT',
+        # A bare area, such as a plot figure: only the unit changes per language.
+        r'[\d,.]+ sqm']
 todo = [v for v in uniq if not (v in tm and len(tm[v]) == 9)
         and not any(re.fullmatch(m, v) for m in MECH)]
 print('strings', len(pairs), 'unique', len(uniq), 'need translation', len(todo))

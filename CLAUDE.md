@@ -64,6 +64,26 @@ filenames or schema. A guard checks 520 project pages for the developer's own na
 `netlify/functions/data/projects-catalog.json` is a separate public projection with no
 `crm` block; keep it that way.
 
+## Images
+
+Source ≤2000px, quality 82, progressive; `scripts/generate_image_derivatives.py`
+makes the webp/avif.
+
+**Every image is reviewed before it ships**, and the audit enforces it. The
+anonymisation guard reads text and cannot read pixels: two renders delivered
+for `playa-del-angel-residences` carried the developer's name *inside* the
+image, engraved on the entrance gate and set in letters on the spa wall, with
+every text check green. Look for the developer's own name or logo rendered in
+the scene — a gate, a wall, a hoarding, a pool floor, a screen — then record it:
+
+```
+node scripts/review_project_images.mjs --project=<slug>            # what is pending
+node scripts/review_project_images.mjs --project=<slug> --confirm  # after looking
+```
+
+Images are keyed by the hash of their bytes, so replacing or re-cropping a file
+drops it out of the manifest and it has to be looked at again.
+
 ## Locale conventions — derive them, never guess
 
 Take the format from the value already in that locale and substitute into it. Guessing
