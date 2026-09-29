@@ -8,7 +8,13 @@
    with the content capped at --max and centred, so the cream edge-to-edge
    ground lines its inner column up with the footer's. */
 .footer-newsletter-band {
-  padding: clamp(48px, 5vw, 88px) var(--x) clamp(48px, 5vw, 88px);
+  /* --x carries the site's side gutter, but it is declared in
+     liora-pages.css and the homepage does not link that file -- it has its
+     own inline stylesheet. An unresolved var() invalidates the whole
+     shorthand at computed-value time, so the band lost its padding on all
+     four sides there and the kicker sat against the top edge while every
+     other page had 72px above it. The fallback is --x's own value. */
+  padding: clamp(48px, 5vw, 88px) var(--x, clamp(20px, 5.8vw, 78px)) clamp(48px, 5vw, 88px);
   background: #f4ecdf;
 }
 
