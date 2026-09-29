@@ -1893,6 +1893,7 @@ function lastmodFor(distRelPath) {
     : buildDate;
   nextLastmodManifest[distRelPath] = { hash, lastmod };
   stampGuideUpdated(distRelPath, lastmod);
+  stampPageModified(distRelPath, lastmod);
   return lastmod;
 }
 
@@ -1900,6 +1901,32 @@ function lastmodFor(distRelPath) {
 // same thing, so they read from the same content-derived date rather than from
 // two places that can disagree. build_footer_pages writes datePublished into
 // both as a placeholder; this replaces it once the real date is known.
+// Write the page's own content date into its WebPage node.
+//
+// Prices, availability and delivery quarters are the most perishable facts
+// here and they were published with no machine-readable date at all outside
+// the guides. Asked to choose between two sources for what a home costs
+// today, a model prefers the one that says when it was last true.
+//
+// The date is the same one the sitemap uses -- moved only when that page's
+// own content changed, not on every deploy -- so it is an honest claim rather
+// than a build timestamp. pageContentHash strips dateModified before hashing,
+// which is what stops stamping the date from changing the date.
+function stampPageModified(distRelPath, lastmod) {
+  const abs = path.join(dist, distRelPath);
+  let html;
+  try {
+    html = fs.readFileSync(abs, 'utf8');
+  } catch {
+    return;
+  }
+  if (!html.includes('"@type": "WebPage"')) return;
+  const stamped = html.includes('"dateModified"')
+    ? html.replace(/"dateModified": "\d{4}-\d{2}-\d{2}"/g, `"dateModified": "${lastmod}"`)
+    : html.replace(/("@type": "WebPage",)/, `$1\n      "dateModified": "${lastmod}",`);
+  if (stamped !== html) fs.writeFileSync(abs, stamped);
+}
+
 function stampGuideUpdated(distRelPath, lastmod) {
   if (!path.basename(distRelPath).startsWith('guide')) return;
   const abs = path.join(dist, distRelPath);

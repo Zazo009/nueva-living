@@ -32,7 +32,7 @@ import { renderViewingBlocks } from './lib/viewing.mjs';
 import { FLOOR_PARTS, FLOOR_PREFIXES } from './lib/unit_floor_parts.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
 import { PRICE_FORMAT } from './lib/prices.mjs';
-import { realEstateAgentSchema } from './lib/brand.mjs';
+import { realEstateAgentSchema, organizationId } from './lib/brand.mjs';
 // The homepage and developments grids are rendered in English and then
 // localized by find/replace entry tables, so the card resolves its strings
 // against English here and card_chrome_translations.mjs swaps them later.
@@ -1687,14 +1687,44 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     image: assetUrl(heroImage.src),
     category: project.schema?.category || 'New development residences',
     brand: { '@type': 'Brand', name: 'Nueva Living' },
+    // An AggregateOffer where the record knows a range, a single Offer where
+    // it does not.
+    //
+    // This page renders every available unit with its own price -- 59 of them
+    // on the largest -- and the structured data used to say one number, the
+    // lowest. Asked what is available here and at what price, a model reading
+    // the schema could only answer "from EUR 785,000" when the page itself
+    // shows 785,000 to 1,314,000 across twelve homes. lowPrice stays equal to
+    // schema.price, which is the figure audit_site_consistency holds against
+    // the hero, the card and crm.priceMin.
     ...(schemaPrice ? {
-      offers: {
-        '@type': 'Offer',
-        priceCurrency: project.schema?.priceCurrency || 'EUR',
-        price: schemaPrice,
-        availability: 'https://schema.org/InStock',
-        url: schemaUrl
-      }
+      offers: (() => {
+        const high = project.crm?.priceMax;
+        const count = project.crm?.availableUnits;
+        const currency = project.schema?.priceCurrency || 'EUR';
+        // Some records carry schema.price as a string. Emit both bounds as
+        // numbers so a reader never has to decide whether "785000" and
+        // 2600000 are the same kind of thing.
+        const low = Number(schemaPrice);
+        if (Number.isFinite(low) && typeof high === 'number' && high > low) {
+          return {
+            '@type': 'AggregateOffer',
+            priceCurrency: currency,
+            lowPrice: low,
+            highPrice: high,
+            ...(typeof count === 'number' && count > 0 ? { offerCount: count } : {}),
+            availability: 'https://schema.org/InStock',
+            url: schemaUrl
+          };
+        }
+        return {
+          '@type': 'Offer',
+          priceCurrency: currency,
+          price: schemaPrice,
+          availability: 'https://schema.org/InStock',
+          url: schemaUrl
+        };
+      })()
     } : {}),
     areaServed: { '@type': 'Place', name: project.schema?.areaServed || project.hero.location }
   };
@@ -1707,6 +1737,26 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     areaServed: 'Costa del Sol',
     description: t('org.description', locale)
   });
+  // The page as a thing in its own right, which is what carries its date.
+  //
+  // Property pages had no WebPage node at all, so the most perishable facts on
+  // the site -- prices and what is still available -- were published with
+  // nothing machine-readable saying when they were last true. Asked to choose
+  // between two sources, a model prefers the one that is dated. The date
+  // itself is stamped in by build_dist, which is the only place that knows
+  // when a page's content last actually changed.
+  const webPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: seoTitle(project, locale),
+    description: project.seoDescription || project.description,
+    url: schemaUrl,
+    inLanguage: localeMeta(locale).htmlLang,
+    isPartOf: { '@type': 'WebSite', name: 'Nueva Living', url: siteUrl },
+    primaryImageOfPage: assetUrl(heroImage.src),
+    publisher: { '@id': organizationId(siteUrl) }
+  };
+
   const faqs = [...defaultFaqs(locale), ...(project.faq || [])];
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -1755,6 +1805,9 @@ ${leafletHead()}
   <script src="${p}assets/liora/nueva-location-map.js?v=${locationMapJsVersion}" defer></script>` : ''}
   <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>
   <script src="${p}assets/liora/liora-calculator.js?v=${calculatorJsVersion}" defer></script>
+  <script type="application/ld+json">
+${JSON.stringify(webPageSchema, null, 2)}
+  </script>
   <script type="application/ld+json">
 ${JSON.stringify(productSchema, null, 2)}
   </script>
