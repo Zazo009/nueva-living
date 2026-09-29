@@ -21,6 +21,7 @@
 // placeholder): untranslated sections simply render their existing English
 // content, which is honest fallback behaviour, not a broken or empty route.
 import { CARD_CHROME_ENTRIES } from './lib/card_chrome_translations.mjs';
+import { replaceFooter } from './lib/site_footer.mjs';
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { LOCALES, DEFAULT_LOCALE, localeMeta, t, isRtl, localizeInternalLinks, seoTags, pageSchema, LANG_SWITCHER_SCRIPT, LANG_CHECK_ICON, LANG_CHECK_SPACER, qualifyFragmentLinks } from './lib/i18n.mjs';
@@ -532,6 +533,11 @@ for (const meta of LOCALES) {
   // right-hand nav (the shortlist heart is appended there at runtime), so the
   // switcher lands between the divider and the social icon. A silent no-op
   // here would drop the switcher entirely, so the anchor is asserted.
+  // The footer comes from the shared module, for the same reason the other
+  // locale builders take it that way: the entry table below translates the
+  // homepage's own copy, not chrome that is generated.
+  html = replaceFooter(html, locale);
+
   if (!html.includes('<li class="nav-social-item">')) {
     throw new Error('nueva-living-home.html is missing the nav-social-item switcher anchor.');
   }

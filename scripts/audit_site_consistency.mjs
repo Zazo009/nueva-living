@@ -6,6 +6,7 @@ import { pathToFileURL } from 'node:url';
 import { FLOOR_PARTS } from './lib/unit_floor_parts.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 import { localizeProject } from './lib/i18n.mjs';
+import { FOOTER_COMPANY_LINKS, FOOTER_PROJECT_LINKS, FOOTER_CONTACT } from './lib/site_footer.mjs';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -1939,6 +1940,67 @@ let factAgreementChecked = 0;
   if (offenders.length) {
     fail('content/liora-projects', `${offenders.length} project(s) state one fact two ways: `
       + `${offenders.slice(0, 4).join('; ')}.`);
+  }
+}
+
+let footerShapeChecked = 0;
+
+// One footer across the site.
+//
+// There were four. The homepage had three columns and two links under
+// Projects; about and guides had four columns and ten; property pages eleven;
+// developments fourteen, five of which it listed twice. Every one of them was
+// correct read on its own, which is why it survived: the only way to see it
+// was to open two page types side by side. It also published the business two
+// ways -- 180 pages gave the Spanish office line, four gave a Swedish
+// WhatsApp number -- so which number a visitor called depended on where they
+// landed.
+//
+// scripts/lib/site_footer.mjs is the one shape now, and this checks the built
+// pages against that module rather than against each other, because two pages
+// can drift together.
+{
+  const dist = path.join(root, 'dist');
+  const offenders = [];
+  const expectedCompany = FOOTER_COMPANY_LINKS.length;
+  const expectedProjects = FOOTER_PROJECT_LINKS.length;
+
+  const walk = (dir) => {
+    if (!fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) return walk(full);
+      return entry.name.endsWith('.html') ? [full] : [];
+    });
+  };
+
+  for (const file of walk(dist)) {
+    const html = fs.readFileSync(file, 'utf8');
+    const matches = [...html.matchAll(/<footer(?:\s[^>]*)?>[\s\S]*?<\/footer>/gi)];
+    const footer = matches.at(-1);
+    if (!footer) continue;
+    const block = footer[0];
+    if (!block.includes('footer-col-title')) continue;
+    footerShapeChecked += 1;
+    const rel = path.relative(dist, file);
+
+    const columns = block.split(/class="footer-col-title"[^>]*>/).slice(1);
+    const counts = columns.map((column) => (column.split('</ul>')[0].match(/<a /g) || []).length);
+    // Company, Projects, then the contact list beneath Projects.
+    if (counts.length !== 3) {
+      offenders.push(`${rel}: ${counts.length} footer columns, expected 3`);
+    } else if (counts[0] !== expectedCompany || counts[1] !== expectedProjects) {
+      offenders.push(`${rel}: Company ${counts[0]}/${expectedCompany}, Projects ${counts[1]}/${expectedProjects}`);
+    }
+    // The contact details are a fact about the business, not decoration.
+    for (const [label, value] of [['phone', FOOTER_CONTACT.phone], ['email', FOOTER_CONTACT.email]]) {
+      if (!block.includes(value)) offenders.push(`${rel}: footer is missing the ${label} ${value}`);
+    }
+  }
+
+  if (offenders.length) {
+    fail('dist', `${offenders.length} page(s) carry a footer that is not the one in `
+      + `scripts/lib/site_footer.mjs: ${offenders.slice(0, 4).join('; ')}.`);
   }
 }
 
@@ -4342,5 +4404,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${fragmentLinkChecked} based pages checked for bare fragment links, ${runtimeStringChecked} runtime strings checked for every locale, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${scriptMixChecked} translated strings checked for one alphabet, ${indexFactsChecked} index facts checked against the project list, ${shareImageChecked} link previews checked for their own project's image, ${metricLabelChecked} overlay metric labels checked for one word per language, ${factAgreementChecked} facts checked for agreeing with themselves inside their own project.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${fragmentLinkChecked} based pages checked for bare fragment links, ${runtimeStringChecked} runtime strings checked for every locale, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${scriptMixChecked} translated strings checked for one alphabet, ${indexFactsChecked} index facts checked against the project list, ${shareImageChecked} link previews checked for their own project's image, ${metricLabelChecked} overlay metric labels checked for one word per language, ${factAgreementChecked} facts checked for agreeing with themselves inside their own project, ${footerShapeChecked} footers checked against the one shared shape.`);
 }

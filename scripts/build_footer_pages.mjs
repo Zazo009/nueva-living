@@ -26,6 +26,7 @@ import { localizeCardPrices } from './lib/prices.mjs';
 import { MONTH_NAMES, localizeMonthDate } from './lib/dates.mjs';
 import { GUIDE_AUTHOR, organizationSchema, personSchemas, organizationId, personId } from './lib/brand.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
+import { renderFooter } from './lib/site_footer.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
@@ -113,35 +114,6 @@ function navLinks(locale) {
   };
 }
 
-function footerLinks(locale) {
-  return {
-    company: [
-      [t('footer.whyNuevaLiving', locale), 'why-nueva.html'],
-      [t('footer.about', locale), 'about.html'],
-      [t('nav.advisory', locale), 'advisory.html'],
-      [t('nav.referralAmbassador', locale), 'referrals.html'],
-      [t('footer.contactUs', locale), 'contact.html'],
-    ],
-    projects: [
-      [t('nav.developments', locale), 'developments.html'],
-      [t('nav.buyingGuides', locale), 'guides.html'],
-      [t('nav.allAreas', locale), 'areas.html'],
-      [t('area.marbella', locale), 'area-marbella.html'],
-      [t('area.estepona', locale), 'area-estepona.html'],
-      [t('area.casares', locale), 'area-casares.html'],
-      [t('area.benahavis', locale), 'area-benahavis.html'],
-      [t('area.nuevaAndalucia', locale), 'area-nueva-andalucia.html'],
-      [t('area.sanPedroAlcantara', locale), 'area-san-pedro-alcantara.html'],
-      [t('area.mijasFuengirola', locale), 'area-mijas-fuengirola.html'],
-    ],
-    legal: [
-      [t('footer.privacyPolicy', locale), 'privacy-policy.html'],
-      [t('footer.legalNotice', locale), 'legal-notice.html'],
-      [t('footer.cookiePolicy', locale), 'cookie-policy.html'],
-    ],
-  };
-}
-
 function nav(locale = DEFAULT_LOCALE, currentOutputPath = 'index.html', langFallback = null) {
   const links = navLinks(locale);
   const link = (name) => {
@@ -207,44 +179,9 @@ function breadcrumb(currentLabel, parents = [], locale = DEFAULT_LOCALE) {
 }
 
 function footer(locale = DEFAULT_LOCALE) {
-  const links = footerLinks(locale);
-  const list = (items) => items.map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join('\n          ');
-  return `<footer>
-    <div class="footer-grid">
-      <div>
-        <img class="footer-logo" src="assets/liora/brand/nueva-living-lockup-espresso-transparent.png?v=7" alt="Nueva Living" width="700" height="340">
-        <p class="footer-about">${t('footer.about.text', locale)}</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">${t('footer.companyTitle', locale)}</div>
-        <ul>
-          ${list(links.company)}
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">${t('footer.projectsTitle', locale)}</div>
-        <ul>
-          ${list(links.projects)}
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">${t('footer.contactTitle', locale)}</div>
-        <ul>
-          <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
-          <li><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a></li>
-          <li><a href="https://maps.google.com/?q=Avenida+del+Prado+71,+29660+Marbella,+M%C3%A1laga,+Spain" target="_blank" rel="noopener">Avenida del Prado 71, 29660 Marbella</a></li>
-        </ul>
-        <div class="footer-col-title" style="margin-top:24px;">${t('footer.legalTitle', locale)}</div>
-        <ul>
-          ${list(links.legal)}
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>${t('footer.disclaimer', locale)}</p>
-      <span>&copy; 2026 Nueva Living &middot; LIORA LIVING SL. &middot; NIF B88827472</span>
-    </div>
-  </footer>`;
+  // Locale pages resolve relative paths through <base href="../">,
+  // so the footer needs no prefix of its own.
+  return renderFooter(locale);
 }
 
 // seoContext replaces the decorative kicker with a line that actually carries

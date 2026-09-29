@@ -23,6 +23,7 @@ import {
 } from './lib/i18n.mjs';
 import { localizeCardPrices } from './lib/prices.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
+import { renderFooter } from './lib/site_footer.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
 import { SEGMENT_CLUSTER_ENTRIES } from './lib/segment_page_translations_clusters.mjs';
@@ -240,57 +241,9 @@ function breadcrumb(currentLabel, parents = [], locale = DEFAULT_LOCALE) {
 }
 
 function footer(locale = DEFAULT_LOCALE) {
-  return `<footer>
-    <div class="footer-grid">
-      <div>
-        <img class="footer-logo" src="assets/liora/brand/nueva-living-lockup-espresso-transparent.png?v=7" alt="Nueva Living" width="700" height="340" loading="lazy" decoding="async">
-        <p class="footer-about">${t('footer.about.text', locale)}</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">${t('footer.companyTitle', locale)}</div>
-        <ul>
-          <li><a href="why-nueva.html">${t('footer.whyNuevaLiving', locale)}</a></li>
-          <li><a href="about.html">${t('footer.about', locale)}</a></li>
-          <li><a href="advisory.html">${t('nav.advisory', locale)}</a></li>
-          <li><a href="referrals.html">${t('nav.referralAmbassador', locale)}</a></li>
-          <li><a href="contact.html">${t('footer.contactUs', locale)}</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">${t('footer.projectsTitle', locale)}</div>
-        <ul>
-          <li><a href="developments.html">${t('nav.developments', locale)}</a></li>
-          <li><a href="guides.html">${t('nav.buyingGuides', locale)}</a></li>
-          <li><a href="areas.html">${t('nav.allAreas', locale)}</a></li>
-          <li><a href="area-marbella.html">${t('area.marbella', locale)}</a></li>
-          <li><a href="area-estepona.html">${t('area.estepona', locale)}</a></li>
-          <li><a href="area-casares.html">${t('area.casares', locale)}</a></li>
-          <li><a href="area-benahavis.html">${t('area.benahavis', locale)}</a></li>
-          <li><a href="area-nueva-andalucia.html">${t('area.nuevaAndalucia', locale)}</a></li>
-          <li><a href="area-san-pedro-alcantara.html">${t('area.sanPedroAlcantara', locale)}</a></li>
-          <li><a href="area-mijas-fuengirola.html">${t('area.mijasFuengirola', locale)}</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">${t('footer.contactTitle', locale)}</div>
-        <ul>
-          <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
-          <li><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a></li>
-          <li><a href="https://maps.google.com/?q=Avenida+del+Prado+71,+29660+Marbella,+M%C3%A1laga,+Spain" target="_blank" rel="noopener">Avenida del Prado 71, 29660 Marbella, M&aacute;laga, ${t('common.spain', locale)}</a></li>
-        </ul>
-        <div class="footer-col-title" style="margin-top:24px;">${t('footer.legalTitle', locale)}</div>
-        <ul>
-          <li><a href="privacy-policy.html">${t('footer.privacyPolicy', locale)}</a></li>
-          <li><a href="legal-notice.html">${t('footer.legalNotice', locale)}</a></li>
-          <li><a href="cookie-policy.html">${t('footer.cookiePolicy', locale)}</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>${t('footer.disclaimer', locale)}</p>
-      <span>&copy; 2026 Nueva Living &middot; LIORA LIVING SL. &middot; NIF B88827472</span>
-    </div>
-  </footer>`;
+  // Locale pages resolve relative paths through <base href="../">,
+  // so the footer needs no prefix of its own.
+  return renderFooter(locale);
 }
 
 

@@ -23,6 +23,7 @@ import {
   LANG_SWITCHER_SCRIPT, stringLocaleGaps } from './lib/i18n.mjs';
 import { projectAreaRule } from './lib/project_area.mjs';
 import { localizeMonthDate } from './lib/dates.mjs';
+import { renderFooter } from './lib/site_footer.mjs';
 import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 // One renderer for the cinematic viewer's data. This file used to carry its
 // own copy, and the two had already drifted: lib/viewing.mjs localises the
@@ -1431,59 +1432,9 @@ function seoTitle(project, locale = DEFAULT_LOCALE) {
 }
 
 function footer(project, locale = DEFAULT_LOCALE) {
-  const p = rootPrefix(locale);
-  return `<footer>
-    <div class="footer-grid">
-      <div>
-        <img class="footer-logo" src="${p}assets/liora/brand/nueva-living-lockup-espresso-transparent.png?v=7" alt="Nueva Living" width="700" height="340" loading="lazy" decoding="async">
-        <p class="footer-about">${t('footer.about.text', locale)}</p>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">${t('footer.companyTitle', locale)}</div>
-        <ul>
-          <li><a href="${p}${localizedPath('why-nueva.html', locale)}">${t('footer.whyNuevaLiving', locale)}</a></li>
-          <li><a href="${p}${localizedPath('about.html', locale)}">${t('footer.about', locale)}</a></li>
-          <li><a href="${p}${localizedPath('advisory.html', locale)}">${t('nav.advisory', locale)}</a></li>
-          <li><a href="${p}${localizedPath('referrals.html', locale)}">${t('nav.referralAmbassador', locale)}</a></li>
-          <li><a href="${p}${localizedPath('contact.html', locale)}">${t('footer.contactUs', locale)}</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">${t('footer.projectsTitle', locale)}</div>
-        <ul>
-          <li><a href="${p}${localizedPath('developments.html', locale)}">${t('nav.developments', locale)}</a></li>
-          <li><a href="${p}${localizedPath(project.output, locale)}">${esc(project.shortName || project.name)}</a></li>
-          <li><a href="${p}${localizedPath('guides.html', locale)}">${t('nav.buyingGuides', locale)}</a></li>
-          <li><a href="${p}${localizedPath('areas.html', locale)}">${t('nav.allAreas', locale)}</a></li>
-          <li><a href="${p}${localizedPath('area-marbella.html', locale)}">${t('area.marbella', locale)}</a></li>
-          <li><a href="${p}${localizedPath('area-estepona.html', locale)}">${t('area.estepona', locale)}</a></li>
-          <li><a href="${p}${localizedPath('area-casares.html', locale)}">${t('area.casares', locale)}</a></li>
-          <li><a href="${p}${localizedPath('area-benahavis.html', locale)}">${t('area.benahavis', locale)}</a></li>
-          <li><a href="${p}${localizedPath('area-nueva-andalucia.html', locale)}">${t('area.nuevaAndalucia', locale)}</a></li>
-          <li><a href="${p}${localizedPath('area-san-pedro-alcantara.html', locale)}">${t('area.sanPedroAlcantara', locale)}</a></li>
-          <li><a href="${p}${localizedPath('area-mijas-fuengirola.html', locale)}">${t('area.mijasFuengirola', locale)}</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">${t('footer.contactTitle', locale)}</div>
-        <ul>
-          <li><a href="mailto:contact@nuevaliving.com">contact@nuevaliving.com</a></li>
-          <li><a href="tel:+34645446624" dir="ltr">+34 645 44 66 24</a></li>
-          <li><a href="https://maps.google.com/?q=Avenida+del+Prado+71,+29660+Marbella,+M%C3%A1laga,+Spain" target="_blank" rel="noopener">Avenida del Prado 71, 29660 Marbella</a></li>
-        </ul>
-        <div class="footer-col-title" style="margin-top:24px;">${t('footer.legalTitle', locale)}</div>
-        <ul>
-          <li><a href="${p}${localizedPath('privacy-policy.html', locale)}">${t('footer.privacyPolicy', locale)}</a></li>
-          <li><a href="${p}${localizedPath('legal-notice.html', locale)}">${t('footer.legalNotice', locale)}</a></li>
-          <li><a href="${p}${localizedPath('cookie-policy.html', locale)}">${t('footer.cookiePolicy', locale)}</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>${t('footer.disclaimer', locale)}</p>
-      <span>&copy; 2026 Nueva Living &middot; LIORA LIVING SL. &middot; NIF B88827472</span>
-    </div>
-  </footer>`;
+  // Locale pages resolve relative paths through <base href="../">,
+  // so the footer needs no prefix of its own.
+  return renderFooter(locale);
 }
 
 const TIMELINE_ICONS = {

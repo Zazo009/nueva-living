@@ -18,6 +18,7 @@ import {
   qualifyFragmentLinks
 } from './lib/i18n.mjs';
 import { localizeCardPrices } from './lib/prices.mjs';
+import { replaceFooter } from './lib/site_footer.mjs';
 import { CHROME_ENTRIES } from './lib/developments_page_translations.mjs';
 import {
   THANK_YOU_ENTRIES,
@@ -191,6 +192,9 @@ for (const page of PAGES) {
 
     const outPath = path.join(root, meta.urlPrefix, page.file);
     mkdirSync(path.dirname(outPath), { recursive: true });
+    // The footer is rendered for the locale rather than translated by the
+    // entry table, which only knows the strings an editor wrote.
+    html = replaceFooter(html, locale);
     html = localizeInternalLinks(html, locale);
     html = localizeCardPrices(html, locale);
     html = qualifyFragmentLinks(html, `${meta.urlPrefix}/${page.file}`, locale);

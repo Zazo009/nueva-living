@@ -28,6 +28,7 @@ import {
   qualifyFragmentLinks
 } from './lib/i18n.mjs';
 import { localizeCardPrices } from './lib/prices.mjs';
+import { replaceFooter } from './lib/site_footer.mjs';
 import {
   DEVELOPMENTS_PAGE_ENTRIES,
   TAG_LABELS,
@@ -216,6 +217,9 @@ for (const meta of LOCALES) {
   // Language switcher (desktop nav + mobile menu) before text translation,
   // while the English anchors are still literal.
   html = injectSwitcher(html, locale);
+
+  // Rendered for the locale, not translated by the entry table.
+  html = replaceFooter(html, locale);
 
   // Page copy, filter UI, cards, footer. Longest find first so a short
   // entry can never corrupt a longer string before its own entry matches.
