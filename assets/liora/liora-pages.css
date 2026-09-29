@@ -2163,7 +2163,12 @@ footer {
   max-width: var(--max);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr 0.7fr 0.8fr;
+  /* Three tracks for three children. It was four -- brand, Company,
+     Projects, Contact, Legal -- and when the footer became one shared
+     component with the contact list folded under Projects, the fourth
+     track stayed behind as 179px of empty grid on the right while the
+     two link columns were squeezed to 156px. */
+  grid-template-columns: 1.6fr 1fr 1fr;
   gap: clamp(28px, 4vw, 64px);
   padding-bottom: clamp(36px, 3.5vw, 60px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);

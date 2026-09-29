@@ -3012,3 +3012,42 @@ input[type="range"] {
   height: auto;
   min-height: 0;
 }
+
+/* The shared footer's logo.
+   This rule lived in liora-pages.css, which the homepage does not link -- it
+   carries its own inline stylesheet and used to call the same image
+   .footer-brand-logo. When the footer became one shared component emitting
+   .footer-logo, the homepage was left with the markup and no rule for it, so
+   the image fell back to its width="700" attribute and rendered 548px wide
+   and 340px tall against 252x122 everywhere else. A shared component's
+   styling belongs in the stylesheet that reaches every page, which is this
+   one: build_dist inlines it into all of them. */
+.footer-logo {
+  width: min(252px, 58vw);
+  height: auto;
+  display: block;
+  margin: 0 0 16px;
+}
+
+/* The shared footer's own layout, for the same reason as .footer-logo above:
+   the homepage does not link liora-pages.css, and its inline stylesheet lays
+   the footer out in two columns, so the three-child footer wrapped its third
+   onto a second row there while every other page put it in a fourth track
+   that did not exist. Both now describe the same three columns. */
+.footer-grid {
+  grid-template-columns: 1.6fr 1fr 1fr;
+}
+
+/* The same two breakpoints liora-pages.css uses, so the footer steps down
+   at the same widths on the pages that link it and on the one that does not. */
+@media (max-width: 980px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
