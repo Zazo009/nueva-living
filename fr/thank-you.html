@@ -206,6 +206,13 @@
             <p><a href="#" data-whatsapp-advisor data-context="a Nueva Living enquiry" data-intent="follow up on my enquiry">Écrivez-nous sur WhatsApp</a>.</p>
           </article>
         </div>
+        <div class="review-ask">
+          <h2 class="review-ask-title">Vous avez déjà fait appel à nous ?</h2>
+          <p class="review-ask-text">Si Nueva Living vous a déjà aidé, un court avis aide le prochain acheteur à nous évaluer. Cela prend une minute.</p>
+          <div class="trustpilot-widget" data-locale="fr-FR" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6abcd858c7266a7e44874cc3" data-style-height="52px" data-style-width="100%">
+            <a href="https://www.trustpilot.com/evaluate/nuevaliving.com" target="_blank" rel="noopener">Rédiger un avis sur Trustpilot</a>
+          </div>
+        </div>
       </div>
     </section>
     <section class="cta-band">
@@ -269,6 +276,44 @@
         document.body.classList.remove('menu-open');
       }));
     }
+  </script>
+
+  <!-- Trustpilot's Review Collector. It solicits a review; it does not display
+       one, so it ships on this page and nowhere else: the visitor here has had
+       an interaction with us, and the page is noindex, so a profile with no
+       reviews on it is never put in front of a prospect who came looking for
+       proof.
+
+       Trustpilot's own instructions put the bootstrap script in <head>. It is a
+       third-party script that sets a cookie, so it goes where every other one
+       on this site goes -- behind the consent layer, fetched only once cookies
+       are accepted. See nueva-tracking.js for the same shape.
+
+       With no token the bootstrap is never fetched and the plain link inside
+       the widget div stands on its own, which is the point: an unconfigured
+       build ships a working ask rather than an empty box. -->
+  <script>
+    (function () {
+      // Trustpilot > Get more reviews > Review Collector, in the embed code it
+      // generates. Public, not a secret -- it ships in the page either way.
+      var TRUSTPILOT_TOKEN = '';
+      var widget = document.querySelector('.trustpilot-widget');
+      if (!widget || !TRUSTPILOT_TOKEN) return;
+      widget.setAttribute('data-token', TRUSTPILOT_TOKEN);
+      var loaded = false;
+      function load() {
+        if (loaded) return;
+        loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
+        document.head.appendChild(s);
+      }
+      if (window.nuevaConsentState && window.nuevaConsentState() === 'granted') load();
+      window.addEventListener('nueva:consent', function (event) {
+        if (event.detail && event.detail.state === 'granted') load();
+      });
+    })();
   </script>
   <script>
   // Guides submenu: same dismissal behaviour as the language switcher,

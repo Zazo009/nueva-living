@@ -3051,3 +3051,61 @@ input[type="range"] {
     grid-template-columns: 1fr;
   }
 }
+
+/* The review ask on thank-you.html. A quiet rule and a centred block rather
+   than a fourth card: it is not one of the three things that happen next, and
+   putting it in the row would have it competing with "Need Faster Contact?".
+   The Trustpilot widget replaces its own contents once its bootstrap runs, so
+   the link inside is styled to look right on its own -- that is what a visitor
+   who has declined cookies sees. */
+.review-ask {
+  margin-top: clamp(28px, 3.4vw, 44px);
+  padding-top: clamp(24px, 3vw, 36px);
+  border-top: 1px solid var(--nueva-line);
+  text-align: center;
+}
+
+.review-ask-title {
+  margin: 0 0 10px;
+  font-family: var(--nueva-display);
+  font-size: clamp(19px, 1.5vw, 23px);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--nueva-espresso);
+}
+
+.review-ask-text {
+  margin: 0 auto clamp(18px, 2vw, 24px);
+  max-width: 58ch;
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(74, 59, 40, 0.82);
+}
+
+.review-ask .trustpilot-widget {
+  min-height: 52px;
+}
+
+.review-ask .trustpilot-widget > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--nueva-control-height);
+  padding: 0 26px;
+  border: 1px solid var(--nueva-gold);
+  border-radius: 2px;
+  font-family: var(--nueva-ui);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--nueva-gold);
+  transition: background-color var(--nueva-transition), color var(--nueva-transition);
+}
+
+.review-ask .trustpilot-widget > a:hover,
+.review-ask .trustpilot-widget > a:focus-visible {
+  background: var(--nueva-gold);
+  color: var(--nueva-ivory);
+}
