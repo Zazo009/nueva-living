@@ -169,7 +169,15 @@ const HOMEPAGE_CONTENT_ENTRIES = [
   { find: '<span>Scroll</span>', es: '<span>Desplázate</span>', fr: '<span>Défiler</span>', de: '<span>Scrollen</span>', ru: '<span>Прокрутите</span>', ar: '<span>مرر للأسفل</span>', nl: '<span>Scroll</span>', pl: '<span>Przewiń</span>', sv: '<span>Scrolla</span>', no: '<span>Scroll</span>' },
   // Credibility strip
   { find: '>Developers We Work With<', es: '>Promotoras con las que trabajamos<', fr: '>Promoteurs avec qui nous collaborons<', de: '>Bauträger, mit denen wir zusammenarbeiten<', ru: '>Застройщики, с которыми мы работаем<', ar: '>المطورون الذين نتعامل معهم<', nl: '>Bouwbedrijven waarmee wij samenwerken<', pl: '>Deweloperzy, z którymi współpracujemy<', sv: '>Byggherrar vi samarbetar med<', no: '>Utbyggere vi samarbeider med<' },
-  { find: '>Costa del Sol Areas<', es: '>Zonas de la Costa del Sol<', fr: '>Secteurs de la Costa del Sol<', de: '>Lagen an der Costa del Sol<', ru: '>Районы Коста-дель-Соль<', ar: '>مناطق كوستا ديل سول<', nl: "Regio's aan de Costa del Sol", pl: 'Regiony Costa del Sol', sv: 'Områden på Costa del Sol', no: 'Områder på Costa del Sol' },
+  // The > and < are anchors, not decoration: they pin the match to the tag
+  // boundary so "Costa del Sol Areas" is not replaced anywhere else. A value
+  // that omits them does not translate the label, it deletes the delimiters --
+  // the opening span loses its ">" and the closing tag its "<". nl, pl, sv and
+  // no did exactly that, so four homepages printed "7" with no label under it
+  // for as long as the entry has existed. audit_site_consistency now checks
+  // every anchored entry, and the built pages for a closing tag missing its
+  // "<", because the browser does not complain about either.
+  { find: '>Costa del Sol Areas<', es: '>Zonas de la Costa del Sol<', fr: '>Secteurs de la Costa del Sol<', de: '>Lagen an der Costa del Sol<', ru: '>Районы Коста-дель-Соль<', ar: '>مناطق كوستا ديل سول<', nl: ">Regio's aan de Costa del Sol<", pl: '>Regiony Costa del Sol<', sv: '>Områden på Costa del Sol<', no: '>Områder på Costa del Sol<' },
   { find: '>New Builds Only<', es: '>Solo obra nueva<', fr: '>Uniquement des biens neufs<', de: '>Ausschließlich Neubauten<', ru: '>Только новостройки<', ar: '>عقارات جديدة فقط<', nl: '>Uitsluitend nieuwbouw<', pl: '>Wyłącznie nowe inwestycje<', sv: '>Endast nybyggnation<', no: '>Kun nybygg<' },
   { find: '>One-to-One Buyer Support<', es: '>Acompañamiento personalizado<', fr: '>Accompagnement Personnalisé<', de: '>Persönliche Käuferbetreuung<', ru: '>Персональное сопровождение покупателя<', ar: '>دعم شخصي للمشتري<', nl: '>Persoonlijke begeleiding voor kopers<', pl: '>Indywidualne wsparcie dla kupujących<', sv: '>Personlig köparservice<', no: '>Personlig kjøperoppfølging<' },
   // Developments section chrome
