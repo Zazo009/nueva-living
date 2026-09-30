@@ -1,7 +1,7 @@
 # nueva-living
 
-Static site for nuevaliving.com: a Costa del Sol new-build advisory. 53 projects,
-10 locales, ~890 built pages. Everything is generated from JSON by Node scripts.
+Static site for nuevaliving.com: a Costa del Sol new-build advisory. 57 projects,
+10 locales, ~970 built pages. Everything is generated from JSON by Node scripts.
 
 This file is the rules that are load-bearing and **not** discoverable by reading the
 code. Everything else, read the code — it is commented unusually well, and the commit
@@ -60,7 +60,7 @@ the wrong town, an invented unit mix and a delivery date two years early.
 
 The public project name is invented. `crm.realName` and `crm.realDeveloper` hold the
 truth and **must never appear in public copy** — not in prose, alt text, captions,
-filenames or schema. A guard checks 520 project pages for the developer's own name.
+filenames or schema. A guard checks 570 project pages for the developer's own name.
 `netlify/functions/data/projects-catalog.json` is a separate public projection with no
 `crm` block; keep it that way.
 
@@ -111,7 +111,7 @@ homepage also fixes heights the rest of the site does not — `.dev-img-wrap` an
 
 ## Guards
 
-`scripts/audit_site_consistency.mjs` holds 143 checks; `verify_build_idempotent.mjs`
+`scripts/audit_site_consistency.mjs` holds 145 checks; `verify_build_idempotent.mjs`
 re-runs the builders and fails on any difference; `build_dist.mjs` runs `verify_cards`.
 
 They catch **disagreement**, not falsehood. A failure is almost always one value in two

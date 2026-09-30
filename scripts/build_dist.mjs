@@ -143,7 +143,22 @@ const basePageMeta = {
         areaServed: ['Marbella', 'Estepona', 'Benahavis', 'Costa del Sol'],
         knowsAbout: ['New developments', 'Off-plan property', 'Luxury real estate advisory']
       }),
-      webSiteSchema(siteUrl)
+      webSiteSchema(siteUrl),
+      // The nine locale homepages carry a WebPage node from pageSchema(); the
+      // English one is assembled here instead and never had one, so the most
+      // visited page on the site had no page-level identity and no date. This
+      // is the same shape pageSchema() emits, and stampPageModified() writes
+      // the content date into it like every other page.
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'New-Build & Off-Plan Property, Costa del Sol | Nueva Living',
+        description: 'Independent advice on new-build and off-plan homes in Marbella, Estepona, Benahavis and Nueva Andalucia - real prices, availability and delivery dates.',
+        url: `${siteUrl}/`,
+        inLanguage: 'en',
+        isPartOf: { '@type': 'WebSite', name: 'Nueva Living', url: siteUrl },
+        publisher: { '@id': organizationId(siteUrl) }
+      }
     ]
   },
   'developments.html': {
@@ -1920,10 +1935,16 @@ function stampPageModified(distRelPath, lastmod) {
   } catch {
     return;
   }
-  if (!html.includes('"@type": "WebPage"')) return;
+  // CollectionPage is a WebPage in schema.org, and it is what the segment
+  // pages, the developments hub and the guides hub carry -- 90 pages that a
+  // match on the exact string "WebPage" walked straight past. FAQPage is one
+  // too and is deliberately not matched: it sits beside the page node rather
+  // than being it, and the insert takes the first match.
+  const pageNode = /"@type": "(?:WebPage|CollectionPage)",/;
+  if (!pageNode.test(html)) return;
   const stamped = html.includes('"dateModified"')
     ? html.replace(/"dateModified": "\d{4}-\d{2}-\d{2}"/g, `"dateModified": "${lastmod}"`)
-    : html.replace(/("@type": "WebPage",)/, `$1\n      "dateModified": "${lastmod}",`);
+    : html.replace(pageNode, (match) => `${match}\n      "dateModified": "${lastmod}",`);
   if (stamped !== html) fs.writeFileSync(abs, stamped);
 }
 
