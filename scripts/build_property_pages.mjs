@@ -1237,22 +1237,6 @@ function renderDiscoveryTags(tags = []) {
   return normaliseCardList(tags).slice(0, 5).map((tag) => `<span>${esc(tag)}</span>`).join('');
 }
 
-function renderDocumentRows(items = [], hasPublishedAvailability = false, hasFloorplans = false, allUnitsHaveFloorplans = false) {
-  return items
-    .filter(([, , action]) => !(allUnitsHaveFloorplans && /floorplan/i.test(action || '')))
-    .map(([title, body, action], index) => `<article class="document-row reveal-soft">
-            <div class="document-index">${String(index + 1).padStart(2, '0')}</div>
-            <div>
-              <h3>${esc(title)}</h3>
-              <p>${esc(body)}</p>
-            </div>
-            ${hasPublishedAvailability && /availability/i.test(action || '')
-              ? '<a href="#availability">Open Current Release</a>'
-              : hasFloorplans && /floorplan/i.test(action || '')
-              ? '<a href="#availability">View Floorplans</a>'
-              : `<a href="#enquire" data-prefill>${esc(action || 'Request')}</a>`}
-          </article>`).join('\n          ');
-}
 
 const NEXT_STEPS_ICONS = [
   '<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
@@ -1658,15 +1642,6 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     copy: project.description,
     points: []
   };
-  const projectFile = project.projectFile || {
-    headlineHtml: 'Request the private <em>project file</em>',
-    copy: 'Ask us for the latest project information and availability.',
-    documents: [
-      ['Project brochure', 'Project overview and lifestyle positioning', 'Request Brochure'],
-      ['Floorplans', 'Current layouts by residence type', 'Request Floorplans'],
-      ['Price availability sheet', 'Latest released units and guide pricing', 'Request Availability']
-    ]
-  };
   const trustDossier = project.trustDossier || {
     headlineHtml: 'What to know <em>before you view</em>',
     copy: 'We check the important project details before a viewing or reservation.',
@@ -1862,7 +1837,6 @@ ${project.furniturePackages?.items?.length ? `        <a href="#furniture-packag
         <a href="#calculator">${t('navInPage.affordability', locale)}</a>
         <a href="#why-this-project">${t('navInPage.why', locale)}</a>
         <a href="#architecture">${t('navInPage.architecture', locale)}</a>
-        <a href="#project-file">${t('navInPage.projectInfo', locale)}</a>
         <a href="#private-viewing">${t('cta.cinematicPresentation', locale)}</a>
         <a href="#lifestyle">${t('navInPage.lifestyle', locale)}</a>
         <a href="#faq">${t('navInPage.faq', locale)}</a>
@@ -2085,24 +2059,6 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
           <h2 class="section-headline">${project.architecture.headlineHtml}</h2>
           ${paragraphs(project.architecture.copy)}
           ${featureList(project.architecture.highlights)}
-        </div>
-      </div>
-    </section>
-
-    <section class="project-section project-file-section" id="project-file">
-      <div class="project-inner">
-        <div class="section-head reveal-soft">
-          <span class="section-kicker">${t('section.projectFile', locale)}</span>
-          <div class="rule"></div>
-          <h2 class="section-headline">${projectFile.headlineHtml}</h2>
-          <p class="project-lead">${esc(projectFile.copy)}</p>
-        </div>${projectFile.image ? `
-        <figure class="project-plan reveal-soft">
-          ${imageTag(projectFile.image)}
-          ${projectFile.image.caption ? `<figcaption>${esc(projectFile.image.caption)}</figcaption>` : ''}
-        </figure>` : ''}
-        <div class="document-center">
-          ${renderDocumentRows(projectFile.documents, hasPublishedAvailability, hasFloorplans, allUnitsHaveFloorplans)}
         </div>
       </div>
     </section>
@@ -3159,7 +3115,7 @@ async function syncProjectsToCrm(projects) {
 // when the project actually has media.items.
 const REQUIRED_SECTIONS = [
   'overview', 'residences', 'availability', 'location', 'why',
-  'architecture', 'projectFile', 'privateViewing', 'lifestyle', 'timeline', 'enquiry'
+  'architecture', 'privateViewing', 'lifestyle', 'timeline', 'enquiry'
 ];
 
 function validateProject(project) {
