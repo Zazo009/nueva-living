@@ -2713,8 +2713,19 @@ h1, h2, h3, h4,
 .document-row h3,
 .availability-card h3,
 p, li {
+  /* word-break: break-word here let the browser split a word mid-character.
+     The hero-title rule at the top of this file already dropped it for exactly
+     that reason -- it is what rendered "Guadalobon" as "Guadalobo / n" -- and
+     the same regret applied to every heading, paragraph and list item on a
+     property page, in ten languages where German, Dutch, Swedish, Norwegian
+     and Polish compounds are long enough to trigger it.
+
+     overflow-wrap: break-word stays. It only engages when a word cannot fit at
+     all, which is the last-resort behaviour that stops a long word overflowing
+     its container; word-break: break-word broke words that fitted perfectly
+     well on the next line. */
   overflow-wrap: break-word;
-  word-break: break-word;
+  word-break: normal;
 }
 
 .project-eyebrow,

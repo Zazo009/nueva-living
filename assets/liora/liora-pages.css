@@ -577,7 +577,12 @@ img {
 .founder-contact strong {
   font-size: 13px;
   font-weight: 400;
-  overflow-wrap: anywhere;
+  /* "anywhere" splits a word the moment it helps the line, not only when the
+     word cannot fit -- the most aggressive setting on the site, on lines that
+     hold an email address and a phone number. break-word still rescues an
+     address too long for its column, without cutting sasan@nuevaliving.com in
+     half on a line that had room. */
+  overflow-wrap: break-word;
 }
 
 .founder-contact a:hover strong {
