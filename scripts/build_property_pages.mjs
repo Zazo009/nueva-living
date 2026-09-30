@@ -1913,9 +1913,9 @@ ${project.media?.items?.length ? `        <a href="#media">${t('navInPage.media'
 ${constructionTimeline ? `        <a href="#construction-timeline">${t('timeline.paymentTerms', locale)}</a>\n` : ''}        <a href="#residences">${t('navInPage.residences', locale)}</a>
 ${project.furniturePackages?.items?.length ? `        <a href="#furniture-packages">${t('navInPage.furniture', locale)}</a>\n` : ''}${project.qualitySpecs?.groups?.length ? `        <a href="#quality-specifications">${t('navInPage.specifications', locale)}</a>\n` : ''}        <a href="#availability">${t('navInPage.availability', locale)}</a>
         <a href="#calculator">${t('navInPage.affordability', locale)}</a>
-        <a href="#why-this-project">${t('navInPage.why', locale)}</a>
+${project.crm?.amenities?.length ? `        <a href="#amenities">${t('navInPage.amenities', locale)}</a>\n` : ''}        <a href="#why-this-project">${t('navInPage.why', locale)}</a>
         <a href="#architecture">${t('navInPage.architecture', locale)}</a>
-${project.crm?.amenities?.length ? `        <a href="#amenities">${t('navInPage.amenities', locale)}</a>\n` : ''}        <a href="#private-viewing">${t('cta.cinematicPresentation', locale)}</a>
+        <a href="#private-viewing">${t('cta.cinematicPresentation', locale)}</a>
         <a href="#lifestyle">${t('navInPage.lifestyle', locale)}</a>
         <a href="#faq">${t('navInPage.faq', locale)}</a>
         <a href="#enquire">${t('navInPage.enquire', locale)}</a>
@@ -2090,6 +2090,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
       </div>
     </section>
 
+${renderAmenities(project, locale)}
     <section class="project-section project-why" id="why-this-project">
       <div class="project-inner why-grid">
         <div class="reveal-soft">
@@ -2141,7 +2142,6 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
       </div>
     </section>
 
-${renderAmenities(project, locale)}
     <section class="project-section dark" id="private-viewing">
       <div class="project-inner">
         <div class="cinema-cta reveal-soft">
