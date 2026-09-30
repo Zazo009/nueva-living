@@ -2369,6 +2369,7 @@ const UNTRANSLATED_TAG = new RegExp(
   '^(Q[1-4] 20|\\d|€|EUR|From €)|Bedroom|Marbella|Estepona|Mijas|Casares|Benahav|Benalm'
   + '|Elviria|Golden Mile|Nueva Andaluc|San Pedro|Guadalmina|Cortijo|Rio Real|Bel Air'
   + '|Fuengirola|Puerto Banús|Golf Valley|Cancelada|Puente Romano|Alcántara|Torremuelle'
+  + '|Monteros'
 );
 
 // crm.amenities feeds the compare page's catalogue, which renders them
