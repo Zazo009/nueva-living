@@ -4649,6 +4649,19 @@
       }
     }
 
+    /* The featured step heading is 28px Cinzel at phone width and its card
+       gives the text 176px. "Consultation" measures 208px there, so the
+       ENGLISH source breaks mid-word before any translation is involved --
+       which is why this is a size, not a wording. Nine locales were rewritten
+       to break between words instead; the three that cannot are English, and
+       Polish and Russian, where the word for a consultation is one word in
+       every register. 23px puts the longest of them on one line. */
+    @media (max-width: 400px) {
+      #journey .journey-card--featured h3 {
+        font-size: 23px;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       #journey .journey-card,
       #journey .journey-media img,

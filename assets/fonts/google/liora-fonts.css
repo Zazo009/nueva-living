@@ -17,7 +17,25 @@
 
    Cormorant Garamond is referenced by liora-property.css and
    nueva-location-map.css but deliberately has no @font-face here; those rules
-   have always rendered in the fallback serif. */
+   have always rendered in the fallback serif.
+
+   Cyrillic was the same failure as Polish, one alphabet further out. Neither
+   family declared a Cyrillic block, so every Russian page rendered in Arial
+   and Georgia -- a different typeface from the other nine locales, on a site
+   whose restraint is most of its luxury. Montserrat's Cyrillic file was
+   already sitting in this folder, downloaded and unreferenced.
+
+   Cinzel has no Cyrillic at all: Google ships it as latin and latin-ext only,
+   so no declaration can fix it and a Russian heading had nowhere to go but
+   Georgia. Cormorant Garamond does have Cyrillic, and it is already in this
+   folder for the same reason. It is declared below UNDER THE NAME 'Cinzel',
+   scoped to the Cyrillic ranges -- which is what unicode-range is for. Every
+   one of the 76 rules that hardcodes "Cinzel", Georgia, serif then picks it
+   up without being touched, and a Latin word inside a Russian heading, such
+   as Nueva Living, still comes out in real Cinzel.
+
+   Two typefaces under one family name is a deliberate trade. The alternative
+   was Georgia. */
 @font-face {
   font-family: 'Cinzel';
   font-style: normal;
@@ -52,4 +70,45 @@
   font-display: optional;
   src: url(./JTUSjIg1_i6t8kCHKm459WdhyyTh89ZNpQ.woff2) format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* --- Cyrillic ------------------------------------------------------------ */
+
+/* Cormorant Garamond, declared as Cinzel. See the note at the top of the file.
+   The weight range starts at 300 because that is the weight of the file; the
+   headings that will use it are 300 and 400. */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: optional;
+  src: url(./co3bmX5slCNuHLi8bLeY9MK7whWMhyjYrXtKky2F7i6C.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: optional;
+  src: url(./co3bmX5slCNuHLi8bLeY9MK7whWMhyjYpHtKky2F7i6C.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300 500;
+  font-display: optional;
+  src: url(./JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300 500;
+  font-display: optional;
+  src: url(./JTUSjIg1_i6t8kCHKm459WRhyyTh89ZNpQ.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
