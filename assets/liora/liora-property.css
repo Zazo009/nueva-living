@@ -3891,3 +3891,93 @@ body.media-dialog-open {
   font-size: 12px;
   line-height: 1.8;
 }
+
+/* ── Amenities ──────────────────────────────────────────────────────────────
+   Three across on desktop, two at tablet, one on a phone, with a hairline
+   between rows and none after the last. The rule is drawn on the card rather
+   than on a row wrapper, because the number of rows depends on how many
+   amenities a project has -- twenty on one scheme, five on another -- and a
+   wrapper would have to know that.
+
+   The icon sits in a square hairline box at the same stroke weight as the box
+   itself, so the two read as one mark rather than an icon inside a container. */
+.amenity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: clamp(28px, 3.4vw, 46px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.amenity-card {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(14px, 1.4vw, 20px);
+  padding: clamp(24px, 2.6vw, 34px) clamp(18px, 2vw, 28px) clamp(24px, 2.6vw, 34px) 0;
+  border-top: 1px solid var(--amenity-rule, rgba(74, 59, 40, 0.16));
+}
+
+/* The first row carries the grid's own top edge, so it needs no rule of its
+   own; every later row gets one. Three columns means the first three cards. */
+.amenity-grid > .amenity-card:nth-child(-n + 3) {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.amenity-mark {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: clamp(44px, 3.6vw, 52px);
+  height: clamp(44px, 3.6vw, 52px);
+  border: 1px solid var(--amenity-mark-line, rgba(138, 106, 58, 0.55));
+  color: var(--amenity-mark-ink, #8a6a3a);
+}
+
+.amenity-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.amenity-body {
+  min-width: 0;
+}
+
+.amenity-index {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--nueva-ui, "Montserrat", Arial, sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--amenity-index-ink, rgba(74, 59, 40, 0.6));
+}
+
+.amenity-name {
+  margin: 0;
+  font-family: var(--nueva-display, "Cinzel", Georgia, serif);
+  font-size: clamp(17px, 1.35vw, 21px);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  color: var(--amenity-ink, #4a3b28);
+  /* A long compound must wrap between words, never through one. */
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: manual;
+}
+
+@media (max-width: 1024px) {
+  .amenity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .amenity-grid > .amenity-card:nth-child(-n + 3) { border-top: 1px solid var(--amenity-rule, rgba(74, 59, 40, 0.16)); padding-top: clamp(24px, 2.6vw, 34px); }
+  .amenity-grid > .amenity-card:nth-child(-n + 2) { border-top: 0; padding-top: 0; }
+}
+
+@media (max-width: 640px) {
+  .amenity-grid { grid-template-columns: minmax(0, 1fr); }
+  .amenity-grid > .amenity-card:nth-child(-n + 3) { border-top: 1px solid var(--amenity-rule, rgba(74, 59, 40, 0.16)); padding-top: clamp(24px, 2.6vw, 34px); }
+  .amenity-grid > .amenity-card:first-child { border-top: 0; padding-top: 0; }
+  .amenity-card { padding-right: 0; }
+}

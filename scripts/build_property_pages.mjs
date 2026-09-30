@@ -1,4 +1,5 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { amenityIcon } from './lib/amenity_icons.mjs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import propertySync from '../lib/nueva-property-sync.cjs';
@@ -1591,6 +1592,83 @@ function twitterDescription(project, sourceProject, locale) {
   return overlay.twitterDescription || project.description;
 }
 
+
+
+// The catalogue says which category and icon an amenity gets. The label comes
+// from the amenity dictionary, which already holds all nine translations --
+// the same one build_segment_pages reads, and localizedAmenity there is the
+// same three lines, deliberately: one dictionary, two readers, no third copy
+// of the wording.
+const AMENITY_CATALOGUE = JSON.parse(
+  readFileSync(path.join(process.cwd(), 'content', 'amenities-catalogue.json'), 'utf8')
+).amenities;
+
+const AMENITY_DICTIONARY = JSON.parse(
+  readFileSync(path.join(process.cwd(), 'content', 'i18n', 'amenities.json'), 'utf8')
+);
+
+function translateAmenity(amenity, locale) {
+  const titleCase = (value) => value.replace(/(^|[\s-])[a-z]/g, (c) => c.toUpperCase());
+  if (locale === DEFAULT_LOCALE) return titleCase(amenity);
+  return AMENITY_DICTIONARY[amenity]?.[locale] || titleCase(amenity);
+}
+
+// The amenities grid. What a project has, in its own words.
+//
+// The label is the amenity string from crm.amenities, which
+// content/i18n/amenities.json already translates, so nothing here needs a new
+// translation. The category and the icon come from
+// content/amenities-catalogue.json and are structural.
+//
+// Cards are grouped by category in a fixed order rather than left in the order
+// the CRM happens to list them, so the numbering runs down the same kinds of
+// thing on every project and the reader can scan by group.
+const AMENITY_CATEGORY_ORDER = ['wellness', 'outdoors', 'everyday', 'services'];
+
+function renderAmenities(project, locale) {
+  const list = project.crm?.amenities || [];
+  if (!list.length) return '';
+  const seen = new Set();
+  const cards = [];
+  for (const category of AMENITY_CATEGORY_ORDER) {
+    for (const name of list) {
+      if (seen.has(name)) continue;
+      const entry = AMENITY_CATALOGUE[name];
+      if (!entry || entry.category !== category) continue;
+      seen.add(name);
+      cards.push({ name, category, icon: entry.icon });
+    }
+  }
+  // Anything the catalogue does not know still gets a card rather than being
+  // dropped. The audit fails the build on it, so this only ever runs locally.
+  for (const name of list) {
+    if (!seen.has(name)) cards.push({ name, category: 'services', icon: 'sparkles' });
+  }
+  if (!cards.length) return '';
+
+  const rows = cards.map((card, i) => `          <li class="amenity-card reveal-soft">
+            <span class="amenity-mark">${amenityIcon(card.icon)}</span>
+            <div class="amenity-body">
+              <span class="amenity-index">${String(i + 1).padStart(2, '0')} &middot; ${esc(t(`amenities.category.${card.category}`, locale))}</span>
+              <h3 class="amenity-name">${esc(translateAmenity(card.name, locale))}</h3>
+            </div>
+          </li>`).join('\n');
+
+  return `    <section class="project-section" id="amenities">
+      <div class="project-inner">
+        <div class="section-head reveal-soft">
+          <span class="section-kicker">${t('section.amenities', locale)}</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">${t('amenities.headlineHtml', locale)}</h2>
+        </div>
+        <ul class="amenity-grid">
+${rows}
+        </ul>
+      </div>
+    </section>
+`;
+}
+
 function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const project = localizeProject(sourceProject, locale);
   const rtl = isRtl(locale);
@@ -1837,7 +1915,7 @@ ${project.furniturePackages?.items?.length ? `        <a href="#furniture-packag
         <a href="#calculator">${t('navInPage.affordability', locale)}</a>
         <a href="#why-this-project">${t('navInPage.why', locale)}</a>
         <a href="#architecture">${t('navInPage.architecture', locale)}</a>
-        <a href="#private-viewing">${t('cta.cinematicPresentation', locale)}</a>
+${project.crm?.amenities?.length ? `        <a href="#amenities">${t('navInPage.amenities', locale)}</a>\n` : ''}        <a href="#private-viewing">${t('cta.cinematicPresentation', locale)}</a>
         <a href="#lifestyle">${t('navInPage.lifestyle', locale)}</a>
         <a href="#faq">${t('navInPage.faq', locale)}</a>
         <a href="#enquire">${t('navInPage.enquire', locale)}</a>
@@ -2063,6 +2141,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
       </div>
     </section>
 
+${renderAmenities(project, locale)}
     <section class="project-section dark" id="private-viewing">
       <div class="project-inner">
         <div class="cinema-cta reveal-soft">
