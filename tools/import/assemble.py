@@ -1,5 +1,7 @@
+import os, sys; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 # -*- coding: utf-8 -*-
 import json, re, glob, collections, sys
+from overlay_shape import overlay_shape
 SP, SLUG = sys.argv[1], sys.argv[2]
 LOCS = ['es','fr','de','ru','ar','nl','pl','no','sv']
 tm = json.load(open(f'{SP}/tm.json'))
@@ -140,18 +142,9 @@ def tr(src, loc):
     misses[src] += 1
     return None
 
-sib = json.load(open('content/liora-projects/buenas-noches-terrace-residences/project.json'))
-shape = sib['i18n']['es']
-sib2 = json.load(open('content/liora-projects/laurel-hill-residences/project.json'))
-if 'video' in sib2['i18n']['es'].get('media', {}):
-    shape.setdefault('media', {})['video'] = sib2['i18n']['es']['media']['video']
-sib3 = json.load(open('content/liora-projects/los-olivos-residences/project.json'))
-if 'tour' in sib3['i18n']['es'].get('media', {}):
-    shape.setdefault('media', {})['tour'] = sib3['i18n']['es']['media']['tour']
-sib4 = json.load(open('content/liora-projects/los-olivos-residences/project.json'))
-for key in ('paymentTerms', 'paymentTermsNote'):
-    if key in sib4['i18n']['es'].get('constructionTimeline', {}):
-        shape.setdefault('constructionTimeline', {})[key] = sib4['i18n']['es']['constructionTimeline'][key]
+# The shape is the union of every published overlay, not one sibling's.
+# See tools/import/overlay_shape.py for what that fixes.
+shape = overlay_shape()
 d = json.load(open(f'content/liora-projects/{SLUG}/project.json'))
 STRUCT = {'href','floorplan','milestone','icon'}
 def build(node, model, loc):
