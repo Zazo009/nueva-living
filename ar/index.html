@@ -17074,6 +17074,13 @@
   const vProjectMark = document.querySelector('.v7proj');
   const voxEl = document.getElementById('vox');
 
+  // Both strings also sit in the markup above, where the locale builder
+  // translates them. This script rewrites that markup as soon as a project
+  // loads, so the wording has to be translatable here too -- otherwise every
+  // locale reverts to English the moment the viewing opens.
+  const V_CINEMATIC_LABEL = 'عرض سينمائي';
+  const V_PREVIEW_LABEL = 'معاينة المشروع الجديد';
+
   let vActive = 0;
   let vInitDone = false;
   const vmodeBtn = document.getElementById('vmode');
@@ -17089,10 +17096,10 @@
 
   function vApplyViewingProjectChrome(project = VIEWING_PROJECT) {
     const firstScene = VIEWING_SCENES[0];
-    if (voxEl) voxEl.setAttribute('aria-label', `Cinematic Presentation — ${project.name}`);
+    if (voxEl) voxEl.setAttribute('aria-label', `${V_CINEMATIC_LABEL} — ${project.name}`);
     if (vinfoTitle) vinfoTitle.textContent = project.name;
     if (vinfoLocation) vinfoLocation.textContent = project.location;
-    if (vProjectMark) vProjectMark.textContent = `${project.name} · ${project.location} · New Development Preview`;
+    if (vProjectMark) vProjectMark.textContent = `${project.name} · ${project.location} · ${V_PREVIEW_LABEL}`;
     if (firstScene && vtlbl && vthl && vtsub) {
       vtlbl.textContent = firstScene.label;
       vthl.innerHTML = firstScene.hl;
