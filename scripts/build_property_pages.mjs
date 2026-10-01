@@ -1607,6 +1607,25 @@ const AMENITY_DICTIONARY = JSON.parse(
   readFileSync(path.join(process.cwd(), 'content', 'i18n', 'amenities.json'), 'utf8')
 );
 
+// The second line on an amenity card. Definitional on purpose: it says what
+// the thing is, never how many of it you get or where it sits, because a count
+// or a location is true on one project and false on the next. "Aerothermal
+// system -- heating, cooling and hot water" holds everywhere; "one space per
+// home" would not.
+//
+// Not every amenity has one. The long values carry their own qualifier in the
+// name -- "Communal outdoor pool with saline chlorination" needs no second
+// line -- so the card renders without it and the grid is built to take that.
+const AMENITY_DESCRIPTIONS = JSON.parse(
+  readFileSync(path.join(process.cwd(), 'content', 'i18n', 'amenity-descriptions.json'), 'utf8')
+);
+
+function amenityDescription(amenity, locale) {
+  const entry = AMENITY_DESCRIPTIONS[amenity];
+  if (!entry) return '';
+  return entry[locale] || entry[DEFAULT_LOCALE] || '';
+}
+
 function translateAmenity(amenity, locale) {
   const titleCase = (value) => value.replace(/(^|[\s-])[a-z]/g, (c) => c.toUpperCase());
   if (locale === DEFAULT_LOCALE) return titleCase(amenity);
@@ -1650,7 +1669,11 @@ function renderAmenities(project, locale) {
             <span class="amenity-mark">${amenityIcon(card.icon)}</span>
             <div class="amenity-body">
               <span class="amenity-index">${String(i + 1).padStart(2, '0')} &middot; ${esc(t(`amenities.category.${card.category}`, locale))}</span>
-              <h3 class="amenity-name">${esc(translateAmenity(card.name, locale))}</h3>
+              <h3 class="amenity-name">${esc(translateAmenity(card.name, locale))}</h3>${(() => {
+                const note = amenityDescription(card.name, locale);
+                return note ? `
+              <p class="amenity-note">${esc(note)}</p>` : '';
+              })()}
             </div>
           </li>`).join('\n');
 
