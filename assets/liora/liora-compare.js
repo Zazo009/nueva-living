@@ -83,6 +83,7 @@
     [tt('rowDelivery', 'Delivery'), (p) => formatDelivery(p.deliveryDate)],
     [tt('rowTotalUnits', 'Total units'), (p) => p.totalUnits ?? onRequest()],
     [tt('rowAvailableUnits', 'Available units'), (p) => p.availableUnits ?? onRequest()],
+    [tt('rowLocation', 'Location'), (p) => p.location || onRequest()],
     [tt('rowArea', 'Area'), (p) => p.area ? p.area.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) : onRequest()],
     [tt('rowAmenities', 'Amenities'), (p) => (p.amenities || []).slice(0, 6).map((a) => (i18n.amenityMap || {})[a] || a.charAt(0).toUpperCase() + a.slice(1)).join(', ') || onRequest()]
   ];

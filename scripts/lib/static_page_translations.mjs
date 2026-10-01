@@ -58,7 +58,7 @@ export const NOT_FOUND_ENTRIES = [
 export const COMPARE_RUNTIME_STRINGS = {
   es: {
     onRequest: 'A consultar', priceFrom: 'Desde {price}', bedroomsRange: '{min}-{max} dormitorios', bedroomsOne: '{n} dormitorios', toBeConfirmed: 'Por confirmar', dateLocale: 'es-ES',
-    browse: 'Ver Promociones', rowPrice: 'Precio', rowBedrooms: 'Dormitorios', rowPropertyTypes: 'Tipos de propiedad', rowStatus: 'Estado', rowDelivery: 'Entrega', rowTotalUnits: 'Viviendas totales', rowAvailableUnits: 'Viviendas disponibles', rowArea: 'Zona', rowAmenities: 'Servicios',
+    browse: 'Ver Promociones', rowPrice: 'Precio', rowBedrooms: 'Dormitorios', rowPropertyTypes: 'Tipos de propiedad', rowStatus: 'Estado', rowDelivery: 'Entrega', rowTotalUnits: 'Viviendas totales', rowAvailableUnits: 'Viviendas disponibles', rowLocation: 'Ubicación', rowArea: 'Zona', rowAmenities: 'Servicios',
     statusMap: { off_plan: 'Sobre plano', under_construction: 'En construcción', completed: 'Finalizado' },
     typeMap: { apartment: 'Apartamento', penthouse: 'Ático', villa: 'Villa', townhouse: 'Adosado', duplex: 'Dúplex' },
     note: 'Los precios, la disponibilidad y las fechas de entrega son orientativos y Nueva Living los reconfirma antes de cualquier reserva.',
@@ -68,7 +68,7 @@ export const COMPARE_RUNTIME_STRINGS = {
   },
   fr: {
     onRequest: 'Sur demande', priceFrom: 'À partir de {price}', bedroomsRange: '{min}-{max} chambres', bedroomsOne: '{n} chambres', toBeConfirmed: 'À confirmer', dateLocale: 'fr-FR',
-    browse: 'Voir les Programmes', rowPrice: 'Prix', rowBedrooms: 'Chambres', rowPropertyTypes: 'Types de bien', rowStatus: 'Statut', rowDelivery: 'Livraison', rowTotalUnits: 'Logements au total', rowAvailableUnits: 'Logements disponibles', rowArea: 'Secteur', rowAmenities: 'Prestations',
+    browse: 'Voir les Programmes', rowPrice: 'Prix', rowBedrooms: 'Chambres', rowPropertyTypes: 'Types de bien', rowStatus: 'Statut', rowDelivery: 'Livraison', rowTotalUnits: 'Logements au total', rowAvailableUnits: 'Logements disponibles', rowLocation: 'Emplacement', rowArea: 'Secteur', rowAmenities: 'Prestations',
     statusMap: { off_plan: 'Sur plan', under_construction: 'En construction', completed: 'Terminé' },
     typeMap: { apartment: 'Appartement', penthouse: 'Penthouse', villa: 'Villa', townhouse: 'Maison de ville', duplex: 'Duplex' },
     note: 'Les prix, la disponibilité et les dates de livraison sont indicatifs et reconfirmés par Nueva Living avant toute réservation.',
@@ -78,7 +78,7 @@ export const COMPARE_RUNTIME_STRINGS = {
   },
   de: {
     onRequest: 'Auf Anfrage', priceFrom: 'Ab {price}', bedroomsRange: '{min}-{max} Schlafzimmer', bedroomsOne: '{n} Schlafzimmer', toBeConfirmed: 'Wird bestätigt', dateLocale: 'de-DE',
-    browse: 'Neubauprojekte Ansehen', rowPrice: 'Preis', rowBedrooms: 'Schlafzimmer', rowPropertyTypes: 'Immobilientypen', rowStatus: 'Status', rowDelivery: 'Übergabe', rowTotalUnits: 'Einheiten gesamt', rowAvailableUnits: 'Verfügbare Einheiten', rowArea: 'Lage', rowAmenities: 'Ausstattung',
+    browse: 'Neubauprojekte Ansehen', rowPrice: 'Preis', rowBedrooms: 'Schlafzimmer', rowPropertyTypes: 'Immobilientypen', rowStatus: 'Status', rowDelivery: 'Übergabe', rowTotalUnits: 'Einheiten gesamt', rowAvailableUnits: 'Verfügbare Einheiten', rowLocation: 'Standort', rowArea: 'Lage', rowAmenities: 'Ausstattung',
     statusMap: { off_plan: 'Off-Plan', under_construction: 'Im Bau', completed: 'Fertiggestellt' },
     typeMap: { apartment: 'Wohnung', penthouse: 'Penthouse', villa: 'Villa', townhouse: 'Reihenhaus', duplex: 'Duplex' },
     note: 'Preise, Verfügbarkeit und Übergabetermine sind Richtwerte und werden von Nueva Living vor jeder Reservierung erneut bestätigt.',
@@ -88,7 +88,7 @@ export const COMPARE_RUNTIME_STRINGS = {
   },
   ru: {
     onRequest: 'По запросу', priceFrom: 'От {price}', bedroomsRange: '{min}-{max} спален', bedroomsOne: 'Спален: {n}', toBeConfirmed: 'Уточняется', dateLocale: 'ru-RU',
-    browse: 'Смотреть Новостройки', rowPrice: 'Цена', rowBedrooms: 'Спальни', rowPropertyTypes: 'Типы недвижимости', rowStatus: 'Статус', rowDelivery: 'Сдача', rowTotalUnits: 'Всего резиденций', rowAvailableUnits: 'Доступно резиденций', rowArea: 'Район', rowAmenities: 'Инфраструктура',
+    browse: 'Смотреть Новостройки', rowPrice: 'Цена', rowBedrooms: 'Спальни', rowPropertyTypes: 'Типы недвижимости', rowStatus: 'Статус', rowDelivery: 'Сдача', rowTotalUnits: 'Всего резиденций', rowAvailableUnits: 'Доступно резиденций', rowLocation: 'Расположение', rowArea: 'Район', rowAmenities: 'Инфраструктура',
     statusMap: { off_plan: 'На этапе строительства', under_construction: 'Строится', completed: 'Завершено' },
     typeMap: { apartment: 'Апартаменты', penthouse: 'Пентхаус', villa: 'Вилла', townhouse: 'Таунхаус', duplex: 'Дуплекс' },
     note: 'Цены, наличие и сроки сдачи являются ориентировочными и подтверждаются Nueva Living перед любым бронированием.',
@@ -98,7 +98,7 @@ export const COMPARE_RUNTIME_STRINGS = {
   },
   ar: {
     onRequest: 'عند الطلب', priceFrom: 'ابتداءً من {price}', bedroomsRange: '{min}-{max} غرف نوم', bedroomsOne: '{n} غرف نوم', toBeConfirmed: 'قيد التأكيد', dateLocale: 'ar',
-    browse: 'تصفح المشاريع', rowPrice: 'السعر', rowBedrooms: 'غرف النوم', rowPropertyTypes: 'أنواع العقارات', rowStatus: 'الحالة', rowDelivery: 'التسليم', rowTotalUnits: 'إجمالي الوحدات', rowAvailableUnits: 'الوحدات المتاحة', rowArea: 'المنطقة', rowAmenities: 'المرافق',
+    browse: 'تصفح المشاريع', rowPrice: 'السعر', rowBedrooms: 'غرف النوم', rowPropertyTypes: 'أنواع العقارات', rowStatus: 'الحالة', rowDelivery: 'التسليم', rowTotalUnits: 'إجمالي الوحدات', rowAvailableUnits: 'الوحدات المتاحة', rowLocation: 'الموقع', rowArea: 'المنطقة', rowAmenities: 'المرافق',
     statusMap: { off_plan: 'على المخطط', under_construction: 'قيد الإنشاء', completed: 'مكتمل' },
     typeMap: { apartment: 'شقة', penthouse: 'بنتهاوس', villa: 'فيلا', townhouse: 'تاون هاوس', duplex: 'دوبلكس' },
     note: 'الأسعار والتوافر ومواعيد التسليم إرشادية وتعيد Nueva Living تأكيدها قبل أي حجز.',
@@ -108,7 +108,7 @@ export const COMPARE_RUNTIME_STRINGS = {
   },
   nl: {
     onRequest: 'Op aanvraag', priceFrom: 'Vanaf {price}', bedroomsRange: '{min}-{max} slaapkamers', bedroomsOne: '{n} slaapkamers', toBeConfirmed: 'Nog te bevestigen', dateLocale: 'nl-NL',
-    browse: 'Bekijk Nieuwbouwprojecten', rowPrice: 'Prijs', rowBedrooms: 'Slaapkamers', rowPropertyTypes: 'Woningtypes', rowStatus: 'Status', rowDelivery: 'Oplevering', rowTotalUnits: 'Totaal aantal woningen', rowAvailableUnits: 'Beschikbare woningen', rowArea: 'Gebied', rowAmenities: 'Voorzieningen',
+    browse: 'Bekijk Nieuwbouwprojecten', rowPrice: 'Prijs', rowBedrooms: 'Slaapkamers', rowPropertyTypes: 'Woningtypes', rowStatus: 'Status', rowDelivery: 'Oplevering', rowTotalUnits: 'Totaal aantal woningen', rowAvailableUnits: 'Beschikbare woningen', rowLocation: 'Locatie', rowArea: 'Gebied', rowAmenities: 'Voorzieningen',
     statusMap: { off_plan: 'In voorverkoop', under_construction: 'In aanbouw', completed: 'Opgeleverd' },
     typeMap: { apartment: 'Appartement', penthouse: 'Penthouse', villa: 'Villa', townhouse: 'Rijwoning', duplex: 'Duplex' },
     note: 'Prijzen, beschikbaarheid en opleverdata zijn indicatief en worden door Nueva Living bevestigd vóór elke reservering.',
@@ -118,7 +118,7 @@ export const COMPARE_RUNTIME_STRINGS = {
   },
   pl: {
     onRequest: 'Na zapytanie', priceFrom: 'Od {price}', bedroomsRange: '{min}-{max} sypialnie', bedroomsOne: '{n} sypialnie', toBeConfirmed: 'Do potwierdzenia', dateLocale: 'pl-PL',
-    browse: 'Zobacz Inwestycje', rowPrice: 'Cena', rowBedrooms: 'Sypialnie', rowPropertyTypes: 'Rodzaje nieruchomości', rowStatus: 'Status', rowDelivery: 'Termin oddania', rowTotalUnits: 'Łączna liczba lokali', rowAvailableUnits: 'Dostępne lokale', rowArea: 'Lokalizacja', rowAmenities: 'Udogodnienia',
+    browse: 'Zobacz Inwestycje', rowPrice: 'Cena', rowBedrooms: 'Sypialnie', rowPropertyTypes: 'Rodzaje nieruchomości', rowStatus: 'Status', rowDelivery: 'Termin oddania', rowTotalUnits: 'Łączna liczba lokali', rowAvailableUnits: 'Dostępne lokale', rowLocation: 'Położenie', rowArea: 'Lokalizacja', rowAmenities: 'Udogodnienia',
     statusMap: { off_plan: 'W przedsprzedaży', under_construction: 'W budowie', completed: 'Ukończone' },
     typeMap: { apartment: 'Apartament', penthouse: 'Penthouse', villa: 'Willa', townhouse: 'Dom szeregowy', duplex: 'Duplex' },
     note: 'Ceny, dostępność i terminy oddania mają charakter orientacyjny i są potwierdzane przez Nueva Living przed dokonaniem rezerwacji.',
@@ -128,7 +128,7 @@ export const COMPARE_RUNTIME_STRINGS = {
   },
   sv: {
     onRequest: 'På förfrågan', priceFrom: 'Från {price}', bedroomsRange: '{min}-{max} sovrum', bedroomsOne: '{n} sovrum', toBeConfirmed: 'Bekräftas senare', dateLocale: 'sv-SE',
-    browse: 'Se Projekt', rowPrice: 'Pris', rowBedrooms: 'Sovrum', rowPropertyTypes: 'Bostadstyper', rowStatus: 'Status', rowDelivery: 'Tillträde', rowTotalUnits: 'Antal bostäder totalt', rowAvailableUnits: 'Tillgängliga bostäder', rowArea: 'Område', rowAmenities: 'Bekvämligheter',
+    browse: 'Se Projekt', rowPrice: 'Pris', rowBedrooms: 'Sovrum', rowPropertyTypes: 'Bostadstyper', rowStatus: 'Status', rowDelivery: 'Tillträde', rowTotalUnits: 'Antal bostäder totalt', rowAvailableUnits: 'Tillgängliga bostäder', rowLocation: 'Läge', rowArea: 'Område', rowAmenities: 'Bekvämligheter',
     statusMap: { off_plan: 'Förhandsbokning', under_construction: 'Under uppförande', completed: 'Färdigställt' },
     typeMap: { apartment: 'Lägenhet', penthouse: 'Takvåning', villa: 'Villa', townhouse: 'Radhus', duplex: 'Duplex' },
     note: 'Priser, tillgänglighet och tillträdesdatum är vägledande och bekräftas av Nueva Living innan bokning.',
@@ -138,7 +138,7 @@ export const COMPARE_RUNTIME_STRINGS = {
   },
   no: {
     onRequest: 'På forespørsel', priceFrom: 'Fra {price}', bedroomsRange: '{min}-{max} soverom', bedroomsOne: '{n} soverom', toBeConfirmed: 'Bekreftes senere', dateLocale: 'nb-NO',
-    browse: 'Se Boligprosjekter', rowPrice: 'Pris', rowBedrooms: 'Soverom', rowPropertyTypes: 'Boligtyper', rowStatus: 'Status', rowDelivery: 'Overlevering', rowTotalUnits: 'Totalt antall boliger', rowAvailableUnits: 'Tilgjengelige boliger', rowArea: 'Område', rowAmenities: 'Fasiliteter',
+    browse: 'Se Boligprosjekter', rowPrice: 'Pris', rowBedrooms: 'Soverom', rowPropertyTypes: 'Boligtyper', rowStatus: 'Status', rowDelivery: 'Overlevering', rowTotalUnits: 'Totalt antall boliger', rowAvailableUnits: 'Tilgjengelige boliger', rowLocation: 'Beliggenhet', rowArea: 'Område', rowAmenities: 'Fasiliteter',
     statusMap: { off_plan: 'Under planlegging', under_construction: 'Under bygging', completed: 'Ferdigstilt' },
     typeMap: { apartment: 'Leilighet', penthouse: 'Takleilighet', villa: 'Villa', townhouse: 'Rekkehus', duplex: 'Duplex' },
     note: 'Priser, tilgjengelighet og overleveringsdatoer er veiledende og bekreftes av Nueva Living før eventuell reservasjon.',

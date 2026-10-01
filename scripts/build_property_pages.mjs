@@ -2301,7 +2301,15 @@ function buildCompareCatalog(projects) {
         totalUnits: crm.totalUnits ?? null,
         availableUnits: crm.availableUnits ?? null,
         constructionStatus: crm.constructionStatus || null,
-        deliveryDate: crm.deliveryDate || null,
+        // crm.deliveryDate is set on no project, so this read null 58 times
+        // out of 58 and the compare table answered "To be confirmed" for a
+        // site where every project states a quarter. hero.delivery is that
+        // quarter; seven projects prefix it with "Completion", which the
+        // table has no room for.
+        deliveryDate: crm.deliveryDate
+          || (project.hero?.delivery || '').replace(/^(completion|delivery)\s+/i, '').trim()
+          || null,
+        location: project.hero?.location || null,
         amenities: crm.amenities || []
       };
     });
