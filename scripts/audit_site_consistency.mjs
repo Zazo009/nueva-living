@@ -1997,6 +1997,46 @@ let imageReviewChecked = 0;
   }
 }
 
+let amenityOverlapChecked = 0;
+
+// A project names one thing once.
+//
+// The amenity values come from however each seller worded it, so the catalogue
+// carries "Gym", "Private gyms", "Equipped gym in communal area" and "Fully
+// equipped gym" as four entries for one thing. Filling the lists from each
+// project's own prose then put two of them on the same project, and the grid
+// drew a card for each: "Coworking" beside "Coworking space", "Landscaped
+// gardens" beside "Landscaped communal gardens".
+//
+// Two values that carry the same description are the same thing -- that is
+// what writing one explanation per concept settled -- so this reuses it rather
+// than keeping a second list of synonyms that could drift from the first.
+{
+  const notes = JSON.parse(fs.readFileSync(path.join(root, 'content', 'i18n', 'amenity-descriptions.json'), 'utf8'));
+  const concept = new Map();
+  for (const [name, entry] of Object.entries(notes)) concept.set(name, entry.en);
+  const offenders = [];
+  const dir = path.join(root, 'content', 'liora-projects');
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const file = path.join(dir, entry.name, 'project.json');
+    if (!fs.existsSync(file)) continue;
+    const project = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const seen = new Map();
+    for (const amenity of project.crm?.amenities || []) {
+      amenityOverlapChecked += 1;
+      const key = concept.get(amenity);
+      if (!key) continue;
+      if (seen.has(key)) offenders.push(`${entry.name}: "${seen.get(key)}" and "${amenity}" are the same thing`);
+      else seen.set(key, amenity);
+    }
+  }
+  if (offenders.length) {
+    fail(`${offenders.length} project(s) list one amenity twice under two names, so the grid draws it twice: `
+      + `${offenders.slice(0, 4).join('; ')}.`);
+  }
+}
+
 let addressFormChecked = 0;
 
 // One form of address per language, in the translation tables too.
@@ -4666,5 +4706,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${fragmentLinkChecked} based pages checked for bare fragment links, ${runtimeStringChecked} runtime strings checked for every locale, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${scriptMixChecked} translated strings checked for one alphabet, ${indexFactsChecked} index facts checked against the project list, ${shareImageChecked} link previews checked for their own project's image, ${metricLabelChecked} overlay metric labels checked for one word per language, ${factAgreementChecked} facts checked for agreeing with themselves inside their own project, ${footerShapeChecked} footers checked against the one shared shape, ${imageReviewChecked} project images checked against the review manifest, ${tagDelimiterChecked} pages checked for a closing tag missing its angle bracket, ${amenityCatalogueChecked} project amenities checked against the catalogue, ${pairShapeChecked} paired fields checked for a string where a pair belongs, ${amenityNoteChecked} amenity descriptions checked for all ten languages, ${addressFormChecked} table translations checked for one form of address per language.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${fragmentLinkChecked} based pages checked for bare fragment links, ${runtimeStringChecked} runtime strings checked for every locale, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${scriptMixChecked} translated strings checked for one alphabet, ${indexFactsChecked} index facts checked against the project list, ${shareImageChecked} link previews checked for their own project's image, ${metricLabelChecked} overlay metric labels checked for one word per language, ${factAgreementChecked} facts checked for agreeing with themselves inside their own project, ${footerShapeChecked} footers checked against the one shared shape, ${imageReviewChecked} project images checked against the review manifest, ${tagDelimiterChecked} pages checked for a closing tag missing its angle bracket, ${amenityCatalogueChecked} project amenities checked against the catalogue, ${pairShapeChecked} paired fields checked for a string where a pair belongs, ${amenityNoteChecked} amenity descriptions checked for all ten languages, ${addressFormChecked} table translations checked for one form of address per language, ${amenityOverlapChecked} project amenities checked for naming one thing twice.`);
 }
