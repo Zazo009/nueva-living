@@ -325,11 +325,24 @@ const HOMEPAGE_CONTENT_ENTRIES = [
 
 // Longest find first, so a short entry can never fire inside a longer
 // string before that string's own entry has matched.
+// The scene entries are the one set that lands inside JavaScript rather than
+// HTML: all 96 occurrences of their find strings sit in a <script> block, in
+// single-quoted object literals. So their replacements are escaped for that
+// context, and the others are not -- escaping an HTML replacement would print
+// the backslash.
+//
+// Polish pluralises a borrowed noun with an apostrophe. "Dwupoziomowe
+// penthouse'y" closed the string literal it was substituted into, and the
+// Polish homepage went black: a syntax error kills the whole script, so the
+// reveal animations never ran and nothing after it was drawn. It was live.
+const forJsString = (value) => value.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+
 function homepageContentReplacements(locale) {
+  const scene = new Set(BESPOKE_SCENE_ENTRIES);
   return [...HOMEPAGE_CONTENT_ENTRIES, ...BESPOKE_SCENE_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
     .filter((entry) => entry[locale])
     .sort((a, b) => b.find.length - a.find.length)
-    .map((entry) => [entry.find, entry[locale]]);
+    .map((entry) => [entry.find, scene.has(entry) ? forJsString(entry[locale]) : entry[locale]]);
 }
 
 // Per-project homepage card taglines (the <p class="dev-tagline"> text on

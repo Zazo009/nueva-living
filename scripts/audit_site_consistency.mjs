@@ -1997,6 +1997,47 @@ let imageReviewChecked = 0;
   }
 }
 
+let inlineScriptChecked = 0;
+
+// Every inline script on every page parses.
+//
+// The Polish homepage was black. "Dwupoziomowe penthouse'y" -- Polish
+// pluralises a borrowed noun with an apostrophe -- was substituted into a
+// single-quoted JavaScript literal and closed it. One syntax error stops the
+// whole script, so nothing it was going to draw got drawn.
+//
+// Nothing saw it. The page validated, the translation was present and correct
+// Polish, the string was in the element it belonged to, and the markup was
+// well formed. The language it broke was the one no other guard reads.
+{
+  const offenders = [];
+  for (const file of everyHtmlFile(dist)) {
+    const html = fs.readFileSync(file, 'utf8');
+    const pattern = /<script([^>]*)>([\s\S]*?)<\/script>/g;
+    let match;
+    while ((match = pattern.exec(html)) !== null) {
+      const [, attrs, body] = match;
+      // Skip anything that is not JavaScript: src= loads a file checked on its
+      // own, and application/ld+json is data.
+      if (/\bsrc=/.test(attrs)) continue;
+      const type = (attrs.match(/type\s*=\s*["']([^"']+)["']/) || [])[1];
+      if (type && !/^(text\/javascript|module|application\/javascript)$/.test(type)) continue;
+      if (!body.trim()) continue;
+      inlineScriptChecked += 1;
+      try {
+        new Function(body);
+      } catch (error) {
+        offenders.push(`${path.relative(dist, file)}: ${error.message}`);
+        break;
+      }
+    }
+  }
+  if (offenders.length) {
+    fail(`${offenders.length} page(s) carry an inline script that does not parse, which stops everything after it `
+      + `from running: ${offenders.slice(0, 4).join('; ')}.`);
+  }
+}
+
 let amenityOverlapChecked = 0;
 
 // A project names one thing once.
@@ -4706,5 +4747,5 @@ if (failures.length) {
     + `${h1VisibilityChecked} classes inside h1 elements checked for display: none, `
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${fragmentLinkChecked} based pages checked for bare fragment links, ${runtimeStringChecked} runtime strings checked for every locale, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${scriptMixChecked} translated strings checked for one alphabet, ${indexFactsChecked} index facts checked against the project list, ${shareImageChecked} link previews checked for their own project's image, ${metricLabelChecked} overlay metric labels checked for one word per language, ${factAgreementChecked} facts checked for agreeing with themselves inside their own project, ${footerShapeChecked} footers checked against the one shared shape, ${imageReviewChecked} project images checked against the review manifest, ${tagDelimiterChecked} pages checked for a closing tag missing its angle bracket, ${amenityCatalogueChecked} project amenities checked against the catalogue, ${pairShapeChecked} paired fields checked for a string where a pair belongs, ${amenityNoteChecked} amenity descriptions checked for all ten languages, ${addressFormChecked} table translations checked for one form of address per language, ${amenityOverlapChecked} project amenities checked for naming one thing twice.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${fragmentLinkChecked} based pages checked for bare fragment links, ${runtimeStringChecked} runtime strings checked for every locale, ${cardFilterChecked} cards checked against the filter vocabulary, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${scriptMixChecked} translated strings checked for one alphabet, ${indexFactsChecked} index facts checked against the project list, ${shareImageChecked} link previews checked for their own project's image, ${metricLabelChecked} overlay metric labels checked for one word per language, ${factAgreementChecked} facts checked for agreeing with themselves inside their own project, ${footerShapeChecked} footers checked against the one shared shape, ${imageReviewChecked} project images checked against the review manifest, ${tagDelimiterChecked} pages checked for a closing tag missing its angle bracket, ${amenityCatalogueChecked} project amenities checked against the catalogue, ${pairShapeChecked} paired fields checked for a string where a pair belongs, ${amenityNoteChecked} amenity descriptions checked for all ten languages, ${addressFormChecked} table translations checked for one form of address per language, ${amenityOverlapChecked} project amenities checked for naming one thing twice, ${inlineScriptChecked} inline scripts checked for parsing.`);
 }
