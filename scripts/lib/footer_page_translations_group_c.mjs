@@ -32,7 +32,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Nieuwbouw of bestaande bouw: <em>wat past bij uw plan</em>",
     pl: "Rynek pierwotny czy wtórny: <em>co pasuje do Państwa planu</em>",
     sv: "Nyproduktion eller begagnat: <em>vad som passar er plan</em>",
-    no: "Nybygg eller bruktbolig: <em>hva som passer planen deres</em>"
+    no: "Nybygg eller bruktbolig: <em>hva som passer planen din</em>"
   },
   {
     find: "Both are legitimate ways to buy on the Costa del Sol. The right one depends on your timeline, your appetite for construction risk, and what you actually want the property to do for you.",
@@ -44,7 +44,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Beide zijn legitieme manieren om aan de Costa del Sol te kopen. Welke past, hangt af van uw tijdlijn, uw bereidheid tot bouwrisico en wat u de woning werkelijk wilt laten doen.",
     pl: "Obie drogi zakupu na Costa del Sol są w pełni uzasadnione. Wybór zależy od Państwa horyzontu czasowego, gotowości na ryzyko budowy i tego, czemu nieruchomość ma naprawdę służyć.",
     sv: "Båda är fullt rimliga sätt att köpa på Costa del Sol. Vilket som passar beror på er tidsram, er inställning till byggrisk och vad ni faktiskt vill att bostaden ska göra för er.",
-    no: "Begge er fullt rimelige måter å kjøpe på Costa del Sol. Hvilken som passer avhenger av tidsrammen deres, holdningen til byggerisiko og hva dere faktisk vil at boligen skal gjøre for dere."
+    no: "Begge er fullt rimelige måter å kjøpe på Costa del Sol. Hvilken som passer avhenger av tidsrammen din, holdningen til byggerisiko og hva du faktisk vil at boligen skal gjøre for deg."
   },
   {
     find: "Neither is inherently the better investment -- they suit different buyers, timelines and risk tolerances. Compare them below on the points that actually affect your decision.",
@@ -236,7 +236,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Meestal geprijsd onder een vergelijkbare opgeleverde woning, omdat u jaren voor oplevering vastlegt en het risico van de bouwplanning draagt. Dat verschil wordt kleiner, of verdwijnt, naarmate een project zijn laatste vrijgegeven woningen bereikt.",
     pl: "Zwykle wyceniane poniżej porównywalnego gotowego lokalu, bo zobowiązują się Państwo lata przed odbiorem i biorą na siebie ryzyko harmonogramu budowy. Ta różnica maleje lub znika, gdy inwestycja zbliża się do ostatnich wprowadzanych lokali.",
     sv: "Prissätts oftast under en jämförbar färdig bostad, eftersom ni binder er år före tillträdet och tar risken i byggtidplanen. Det gapet krymper, eller försvinner, när ett projekt närmar sig sina sista släppta enheter.",
-    no: "Prises som regel under en tilsvarende ferdig bolig, siden dere binder dere år før overtakelse og tar risikoen i byggeplanen. Det gapet krymper, eller forsvinner, når et prosjekt nærmer seg sine siste frigitte enheter."
+    no: "Prises som regel under en tilsvarende ferdig bolig, siden du binder du år før overtakelse og tar risikoen i byggeplanen. Det gapet krymper, eller forsvinner, når et prosjekt nærmer seg sine siste frigitte enheter."
   },
   {
     find: "Staged: a reservation, a larger payment on signing the private purchase contract, further payments at construction milestones, and the balance on completion.",
@@ -308,7 +308,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Een formele opleveringsinspectie vindt plaats voor of bij de overdracht, waarbij gebreken worden vastgelegd die de ontwikkelaar onder de bouwgarantie verhelpt. U werkt vanuit de afwerkstandaard van de ontwikkelaar, niet vanuit een bestaande woning.",
     pl: "Formalny odbiór techniczny odbywa się przed przekazaniem lub w jego trakcie, a usterki spisuje się do usunięcia przez dewelopera w ramach gwarancji. Punktem odniesienia jest standard wykończenia dewelopera, a nie ocena istniejącej nieruchomości.",
     sv: "En formell felbesiktning sker före eller vid tillträdet, där fel listas för byggherren att åtgärda inom byggarantin. Ni utgår från byggherrens finishstandard, inte från att bedöma en befintlig bostad.",
-    no: "En formell feilbefaring skjer før eller ved overtakelse, der feil listes opp for utbygger å rette under byggegarantien. Dere tar utgangspunkt i utbyggerens finishstandard, ikke i å vurdere en eksisterende bolig."
+    no: "En formell feilbefaring skjer før eller ved overtakelse, der feil listes opp for utbygger å rette under byggegarantien. Du tar utgangspunkt i utbyggerens finishstandard, ikke i å vurdere en eksisterende bolig."
   },
   {
     find: "Completion depends on the developer obtaining the first occupation license and certificate of completion before the deed can be signed at the notary. Your lawyer confirms these are in place before you complete.",
@@ -320,7 +320,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "De overdracht hangt ervan af dat de ontwikkelaar de eerste bewoningsvergunning en het opleveringscertificaat verkrijgt voordat de akte bij de notaris kan worden getekend. Uw advocaat bevestigt dat deze er zijn voordat u afneemt.",
     pl: "Przeniesienie własności zależy od uzyskania przez dewelopera pozwolenia na użytkowanie i świadectwa ukończenia, zanim akt zostanie podpisany u notariusza. Państwa prawnik potwierdza, że dokumenty są, zanim sfinalizują Państwo zakup.",
     sv: "Tillträdet förutsätter att byggherren fått inflyttningstillstånd och slutbevis innan köpebrevet kan skrivas hos notarien. Er jurist bekräftar att de finns på plats innan ni tillträder.",
-    no: "Overtakelsen forutsetter at utbygger har fått innflyttingstillatelse og ferdigattest før skjøtet kan signeres hos notaren. Juristen deres bekrefter at de foreligger før dere overtar."
+    no: "Overtakelsen forutsetter at utbygger har fått innflyttingstillatelse og ferdigattest før skjøtet kan signeres hos notaren. Juristen din bekrefter at de foreligger før du overtar."
   },
   {
     find: "Happens once the building is finished and licensed, on a date the developer estimates rather than guarantees. Delays of a few months against the original estimate are not unusual.",
@@ -344,7 +344,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Kost vooraf meer, maar u betaalt voor een bekende grootheid: de werkelijke afwerking, het werkelijke uitzicht, het werkelijke geluidsniveau — geen daarvan volledig te beoordelen op een plattegrond en een render.",
     pl: "Kosztuje więcej z góry, ale płacą Państwo za wielkość znaną: realne wykończenie, realny widok, realny poziom hałasu — czego nie da się w pełni ocenić z rzutu i wizualizacji.",
     sv: "Kostar mer i förskott, men ni betalar för något känt: den faktiska finishen, den faktiska utsikten, den faktiska ljudnivån — inget av det går att bedöma fullt ut från en planlösning och en rendering.",
-    no: "Koster mer i starten, men dere betaler for noe kjent: den faktiske finishen, den faktiske utsikten, det faktiske støynivået — ingenting av det lar seg vurdere fullt ut fra en planløsning og en rendering."
+    no: "Koster mer i starten, men du betaler for noe kjent: den faktiske finishen, den faktiske utsikten, det faktiske støynivået — ingenting av det lar seg vurdere fullt ut fra en planløsning og en rendering."
   },
   {
     find: "Simpler: reserve, sign, pay the balance, usually within 30 to 60 days. No construction-linked schedule, and no way to spread the cost over time.",
@@ -368,7 +368,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Volledig weg. Wat u ziet is wat u krijgt, en u kunt de woning zelf inspecteren voordat u zich ergens aan bindt.",
     pl: "Całkowicie zniesione. Widzą Państwo dokładnie to, co kupują, i mogą obejrzeć nieruchomość przed podjęciem zobowiązania.",
     sv: "Helt borta. Ni får det ni ser, och kan besiktiga bostaden innan ni binder er vid något.",
-    no: "Helt borte. Dere får det dere ser, og kan besiktige boligen før dere binder dere til noe."
+    no: "Helt borte. Du får det du ser, og kan besiktige boligen før du binder du til noe."
   },
   {
     find: "Fixed. A limitation if you wanted something different, an advantage if you would rather judge real materials and workmanship than a specification sheet.",
@@ -380,7 +380,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Vast. Een beperking als u iets anders wilde, een voordeel als u liever echte materialen en afwerking beoordeelt dan een specificatieblad.",
     pl: "Ustalony. Ograniczenie, jeśli chcieli Państwo czegoś innego; zaleta, jeśli wolą Państwo ocenić realne materiały i wykonanie niż kartę standardu.",
     sv: "Fast. En begränsning om ni ville ha något annat, en fördel om ni hellre bedömer verkligt material och utförande än ett specifikationsblad.",
-    no: "Fast. En begrensning om dere ville hatt noe annet, en fordel om dere heller vurderer faktiske materialer og utførelse enn et spesifikasjonsark."
+    no: "Fast. En begrensning om du ville hatt noe annet, en fordel om du heller vurderer faktiske materialer og utførelse enn et spesifikasjonsark."
   },
   {
     find: "Can generate rental income or be lived in immediately after completion, with no construction timeline in the way.",
@@ -416,7 +416,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Niet op dezelfde manier van toepassing. Gebreken zijn wat de huidige eigenaar wel of niet heeft verholpen, dus een professionele bouwkundige keuring vooraf weegt hier zwaarder dan een ontwikkelaarsgarantie.",
     pl: "Nie ma zastosowania w ten sam sposób. Usterki to tyle, ile obecny właściciel naprawił lub nie, więc profesjonalna ekspertyza przed zakupem znaczy tu więcej niż gwarancja dewelopera.",
     sv: "Gäller inte på samma sätt. Eventuella fel är vad nuvarande ägare åtgärdat eller låtit bli, så en professionell besiktning innan ni binder er väger tyngre här än en byggherregaranti.",
-    no: "Gjelder ikke på samme måte. Eventuelle feil er det nåværende eier har utbedret eller ikke, så en profesjonell takst før dere binder dere veier tyngre her enn en utbyggergaranti."
+    no: "Gjelder ikke på samme måte. Eventuelle feil er det nåværende eier har utbedret eller ikke, så en profesjonell takst før du binder du veier tyngre her enn en utbyggergaranti."
   },
   {
     find: "Already issued and checkable: your lawyer verifies the existing title, license history and any charges on the property at the Land Registry before you sign.",
@@ -428,7 +428,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Al afgegeven en controleerbaar: uw advocaat verifieert de bestaande eigendomstitel, de vergunninghistorie en eventuele lasten bij het Kadaster voordat u tekent.",
     pl: "Już wydane i możliwe do sprawdzenia: prawnik weryfikuje istniejący tytuł własności, historię pozwoleń i ewentualne obciążenia w księdze wieczystej przed podpisaniem.",
     sv: "Redan utfärdade och kontrollerbara: er jurist granskar befintlig lagfart, tillståndshistorik och eventuella belastningar i fastighetsregistret innan ni skriver på.",
-    no: "Allerede utstedt og mulig å kontrollere: juristen deres sjekker eksisterende hjemmel, tillatelseshistorikk og eventuelle heftelser i grunnboken før dere signerer."
+    no: "Allerede utstedt og mulig å kontrollere: juristen din sjekker eksisterende hjemmel, tillatelseshistorikk og eventuelle heftelser i grunnboken før du signerer."
   },
   {
     find: "Set by you and the seller, typically 30 to 60 days after signing, with no construction or licensing timeline to depend on.",
@@ -440,7 +440,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Bepaald door u en de verkoper, doorgaans 30 tot 60 dagen na ondertekening, zonder afhankelijkheid van bouw of vergunningen.",
     pl: "Ustalany przez Państwa i sprzedającego, zwykle 30–60 dni po podpisaniu, bez zależności od budowy czy pozwoleń.",
     sv: "Bestäms av er och säljaren, vanligen 30 till 60 dagar efter undertecknandet, utan bygg- eller tillståndstider att förhålla sig till.",
-    no: "Avtales mellom dere og selger, vanligvis 30 til 60 dager etter signering, uten bygge- eller tillatelsesfrister å forholde seg til."
+    no: "Avtales mellom du og selger, vanligvis 30 til 60 dager etter signering, uten bygge- eller tillatelsesfrister å forholde seg til."
   },
   {
     find: "Does the bank guarantee cover everything I pay?",
@@ -476,7 +476,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Welke <em>echt bij u past</em>",
     pl: "Co <em>naprawdę pasuje do Państwa</em>",
     sv: "Vilket som <em>faktiskt passar er</em>",
-    no: "Hva som <em>faktisk passer dere</em>"
+    no: "Hva som <em>faktisk passer du</em>"
   },
   {
     find: "Off-plan tends to suit buyers who do not need the property immediately, want to spread payments over time, and are comfortable with construction-stage risk in exchange for a lower entry price and, in some cases, a say in the finish.",
@@ -512,7 +512,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "De meeste kopers zijn niet zuiver het een of het ander. De eerlijke manier om te beslissen is specifieke projecten afzetten tegen uw eigen budget, tijdlijn en risicobereidheid, in plaats van eerst abstract te kiezen tussen nieuwbouw en bestaande bouw. Voor het volledige stappenplan zodra u besloten heeft, zie <a href=\"guide-how-buying-works.html\">hoe kopen werkt</a>.",
     pl: "Większość kupujących nie mieści się wyłącznie w jednej kategorii. Uczciwy sposób decydowania to zestawienie konkretnych inwestycji z własnym budżetem, terminem i tolerancją ryzyka, zamiast rozstrzygania abstrakcyjnie między rynkiem pierwotnym a wtórnym. Pełny przebieg krok po kroku po podjęciu decyzji znajdą Państwo w <a href=\"guide-how-buying-works.html\">jak wygląda zakup</a>.",
     sv: "De flesta köpare är inte renodlat det ena eller det andra. Det ärliga sättet att avgöra är att ställa konkreta projekt mot er egen budget, tidsram och riskvilja, i stället för att först välja mellan nyproduktion och begagnat som abstrakt kategori. För hela processen steg för steg när ni bestämt er, se <a href=\"guide-how-buying-works.html\">så går ett köp till</a>.",
-    no: "De fleste kjøpere er ikke rendyrket det ene eller det andre. Den ærlige måten å avgjøre på er å måle konkrete prosjekter mot deres eget budsjett, tidsramme og risikovilje, framfor først å velge mellom nybygg og bruktbolig som abstrakt kategori. For hele prosessen steg for steg når dere har bestemt dere, se <a href=\"guide-how-buying-works.html\">slik foregår et kjøp</a>."
+    no: "De fleste kjøpere er ikke rendyrket det ene eller det andre. Den ærlige måten å avgjøre på er å måle konkrete prosjekter mot ditt eget budsjett, tidsramme og risikovilje, framfor først å velge mellom nybygg og bruktbolig som abstrakt kategori. For hele prosessen steg for steg når du har bestemt du, se <a href=\"guide-how-buying-works.html\">slik foregår et kjøp</a>."
   },
   {
     find: "<summary>Private Purchase Contract</summary><p>Contrato de compraventa -- the binding agreement setting out price, payment schedule, specification and delivery terms, signed after reservation.</p>",
@@ -536,7 +536,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "<summary>Bankgarantie</summary><p>Wettelijk verplichte bescherming voor betalingen op plan vóór oplevering, die u dekt als het project niet wordt opgeleverd.</p>",
     pl: "<summary>Gwarancja bankowa</summary><p>Wymagana prawem ochrona wpłat dokonanych przed odbiorem, zabezpieczająca Państwa, gdyby inwestycja nie została ukończona.</p>",
     sv: "<summary>Bankgaranti</summary><p>Lagstadgat skydd för betalningar på ritning som görs före tillträdet, som täcker er om projektet inte levereras.</p>",
-    no: "<summary>Bankgaranti</summary><p>Lovpålagt beskyttelse for betalinger på tegning gjort før overtakelse, som dekker dere dersom prosjektet ikke leveres.</p>"
+    no: "<summary>Bankgaranti</summary><p>Lovpålagt beskyttelse for betalinger på tegning gjort før overtakelse, som dekker du dersom prosjektet ikke leveres.</p>"
   },
   {
     find: "<summary>Snagging</summary><p>A formal inspection before or at handover to list defects for the developer to fix under the build warranty.</p>",
@@ -584,7 +584,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "<summary>Escritura</summary><p>De koopakte die bij de notaris wordt getekend en bij de overdracht op uw naam wordt ingeschreven.</p>",
     pl: "<summary>Escritura</summary><p>Akt sprzedaży podpisywany u notariusza i wpisywany na Państwa nazwisko przy finalizacji.</p>",
     sv: "<summary>Escritura</summary><p>Köpebrevet som undertecknas hos notarien och registreras i ert namn vid tillträdet.</p>",
-    no: "<summary>Escritura</summary><p>Skjøtet som signeres hos notaren og tinglyses i deres navn ved overtakelse.</p>"
+    no: "<summary>Escritura</summary><p>Skjøtet som signeres hos notaren og tinglyses i ditt navn ved overtakelse.</p>"
   },
   {
     find: "This guide is general information to help you compare off-plan and resale purchases on the Costa del Sol. It is not legal, tax or financial advice, and does not replace independent professional advice tailored to your situation.",
@@ -596,11 +596,11 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "Deze gids biedt algemene informatie om nieuwbouw en bestaande bouw aan de Costa del Sol te vergelijken. Het is geen juridisch, fiscaal of financieel advies en vervangt geen onafhankelijk professioneel advies dat op uw situatie is afgestemd.",
     pl: "Ten poradnik zawiera informacje ogólne, pomocne przy porównaniu zakupu na rynku pierwotnym i wtórnym na Costa del Sol. Nie stanowi porady prawnej, podatkowej ani finansowej i nie zastępuje niezależnej porady dopasowanej do Państwa sytuacji.",
     sv: "Den här guiden är allmän information för att jämföra köp på ritning och begagnat på Costa del Sol. Den är inte juridisk, skattemässig eller finansiell rådgivning och ersätter inte oberoende professionell rådgivning anpassad till er situation.",
-    no: "Denne guiden er generell informasjon for å sammenligne kjøp på tegning og bruktbolig på Costa del Sol. Den er ikke juridisk, skattemessig eller finansiell rådgivning og erstatter ikke uavhengig profesjonell rådgivning tilpasset deres situasjon."
+    no: "Denne guiden er generell informasjon for å sammenligne kjøp på tegning og bruktbolig på Costa del Sol. Den er ikke juridisk, skattemessig eller finansiell rådgivning og erstatter ikke uavhengig profesjonell rådgivning tilpasset din situasjon."
   },
   {
     find: "Compare Real Options",
-    es: "Compara opciones reales",
+    es: "Compare opciones reales",
     fr: "Comparez de vraies options",
     de: "Echte Optionen Vergleichen",
     ru: "Сравните реальные варианты",
