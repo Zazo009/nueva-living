@@ -89,7 +89,7 @@ export const COMPARE_RUNTIME_STRINGS = {
   ru: {
     onRequest: 'По запросу', priceFrom: 'От {price}', bedroomsRange: '{min}-{max} спален', bedroomsOne: 'Спален: {n}', toBeConfirmed: 'Уточняется', dateLocale: 'ru-RU',
     browse: 'Смотреть Новостройки', rowPrice: 'Цена', rowBedrooms: 'Спальни', rowPropertyTypes: 'Типы недвижимости', rowStatus: 'Статус', rowDelivery: 'Сдача', rowTotalUnits: 'Всего резиденций', rowAvailableUnits: 'Доступно резиденций', rowLocation: 'Расположение', rowArea: 'Район', rowAmenities: 'Инфраструктура',
-    statusMap: { off_plan: 'На этапе строительства', under_construction: 'Строится', completed: 'Завершено' },
+    statusMap: { off_plan: 'На стадии проекта', under_construction: 'Строится', completed: 'Завершено' },
     typeMap: { apartment: 'Апартаменты', penthouse: 'Пентхаус', villa: 'Вилла', townhouse: 'Таунхаус', duplex: 'Дуплекс' },
     note: 'Цены, наличие и сроки сдачи являются ориентировочными и подтверждаются Nueva Living перед любым бронированием.',
     emptyNotSaved: 'Вы ещё не сохранили ни одной новостройки. Сохраните проект на его странице или карточке, чтобы сравнить его здесь.',

@@ -937,10 +937,33 @@ let entityPagesChecked = 0;
 
 // Every translation entry, loaded once for the checks that reason about the
 // table as a whole rather than about a built page.
-const entriesModule = path.join(root, 'scripts', 'lib', 'footer_page_translations.mjs');
-const allEntries = fs.existsSync(entriesModule)
-  ? (await import(pathToFileURL(entriesModule).href)).FOOTER_PAGE_ENTRIES || []
-  : [];
+//
+// This read the footer set alone, which is one of eleven places entries are
+// authored -- so the one-translation-per-string check below was blind to the
+// other ten. It cost: the sentence defining off-plan was authored three times,
+// and two of those told a Swedish, Norwegian and Polish reader that off-plan
+// means the building is under construction, which is the other filter.
+const ENTRY_MODULES = [
+  'footer_page_translations', 'area_faq_translations', 'area_subarea_translations',
+  'guide_abroad_translations', 'guide_card_translations', 'segment_page_translations',
+  'segment_page_translations_clusters', 'developments_page_translations',
+  'card_chrome_translations', 'static_page_translations', 'editorial_alt_translations',
+  'image_alt_translations', 'unit_floor_translations', 'bespoke_scene_translations',
+];
+const allEntries = [];
+for (const name of ENTRY_MODULES) {
+  const file = path.join(root, 'scripts', 'lib', `${name}.mjs`);
+  if (!fs.existsSync(file)) continue;
+  const loaded = await import(pathToFileURL(file).href);
+  for (const value of Object.values(loaded)) {
+    if (!Array.isArray(value)) continue;
+    for (const entry of value) {
+      if (entry && typeof entry === 'object' && typeof entry.find === 'string') {
+        allEntries.push({ ...entry, source: `scripts/lib/${name}.mjs` });
+      }
+    }
+  }
+}
 
 let areaNamesChecked = 0;
 
@@ -3338,7 +3361,7 @@ let titleCaseChecked = 0;
 // else, so this read as machine output in exactly the languages the site is
 // trying to sound native in. German is exempt: it capitalises every noun.
 {
-  const PROPER = /^(Nueva|Living|Costa|del|Sol|Marbell[a-zę]*|Estepon[aęy]*|Benah[aá]v[ií]s|M[aá]laga|Andaluc[ií]a|Andalousie|Mijas|Fuengirol[aęy]*|Ban[uú]s|Puerto|Golf|Valley|Sotogrande|Casares|San|Pedro|Alc[aá]ntara|Guadalmina|Guadaiza|Espa[nñ]a|Espagne|Spanje|Spani\w*|Hiszpani\w*|Andaluz\w*|Andalusi\w*|Andalousie|Sasan[a]?|Raftari(ego)?|Sami(ego)?|Altun[a]?|IVA|AJD|ITP|NIE|LOE|Ley)$/;
+  const PROPER = /^(Nueva|Living|Costa|del|Sol|Marbell[a-zę]*|Estepon\S*|Elvir\S*|Cancelada|New|Golden|Mile|Signature|Iconic|Sky|Villa|Park|West|East|Oost|Oeste|Ouest|Est|Vest|V[aä]st|Wschód|Zachód|Benah[aá]v[ií]s|M[aá]laga|Andaluc[ií]a|Andalousie|Mijas|Fuengirol[aęy]*|Ban[uú]s|Puerto|Golf|Valley|Sotogrande|Casares|San|Pedro|Alc[aá]ntara|Guadalmina|Guadaiza|Espa[nñ]a|Espagne|Spanje|Spani\w*|Hiszpani\w*|Andaluz\w*|Andalusi\w*|Andalousie|Sasan[a]?|Raftari(ego)?|Sami(ego)?|Altun[a]?|IVA|AJD|ITP|NIE|LOE|Ley)$/;
   const CASED = ['es', 'fr', 'nl', 'pl', 'sv', 'no'];
   const offenders = [];
   // Only entries whose English source is itself Title Case -- a heading or a
@@ -3375,7 +3398,11 @@ let titleCaseChecked = 0;
       // the whole string -- otherwise "¿Lo sabías? Financiación" reads as a
       // violation when it is simply a second sentence.
       for (const sentence of value.split(/[.?!:¿¡]+/)) {
-        const words = sentence.split(/\s+/).filter(Boolean);
+        // A viewing-scene label is numbered -- "03 — Trädgårdsgård". The
+        // ordinal is not the sentence's first word, so without dropping it
+        // every one of those labels reads as a violation of its own first
+        // letter. 144 of them did.
+        const words = sentence.replace(/^\s*\d+\s*[—–-]\s*/, '').split(/\s+/).filter(Boolean);
         if (words.length < 2) continue;
         const tail = words.slice(1).filter((w) => !PROPER.test(w.replace(/[.,:;?!/'’]/g, '')));
         if (!tail.length) continue;
@@ -3414,14 +3441,18 @@ let translationConflictsChecked = 0;
     byFind.get(entry.find).push(entry);
   }
   const conflicts = [];
+  let conflictFile = 'scripts/lib/footer_page_translations.mjs';
   for (const [find, list] of byFind) {
     translationConflictsChecked += 1;
     if (list.length < 2) continue;
     const differing = ENTRY_LOCALES.filter((l) => new Set(list.map((e) => e[l])).size > 1);
-    if (differing.length) conflicts.push(`"${find.slice(0, 48)}" (${differing.join(', ')})`);
+    if (differing.length) {
+      conflictFile = list[0].source || conflictFile;
+      conflicts.push(`"${find.slice(0, 48)}" (${differing.join(', ')})`);
+    }
   }
   if (conflicts.length) {
-    fail('scripts/lib/footer_page_translations.mjs',
+    fail(conflictFile,
       `${conflicts.length} English string(s) carry more than one translation, so which one renders `
       + `depends on file order rather than on the page: ${conflicts.slice(0, 4).join('; ')}`
       + `${conflicts.length > 4 ? `, …and ${conflicts.length - 4} more` : ''}.`);
