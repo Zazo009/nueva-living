@@ -415,7 +415,10 @@ function segmentSchema(segment, matches, locale) {
   return [
     // Who publishes this. Locale segment pages carried a CollectionPage and
     // nothing identifying the company behind it.
-    organizationSchema(siteUrl, { description: t('org.description', locale) }),
+    organizationSchema(siteUrl, {
+      description: t('org.description', locale),
+      slogan: t('org.slogan', locale)
+    }),
     {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
@@ -754,7 +757,10 @@ function renderGuidesPage(locale = DEFAULT_LOCALE) {
   const title = 'Costa del Sol Buying Guides | Nueva Living';
   const description = 'Compare new-build apartments and penthouses by area across the Costa del Sol, with real prices, availability and local buying guidance from Nueva Living.';
   const schema = [
-    organizationSchema(siteUrl, { description: t('org.description', locale) }),
+    organizationSchema(siteUrl, {
+      description: t('org.description', locale),
+      slogan: t('org.slogan', locale)
+    }),
     {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',

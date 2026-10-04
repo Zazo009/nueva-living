@@ -14,6 +14,7 @@
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 
 const ORG_DESCRIPTION_EN = "Nueva Living is a new-build and off-plan property advisory based in Marbella, working with buyers across Marbella, Estepona, Benahavís and the wider Costa del Sol.";
+const ORG_SLOGAN_EN = "Private new-build advisory on the Costa del Sol";
 import path from 'node:path';
 import {
   LOCALES,
@@ -207,6 +208,7 @@ for (const meta of LOCALES) {
   // be swapped too -- otherwise nine languages assert who the company is in
   // English inside their own structured data.
   html = html.split(ORG_DESCRIPTION_EN).join(t('org.description', locale));
+  html = html.split(ORG_SLOGAN_EN).join(t('org.slogan', locale));
 
   // Reciprocal hreflang after the canonical tag.
   html = html.replace(

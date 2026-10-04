@@ -222,7 +222,10 @@ export function pageSchema({ outputPath, locale, title, description, trail = [],
       isPartOf: { '@type': 'WebSite', name: 'Nueva Living', url: siteUrl },
       publisher: { '@id': organizationId(siteUrl) }
     },
-    organizationSchema(siteUrl, { description: t('org.description', locale) }),
+    organizationSchema(siteUrl, {
+      description: t('org.description', locale),
+      slogan: t('org.slogan', locale)
+    }),
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',

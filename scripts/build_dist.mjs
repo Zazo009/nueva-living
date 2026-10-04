@@ -789,7 +789,10 @@ function ensureOrganisationSchema(html, locale) {
       }
     }
   }
-  const schema = organizationSchema(siteUrl, { description: t('org.description', locale) });
+  const schema = organizationSchema(siteUrl, {
+    description: t('org.description', locale),
+    slogan: t('org.slogan', locale)
+  });
   const block = `  <script type="application/ld+json">\n${JSON.stringify(schema, null, 2)}\n  </script>\n`;
   return html.replace('</head>', `${block}</head>`);
 }

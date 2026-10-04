@@ -102,7 +102,14 @@ const IDENTITY = {
   // for putting it here at all.
   description: 'Nueva Living is a new-build and off-plan property advisory based in '
     + 'Marbella, working with buyers across Marbella, Estepona, Benahavís and the '
-    + 'wider Costa del Sol.'
+    + 'wider Costa del Sol.',
+  // The one line that says what kind of firm this is, which the name cannot.
+  // "Nueva" and "living" are the two commonest words in Spanish property
+  // marketing, so the brand query is contested by a firm one letter away and a
+  // firm on the same street; a fixed descriptor repeated in the same words
+  // everywhere is how an entity is told apart from them. Changed here, it has
+  // to change on the profile and the social pages in the same breath.
+  slogan: 'Private new-build advisory on the Costa del Sol'
 };
 
 /**

@@ -916,9 +916,14 @@ let entityPagesChecked = 0;
         entityPagesChecked += 1;
         if (!node) { missing.push(`${locale}/${file}`); continue; }
         const englishNode = readOrg(path.join(distRoot, file));
-        if (englishNode && englishNode.description
-            && node.description === englishNode.description) {
-          englishText.push(`${locale}/${file}`);
+        // The slogan joined description here after shipping in English on all
+        // nine languages: five separate places build this node, and only four
+        // of them were given the translated line. Presence was checked, sameness
+        // was not, so nothing failed.
+        for (const field of ['description', 'slogan']) {
+          if (englishNode && englishNode[field] && node[field] === englishNode[field]) {
+            englishText.push(`${locale}/${file} (${field})`);
+          }
         }
       }
     }
@@ -928,7 +933,7 @@ let entityPagesChecked = 0;
         + `${missing.length > 4 ? `, …and ${missing.length - 4} more` : ''}.`);
     }
     if (englishText.length) {
-      fail('dist', `${englishText.length} page(s) assert the organisation description in English `
+      fail('dist', `${englishText.length} page(s) assert part of the organisation schema in English `
         + `inside another language: ${englishText.slice(0, 4).join(', ')}`
         + `${englishText.length > 4 ? `, …and ${englishText.length - 4} more` : ''}.`);
     }
@@ -3075,7 +3080,7 @@ let profileFactsChecked = 0;
 {
   const distRoot = path.join(root, 'dist');
   const REQUIRED = ['name', 'address', 'telephone', 'email', 'geo', 'hasMap',
-    'sameAs', 'openingHoursSpecification', 'description', 'url'];
+    'sameAs', 'openingHoursSpecification', 'description', 'slogan', 'url'];
   const thin = [];
   if (fs.existsSync(distRoot)) {
     for (const file of everyHtmlFile(distRoot)) {

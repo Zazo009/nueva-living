@@ -1811,7 +1811,8 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   // one consistent claim.
   const agentSchema = realEstateAgentSchema(siteUrl, {
     areaServed: 'Costa del Sol',
-    description: t('org.description', locale)
+    description: t('org.description', locale),
+    slogan: t('org.slogan', locale)
   });
   // The page as a thing in its own right, which is what carries its date.
   //
