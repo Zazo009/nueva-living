@@ -44,6 +44,33 @@ export const GEO = {
 // one place is the ambiguity this is meant to remove.
 export const MAP_URL = 'https://maps.app.goo.gl/AVKXU8m9sL7LA5uK6';
 
+// The hours the Google Business Profile publishes, read off the profile
+// itself rather than decided here: Mon-Fri 09-18, Sat 10-14, Sun closed.
+//
+// The schema asserted the address, the phone and the coordinates of that
+// profile but not its hours, so the two agreed about where the business is
+// and said nothing about when it is open. For a local entity that is one of
+// the few facts a profile and a website can corroborate each other on, and
+// corroboration is the whole problem here -- a firm one letter away owns the
+// brand query and a firm on the same street owns the local pack.
+//
+// These have to be changed here and on the profile together. Hours that
+// disagree are worse than hours asserted in only one place.
+export const OPENING_HOURS = [
+  {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '18:00'
+  },
+  {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: 'Saturday',
+    opens: '10:00',
+    closes: '14:00'
+  }
+];
+
 export const ADDRESS = {
   '@type': 'PostalAddress',
   // Matched word for word to the Google Business Profile, which reads
@@ -90,6 +117,7 @@ export function realEstateAgentSchema(siteUrl, extra = {}) {
     ...IDENTITY,
     geo: GEO,
     hasMap: MAP_URL,
+    openingHoursSpecification: OPENING_HOURS,
     url: `${siteUrl}/`,
     logo: `${siteUrl}/assets/liora/brand/nueva-living-lockup-espresso-transparent.png`,
     address: ADDRESS,
