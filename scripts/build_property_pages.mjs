@@ -152,8 +152,8 @@ function localizedUnitSize(value, locale = DEFAULT_LOCALE) {
 // Translating here rather than in those two project.json files means the next
 // project with a multi-part size is covered without anyone remembering.
 const SIZE_LABELS = {
-  built: { es: 'construido', fr: 'construit', de: 'bebaut', ru: 'застройка', ar: 'مبنية', nl: 'bebouwd', pl: 'powierzchnia zabudowy', sv: 'byggyta', no: 'bruksareal' },
-  'total built': { es: 'construido total', fr: 'construit total', de: 'bebaut gesamt', ru: 'общая застройка', ar: 'إجمالي المبني', nl: 'totaal bebouwd', pl: 'całkowita powierzchnia zabudowy', sv: 'total byggyta', no: 'totalt bruksareal' },
+  built: { es: 'construido', fr: 'construit', de: 'bebaut', ru: 'застройка', ar: 'مبنية', nl: 'bebouwd', pl: 'powierzchnia zabudowy', sv: 'byggyta', no: 'bebygd' },
+  'total built': { es: 'construido total', fr: 'construit total', de: 'bebaut gesamt', ru: 'общая застройка', ar: 'إجمالي المبني', nl: 'totaal bebouwd', pl: 'całkowita powierzchnia zabudowy', sv: 'total byggyta', no: 'totalt bebygd' },
   usable: { es: 'superficie útil', fr: 'surface utile', de: 'Wohnfläche', ru: 'полезная площадь', ar: 'مساحة صافية', nl: 'gebruiksoppervlak', pl: 'powierzchnia użytkowa', sv: 'boarea', no: 'innvendig areal' },
   terrace: { es: 'terraza', fr: 'terrasse', de: 'Terrasse', ru: 'терраса', ar: 'تراس', nl: 'terras', pl: 'taras', sv: 'terrass', no: 'terrasse' },
   plot: { es: 'parcela', fr: 'parcelle', de: 'Grundstück', ru: 'участок', ar: 'قطعة أرض', nl: 'perceel', pl: 'działka', sv: 'tomt', no: 'tomt' },
