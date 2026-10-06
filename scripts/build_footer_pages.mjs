@@ -1757,8 +1757,8 @@ const pages = [
         <div class="ambassador-hex-step ambassador-reveal" style="--reveal-delay:0ms">
           <div class="ambassador-hex"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
           <span class="ambassador-hex-num">01</span>
-          <h3>Tell Us Who</h3>
-          <p>Share their details in the form below.</p>
+          <h3>Sign Yourself Up</h3>
+          <p>Register below. Your link follows once we have checked.</p>
         </div>
         <div class="ambassador-hex-step ambassador-hex-step--down ambassador-reveal" style="--reveal-delay:90ms">
           <div class="ambassador-hex"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></div>
@@ -1794,27 +1794,91 @@ const pages = [
     </div></section>
     <section class="section ambassador-faq ambassador-reveal"><div class="section-inner"><div class="section-head center"><span class="label">Common Questions</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">What ambassadors usually <em>ask us</em></h2></div>
       <div class="segment-faq-list">
-        <details class="segment-faq-item" open><summary>How is my referral tracked once I submit it?</summary><p>The moment you submit the form below, we record the introduction against your details before reaching out to them.</p></details>
+        <details class="segment-faq-item" open><summary>How is a referral tracked?</summary><p>Your link carries a code that belongs to you. When someone arrives through it and contacts us themselves, the introduction is recorded against you. We never ask you for their details.</p></details>
         <details class="segment-faq-item"><summary>What if the person I introduce already has a Nueva Living project in mind?</summary><p>We will still help them. The reward specifically recognises bringing us a genuinely new client, not someone already in touch with us.</p></details>
-        <details class="segment-faq-item"><summary>What if they contact Nueva Living directly first?</summary><p>Submitting the introduction yourself, before they reach out independently, is what establishes it as your referral.</p></details>
+        <details class="segment-faq-item"><summary>What if they contact Nueva Living directly first?</summary><p>That is how it is meant to work. As long as they arrive through your link, reaching us themselves is exactly what makes the introduction yours.</p></details>
         <details class="segment-faq-item"><summary>How will I know if my referral leads to a sale?</summary><p>We keep you updated on progress, within the bounds of their privacy, and confirm directly once a reward is due.</p></details>
       </div>
     </div></section>
-    <section class="section ambassador-reveal" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Introduce Someone</span><div class="rule"></div><h2 class="section-title">Introduce them <em>today</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Share your details and theirs. We will take it from there.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><input type="hidden" name="message" id="referral-message"><div class="form-grid"><div class="field"><label for="ref-first-name">Your First Name</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div><div class="field"><label for="ref-last-name">Your Last Name</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div><div class="field"><label for="ref-email">Your Email Address</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Your Phone Number</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div><div class="field"><label for="friend-name">Their Name</label><input id="friend-name" name="friend_name" placeholder="Who are you introducing?" required></div><div class="field"><label for="friend-contact">Their Email or Phone</label><input id="friend-contact" name="friend_contact" placeholder="How can we reach them?" required></div><div class="field full"><label for="friend-notes">What Are They Looking For?</label><textarea id="friend-notes" name="friend_notes" placeholder="Budget, area, property type, timing -- whatever you know."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored, and I have this person's permission to share their details.</span></label></div><div class="form-actions"><button class="btn" type="submit">Submit Referral</button><span class="form-response"></span></div></form></div></section>
+    <section class="section ambassador-reveal" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Introduce Someone</span><div class="rule"></div><h2 class="section-title">Introduce them <em>today</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Register yourself. Your link follows once we have checked, and we take it from there.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-ambassador-register data-success-message="Thank you. We will check the details and send your referral link by email." data-error-message="That did not send. Please try again, or write to contact@nuevaliving.com."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><textarea name="message" id="referral-message" hidden></textarea><div class="form-grid"><div class="field"><label for="ref-first-name">Your First Name</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div><div class="field"><label for="ref-last-name">Your Last Name</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div><div class="field"><label for="ref-email">Your Email Address</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Your Phone Number</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div><div class="field"><label for="ref-country">Where You Live</label><input id="ref-country" name="country" autocomplete="country-name" placeholder="Country" required></div><div class="field full"><label for="ref-notes">Anything We Should Know?</label><textarea id="ref-notes" name="notes" placeholder="Optional -- how you know us, or who you tend to meet."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored.</span></label></div><div class="form-actions"><button class="btn" type="submit">Submit Referral</button><span class="form-response"></span></div></form></div></section>
     <script>
       (() => {
-        const nameField = document.getElementById('friend-name');
-        const contactField = document.getElementById('friend-contact');
-        const notesField = document.getElementById('friend-notes');
+        // A registration is not a lead, so it does not go through the shared
+        // lead handler: different endpoint, different payload, and nothing in
+        // it describes a property search. The status handling mirrors the lead
+        // form's on purpose so the page behaves the same way.
+        const form = document.getElementById('referral-form-panel');
+        if (!form) return;
+        const base = window.NUEVA_CRM_BASE_URL || 'https://crm.nuevaliving.com';
+        const value = (name) => (form.querySelector('[name="' + name + '"]')?.value || '').trim();
+
+        function status(text, kind) {
+          let el = form.querySelector('[data-form-status]');
+          if (!el) {
+            el = document.createElement('p');
+            el.setAttribute('data-form-status', '');
+            el.setAttribute('role', 'status');
+            el.setAttribute('aria-live', 'polite');
+            form.appendChild(el);
+          }
+          el.textContent = text;
+          el.classList.toggle('is-sent', kind === 'success');
+          el.classList.toggle('is-error', kind === 'error');
+        }
+
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          if (form.dataset.submitting === 'true') return;
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+          const submit = form.querySelector('button[type="submit"], input[type="submit"]');
+          form.dataset.submitting = 'true';
+          if (submit) submit.disabled = true;
+          status('', '');
+          try {
+            const response = await fetch(base + '/api/referrals/register', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                first_name: value('first_name'),
+                last_name: value('last_name'),
+                email: value('email'),
+                phone: value('phone'),
+                country: value('country'),
+                consent: form.querySelector('[name="consent"]')?.checked === true,
+                // the exact wording that was on screen, in the language it was read in
+                consent_text: (form.querySelector('[for="ref-consent"] span')?.textContent || '').trim(),
+                consent_lang: document.documentElement.lang || 'en',
+                company: value('honeypot')
+              })
+            });
+            if (!response.ok) throw new Error('register failed: ' + response.status);
+            status(form.dataset.successMessage, 'success');
+          } catch (error) {
+            form.dataset.submitting = 'false';
+            if (submit) submit.disabled = false;
+            status(form.dataset.errorMessage, 'error');
+          }
+        });
+      })();
+
+      (() => {
+        // The form used to compose the introduced person's details into the
+        // message. Those fields are gone, so this now marks the row for what it
+        // is: a registration, not an enquiry. Until the CRM has its own
+        // ambassador table live, this sentence is the only thing that tells
+        // these rows apart from ordinary leads.
+        const countryField = document.getElementById('ref-country');
+        const notesField = document.getElementById('ref-notes');
         const messageField = document.getElementById('referral-message');
-        if (!nameField || !contactField || !notesField || !messageField) return;
+        if (!messageField) return;
         function composeMessage() {
-          const parts = ['Referral: ' + (nameField.value || '(name not given)') + ' -- ' + (contactField.value || '(no contact given)')];
-          if (notesField.value.trim()) parts.push(notesField.value.trim());
+          const parts = ['Ambassador registration'];
+          if (countryField && countryField.value.trim()) parts.push('Country: ' + countryField.value.trim());
+          if (notesField && notesField.value.trim()) parts.push(notesField.value.trim());
           messageField.value = parts.join('. ');
         }
-        [nameField, contactField, notesField].forEach((field) => {
-          field.addEventListener('input', composeMessage);
+        [countryField, notesField].forEach((field) => {
+          if (field) field.addEventListener('input', composeMessage);
         });
         composeMessage();
       })();

@@ -197,6 +197,18 @@
       ? `${message ? `${message}\n\n` : ''}Project: ${project}`
       : message;
 
+    // The code also goes into the message, not only into referral_code.
+    //
+    // A dropped code is not a late payout, it is an unrecoverable one: if an
+    // introduction lands without attribution there is nothing to argue from
+    // afterwards. Until the CRM column exists the message is the one field
+    // certain to be stored, so the claim survives there. Harmless duplication
+    // once the column is live.
+    const code = referralCode();
+    const messageWithReferral = code
+      ? `${contextualMessage ? `${contextualMessage}\n\n` : ''}Referral code: ${code}`
+      : contextualMessage;
+
     return compactPayload({
       // buildLeadPayload picks fields by name rather than serialising the
       // form, so a hidden input that nothing reads here never leaves the
@@ -214,7 +226,7 @@
       bedrooms_min: Number(readField(form, '[name="bedrooms_min"]')) || bedrooms.min,
       bedrooms_max: Number(readField(form, '[name="bedrooms_max"]')) || bedrooms.max,
       nationality: readField(form, '[name="nationality"]'),
-      message: contextualMessage,
+      message: messageWithReferral,
       consent: readChecked(form, '[name="consent"]'),
       consent_text: readChecked(form, '[name="consent"]')
         ? 'I agree to be contacted and for my data to be stored'
@@ -222,8 +234,58 @@
       marketing_opt_in: readChecked(form, '[name="marketing_opt_in"]'),
       source_page: pagePath,
       utm_source: clean(params.get('utm_source')),
-      utm_campaign: clean(params.get('utm_campaign'))
+      utm_campaign: clean(params.get('utm_campaign')),
+      // Top-level and verbatim. The site never sends referred_by -- resolving a
+      // code to an ambassador is the CRM's job and the browser has no business
+      // knowing ambassador ids.
+      referral_code: code
     });
+  }
+
+  // A referral link lands on the homepage, but the buyer may read three pages
+  // before filling anything in, and by then the parameter is gone. So it is
+  // kept -- but kept only with consent.
+  //
+  // Attribution storage is not strictly necessary for the service, so the
+  // LSSI Art. 22.2 exemption does not cover it. Without consent the code still
+  // works when the form is on the landing page, because the parameter itself
+  // is read directly and reading a URL stores nothing.
+  //
+  // The code is sent verbatim, including a typo. A code that reached us wrong
+  // is still evidence that someone made an introduction, and the CRM keeps it
+  // for exactly that reason.
+  const REFERRAL_KEY = 'nueva.referral';
+  const REFERRAL_TTL_DAYS = 180;   // a purchase cycle here is measured in months
+
+  function consentGranted() {
+    try {
+      return typeof window.nuevaConsentState === 'function'
+        && window.nuevaConsentState() === 'granted';
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function referralCode() {
+    const fromUrl = clean(params.get('ref') || params.get('referral_code'));
+    if (fromUrl && consentGranted()) {
+      try {
+        window.localStorage.setItem(REFERRAL_KEY, JSON.stringify({ code: fromUrl, at: Date.now() }));
+      } catch (error) { /* private window, blocked storage: the link still works on this page */ }
+    }
+    if (fromUrl) return fromUrl;
+    if (!consentGranted()) return '';
+    try {
+      const held = JSON.parse(window.localStorage.getItem(REFERRAL_KEY) || 'null');
+      if (!held || !held.code) return '';
+      if (Date.now() - Number(held.at || 0) > REFERRAL_TTL_DAYS * 864e5) {
+        window.localStorage.removeItem(REFERRAL_KEY);
+        return '';
+      }
+      return clean(held.code);
+    } catch (error) {
+      return '';
+    }
   }
 
   function syncLeadToCrm(payload, trackingContext = {}) {

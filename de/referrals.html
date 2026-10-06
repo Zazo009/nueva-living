@@ -92,7 +92,7 @@
       "postalCode": "29660",
       "addressLocality": "Marbella",
       "addressRegion": "Málaga",
-      "addressCountry": "ES"
+      "addressLand": "ES"
     },
     "sameAs": [
       "https://www.instagram.com/nuevaliving",
@@ -137,10 +137,10 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Wie wird meine Empfehlung nach dem Absenden nachverfolgt?",
+      "name": "Wie wird eine Empfehlung erfasst?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sobald Sie das untenstehende Formular absenden, erfassen wir die Empfehlung unter Ihren Angaben, bevor wir die Person kontaktieren."
+        "text": "Ihr Link trägt einen Code, der Ihnen gehört. Wenn jemand darüber kommt und sich selbst bei uns meldet, wird die Empfehlung Ihnen zugeordnet. Wir fragen Sie nie nach den Daten dieser Person."
       }
     },
     {
@@ -156,7 +156,7 @@
       "name": "Was passiert, wenn sie zuerst direkt Kontakt mit Nueva Living aufnehmen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Wenn Sie die Empfehlung selbst einreichen, bevor die Person unabhängig Kontakt aufnimmt, wird sie als Ihre Empfehlung anerkannt."
+        "text": "Genau so ist es gedacht. Solange sie über Ihren Link kommen, ist es gerade ihr eigener Kontakt zu uns, der die Empfehlung Ihnen zuordnet."
       }
     },
     {
@@ -333,8 +333,8 @@
         <div class="ambassador-hex-step ambassador-reveal" style="--reveal-delay:0ms">
           <div class="ambassador-hex"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
           <span class="ambassador-hex-num">01</span>
-          <h3>Sagen Sie Uns, Wer</h3>
-          <p>Teilen Sie uns die Kontaktdaten im untenstehenden Formular mit.</p>
+          <h3>Melden Sie sich an</h3>
+          <p>Melden Sie sich unten an. Ihr Link folgt, sobald wir geprüft haben.</p>
         </div>
         <div class="ambassador-hex-step ambassador-hex-step--down ambassador-reveal" style="--reveal-delay:90ms">
           <div class="ambassador-hex"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11.5 14.5 15.5 9.5"/></svg></div>
@@ -370,27 +370,91 @@
     </div></section>
     <section class="section ambassador-faq ambassador-reveal"><div class="section-inner"><div class="section-head center"><span class="label">Häufige Fragen</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Was Botschafter uns häufig <em>fragen</em></h2></div>
       <div class="segment-faq-list">
-        <details class="segment-faq-item" open><summary>Wie wird meine Empfehlung nach dem Absenden nachverfolgt?</summary><p>Sobald Sie das untenstehende Formular absenden, erfassen wir die Empfehlung unter Ihren Angaben, bevor wir die Person kontaktieren.</p></details>
+        <details class="segment-faq-item" open><summary>Wie wird eine Empfehlung erfasst?</summary><p>Ihr Link trägt einen Code, der Ihnen gehört. Wenn jemand darüber kommt und sich selbst bei uns meldet, wird die Empfehlung Ihnen zugeordnet. Wir fragen Sie nie nach den Daten dieser Person.</p></details>
         <details class="segment-faq-item"><summary>Was passiert, wenn die von mir empfohlene Person bereits ein Nueva-Living-Projekt im Blick hat?</summary><p>Wir helfen der Person trotzdem. Die Belohnung würdigt ausdrücklich, dass Sie uns einen wirklich neuen Kunden bringen, nicht jemanden, der bereits mit uns in Kontakt steht.</p></details>
-        <details class="segment-faq-item"><summary>Was passiert, wenn sie zuerst direkt Kontakt mit Nueva Living aufnehmen?</summary><p>Wenn Sie die Empfehlung selbst einreichen, bevor die Person unabhängig Kontakt aufnimmt, wird sie als Ihre Empfehlung anerkannt.</p></details>
+        <details class="segment-faq-item"><summary>Was passiert, wenn sie zuerst direkt Kontakt mit Nueva Living aufnehmen?</summary><p>Genau so ist es gedacht. Solange sie über Ihren Link kommen, ist es gerade ihr eigener Kontakt zu uns, der die Empfehlung Ihnen zuordnet.</p></details>
         <details class="segment-faq-item"><summary>Wie erfahre ich, ob meine Empfehlung zu einem Verkauf führt?</summary><p>Wir halten Sie über den Fortschritt auf dem Laufenden, im Rahmen der Privatsphäre der Person, und bestätigen Ihnen direkt, sobald eine Belohnung fällig ist.</p></details>
       </div>
     </div></section>
-    <section class="section ambassador-reveal" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Jemanden Empfehlen</span><div class="rule"></div><h2 class="section-title">Empfehlen Sie noch <em>heute</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Teilen Sie uns Ihre Daten und die der anderen Person mit. Den Rest übernehmen wir.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><input type="hidden" name="message" id="referral-message"><div class="form-grid"><div class="field"><label for="ref-first-name">Ihr Vorname</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="Vorname" required></div><div class="field"><label for="ref-last-name">Ihr Nachname</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Nachname" required></div><div class="field"><label for="ref-email">Ihre E-Mail-Adresse</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Ihre Telefonnummer</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 oder international"></div><div class="field"><label for="friend-name">Name der Person</label><input id="friend-name" name="friend_name" placeholder="Wen möchten Sie uns vorstellen?" required></div><div class="field"><label for="friend-contact">E-Mail oder Telefonnummer der Person</label><input id="friend-contact" name="friend_contact" placeholder="Wie können wir die Person erreichen?" required></div><div class="field full"><label for="friend-notes">Wonach Sucht Die Person?</label><textarea id="friend-notes" name="friend_notes" placeholder="Budget, Lage, Immobilienart, Zeitrahmen – was Sie wissen."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>Ich stimme zu, kontaktiert zu werden und dass meine Daten gespeichert werden, und ich habe die Erlaubnis dieser Person, ihre Daten weiterzugeben.</span></label></div><div class="form-actions"><button class="btn" type="submit">Empfehlung Absenden</button><span class="form-response"></span></div></form></div></section>
+    <section class="section ambassador-reveal" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Jemanden Empfehlen</span><div class="rule"></div><h2 class="section-title">Empfehlen Sie noch <em>heute</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Melden Sie sich an. Ihr Link folgt nach der Prüfung, und wir übernehmen ab da.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-ambassador-register data-success-message="Danke. Wir prüfen die Angaben und senden Ihnen Ihren Link per E-Mail." data-error-message="Das Senden hat nicht geklappt. Bitte erneut versuchen oder an contact@nuevaliving.com schreiben."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><textarea name="message" id="referral-message" hidden></textarea><div class="form-grid"><div class="field"><label for="ref-first-name">Ihr Vorname</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="Vorname" required></div><div class="field"><label for="ref-last-name">Ihr Nachname</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Nachname" required></div><div class="field"><label for="ref-email">Ihre E-Mail-Adresse</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Ihre Telefonnummer</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 oder international"></div><div class="field"><label for="ref-country">Wo Sie leben</label><input id="ref-country" name="country" autocomplete="country-name" placeholder="Land" required></div><div class="field full"><label for="ref-notes">Gibt es etwas, das wir wissen sollten?</label><textarea id="ref-notes" name="notes" placeholder="Optional: woher Sie uns kennen, oder wem Sie begegnen."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>Ich stimme zu, kontaktiert zu werden und dass meine Daten gespeichert werden.</span></label></div><div class="form-actions"><button class="btn" type="submit">Empfehlung Absenden</button><span class="form-response"></span></div></form></div></section>
     <script>
       (() => {
-        const nameField = document.getElementById('friend-name');
-        const contactField = document.getElementById('friend-contact');
-        const notesField = document.getElementById('friend-notes');
+        // A registration is not a lead, so it does not go through the shared
+        // lead handler: different endpoint, different payload, and nothing in
+        // it describes a property search. The status handling mirrors the lead
+        // form's on purpose so the page behaves the same way.
+        const form = document.getElementById('referral-form-panel');
+        if (!form) return;
+        const base = window.NUEVA_CRM_BASE_URL || 'https://crm.nuevaliving.com';
+        const value = (name) => (form.querySelector('[name="' + name + '"]')?.value || '').trim();
+
+        function status(text, kind) {
+          let el = form.querySelector('[data-form-status]');
+          if (!el) {
+            el = document.createElement('p');
+            el.setAttribute('data-form-status', '');
+            el.setAttribute('role', 'status');
+            el.setAttribute('aria-live', 'polite');
+            form.appendChild(el);
+          }
+          el.textContent = text;
+          el.classList.toggle('is-sent', kind === 'success');
+          el.classList.toggle('is-error', kind === 'error');
+        }
+
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          if (form.dataset.submitting === 'true') return;
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+          const submit = form.querySelector('button[type="submit"], input[type="submit"]');
+          form.dataset.submitting = 'true';
+          if (submit) submit.disabled = true;
+          status('', '');
+          try {
+            const response = await fetch(base + '/api/referrals/register', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                first_name: value('first_name'),
+                last_name: value('last_name'),
+                email: value('email'),
+                phone: value('phone'),
+                country: value('country'),
+                consent: form.querySelector('[name="consent"]')?.checked === true,
+                // the exact wording that was on screen, in the language it was read in
+                consent_text: (form.querySelector('[for="ref-consent"] span')?.textContent || '').trim(),
+                consent_lang: document.documentElement.lang || 'en',
+                company: value('honeypot')
+              })
+            });
+            if (!response.ok) throw new Error('register failed: ' + response.status);
+            status(form.dataset.successNachricht, 'success');
+          } catch (error) {
+            form.dataset.submitting = 'false';
+            if (submit) submit.disabled = false;
+            status(form.dataset.errorNachricht, 'error');
+          }
+        });
+      })();
+
+      (() => {
+        // The form used to compose the introduced person's details into the
+        // message. Those fields are gone, so this now marks the row for what it
+        // is: a registration, not an enquiry. Until the CRM has its own
+        // ambassador table live, this sentence is the only thing that tells
+        // these rows apart from ordinary leads.
+        const countryField = document.getElementById('ref-country');
+        const notesField = document.getElementById('ref-notes');
         const messageField = document.getElementById('referral-message');
-        if (!nameField || !contactField || !notesField || !messageField) return;
+        if (!messageField) return;
         function composeNachricht() {
-          const parts = ['Referral: ' + (nameField.value || '(name not given)') + ' -- ' + (contactField.value || '(no contact given)')];
-          if (notesField.value.trim()) parts.push(notesField.value.trim());
+          const parts = ['Ambassador registration'];
+          if (countryField && countryField.value.trim()) parts.push('Land: ' + countryField.value.trim());
+          if (notesField && notesField.value.trim()) parts.push(notesField.value.trim());
           messageField.value = parts.join('. ');
         }
-        [nameField, contactField, notesField].forEach((field) => {
-          field.addEventListener('input', composeNachricht);
+        [countryField, notesField].forEach((field) => {
+          if (field) field.addEventListener('input', composeNachricht);
         });
         composeNachricht();
       })();
