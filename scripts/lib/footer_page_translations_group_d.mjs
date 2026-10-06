@@ -16,6 +16,30 @@
 // together with their wrapping tags instead, since the bare words also
 // appear inside a `data-context` attribute that must not be translated.
 export const FOOTER_PAGE_ENTRIES_GROUP_D = [
+  {
+    find: `Introductions From Someone Else`,
+    es: `Presentaciones hechas por otra persona`,
+    fr: `Mises en relation par un tiers`,
+    de: `Empfehlungen durch Dritte`,
+    ru: `Если вас представил кто-то другой`,
+    ar: `التعريف بكم من شخص آخر`,
+    nl: `Introducties door iemand anders`,
+    pl: `Polecenia od innej osoby`,
+    sv: `När någon annan har introducerat er`,
+    no: `Når noen andre har introdusert deg`,
+  },
+  {
+    find: `If someone introduces you to Nueva Living through our referral page, we receive your name and contact details from them rather than from you. We rely on our legitimate interest in responding to that introduction, we tell you who gave us your details the first time we make contact, and you can ask us to stop there or at any point afterwards. Introduced details are not used for anything beyond that first conversation unless you choose to continue it.`,
+    es: `Si alguien le presenta a Nueva Living a través de nuestra página de recomendaciones, recibimos su nombre y sus datos de contacto de esa persona y no de usted. Nos basamos en nuestro interés legítimo en atender esa presentación, le indicamos quién nos facilitó sus datos la primera vez que le escribimos, y puede pedirnos que paremos ahí o en cualquier momento posterior. Los datos recibidos así no se utilizan para nada más allá de esa primera conversación, salvo que usted decida continuarla.`,
+    fr: `Si quelqu'un vous met en relation avec Nueva Living via notre page de recommandation, nous recevons votre nom et vos coordonnées de cette personne et non de vous. Nous nous appuyons sur notre intérêt légitime à donner suite à cette mise en relation, nous vous indiquons qui nous a transmis vos coordonnées dès notre premier message, et vous pouvez nous demander d'en rester là, alors ou plus tard. Ces coordonnées ne servent à rien d'autre qu'à cette première conversation, sauf si vous choisissez de la poursuivre.`,
+    de: `Wenn Sie jemand über unsere Empfehlungsseite an Nueva Living vermittelt, erhalten wir Ihren Namen und Ihre Kontaktdaten von dieser Person und nicht von Ihnen. Wir stützen uns auf unser berechtigtes Interesse, auf diese Vermittlung zu reagieren, wir nennen Ihnen bei der ersten Kontaktaufnahme, wer uns Ihre Daten gegeben hat, und Sie können uns dort oder jederzeit danach bitten, damit aufzuhören. So erhaltene Daten werden für nichts anderes als dieses erste Gespräch verwendet, sofern Sie es nicht fortsetzen möchten.`,
+    ru: `Если кто-то представил вас Nueva Living через нашу страницу рекомендаций, мы получаем ваше имя и контактные данные от этого человека, а не от вас. Мы опираемся на наш законный интерес ответить на такое представление, при первом обращении сообщаем, кто передал нам ваши данные, и вы можете попросить нас остановиться тогда же или в любой момент позже. Полученные таким образом данные не используются ни для чего, кроме этого первого разговора, если вы не захотите его продолжить.`,
+    ar: `إذا عرّفكم أحدهم على Nueva Living عبر صفحة التوصيات لدينا، فإننا نتلقى اسمكم وبيانات التواصل منه لا منكم. نستند إلى مصلحتنا المشروعة في الرد على ذلك التعريف، ونخبركم عند أول اتصال بمن أعطانا بياناتكم، ويمكنكم أن تطلبوا منا التوقف عند تلك النقطة أو في أي وقت لاحق. ولا تُستخدم هذه البيانات لأي غرض يتجاوز تلك المحادثة الأولى ما لم تختاروا متابعتها.`,
+    nl: `Als iemand u via onze aanbevelingspagina introduceert bij Nueva Living, ontvangen wij uw naam en contactgegevens van die persoon en niet van u. Wij beroepen ons op ons gerechtvaardigd belang om op die introductie te reageren, wij vertellen u bij het eerste contact wie ons uw gegevens heeft gegeven, en u kunt ons vragen het daarbij te laten, toen of later. Zo ontvangen gegevens worden nergens anders voor gebruikt dan voor dat eerste gesprek, tenzij u ervoor kiest het voort te zetten.`,
+    pl: `Jeśli ktoś poleci Państwa Nueva Living przez naszą stronę poleceń, otrzymujemy imię i dane kontaktowe od tej osoby, a nie od Państwa. Opieramy się na naszym prawnie uzasadnionym interesie w odpowiedzi na takie polecenie, przy pierwszym kontakcie informujemy, kto przekazał nam Państwa dane, i mogą Państwo poprosić nas o zaprzestanie w tym momencie lub później. Dane otrzymane w ten sposób nie są wykorzystywane do niczego poza tą pierwszą rozmową, chyba że zdecydują się ją Państwo kontynuować.`,
+    sv: `Om någon introducerar er för Nueva Living via vår rekommendationssida får vi ert namn och era kontaktuppgifter av den personen och inte av er. Vi stödjer oss på vårt berättigade intresse av att svara på en sådan introduktion, vi berättar vid första kontakten vem som gav oss uppgifterna, och ni kan be oss sluta där eller när som helst därefter. Uppgifter vi fått på det sättet används inte till något utöver det första samtalet, om ni inte själva väljer att fortsätta det.`,
+    no: `Hvis noen introduserer deg for Nueva Living via anbefalingssiden vår, får vi navnet og kontaktopplysningene dine fra den personen og ikke fra deg. Vi støtter oss på vår berettigede interesse i å svare på en slik introduksjon, vi forteller ved første kontakt hvem som ga oss opplysningene, og du kan be oss stoppe der eller når som helst senere. Opplysninger vi får på denne måten brukes ikke til noe utover den første samtalen, med mindre du selv velger å fortsette den.`,
+  },
   { find: "We focus on <em>new developments</em>", es: "Nos centramos en <em>la obra nueva</em>", fr: "Nous nous concentrons sur <em>le neuf</em>", de: "Wir konzentrieren uns auf <em>Neubauprojekte</em>", ru: "Мы специализируемся на <em>новостройках</em>", ar: "نركز على <em>المشاريع الجديدة</em>", nl: "Wij richten ons op <em>nieuwbouwprojecten</em>", pl: "Skupiamy się na <em>nowych inwestycjach</em>", sv: "Vi fokuserar på <em>nyproduktion</em>", no: "Vi fokuserer på <em>nybygg</em>" },
   // ===== about.html =====
   // The FAQ added to /about. The FAQPage schema is derived from this
