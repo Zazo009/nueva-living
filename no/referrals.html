@@ -376,7 +376,7 @@
         <details class="segment-faq-item"><summary>Hvordan får jeg vite om anbefalingen min fører til et salg?</summary><p>Vi holder deg oppdatert om fremdriften, innenfor grensene for deres personvern, og bekrefter direkte når en belønning forfaller.</p></details>
       </div>
     </div></section>
-    <section class="section ambassador-reveal" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Bli ambassadør</span><div class="rule"></div><h2 class="section-title">Registrer deg <em>i dag</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Registrer deg. Lenken kommer når vi har sjekket, og så tar vi over.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-ambassador-register data-success-message="Takk. Vi sjekker opplysningene og sender lenken din på e-post." data-error-message="Sendingen mislyktes. Prøv igjen, eller skriv til contact@nuevaliving.com."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><textarea name="message" id="referral-message" hidden></textarea><div class="form-grid"><div class="field"><label for="ref-first-name">Ditt fornavn</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="Fornavn" required></div><div class="field"><label for="ref-last-name">Ditt etternavn</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Etternavn" required></div><div class="field"><label for="ref-email">Din e-postadresse</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Ditt telefonnummer</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internasjonalt"></div><div class="field"><label for="ref-country">Hvor du bor</label><input id="ref-country" name="country" autocomplete="country-name" placeholder="Land" required></div><div class="field full"><label for="ref-notes">Noe vi bør vite?</label><textarea id="ref-notes" name="notes" placeholder="Valgfritt: hvordan du kjenner oss, eller hvem du pleier å møte."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>Jeg samtykker til å bli kontaktet og til at opplysningene mine lagres.</span></label></div><div class="form-actions"><button class="btn" type="submit">Send anbefaling</button><span class="form-response"></span></div></form></div></section>
+    <section class="section ambassador-reveal" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Bli ambassadør</span><div class="rule"></div><h2 class="section-title">Registrer deg <em>i dag</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Registrer deg. Lenken kommer når vi har sjekket, og så tar vi over.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-ambassador-register><span data-ok hidden>Takk. Vi sjekker opplysningene og sender lenken din på e-post.</span><span data-fail hidden>Sendingen mislyktes. Prøv igjen, eller skriv til contact@nuevaliving.com.</span><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><textarea name="message" id="referral-message" hidden></textarea><div class="form-grid"><div class="field"><label for="ref-first-name">Ditt fornavn</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="Fornavn" required></div><div class="field"><label for="ref-last-name">Ditt etternavn</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Etternavn" required></div><div class="field"><label for="ref-email">Din e-postadresse</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Ditt telefonnummer</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 eller internasjonalt"></div><div class="field"><label for="ref-country">Hvor du bor</label><input id="ref-country" name="country" autocomplete="country-name" placeholder="Land" required></div><div class="field full"><label for="ref-notes">Noe vi bør vite?</label><textarea id="ref-notes" name="notes" placeholder="Valgfritt: hvordan du kjenner oss, eller hvem du pleier å møte."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>Jeg samtykker til å bli kontaktet og til at opplysningene mine lagres.</span></label></div><div class="form-actions"><button class="btn" type="submit">Registrer deg</button><span class="form-response"></span></div></form></div></section>
     <script>
       (() => {
         // A registration is not a lead, so it does not go through the shared
@@ -428,11 +428,11 @@
               })
             });
             if (!response.ok) throw new Error('register failed: ' + response.status);
-            status(form.dataset.successMelding, 'success');
+            status(form.querySelector('[data-ok]')?.textContent || '', 'success');
           } catch (error) {
             form.dataset.submitting = 'false';
             if (submit) submit.disabled = false;
-            status(form.dataset.errorMelding, 'error');
+            status(form.querySelector('[data-fail]')?.textContent || '', 'error');
           }
         });
       })();
@@ -447,16 +447,16 @@
         const notesField = document.getElementById('ref-notes');
         const messageField = document.getElementById('referral-message');
         if (!messageField) return;
-        function composeMelding() {
+        function writeMarker() {
           const parts = ['Ambassador registration'];
           if (countryField && countryField.value.trim()) parts.push('Land: ' + countryField.value.trim());
           if (notesField && notesField.value.trim()) parts.push(notesField.value.trim());
           messageField.value = parts.join('. ');
         }
         [countryField, notesField].forEach((field) => {
-          if (field) field.addEventListener('input', composeMelding);
+          if (field) field.addEventListener('input', writeMarker);
         });
-        composeMelding();
+        writeMarker();
       })();
       (() => {
         const items = document.querySelectorAll('.ambassador-reveal');

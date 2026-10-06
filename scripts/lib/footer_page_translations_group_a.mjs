@@ -761,7 +761,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Les personnes que vous présentez à Nueva Living bénéficient de la même recherche privée et sans précipitation que chaque client. Lorsque leur recherche aboutit à un logement, la vôtre aboutit à une véritable récompense.`,
     de: `Die Personen, die Sie an Nueva Living empfehlen, erhalten dieselbe private, unaufgeregte Suche wie jeder unserer Kunden. Wenn ihre Suche in einem Zuhause endet, endet Ihre in einer echten Belohnung.`,
     ru: `Люди, которых вы порекомендуете Nueva Living, получат такой же приватный, неторопливый поиск, как и любой другой наш клиент. Когда их поиск завершится домом, ваш — реальным вознаграждением.`,
-    ar: `الأشخاص الذين تقدمونهم إلى نويفا ليفينغ يحصلون على نفس تجربة البحث الخاصة والهادئة التي يحظى بها كل عميل. وعندما ينتهي بحثهم بامتلاك منزل، تنتهي مساهمتكم بمكافأة حقيقية.`, nl: `De mensen die u bij Nueva Living introduceert, krijgen dezelfde persoonlijke, ontspannen zoektocht als elke andere klant. Wanneer hun zoektocht eindigt in een woning, eindigt de uwe in een echte beloning.`, pl: `Osoby, które polecą Państwo Nueva Living, otrzymują takie samo prywatne, niespieszne poszukiwanie, jakie otrzymuje każdy klient. Kiedy ich poszukiwania kończą się domem, Państwa kończą się prawdziwą nagrodą.`, sv: `De personer ni introducerar för Nueva Living får samma privata, lugna sökning som alla andra kunder. När deras sökning slutar i ett hem, slutar er i en verklig belöning.`, no: `Personene du introduserer for Nueva Living, får det samme private, uhastede søket som alle andre klienter. Når søket deres ender i et hjem, ender ditt i en ekte belønning.`,
+    ar: `الأشخاص الذين تقدمونهم إلى نويفا ليفينغ يحصلون على نفس تجربة البحث الخاصة والهادئة التي يحظى بها كل عميل. وعندما ينتهي بحثهم بامتلاك منزل، تنتهي مساهمتكم بمكافأة حقيقية.`, nl: `Wie u bij Nueva Living introduceert, krijgt dezelfde rustige, persoonlijke begeleiding als al onze klanten. Leidt hun zoektocht tot een huis, dan leidt die van u tot een echte beloning.`, pl: `Osoby, które polecą Państwo Nueva Living, otrzymują takie samo prywatne, niespieszne poszukiwanie, jakie otrzymuje każdy klient. Kiedy ich poszukiwania kończą się domem, Państwa kończą się prawdziwą nagrodą.`, sv: `De ni introducerar för Nueva Living får samma lugna, personliga hjälp som alla våra kunder. När deras letande leder till ett hem, leder ert till en riktig belöning.`, no: `Personene du introduserer for Nueva Living, får det samme private, uhastede søket som alle andre klienter. Når søket deres ender i et hjem, ender ditt i en ekte belønning.`,
   },
   {
     find: `How It Works`,
@@ -809,7 +809,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Nous vérifions honnêtement, quel que soit le résultat.`,
     de: `Wir prüfen ehrlich, ganz gleich, wie das Ergebnis ausfällt.`,
     ru: `Мы честно всё проверяем, независимо от результата.`,
-    ar: `نتحقق بأمانة أيًا كانت النتيجة.`, nl: `Wij controleren eerlijk, hoe de uitkomst ook is.`, pl: `Sprawdzamy uczciwie, niezależnie od wyniku.`, sv: `Vi kontrollerar ärligt, oavsett utfall.`, no: `Vi sjekker ærlig, uansett utfall.`,
+    ar: `نتحقق بأمانة أيًا كانت النتيجة.`, nl: `Wij controleren eerlijk, hoe de uitkomst ook is.`, pl: `Sprawdzamy uczciwie, niezależnie od wyniku.`, sv: `Vi kollar ordentligt, och säger som det är.`, no: `Vi sjekker ærlig, uansett utfall.`,
   },
   {
     find: `We Look After Them`,
@@ -831,9 +831,9 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     find: `You Get Rewarded`,
     es: `Usted recibe su recompensa`,
     fr: `Vous êtes récompensé`,
-    de: `Sie Werden Belohnt`,
+    de: `Sie werden belohnt`,
     ru: `Вы получаете вознаграждение`,
-    ar: `تحصلون على مكافأتكم`, nl: `U wordt beloond`, pl: `Otrzymują Państwo nagrodę`, sv: `Ni blir belönade`, no: `Du blir belønnet`,
+    ar: `تحصلون على مكافأتكم`, nl: `U wordt beloond`, pl: `Otrzymują Państwo nagrodę`, sv: `Ni får betalt`, no: `Du blir belønnet`,
   },
   {
     find: `A share of our commission, in writing.`,
@@ -849,7 +849,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Les recommandations fondées sur la confiance mènent souvent à des logements faits pour durer.`,
     de: `Empfehlungen, die auf Vertrauen beruhen, führen oft zu einem Zuhause, das von Dauer ist.`,
     ru: `Рекомендации, основанные на доверии, чаще приводят к домам, созданным на долгие годы.`,
-    ar: `التوصيات المبنية على الثقة غالبًا ما تقود إلى منازل مصممة لتدوم.`, nl: `Introducties die op vertrouwen zijn gebaseerd, leiden vaak tot woningen die gebouwd zijn om te blijven.`, pl: `Polecenia oparte na zaufaniu zwykle prowadzą do domów zbudowanych na lata.`, sv: `Introduktioner byggda på förtroende brukar leda till hem byggda för att hålla.`, no: `Introduksjoner bygget på tillit fører ofte til hjem bygget for å vare.`,
+    ar: `التوصيات المبنية على الثقة غالبًا ما تقود إلى منازل مصممة لتدوم.`, nl: `Introducties die op vertrouwen berusten, leiden vaak tot huizen die meegaan.`, pl: `Polecenia oparte na zaufaniu zwykle prowadzą do domów zbudowanych na lata.`, sv: `Introduktioner som bygger på förtroende leder oftast till hem som håller.`, no: `Introduksjoner bygget på tillit fører ofte til hjem bygget for å vare.`,
   },
   {
     find: `The Reward`,
@@ -955,9 +955,9 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     find: `We will still help them. The reward specifically recognises bringing us a genuinely new client, not someone already in touch with us.`,
     es: `Igualmente le ayudaremos. La recompensa reconoce específicamente traernos a un cliente genuinamente nuevo, no a alguien que ya está en contacto con nosotros.`,
     fr: `Nous les aiderons tout de même. La récompense reconnaît spécifiquement le fait de nous apporter un client véritablement nouveau, et non une personne déjà en contact avec nous.`,
-    de: `Wir helfen der Person trotzdem. Die Belohnung würdigt ausdrücklich, dass Sie uns einen wirklich neuen Kunden bringen, nicht jemanden, der bereits mit uns in Kontakt steht.`,
+    de: `Wir helfen der Person trotzdem. Die Belohnung gilt, wenn Sie uns einen wirklich neuen Kunden bringen, nicht jemanden, der bereits mit uns in Kontakt steht.`,
     ru: `Мы всё равно поможем ему. Вознаграждение предусмотрено именно за то, что вы привели действительно нового клиента, а не человека, уже находящегося с нами в контакте.`,
-    ar: `سنساعده رغم ذلك. فالمكافأة مخصصة تحديدًا لتقديم عميل جديد فعليًا، وليس شخصًا على تواصل معنا بالفعل.`, nl: `Wij helpen hen alsnog. De beloning erkent specifiek het aanbrengen van een werkelijk nieuwe klant, niet iemand die al contact met ons heeft.`, pl: `Nadal im pomożemy. Nagroda dotyczy konkretnie przyprowadzenia do nas prawdziwie nowego klienta, a nie osoby, która już jest z nami w kontakcie.`, sv: `Vi hjälper dem ändå. Belöningen erkänner specifikt att ni för oss en genuint ny kund, inte någon som redan är i kontakt med oss.`, no: `Vi hjelper dem uansett. Belønningen anerkjenner spesifikt det å bringe oss en genuint ny klient, ikke noen som allerede er i kontakt med oss.`,
+    ar: `سنساعده رغم ذلك. فالمكافأة مخصصة تحديدًا لتقديم عميل جديد فعليًا، وليس شخصًا على تواصل معنا بالفعل.`, nl: `Wij helpen hen alsnog. De beloning geldt wanneer u ons een echt nieuwe klant brengt, niet iemand die al contact met ons heeft.`, pl: `Nadal im pomożemy. Nagroda dotyczy konkretnie przyprowadzenia do nas prawdziwie nowego klienta, a nie osoby, która już jest z nami w kontakcie.`, sv: `Vi hjälper dem ändå. Belöningen gäller när ni för med er en ny kund, inte någon som redan har kontakt med oss.`, no: `Vi hjelper dem uansett. Belønningen anerkjenner spesifikt det å bringe oss en genuint ny klient, ikke noen som allerede er i kontakt med oss.`,
   },
   {
     find: `What if they contact Nueva Living directly first?`,
@@ -989,7 +989,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     fr: `Nous vous tenons informé de l'avancement, dans le respect de la confidentialité de la personne, et vous confirmons directement dès qu'une récompense est due.`,
     de: `Wir halten Sie über den Fortschritt auf dem Laufenden, im Rahmen der Privatsphäre der Person, und bestätigen Ihnen direkt, sobald eine Belohnung fällig ist.`,
     ru: `Мы держим вас в курсе прогресса, соблюдая конфиденциальность этого человека, и напрямую подтверждаем, когда вознаграждение становится положенным.`,
-    ar: `نبقيكم على اطلاع بالتقدم، ضمن حدود خصوصية الشخص المعني، ونؤكد لكم مباشرة عند استحقاق المكافأة.`, nl: `Wij houden u op de hoogte van de voortgang, binnen de grenzen van hun privacy, en bevestigen rechtstreeks zodra een beloning verschuldigd is.`, pl: `Informujemy Państwa na bieżąco o postępach, w granicach prywatności tej osoby, i potwierdzamy bezpośrednio, gdy nagroda staje się należna.`, sv: `Vi håller er uppdaterade om förloppet, inom ramarna för deras integritet, och bekräftar direkt när en belöning ska betalas ut.`, no: `Vi holder deg oppdatert om fremdriften, innenfor grensene for deres personvern, og bekrefter direkte når en belønning forfaller.`,
+    ar: `نبقيكم على اطلاع بالتقدم، ضمن حدود خصوصية الشخص المعني، ونؤكد لكم مباشرة عند استحقاق المكافأة.`, nl: `Wij houden u op de hoogte van de voortgang, binnen de grenzen van hun privacy, en bevestigen rechtstreeks zodra een beloning verschuldigd is.`, pl: `Informujemy Państwa na bieżąco o postępach, w granicach prywatności tej osoby, i potwierdzamy bezpośrednio, gdy nagroda staje się należna.`, sv: `Vi håller er uppdaterade om förloppet, så långt deras integritet tillåter, och hör av oss direkt när en belöning ska betalas ut.`, no: `Vi holder deg oppdatert om fremdriften, innenfor grensene for deres personvern, og bekrefter direkte når en belønning forfaller.`,
   },
   {
     find: `Become an Ambassador`,
@@ -1080,12 +1080,12 @@ export const FOOTER_PAGE_ENTRIES_GROUP_A = [
     ar: `أوافق على أن يتم التواصل معي وعلى تخزين بياناتي.`, nl: `Ik ga ermee akkoord dat er contact met mij wordt opgenomen en dat mijn gegevens worden opgeslagen.`, pl: `Wyrażam zgodę na kontakt oraz przechowywanie moich danych.`, sv: `Jag samtycker till att bli kontaktad och att mina uppgifter lagras.`, no: `Jeg samtykker til å bli kontaktet og til at opplysningene mine lagres.`,
   },
   {
-    find: `Submit Referral`,
-    es: `Enviar referido`,
-    fr: `Envoyer le parrainage`,
-    de: `Empfehlung Absenden`,
-    ru: `Отправить рекомендацию`,
-    ar: `إرسال الإحالة`, nl: `Verwijzing versturen`, pl: `Wyślij polecenie`, sv: `Skicka rekommendation`, no: `Send anbefaling`,
+    find: `Register`,
+    es: `Registrarse`,
+    fr: `S'inscrire`,
+    de: `Registrieren`,
+    ru: `Зарегистрироваться`,
+    ar: `تسجيل`, nl: `Aanmelden`, pl: `Zarejestruj się`, sv: `Registrera er`, no: `Registrer deg`,
   },
 
   // ===== SEO <title> and meta description.

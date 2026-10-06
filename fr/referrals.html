@@ -376,7 +376,7 @@
         <details class="segment-faq-item"><summary>Comment saurai-je si mon parrainage aboutit à une vente ?</summary><p>Nous vous tenons informé de l'avancement, dans le respect de la confidentialité de la personne, et vous confirmons directement dès qu'une récompense est due.</p></details>
       </div>
     </div></section>
-    <section class="section ambassador-reveal" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Devenez ambassadeur</span><div class="rule"></div><h2 class="section-title">Inscrivez-vous <em>aujourd’hui</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Inscrivez-vous. Votre lien suit une fois la vérification faite, et nous prenons le relais.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-ambassador-register data-success-message="Merci. Nous vérifions les informations et vous envoyons votre lien par e-mail." data-error-message="L'envoi a échoué. Réessayez ou écrivez à contact@nuevaliving.com."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><textarea name="message" id="referral-message" hidden></textarea><div class="form-grid"><div class="field"><label for="ref-first-name">Votre prénom</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="Prénom" required></div><div class="field"><label for="ref-last-name">Votre nom</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Nom" required></div><div class="field"><label for="ref-email">Votre adresse e-mail</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Votre numéro de téléphone</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 ou international"></div><div class="field"><label for="ref-country">Où vous résidez</label><input id="ref-country" name="country" autocomplete="country-name" placeholder="Pays" required></div><div class="field full"><label for="ref-notes">Quelque chose à nous signaler ?</label><textarea id="ref-notes" name="notes" placeholder="Facultatif : comment vous nous connaissez, ou qui vous côtoyez."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>J'accepte d'être contacté(e) et que mes données soient conservées.</span></label></div><div class="form-actions"><button class="btn" type="submit">Envoyer le parrainage</button><span class="form-response"></span></div></form></div></section>
+    <section class="section ambassador-reveal" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Devenez ambassadeur</span><div class="rule"></div><h2 class="section-title">Inscrivez-vous <em>aujourd’hui</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Inscrivez-vous. Votre lien suit une fois la vérification faite, et nous prenons le relais.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-ambassador-register><span data-ok hidden>Merci. Nous vérifions les informations et vous envoyons votre lien par e-mail.</span><span data-fail hidden>L'envoi a échoué. Réessayez ou écrivez à contact@nuevaliving.com.</span><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><textarea name="message" id="referral-message" hidden></textarea><div class="form-grid"><div class="field"><label for="ref-first-name">Votre prénom</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="Prénom" required></div><div class="field"><label for="ref-last-name">Votre nom</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Nom" required></div><div class="field"><label for="ref-email">Votre adresse e-mail</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Votre numéro de téléphone</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 ou international"></div><div class="field"><label for="ref-country">Où vous résidez</label><input id="ref-country" name="country" autocomplete="country-name" placeholder="Pays" required></div><div class="field full"><label for="ref-notes">Quelque chose à nous signaler ?</label><textarea id="ref-notes" name="notes" placeholder="Facultatif : comment vous nous connaissez, ou qui vous côtoyez."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>J'accepte d'être contacté(e) et que mes données soient conservées.</span></label></div><div class="form-actions"><button class="btn" type="submit">S'inscrire</button><span class="form-response"></span></div></form></div></section>
     <script>
       (() => {
         // A registration is not a lead, so it does not go through the shared
@@ -428,11 +428,11 @@
               })
             });
             if (!response.ok) throw new Error('register failed: ' + response.status);
-            status(form.dataset.successMessage, 'success');
+            status(form.querySelector('[data-ok]')?.textContent || '', 'success');
           } catch (error) {
             form.dataset.submitting = 'false';
             if (submit) submit.disabled = false;
-            status(form.dataset.errorMessage, 'error');
+            status(form.querySelector('[data-fail]')?.textContent || '', 'error');
           }
         });
       })();
@@ -447,16 +447,16 @@
         const notesField = document.getElementById('ref-notes');
         const messageField = document.getElementById('referral-message');
         if (!messageField) return;
-        function composeMessage() {
+        function writeMarker() {
           const parts = ['Ambassador registration'];
           if (countryField && countryField.value.trim()) parts.push('Pays: ' + countryField.value.trim());
           if (notesField && notesField.value.trim()) parts.push(notesField.value.trim());
           messageField.value = parts.join('. ');
         }
         [countryField, notesField].forEach((field) => {
-          if (field) field.addEventListener('input', composeMessage);
+          if (field) field.addEventListener('input', writeMarker);
         });
-        composeMessage();
+        writeMarker();
       })();
       (() => {
         const items = document.querySelectorAll('.ambassador-reveal');

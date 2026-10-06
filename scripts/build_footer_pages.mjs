@@ -1800,7 +1800,7 @@ const pages = [
         <details class="segment-faq-item"><summary>How will I know if my referral leads to a sale?</summary><p>We keep you updated on progress, within the bounds of their privacy, and confirm directly once a reward is due.</p></details>
       </div>
     </div></section>
-    <section class="section ambassador-reveal" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Become an Ambassador</span><div class="rule"></div><h2 class="section-title">Register <em>today</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Register yourself. Your link follows once we have checked, and we take it from there.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-ambassador-register data-success-message="Thank you. We will check the details and send your referral link by email." data-error-message="That did not send. Please try again, or write to contact@nuevaliving.com."><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><textarea name="message" id="referral-message" hidden></textarea><div class="form-grid"><div class="field"><label for="ref-first-name">Your First Name</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div><div class="field"><label for="ref-last-name">Your Last Name</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div><div class="field"><label for="ref-email">Your Email Address</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Your Phone Number</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div><div class="field"><label for="ref-country">Where You Live</label><input id="ref-country" name="country" autocomplete="country-name" placeholder="Country" required></div><div class="field full"><label for="ref-notes">Anything We Should Know?</label><textarea id="ref-notes" name="notes" placeholder="Optional -- how you know us, or who you tend to meet."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored.</span></label></div><div class="form-actions"><button class="btn" type="submit">Submit Referral</button><span class="form-response"></span></div></form></div></section>
+    <section class="section ambassador-reveal" id="referral-form"><div class="section-inner"><div class="section-head center"><span class="label">Become an Ambassador</span><div class="rule"></div><h2 class="section-title">Register <em>today</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Register yourself. Your link follows once we have checked, and we take it from there.</p></div><form class="form-panel" id="referral-form-panel" name="nueva-referral-request" method="POST" data-ambassador-register><span data-ok hidden>Thank you. We will check the details and send your referral link by email.</span><span data-fail hidden>That did not send. Please try again, or write to contact@nuevaliving.com.</span><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"><input type="hidden" name="subject" data-remove-prefix value="New Nueva Living referral submission"><input type="hidden" id="referral-request-context" name="request_context" value="Referral &amp; Ambassador Program"><textarea name="message" id="referral-message" hidden></textarea><div class="form-grid"><div class="field"><label for="ref-first-name">Your First Name</label><input id="ref-first-name" name="first_name" autocomplete="given-name" placeholder="First name" required></div><div class="field"><label for="ref-last-name">Your Last Name</label><input id="ref-last-name" name="last_name" autocomplete="family-name" placeholder="Last name" required></div><div class="field"><label for="ref-email">Your Email Address</label><input id="ref-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required></div><div class="field"><label for="ref-phone">Your Phone Number</label><input id="ref-phone" name="phone" type="tel" autocomplete="tel" placeholder="+34 or international"></div><div class="field"><label for="ref-country">Where You Live</label><input id="ref-country" name="country" autocomplete="country-name" placeholder="Country" required></div><div class="field full"><label for="ref-notes">Anything We Should Know?</label><textarea id="ref-notes" name="notes" placeholder="Optional -- how you know us, or who you tend to meet."></textarea></div><label class="consent-row field full" for="ref-consent"><input id="ref-consent" name="consent" type="checkbox" required><span>I agree to be contacted and for my data to be stored.</span></label></div><div class="form-actions"><button class="btn" type="submit">Register</button><span class="form-response"></span></div></form></div></section>
     <script>
       (() => {
         // A registration is not a lead, so it does not go through the shared
@@ -1852,11 +1852,11 @@ const pages = [
               })
             });
             if (!response.ok) throw new Error('register failed: ' + response.status);
-            status(form.dataset.successMessage, 'success');
+            status(form.querySelector('[data-ok]')?.textContent || '', 'success');
           } catch (error) {
             form.dataset.submitting = 'false';
             if (submit) submit.disabled = false;
-            status(form.dataset.errorMessage, 'error');
+            status(form.querySelector('[data-fail]')?.textContent || '', 'error');
           }
         });
       })();
@@ -1871,16 +1871,16 @@ const pages = [
         const notesField = document.getElementById('ref-notes');
         const messageField = document.getElementById('referral-message');
         if (!messageField) return;
-        function composeMessage() {
+        function writeMarker() {
           const parts = ['Ambassador registration'];
           if (countryField && countryField.value.trim()) parts.push('Country: ' + countryField.value.trim());
           if (notesField && notesField.value.trim()) parts.push(notesField.value.trim());
           messageField.value = parts.join('. ');
         }
         [countryField, notesField].forEach((field) => {
-          if (field) field.addEventListener('input', composeMessage);
+          if (field) field.addEventListener('input', writeMarker);
         });
-        composeMessage();
+        writeMarker();
       })();
       (() => {
         const items = document.querySelectorAll('.ambassador-reveal');
