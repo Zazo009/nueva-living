@@ -90,7 +90,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Строящееся <em>или готовое</em>",
     ar: "على المخطط <em>أم مكتمل</em>",
     nl: "Op plan <em>of opgeleverd</em>",
-    pl: "Na etapie projektu <em>czy gotowe</em>",
+    pl: "Na etapie planu <em>czy gotowe</em>",
     sv: "På ritning <em>eller inflyttningsklart</em>",
     no: "På tegning <em>eller innflyttingsklart</em>"
   },
@@ -486,7 +486,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ru: "Покупка строящегося жилья обычно подходит покупателям, которым объект не нужен немедленно, кто хочет растянуть платежи во времени и готов принять риск на этапе строительства в обмен на более низкую начальную цену и, в некоторых случаях, возможность повлиять на отделку.",
     ar: "يناسب الشراء على المخطط عادةً المشترين الذين لا يحتاجون العقار فورًا، ويرغبون في توزيع الدفعات على فترة، ومرتاحون لتحمل مخاطر مرحلة البناء مقابل سعر دخول أقل وفي بعض الحالات القدرة على المشاركة في التشطيب.",
     nl: "Nieuwbouw op plan past doorgaans bij kopers die de woning niet meteen nodig hebben, de betalingen willen spreiden en het bouwrisico aanvaarden in ruil voor een lagere instapprijs en soms inspraak in de afwerking.",
-    pl: "Zakup na etapie projektu zwykle pasuje kupującym, którzy nie potrzebują nieruchomości od razu, chcą rozłożyć płatności w czasie i akceptują ryzyko etapu budowy w zamian za niższą cenę wejścia i czasem wpływ na wykończenie.",
+    pl: "Zakup na etapie planu zwykle pasuje kupującym, którzy nie potrzebują nieruchomości od razu, chcą rozłożyć płatności w czasie i akceptują ryzyko etapu budowy w zamian za niższą cenę wejścia i czasem wpływ na wykończenie.",
     sv: "Att köpa på ritning passar oftast köpare som inte behöver bostaden direkt, vill sprida betalningarna över tid och är bekväma med risken under byggskedet i utbyte mot ett lägre ingångspris och ibland inflytande över finishen.",
     no: "Å kjøpe på tegning passer som regel kjøpere som ikke trenger boligen med en gang, vil fordele betalingene over tid og er komfortable med risikoen i byggefasen i bytte mot lavere inngangspris og av og til innflytelse på finishen."
   },
