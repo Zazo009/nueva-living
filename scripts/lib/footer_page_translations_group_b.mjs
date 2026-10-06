@@ -409,7 +409,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     ru: 'Проверяет регистрацию и репутацию застройщика, разрешение на строительство, статус в земельном реестре и банковскую гарантию.',
     ar: 'يتحقق من تسجيل المطوّر وسجله وترخيص البناء وحالة السجل العقاري والضمان المصرفي.',
     nl: 'Controleert de registratie en het trackrecord van de ontwikkelaar, de bouwvergunning, de status in het kadaster en de bankgarantie.',
-    pl: 'Sprawdza rejestrację i historię dewelopera, pozwolenie na budowę, stan w rejestrze gruntów oraz gwarancję bankową.',
+    pl: 'Sprawdza rejestrację i historię dewelopera, pozwolenie na budowę, stan w księgach wieczystych oraz gwarancję bankową.',
     sv: 'Kontrollerar byggherrens registrering och meritlista, bygglovet, lagfartsstatus och bankgarantin.',
     no: 'Sjekker utbyggerens registrering og merittliste, byggetillatelsen, tinglysingsstatus og bankgarantien.'
   },

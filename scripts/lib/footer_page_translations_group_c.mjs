@@ -536,7 +536,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     nl: "<summary>Bankgarantie</summary><p>Wettelijk verplichte bescherming voor betalingen op plan vóór oplevering, die u dekt als het project niet wordt opgeleverd.</p>",
     pl: "<summary>Gwarancja bankowa</summary><p>Wymagana prawem ochrona wpłat dokonanych przed odbiorem, zabezpieczająca Państwa, gdyby inwestycja nie została ukończona.</p>",
     sv: "<summary>Bankgaranti</summary><p>Lagstadgat skydd för betalningar på ritning som görs före tillträdet, som täcker er om projektet inte levereras.</p>",
-    no: "<summary>Bankgaranti</summary><p>Lovpålagt beskyttelse for betalinger på tegning gjort før overtakelse, som dekker du dersom prosjektet ikke leveres.</p>"
+    no: "<summary>Bankgaranti</summary><p>Lovpålagt beskyttelse for betalinger på tegning gjort før overtakelse, som dekker deg dersom prosjektet ikke leveres.</p>"
   },
   {
     find: "<summary>Snagging</summary><p>A formal inspection before or at handover to list defects for the developer to fix under the build warranty.</p>",
