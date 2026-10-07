@@ -132,3 +132,34 @@ month would have silently reverted live work.
 translations already in the repo, `scaffold.py` lists what a new project still needs,
 `k_*.py` hold the human translations, `assemble.py` writes the overlays and refuses to
 write a partial one. See `tools/import/README.md`.
+
+## Pushing
+
+A large push to `main` can be rejected with a server-side error that says nothing
+useful and does not mean what it appears to:
+
+```
+remote: fatal error in commit_refs
+ ! [remote rejected]   main -> main (failure)
+```
+
+It is not transient, not auth, and not a GitHub outage — retrying is a waste. Git sends
+a *thin pack* by default, leaving the server to rebuild delta-compressed objects against
+what it already holds, and at this repository's size that reconstruction fails. Push the
+whole objects instead:
+
+```
+git push --no-thin origin main
+```
+
+There is no config key for it, so it is a flag every time. Four plain retries failed; the
+first `--no-thin` succeeded immediately.
+
+The underlying cause is size: **1.67 GiB**, with 376 tracked `.mp4` and `.pdf` files
+accounting for 673 MB and single project films near 30 MB. Small pushes still go through,
+so this surfaces only on a commit that touches many of the generated locale pages — each
+is close to a megabyte and is rewritten by every build.
+
+Moving those assets out of git would fix it properly and **cannot be done without
+rewriting history**, so it is not a quiet cleanup to fold into another commit. Until
+someone decides to do it deliberately, `--no-thin` is the way through.
