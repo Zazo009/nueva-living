@@ -132,7 +132,21 @@
     return { min: numbers[0], max: numbers[1] || '' };
   }
 
-  function track(eventName, payload = {}) {
+  // options.conversion marks an event as a visitor actually doing the thing the
+  // site exists for, declared here at the emission site rather than guessed
+  // downstream from the event's name.
+  //
+  // The CRM used to decide this by holding a list of names, which first matched
+  // none of ours and counted nothing, then matched all of ours and counted one
+  // enquiry four times -- form_submit_intent, crm_lead_webhook_queued,
+  // crm_lead_webhook_sent and form_submit_success all fire for a single
+  // submission. Only this file knows which of its events mean a person did
+  // something, so this file says so and no list exists on either side.
+  //
+  // Flag sparingly, and never flag an event that fires alongside another one
+  // already flagged for the same visitor action -- that is how the four-times
+  // count happened, and a new flag in the wrong place rebuilds it.
+  function track(eventName, payload = {}, options = {}) {
     const detail = {
       event: eventName,
       page_path: pagePath,
@@ -140,6 +154,7 @@
       context: pageContext,
       ...payload
     };
+    if (options.conversion) detail.conversion = true;
     window.dataLayer.push(detail);
     window.dispatchEvent(new CustomEvent('nueva:track', { detail }));
   }
@@ -317,6 +332,26 @@
           ...trackingContext
         });
 
+        // A success with no lead id is not a confirmed write.
+        //
+        // The CRM's spam filter answers 201 {"success":true} with no lead_id
+        // and keeps the submission; a genuine accept always carries lead_id.
+        // The two are indistinguishable to the check above, so leads were
+        // silently swallowed while this file recorded them as sent -- a false
+        // picture agreeing with a false picture rather than corroborating it.
+        //
+        // Deliberately not a failure. If the write did succeed, throwing here
+        // would show the visitor an error after their enquiry had landed, and
+        // they would re-send or give up on a lead we already hold. So the
+        // visitor's path is untouched and only the telemetry says so. Not a
+        // conversion: this is a diagnostic about delivery, not a person.
+        if (accepted && !result.lead_id) {
+          track('crm_lead_webhook_unconfirmed', {
+            status: response.status,
+            ...trackingContext
+          });
+        }
+
         if (!accepted) throw new Error(`CRM lead request failed with status ${response.status}`);
         return result;
       })
@@ -440,7 +475,7 @@
         'success',
         form.dataset.successMessage || 'Thank you. Your enquiry has been received and we will contact you shortly.'
       );
-      track('form_submit_success', { ...trackingContext, event_id: metaEventId });
+      track('form_submit_success', { ...trackingContext, event_id: metaEventId }, { conversion: true });
       if (form.matches('[data-newsletter-form]')) {
         track('newsletter_signup_success', trackingContext);
       }
@@ -520,7 +555,7 @@
     const context = clean(target.dataset.project || cardTitle || pageContext);
 
     if (href.includes('wa.me') || target.matches('[data-whatsapp-advisor]')) {
-      track('whatsapp_click', { cta_label: label, lead_context: context, href });
+      track('whatsapp_click', { cta_label: label, lead_context: context, href }, { conversion: true });
       return;
     }
 
