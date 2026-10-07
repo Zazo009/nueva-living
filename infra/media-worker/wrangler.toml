@@ -1,0 +1,163 @@
+name = "nueva-media"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# No public *.workers.dev address: the only way in is through the site's own domain.
+workers_dev = false
+preview_urls = false
+
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "nuevaliving"
+
+# Stage 1: the homepage hero videos.
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/video/*"
+zone_name = "nuevaliving.com"
+
+# Stage 2: every directory that holds a published video or PDF. Route patterns cannot
+# carry a wildcard in the middle, so this is one exact prefix per directory.
+# Directories also hold thumbnails and images, which the worker hands on to Netlify.
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/alisios-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/altos-terrace-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/atalaya-duplex-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/atalaya-duplex-residences/video/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/bahia-serena-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/cancelada-park/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/cancelada-park/video/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/casares-costa-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/cerrado-vista-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/cielo-alto-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/elviria-hills-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/elviria-woodland-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/fairway-grove-villas/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/golden-mile-duplex-residences/media/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/guadalobon-beach-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/higueron-garden-villas/video/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/la-cala-sun-townhouses/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/la-noria-golf-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/la-resina-hillside-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/la-resina-valley-villas/video/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/laurel-hill-residences/documents/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/laurel-hill-residences/video/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/los-olivos-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/los-olivos-residences/video/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/meridian-golf-villas/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/mijas-golf-park-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/mirador-las-mesas/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/miramar-urban-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/nueva-andalucia-signature-villas/video/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/playa-del-angel-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/rio-real-townhouses/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/selwo-panorama-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/sierra-bermeja-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/torremuelle-horizon-residences/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/valle-romano-hilltop-villas/floorplans/*"
+zone_name = "nuevaliving.com"
+
+[[routes]]
+pattern = "nuevaliving.com/assets/liora/projects/vista-alta-suites/floorplans/*"
+zone_name = "nuevaliving.com"

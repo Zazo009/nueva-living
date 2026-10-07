@@ -163,3 +163,27 @@ is close to a megabyte and is rewritten by every build.
 Moving those assets out of git would fix it properly and **cannot be done without
 rewriting history**, so it is not a quiet cleanup to fold into another commit. Until
 someone decides to do it deliberately, `--no-thin` is the way through.
+
+## Media is served from R2
+
+374 videos and PDFs are answered by a Cloudflare Worker (`infra/media-worker/`, see its
+README) from the R2 bucket `nuevaliving`, at their original URLs. Visitors reach
+Cloudflare before Netlify, so it sits in front; Netlify is not connected to R2 and does
+not know it exists. A response from R2 carries `x-media-source: r2`.
+
+Three things are not discoverable from the code:
+
+- **Netlify still has a full copy.** The build still copies these files into `dist/` and
+  they are still in git, so switching the Worker's routes off puts every URL back where
+  it was. Do not delete them from the build or the repo on the assumption that R2 is
+  authoritative without reading the README first.
+- **R2 holds more than the build publishes.** `hero-desktop-v2.mp4` and
+  `hero-mobile-v2.mp4` are kept only as a revert path. Uploading "every tracked mp4 and
+  pdf" once made them public for a few minutes. The Worker serves only
+  `src/published.json`, generated from `dist/`; a file being in the bucket does not make
+  it public. Regenerate with `node infra/media-worker/make-allowlist.mjs` after a build.
+- **A new project directory that gains a PDF or video needs its own route** in
+  `wrangler.toml`: route patterns cannot have a wildcard in the middle, so it is one exact
+  prefix per directory. Until it has one, its files keep coming from Netlify, which is
+  correct but not what was intended. Wrangler never removes a route; take one out in the
+  Cloudflare dashboard.
