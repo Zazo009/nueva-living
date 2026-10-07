@@ -184,6 +184,17 @@ function crmPayload(lead, event) {
     source_page: sourcePath(lead, event),
     utm_source: cleanString(lead.utm_source),
     utm_campaign: cleanString(lead.utm_campaign),
+    // The ambassador's code, forwarded verbatim and never resolved here --
+    // turning a code into an ambassador is the CRM's job and this function has
+    // no business knowing ambassador ids.
+    //
+    // This builds the payload field by field, which means anything not named
+    // here is dropped without a word. The browser sent referral_code from the
+    // day the form shipped; it reached this function and stopped, and the only
+    // reason it was noticed is that the code is also mirrored into `message`,
+    // which arrived intact. A forwarder that enumerates its fields needs every
+    // new one added in two places, not one.
+    referral_code: cleanString(lead.referral_code),
     // Meta's own cookies, forwarded rather than used here and discarded. The
     // CRM reports stage changes back to Meta months later, and without one of
     // these there is no way to tie a closed sale to the ad that started it.
