@@ -154,7 +154,17 @@
       context: pageContext,
       ...payload
     };
-    if (options.conversion) detail.conversion = true;
+    // Always an explicit boolean, never omitted.
+    //
+    // The CRM reads three states: true counts, false does not, and absent means
+    // the event predates this flag and is judged by the old exclusion rule. If
+    // this only set the field when true, absent would mean two different things
+    // at once -- old history and a new event that simply isn't a conversion --
+    // and the second would fall through to the exclusion rule, which defaults
+    // to counting. A new engagement event added next month would quietly become
+    // a conversion. Saying false out loud is what keeps absent meaning only
+    // "before the flag existed".
+    detail.conversion = options.conversion === true;
     window.dataLayer.push(detail);
     window.dispatchEvent(new CustomEvent('nueva:track', { detail }));
   }
