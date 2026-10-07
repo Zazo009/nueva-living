@@ -1456,58 +1456,83 @@ let runtimeStringChecked = 0;
 
 let runtimeLabelChecked = 0;
 
-// A string the markup translates, and the script then overwrites in English.
+// A string the script writes into the page, still in English in a locale build.
 //
-// The viewing overlay's project line and the #vox aria-label were translated
-// in all ten builds -- and vApplyViewingProjectChrome rewrote both from a
-// hardcoded English template the moment a project loaded. Every guard above
-// passed, because every guard above reads the markup, and the markup was
-// right until the browser touched it.
+// Every guard above reads the markup, and the markup is right until the browser
+// touches it. Two labels lived in that blind spot in all nine languages: the
+// scene dots' aria-label, built as 'Scene ' + (i + 1), which was the only
+// accessible name those buttons had; and 'Replay', the viewing pill's third
+// state, passed as an argument while its siblings 'Guided' and 'Manual' two
+// lines away were translated properly.
 //
-// So read the literals the scripts write into the page instead. The English
-// homepage ships that script as a shared file while the locale homepages
-// keep it inline, so the English wording is taken from the file and matched
-// against what each locale build actually inlines.
+// The first version of this check tried to recognise a label by its shape --
+// at least ten letters, at least two words -- andfiltered away all four
+// literals it found, reporting zero checks and passing everything. So it reads
+// position instead: the English homepage links nueva-homepage.js while each
+// locale inlines that same body, the code is identical (the skeleton check
+// above enforces that), and so literal N corresponds to literal N. A quoted
+// literal that is byte-identical to the English one was never translated.
+//
+// Taking only quoted literals is what makes this work without heuristics --
+// project.name and vPad(n) are expressions, not literals, and never enter the
+// list. LABEL_CALLS is this page's own label-setting functions, and is the one
+// part that needs extending when another is added.
 {
-  const WRITES = /(?:\.(?:textContent|innerHTML)\s*=\s*|setAttribute\(\s*['"](?:aria-label|title|placeholder)['"]\s*,\s*)(`[^`]*`|'[^'\n]*'|"[^"\n]*")/g;
-  const fromScript = (src, into) => {
-    for (const write of src.matchAll(WRITES)) {
-      // Template holes carry the per-project values; only the fixed text
-      // between them is a candidate label.
-      for (const piece of write[1].slice(1, -1).split(/\$\{[^}]*\}/)) {
-        const text = piece.replace(/\\(.)/g, '$1').trim();
-        if (text.includes('<') || text.includes('=')) continue;
-        if ((text.match(/[A-Za-z]/g) || []).length < 10) continue;
-        if (text.split(/\s+/).length < 2) continue;
-        if (ATTR_ALLOWED.test(text)) continue;
-        into.add(text);
-      }
-    }
+  const LABEL_CALLS = ['vSetGuidedUI'];
+  const WRITES = new RegExp(
+    '(?:'
+    + '\\.(?:textContent|innerText|innerHTML)\\s*=\\s*'
+    + '|setAttribute\\(\\s*[\'"](?:aria-label|aria-valuetext|title|placeholder|alt)[\'"]\\s*,\\s*'
+    + `|(?:${LABEL_CALLS.join('|')})\\([^)'"]*,\\s*`
+    + ')(`(?:[^`\\\\]|\\\\.)*`|\'(?:[^\'\\\\\\n]|\\\\.)*\'|"(?:[^"\\\\\\n]|\\\\.)*")',
+    'g');
+
+  // Identity with English is correct for some words in some languages.
+  // Compared against the trimmed words, so no surrounding space here.
+  const SHARED_WITH_ENGLISH = {
+    no: new Set(['Scene']),   // 'Scene' is the Norwegian word
   };
+
+  const literals = (code) => [...code.matchAll(WRITES)].map((match) => match[1]);
   const inlineScripts = (html) => [...html.matchAll(/<script\b(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)]
     .map((match) => match[1]).join('\n');
+  // The fixed text of a literal: template holes carry per-project values, and
+  // an innerHTML template carries tags that are code, not copy.
+  const words = (literal) => literal.slice(1, -1)
+    .split(/\$\{[^}]*\}/)
+    .map((piece) => piece.replace(/<[^>]*>/g, ' ').replace(/\\(.)/g, '$1'))
+    .filter((piece) => /[A-Za-z]{3}/.test(piece))
+    .map((piece) => piece.trim())
+    .filter(Boolean);
 
-  const english = new Set();
-  for (const rel of ['index.html', 'assets/liora/nueva-homepage.js']) {
-    const file = path.join(dist, rel);
-    if (!fs.existsSync(file)) continue;
-    const src = fs.readFileSync(file, 'utf8');
-    fromScript(rel.endsWith('.js') ? src : inlineScripts(src), english);
-  }
-  for (const locale of ATTR_LOCALES) {
-    const file = path.join(dist, locale, 'index.html');
-    if (!fs.existsSync(file)) continue;
-    const here = new Set();
-    fromScript(inlineScripts(fs.readFileSync(file, 'utf8')), here);
-    const leaks = [];
-    for (const text of here) {
-      runtimeLabelChecked += 1;
-      if (english.has(text)) leaks.push(text);
-    }
-    if (leaks.length) {
-      fail(`${locale}/index.html`, `${leaks.length} label(s) written into the page by script are the `
-        + `English build's own words, so the reader sees English as soon as the script runs: `
-        + `${leaks.slice(0, 3).map((text) => `"${text}"`).join('; ')}.`);
+  const englishFile = path.join(dist, 'assets', 'liora', 'nueva-homepage.js');
+  if (fs.existsSync(englishFile)) {
+    const english = literals(fs.readFileSync(englishFile, 'utf8'));
+    for (const locale of ATTR_LOCALES) {
+      const file = path.join(dist, locale, 'index.html');
+      if (!fs.existsSync(file)) continue;
+      const here = literals(inlineScripts(fs.readFileSync(file, 'utf8')));
+      if (here.length !== english.length) {
+        fail(`${locale}/index.html`, `the inlined homepage script writes ${here.length} literal(s) into `
+          + `the page where the English build writes ${english.length}, so they cannot be compared `
+          + `position by position -- the two builds have drifted apart.`);
+        continue;
+      }
+      const shared = SHARED_WITH_ENGLISH[locale] || new Set();
+      const leaks = [];
+      english.forEach((source, index) => {
+        const sourceWords = words(source);
+        if (!sourceWords.length) return;
+        runtimeLabelChecked += 1;
+        if (here[index] !== source) return;
+        if (sourceWords.every((word) => shared.has(word) || ATTR_ALLOWED.test(word))) return;
+        leaks.push(sourceWords.join(' '));
+      });
+      if (leaks.length) {
+        fail(`${locale}/index.html`, `${leaks.length} label(s) written into the page by script are still `
+          + `the English build's own words, so the reader sees English as soon as the script runs: `
+          + `${leaks.slice(0, 3).map((text) => `"${text}"`).join('; ')}.`);
+      }
     }
   }
 }
