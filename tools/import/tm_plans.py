@@ -56,6 +56,20 @@ FRAME = [
     (0, 1238, 2000, 1414),     # footer: type, date, the developer's legal line
 ]
 
+# The 2023 template of a second developer sheet (A3 landscape, 2483 x 1757): the logo, the
+# north arrow, the street-name site map, the block key and the room-area table all sit in
+# the left 560-630 px, the other developer's logo top right, the legal line along the
+# foot. A one-storey unit's drawing starts at x ~ 650; the angled bedroom of the third-
+# floor type C3 reaches x ~ 580, which is why the left zones stop short of 570.
+FRAME_HBR = [
+    (0, 0, 2000, 30), (0, 0, 30, 1414), (1968, 0, 2000, 1414),      # border
+    (40, 40, 560, 870),        # logo, north arrow, site map, block key
+    (40, 875, 632, 1290),      # room-area table
+    (1650, 40, 1966, 200),     # the developer's logo
+    (0, 1293, 2000, 1414),     # type, date, scale bar, legal line
+    (1450, 1270, 2000, 1414),  # the date rides higher than the rest of the foot
+]
+
 
 def _font(size):
     for path in ('/System/Library/Fonts/Helvetica.ttc', '/Library/Fonts/Arial.ttf',
@@ -67,8 +81,8 @@ def _font(size):
     return ImageFont.load_default()
 
 
-def _largest_group(ink, join=JOIN):
-    """Boolean mask, at pixel size, of the biggest group of ink on the sheet."""
+def _largest_group(ink, join=JOIN, keep=1):
+    """Boolean mask, at pixel size, of the `keep` biggest groups of ink on the sheet."""
     h, w = ink.shape
     gh, gw = h // BLOCK, w // BLOCK
     cells = ink[:gh * BLOCK, :gw * BLOCK].reshape(gh, BLOCK, gw, BLOCK)
@@ -82,7 +96,7 @@ def _largest_group(ink, join=JOIN):
             near |= padded[dy:dy + gh, dx:dx + gw]
 
     label = np.zeros(near.shape, dtype=np.int32)
-    best, best_weight, count = 0, -1, 0
+    weights, count = {}, 0
     for sy, sx in zip(*np.nonzero(near)):
         if label[sy, sx]:
             continue
@@ -96,26 +110,26 @@ def _largest_group(ink, join=JOIN):
                 if 0 <= ny < gh and 0 <= nx < gw and near[ny, nx] and not label[ny, nx]:
                     label[ny, nx] = count
                     queue.append((ny, nx))
-        if total > best_weight:
-            best, best_weight = count, total
+        weights[count] = total
 
-    keep = np.repeat(np.repeat(label == best, BLOCK, axis=0), BLOCK, axis=1)
+    chosen = sorted(weights, key=weights.get, reverse=True)[:keep]
+    mask = np.repeat(np.repeat(np.isin(label, chosen), BLOCK, axis=0), BLOCK, axis=1)
     full = np.zeros((h, w), dtype=bool)
-    full[:keep.shape[0], :keep.shape[1]] = keep
+    full[:mask.shape[0], :mask.shape[1]] = mask
     return full
 
 
-def cut(sheet_path, out_path, label, join=JOIN, blank=()):
+def cut(sheet_path, out_path, label, join=JOIN, blank=(), frame=FRAME, keep=1):
     sheet = Image.open(sheet_path).convert('RGB')
     s = sheet.width / DISPLAY_W
     pixels = np.asarray(sheet)
     ink = pixels.min(axis=2) < INK
     # `blank` is for a sheet where a table sits so close to the drawing that no grouping
     # distance separates them (the 3-bedroom villa E, ground floor); display coordinates.
-    for zx0, zy0, zx1, zy1 in list(FRAME) + list(blank):
+    for zx0, zy0, zx1, zy1 in list(frame) + list(blank):
         ink[round(zy0 * s):round(zy1 * s), round(zx0 * s):round(zx1 * s)] = False
 
-    group = _largest_group(ink, join)
+    group = _largest_group(ink, join, keep)
     mine = ink & group
     ys, xs = np.nonzero(mine)
     if not len(ys):
@@ -131,7 +145,7 @@ def cut(sheet_path, out_path, label, join=JOIN, blank=()):
     # The group is grown to join the drawing's parts, so it can reach a few blocks into a
     # frame zone beside the drawing. Whatever the zone holds is the logo, the wordmark or
     # the footer, never the drawing: white it, so nothing branded survives by proximity.
-    for zx0, zy0, zx1, zy1 in list(FRAME) + list(blank):    # not x0..y1: those hold the crop
+    for zx0, zy0, zx1, zy1 in list(frame) + list(blank):    # not x0..y1: those hold the crop
         out[round(zy0 * s):round(zy1 * s), round(zx0 * s):round(zx1 * s)] = 255
     drawing = Image.fromarray(out[y0:y1, x0:x1])
 
