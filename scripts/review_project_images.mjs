@@ -18,6 +18,7 @@
 // while you look.
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import {
   imageHash, readManifest, writeManifest, projectImagePaths,
 } from './lib/image_review.mjs';
@@ -72,6 +73,18 @@ for (const current of slugs) {
     console.log(`\n${current} — ${unreviewed.length} image(s) not yet reviewed`);
     if (names.length) console.log(`  watch for: ${names.join(', ')}`);
     for (const { rel } of unreviewed) console.log(`  ${rel}`);
+  }
+
+  // The pixel half of the anonymisation guard: read the text printed inside the images and refuse to
+  // record a review while a real name is legible. Skips itself where the OCR package is not installed.
+  if (confirm && names.length) {
+    const run = spawnSync('python3', ['tools/ocr_names.py', ...names, '--', ...unreviewed.map((u) => u.rel)], { cwd: root, encoding: 'utf8' });
+    if (run.stderr?.trim()) console.error(run.stderr.trim());
+    if (run.status === 3) {
+      console.error(`\n${current}: text that looks like a real name is printed inside these images, so nothing was recorded:`);
+      console.error(run.stdout.trim().split('\n').map((l) => `  ${l}`).join('\n'));
+      process.exit(1);
+    }
   }
 
   if (confirm || seed) {

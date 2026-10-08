@@ -84,6 +84,13 @@ node scripts/review_project_images.mjs --project=<slug> --confirm  # after looki
 Images are keyed by the hash of their bytes, so replacing or re-cropping a file
 drops it out of the manifest and it has to be looked at again.
 
+`--confirm` also reads the text printed inside the images (`tools/ocr_names.py`, needs
+`pip3 install rapidocr-onnxruntime`) and refuses to record anything while the project's real
+name is legible. It exists because a scan in October 2026 found Helvet Green, Capri, Solenne
+and Evoque on signs and overlays in 13 live images that had all been reviewed by eye. It
+catches printed text, not a logo drawn without letters. Where the package is not installed it
+skips itself, so Netlify is unaffected.
+
 ## Locale conventions — derive them, never guess
 
 Take the format from the value already in that locale and substitute into it. Guessing
