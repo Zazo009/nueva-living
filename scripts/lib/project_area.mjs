@@ -27,12 +27,13 @@ export const PROJECT_AREA_RULES = [
     match: (text) => text.includes('estepona') || text.includes('new golden mile') },
   { key: 'mijasFuengirola', englishLabel: 'Mijas & Fuengirola', slug: 'mijas-fuengirola', href: 'area-mijas-fuengirola.html',
     match: (text) => text.includes('mijas') || text.includes('fuengirola') },
-  // Benalmadena has no guide of its own and sits between Fuengirola and
-  // Torremolinos, so it borrows the Mijas & Fuengirola page. The label still
-  // names the real town: calling it "Mijas & Fuengirola" put a factual error
-  // in the title tag, the breadcrumb and the schema.
-  { key: 'benalmadena', englishLabel: 'Benalmadena', slug: 'mijas-fuengirola', href: 'area-mijas-fuengirola.html',
+  // Benalmadena and Torremolinos each have a guide of their own. The label
+  // names the real town so the title tag, the breadcrumb and the schema never
+  // call a Benalmadena development "Mijas & Fuengirola".
+  { key: 'benalmadena', englishLabel: 'Benalmadena', slug: 'benalmadena', href: 'area-benalmadena.html',
     match: (text) => text.includes('benalmad') },
+  { key: 'torremolinos', englishLabel: 'Torremolinos', slug: 'torremolinos', href: 'area-torremolinos.html',
+    match: (text) => text.includes('torremolin') },
   { key: 'casares', englishLabel: 'Casares', slug: 'casares', href: 'area-casares.html',
     match: (text) => text.includes('casares') },
   { key: 'sanPedroAlcantara', englishLabel: 'San Pedro de Alcantara', slug: 'san-pedro-alcantara', href: 'area-san-pedro-alcantara.html',

@@ -415,7 +415,9 @@ function areasMenuItems(locale) {
     [t('area.benahavis', locale), localizedPath('area-benahavis.html', locale)],
     [t('area.estepona', locale), localizedPath('area-estepona.html', locale)],
     [t('area.casares', locale), localizedPath('area-casares.html', locale)],
-    [t('area.mijasFuengirola', locale), localizedPath('area-mijas-fuengirola.html', locale)]
+    [t('area.mijasFuengirola', locale), localizedPath('area-mijas-fuengirola.html', locale)],
+    [t('area.benalmadena', locale), localizedPath('area-benalmadena.html', locale)],
+    [t('area.torremolinos', locale), localizedPath('area-torremolinos.html', locale)]
   ];
 }
 

@@ -3995,7 +3995,7 @@ let titleCaseChecked = 0;
 // else, so this read as machine output in exactly the languages the site is
 // trying to sound native in. German is exempt: it capitalises every noun.
 {
-  const PROPER = /^(Nueva|Living|Costa|del|Sol|Marbell[a-zę]*|Estepon\S*|Elvir\S*|Cancelada|New|Golden|Mile|Signature|Iconic|Sky|Villa|Park|West|East|Oost|Oeste|Ouest|Est|Vest|V[aä]st|Wschód|Zachód|Benah[aá]v[ií]s|M[aá]laga|Andaluc[ií]a|Andalousie|Mijas|Fuengirol[aęy]*|Ban[uú]s|Puerto|Golf|Valley|Sotogrande|Casares|San|Pedro|Alc[aá]ntara|Guadalmina|Guadaiza|Espa[nñ]a|Espagne|Spanje|Spani\w*|Hiszpani\w*|Andaluz\w*|Andalusi\w*|Andalousie|Sasan[a]?|Raftari(ego)?|Sami(ego)?|Altun[a]?|IVA|AJD|ITP|NIE|LOE|Ley)$/;
+  const PROPER = /^(Nueva|Living|Costa|del|Sol|Marbell[a-zę]*|Estepon\S*|Elvir\S*|Cancelada|New|Golden|Mile|Signature|Iconic|Sky|Villa|Park|West|East|Oost|Oeste|Ouest|Est|Vest|V[aä]st|Wschód|Zachód|Benah[aá]v[ií]s|M[aá]laga|Andaluc[ií]a|Andalousie|Mijas|Fuengirol[aęy]*|Ban[uú]s|Puerto|Golf|Valley|Sotogrande|Casares|Benalm[aá]den[aeę]*|Torremolinos|San|Pedro|Alc[aá]ntara|Guadalmina|Guadaiza|Espa[nñ]a|Espagne|Spanje|Spani\w*|Hiszpani\w*|Andaluz\w*|Andalusi\w*|Andalousie|Sasan[a]?|Raftari(ego)?|Sami(ego)?|Altun[a]?|IVA|AJD|ITP|NIE|LOE|Ley)$/;
   const CASED = ['es', 'fr', 'nl', 'pl', 'sv', 'no'];
   const offenders = [];
   // Only entries whose English source is itself Title Case -- a heading or a
@@ -4807,7 +4807,7 @@ let areaProjectsChecked = 0;
   const AREA_OF = { marbella: 'marbella', marbellaEast: 'marbella', marbellaCentre: 'marbella',
     goldenMile: 'marbella', sanPedro: 'san-pedro-alcantara', estepona: 'estepona', newGoldenMile: 'estepona',
     casares: 'casares', benahavis: 'benahavis', nuevaAndalucia: 'nueva-andalucia',
-    mijasFuengirola: 'mijas-fuengirola' };
+    mijasFuengirola: 'mijas-fuengirola', benalmadena: 'benalmadena' };
   const areasFile = path.join(root, 'content/nueva-areas.json');
   const projectsDir = path.join(root, 'content', 'liora-projects');
   if (fs.existsSync(areasFile) && fs.existsSync(projectsDir)) {
