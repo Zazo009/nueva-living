@@ -39,7 +39,9 @@ function toNumber(value) {
 // 14 projects carry them. Pull the numbers out and keep the range.
 function sizeRange(project) {
   const sizes = (project.availability?.units || [])
-    .map((unit) => parseFloat(String(unit.size ?? '').replace(/[^\d.,]/g, '').replace(',', '.')))
+    // The first number only: "656 sqm built / 795 sqm plot" is a built area and a plot,
+    // and stripping everything but digits used to join them into 656795.
+    .map((unit) => parseFloat((String(unit.size ?? '').match(/\d[\d.,]*/) || [''])[0].replace(',', '.')))
     .filter((value) => Number.isFinite(value) && value > 0);
   if (!sizes.length) return '';
   const min = Math.round(Math.min(...sizes));
