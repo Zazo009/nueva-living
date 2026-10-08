@@ -70,6 +70,17 @@ FRAME_HBR = [
     (1450, 1270, 2000, 1414),  # the date rides higher than the rest of the foot
 ]
 
+# Marine Hills sheets (three print sizes, one layout): the developer's wordmark top left, its logo top
+# right, a site map with block names below the wordmark, and the foot. The room-area table sits
+# either under the map (TABLE_LEFT) or above a ground-floor drawing (TABLE_TOP); the colour ranking
+# above removes it either way, the zone only covers the case where it touches the drawing.
+FRAME_MH = [
+    (0, 0, 2000, 30), (0, 0, 30, 1414), (1968, 0, 2000, 1414),
+    (40, 35, 385, 215), (1650, 35, 1970, 200), (40, 215, 468, 640),
+    (0, 1262, 2000, 1414),
+]
+TABLE_LEFT = (40, 640, 545, 1262)
+
 
 def _font(size):
     for path in ('/System/Library/Fonts/Helvetica.ttc', '/Library/Fonts/Arial.ttf',
@@ -119,7 +130,47 @@ def _largest_group(ink, join=JOIN, keep=1):
     return full
 
 
-def cut(sheet_path, out_path, label, join=JOIN, blank=(), frame=FRAME, keep=1):
+def _colour_groups(ink, colour, join=JOIN, share=0.12):
+    """Mask of every group of ink whose coloured ink is at least `share` of the best group's.
+
+    A room-area table is black on white and grey: it can sit so close to a drawing that no grouping
+    distance separates them, but it carries no colour, so ranking by colour drops it (and the site
+    map, and a caption) while keeping both halves of a drawing that is printed as two plans."""
+    h, w = ink.shape
+    gh, gw = h // BLOCK, w // BLOCK
+    cell = lambda a: a[:gh * BLOCK, :gw * BLOCK].reshape(gh, BLOCK, gw, BLOCK).sum(axis=(1, 3))
+    grid = cell(ink) > 0
+    col_weight = cell(colour)
+    near = np.zeros_like(grid)
+    padded = np.pad(grid, join)
+    for dy in range(2 * join + 1):
+        for dx in range(2 * join + 1):
+            near |= padded[dy:dy + gh, dx:dx + gw]
+    label = np.zeros(near.shape, dtype=np.int32)
+    weights, count = {}, 0
+    for sy, sx in zip(*np.nonzero(near)):
+        if label[sy, sx]:
+            continue
+        count += 1
+        total, queue = 0, deque([(sy, sx)])
+        label[sy, sx] = count
+        while queue:
+            y, x = queue.popleft()
+            total += col_weight[y, x]
+            for ny, nx in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
+                if 0 <= ny < gh and 0 <= nx < gw and near[ny, nx] and not label[ny, nx]:
+                    label[ny, nx] = count
+                    queue.append((ny, nx))
+        weights[count] = total
+    best = max(weights.values())
+    chosen = [g for g, v in weights.items() if v >= share * best and v > 0]
+    mask = np.repeat(np.repeat(np.isin(label, chosen), BLOCK, axis=0), BLOCK, axis=1)
+    full = np.zeros((h, w), dtype=bool)
+    full[:mask.shape[0], :mask.shape[1]] = mask
+    return full
+
+
+def cut(sheet_path, out_path, label, join=JOIN, blank=(), frame=FRAME, keep=1, by_colour=False):
     sheet = Image.open(sheet_path).convert('RGB')
     s = sheet.width / DISPLAY_W
     pixels = np.asarray(sheet)
@@ -129,7 +180,14 @@ def cut(sheet_path, out_path, label, join=JOIN, blank=(), frame=FRAME, keep=1):
     for zx0, zy0, zx1, zy1 in list(frame) + list(blank):
         ink[round(zy0 * s):round(zy1 * s), round(zx0 * s):round(zx1 * s)] = False
 
-    group = _largest_group(ink, join, keep)
+    if by_colour:
+        pix = pixels.astype(int)
+        colour = (pix.max(axis=2) - pix.min(axis=2)) > 30
+        for zx0, zy0, zx1, zy1 in list(frame) + list(blank):
+            colour[round(zy0 * s):round(zy1 * s), round(zx0 * s):round(zx1 * s)] = False
+        group = _colour_groups(ink, colour & ink, join)
+    else:
+        group = _largest_group(ink, join, keep)
     mine = ink & group
     ys, xs = np.nonzero(mine)
     if not len(ys):
