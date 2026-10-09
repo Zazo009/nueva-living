@@ -87,6 +87,8 @@ export const ADDRESS = {
 
 const IDENTITY = {
   name: 'Nueva Living',
+  // The domain spelled as a word; see webSiteSchema.
+  alternateName: 'NuevaLiving',
   legalName: 'LIORA LIVING SL.',
   taxID: 'B88827472',
   email: 'contact@nuevaliving.com',
@@ -250,6 +252,11 @@ export function webSiteSchema(siteUrl) {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: IDENTITY.name,
+    // Google's site-name feature reads `alternateName` from the WebSite node.
+    // People type the brand as the domain, one word, and the one-word query
+    // is the one a Madrid firm one letter away wins: "nuevaliving" has to be a
+    // name this site claims for itself, not something Google infers.
+    alternateName: ['NuevaLiving', 'nuevaliving.com'],
     url: `${siteUrl}/`,
     publisher: { '@type': 'Organization', name: IDENTITY.name, url: siteUrl }
   };
