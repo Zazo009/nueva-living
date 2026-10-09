@@ -26,7 +26,7 @@ If it is useful, here is what we would offer: {one line}.
 
 Either way, thank you for reading.
 
-Sasan Raftari · Nueva Living · Av. del Prado 71, 29660 Marbella · +34 645 44 66 24
+Sasan Raftari · Nueva Living · Calle Las Torres (Aloha Gardens), 29660 Marbella · +34 645 44 66 24
 ```
 
 ## sv
@@ -46,7 +46,7 @@ Om det är till nytta är det här vad vi erbjuder: {en rad}.
 
 Tack för att ni läste, oavsett.
 
-Sasan Raftari · Nueva Living · Av. del Prado 71, 29660 Marbella · +34 645 44 66 24
+Sasan Raftari · Nueva Living · Calle Las Torres (Aloha Gardens), 29660 Marbella · +34 645 44 66 24
 ```
 
 ## es
@@ -66,5 +66,5 @@ Por si resulta útil, esto es lo que ofrecemos: {una línea}.
 
 Gracias por leernos en cualquier caso.
 
-Sasan Raftari · Nueva Living · Av. del Prado 71, 29660 Marbella · +34 645 44 66 24
+Sasan Raftari · Nueva Living · Calle Las Torres (Aloha Gardens), 29660 Marbella · +34 645 44 66 24
 ```

@@ -74,11 +74,11 @@ export const OPENING_HOURS = [
 export const ADDRESS = {
   '@type': 'PostalAddress',
   // Matched word for word to the Google Business Profile, which reads
-  // "Av. del Prado, 71, Nueva Andalucía, 29660 Marbella, Málaga". The district
+  // "Calle Las Torres (Aloha Gardens), Nueva Andalucía, 29660 Marbella". The district
   // was missing here, and NAP consistency across the profile, the schema and
   // any directory listing is what lets Google treat them as one business
   // rather than two similar ones -- the whole point of the brand-SERP work.
-  streetAddress: 'Avenida del Prado 71, Nueva Andalucía',
+  streetAddress: 'Calle Las Torres (Aloha Gardens), Nueva Andalucía',
   postalCode: '29660',
   addressLocality: 'Marbella',
   addressRegion: 'Málaga',

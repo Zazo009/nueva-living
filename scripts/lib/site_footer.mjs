@@ -32,8 +32,8 @@ export const FOOTER_CONTACT = {
   email: 'contact@nuevaliving.com',
   phone: '+34 645 44 66 24',
   phoneHref: 'tel:+34645446624',
-  address: 'Avenida del Prado 71, 29660 Marbella',
-  addressHref: 'https://maps.google.com/?q=Avenida+del+Prado+71,+29660+Marbella,+M%C3%A1laga,+Spain',
+  address: 'Calle Las Torres (Aloha Gardens), 29660 Marbella',
+  addressHref: 'https://maps.google.com/?q=Calle+Las+Torres+(Aloha+Gardens),+29660+Marbella,+M%C3%A1laga,+Spain',
 };
 
 // Every link in the footer, in order, as [path, translation key]. Kept as data
