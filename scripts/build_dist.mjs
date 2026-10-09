@@ -2102,6 +2102,17 @@ const legacyRedirects = [
   '/pl/property-altos-de-marbella.html /pl/property-benahavis-ridge-residences.html 301',
   '/ru/property-altos-de-marbella.html /ru/property-benahavis-ridge-residences.html 301',
   '/sv/property-altos-de-marbella.html /sv/property-benahavis-ridge-residences.html 301',
+  // Three placeholder projects from the first build, removed when only real
+  // developments were kept. Google still holds them as 404s; a 410 says they
+  // are gone on purpose, which it drops from the index faster than a 404.
+  // They are not redirected to a development: nothing replaced them, and a
+  // redirect to an unrelated page is read as a soft 404 anyway.
+  '/property-benahavis-view-villas.html /404.html 410',
+  '/property-golden-coast-residences.html /404.html 410',
+  '/property-nueva-andalucia-suites.html /404.html 410',
+  '/property-benahavis-view-villas /404.html 410',
+  '/property-golden-coast-residences /404.html 410',
+  '/property-nueva-andalucia-suites /404.html 410',
 ];
 
 
