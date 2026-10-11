@@ -944,7 +944,19 @@ function renderUnitCard(unit, project, locale) {
   // keeps the English reference, so lead data stays comparable.
   const reference = esc(localizedUnitFloor(unit.reference, locale));
 
-  const media = thumb
+  // A home built over several levels (La Concha View Villa) carries one plan per
+  // level in `floorplans: [{ src, floor }]`; `floorplan` stays the first, for the
+  // table and the guards. Each plan is labelled with its level, in the locale.
+  const levelPlans = (unit.floorplans || []).filter((plan) => floorplanThumb(plan.src));
+  const media = levelPlans.length > 1
+    ? `<div class="unit-card-plans">${levelPlans.map((plan) => {
+      const level = esc(localizedUnitFloor(plan.floor, locale));
+      return `<a class="unit-card-plan" href="${esc(plan.src)}" target="_blank" rel="noopener" aria-label="${t('availability.floorplanOf', locale, { reference: level })}">
+                  ${responsiveThumb(floorplanThumb(plan.src), t('availability.floorplanOf', locale, { reference: level }))}
+                  <span class="unit-card-plan-hint">${level}</span>
+                </a>`;
+    }).join('')}</div>`
+    : thumb
     ? `<a class="unit-card-plan" href="${esc(unit.floorplan)}" target="_blank" rel="noopener" aria-label="${t('availability.floorplanOf', locale, { reference })}">
                   ${responsiveThumb(thumb, t('availability.floorplanOf', locale, { reference }))}
                   <span class="unit-card-plan-hint">${t('availability.viewFloorplan', locale)}</span>
@@ -2650,7 +2662,7 @@ function assertOverlaysAreNotEnglish(projects) {
       const overlay = project.i18n?.[locale];
       if (!overlay) continue;
       walkPair(base, overlay, null, (source, translated, path) => {
-        if (path.endsWith('.src') || path.endsWith('.href') || path.endsWith('.floorplan')) return;
+        if (path.endsWith('.src') || path.endsWith('.href') || path.endsWith('.floorplan') || path.includes('.floorplans')) return; // levels are translated at render time
         if (survivingWordRatio(source, translated) < 0.8) return;
         english.push(`  [${locale}] ${project.slug}${path}: "${translated.slice(0, 58)}…"`);
       });
