@@ -32,6 +32,8 @@ export const FLOOR_PARTS = {
   // Evoque's ground level mixes homes with a private garden and homes with
   // a large terrace in its place, and the price list names them apart.
   'terrace level': { es: 'Planta terraza', fr: 'Niveau terrasse', de: 'Terrassenebene', ru: 'Террасный уровень', ar: 'مستوى التراس', nl: 'Terrasniveau', pl: 'Poziom tarasowy', sv: 'Terrassplan', no: 'Terrasseplan' },
+  'living level': { es: 'Planta salón', fr: 'Niveau séjour', de: 'Wohnebene', ru: 'Жилой уровень', ar: 'مستوى المعيشة', nl: 'Woonniveau', pl: 'Poziom dzienny', sv: 'Vardagsplan', no: 'Stueplan' },
+  'bedroom level': { es: 'Planta dormitorios', fr: 'Niveau chambres', de: 'Schlafebene', ru: 'Спальный уровень', ar: 'مستوى غرف النوم', nl: 'Slaapniveau', pl: 'Poziom sypialni', sv: 'Sovplan', no: 'Soveplan' },
   'solarium': { es: 'Solárium', fr: 'Solarium', de: 'Solarium', ru: 'Солярий', ar: 'سولاريوم', nl: 'Solarium', pl: 'Solarium', sv: 'Solterrass', no: 'Solterrasse' },
   'duplex': { es: 'Dúplex', fr: 'Duplex', de: 'Maisonette', ru: 'Дуплекс', ar: 'دوبلكس', nl: 'Duplex', pl: 'Dwupoziomowy', sv: 'Etagelägenhet', no: 'Toetasjes leilighet' },
   '1st floor': { es: 'Primera planta', fr: 'Premier étage', de: 'Erstes Obergeschoss', ru: 'Второй этаж', ar: 'الطابق الأول', nl: 'Eerste verdieping', pl: 'Pierwsze piętro', sv: 'Första våningen', no: 'Andre etasje' },
