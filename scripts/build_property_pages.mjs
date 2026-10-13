@@ -1229,6 +1229,17 @@ function normaliseCardList(items = []) {
   return Array.isArray(items) ? items.filter(Boolean).map(String) : [];
 }
 
+// Pin position for the map view. Only a real coordinate pair is emitted: a
+// project without one stays in the list and is simply not drawn, rather than
+// being placed somewhere plausible. Five decimals is about a metre.
+function cardCoordinateAttrs(project) {
+  const site = project.location?.site;
+  if (!Array.isArray(site) || site.length !== 2) return '';
+  const [lat, lng] = site.map(Number);
+  if (!Number.isFinite(lat) || !Number.isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) return '';
+  return ` data-lat="${lat.toFixed(5)}" data-lng="${lng.toFixed(5)}"`;
+}
+
 function discoveryAttr(name, items = []) {
   const value = normaliseCardList(items).join('|');
   return value ? attr(name, value) : '';
@@ -3019,7 +3030,7 @@ function renderProjectCard(project) {
   const priceValue = (meta.find(([label]) => /^from$/i.test(label)) || [])[1]
     || project.hero?.startingPrice?.replace(/^From\s+/i, '')
     || 'On request';
-  const dataAttrs = `${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', normaliseConstructionStatus(crm.constructionStatus))}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}`;
+  const dataAttrs = `${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', normaliseConstructionStatus(crm.constructionStatus))}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}${cardCoordinateAttrs(project)}`;
 
   return '          ' + renderUnifiedCard({
     project,
