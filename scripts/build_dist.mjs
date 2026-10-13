@@ -612,6 +612,16 @@ const assetFiles = [
   'assets/liora/liora-discovery.js',
   'assets/liora/liora-discovery-map.js',
   'assets/liora/liora-discovery-map.css',
+  // The developments map, self-hosted: the libraries it draws with and the
+  // vector archive it reads. The archive is a binary the browser fetches with
+  // HTTP range requests, so it is copied byte for byte -- never listed in a
+  // directory glob that minifies, compresses or runs images through tooling.
+  'assets/liora/vendor/leaflet/leaflet.js',
+  'assets/liora/vendor/leaflet/leaflet.css',
+  'assets/liora/vendor/protomaps-leaflet/protomaps-leaflet.js',
+  'assets/liora/vendor/LICENSES.txt',
+  'assets/liora/vendor/VENDOR.json',
+  'assets/liora/tiles/costa-del-sol.pmtiles',
   'assets/liora/liora-card-gallery.js',
   'assets/liora/liora-conversion.js',
   'assets/liora/nueva-tracking.js',

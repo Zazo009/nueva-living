@@ -116,14 +116,22 @@
   font-family: var(--dm-ui);
 }
 
+/* leaflet.css is added after this file and sets its own grey ground; this
+   keeps the page's cream under tiles that are still being drawn. */
+.dmap-canvas.leaflet-container {
+  background: #e6e0d2;
+  font-family: var(--dm-ui);
+}
+
 .dmap-canvas:focus-visible {
   outline: 2px solid var(--dm-gold);
   outline-offset: -2px;
 }
 
-/* Tiles that never arrive (rate limit, blocked network): a plain ground, so
+/* The base-map archive or its library did not load: a plain ground, so
    the pins and the draw tool still read. */
-.dmap-canvas.has-tile-error {
+.dmap-canvas.has-tile-error,
+.dmap-canvas.leaflet-container.has-tile-error {
   background: linear-gradient(180deg, #d9e4e3 0%, #e6e0d2 60%);
 }
 

@@ -2,8 +2,14 @@
 
    Loaded only when a visitor asks for the map (see "List / Map toggle" in
    liora-discovery.js). Nothing here, and nothing it fetches, is on the wire
-   for a visitor who stays on the list: Leaflet, its stylesheet and the map
-   tiles all start from the first click on "Map".
+   for a visitor who stays on the list: Leaflet, protomaps-leaflet, their
+   stylesheet and the map tiles all start from the first click on "Map".
+
+   Self-hosted end to end. Leaflet and protomaps-leaflet are vendored under
+   assets/liora/vendor/ (versions, licences and hashes in VENDOR.json), and the
+   base map is a vector PMTiles archive of the Costa del Sol under
+   assets/liora/tiles/, read with HTTP range requests and drawn to canvas in
+   the visitor's browser. No tile server, no CDN, no third-party request.
 
    The filtered list stays owned by liora-discovery.js. This file is a second
    renderer of the same result: it reads `bridge.visible` (already filtered,
@@ -14,25 +20,45 @@
 (function () {
   'use strict';
 
-  /* The one place the tile server is named. openstreetmap.org's tile usage
-     policy is meant for light use: a busy developments page can exceed it, and
-     a commercial provider (with a key) is an owner decision. Switching is this
-     constant, the attribution below, and nothing else. */
-  var TILE_URL = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-  var ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+  /* The one place the tile source is named: a vector archive served from this
+     site. It is replaced by rebuilding the archive (see assets/liora/vendor/
+     VENDOR.json for how this one was made), never by pointing at someone
+     else's server; the audit fails if a third-party host appears in this file. */
+  var script = document.currentScript;
+  var BASE = new URL(script && script.src ? script.src : '/assets/liora/liora-discovery-map.js', document.baseURI);
+  var TILES_URL = new URL('tiles/costa-del-sol.pmtiles', BASE).href;
+  var ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    + ' &middot; <a href="https://protomaps.com">Protomaps</a>';
 
-  /* Same Leaflet, same SRI hashes as the project-page maps
-     (scripts/lib/location_map.mjs). The audit compares the two. */
+  /* Vendored libraries. The hashes are checked by the browser (same-origin
+     SRI) and by the audit against VENDOR.json and the files themselves, so a
+     file edited by hand stops loading rather than quietly drifting. */
   var LEAFLET_VERSION = '1.9.4';
   var LEAFLET_CSS_SRI = 'sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H';
   var LEAFLET_JS_SRI = 'sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH';
-  var LEAFLET_BASE = 'https://unpkg.com/leaflet@' + LEAFLET_VERSION + '/dist/';
+  var PROTOMAPS_VERSION = '5.1.0';
+  var PROTOMAPS_JS_SRI = 'sha384-pAKrddYWxjFAIJwatOtmmtq9ebz3ZwluHCEg3pqOMpOporUofLqz/l5hs+0LAWaH';
+  var LEAFLET_CSS_URL = new URL('vendor/leaflet/leaflet.css', BASE).href;
+  var LEAFLET_JS_URL = new URL('vendor/leaflet/leaflet.js', BASE).href;
+  var PROTOMAPS_JS_URL = new URL('vendor/protomaps-leaflet/protomaps-leaflet.js', BASE).href;
 
   /* Two pins closer than this (in screen pixels) would overlap, so they merge
      into a count bubble. A price pin is about 72 x 32. */
   var CLUSTER_DX = 78;
   var CLUSTER_DY = 46;
-  var MAX_ZOOM = 18;
+  /* The archive holds zoom 0-14. protomaps-leaflet draws a data tile at two
+     display zoom levels (it renders the 512px data tile into 256px tiles), so
+     15 is native detail, and 16 is one clean 2x vector enlargement: lines and
+     labels stay sharp, there is just no further detail to show. */
+  var MAX_ZOOM = 16;
+  var MIN_ZOOM = 8;
+  var DATA_MAX_ZOOM = 14;
+  /* The archive's bounding box (south-west, north-east). Outside it there is
+     no data, and a tile that straddles the edge would be painted as open sea,
+     so everything outside it is covered by a plain ground (see the cover
+     below). The view is not clamped to the box: on a phone the canvas is taller
+     than the coast, and a clamp would fight the fit that frames the pins. */
+  var BOUNDS = [[36.00, -5.75], [37.15, -3.80]];
   var FALLBACK_VIEW = [36.5, -4.95];
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -64,27 +90,198 @@
     arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>'
   };
 
-  function loadLeaflet() {
-    if (window.L && window.L.map) return Promise.resolve();
+  function loadStyle(href, integrity) {
     return new Promise(function (resolve, reject) {
       var css = el('link');
       css.rel = 'stylesheet';
-      css.href = LEAFLET_BASE + 'leaflet.css';
-      css.integrity = LEAFLET_CSS_SRI;
+      css.href = href;
+      css.integrity = integrity;
       css.crossOrigin = 'anonymous';
+      css.onload = resolve;
+      css.onerror = function () { reject(new Error('Map stylesheet failed to load')); };
       document.head.appendChild(css);
-      var script = el('script');
-      script.src = LEAFLET_BASE + 'leaflet.js';
-      script.integrity = LEAFLET_JS_SRI;
-      script.crossOrigin = 'anonymous';
-      script.onload = resolve;
-      script.onerror = function () { reject(new Error('Leaflet failed to load')); };
-      document.head.appendChild(script);
     });
   }
 
+  function loadScript(src, integrity) {
+    return new Promise(function (resolve, reject) {
+      var tag = el('script');
+      tag.src = src;
+      tag.integrity = integrity;
+      tag.crossOrigin = 'anonymous';
+      tag.onload = resolve;
+      tag.onerror = function () { reject(new Error('Map library failed to load: ' + src)); };
+      document.head.appendChild(tag);
+    });
+  }
+
+  /* Leaflet is required: without it there is no map and the visitor stays on
+     the list. protomaps-leaflet only draws the ground; if it fails the pins
+     still work on a plain ground, so its failure is swallowed. */
+  function loadLibraries() {
+    var leaflet = (window.L && window.L.map)
+      ? Promise.resolve()
+      : Promise.all([loadStyle(LEAFLET_CSS_URL, LEAFLET_CSS_SRI), loadScript(LEAFLET_JS_URL, LEAFLET_JS_SRI)]);
+    return leaflet.then(function () {
+      if (window.protomapsL) return null;
+      return loadScript(PROTOMAPS_JS_URL, PROTOMAPS_JS_SRI).catch(function () { return null; });
+    });
+  }
+
+  /* ---- Base map style ------------------------------------------------------
+
+     Drawn from the site palette (cream ground #f7f3ec, the card rule and gold
+     tones), not a stock theme: land is the page's own cream, the sea a soft
+     blue-grey, roads are tan hairlines that only appear where they help, and
+     the only labels are towns and the sea. No points of interest, no shops,
+     no transit, no borders: the price pins are the content. */
+
+  var PALETTE = {
+    water: '#c8dbe0',
+    earth: '#f7f3ec',
+    beach: '#f3ead6',
+    green: '#eceedf',
+    greenDeep: '#e6e9d6',
+    built: '#ece5d8',
+    roadMinor: '#e8dfce',
+    roadMajor: '#dccfb6',
+    roadHighway: '#cdbc9a',
+    placeLabel: '#5a4e3d',
+    placeHalo: '#f7f3ec',
+    seaLabel: '#7b97a4'
+  };
+
+  function ramp(stops) {
+    return function (z) {
+      if (z <= stops[0][0]) return stops[0][1];
+      for (var i = 1; i < stops.length; i += 1) {
+        if (z <= stops[i][0]) {
+          var a = stops[i - 1];
+          var b = stops[i];
+          return a[1] + (b[1] - a[1]) * ((z - a[0]) / (b[0] - a[0]));
+        }
+      }
+      return stops[stops.length - 1][1];
+    };
+  }
+
+  function basemapRules(P, lang) {
+    var flavor = {
+      background: PALETTE.water, earth: PALETTE.earth, water: PALETTE.water,
+      park_a: PALETTE.green, park_b: PALETTE.green, wood_a: PALETTE.greenDeep, wood_b: PALETTE.greenDeep,
+      scrub_a: PALETTE.green, scrub_b: PALETTE.green,
+      hospital: PALETTE.earth, industrial: PALETTE.built, school: PALETTE.earth, zoo: PALETTE.green,
+      beach: PALETTE.beach, sand: PALETTE.beach, glacier: PALETTE.earth, aerodrome: PALETTE.built,
+      pedestrian: PALETTE.earth, pier: PALETTE.built, runway: PALETTE.built,
+      buildings: PALETTE.built, major: PALETTE.roadMajor,
+      landcover: {
+        grassland: PALETTE.green, barren: PALETTE.earth, urban_area: PALETTE.earth,
+        farmland: PALETTE.earth, glacier: PALETTE.earth, scrub: PALETTE.green, forest: PALETTE.greenDeep
+      }
+    };
+    function road(kinds, color, stops) {
+      return {
+        dataLayer: 'roads',
+        symbolizer: new P.LineSymbolizer({ color: color, width: ramp(stops), lineCap: 'round', lineJoin: 'round' }),
+        filter: function (z, f) { return kinds.indexOf(f.props.kind) >= 0; }
+      };
+    }
+    /* Landuse, water and buildings come from the library's own rules in the
+       palette above; roads and boundaries are replaced by the hairlines below. */
+    var paint = P.paintRules(flavor).filter(function (rule) {
+      return rule.dataLayer !== 'roads' && rule.dataLayer !== 'boundaries';
+    });
+    paint.push(road(['other', 'path'], PALETTE.roadMinor, [[14, 0], [15, 0.4], [16, 0.8]]));
+    paint.push(road(['minor_road'], PALETTE.roadMinor, [[12, 0], [13, 0.4], [14, 0.8], [16, 2]]));
+    paint.push(road(['major_road'], PALETTE.roadMajor, [[8, 0], [10, 0.4], [12, 0.7], [14, 1.4], [16, 3]]));
+    paint.push(road(['highway'], PALETTE.roadHighway, [[7, 0], [8, 0.5], [11, 0.9], [14, 2], [16, 4]]));
+
+    var family = '"Montserrat", Arial, sans-serif';
+    var names = ['name:' + lang, 'name'];
+    var labels = [
+      {
+        dataLayer: 'water',
+        symbolizer: new P.CenteredTextSymbolizer({
+          labelProps: names, fill: PALETTE.seaLabel, fontFamily: family, fontStyle: 'italic', fontWeight: 400,
+          fontSize: ramp([[8, 11], [12, 13]]), letterSpacing: 2, lineHeight: 1.5
+        }),
+        filter: function (z, f) {
+          return f.geomType === P.GeomType.Point && ['sea', 'ocean', 'bay', 'strait'].indexOf(f.props.kind) >= 0;
+        }
+      },
+      {
+        dataLayer: 'places',
+        minzoom: 9,
+        symbolizer: new P.CenteredTextSymbolizer({
+          labelProps: names, fill: PALETTE.placeLabel, stroke: PALETTE.placeHalo, width: 2.5,
+          fontFamily: family, fontWeight: 500, lineHeight: 1.4,
+          fontSize: function (z, f) {
+            var detail = f && f.props.kind_detail;
+            return detail === 'city' ? 15 : (detail === 'town' ? 13.5 : (detail === 'village' ? 12 : 11));
+          }
+        }),
+        sort: function (a, b) { return (a.min_zoom || 0) - (b.min_zoom || 0); },
+        /* Towns from the start, villages once the visitor is in close, hamlets
+           only at street level: the map stays quiet until it is asked more. */
+        filter: function (z, f) {
+          if (f.props.kind !== 'locality') return false;
+          var detail = f.props.kind_detail;
+          if (detail === 'city' || detail === 'town') return true;
+          return detail === 'village' ? z >= 11 : z >= 13;
+        }
+      },
+      {
+        dataLayer: 'places',
+        maxzoom: 8,
+        symbolizer: new P.GroupSymbolizer([
+          new P.CircleSymbolizer({ radius: 2, fill: PALETTE.placeLabel, stroke: PALETTE.placeHalo, width: 1.5 }),
+          new P.OffsetTextSymbolizer({
+            labelProps: names, fill: PALETTE.placeLabel, stroke: PALETTE.placeHalo, width: 2.5,
+            fontFamily: family, fontWeight: 500, fontSize: 12, offsetX: 6, offsetY: 4.5
+          })
+        ]),
+        filter: function (z, f) { return f.props.kind === 'locality' && (f.props.kind_detail === 'city' || f.props.kind_detail === 'town'); }
+      }
+    ];
+    return { paint: paint, label: labels, background: PALETTE.water };
+  }
+
+  /* The base map. Resolves to the layer once the archive's header has been
+     read, or to null when the archive or the library is unavailable. The
+     header is read through the same PMTiles instance the layer then uses, so
+     the probe costs no extra request. */
+  function createBasemap() {
+    var P = window.protomapsL;
+    if (!P || !P.leafletLayer || !P.PmtilesSource) return Promise.resolve(null);
+    var lang = (document.documentElement.lang || 'en').toLowerCase().split('-')[0];
+    var source;
+    var rules;
+    try {
+      source = new P.PmtilesSource(TILES_URL, false);
+      rules = basemapRules(P, lang);
+    } catch (error) {
+      return Promise.resolve(null);
+    }
+    var fonts = document.fonts && document.fonts.load
+      ? [document.fonts.load('500 12px Montserrat'), document.fonts.load('italic 400 12px Montserrat')]
+      : [];
+    return source.p.getHeader().then(function () {
+      return P.leafletLayer({
+        url: source.p,
+        paintRules: rules.paint,
+        labelRules: rules.label,
+        backgroundColor: rules.background,
+        lang: lang,
+        maxDataZoom: DATA_MAX_ZOOM,
+        attribution: ATTRIBUTION,
+        tasks: fonts,
+        bounds: BOUNDS
+      });
+    }, function () { return null; });
+  }
+
   function init(bridge) {
-    return loadLeaflet().then(function () { return build(bridge); });
+    return loadLibraries().then(function () { return build(bridge); });
   }
 
   function build(bridge) {
@@ -188,7 +385,7 @@
     var map = L.map(canvas, {
       zoomControl: false,
       attributionControl: true,
-      minZoom: 7,
+      minZoom: MIN_ZOOM,
       maxZoom: MAX_ZOOM,
       zoomSnap: 1,
       /* Without this, tiles can stay at opacity 0 when fitBounds runs right
@@ -199,22 +396,29 @@
       inertia: animate(),
       scrollWheelZoom: false
     });
-    map.setView(FALLBACK_VIEW, 9, { animate: false });
+    map.setView(FALLBACK_VIEW, 10, { animate: false });
     bridge.map = map; // read by tests and by anything that wants to drive the view
 
-    var tiles = L.tileLayer(TILE_URL, { attribution: ATTRIBUTION, maxZoom: 19 }).addTo(map);
-    var tileErrors = 0;
-    tiles.on('tileerror', function () {
-      /* OSM can refuse tiles (rate limit, blocked network). The pins, the
-         rail and the draw tool work on a plain ground, so say nothing. */
-      tileErrors += 1;
-      canvas.classList.add('has-tile-error');
-    });
-    tiles.on('tileload', function () {
-      if (tileErrors && canvas.classList.contains('has-tile-error')) {
-        tileErrors = 0;
-        canvas.classList.remove('has-tile-error');
-      }
+    /* The ground is added when the archive answers. If it never does (file
+       missing, library blocked, offline) the canvas stays a plain ground: the
+       pins, the rail and the draw tool do not depend on it. */
+    createBasemap().then(function (layer) {
+      if (!layer) { canvas.classList.add('has-tile-error'); return; }
+      layer.addTo(map);
+      /* The ground outside the archive: the page's own cream as a ring around
+         the world with the archive's box cut out, and open sea to the south
+         (the Mediterranean really is there). Under the pins, above the tiles. */
+      map.createPane('nodata');
+      map.getPane('nodata').style.zIndex = 250;
+      map.getPane('nodata').style.pointerEvents = 'none';
+      var cover = function (rings, color) {
+        L.polygon(rings, { pane: 'nodata', stroke: false, fillColor: color, fillOpacity: 1, interactive: false }).addTo(map);
+      };
+      cover([
+        [[-85, -180], [-85, 180], [85, 180], [85, -180]],
+        [BOUNDS[0], [BOUNDS[0][0], BOUNDS[1][1]], BOUNDS[1], [BOUNDS[1][0], BOUNDS[0][1]]]
+      ], PALETTE.earth);
+      cover([[[-85, -180], [-85, 180], [BOUNDS[0][0], 180], [BOUNDS[0][0], -180]]], PALETTE.water);
     });
 
     /* The wheel only zooms the map once it has been used, so scrolling the

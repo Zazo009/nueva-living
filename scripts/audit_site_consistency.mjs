@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import { projectAreaRule, AREA_DISPLAY_NAMES } from './lib/project_area.mjs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import vm from 'node:vm';
 import { pathToFileURL } from 'node:url';
 import { FLOOR_PARTS } from './lib/unit_floor_parts.mjs';
@@ -5432,11 +5433,13 @@ let mapGuardChecked = 0;
 // It is a second renderer of data that lives elsewhere, which is the shape
 // every enumeration here has gone stale in. Each fact below is read from its
 // authority rather than listed a second time:
-//   - Leaflet and its SRI hashes are pinned in scripts/lib/location_map.mjs for
-//     the project pages; the lazy map must load the same bytes, not a newer
-//     copy nobody verified.
-//   - The tile server is named once, so moving to a commercial provider is a
-//     one-line change and the attribution cannot be left behind.
+//   - Leaflet and protomaps-leaflet are vendored (assets/liora/vendor/,
+//     recorded in VENDOR.json) and the base map is a PMTiles archive on this
+//     site, so the map makes no request to any third party. The files, their
+//     hashes, the script's constants and the copies in dist must agree, and
+//     the vendored Leaflet must be byte-identical to the one the project pages
+//     pin from unpkg in scripts/lib/location_map.mjs.
+//   - The tile archive is named once, and the attribution cannot be left behind.
 //   - A pin is only as good as data-lat/data-lng on its card, and those come
 //     from project.json location.site. A project with coordinates and a card
 //     without them would silently vanish from the map; a card with coordinates
@@ -5448,16 +5451,98 @@ let mapGuardChecked = 0;
   const locSource = fs.readFileSync(path.join(root, 'scripts/lib/location_map.mjs'), 'utf8');
   const pinned = (name) => new RegExp(`${name} = '([^']+)'`).exec(locSource)?.[1];
   const inMap = (name) => new RegExp(`var ${name} = '([^']+)'`).exec(mapJs)?.[1];
+  const mapFile = 'assets/liora/liora-discovery-map.js';
+  const sha384 = (file) => `sha384-${createHash('sha384').update(fs.readFileSync(path.join(root, file))).digest('base64')}`;
+
+  // The map is self-hosted: Leaflet and protomaps-leaflet are vendored, the
+  // base map is a PMTiles archive on this site. VENDOR.json is the record of
+  // what was vendored; the map script's constants, the files on disk and the
+  // copies in dist must all agree with it, and with the Leaflet that the
+  // project-page maps load from unpkg (same version, same bytes).
+  const vendor = JSON.parse(fs.readFileSync(path.join(root, 'assets/liora/vendor/VENDOR.json'), 'utf8'));
+  const vendorDir = 'assets/liora/vendor';
+  const sriConstant = {
+    'leaflet/leaflet.js': 'LEAFLET_JS_SRI',
+    'leaflet/leaflet.css': 'LEAFLET_CSS_SRI',
+    'protomaps-leaflet/protomaps-leaflet.js': 'PROTOMAPS_JS_SRI'
+  };
+  for (const [pkg, constPrefix] of [['leaflet', 'LEAFLET'], ['protomaps-leaflet', 'PROTOMAPS']]) {
+    mapGuardChecked += 1;
+    if (inMap(`${constPrefix}_VERSION`) !== vendor[pkg]?.version) {
+      fail(mapFile, `${constPrefix}_VERSION (${inMap(`${constPrefix}_VERSION`)}) is not the version recorded in ${vendorDir}/VENDOR.json (${vendor[pkg]?.version}).`);
+    }
+    for (const [rel, recorded] of Object.entries(vendor[pkg]?.files || {})) {
+      const file = `${vendorDir}/${rel}`;
+      mapGuardChecked += 1;
+      if (!fs.existsSync(path.join(root, file))) {
+        fail(file, 'vendored map file is missing.');
+        continue;
+      }
+      const actual = sha384(file);
+      if (actual !== recorded) fail(file, `hash ${actual} differs from VENDOR.json (${recorded}): the file was edited or replaced without updating the record.`);
+      if (inMap(sriConstant[rel]) !== recorded) fail(mapFile, `${sriConstant[rel]} (${inMap(sriConstant[rel])}) differs from VENDOR.json for ${rel} (${recorded}).`);
+      const built = path.join(dist, file);
+      if (!fs.existsSync(built)) fail(file, 'vendored map file is not in dist (add it to assetFiles in scripts/build_dist.mjs).');
+      else if (sha384(path.relative(root, built)) !== recorded) fail(file, 'the copy in dist differs from the vendored file.');
+    }
+  }
+  // Equivalent of the old "same Leaflet as the project pages" guard: the
+  // project-page maps still load Leaflet from unpkg with these hashes, and the
+  // vendored copy must be byte-identical so both maps behave the same.
   for (const name of ['LEAFLET_VERSION', 'LEAFLET_CSS_SRI', 'LEAFLET_JS_SRI']) {
     mapGuardChecked += 1;
     if (!pinned(name) || inMap(name) !== pinned(name)) {
-      fail('assets/liora/liora-discovery-map.js', `${name} (${inMap(name)}) is not the value pinned in scripts/lib/location_map.mjs (${pinned(name)}).`);
+      fail(mapFile, `${name} (${inMap(name)}) is not the value pinned in scripts/lib/location_map.mjs (${pinned(name)}).`);
     }
   }
+  for (const [rel, file] of [['LICENSES.txt', `${vendorDir}/LICENSES.txt`], ['leaflet LICENSE', `${vendorDir}/leaflet/LICENSE`], ['protomaps-leaflet LICENSE', `${vendorDir}/protomaps-leaflet/LICENSE`]]) {
+    mapGuardChecked += 1;
+    if (!fs.existsSync(path.join(root, file))) fail(file, `${rel} is missing: the BSD licences require the notice to travel with the code.`);
+  }
+
+  // No third party in the developments map. Every absolute URL in the script
+  // must be an attribution link (not fetched) or the SVG namespace; a tile
+  // server, CDN or analytics host fails the audit.
   mapGuardChecked += 1;
-  const tileHosts = mapJs.match(/tile\.[a-z.]+\/\{z\}/g) || [];
-  if (tileHosts.length !== 1) {
-    fail('assets/liora/liora-discovery-map.js', `the tile server must be named in exactly one constant; found ${tileHosts.length}.`);
+  const allowedUrls = ['https://www.openstreetmap.org/copyright', 'https://protomaps.com', 'http://www.w3.org/2000/svg'];
+  for (const [url] of mapJs.matchAll(/https?:\/\/[^\s'")<>]+/g)) {
+    if (!allowedUrls.includes(url)) fail(mapFile, `third-party URL ${url}: the developments map must make no request to any host but this site.`);
+  }
+  // The tile source is named in exactly one constant, and it is a file here.
+  mapGuardChecked += 1;
+  const tileNames = mapJs.match(/\.pmtiles/g) || [];
+  if (tileNames.length !== 1 || !/var TILES_URL = new URL\('tiles\/costa-del-sol\.pmtiles', BASE\)/.test(mapJs)) {
+    fail(mapFile, `the tile archive must be named in exactly one constant (TILES_URL, a path on this site); found ${tileNames.length} mention(s).`);
+  }
+  // Attribution stays visible and correct.
+  mapGuardChecked += 1;
+  const attribution = /var ATTRIBUTION = ([\s\S]*?);\n/.exec(mapJs)?.[1] || '';
+  if (!attribution.includes('https://www.openstreetmap.org/copyright') || !attribution.includes('https://protomaps.com') || !/OpenStreetMap/.test(attribution)) {
+    fail(mapFile, 'ATTRIBUTION must credit OpenStreetMap contributors (linking openstreetmap.org/copyright) and Protomaps (linking protomaps.com).');
+  }
+
+  // The archive exists, is a PMTiles v3 vector file, is copied byte for byte
+  // into dist, and its zoom range is what the script believes it is.
+  const tilesRel = vendor.tiles?.file || 'assets/liora/tiles/costa-del-sol.pmtiles';
+  const tilesSrc = path.join(root, tilesRel);
+  const tilesDist = path.join(dist, tilesRel);
+  mapGuardChecked += 1;
+  if (!fs.existsSync(tilesSrc)) {
+    fail(tilesRel, 'the base-map archive is missing.');
+  } else {
+    const fd = fs.openSync(tilesSrc, 'r');
+    const header = Buffer.alloc(127);
+    fs.readSync(fd, header, 0, 127, 0);
+    fs.closeSync(fd);
+    if (header.toString('latin1', 0, 7) !== 'PMTiles' || header[7] !== 3) fail(tilesRel, 'not a PMTiles version 3 archive.');
+    if (header[99] !== 1) fail(tilesRel, `tile type ${header[99]}: the map style expects vector tiles (1, MVT).`);
+    const dataMax = Number(/var DATA_MAX_ZOOM = (\d+);/.exec(mapJs)?.[1]);
+    if (header[101] !== dataMax) fail(mapFile, `DATA_MAX_ZOOM (${dataMax}) is not the archive's max zoom (${header[101]}).`);
+    const maxZoom = Number(/var MAX_ZOOM = (\d+);/.exec(mapJs)?.[1]);
+    if (!(maxZoom >= dataMax && maxZoom <= dataMax + 2)) fail(mapFile, `MAX_ZOOM (${maxZoom}) must be at most two levels beyond the archive's data (${dataMax}): further than that is a blown-up vector with nothing to show.`);
+    mapGuardChecked += 1;
+    if (!fs.existsSync(tilesDist)) fail(tilesRel, 'the archive is not in dist (add it to assetFiles in scripts/build_dist.mjs).');
+    else if (fs.statSync(tilesDist).size !== fs.statSync(tilesSrc).size) fail(tilesRel, 'the copy in dist differs in size from the archive.');
   }
 
   const projectsDir = path.join(root, 'content/liora-projects');
@@ -5474,6 +5559,10 @@ let mapGuardChecked = 0;
     const file = path.join(dist, locale, 'developments.html');
     if (!fs.existsSync(file)) continue;
     const html = fs.readFileSync(file, 'utf8');
+    mapGuardChecked += 1;
+    if (/unpkg\.com|tile\.openstreetmap|cdn\.jsdelivr|cdnjs\.cloudflare/.test(html)) {
+      fail(path.relative(root, file), 'the developments page references a third-party map or library host.');
+    }
     mapGuardChecked += 1;
     if (!/data-map-js="[^"]*liora-discovery-map\.js(\?v=[a-z0-9]+)?"/.test(html) || !/data-map-css="[^"]*liora-discovery-map\.css(\?v=[a-z0-9]+)?"/.test(html)) {
       fail(path.relative(root, file), 'the developments page does not point at the lazy map script and stylesheet.');

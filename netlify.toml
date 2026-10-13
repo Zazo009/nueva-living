@@ -18,6 +18,22 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# The developments map's base-map archive and its libraries. The archive is a
+# 17 MB PMTiles file read with HTTP range requests (Netlify's CDN answers them
+# with 206 and sends Accept-Ranges; nothing here may disable that, and nothing
+# compresses a .pmtiles file). It changes only when the extract is rebuilt, but
+# keeps a fixed URL, so a day is long enough to spare repeat visitors and short
+# enough that a rebuilt archive reaches everyone the next morning.
+[[headers]]
+  for = "/assets/liora/tiles/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/assets/liora/vendor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
 [[redirects]]
   from = "/*"
   to = "/404.html"
