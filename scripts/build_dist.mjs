@@ -50,7 +50,14 @@ const propertyStylesheetPath = 'assets/liora/liora-property.css';
 const conversionScriptVersion = contentVersion(conversionScriptPath);
 const discoveryScriptVersion = contentVersion(discoveryScriptPath);
 const cardGalleryScriptVersion = contentVersion(cardGalleryScriptPath);
-const discoveryMapScriptVersion = contentVersion(discoveryMapScriptPath);
+const discoveryClusterScriptPath = 'assets/liora/liora-discovery-cluster.js';
+// The map script loads the clustering rule with its own ?v= (see CLUSTER_URL
+// in liora-discovery-map.js), so the map's version must change when either file does.
+const discoveryMapScriptVersion = createHash('sha256')
+  .update(fs.readFileSync(path.join(root, discoveryMapScriptPath)))
+  .update(fs.readFileSync(path.join(root, discoveryClusterScriptPath)))
+  .digest('hex')
+  .slice(0, 12);
 const discoveryMapStylesheetVersion = contentVersion(discoveryMapStylesheetPath);
 const trackingScriptVersion = contentVersion(trackingScriptPath);
 const shortlistScriptVersion = contentVersion(shortlistScriptPath);
@@ -611,6 +618,7 @@ const assetFiles = [
   'assets/liora/favicon-32.png',
   'assets/liora/liora-discovery.js',
   'assets/liora/liora-discovery-map.js',
+  'assets/liora/liora-discovery-cluster.js',
   'assets/liora/liora-discovery-map.css',
   // The developments map, self-hosted: the libraries it draws with and the
   // vector archive it reads. The archive is a binary the browser fetches with

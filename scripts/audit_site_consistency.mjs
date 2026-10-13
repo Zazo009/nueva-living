@@ -5571,7 +5571,7 @@ let mapGuardChecked = 0;
       const missing = mapStrings.filter((key) => !new RegExp(`data-i18n-${key}="[^"]+"`).test(html));
       if (missing.length) fail(path.relative(root, file), `map strings missing: ${missing.join(', ')}.`);
     }
-    for (const tag of html.matchAll(/<article class="project-card dev-card" id="([^"]+)"[^>]*>/g)) {
+    for (const tag of html.matchAll(/<article class="project-card dev-card[^"]*" id="([^"]+)"[^>]*>/g)) {
       const slug = tag[1];
       const lat = /data-lat="([^"]+)"/.exec(tag[0])?.[1];
       const lng = /data-lng="([^"]+)"/.exec(tag[0])?.[1];
@@ -5581,6 +5581,100 @@ let mapGuardChecked = 0;
         fail(path.relative(root, file), `${slug}: card coordinates (${lat}, ${lng}) differ from project.json location.site (${site}).`);
       } else if (!site && (lat || lng)) {
         fail(path.relative(root, file), `${slug}: card carries coordinates but project.json has no location.site.`);
+      }
+    }
+  }
+
+  // The count bubbles are a picture of what they hold. The clustering rule is a
+  // pure function in its own file (loaded by the map in the browser, run here in
+  // node), tested on the real card coordinates at every zoom the map can sit at,
+  // with the cards in different orders:
+  //   (a) every member lies within the radius of its bubble's centre, measured
+  //       here from the members and not taken from the function's own centre;
+  //   (b) every mapped card is in exactly one bubble, (c) the counts add up;
+  //   (d) the result is the same for every order of the cards;
+  //   (e) cards sharing one coordinate are never split.
+  // The radius is the one the map uses (CLUSTER_RADIUS in the map script).
+  {
+    const clusterFile = 'assets/liora/liora-discovery-cluster.js';
+    const radius = Number(/var CLUSTER_RADIUS = (\d+(?:\.\d+)?);/.exec(mapJs)?.[1]);
+    mapGuardChecked += 1;
+    if (!(radius > 0)) fail(mapFile, 'CLUSTER_RADIUS is not a number the audit can read.');
+    const sandbox = { module: { exports: {} } };
+    vm.runInNewContext(fs.readFileSync(path.join(root, clusterFile), 'utf8'), sandbox, { filename: clusterFile });
+    const clusterApi = sandbox.module.exports;
+    mapGuardChecked += 1;
+    if (typeof clusterApi.cluster !== 'function') fail(clusterFile, 'does not export cluster().');
+    mapGuardChecked += 1;
+    if (!/liora-discovery-cluster\.js/.test(mapJs) || !/window\.NuevaDiscoveryCluster\.cluster\(/.test(mapJs)) {
+      fail(mapFile, 'the map does not load and use the clustering rule in liora-discovery-cluster.js.');
+    }
+    mapGuardChecked += 1;
+    if (!fs.existsSync(path.join(dist, clusterFile))) fail(clusterFile, 'is not copied into dist.');
+
+    // A small deterministic shuffle (mulberry32) so the orders are the same on every run.
+    const shuffled = (list, seed) => {
+      let state = seed >>> 0;
+      const next = () => {
+        state = (state + 0x6D2B79F5) >>> 0;
+        let r = Math.imul(state ^ (state >>> 15), 1 | state);
+        r = (r + Math.imul(r ^ (r >>> 7), 61 | r)) ^ r;
+        return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+      };
+      const out = list.slice();
+      for (let i = out.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(next() * (i + 1));
+        [out[i], out[j]] = [out[j], out[i]];
+      }
+      return out;
+    };
+
+    for (const locale of ['', ...ENTRY_LOCALES]) {
+      const file = path.join(dist, locale, 'developments.html');
+      if (!fs.existsSync(file)) continue;
+      const rel = path.relative(root, file);
+      const cards = [];
+      for (const tag of fs.readFileSync(file, 'utf8').matchAll(/<article class="project-card dev-card[^"]*" id="([^"]+)"[^>]*>/g)) {
+        const lat = parseFloat(/data-lat="([^"]+)"/.exec(tag[0])?.[1]);
+        const lng = parseFloat(/data-lng="([^"]+)"/.exec(tag[0])?.[1]);
+        if (Number.isFinite(lat) && Number.isFinite(lng)) cards.push({ id: tag[1], lat, lng });
+      }
+      mapGuardChecked += 1;
+      if (cards.length < 10) { fail(rel, `only ${cards.length} mapped cards found for the clustering check.`); continue; }
+      const orders = [cards, cards.slice().reverse(), shuffled(cards, 20260929), shuffled(cards, 1)];
+      const sameSpot = new Map();
+      for (const card of cards) {
+        const key = clusterApi.coordinateKey(card.lat, card.lng);
+        sameSpot.set(key, [...(sameSpot.get(key) || []), card.id]);
+      }
+      for (let zoom = 8; zoom <= 15; zoom += 1) {
+        const results = orders.map((order) => clusterApi.cluster(order, zoom, radius).map((group) => group.members.map((index) => order[index].id)));
+        const canonical = (groups) => groups.map((ids) => ids.slice().sort().join('|')).sort().join('\n');
+        mapGuardChecked += 1;
+        const reference = canonical(results[0]);
+        if (results.some((groups) => canonical(groups) !== reference)) {
+          fail(rel, `zoom ${zoom}: the bubbles depend on the order of the cards.`);
+        }
+        const groups = results[0];
+        const seen = new Map();
+        let total = 0;
+        for (const ids of groups) {
+          total += ids.length;
+          ids.forEach((id) => seen.set(id, (seen.get(id) || 0) + 1));
+          const points = ids.map((id) => cards.find((card) => card.id === id)).map((card) => clusterApi.project(card.lat, card.lng, zoom));
+          const cx = points.reduce((sum, p) => sum + p.x, 0) / points.length;
+          const cy = points.reduce((sum, p) => sum + p.y, 0) / points.length;
+          const far = Math.max(...points.map((p) => Math.hypot(p.x - cx, p.y - cy)));
+          if (far > radius + 1e-6) fail(rel, `zoom ${zoom}: a bubble of ${ids.length} has a member ${far.toFixed(1)} px from its centre (limit ${radius}).`);
+        }
+        if (total !== cards.length || seen.size !== cards.length || [...seen.values()].some((n) => n !== 1)) {
+          fail(rel, `zoom ${zoom}: bubbles hold ${total} cards (${seen.size} distinct) for ${cards.length} mapped cards.`);
+        }
+        for (const [key, ids] of sameSpot) {
+          if (ids.length > 1 && groups.filter((g) => g.includes(ids[0])).some((g) => ids.some((id) => !g.includes(id)))) {
+            fail(rel, `zoom ${zoom}: the cards at ${key} (${ids.join(', ')}) are split across bubbles.`);
+          }
+        }
       }
     }
   }

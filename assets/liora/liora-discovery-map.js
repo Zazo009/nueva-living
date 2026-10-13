@@ -42,10 +42,15 @@
   var LEAFLET_JS_URL = new URL('vendor/leaflet/leaflet.js', BASE).href;
   var PROTOMAPS_JS_URL = new URL('vendor/protomaps-leaflet/protomaps-leaflet.js', BASE).href;
 
-  /* Two pins closer than this (in screen pixels) would overlap, so they merge
-     into a count bubble. A price pin is about 72 x 32. */
-  var CLUSTER_DX = 78;
-  var CLUSTER_DY = 46;
+  /* A count bubble is an honest picture of what it holds: every project in it
+     lies within this many screen pixels of the bubble's centre (the centroid of
+     its members), whatever order the cards come in. The bubble itself is 44 px
+     across (22 px radius), so 36 is its footprint plus 14 px of margin, and it
+     is half a price pin's width (72 px): two pins that stay separate are always
+     at least a pin apart. The rule itself is in liora-discovery-cluster.js, which
+     the audit runs against the real coordinates at zoom 8 to 15. */
+  var CLUSTER_RADIUS = 36;
+  var CLUSTER_URL = new URL('liora-discovery-cluster.js' + BASE.search, BASE).href;
   /* The archive holds zoom 0-14. protomaps-leaflet draws a data tile at two
      display zoom levels (it renders the 512px data tile into 256px tiles), so
      15 is native detail, and 16 is one clean 2x vector enlargement: lines and
@@ -107,8 +112,10 @@
     return new Promise(function (resolve, reject) {
       var tag = el('script');
       tag.src = src;
-      tag.integrity = integrity;
-      tag.crossOrigin = 'anonymous';
+      if (integrity) {
+        tag.integrity = integrity;
+        tag.crossOrigin = 'anonymous';
+      }
       tag.onload = resolve;
       tag.onerror = function () { reject(new Error('Map library failed to load: ' + src)); };
       document.head.appendChild(tag);
@@ -122,7 +129,10 @@
     var leaflet = (window.L && window.L.map)
       ? Promise.resolve()
       : Promise.all([loadStyle(LEAFLET_CSS_URL, LEAFLET_CSS_SRI), loadScript(LEAFLET_JS_URL, LEAFLET_JS_SRI)]);
-    return leaflet.then(function () {
+    /* The clustering rule: one small file, loaded with the map. Its address
+       carries this script's own ?v=, which the build derives from both files. */
+    var rule = window.NuevaDiscoveryCluster ? Promise.resolve() : loadScript(CLUSTER_URL);
+    return Promise.all([leaflet, rule]).then(function () {
       if (window.protomapsL) return null;
       return loadScript(PROTOMAPS_JS_URL, PROTOMAPS_JS_SRI).catch(function () { return null; });
     });
@@ -464,29 +474,22 @@
 
     /* ---- Pins and clusters -------------------------------------------- */
 
+    /* The pure rule is NuevaDiscoveryCluster.cluster; this adds the cards. */
     function cluster(cards, zoom) {
-      var groups = [];
-      cards.forEach(function (card) {
+      var points = cards.map(function (card) {
         var ll = bridge.cardPoint(card);
-        var p = map.project(L.latLng(ll[0], ll[1]), zoom);
-        var home = null;
-        for (var i = 0; i < groups.length; i += 1) {
-          if (Math.abs(groups[i].x - p.x) < CLUSTER_DX && Math.abs(groups[i].y - p.y) < CLUSTER_DY) {
-            home = groups[i];
-            break;
-          }
-        }
-        if (home) {
-          home.cards.push(card);
-          home.sx += p.x;
-          home.sy += p.y;
-          home.x = home.sx / home.cards.length;
-          home.y = home.sy / home.cards.length;
-        } else {
-          groups.push({ cards: [card], sx: p.x, sy: p.y, x: p.x, y: p.y });
-        }
+        return { lat: ll[0], lng: ll[1] };
       });
-      return groups;
+      return window.NuevaDiscoveryCluster.cluster(points, zoom, CLUSTER_RADIUS).map(function (group) {
+        return {
+          cards: group.members.map(function (index) { return cards[index]; }),
+          x: group.x,
+          y: group.y,
+          lat: group.lat,
+          lng: group.lng,
+          colocated: group.colocated
+        };
+      });
     }
 
     function pinButton(card) {
@@ -529,7 +532,7 @@
       var cards = mapped();
       var zoom = map.getZoom();
       cluster(cards, zoom).forEach(function (group) {
-        var latlng = map.unproject(L.point(group.x, group.y), zoom);
+        var latlng = L.latLng(group.lat, group.lng);
         if (group.cards.length === 1) {
           var card = group.cards[0];
           var button = pinButton(card);
@@ -543,21 +546,23 @@
     }
 
     function openCluster(group, latlng, button) {
+      /* Pins that share a coordinate can never be pulled apart by zooming:
+         page through them in the compact card instead. */
+      if (group.colocated) {
+        select(group.cards[0], { open: true, pan: true, set: group.cards });
+        return;
+      }
       var bounds = L.latLngBounds(group.cards.map(function (card) {
         var ll = bridge.cardPoint(card);
         return L.latLng(ll[0], ll[1]);
       }));
-      /* Pins that share a coordinate can never be pulled apart by zooming:
-         page through them in the compact card instead. */
-      var spread = map.project(bounds.getNorthEast(), MAX_ZOOM).distanceTo(map.project(bounds.getSouthWest(), MAX_ZOOM));
-      if (spread < Math.min(CLUSTER_DX, CLUSTER_DY) / 2) {
-        select(group.cards[0], { open: true, pan: true, set: group.cards });
-        return;
-      }
       /* At least one level in, however tight the frame: a bubble that fits
-         the padded frame at the current zoom would otherwise never open. */
+         the padded frame at the current zoom would otherwise never open. Then
+         on, to the first level at which these projects are no longer one
+         bubble, so the click always shows them apart. */
       var zoom = map.getBoundsZoom(bounds, false, L.point(60, 60));
       zoom = Math.min(Math.max(zoom, map.getZoom() + 1), MAX_ZOOM - 1);
+      while (zoom < MAX_ZOOM - 1 && cluster(group.cards, zoom).length < 2) zoom += 1;
       map.setView(bounds.getCenter(), zoom, { animate: animate() });
     }
 
