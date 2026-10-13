@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Streamlined search panel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Montserrat',Arial,sans-serif;background:#F1ECE1}
+button,select,input{font-family:inherit}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #896A3F;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; padding: clamp(16px, 3vw, 28px) clamp(16px, 3vw, 32px); background: #F7F3EC; display: flex; flex-direction: column; gap: 20px; color: #2E2A24; font-family: 'Montserrat', system-ui, sans-serif">
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<label for="ai" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">AI search</label>
+<div style="flex: 999 1 260px; min-width: 0; position: relative; display: flex; align-items: center">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#896A3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; inset-inline-start: 18px"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+<input id="ai" type="text" placeholder="Use our AI assistant to find what you are looking for" style="width: 100%; height: 56px; box-sizing: border-box; padding-block: 0; padding-inline: 52px 16px; font-size: 16px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; text-overflow: ellipsis">
+</div>
+<button type="button" style="flex: 1 1 140px; height: 56px; padding: 0 36px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #FFFFFF; background: #896A3F; border: 0; border-radius: 0; cursor: pointer">Search</button>
+<button type="button" style="flex: 1 1 170px; display: flex; align-items: center; justify-content: center; gap: 10px; height: 56px; padding: 0 24px; font-size: 14px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #896A3F; background: transparent; border: 1px solid #896A3F; border-radius: 0; cursor: pointer">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#896A3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>
+Map</button>
+</div>
+
+<div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px">
+<button type="button" style="min-height: 44px; padding: 0 16px; font-size: 14px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Family villa with a private pool</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; font-size: 14px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Golf-front penthouse, 2 bedrooms</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; font-size: 14px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Two-bedroom apartment under €500,000</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; font-size: 14px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Beach</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; font-size: 14px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Golf</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; font-size: 14px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Family</button>
+<button type="button" style="min-height: 44px; padding: 0 16px; font-size: 14px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Investment</button>
+</div>
+</div>
+
+<div style="height: 1px; background: #DED4C3"></div>
+
+<div style="display: flex; align-items: flex-end; flex-wrap: wrap; gap: 12px">
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<label for="loc" style="font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67">Location</label>
+<div style="position: relative">
+<select id="loc" style="appearance: none; -webkit-appearance: none; width: 100%; height: 48px; box-sizing: border-box; padding-block: 0; padding-inline: 16px 40px; font-size: 15px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0"><option>Estepona</option><option>All Locations</option><option>Marbella</option><option>Casares</option><option>Benahavís</option><option>Nueva Andalucía</option><option>San Pedro de Alcántara</option><option>Mijas &amp; Fuengirola</option></select>
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; inset-inline-end: 14px; top: 16px; pointer-events: none"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+</div>
+
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<label for="type" style="font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67">Property Type</label>
+<div style="position: relative">
+<select id="type" style="appearance: none; -webkit-appearance: none; width: 100%; height: 48px; box-sizing: border-box; padding-block: 0; padding-inline: 16px 40px; font-size: 15px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0"><option>All Types</option><option>Apartment</option><option>Penthouse</option><option>Villa</option><option>Townhouse</option></select>
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; inset-inline-end: 14px; top: 16px; pointer-events: none"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+</div>
+
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67">Price Range</span>
+<button type="button" aria-haspopup="dialog" style="display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; box-sizing: border-box; padding-block: 0; padding-inline: 16px 14px; font-size: 15px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">€260k – €1M
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+</div>
+
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67">Bedrooms</span>
+<button type="button" aria-haspopup="dialog" style="display: flex; align-items: center; justify-content: space-between; width: 100%; height: 48px; box-sizing: border-box; padding-block: 0; padding-inline: 16px 14px; font-size: 15px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Any
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+</div>
+
+<button type="button" aria-haspopup="dialog" style="flex: 1 1 170px; display: flex; align-items: center; justify-content: center; gap: 10px; height: 48px; padding: 0 18px; font-size: 14px; font-weight: 500; color: #2E2A24; background: transparent; border: 1px solid #896A3F; border-radius: 0; cursor: pointer">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#896A3F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+More filters
+</button>
+</div>
+
+<div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px">
+<div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67; margin-inline-end: 8px">20 developments</span>
+<button type="button" aria-label="Remove filter: Estepona" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; font-size: 13px; color: #2E2A24; background: #EDE6D8; border: 0; border-radius: 0; cursor: pointer">Estepona
+<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+<button type="button" aria-label="Remove filter: €260k – €1M" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; font-size: 13px; color: #2E2A24; background: #EDE6D8; border: 0; border-radius: 0; cursor: pointer">€260k – €1M
+<svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+<button type="button" style="min-height: 44px; padding: 0 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: #896A3F; background: transparent; border: 0; text-decoration: underline; cursor: pointer">Reset Filters</button>
+</div>
+
+<div style="flex: 1 1 280px; max-width: 100%; display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 12px">
+<label for="sort" style="font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67">Sort</label>
+<div style="position: relative; flex: 1 1 180px; max-width: 240px; min-width: 0">
+<select id="sort" style="appearance: none; -webkit-appearance: none; width: 100%; height: 44px; box-sizing: border-box; padding-block: 0; padding-inline: 16px 40px; font-size: 15px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0"><option>Recommended order</option><option>Newest release</option><option>Price: low to high</option><option>Price: high to low</option><option>Completion soonest</option></select>
+<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; inset-inline-end: 14px; top: 14px; pointer-events: none"><path d="M6 9l6 6 6-6"/></svg>
+</div>
+<div role="group" aria-label="View" style="display: flex; height: 44px; box-sizing: border-box; border: 1px solid #DED4C3; overflow: hidden; background: #FBF8F2">
+<button type="button" aria-pressed="true" style="display: flex; align-items: center; gap: 8px; padding: 0 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFFFFF; background: #896A3F; border: 0; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linejoin="round"><path d="M5 7h14M5 12h14M5 17h14" stroke-linecap="round"/></svg>List</button>
+<button type="button" aria-pressed="false" style="display: flex; align-items: center; gap: 8px; padding: 0 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #2E2A24; background: transparent; border: 0; border-inline-start: 1px solid #DED4C3; cursor: pointer"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>Map</button>
+</div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":372}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

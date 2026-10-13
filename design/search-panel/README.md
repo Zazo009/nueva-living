@@ -1,0 +1,1 @@
+Design source for the redesigned search panel, filters and map view (desktop, tablet, phone). Each *.dc.html is one screen of a design canvas; canvas.json is its layout. translations.md lists the 7 new interface labels in all 9 languages. Reference only: nothing here is built or deployed. The project card is a replica of the live card and must not change.

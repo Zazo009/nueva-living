@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Map view on mobile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Montserrat',Arial,sans-serif;background:#EDE6D8}
+button,select,input{font-family:inherit}
+a{text-decoration:none}
+button:focus-visible,a:focus-visible{outline:2px solid #896A3F;outline-offset:2px}
+.rail{scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+</style>
+</helmet>
+<div style="width: 390px; max-width: 100%; height: 760px; box-sizing: border-box; display: flex; flex-direction: column; background: #F7F3EC; color: #2E2A24; font-family: 'Montserrat', Arial, sans-serif">
+
+<div style="flex: none; box-sizing: border-box; padding: 10px 16px; display: flex; align-items: center; gap: 8px; background: #F7F3EC; border-bottom: 1px solid #DED4C3">
+<button type="button" aria-label="Back to filters" style="width: 44px; height: 44px; flex: none; display: flex; align-items: center; justify-content: center; background: #FBF8F2; border: 1px solid #DED4C3; cursor: pointer; padding: 0"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></button>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 13px; font-weight: 600">Estepona</span>
+<span style="font-size: 12px; font-weight: 500; color: #766E67; white-space: nowrap">20 developments</span>
+</div>
+<div role="group" aria-label="View" style="display: flex; height: 44px; box-sizing: border-box; border: 1px solid #DED4C3; overflow: hidden; background: #FBF8F2">
+<button type="button" aria-pressed="false" aria-label="List view" style="width: 44px; display: flex; align-items: center; justify-content: center; background: transparent; border: 0; cursor: pointer; padding: 0"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="1.8" stroke-linejoin="round"><path d="M5 7h14M5 12h14M5 17h14" stroke-linecap="round"/></svg></button>
+<button type="button" aria-pressed="true" aria-label="Map view" style="width: 44px; display: flex; align-items: center; justify-content: center; background: #896A3F; border: 0; cursor: pointer; padding: 0"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z"/><circle cx="12" cy="11" r="2.2"/></svg></button>
+</div>
+</div>
+
+<div style="flex: 1; min-height: 0; position: relative; overflow: hidden; background: #B4CED3">
+<svg role="img" aria-label="Map of Estepona with one pin for each of the 20 developments that match the filters" width="100%" height="100%" viewBox="0 0 390 696" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0">
+<path d="M-78,510 L-19,425 L185,340 L322,279 L478,218 L478,0 L-78,0 Z" fill="#EFEADB" stroke="#C9BFA3" stroke-width="2" stroke-linejoin="round"/>
+<g fill="none" stroke="#DDD6BF" stroke-width="1.5">
+<path d="M0,330 C60,300 120,320 180,270 S300,200 390,190"/>
+<path d="M0,240 C70,210 140,220 200,170 S320,110 390,100"/>
+<path d="M0,150 C80,120 150,130 220,80 S330,30 390,20"/>
+</g>
+<path d="M49,420 L185,340 L322,279 L390,250 L390,70 L300,50 L130,60 L49,150 Z" fill="rgba(137,106,63,0.07)" stroke="#896A3F" stroke-width="2" stroke-dasharray="8 6" stroke-linejoin="round"/>
+</svg>
+
+<span aria-hidden="true" style="position: absolute; left: 2%; top: 60%; font-size: 9px; font-weight: 500; letter-spacing: 0.2em; color: #9A928A">← CASARES</span>
+
+<button type="button" aria-label="€479k, Mirador de Las Mesas" style="position: absolute; left: 30%; top: 24%; transform: translate(-50%, -50%); min-height: 44px; padding: 0 4px; background: transparent; border: 0; cursor: pointer"><span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; font-size: 12px; font-weight: 700; color: #2E2A24; background: #FBF8F2; border: 2px solid #896A3F; border-radius: 16px; box-shadow: 0 1px 4px rgba(46,42,36,0.25)">€479k</span></button>
+<button type="button" aria-label="€695k, Vista Alta Suites" style="position: absolute; left: 36%; top: 34%; transform: translate(-50%, -50%); min-height: 44px; padding: 0 4px; background: transparent; border: 0; cursor: pointer"><span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; font-size: 12px; font-weight: 700; color: #2E2A24; background: #FBF8F2; border: 2px solid #896A3F; border-radius: 16px; box-shadow: 0 1px 4px rgba(46,42,36,0.25)">€695k</span></button>
+<button type="button" aria-label="€720k, Jardin del Mar Residences" style="position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); min-height: 44px; padding: 0 4px; background: transparent; border: 0; cursor: pointer"><span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; font-size: 12px; font-weight: 700; color: #2E2A24; background: #FBF8F2; border: 2px solid #896A3F; border-radius: 16px; box-shadow: 0 1px 4px rgba(46,42,36,0.25)">€720k</span></button>
+<button type="button" aria-label="On request, Guadalobon Beach Residences" style="position: absolute; left: 32%; top: 46%; transform: translate(-50%, -50%); min-height: 44px; padding: 0 4px; background: transparent; border: 0; cursor: pointer"><span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; font-size: 12px; font-weight: 700; color: #2E2A24; background: #FBF8F2; border: 2px solid #896A3F; border-radius: 16px; box-shadow: 0 1px 4px rgba(46,42,36,0.25)">On request</span></button>
+<button type="button" aria-label="€350k, Bahía Serena Residences" style="position: absolute; left: 17%; top: 52%; transform: translate(-50%, -50%); min-height: 44px; padding: 0 4px; background: transparent; border: 0; cursor: pointer"><span style="display: inline-flex; align-items: center; height: 32px; padding: 0 12px; font-size: 12px; font-weight: 700; color: #2E2A24; background: #FBF8F2; border: 2px solid #896A3F; border-radius: 16px; box-shadow: 0 1px 4px rgba(46,42,36,0.25)">€350k</span></button>
+<button type="button" aria-label="4 developments" style="position: absolute; left: 58%; top: 25%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 20px; font-size: 15px; font-weight: 700; color: #FFFFFF; background: #896A3F; border: 3px solid #F7F3EC; cursor: pointer; padding: 0">4</button>
+<button type="button" aria-label="3 developments" style="position: absolute; left: 80%; top: 22%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 20px; font-size: 15px; font-weight: 700; color: #FFFFFF; background: #896A3F; border: 3px solid #F7F3EC; cursor: pointer; padding: 0">3</button>
+<button type="button" aria-label="3 developments" style="position: absolute; left: 66%; top: 46%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 20px; font-size: 15px; font-weight: 700; color: #FFFFFF; background: #896A3F; border: 3px solid #F7F3EC; cursor: pointer; padding: 0">3</button>
+<button type="button" aria-label="2 developments" style="position: absolute; left: 45%; top: 18%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 20px; font-size: 15px; font-weight: 700; color: #FFFFFF; background: #896A3F; border: 3px solid #F7F3EC; cursor: pointer; padding: 0">2</button>
+<button type="button" aria-label="2 developments" style="position: absolute; left: 15%; top: 38%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 20px; font-size: 15px; font-weight: 700; color: #FFFFFF; background: #896A3F; border: 3px solid #F7F3EC; cursor: pointer; padding: 0">2</button>
+<button type="button" aria-label="€799k, Cancelada Park, selected" style="position: absolute; left: 72%; top: 33%; transform: translate(-50%, -50%); min-height: 44px; padding: 0 4px; background: transparent; border: 0; cursor: pointer"><span style="display: inline-flex; align-items: center; height: 38px; padding: 0 16px; font-size: 14px; font-weight: 700; color: #FFFFFF; background: #4A3B28; border: 3px solid #FFFFFF; border-radius: 19px; box-shadow: 0 2px 12px rgba(46,42,36,0.4)">€799k</span></button>
+
+<div style="position: absolute; right: 12px; top: 12px; display: flex; flex-direction: column; background: #FBF8F2; border: 1px solid #DED4C3">
+<button type="button" aria-label="Zoom in" style="width: 44px; height: 44px; font-size: 22px; color: #2E2A24; background: transparent; border: 0; cursor: pointer">+</button>
+<button type="button" aria-label="Zoom out" style="width: 44px; height: 44px; font-size: 22px; color: #2E2A24; background: transparent; border: 0; border-top: 1px solid #DED4C3; cursor: pointer">−</button>
+</div>
+<button type="button" style="position: absolute; left: 12px; top: 12px; height: 44px; padding: 0 16px; font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; cursor: pointer">All Locations</button>
+
+<div class="rail" style="position: absolute; left: 0; right: 0; bottom: 12px; display: flex; gap: 10px; padding: 0 16px; overflow-x: auto; scroll-snap-type: x mandatory">
+<sc-for list="{{ items }}" as="item" hint-placeholder-count="6">
+<article style="flex: none; width: 296px; scroll-snap-align: center; box-sizing: border-box; display: flex; flex-direction: column; background: #F7F3EC; border: 2px solid {{ item.rule }}; box-shadow: 0 8px 22px rgba(46,42,36,0.25)">
+<div style="position: relative; aspect-ratio: 2.7; overflow: hidden">
+<img src="{{ item.img }}" alt="{{ item.alt }}" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(30,24,16,0.28) 0%, rgba(0,0,0,0) 30%, rgba(30,24,16,0.14) 54%, rgba(24,19,13,0.74) 100%)"></div>
+<div style="position: absolute; left: 0; bottom: 0; right: 0; padding: 10px 12px; display: flex; align-items: flex-end; justify-content: space-between; gap: 8px">
+<span style="font-size: 9px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 9px; color: #FFFFFF; background: #896A3F; white-space: nowrap">{{ item.badge }}</span>
+<span style="font-family: 'Cinzel', Georgia, serif; font-size: 18px; font-weight: 600; line-height: 1; color: #F7F3EC; white-space: nowrap">{{ item.price }}</span>
+</div>
+</div>
+<div style="padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Cinzel', Georgia, serif; font-size: 18px; font-weight: 500; line-height: 1.15; color: #896A3F">{{ item.name }}</span>
+<div style="display: flex; border-top: 1px solid #DED4C3; border-bottom: 1px solid #DED4C3">
+<div style="display: flex; flex-direction: column; flex: 1 1 auto; gap: 3px; padding-block: 8px 8px; padding-inline: 0 8px"><span style="font-size: 8px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #786E65">Delivery</span><span style="font-size: 12px; font-weight: 600; overflow-wrap: break-word">{{ item.delivery }}</span></div>
+<div style="display: flex; flex-direction: column; flex: 1 1 auto; gap: 3px; padding: 8px; border-inline-start: 1px solid #DED4C3"><span style="font-size: 8px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #786E65">Homes</span><span style="font-size: 12px; font-weight: 600">{{ item.homes }}</span></div>
+<div style="display: flex; flex-direction: column; flex: 1 1 auto; gap: 3px; padding-block: 8px 8px; padding-inline: 8px 0; border-inline-start: 1px solid #DED4C3"><span style="font-size: 8px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #786E65">Available</span><span style="font-size: 12px; font-weight: 600; color: #896A3F">{{ item.avail }}</span></div>
+</div>
+<a href="{{ item.href }}" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; box-sizing: border-box; padding: 0 16px; background: #4A3B28; color: #F7F3EC; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase"><span>Explore Project</span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":760}}'>
+class Component extends DCLogic {
+renderVals() {
+const items = [
+{ img: '../../assets/liora/projects/cancelada-park/media/aerial-courtyard.jpg', alt: 'Aerial view of the Cancelada Park courtyard', badge: 'Current Release', price: '€799,000', name: 'Cancelada Park', delivery: 'Q3 2027', homes: '2–4 bed', avail: '30 of 57', href: 'property-cancelada-park.html' },
+{ img: '../../assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day.jpg', alt: 'Pool and gardens at Jardin del Mar Residences', badge: 'Off-Plan', price: '€720,000', name: 'Jardin del Mar Residences', delivery: 'Q2 2028', homes: '2–3 bed', avail: '19 of 23', href: 'property-jardin-del-mar-residences.html' },
+{ img: '../../assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline.jpg', alt: 'Aerial view of the Guadalobon Beach development and coastline', badge: 'Off-Plan', price: 'On request', name: 'Guadalobon Beach Residences', delivery: 'Est. Q3 2028', homes: '2–4 bed', avail: '11 of 87', href: 'property-guadalobon-beach-residences.html' },
+{ img: '../../assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.jpg', alt: 'Aerial view of the Vista Alta Suites hillside complex', badge: 'Off-Plan', price: 'EUR 695,000', name: 'Vista Alta Suites', delivery: 'Est. Q2 2028', homes: '2–4 bed', avail: '20 of 72', href: 'property-vista-alta-suites.html' },
+{ img: '../../assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg', alt: 'Aerial view of the Bahía Serena Residences complex', badge: 'Off-Plan', price: 'EUR 350,000', name: 'Bahía Serena Residences', delivery: 'Est. Q4 2028', homes: '1–3 bed', avail: '15 of 25', href: 'property-bahia-serena-residences.html' },
+{ img: '../../assets/liora/projects/mirador-las-mesas/media/aerial-view-coastal-town.jpg', alt: 'Aerial view of Mirador de Las Mesas and the coast', badge: 'Off-Plan', price: 'EUR 479,000', name: 'Mirador de Las Mesas', delivery: 'Q1 2029', homes: '1–3 bed', avail: '11 of 164', href: 'property-mirador-las-mesas.html' }
+];
+return { items: items.map((it, i) => ({ ...it, rule: i === 0 ? '#896A3F' : '#DED4C3' })) };
+}
+}
+</script>
+</body>
+</html>
