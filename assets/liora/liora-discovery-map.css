@@ -62,6 +62,29 @@
   border-inline-end: 1px solid var(--dm-rule);
 }
 
+/* In the rail the card is narrow, so 'Explore Project' and 'WhatsApp Us' do not
+   fit side by side with their labels. The card elsewhere keeps its wording; here
+   WhatsApp becomes the same 48px icon button the card already uses on phones, and
+   its label stays available to screen readers. */
+.discovery-stage.is-map .project-grid .dev-card--v2 .dev-v2-cta {
+  grid-template-columns: minmax(0, 1fr) 48px;
+}
+.discovery-stage.is-map .project-grid .dev-card--v2 .dev-v2-whatsapp {
+  padding: 0;
+  justify-content: center;
+}
+.discovery-stage.is-map .project-grid .dev-card--v2 .dev-v2-whatsapp span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.discovery-stage.is-map .project-grid .dev-card--v2 .dev-v2-cta .dev-cta-link {
+  min-width: 0;
+}
+
 .project-card.is-map-active {
   outline: 2px solid var(--dm-gold);
   outline-offset: -2px;

@@ -2932,12 +2932,18 @@ input[type="range"] {
 .dev-card.dev-card--v2 .dev-img-wrap,
 .dev-card.dev-card--v2 .dev-body > * { flex-shrink: 0; }
 
+/* A status such as "Off-Plan, Private Availability" is longer than the room beside
+   the action buttons. It wraps onto a second line inside the pill rather than being
+   cut off, so the whole status stays readable at every card width. */
 .dev-card--v2 .dev-badge {
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.25;
+  text-align: center;
+  overflow-wrap: anywhere;
 }
+.dev-card--v2 .dev-v2-badges .dev-badges { min-width: 0; max-width: 100%; }
 
 @media (max-width: 640px) {
   /* Compact phone card. Swipe replaces the arrows, so the bottom bar shrinks
@@ -2977,7 +2983,7 @@ input[type="range"] {
   border: 1px solid var(--card-rule);
   box-shadow: 0 1px 2px rgba(47, 36, 23, 0.06), 0 8px 24px rgba(47, 36, 23, 0.06);
 }
-.dev-card--v2 .dev-badge { border-radius: 999px; }
+.dev-card--v2 .dev-badge { border-radius: 14px; }
 .dev-card--v2 .dev-v2-cta .dev-cta-link,
 .dev-card--v2 .dev-v2-whatsapp { border-radius: 12px; }
 .dev-card--v2 .project-card-gallery-dot { border-radius: 2px; }
