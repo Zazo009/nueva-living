@@ -920,24 +920,6 @@
   // and the segmented control switches both ways. Everything the map needs is
   // fetched here, on the first request.
 
-  const ICON_MAP = '<path d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z"/><circle cx="12" cy="11" r="2.2"/>';
-  const ICON_LIST = '<path d="M5 7h14M5 12h14M5 17h14"/>';
-  const iconSvg = (path, size) =>
-    `<svg aria-hidden="true" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${path}</svg>`;
-  const makeButton = (className, icon, label, attrs = {}) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = className;
-    Object.entries(attrs).forEach(([name, value]) => button.setAttribute(name, value));
-    button.insertAdjacentHTML('beforeend', icon);
-    if (label) {
-      const text = document.createElement('span');
-      text.textContent = label;
-      button.append(text);
-    }
-    return button;
-  };
-
   // The map's own host sits above the grid, inside a stage that only starts
   // laying the two side by side once the map is on.
   const stage = document.createElement('div');
@@ -948,26 +930,16 @@
   grid.before(stage);
   stage.append(mapView, grid);
 
-  // Controls are built here, not written into the page, so a visitor without
-  // script never sees a button that cannot work and no locale page carries
-  // English in them.
-  const aiForm = root.querySelector('[data-ai-search-form]');
-  if (aiForm) {
-    aiForm.append(makeButton('ai-search-map', iconSvg(ICON_MAP, 20), i18n.map, { 'data-map-open': '' }));
-  }
-  if (summary) {
-    const group = document.createElement('div');
-    group.className = 'discovery-view';
-    group.setAttribute('role', 'group');
-    group.setAttribute('aria-label', i18n.view);
-    group.append(
-      makeButton('discovery-view-btn', iconSvg(ICON_LIST, 16), i18n.list, { 'data-view-mode': 'list' }),
-      makeButton('discovery-view-btn', iconSvg(ICON_MAP, 16), i18n.map, { 'data-view-mode': 'map' })
-    );
-    summary.append(group);
-  }
-  const pill = makeButton('discovery-map-pill', iconSvg(ICON_MAP, 18), i18n.map, { 'data-map-open': '' });
-  (grid.closest('.section-inner') || root).append(pill);
+  // The three entry points (the button beside Search, the List/Map toggle and
+  // the phone pill) are static markup, translated like the rest of the page, so
+  // they reserve their space before this script runs. The runtime string wins
+  // if one is supplied.
+  [['.ai-search-map-label', i18n.map], ['.discovery-view-label-list', i18n.list],
+    ['.discovery-view-label-map', i18n.map], ['.discovery-map-pill-label', i18n.map]].forEach(([selector, text]) => {
+    const node = root.querySelector(selector);
+    if (node && text) node.textContent = text;
+  });
+  root.querySelector('.discovery-view')?.setAttribute('aria-label', i18n.view);
 
   let mapReady = null;
   let mapOpener = null;
@@ -1026,6 +998,7 @@
         stage.classList.add('is-map');
         document.documentElement.classList.add('discovery-map-open');
         api.show();
+        syncViewButtons();
         update();
       }).catch(() => {
         viewMode = 'list';

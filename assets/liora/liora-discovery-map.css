@@ -18,6 +18,12 @@
   --dm-brown: var(--card-brown, #4a3b28);
   --dm-ui: var(--ui-font, "Montserrat", Arial, sans-serif);
   --dm-serif: "Cinzel", Georgia, serif;
+  /* The List/Map toggle in the phone header reuses the panel's own button
+     rules, which read the panel's tokens. */
+  --dp-gold: var(--dm-gold);
+  --dp-rule: var(--dm-rule);
+  --dp-field: var(--dm-field);
+  --dp-ink: var(--dm-ink);
 }
 
 /* ---------- Layout ---------- */
@@ -785,8 +791,8 @@
     display: none;
   }
 
-  /* The carousel sits inside the stage on a phone; the stage is the
-     positioning parent, so move it with the DOM it belongs to. */
+  /* The carousel is a sibling of the stage inside the fixed host, so
+     `bottom` is measured from the bottom of the screen. */
   .dmap-slide {
     flex: none;
     width: 296px;
@@ -802,7 +808,7 @@
   }
 
   .dmap-slide .dmap-compact-media {
-    aspect-ratio: 2.7;
+    aspect-ratio: 3.3;
   }
 
   .dmap-slide .dmap-compact-overlay {
@@ -823,8 +829,8 @@
   }
 
   .dmap-slide .dmap-compact-body {
-    gap: 10px;
-    padding: 12px 14px 14px;
+    gap: 8px;
+    padding: 10px 12px 12px;
   }
 
   .dmap-slide .dmap-compact-name {
@@ -845,12 +851,19 @@
 
   .dmap-note {
     bottom: auto;
-    top: 68px;
+    top: 116px;
+    inset-inline-start: auto;
+    inset-inline-end: 12px;
+    max-width: calc(100% - 24px);
   }
 
+  /* While drawing, the hint takes the carousel's place. */
   .dmap-hint {
-    bottom: auto;
-    top: 76px;
+    bottom: 36px;
+  }
+
+  .dmap-stage.is-drawing + .dmap-carousel {
+    display: none;
   }
 }
 

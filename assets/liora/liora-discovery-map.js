@@ -200,6 +200,7 @@
       scrollWheelZoom: false
     });
     map.setView(FALLBACK_VIEW, 9, { animate: false });
+    bridge.map = map; // read by tests and by anything that wants to drive the view
 
     var tiles = L.tileLayer(TILE_URL, { attribution: ATTRIBUTION, maxZoom: 19 }).addTo(map);
     var tileErrors = 0;
@@ -343,7 +344,11 @@
         select(group.cards[0], { open: true, pan: true, set: group.cards });
         return;
       }
-      map.fitBounds(bounds, { padding: [80, 80], maxZoom: MAX_ZOOM - 1, animate: animate() });
+      /* At least one level in, however tight the frame: a bubble that fits
+         the padded frame at the current zoom would otherwise never open. */
+      var zoom = map.getBoundsZoom(bounds, false, L.point(60, 60));
+      zoom = Math.min(Math.max(zoom, map.getZoom() + 1), MAX_ZOOM - 1);
+      map.setView(bounds.getCenter(), zoom, { animate: animate() });
     }
 
     /* ---- Selection, rail and compact card ----------------------------- */
@@ -361,7 +366,7 @@
       if (phone.matches || !stageBox.parentNode.classList.contains('is-map')) return;
       var rail = grid;
       if (rail.scrollHeight <= rail.clientHeight + 4) return; // the rail is not its own scroller (stacked layout)
-      var top = card.offsetTop - rail.offsetTop - 12;
+      var top = card.getBoundingClientRect().top - rail.getBoundingClientRect().top + rail.scrollTop - 12;
       rail.scrollTo({ top: Math.max(0, top), behavior: animate() ? 'smooth' : 'auto' });
     }
 
@@ -379,11 +384,13 @@
           /* Keep the pin clear of whatever covers part of the map: the compact
              card (bottom-right corner) or the phone carousel (bottom). */
           var wide = canvas.clientWidth >= 720;
-          var clearRight = phone.matches ? 40 : (wide ? 370 : 60);
-          var clearBottom = phone.matches ? 250 : (wide ? 60 : 390);
+          var clearSide = phone.matches ? 40 : (wide ? 370 : 60);
+          var clearBottom = phone.matches ? carousel.offsetHeight + 80 : (wide ? 60 : 390);
+          /* The card sits at the inline end, which is the left in Arabic. */
+          var rtl = getComputedStyle(host).direction === 'rtl';
           map.panInside(L.latLng(ll[0], ll[1]), {
-            paddingTopLeft: [60, 70],
-            paddingBottomRight: [clearRight, clearBottom],
+            paddingTopLeft: [rtl ? clearSide : 60, 70],
+            paddingBottomRight: [rtl ? 60 : clearSide, clearBottom],
             animate: animate()
           });
         }
@@ -587,9 +594,17 @@
       if (!item) return;
       carousel.scrollTo({ left: item.offsetLeft - (carousel.clientWidth - item.clientWidth) / 2, behavior: animate() ? 'smooth' : 'auto' });
     }
+    /* Only the visitor's own swipe picks a project. The carousel also moves
+       itself (when a pin is chosen), and that must not select anything. */
+    var carouselTouched = false;
+    ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(function (type) {
+      carousel.addEventListener(type, function () { carouselTouched = true; }, { passive: true });
+    });
     carousel.addEventListener('scroll', function () {
+      if (!carouselTouched) return;
       clearTimeout(carouselTimer);
       carouselTimer = setTimeout(function () {
+        carouselTouched = false;
         var middle = carousel.scrollLeft + carousel.clientWidth / 2;
         var best = null;
         var bestDistance = Infinity;
@@ -705,8 +720,14 @@
         var ll = bridge.cardPoint(card);
         return L.latLng(ll[0], ll[1]);
       }));
-      var padding = phone.matches ? [50, 50] : [70, 70];
-      map.fitBounds(bounds, { padding: padding, maxZoom: 15, animate: false });
+      /* On a phone the carousel covers the bottom of the map, so the pins are
+         fitted into what is left above it. */
+      map.fitBounds(bounds, {
+        paddingTopLeft: phone.matches ? [40, 70] : [70, 70],
+        paddingBottomRight: phone.matches ? [40, carousel.offsetHeight + 70] : [70, 70],
+        maxZoom: 15,
+        animate: false
+      });
     }
 
     /* ---- One pass for everything that follows the result ------------------ */
@@ -724,6 +745,7 @@
       if (!cardBox.hidden && selected) showCompact(selected);
 
       syncArea();
+      buildCarousel(); // before fitting: its height is what the fit leaves clear
       var signature = visible.map(function (c) { return c.id; }).join(',') + '|' + (bridge.area ? 'a' : '');
       if (signature !== lastSignature) {
         lastSignature = signature;
@@ -731,7 +753,6 @@
         if (!bridge.area) fit();
       }
       renderPins();
-      buildCarousel();
 
       var count = root.querySelector('[data-result-count-summary]');
       headingArea.textContent = bridge.areaLabel();
