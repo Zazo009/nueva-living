@@ -7,15 +7,15 @@
   const modeButtons = Array.from(root.querySelectorAll('[data-mode]'));
   const panels = Array.from(root.querySelectorAll('[data-filter-panel]'));
   const filterButtons = Array.from(root.querySelectorAll('[data-filter]'));
-  const selectedFiltersNode = root.querySelector('[data-selected-filters]');
-  const countNodes = Array.from(root.querySelectorAll('[data-result-count], [data-result-count-summary]'));
-  const clearButton = root.querySelector('[data-clear-filters]');
+  const countNodes = Array.from(root.querySelectorAll('[data-result-count-summary]'));
+  const clearButtons = Array.from(root.querySelectorAll('[data-clear-filters]'));
+  const showButtons = Array.from(root.querySelectorAll('[data-show-results]'));
+  const activeNodes = Array.from(root.querySelectorAll('[data-active-filters]'));
   const sortSelect = root.querySelector('[data-sort]');
   const emptyState = root.querySelector('[data-empty-state]');
   const selectInputs = Array.from(root.querySelectorAll('[data-filter-select]'));
   const rangeFields = Array.from(root.querySelectorAll('[data-range-field]'));
-  const lifestyleToggle = root.querySelector('[data-lifestyle-toggle]');
-  const lifestylePanel = root.querySelector('[data-lifestyle-panel]');
+  const summary = root.querySelector('.discovery-summary');
   const selected = new Set();
   let aiMatchedSlugs = null;
 
@@ -92,23 +92,28 @@
   const i18n = {
     countOne: root.dataset.i18nCountOne || '{count} curated development',
     countMany: root.dataset.i18nCountMany || '{count} curated developments',
-    noFilters: root.dataset.i18nNoFilters || 'No lifestyle filters selected',
     anyPrice: root.dataset.i18nAnyPrice || 'Any price',
     any: root.dataset.i18nAny || 'Any',
     searching: root.dataset.i18nSearching || 'Searching…',
     search: root.dataset.i18nSearch || 'Search',
     aiMatching: root.dataset.i18nAiMatching || 'Showing matching developments.',
     aiNoMatch: root.dataset.i18nAiNoMatch || 'No current development matches that search.',
-    aiError: root.dataset.i18nAiError || 'AI search is unavailable right now — try the filters below instead.'
+    aiError: root.dataset.i18nAiError || 'AI search is unavailable right now — try the filters below instead.',
+    filters: root.dataset.i18nFilters || 'Filters',
+    moreFilters: root.dataset.i18nMoreFilters || 'More filters',
+    showOne: root.dataset.i18nShowOne || 'Show 1 development',
+    showMany: root.dataset.i18nShowMany || 'Show {n} developments',
+    closeFilters: root.dataset.i18nCloseFilters || 'Close filters',
+    removeFilter: root.dataset.i18nRemoveFilter || 'Remove filter: {label}'
   };
 
   const countLabel = (count) => (count === 1 ? i18n.countOne : i18n.countMany).replace('{count}', String(count));
+  const showLabel = (count) => (count === 1 ? i18n.showOne : i18n.showMany).replace('{n}', String(count));
 
-  // Selected-filter chips must show the pill's translated visible label,
-  // not the English data-filter matching value.
+  // Filter-pill labels are translated; the data-filter matching value is not.
   const filterLabel = (value) => {
     const match = filterButtons.find((button) => button.dataset.filter === value);
-    return match ? match.textContent : value;
+    return match ? match.textContent.trim() : value;
   };
 
   const sortCards = (items) => {
@@ -126,60 +131,129 @@
     });
   };
 
-  const renderSelectedFilters = () => {
-    if (!selectedFiltersNode) return;
-    selectedFiltersNode.replaceChildren();
+  const svgIcon = (path, size = 12) =>
+    `<svg aria-hidden="true" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${path}</svg>`;
+  const ICON_CLOSE = '<path d="M6 6l12 12M18 6L6 18"/>';
+  const ICON_CARET = '<path d="M6 9l6 6 6-6"/>';
 
-    if (!selected.size) {
-      const empty = document.createElement('span');
-      empty.textContent = i18n.noFilters;
-      selectedFiltersNode.append(empty);
-      return;
-    }
+  // --- Number formatting ---------------------------------------------------
+  // Prices follow the page language (separator and currency placement),
+  // Latin digits throughout, including Arabic.
 
-    [...selected].forEach((value) => {
-      const chip = document.createElement('button');
-      chip.className = 'selected-chip';
-      chip.type = 'button';
-      chip.textContent = filterLabel(value);
-      chip.addEventListener('click', () => {
-        selected.delete(value);
-        update();
-        syncUrl();
-      });
-      selectedFiltersNode.append(chip);
-    });
+  const lang = (document.documentElement.lang || 'en').toLowerCase();
+  let fullFormat = null;
+  let compactFormat = null;
+  try {
+    const tag = `${lang}-u-nu-latn`;
+    fullFormat = new Intl.NumberFormat(tag, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+    compactFormat = new Intl.NumberFormat(tag, { style: 'currency', currency: 'EUR', notation: 'compact', maximumFractionDigits: 2 });
+  } catch {
+    fullFormat = null;
+  }
+
+  const clean = (text) => text.replace(/[‎‏؜]/g, '').replace(/ /g, ' ');
+
+  const formatFull = (value, plus) => {
+    const text = fullFormat ? clean(fullFormat.format(value)) : `€${Math.round(value).toLocaleString('en-US')}`;
+    return plus ? `${text}+` : text;
   };
+
+  const formatCompact = (value, plus) => {
+    if (!compactFormat) return formatFull(value, plus);
+    const parts = compactFormat.formatToParts(value);
+    let at = -1;
+    parts.forEach((part, index) => {
+      if (part.type === 'compact') at = index;
+    });
+    if (at < 0) {
+      parts.forEach((part, index) => {
+        if (part.type === 'integer' || part.type === 'fraction') at = index;
+      });
+    }
+    let text = parts.map((part, index) => {
+      let piece = part.value;
+      if (lang.startsWith('en') && part.type === 'compact' && piece === 'K') piece = 'k';
+      return plus && index === at ? `${piece}+` : piece;
+    }).join('');
+    text = clean(text);
+    return text;
+  };
+
+  const formatBedrooms = (value, plus) => (plus ? `${value}+` : String(value));
 
   // --- Primary selects -------------------------------------------------
 
   const selectState = { area: '', propertyType: '', status: '', timing: '' };
+  const chipGroups = new Map();
+
+  const selectByKey = (key) => selectInputs.find((item) => item.dataset.filterSelect === key);
+
+  const optionLabel = (key) => {
+    const select = selectByKey(key);
+    const option = select && Array.from(select.options).find((item) => item.value === selectState[key]);
+    return option ? option.textContent.trim() : '';
+  };
+
+  const setSelect = (key, value) => {
+    const select = selectByKey(key);
+    if (!select) return;
+    if (value && !Array.from(select.options).some((option) => option.value === value)) return;
+    selectState[key] = value;
+    select.value = value;
+    const group = chipGroups.get(key);
+    if (group) {
+      group.forEach((button) => {
+        const on = button.dataset.value === value;
+        button.classList.toggle('is-active', on);
+        button.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+  };
+
+  let uid = 0;
   selectInputs.forEach((select) => {
     const key = select.dataset.filterSelect;
     select.addEventListener('change', () => {
       aiMatchedSlugs = null;
-      selectState[key] = select.value;
+      setSelect(key, select.value);
       update();
       syncUrl();
     });
+
+    // The same options as single-choice chips. They are the visible control
+    // for status and timing, and inside the mobile sheet for the rest; the
+    // select stays the source of truth and the audit's authority.
+    const group = select.closest('[data-chip-group]');
+    const heading = select.closest('label')?.querySelector('span');
+    if (!group || !heading) return;
+    if (!heading.id) heading.id = `discoveryLabel${(uid += 1)}`;
+    const wrap = document.createElement('div');
+    wrap.className = 'discovery-chips';
+    wrap.setAttribute('role', 'group');
+    wrap.setAttribute('aria-labelledby', heading.id);
+    const buttons = Array.from(select.options).map((option) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'discovery-chip';
+      button.dataset.value = option.value;
+      button.textContent = option.textContent.trim();
+      button.setAttribute('aria-pressed', 'false');
+      button.addEventListener('click', () => {
+        aiMatchedSlugs = null;
+        setSelect(key, option.value);
+        update();
+        syncUrl();
+      });
+      wrap.append(button);
+      return button;
+    });
+    chipGroups.set(key, buttons);
+    group.append(wrap);
+    group.classList.add('is-enhanced');
+    setSelect(key, select.value);
   });
 
   // --- Dual-handle range sliders ---------------------------------------
-
-  const formatPrice = (value, bounds, isMax) => {
-    if (isMax && value >= bounds.max) return `${formatPriceValue(value)}+`;
-    return formatPriceValue(value);
-  };
-
-  const formatPriceValue = (value) => {
-    if (value >= 1000000) {
-      const millions = value / 1000000;
-      return `€${millions % 1 === 0 ? millions.toFixed(0) : millions.toFixed(1)}M`;
-    }
-    return `€${Math.round(value).toLocaleString('en-US')}`;
-  };
-
-  const formatBedrooms = (value, bounds, isMax) => (isMax && value >= bounds.max ? `${value}+` : `${value}`);
 
   const rangeState = {};
 
@@ -194,16 +268,56 @@
     const maxInput = field.querySelector('[data-range-input="max"]');
     const fill = field.querySelector('[data-range-fill]');
     const readout = field.querySelector('[data-range-readout]');
-    const formatter = key === 'price' ? formatPrice : formatBedrooms;
+    const label = field.querySelector(':scope > span');
+    const isPrice = key === 'price';
 
-    rangeState[key] = { min: bounds.min, max: bounds.max };
+    // Scale under the track (decorative: the inputs carry the values).
+    const ticks = document.createElement('div');
+    ticks.className = 'range-ticks';
+    ticks.setAttribute('aria-hidden', 'true');
+    if (isPrice) {
+      ticks.innerHTML = `<span>${formatCompact(bounds.min)}</span><span>${formatCompact(bounds.max)}</span>`;
+    } else {
+      for (let n = bounds.min; n <= bounds.max; n += bounds.step) {
+        const tick = document.createElement('span');
+        tick.textContent = String(n);
+        ticks.append(tick);
+      }
+    }
+    field.querySelector('.range-track-wrap')?.after(ticks);
 
-    const render = () => {
+    const labelText = () => {
+      const node = label && Array.from(label.childNodes).find((child) => child.nodeType === 3);
+      return (node ? node.textContent : '').trim();
+    };
+
+    const values = () => {
       let min = Number(minInput.value);
       let max = Number(maxInput.value);
-      if (min > max) {
-        [min, max] = [max, min];
+      if (min > max) [min, max] = [max, min];
+      return { min, max };
+    };
+
+    const isDefault = () => {
+      const { min, max } = values();
+      return min === bounds.min && max === bounds.max;
+    };
+
+    // `always` spells the range out even when it is the whole scale (the
+    // popover's readout); the trigger and chips say "Any" instead.
+    const text = (compact, always) => {
+      const { min, max } = values();
+      if (!always && isDefault()) return isPrice ? i18n.anyPrice : i18n.any;
+      const atMax = max >= bounds.max;
+      if (isPrice) {
+        const format = compact ? formatCompact : formatFull;
+        return `${format(min)} – ${format(max, atMax)}`;
       }
+      return `${formatBedrooms(min)} – ${formatBedrooms(max, atMax)}`;
+    };
+
+    const render = () => {
+      const { min, max } = values();
       rangeState[key] = { min, max };
       const pctMin = ((min - bounds.min) / (bounds.max - bounds.min)) * 100;
       const pctMax = ((max - bounds.min) / (bounds.max - bounds.min)) * 100;
@@ -211,10 +325,12 @@
         fill.style.left = `${pctMin}%`;
         fill.style.right = `${100 - pctMax}%`;
       }
-      if (readout) {
-        readout.textContent = min === bounds.min && max === bounds.max
-          ? (key === 'price' ? i18n.anyPrice : i18n.any)
-          : `${formatter(min, bounds, false)} – ${formatter(max, bounds, true)}`;
+      // Both handles parked at the right end: let the lower one be grabbed.
+      minInput.style.zIndex = min > (bounds.min + bounds.max) / 2 ? '2' : '1';
+      if (readout) readout.textContent = text(false, true);
+      if (isPrice) {
+        minInput.setAttribute('aria-valuetext', formatFull(min));
+        maxInput.setAttribute('aria-valuetext', formatFull(max, max >= bounds.max));
       }
     };
 
@@ -228,29 +344,273 @@
     });
 
     render();
-    return { key, bounds, minInput, maxInput, render };
+    return { key, bounds, minInput, maxInput, render, text, isDefault, labelText, field };
   });
 
+  const rangeBy = (key) => rangeControllers.find((item) => item.key === key);
+
   const setRange = (key, min, max) => {
-    const controller = rangeControllers.find((item) => item.key === key);
+    const controller = rangeBy(key);
     if (!controller) return;
     if (min !== undefined && controller.minInput) controller.minInput.value = String(min);
     if (max !== undefined && controller.maxInput) controller.maxInput.value = String(max);
     controller.render();
   };
 
-  // --- Lifestyle panel toggle -------------------------------------------
+  // --- Popover triggers: Price, Bedrooms, More filters -----------------
 
-  const setLifestyleOpen = (open) => {
-    if (!lifestylePanel || !lifestyleToggle) return;
-    lifestylePanel.hidden = !open;
-    lifestyleToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    root.classList.toggle('is-lifestyle-open', open);
+  const popFields = Array.from(root.querySelectorAll('[data-pop-field]'));
+  const mobileQuery = window.matchMedia('(max-width: 640px)');
+  const pops = popFields.map((field) => {
+    const trigger = field.querySelector('[data-pop-trigger]');
+    const pop = field.querySelector('.discovery-pop');
+    const range = rangeBy(field.dataset.popField);
+    const label = field.querySelector('[data-pop-label]');
+    const value = field.querySelector('[data-pop-value]');
+    const text = range ? range.labelText() : i18n.moreFilters;
+    if (label) label.textContent = text;
+    if (pop) pop.setAttribute('aria-label', text);
+    if (field.dataset.popField === 'more') {
+      const moreLabel = field.querySelector('[data-more-label]');
+      if (moreLabel) moreLabel.textContent = i18n.moreFilters;
+    }
+    return { field, trigger, pop, range, value, name: field.dataset.popField, text };
+  });
+
+  // Short labels on the mobile bar come from the translated markup rather
+  // than a second copy of each word.
+  const lifestyleLabel = root.querySelector('.discovery-lifestyle-label');
+  const texts = {
+    filters: i18n.filters,
+    type: root.querySelector('[data-chip-group="propertyType"] label > span')?.textContent.trim() || '',
+    bedrooms: rangeBy('bedrooms')?.labelText() || '',
+    lifestyle: lifestyleLabel ? lifestyleLabel.textContent.replace('✦', '').trim() : ''
+  };
+  root.querySelectorAll('[data-text]').forEach((node) => {
+    node.textContent = texts[node.dataset.text] || '';
+  });
+
+  let openPop = null;
+
+  const placePop = (item) => {
+    item.pop.classList.remove('is-end');
+    const rect = item.pop.getBoundingClientRect();
+    const rtl = getComputedStyle(item.pop).direction === 'rtl';
+    const overflow = rtl ? rect.left < 8 : rect.right > window.innerWidth - 8;
+    if (overflow) item.pop.classList.add('is-end');
   };
 
-  lifestyleToggle?.addEventListener('click', () => {
-    setLifestyleOpen(lifestylePanel?.hidden !== false);
+  const closePop = (returnFocus) => {
+    if (!openPop) return;
+    const item = openPop;
+    openPop = null;
+    item.pop.hidden = true;
+    item.trigger.setAttribute('aria-expanded', 'false');
+    if (returnFocus) item.trigger.focus();
+  };
+
+  const showPop = (item) => {
+    if (mobileQuery.matches) return;
+    closePop(false);
+    openPop = item;
+    item.pop.hidden = false;
+    item.trigger.setAttribute('aria-expanded', 'true');
+    placePop(item);
+    const first = item.pop.querySelector('input, button, select');
+    if (first) first.focus({ preventScroll: true });
+  };
+
+  pops.forEach((item) => {
+    item.trigger.addEventListener('click', () => {
+      if (openPop === item) closePop(true);
+      else showPop(item);
+    });
+    item.field.addEventListener('focusout', (event) => {
+      if (openPop !== item) return;
+      const next = event.relatedTarget;
+      if (next && !item.field.contains(next)) closePop(false);
+    });
   });
+
+  document.addEventListener('pointerdown', (event) => {
+    if (openPop && !openPop.field.contains(event.target)) closePop(false);
+  });
+
+  // --- Mobile filters sheet ---------------------------------------------
+
+  const sheet = root.querySelector('[data-sheet]');
+  const sheetDialog = sheet?.querySelector('[role="dialog"]');
+  const sheetBody = sheet?.querySelector('[data-sheet-body]');
+  const sheetOpeners = Array.from(root.querySelectorAll('[data-sheet-open]'));
+  const sectionNodes = {};
+  const movables = [];
+
+  if (sheet && sheetBody) {
+    const sheetTitle = sheet.querySelector('[data-sheet-title]');
+    if (sheetTitle) sheetTitle.textContent = i18n.filters;
+    sheetDialog.setAttribute('aria-label', i18n.filters);
+    const closeButton = sheet.querySelector('.discovery-sheet-close');
+    if (closeButton) closeButton.setAttribute('aria-label', i18n.closeFilters);
+
+    const sections = {
+      area: root.querySelector('[data-chip-group="area"]'),
+      price: rangeBy('price')?.field,
+      bedrooms: rangeBy('bedrooms')?.field,
+      propertyType: root.querySelector('[data-chip-group="propertyType"]'),
+      more: root.querySelector('.discovery-pop-body[data-more-body]')
+    };
+    Object.assign(sectionNodes, sections);
+    ['area', 'price', 'bedrooms', 'propertyType', 'more'].forEach((name) => {
+      const node = sections[name];
+      if (!node) return;
+      const marker = document.createComment(name);
+      node.before(marker);
+      movables.push({ node, marker });
+    });
+  }
+
+  let sheetOpener = null;
+
+  const inSheet = () => sheet && !sheet.hidden;
+
+  const layoutForViewport = () => {
+    if (!sheet) return;
+    if (mobileQuery.matches) {
+      closePop(false);
+      movables.forEach(({ node }) => sheetBody.append(node));
+      root.classList.add('is-sheet-layout');
+    } else {
+      if (inSheet()) closeSheet(false);
+      movables.forEach(({ node, marker }) => marker.after(node));
+      root.classList.remove('is-sheet-layout');
+    }
+  };
+
+  const focusables = () =>
+    Array.from(sheetDialog.querySelectorAll('button, select, input, a[href], [tabindex]:not([tabindex="-1"])'))
+      .filter((node) => !node.disabled && node.getClientRects().length > 0);
+
+  function openSheet(opener, target) {
+    if (!sheet || !mobileQuery.matches) return;
+    sheetOpener = opener || null;
+    sheet.hidden = false;
+    document.documentElement.classList.add('discovery-sheet-open');
+    sheetOpeners.forEach((button) => button.setAttribute('aria-expanded', 'true'));
+    const node = target && (target === 'more' ? root.querySelector('.discovery-lifestyle') : sectionNodes[target]);
+    if (node) node.scrollIntoView({ block: 'start' });
+    else sheetBody.scrollTop = 0;
+    const focusTarget = (node && node.querySelector('button, input, select')) || sheetDialog;
+    focusTarget.focus({ preventScroll: true });
+  }
+
+  function closeSheet(returnFocus = true) {
+    if (!sheet || sheet.hidden) return;
+    sheet.hidden = true;
+    document.documentElement.classList.remove('discovery-sheet-open');
+    sheetOpeners.forEach((button) => button.setAttribute('aria-expanded', 'false'));
+    if (returnFocus && sheetOpener) sheetOpener.focus();
+  }
+
+  sheetOpeners.forEach((button) => {
+    button.setAttribute('aria-haspopup', 'dialog');
+    button.setAttribute('aria-expanded', 'false');
+    button.addEventListener('click', () => openSheet(button, button.dataset.sheetSection));
+  });
+  sheet?.querySelectorAll('[data-sheet-close]').forEach((node) => {
+    node.addEventListener('click', () => closeSheet(true));
+  });
+  sheet?.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    const nodes = focusables();
+    if (!nodes.length) return;
+    const first = nodes[0];
+    const last = nodes[nodes.length - 1];
+    if (event.shiftKey && (document.activeElement === first || document.activeElement === sheetDialog)) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    if (inSheet()) {
+      event.preventDefault();
+      closeSheet(true);
+    } else if (openPop) {
+      event.preventDefault();
+      closePop(true);
+    }
+  });
+
+  if (mobileQuery.addEventListener) mobileQuery.addEventListener('change', layoutForViewport);
+  else if (mobileQuery.addListener) mobileQuery.addListener(layoutForViewport);
+
+  // "Show n developments": close whatever is open and bring the results
+  // into view.
+  const showResults = () => {
+    closePop(false);
+    closeSheet(false);
+    const target = summary || grid;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  };
+  showButtons.forEach((button) => button.addEventListener('click', showResults));
+
+  // --- Active filters (chips) ------------------------------------------
+
+  const activeFilters = () => {
+    const list = [];
+    [['area', 'area'], ['propertyType', 'propertyType'], ['status', 'status'], ['timing', 'timing']].forEach(([key]) => {
+      if (!selectState[key]) return;
+      list.push({
+        label: optionLabel(key),
+        group: key === 'status' || key === 'timing' ? 'more' : key,
+        clear: () => setSelect(key, '')
+      });
+    });
+    rangeControllers.forEach((controller) => {
+      if (controller.isDefault()) return;
+      const prefix = controller.key === 'price' ? '' : `${controller.labelText()}: `;
+      list.push({
+        label: `${prefix}${controller.text(true)}`,
+        group: controller.key,
+        clear: () => {
+          controller.minInput.value = String(controller.bounds.min);
+          controller.maxInput.value = String(controller.bounds.max);
+          controller.render();
+        }
+      });
+    });
+    [...selected].forEach((value) => {
+      list.push({ label: filterLabel(value), group: 'more', clear: () => selected.delete(value) });
+    });
+    return list;
+  };
+
+  const renderActive = (list) => {
+    activeNodes.forEach((node) => {
+      node.replaceChildren(...list.map((item) => {
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'discovery-active-chip';
+        chip.setAttribute('aria-label', i18n.removeFilter.replace('{label}', item.label));
+        const text = document.createElement('span');
+        text.textContent = item.label;
+        chip.append(text);
+        chip.insertAdjacentHTML('beforeend', svgIcon(ICON_CLOSE));
+        chip.addEventListener('click', () => {
+          aiMatchedSlugs = null;
+          item.clear();
+          update();
+          syncUrl();
+        });
+        return chip;
+      }));
+    });
+  };
 
   // --- Core filtering -----------------------------------------------------
 
@@ -258,8 +618,8 @@
     const activeTokens = [...selected].map(normalize);
     const price = rangeState.price || { min: 0, max: Infinity };
     const beds = rangeState.bedrooms || { min: 0, max: Infinity };
-    const priceBounds = rangeControllers.find((item) => item.key === 'price')?.bounds;
-    const bedsBounds = rangeControllers.find((item) => item.key === 'bedrooms')?.bounds;
+    const priceBounds = rangeBy('price')?.bounds;
+    const bedsBounds = rangeBy('bedrooms')?.bounds;
     // A slider parked at either end means "no limit", not a filter. Only the
     // top end was treated that way, so anything priced below the slider's
     // floor was hidden before the visitor touched a control -- Golf Valley
@@ -316,9 +676,34 @@
     countNodes.forEach((node) => {
       node.textContent = label;
     });
+    const cta = showLabel(visible.length);
+    showButtons.forEach((button) => {
+      button.textContent = cta;
+    });
 
     if (emptyState) emptyState.hidden = visible.length > 0;
-    renderSelectedFilters();
+
+    const list = activeFilters();
+    renderActive(list);
+    root.classList.toggle('has-active-filters', list.length > 0);
+    clearButtons.forEach((button) => {
+      if (button.hasAttribute('data-clear-when-active')) button.hidden = list.length === 0;
+    });
+    root.querySelectorAll('[data-filters-count]').forEach((node) => {
+      node.textContent = String(list.length);
+      node.hidden = list.length === 0;
+    });
+    const moreCount = list.filter((item) => item.group === 'more').length;
+    root.querySelectorAll('[data-more-count]').forEach((node) => {
+      node.textContent = String(moreCount);
+      node.hidden = moreCount === 0;
+    });
+
+    pops.forEach((item) => {
+      if (item.range && item.value) item.value.textContent = item.range.text(true);
+      const on = item.range ? !item.range.isDefault() : moreCount > 0;
+      item.trigger.classList.toggle('is-active', on);
+    });
   }
 
   modeButtons.forEach((button) => {
@@ -347,22 +732,20 @@
     });
   });
 
-  clearButton?.addEventListener('click', () => {
-    aiMatchedSlugs = null;
-    selected.clear();
-    selectState.area = '';
-    selectState.propertyType = '';
-    selectState.status = '';
-    selectState.timing = '';
-    selectInputs.forEach((select) => { select.value = ''; });
-    rangeControllers.forEach((controller) => {
-      controller.minInput.value = String(controller.bounds.min);
-      controller.maxInput.value = String(controller.bounds.max);
-      controller.render();
+  clearButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      aiMatchedSlugs = null;
+      selected.clear();
+      Object.keys(selectState).forEach((key) => setSelect(key, ''));
+      rangeControllers.forEach((controller) => {
+        controller.minInput.value = String(controller.bounds.min);
+        controller.maxInput.value = String(controller.bounds.max);
+        controller.render();
+      });
+      if (sortSelect) sortSelect.value = 'curated';
+      update();
+      syncUrl();
     });
-    if (sortSelect) sortSelect.value = 'curated';
-    update();
-    syncUrl();
   });
 
   sortSelect?.addEventListener('change', () => {
@@ -386,13 +769,13 @@
     if (selectState.status) params.set('status', selectState.status);
     if (selectState.timing) params.set('timing', selectState.timing);
     const price = rangeState.price;
-    const priceBounds = rangeControllers.find((item) => item.key === 'price')?.bounds;
+    const priceBounds = rangeBy('price')?.bounds;
     if (price && priceBounds && (price.min !== priceBounds.min || price.max !== priceBounds.max)) {
       if (price.min !== priceBounds.min) params.set('pmin', String(price.min));
       if (price.max !== priceBounds.max) params.set('pmax', String(price.max));
     }
     const beds = rangeState.bedrooms;
-    const bedsBounds = rangeControllers.find((item) => item.key === 'bedrooms')?.bounds;
+    const bedsBounds = rangeBy('bedrooms')?.bounds;
     if (beds && bedsBounds && (beds.min !== bedsBounds.min || beds.max !== bedsBounds.max)) {
       if (beds.min !== bedsBounds.min) params.set('bmin', String(beds.min));
       if (beds.max !== bedsBounds.max) params.set('bmax', String(beds.max));
@@ -418,26 +801,10 @@
     const params = new URLSearchParams(window.location.search);
     if (!params.toString()) return;
 
-    const area = params.get('area');
-    if (area) {
-      const select = selectInputs.find((item) => item.dataset.filterSelect === 'area');
-      if (select) { select.value = area; selectState.area = area; }
-    }
-    const type = params.get('type');
-    if (type) {
-      const select = selectInputs.find((item) => item.dataset.filterSelect === 'propertyType');
-      if (select) { select.value = type; selectState.propertyType = type; }
-    }
-    const status = params.get('status');
-    if (status) {
-      const select = selectInputs.find((item) => item.dataset.filterSelect === 'status');
-      if (select) { select.value = status; selectState.status = status; }
-    }
-    const timing = params.get('timing');
-    if (timing) {
-      const select = selectInputs.find((item) => item.dataset.filterSelect === 'timing');
-      if (select) { select.value = timing; selectState.timing = timing; }
-    }
+    [['area', 'area'], ['type', 'propertyType'], ['status', 'status'], ['timing', 'timing']].forEach(([param, key]) => {
+      const value = params.get(param);
+      if (value) setSelect(key, value);
+    });
 
     const pmin = params.get('pmin');
     const pmax = params.get('pmax');
@@ -450,24 +817,16 @@
     const sort = params.get('sort');
     if (sort && sortSelect) sortSelect.value = sort;
 
-    let hasTagFilters = false;
     Object.entries(TAG_PARAM_KEYS).forEach(([mode, key]) => {
       const raw = params.get(key);
       if (!raw) return;
-      raw.split(',').filter(Boolean).forEach((value) => {
-        selected.add(value);
-        hasTagFilters = true;
-      });
-      if (hasTagFilters) {
-        const modeButton = modeButtons.find((button) => button.dataset.mode === mode);
-        modeButton?.click();
-      }
+      raw.split(',').filter(Boolean).forEach((value) => selected.add(value));
+      modeButtons.find((button) => button.dataset.mode === mode)?.click();
     });
-
-    if (hasTagFilters) setLifestyleOpen(true);
   }
 
   restoreFromUrl();
+  layoutForViewport();
   update();
 
   // --- Current / Completed projects view toggle -------------------------
@@ -523,7 +882,10 @@
   const aiSearchExamples = Array.from(root.querySelectorAll('[data-ai-search-example]'));
 
   const setAiSearchBusy = (busy) => {
-    if (aiSearchSubmit) aiSearchSubmit.disabled = busy;
+    if (aiSearchSubmit) {
+      aiSearchSubmit.disabled = busy;
+      aiSearchSubmit.setAttribute('aria-busy', busy ? 'true' : 'false');
+    }
     if (aiSearchSubmitLabel) aiSearchSubmitLabel.textContent = busy ? i18n.searching : i18n.search;
   };
 

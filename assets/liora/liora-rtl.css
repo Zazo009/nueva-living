@@ -286,6 +286,27 @@
   margin-right: auto;
 }
 
+/* The search panel's own labels, buttons and chips. They sit under
+   `.discovery-panel` with more weight than the shared family below, so they
+   are listed here rather than there; the empty state is a sibling of the
+   panel, not a child. */
+[dir="rtl"] .discovery-panel :is(
+  .discovery-field > span:first-child,
+  .discovery-sort > span:first-child,
+  .discovery-lifestyle-label,
+  .discovery-section > span:first-child,
+  .discovery-section > label > span:first-child,
+  .discovery-mode,
+  .discovery-show,
+  .clear-filters,
+  .ai-search button[data-ai-search-submit]
+),
+[dir="rtl"] .discovery-empty :is(.clear-filters, .discovery-empty-cta) {
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 /* ---------- Small tracked-caps labels (nav tabs, kickers, table headers,
    availability chips, unit-card facts, etc.) ----------
    This whole family across the site shares one Latin-uppercase-small-caps
@@ -322,12 +343,9 @@
   .calculator-field-label,
   .calculator-rate-toggle button,
   .calculator-result span,
-  .clear-filters,
   .developments-view-tab,
-  .discovery-field > span,
   .discovery-mode,
   .discovery-note span,
-  .discovery-sort span,
   .discovery-summary p,
   .distance span,
   .document-row a,
@@ -354,8 +372,6 @@
   .kicker,
   .label,
   .legal-nav a,
-  .lifestyle-toggle-count,
-  .lifestyle-toggle-label,
   .map-legend,
   .map-node text,
   .map-note,
@@ -384,7 +400,6 @@
   .res-meta span,
   .section-kicker,
   .segment-related-list a,
-  .selected-chip,
   .sticky-mobile-cta a,
   .testimonial-card footer,
   .timeline-label,
