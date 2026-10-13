@@ -339,8 +339,13 @@
     clearLabel.textContent = t.clearArea;
     clearBtn.appendChild(clearLabel);
     clearBtn.hidden = true;
+    /* What the outline holds, in words: the same number the bubbles and pins
+       inside it add up to. */
+    var areaCount = el('p', 'dmap-area-count', { role: 'status' });
+    areaCount.hidden = true;
     tools.appendChild(drawBtn);
     tools.appendChild(clearBtn);
+    tools.appendChild(areaCount);
     stageBox.appendChild(tools);
 
     var hint = el('p', 'dmap-hint', { role: 'status' });
@@ -439,6 +444,7 @@
     var cardSet = []; // the cards the compact card pages through
     var pinFor = new Map(); // card -> pin element (price pins only)
     var lastSignature = null;
+    var lastArea = null;
 
     function nameOf(card) {
       var node = card.querySelector('.dev-name');
@@ -893,6 +899,7 @@
 
     function syncArea() {
       var area = bridge.area;
+      if (!area) areaCount.hidden = true;
       if (areaLayer) { map.removeLayer(areaLayer); areaLayer = null; }
       if (area) {
         areaLayer = L.polygon(area, {
@@ -934,6 +941,19 @@
       });
     }
 
+    /* After an outline is drawn the map is framed on it, so the bubbles and
+       pins in view are the projects inside it and nothing else. */
+    function fitArea() {
+      var area = bridge.area;
+      if (!area) return;
+      map.fitBounds(L.latLngBounds(area), {
+        paddingTopLeft: phone.matches ? [40, 70] : [70, 70],
+        paddingBottomRight: phone.matches ? [40, carousel.offsetHeight + 70] : [70, 70],
+        maxZoom: 15,
+        animate: false
+      });
+    }
+
     /* ---- One pass for everything that follows the result ------------------ */
 
     function refresh(visible) {
@@ -953,10 +973,18 @@
       var signature = visible.map(function (c) { return c.id; }).join(',') + '|' + (bridge.area ? 'a' : '');
       if (signature !== lastSignature) {
         lastSignature = signature;
-        /* A drawn area is the visitor's own framing; leave the view alone. */
         if (!bridge.area) fit();
       }
+      /* A new outline frames the map on itself once; later filter changes
+         inside it leave the view where the visitor put it. */
+      if (bridge.area && bridge.area !== lastArea) fitArea();
+      lastArea = bridge.area;
       renderPins();
+
+      if (bridge.area) {
+        areaCount.textContent = (visible.length === 1 ? t.areaCountOne : t.areaCount).replace('{n}', String(visible.length));
+        areaCount.hidden = false;
+      }
 
       var count = root.querySelector('[data-result-count-summary]');
       headingArea.textContent = bridge.areaLabel();
@@ -1010,6 +1038,7 @@
       show: function () {
         shown = true;
         lastSignature = null;
+        lastArea = null;
         map.invalidateSize();
         syncArea();
         refresh(bridge.visible);

@@ -5554,7 +5554,7 @@ let mapGuardChecked = 0;
     if (Array.isArray(site) && site.length === 2) withSite.set(slug, site.map(Number));
   }
   const mapStrings = ['map', 'list', 'view', 'draw-area', 'clear-area', 'area-chip', 'draw-hint', 'zoom-in', 'zoom-out',
-    'map-label', 'cluster-many', 'prev-project', 'next-project', 'close-card', 'unmapped', 'back-to-filters'];
+    'map-label', 'cluster-many', 'area-count', 'area-count-one', 'prev-project', 'next-project', 'close-card', 'unmapped', 'back-to-filters'];
   for (const locale of ['', ...ENTRY_LOCALES]) {
     const file = path.join(dist, locale, 'developments.html');
     if (!fs.existsSync(file)) continue;

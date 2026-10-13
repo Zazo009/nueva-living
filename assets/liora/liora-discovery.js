@@ -117,6 +117,8 @@
     zoomOut: root.dataset.i18nZoomOut || 'Zoom out',
     mapLabel: root.dataset.i18nMapLabel || 'Map of the developments that match your filters',
     clusterMany: root.dataset.i18nClusterMany || '{n} developments',
+    areaCount: root.dataset.i18nAreaCount || '{n} developments in this area',
+    areaCountOne: root.dataset.i18nAreaCountOne || '1 development in this area',
     prevProject: root.dataset.i18nPrevProject || 'Previous project',
     nextProject: root.dataset.i18nNextProject || 'Next project',
     closeCard: root.dataset.i18nCloseCard || 'Close',

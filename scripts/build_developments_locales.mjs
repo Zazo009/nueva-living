@@ -192,6 +192,8 @@ function applyDiscoveryRuntimeStrings(html, locale) {
     ['data-i18n-zoom-out', strings.zoomOut],
     ['data-i18n-map-label', strings.mapLabel],
     ['data-i18n-cluster-many', strings.clusterMany],
+    ['data-i18n-area-count', strings.areaCount],
+    ['data-i18n-area-count-one', strings.areaCountOne],
     ['data-i18n-prev-project', strings.prevProject],
     ['data-i18n-next-project', strings.nextProject],
     ['data-i18n-close-card', strings.closeCard],
