@@ -1,7 +1,7 @@
 # nueva-living
 
-Static site for nuevaliving.com: a Costa del Sol new-build advisory. 57 projects,
-10 locales, ~970 built pages. Everything is generated from JSON by Node scripts.
+Static site for nuevaliving.com: a Costa del Sol new-build advisory. 78 projects,
+10 locales, ~1,160 built pages. Everything is generated from JSON by Node scripts.
 
 This file is the rules that are load-bearing and **not** discoverable by reading the
 code. Everything else, read the code — it is commented unusually well, and the commit
