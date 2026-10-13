@@ -205,7 +205,7 @@
         <a class="hero-discovery-link" href="ar/developments.html#development-discovery">استكشاف المشاريع</a>
       </div>
     </section>
-    <section class="section developments-discovery" id="development-discovery" data-discovery data-i18n-count-one="مشروع مختار واحد" data-i18n-count-many="{count} مشاريع مختارة" data-i18n-no-filters="لم يتم اختيار فلاتر نمط الحياة" data-i18n-any-price="أي سعر" data-i18n-any="أي عدد" data-i18n-searching="جارٍ البحث…" data-i18n-search="بحث" data-i18n-ai-matching="عرض المشاريع المطابقة." data-i18n-ai-no-match="لا يوجد مشروع حالي يطابق هذا البحث." data-i18n-ai-error="بحث الذكاء الاصطناعي غير متاح حاليًا — جرّب الفلاتر أدناه.">
+    <section class="section developments-discovery" id="development-discovery" data-discovery data-i18n-count-one="مشروع مختار واحد" data-i18n-count-many="{count} مشاريع مختارة" data-i18n-any-price="أي سعر" data-i18n-any="أي عدد" data-i18n-searching="جارٍ البحث…" data-i18n-search="بحث" data-i18n-ai-matching="عرض المشاريع المطابقة." data-i18n-ai-no-match="لا يوجد مشروع حالي يطابق هذا البحث." data-i18n-ai-error="بحث الذكاء الاصطناعي غير متاح حاليًا — جرّب الفلاتر أدناه." data-i18n-filters="الفلاتر" data-i18n-more-filters="المزيد من الفلاتر" data-i18n-show-one="عرض المشاريع (1)" data-i18n-show-many="عرض المشاريع ({n})" data-i18n-close-filters="إغلاق الفلاتر" data-i18n-remove-filter="إزالة الفلتر: {label}">
       <div class="section-inner">
         <div class="developments-view-tabs" role="tablist" aria-label="عرض المشاريع">
           <button type="button" class="developments-view-tab is-active" data-view-tab="current" role="tab" aria-selected="true">المشاريع الحالية</button>
@@ -215,8 +215,12 @@
           <div class="ai-search" data-ai-search>
             <form data-ai-search-form>
               <label class="sr-only" for="aiSearchInput">صف المنزل الذي تبحث عنه</label>
-              <input type="text" id="aiSearchInput" data-ai-search-input placeholder="استخدم مساعد الذكاء الاصطناعي للعثور على ما تبحث عنه" autocomplete="off">
+              <div class="ai-search-field">
+                <svg class="ai-search-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+                <input type="text" id="aiSearchInput" data-ai-search-input placeholder="استخدم مساعد الذكاء الاصطناعي للعثور على ما تبحث عنه" autocomplete="off">
+              </div>
               <button type="submit" data-ai-search-submit>
+                <svg class="ai-search-submit-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
                 <span data-ai-search-submit-label>بحث</span>
               </button>
             </form>
@@ -229,160 +233,254 @@
               <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>&#127961;&#65039; عائلة</button>
               <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>&#128176; استثمار</button>
             </div>
-            <p class="ai-search-status" data-ai-search-status hidden></p>
-          </div>
-          <div class="discovery-primary">
-            <label class="discovery-field">
-              <span>المنطقة</span>
-              <select data-filter-select="area">
-                <option value="">جميع المناطق</option>
-                <option value="marbella">Marbella</option>
-                <option value="estepona">Estepona</option>
-                <option value="casares">Casares</option>
-                <option value="benahavis">Benah&aacute;vis</option>
-                <option value="nueva-andalucia">Nueva Andaluc&iacute;a</option>
-                <option value="san-pedro-alcantara">San Pedro de Alc&aacute;ntara</option>
-                <option value="mijas-fuengirola">Mijas &amp; Fuengirola</option>
-              </select>
-            </label>
-            <label class="discovery-field">
-              <span>نوع العقار</span>
-              <select data-filter-select="propertyType">
-                <option value="">جميع الأنواع</option>
-                <option value="apartment">شقة</option>
-                <option value="penthouse">بنتهاوس</option>
-                <option value="villa">فيلا</option>
-                <option value="townhouse">تاون هاوس</option>
-              </select>
-            </label>
-            <label class="discovery-field">
-              <span>الحالة</span>
-              <select data-filter-select="status">
-                <option value="">أي حالة</option>
-                <option value="off_plan">على المخطط</option>
-                <option value="under_construction">قيد الإنشاء</option>
-                <option value="completed">مكتمل</option>
-              </select>
-            </label>
-            <label class="discovery-field">
-              <span>موعد الانتقال</span>
-              <select data-filter-select="timing">
-                <option value="">أي وقت</option>
-                <option value="ready">جاهز الآن</option>
-                <option value="1y">خلال سنة واحدة</option>
-                <option value="2y">خلال سنتين</option>
-                <option value="2y+">أكثر من سنتين</option>
-              </select>
-            </label>
-            <div class="discovery-field discovery-range" data-range-field="price" data-range-min="260000" data-range-max="5000000" data-range-step="10000">
-              <span>نطاق السعر<em class="range-readout" data-range-readout>أي سعر</em></span>
-              <div class="range-track-wrap">
-                <div class="range-track"><div class="range-track-fill" data-range-fill></div></div>
-                <input type="range" min="260000" max="5000000" step="10000" value="260000" data-range-input="min" aria-label="الحد الأدنى للسعر">
-                <input type="range" min="260000" max="5000000" step="10000" value="5000000" data-range-input="max" aria-label="الحد الأقصى للسعر">
-              </div>
-            </div>
-            <div class="discovery-field discovery-range" data-range-field="bedrooms" data-range-min="1" data-range-max="6" data-range-step="1">
-              <span>غرف النوم<em class="range-readout" data-range-readout>أي عدد</em></span>
-              <div class="range-track-wrap">
-                <div class="range-track"><div class="range-track-fill" data-range-fill></div></div>
-                <input type="range" min="1" max="6" step="1" value="1" data-range-input="min" aria-label="الحد الأدنى لغرف النوم">
-                <input type="range" min="1" max="6" step="1" value="6" data-range-input="max" aria-label="الحد الأقصى لغرف النوم">
-              </div>
-            </div>
-            <button class="clear-filters" type="button" data-clear-filters>إعادة تعيين الفلاتر</button>
+            <p class="ai-search-status" data-ai-search-status role="status" hidden></p>
           </div>
 
-          <button class="lifestyle-toggle" type="button" data-lifestyle-toggle aria-expanded="false" aria-controls="lifestylePanel">
-            <span class="lifestyle-toggle-label"><span class="lifestyle-star" aria-hidden="true">&#10022;</span> تصفية حسب نمط الحياة</span>
-            <span class="lifestyle-toggle-count" data-result-count aria-live="polite">5 مشاريع مختارة</span>
-            <span class="lifestyle-caret" aria-hidden="true">&#8964;</span>
-          </button>
-
-          <div class="lifestyle-panel" id="lifestylePanel" data-lifestyle-panel hidden>
-            <div class="discovery-mode-tabs" role="tablist" aria-label="وضع تصفية نمط الحياة">
-              <button class="discovery-mode is-active" type="button" data-mode="lifestyle" aria-selected="true">نمط الحياة</button>
-              <button class="discovery-mode" type="button" data-mode="architecture" aria-selected="false">العمارة</button>
-              <button class="discovery-mode" type="button" data-mode="location" aria-selected="false">المحيط</button>
-              <button class="discovery-mode" type="button" data-mode="investment" aria-selected="false">الاستثمار</button>
+          <div class="discovery-quick">
+            <div class="discovery-rail">
+              <button class="discovery-filters-btn" type="button" data-sheet-open>
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+                <span data-text="filters"></span>
+                <span class="discovery-badge" data-filters-count hidden></span>
+              </button>
+              <div class="discovery-active" data-active-filters></div>
+              <button class="discovery-quick-btn" type="button" data-sheet-open data-sheet-section="propertyType"><span data-text="type"></span><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+              <button class="discovery-quick-btn" type="button" data-sheet-open data-sheet-section="bedrooms"><span data-text="bedrooms"></span><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+              <button class="discovery-quick-btn" type="button" data-sheet-open data-sheet-section="more"><span data-text="lifestyle"></span><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
             </div>
+          </div>
 
-            <div class="filter-groups">
-              <div class="filter-group is-active" data-filter-panel="lifestyle">
-                <button class="filter-pill" type="button" data-filter="Sea View">إطلالة على البحر</button>
-                <button class="filter-pill" type="button" data-filter="Beachside">بجوار الشاطئ</button>
-                <button class="filter-pill" type="button" data-filter="Golf Living">حياة الغولف</button>
-                <button class="filter-pill" type="button" data-filter="Wellness Living">حياة العافية</button>
-                <button class="filter-pill" type="button" data-filter="Resort Lifestyle">نمط حياة المنتجعات</button>
-                <button class="filter-pill" type="button" data-filter="Family-Oriented">مناسب للعائلات</button>
-                <button class="filter-pill" type="button" data-filter="Privacy &amp; Security">الخصوصية والأمان</button>
-                <button class="filter-pill" type="button" data-filter="Walkable Lifestyle">كل شيء سيرًا على الأقدام</button>
-                <button class="filter-pill" type="button" data-filter="Lock-and-Leave">أغلق وغادر</button>
-                <button class="filter-pill" type="button" data-filter="Smart Home">منزل ذكي</button>
-                <button class="filter-pill" type="button" data-filter="Sustainable Living">حياة مستدامة</button>
-                <button class="filter-pill" type="button" data-filter="Design-Led">تصميم متميز</button>
-                <button class="filter-pill" type="button" data-filter="Ultra Luxury">فخامة قصوى</button>
-                <button class="filter-pill" type="button" data-filter="Boutique Community">مجتمع بوتيكي</button>
-              </div>
-
-              <div class="filter-group" data-filter-panel="architecture">
-                <button class="filter-pill" type="button" data-filter="Contemporary Mediterranean">متوسطي معاصر</button>
-                <button class="filter-pill" type="button" data-filter="Minimalist Architecture">عمارة بسيطة</button>
-                <button class="filter-pill" type="button" data-filter="Organic Design">تصميم عضوي</button>
-                <button class="filter-pill" type="button" data-filter="Panoramic Glass Design">تصميم زجاجي بانورامي</button>
-                <button class="filter-pill" type="button" data-filter="Low-Density Development">مشروع منخفض الكثافة</button>
-                <button class="filter-pill" type="button" data-filter="Boutique Development">مشروع بوتيكي</button>
-              </div>
-
-              <div class="filter-group" data-filter-panel="location">
-                <button class="filter-pill" type="button" data-filter="Golden Mile">الميل الذهبي</button>
-                <button class="filter-pill" type="button" data-filter="Golf Valley">وادي الغولف</button>
-                <button class="filter-pill" type="button" data-filter="New Golden Mile">الميل الذهبي الجديد</button>
-                <button class="filter-pill" type="button" data-filter="Marbella East">ماربيا الشرقية</button>
-                <button class="filter-pill" type="button" data-filter="Beachfront">واجهة بحرية</button>
-                <button class="filter-pill" type="button" data-filter="Hillside Views">إطلالات التلال</button>
-                <button class="filter-pill" type="button" data-filter="Gated Community">مجمع مسور</button>
-                <button class="filter-pill" type="button" data-filter="Walkable to Amenities">خدمات قريبة سيرًا</button>
-              </div>
-
-              <div class="filter-group" data-filter-panel="investment">
-                <button class="filter-pill" type="button" data-filter="Primary Residence">سكن رئيسي</button>
-                <button class="filter-pill" type="button" data-filter="Holiday Home">منزل عطلات</button>
-                <button class="filter-pill" type="button" data-filter="Investment Property">عقار استثماري</button>
-                <button class="filter-pill" type="button" data-filter="Rental Yield Potential">إمكانات عائد الإيجار</button>
-                <button class="filter-pill" type="button" data-filter="Family Relocation">انتقال عائلي</button>
-                <button class="filter-pill" type="button" data-filter="International Buyer">مشترٍ دولي</button>
-                <button class="filter-pill" type="button" data-filter="Second Home">منزل ثانٍ</button>
-                <button class="filter-pill" type="button" data-filter="Lifestyle Investment">استثمار في نمط الحياة</button>
-                <button class="filter-pill" type="button" data-filter="Long-Term Value">قيمة طويلة الأمد</button>
-                <button class="filter-pill" type="button" data-filter="Low-Maintenance Ownership">ملكية سهلة الصيانة</button>
+          <div class="discovery-bar">
+            <div class="discovery-group discovery-section" data-chip-group="area">
+              <label class="discovery-field">
+                <span>المنطقة</span>
+                <span class="discovery-select-wrap">
+                  <select data-filter-select="area">
+                    <option value="">جميع المناطق</option>
+                    <option value="marbella">Marbella</option>
+                    <option value="estepona">Estepona</option>
+                    <option value="casares">Casares</option>
+                    <option value="benahavis">Benah&aacute;vis</option>
+                    <option value="nueva-andalucia">Nueva Andaluc&iacute;a</option>
+                    <option value="san-pedro-alcantara">San Pedro de Alc&aacute;ntara</option>
+                    <option value="mijas-fuengirola">Mijas &amp; Fuengirola</option>
+                  </select>
+                  <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </label>
+            </div>
+            <div class="discovery-group discovery-section" data-chip-group="propertyType">
+              <label class="discovery-field">
+                <span>نوع العقار</span>
+                <span class="discovery-select-wrap">
+                  <select data-filter-select="propertyType">
+                    <option value="">جميع الأنواع</option>
+                    <option value="apartment">شقة</option>
+                    <option value="penthouse">بنتهاوس</option>
+                    <option value="villa">فيلا</option>
+                    <option value="townhouse">تاون هاوس</option>
+                  </select>
+                  <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </label>
+            </div>
+            <div class="discovery-field discovery-pop-field" data-pop-field="price">
+              <span data-pop-label></span>
+              <button class="discovery-trigger" type="button" data-pop-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="discoveryPopPrice">
+                <span data-pop-value></span>
+                <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="discovery-pop" id="discoveryPopPrice" role="dialog" hidden>
+                <div class="discovery-pop-body">
+                  <div class="discovery-field discovery-range discovery-section" data-range-field="price" data-range-min="260000" data-range-max="5000000" data-range-step="10000">
+                    <span>نطاق السعر<em class="range-readout" data-range-readout>أي سعر</em></span>
+                    <div class="range-track-wrap">
+                      <div class="range-track"><div class="range-track-fill" data-range-fill></div></div>
+                      <input type="range" min="260000" max="5000000" step="10000" value="260000" data-range-input="min" aria-label="الحد الأدنى للسعر">
+                      <input type="range" min="260000" max="5000000" step="10000" value="5000000" data-range-input="max" aria-label="الحد الأقصى للسعر">
+                    </div>
+                  </div>
+                </div>
+                <div class="discovery-pop-foot">
+                  <button class="clear-filters" type="button" data-clear-filters>إعادة تعيين الفلاتر</button>
+                  <button class="discovery-show" type="button" data-show-results></button>
+                </div>
               </div>
             </div>
-
-            <div class="selected-filters" data-selected-filters>
-              <span>لم يتم اختيار فلاتر نمط الحياة</span>
+            <div class="discovery-field discovery-pop-field" data-pop-field="bedrooms">
+              <span data-pop-label></span>
+              <button class="discovery-trigger" type="button" data-pop-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="discoveryPopBedrooms">
+                <span data-pop-value></span>
+                <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="discovery-pop" id="discoveryPopBedrooms" role="dialog" hidden>
+                <div class="discovery-pop-body">
+                  <div class="discovery-field discovery-range discovery-section" data-range-field="bedrooms" data-range-min="1" data-range-max="6" data-range-step="1">
+                    <span>غرف النوم<em class="range-readout" data-range-readout>أي عدد</em></span>
+                    <div class="range-track-wrap">
+                      <div class="range-track"><div class="range-track-fill" data-range-fill></div></div>
+                      <input type="range" min="1" max="6" step="1" value="1" data-range-input="min" aria-label="الحد الأدنى لغرف النوم">
+                      <input type="range" min="1" max="6" step="1" value="6" data-range-input="max" aria-label="الحد الأقصى لغرف النوم">
+                    </div>
+                  </div>
+                </div>
+                <div class="discovery-pop-foot">
+                  <button class="clear-filters" type="button" data-clear-filters>إعادة تعيين الفلاتر</button>
+                  <button class="discovery-show" type="button" data-show-results></button>
+                </div>
+              </div>
+            </div>
+            <div class="discovery-field discovery-pop-field discovery-more" data-pop-field="more">
+              <button class="discovery-trigger discovery-trigger-more" type="button" data-pop-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="discoveryPopMore">
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+                <span data-more-label></span>
+                <span class="discovery-badge" data-more-count hidden></span>
+              </button>
+              <div class="discovery-pop discovery-pop-wide" id="discoveryPopMore" role="dialog" hidden>
+                <div class="discovery-pop-body" data-more-body>
+                  <div class="discovery-group discovery-section" data-chip-group="status">
+                    <label class="discovery-field">
+                      <span>الحالة</span>
+                      <span class="discovery-select-wrap">
+                        <select data-filter-select="status">
+                          <option value="">أي حالة</option>
+                          <option value="off_plan">على المخطط</option>
+                          <option value="under_construction">قيد الإنشاء</option>
+                          <option value="completed">مكتمل</option>
+                        </select>
+                        <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="discovery-group discovery-section" data-chip-group="timing">
+                    <label class="discovery-field">
+                      <span>موعد الانتقال</span>
+                      <span class="discovery-select-wrap">
+                        <select data-filter-select="timing">
+                          <option value="">أي وقت</option>
+                          <option value="ready">جاهز الآن</option>
+                          <option value="1y">خلال سنة واحدة</option>
+                          <option value="2y">خلال سنتين</option>
+                          <option value="2y+">أكثر من سنتين</option>
+                        </select>
+                        <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="discovery-section discovery-lifestyle">
+                    <span class="discovery-lifestyle-label"><span class="lifestyle-star" aria-hidden="true">&#10022;</span> تصفية حسب نمط الحياة</span>
+                    <div class="discovery-mode-tabs" role="tablist" aria-label="وضع تصفية نمط الحياة">
+                      <button role="tab" class="discovery-mode is-active" type="button" data-mode="lifestyle" aria-selected="true">نمط الحياة</button>
+                      <button role="tab" class="discovery-mode" type="button" data-mode="architecture" aria-selected="false">العمارة</button>
+                      <button role="tab" class="discovery-mode" type="button" data-mode="location" aria-selected="false">المحيط</button>
+                      <button role="tab" class="discovery-mode" type="button" data-mode="investment" aria-selected="false">الاستثمار</button>
+                    </div>
+                    <div class="filter-groups">
+                      <div class="filter-group is-active" data-filter-panel="lifestyle">
+                        <button class="filter-pill" type="button" data-filter="Sea View">إطلالة على البحر</button>
+                        <button class="filter-pill" type="button" data-filter="Beachside">بجوار الشاطئ</button>
+                        <button class="filter-pill" type="button" data-filter="Golf Living">حياة الغولف</button>
+                        <button class="filter-pill" type="button" data-filter="Wellness Living">حياة العافية</button>
+                        <button class="filter-pill" type="button" data-filter="Resort Lifestyle">نمط حياة المنتجعات</button>
+                        <button class="filter-pill" type="button" data-filter="Family-Oriented">مناسب للعائلات</button>
+                        <button class="filter-pill" type="button" data-filter="Privacy &amp; Security">الخصوصية والأمان</button>
+                        <button class="filter-pill" type="button" data-filter="Walkable Lifestyle">كل شيء سيرًا على الأقدام</button>
+                        <button class="filter-pill" type="button" data-filter="Lock-and-Leave">أغلق وغادر</button>
+                        <button class="filter-pill" type="button" data-filter="Smart Home">منزل ذكي</button>
+                        <button class="filter-pill" type="button" data-filter="Sustainable Living">حياة مستدامة</button>
+                        <button class="filter-pill" type="button" data-filter="Design-Led">تصميم متميز</button>
+                        <button class="filter-pill" type="button" data-filter="Ultra Luxury">فخامة قصوى</button>
+                        <button class="filter-pill" type="button" data-filter="Boutique Community">مجتمع بوتيكي</button>
+                      </div>
+                      <div class="filter-group" data-filter-panel="architecture">
+                        <button class="filter-pill" type="button" data-filter="Contemporary Mediterranean">متوسطي معاصر</button>
+                        <button class="filter-pill" type="button" data-filter="Minimalist Architecture">عمارة بسيطة</button>
+                        <button class="filter-pill" type="button" data-filter="Organic Design">تصميم عضوي</button>
+                        <button class="filter-pill" type="button" data-filter="Panoramic Glass Design">تصميم زجاجي بانورامي</button>
+                        <button class="filter-pill" type="button" data-filter="Low-Density Development">مشروع منخفض الكثافة</button>
+                        <button class="filter-pill" type="button" data-filter="Boutique Development">مشروع بوتيكي</button>
+                      </div>
+                      <div class="filter-group" data-filter-panel="location">
+                        <button class="filter-pill" type="button" data-filter="Golden Mile">الميل الذهبي</button>
+                        <button class="filter-pill" type="button" data-filter="Golf Valley">وادي الغولف</button>
+                        <button class="filter-pill" type="button" data-filter="New Golden Mile">الميل الذهبي الجديد</button>
+                        <button class="filter-pill" type="button" data-filter="Marbella East">ماربيا الشرقية</button>
+                        <button class="filter-pill" type="button" data-filter="Beachfront">واجهة بحرية</button>
+                        <button class="filter-pill" type="button" data-filter="Hillside Views">إطلالات التلال</button>
+                        <button class="filter-pill" type="button" data-filter="Gated Community">مجمع مسور</button>
+                        <button class="filter-pill" type="button" data-filter="Walkable to Amenities">خدمات قريبة سيرًا</button>
+                      </div>
+                      <div class="filter-group" data-filter-panel="investment">
+                        <button class="filter-pill" type="button" data-filter="Primary Residence">سكن رئيسي</button>
+                        <button class="filter-pill" type="button" data-filter="Holiday Home">منزل عطلات</button>
+                        <button class="filter-pill" type="button" data-filter="Investment Property">عقار استثماري</button>
+                        <button class="filter-pill" type="button" data-filter="Rental Yield Potential">إمكانات عائد الإيجار</button>
+                        <button class="filter-pill" type="button" data-filter="Family Relocation">انتقال عائلي</button>
+                        <button class="filter-pill" type="button" data-filter="International Buyer">مشترٍ دولي</button>
+                        <button class="filter-pill" type="button" data-filter="Second Home">منزل ثانٍ</button>
+                        <button class="filter-pill" type="button" data-filter="Lifestyle Investment">استثمار في نمط الحياة</button>
+                        <button class="filter-pill" type="button" data-filter="Long-Term Value">قيمة طويلة الأمد</button>
+                        <button class="filter-pill" type="button" data-filter="Low-Maintenance Ownership">ملكية سهلة الصيانة</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="discovery-pop-foot">
+                  <button class="clear-filters" type="button" data-clear-filters>إعادة تعيين الفلاتر</button>
+                  <button class="discovery-show" type="button" data-show-results></button>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="discovery-summary">
-            <p data-result-count-summary aria-live="polite">5 مشاريع مختارة</p>
+            <div class="discovery-summary-main">
+              <p data-result-count-summary aria-live="polite">5 مشاريع مختارة</p>
+              <div class="discovery-active" data-active-filters></div>
+              <button class="clear-filters" type="button" data-clear-filters data-clear-when-active hidden>إعادة تعيين الفلاتر</button>
+            </div>
             <label class="discovery-sort">
               <span>ترتيب</span>
-              <select data-sort>
-                <option value="curated">الترتيب الموصى به</option>
-                <option value="newest">الأحدث إصدارًا</option>
-                <option value="price-asc">السعر: من الأقل إلى الأعلى</option>
-                <option value="price-desc">السعر: من الأعلى إلى الأقل</option>
-                <option value="completion">الأقرب إنجازًا</option>
-              </select>
+              <span class="discovery-select-wrap">
+                <select data-sort>
+                  <option value="curated">الترتيب الموصى به</option>
+                  <option value="newest">الأحدث إصدارًا</option>
+                  <option value="price-asc">السعر: من الأقل إلى الأعلى</option>
+                  <option value="price-desc">السعر: من الأعلى إلى الأقل</option>
+                  <option value="completion">الأقرب إنجازًا</option>
+                </select>
+                <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
             </label>
+          </div>
+
+          <div class="discovery-sheet" data-sheet hidden>
+            <div class="discovery-sheet-backdrop" data-sheet-close></div>
+            <div class="discovery-sheet-dialog" role="dialog" aria-modal="true" tabindex="-1">
+              <div class="discovery-sheet-head">
+                <span class="discovery-sheet-grip" aria-hidden="true"></span>
+                <div class="discovery-sheet-bar">
+                  <span class="discovery-sheet-title" data-sheet-title></span>
+                  <button class="discovery-sheet-close" type="button" data-sheet-close><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+                </div>
+              </div>
+              <div class="discovery-sheet-body" data-sheet-body></div>
+              <div class="discovery-sheet-foot">
+                <button class="clear-filters" type="button" data-clear-filters>إعادة تعيين الفلاتر</button>
+                <button class="discovery-show" type="button" data-show-results></button>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="discovery-empty" data-empty-state data-current-view hidden>
-          <span>لم يتم العثور على تطابق دقيق.</span>
+          <svg class="discovery-empty-icon" aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>
+          <h2 class="discovery-empty-title">لا توجد وحدات تطابق هذه الفلاتر.</h2>
           <p>جرّب عددًا أقل من الفلاتر، أو استكشف مشاريع مشابهة، أو أخبرنا بما تبحث عنه.</p>
-          <a class="project-link" href="ar/contact.html#contact-form&intent=Personal%20Project%20Shortlist">احصل على قائمة مختارة شخصية</a>
+          <div class="discovery-empty-actions">
+            <button class="clear-filters" type="button" data-clear-filters>إعادة تعيين الفلاتر</button>
+            <a class="discovery-empty-cta" href="ar/contact.html#contact-form&intent=Personal%20Project%20Shortlist">تحدث مع مستشار</a>
+          </div>
         </div>
 
         <div class="project-grid" data-project-grid data-current-view>

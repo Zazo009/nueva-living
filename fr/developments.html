@@ -204,7 +204,7 @@
         <a class="hero-discovery-link" href="fr/developments.html#development-discovery">Découvrir les Programmes</a>
       </div>
     </section>
-    <section class="section developments-discovery" id="development-discovery" data-discovery data-i18n-count-one="{count} programme sélectionné" data-i18n-count-many="{count} programmes sélectionnés" data-i18n-no-filters="Aucun filtre de style de vie sélectionné" data-i18n-any-price="Tout prix" data-i18n-any="Toutes" data-i18n-searching="Recherche…" data-i18n-search="Rechercher" data-i18n-ai-matching="Affichage des programmes correspondants." data-i18n-ai-no-match="Aucun programme actuel ne correspond à cette recherche." data-i18n-ai-error="La recherche IA est indisponible pour le moment — essayez les filtres ci-dessous.">
+    <section class="section developments-discovery" id="development-discovery" data-discovery data-i18n-count-one="{count} programme sélectionné" data-i18n-count-many="{count} programmes sélectionnés" data-i18n-any-price="Tout prix" data-i18n-any="Toutes" data-i18n-searching="Recherche…" data-i18n-search="Rechercher" data-i18n-ai-matching="Affichage des programmes correspondants." data-i18n-ai-no-match="Aucun programme actuel ne correspond à cette recherche." data-i18n-ai-error="La recherche IA est indisponible pour le moment — essayez les filtres ci-dessous." data-i18n-filters="Filtres" data-i18n-more-filters="Plus de filtres" data-i18n-show-one="Voir 1 programme" data-i18n-show-many="Voir {n} programmes" data-i18n-close-filters="Fermer les filtres" data-i18n-remove-filter="Retirer le filtre : {label}">
       <div class="section-inner">
         <div class="developments-view-tabs" role="tablist" aria-label="Vue des programmes">
           <button type="button" class="developments-view-tab is-active" data-view-tab="current" role="tab" aria-selected="true">Programmes Actuels</button>
@@ -214,8 +214,12 @@
           <div class="ai-search" data-ai-search>
             <form data-ai-search-form>
               <label class="sr-only" for="aiSearchInput">Décrivez le bien que vous recherchez</label>
-              <input type="text" id="aiSearchInput" data-ai-search-input placeholder="Utilisez notre assistant IA pour trouver ce que vous cherchez" autocomplete="off">
+              <div class="ai-search-field">
+                <svg class="ai-search-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+                <input type="text" id="aiSearchInput" data-ai-search-input placeholder="Utilisez notre assistant IA pour trouver ce que vous cherchez" autocomplete="off">
+              </div>
               <button type="submit" data-ai-search-submit>
+                <svg class="ai-search-submit-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
                 <span data-ai-search-submit-label>Rechercher</span>
               </button>
             </form>
@@ -228,160 +232,254 @@
               <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>&#127961;&#65039; Famille</button>
               <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>&#128176; Investissement</button>
             </div>
-            <p class="ai-search-status" data-ai-search-status hidden></p>
-          </div>
-          <div class="discovery-primary">
-            <label class="discovery-field">
-              <span>Secteur</span>
-              <select data-filter-select="area">
-                <option value="">Tous les secteurs</option>
-                <option value="marbella">Marbella</option>
-                <option value="estepona">Estepona</option>
-                <option value="casares">Casares</option>
-                <option value="benahavis">Benah&aacute;vis</option>
-                <option value="nueva-andalucia">Nueva Andaluc&iacute;a</option>
-                <option value="san-pedro-alcantara">San Pedro de Alc&aacute;ntara</option>
-                <option value="mijas-fuengirola">Mijas &amp; Fuengirola</option>
-              </select>
-            </label>
-            <label class="discovery-field">
-              <span>Type de bien</span>
-              <select data-filter-select="propertyType">
-                <option value="">Tous les types</option>
-                <option value="apartment">Appartement</option>
-                <option value="penthouse">Penthouse</option>
-                <option value="villa">Villa</option>
-                <option value="townhouse">Maison de ville</option>
-              </select>
-            </label>
-            <label class="discovery-field">
-              <span>Statut</span>
-              <select data-filter-select="status">
-                <option value="">Tout statut</option>
-                <option value="off_plan">Sur plan</option>
-                <option value="under_construction">En construction</option>
-                <option value="completed">Terminé</option>
-              </select>
-            </label>
-            <label class="discovery-field">
-              <span>Délai d’emménagement</span>
-              <select data-filter-select="timing">
-                <option value="">Tout délai</option>
-                <option value="ready">Disponible maintenant</option>
-                <option value="1y">Sous 1 an</option>
-                <option value="2y">Sous 2 ans</option>
-                <option value="2y+">Plus de 2 ans</option>
-              </select>
-            </label>
-            <div class="discovery-field discovery-range" data-range-field="price" data-range-min="260000" data-range-max="5000000" data-range-step="10000">
-              <span>Fourchette de prix<em class="range-readout" data-range-readout>Tous les prix</em></span>
-              <div class="range-track-wrap">
-                <div class="range-track"><div class="range-track-fill" data-range-fill></div></div>
-                <input type="range" min="260000" max="5000000" step="10000" value="260000" data-range-input="min" aria-label="Prix minimum">
-                <input type="range" min="260000" max="5000000" step="10000" value="5000000" data-range-input="max" aria-label="Prix maximum">
-              </div>
-            </div>
-            <div class="discovery-field discovery-range" data-range-field="bedrooms" data-range-min="1" data-range-max="6" data-range-step="1">
-              <span>Chambres<em class="range-readout" data-range-readout>Toutes</em></span>
-              <div class="range-track-wrap">
-                <div class="range-track"><div class="range-track-fill" data-range-fill></div></div>
-                <input type="range" min="1" max="6" step="1" value="1" data-range-input="min" aria-label="Nombre minimum de chambres">
-                <input type="range" min="1" max="6" step="1" value="6" data-range-input="max" aria-label="Nombre maximum de chambres">
-              </div>
-            </div>
-            <button class="clear-filters" type="button" data-clear-filters>Réinitialiser les Filtres</button>
+            <p class="ai-search-status" data-ai-search-status role="status" hidden></p>
           </div>
 
-          <button class="lifestyle-toggle" type="button" data-lifestyle-toggle aria-expanded="false" aria-controls="lifestylePanel">
-            <span class="lifestyle-toggle-label"><span class="lifestyle-star" aria-hidden="true">&#10022;</span> Filtrer par style de vie</span>
-            <span class="lifestyle-toggle-count" data-result-count aria-live="polite">5 programmes sélectionnés</span>
-            <span class="lifestyle-caret" aria-hidden="true">&#8964;</span>
-          </button>
-
-          <div class="lifestyle-panel" id="lifestylePanel" data-lifestyle-panel hidden>
-            <div class="discovery-mode-tabs" role="tablist" aria-label="Mode de filtre style de vie">
-              <button class="discovery-mode is-active" type="button" data-mode="lifestyle" aria-selected="true">Style de Vie</button>
-              <button class="discovery-mode" type="button" data-mode="architecture" aria-selected="false">Architecture</button>
-              <button class="discovery-mode" type="button" data-mode="location" aria-selected="false">Cadre</button>
-              <button class="discovery-mode" type="button" data-mode="investment" aria-selected="false">Investissement</button>
+          <div class="discovery-quick">
+            <div class="discovery-rail">
+              <button class="discovery-filters-btn" type="button" data-sheet-open>
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+                <span data-text="filters"></span>
+                <span class="discovery-badge" data-filters-count hidden></span>
+              </button>
+              <div class="discovery-active" data-active-filters></div>
+              <button class="discovery-quick-btn" type="button" data-sheet-open data-sheet-section="propertyType"><span data-text="type"></span><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+              <button class="discovery-quick-btn" type="button" data-sheet-open data-sheet-section="bedrooms"><span data-text="bedrooms"></span><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+              <button class="discovery-quick-btn" type="button" data-sheet-open data-sheet-section="more"><span data-text="lifestyle"></span><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
             </div>
+          </div>
 
-            <div class="filter-groups">
-              <div class="filter-group is-active" data-filter-panel="lifestyle">
-                <button class="filter-pill" type="button" data-filter="Sea View">Vue mer</button>
-                <button class="filter-pill" type="button" data-filter="Beachside">Bord de mer</button>
-                <button class="filter-pill" type="button" data-filter="Golf Living">Vie golf</button>
-                <button class="filter-pill" type="button" data-filter="Wellness Living">Bien-Être</button>
-                <button class="filter-pill" type="button" data-filter="Resort Lifestyle">Esprit resort</button>
-                <button class="filter-pill" type="button" data-filter="Family-Oriented">Familial</button>
-                <button class="filter-pill" type="button" data-filter="Privacy &amp; Security">Intimité et sécurité</button>
-                <button class="filter-pill" type="button" data-filter="Walkable Lifestyle">Tout à pied</button>
-                <button class="filter-pill" type="button" data-filter="Lock-and-Leave">Clé en main</button>
-                <button class="filter-pill" type="button" data-filter="Smart Home">Maison connectée</button>
-                <button class="filter-pill" type="button" data-filter="Sustainable Living">Habitat durable</button>
-                <button class="filter-pill" type="button" data-filter="Design-Led">Design signature</button>
-                <button class="filter-pill" type="button" data-filter="Ultra Luxury">Ultra luxe</button>
-                <button class="filter-pill" type="button" data-filter="Boutique Community">Communauté boutique</button>
-              </div>
-
-              <div class="filter-group" data-filter-panel="architecture">
-                <button class="filter-pill" type="button" data-filter="Contemporary Mediterranean">Méditerranéen contemporain</button>
-                <button class="filter-pill" type="button" data-filter="Minimalist Architecture">Architecture minimaliste</button>
-                <button class="filter-pill" type="button" data-filter="Organic Design">Design organique</button>
-                <button class="filter-pill" type="button" data-filter="Panoramic Glass Design">Design vitré panoramique</button>
-                <button class="filter-pill" type="button" data-filter="Low-Density Development">Programme à faible densité</button>
-                <button class="filter-pill" type="button" data-filter="Boutique Development">Programme boutique</button>
-              </div>
-
-              <div class="filter-group" data-filter-panel="location">
-                <button class="filter-pill" type="button" data-filter="Golden Mile">Golden Mile</button>
-                <button class="filter-pill" type="button" data-filter="Golf Valley">Golf Valley</button>
-                <button class="filter-pill" type="button" data-filter="New Golden Mile">New Golden Mile</button>
-                <button class="filter-pill" type="button" data-filter="Marbella East">Marbella Est</button>
-                <button class="filter-pill" type="button" data-filter="Beachfront">Front de mer</button>
-                <button class="filter-pill" type="button" data-filter="Hillside Views">Vues sur les collines</button>
-                <button class="filter-pill" type="button" data-filter="Gated Community">Résidence fermée</button>
-                <button class="filter-pill" type="button" data-filter="Walkable to Amenities">Commodités à pied</button>
-              </div>
-
-              <div class="filter-group" data-filter-panel="investment">
-                <button class="filter-pill" type="button" data-filter="Primary Residence">Résidence principale</button>
-                <button class="filter-pill" type="button" data-filter="Holiday Home">Résidence de vacances</button>
-                <button class="filter-pill" type="button" data-filter="Investment Property">Bien d’Investissement</button>
-                <button class="filter-pill" type="button" data-filter="Rental Yield Potential">Potentiel locatif</button>
-                <button class="filter-pill" type="button" data-filter="Family Relocation">Installation en famille</button>
-                <button class="filter-pill" type="button" data-filter="International Buyer">Acheteur international</button>
-                <button class="filter-pill" type="button" data-filter="Second Home">Résidence secondaire</button>
-                <button class="filter-pill" type="button" data-filter="Lifestyle Investment">Investissement style de vie</button>
-                <button class="filter-pill" type="button" data-filter="Long-Term Value">Valeur à long terme</button>
-                <button class="filter-pill" type="button" data-filter="Low-Maintenance Ownership">Entretien minimal</button>
+          <div class="discovery-bar">
+            <div class="discovery-group discovery-section" data-chip-group="area">
+              <label class="discovery-field">
+                <span>Secteur</span>
+                <span class="discovery-select-wrap">
+                  <select data-filter-select="area">
+                    <option value="">Tous les secteurs</option>
+                    <option value="marbella">Marbella</option>
+                    <option value="estepona">Estepona</option>
+                    <option value="casares">Casares</option>
+                    <option value="benahavis">Benah&aacute;vis</option>
+                    <option value="nueva-andalucia">Nueva Andaluc&iacute;a</option>
+                    <option value="san-pedro-alcantara">San Pedro de Alc&aacute;ntara</option>
+                    <option value="mijas-fuengirola">Mijas &amp; Fuengirola</option>
+                  </select>
+                  <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </label>
+            </div>
+            <div class="discovery-group discovery-section" data-chip-group="propertyType">
+              <label class="discovery-field">
+                <span>Type de bien</span>
+                <span class="discovery-select-wrap">
+                  <select data-filter-select="propertyType">
+                    <option value="">Tous les types</option>
+                    <option value="apartment">Appartement</option>
+                    <option value="penthouse">Penthouse</option>
+                    <option value="villa">Villa</option>
+                    <option value="townhouse">Maison de ville</option>
+                  </select>
+                  <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </label>
+            </div>
+            <div class="discovery-field discovery-pop-field" data-pop-field="price">
+              <span data-pop-label></span>
+              <button class="discovery-trigger" type="button" data-pop-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="discoveryPopPrice">
+                <span data-pop-value></span>
+                <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="discovery-pop" id="discoveryPopPrice" role="dialog" hidden>
+                <div class="discovery-pop-body">
+                  <div class="discovery-field discovery-range discovery-section" data-range-field="price" data-range-min="260000" data-range-max="5000000" data-range-step="10000">
+                    <span>Fourchette de prix<em class="range-readout" data-range-readout>Tous les prix</em></span>
+                    <div class="range-track-wrap">
+                      <div class="range-track"><div class="range-track-fill" data-range-fill></div></div>
+                      <input type="range" min="260000" max="5000000" step="10000" value="260000" data-range-input="min" aria-label="Prix minimum">
+                      <input type="range" min="260000" max="5000000" step="10000" value="5000000" data-range-input="max" aria-label="Prix maximum">
+                    </div>
+                  </div>
+                </div>
+                <div class="discovery-pop-foot">
+                  <button class="clear-filters" type="button" data-clear-filters>Réinitialiser les Filtres</button>
+                  <button class="discovery-show" type="button" data-show-results></button>
+                </div>
               </div>
             </div>
-
-            <div class="selected-filters" data-selected-filters>
-              <span>Aucun filtre de style de vie sélectionné</span>
+            <div class="discovery-field discovery-pop-field" data-pop-field="bedrooms">
+              <span data-pop-label></span>
+              <button class="discovery-trigger" type="button" data-pop-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="discoveryPopBedrooms">
+                <span data-pop-value></span>
+                <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="discovery-pop" id="discoveryPopBedrooms" role="dialog" hidden>
+                <div class="discovery-pop-body">
+                  <div class="discovery-field discovery-range discovery-section" data-range-field="bedrooms" data-range-min="1" data-range-max="6" data-range-step="1">
+                    <span>Chambres<em class="range-readout" data-range-readout>Toutes</em></span>
+                    <div class="range-track-wrap">
+                      <div class="range-track"><div class="range-track-fill" data-range-fill></div></div>
+                      <input type="range" min="1" max="6" step="1" value="1" data-range-input="min" aria-label="Nombre minimum de chambres">
+                      <input type="range" min="1" max="6" step="1" value="6" data-range-input="max" aria-label="Nombre maximum de chambres">
+                    </div>
+                  </div>
+                </div>
+                <div class="discovery-pop-foot">
+                  <button class="clear-filters" type="button" data-clear-filters>Réinitialiser les Filtres</button>
+                  <button class="discovery-show" type="button" data-show-results></button>
+                </div>
+              </div>
+            </div>
+            <div class="discovery-field discovery-pop-field discovery-more" data-pop-field="more">
+              <button class="discovery-trigger discovery-trigger-more" type="button" data-pop-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="discoveryPopMore">
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg>
+                <span data-more-label></span>
+                <span class="discovery-badge" data-more-count hidden></span>
+              </button>
+              <div class="discovery-pop discovery-pop-wide" id="discoveryPopMore" role="dialog" hidden>
+                <div class="discovery-pop-body" data-more-body>
+                  <div class="discovery-group discovery-section" data-chip-group="status">
+                    <label class="discovery-field">
+                      <span>Statut</span>
+                      <span class="discovery-select-wrap">
+                        <select data-filter-select="status">
+                          <option value="">Tout statut</option>
+                          <option value="off_plan">Sur plan</option>
+                          <option value="under_construction">En construction</option>
+                          <option value="completed">Terminé</option>
+                        </select>
+                        <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="discovery-group discovery-section" data-chip-group="timing">
+                    <label class="discovery-field">
+                      <span>Délai d’emménagement</span>
+                      <span class="discovery-select-wrap">
+                        <select data-filter-select="timing">
+                          <option value="">Tout délai</option>
+                          <option value="ready">Disponible maintenant</option>
+                          <option value="1y">Sous 1 an</option>
+                          <option value="2y">Sous 2 ans</option>
+                          <option value="2y+">Plus de 2 ans</option>
+                        </select>
+                        <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="discovery-section discovery-lifestyle">
+                    <span class="discovery-lifestyle-label"><span class="lifestyle-star" aria-hidden="true">&#10022;</span> Filtrer par style de vie</span>
+                    <div class="discovery-mode-tabs" role="tablist" aria-label="Mode de filtre style de vie">
+                      <button role="tab" class="discovery-mode is-active" type="button" data-mode="lifestyle" aria-selected="true">Style de Vie</button>
+                      <button role="tab" class="discovery-mode" type="button" data-mode="architecture" aria-selected="false">Architecture</button>
+                      <button role="tab" class="discovery-mode" type="button" data-mode="location" aria-selected="false">Cadre</button>
+                      <button role="tab" class="discovery-mode" type="button" data-mode="investment" aria-selected="false">Investissement</button>
+                    </div>
+                    <div class="filter-groups">
+                      <div class="filter-group is-active" data-filter-panel="lifestyle">
+                        <button class="filter-pill" type="button" data-filter="Sea View">Vue mer</button>
+                        <button class="filter-pill" type="button" data-filter="Beachside">Bord de mer</button>
+                        <button class="filter-pill" type="button" data-filter="Golf Living">Vie golf</button>
+                        <button class="filter-pill" type="button" data-filter="Wellness Living">Bien-Être</button>
+                        <button class="filter-pill" type="button" data-filter="Resort Lifestyle">Esprit resort</button>
+                        <button class="filter-pill" type="button" data-filter="Family-Oriented">Familial</button>
+                        <button class="filter-pill" type="button" data-filter="Privacy &amp; Security">Intimité et sécurité</button>
+                        <button class="filter-pill" type="button" data-filter="Walkable Lifestyle">Tout à pied</button>
+                        <button class="filter-pill" type="button" data-filter="Lock-and-Leave">Clé en main</button>
+                        <button class="filter-pill" type="button" data-filter="Smart Home">Maison connectée</button>
+                        <button class="filter-pill" type="button" data-filter="Sustainable Living">Habitat durable</button>
+                        <button class="filter-pill" type="button" data-filter="Design-Led">Design signature</button>
+                        <button class="filter-pill" type="button" data-filter="Ultra Luxury">Ultra luxe</button>
+                        <button class="filter-pill" type="button" data-filter="Boutique Community">Communauté boutique</button>
+                      </div>
+                      <div class="filter-group" data-filter-panel="architecture">
+                        <button class="filter-pill" type="button" data-filter="Contemporary Mediterranean">Méditerranéen contemporain</button>
+                        <button class="filter-pill" type="button" data-filter="Minimalist Architecture">Architecture minimaliste</button>
+                        <button class="filter-pill" type="button" data-filter="Organic Design">Design organique</button>
+                        <button class="filter-pill" type="button" data-filter="Panoramic Glass Design">Design vitré panoramique</button>
+                        <button class="filter-pill" type="button" data-filter="Low-Density Development">Programme à faible densité</button>
+                        <button class="filter-pill" type="button" data-filter="Boutique Development">Programme boutique</button>
+                      </div>
+                      <div class="filter-group" data-filter-panel="location">
+                        <button class="filter-pill" type="button" data-filter="Golden Mile">Golden Mile</button>
+                        <button class="filter-pill" type="button" data-filter="Golf Valley">Golf Valley</button>
+                        <button class="filter-pill" type="button" data-filter="New Golden Mile">New Golden Mile</button>
+                        <button class="filter-pill" type="button" data-filter="Marbella East">Marbella Est</button>
+                        <button class="filter-pill" type="button" data-filter="Beachfront">Front de mer</button>
+                        <button class="filter-pill" type="button" data-filter="Hillside Views">Vues sur les collines</button>
+                        <button class="filter-pill" type="button" data-filter="Gated Community">Résidence fermée</button>
+                        <button class="filter-pill" type="button" data-filter="Walkable to Amenities">Commodités à pied</button>
+                      </div>
+                      <div class="filter-group" data-filter-panel="investment">
+                        <button class="filter-pill" type="button" data-filter="Primary Residence">Résidence principale</button>
+                        <button class="filter-pill" type="button" data-filter="Holiday Home">Résidence de vacances</button>
+                        <button class="filter-pill" type="button" data-filter="Investment Property">Bien d’Investissement</button>
+                        <button class="filter-pill" type="button" data-filter="Rental Yield Potential">Potentiel locatif</button>
+                        <button class="filter-pill" type="button" data-filter="Family Relocation">Installation en famille</button>
+                        <button class="filter-pill" type="button" data-filter="International Buyer">Acheteur international</button>
+                        <button class="filter-pill" type="button" data-filter="Second Home">Résidence secondaire</button>
+                        <button class="filter-pill" type="button" data-filter="Lifestyle Investment">Investissement style de vie</button>
+                        <button class="filter-pill" type="button" data-filter="Long-Term Value">Valeur à long terme</button>
+                        <button class="filter-pill" type="button" data-filter="Low-Maintenance Ownership">Entretien minimal</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="discovery-pop-foot">
+                  <button class="clear-filters" type="button" data-clear-filters>Réinitialiser les Filtres</button>
+                  <button class="discovery-show" type="button" data-show-results></button>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="discovery-summary">
-            <p data-result-count-summary aria-live="polite">5 programmes sélectionnés</p>
+            <div class="discovery-summary-main">
+              <p data-result-count-summary aria-live="polite">5 programmes sélectionnés</p>
+              <div class="discovery-active" data-active-filters></div>
+              <button class="clear-filters" type="button" data-clear-filters data-clear-when-active hidden>Réinitialiser les Filtres</button>
+            </div>
             <label class="discovery-sort">
               <span>Trier</span>
-              <select data-sort>
-                <option value="curated">Ordre recommandé</option>
-                <option value="newest">Lancement le plus récent</option>
-                <option value="price-asc">Prix : croissant</option>
-                <option value="price-desc">Prix : décroissant</option>
-                <option value="completion">Livraison la plus proche</option>
-              </select>
+              <span class="discovery-select-wrap">
+                <select data-sort>
+                  <option value="curated">Ordre recommandé</option>
+                  <option value="newest">Lancement le plus récent</option>
+                  <option value="price-asc">Prix : croissant</option>
+                  <option value="price-desc">Prix : décroissant</option>
+                  <option value="completion">Livraison la plus proche</option>
+                </select>
+                <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </span>
             </label>
+          </div>
+
+          <div class="discovery-sheet" data-sheet hidden>
+            <div class="discovery-sheet-backdrop" data-sheet-close></div>
+            <div class="discovery-sheet-dialog" role="dialog" aria-modal="true" tabindex="-1">
+              <div class="discovery-sheet-head">
+                <span class="discovery-sheet-grip" aria-hidden="true"></span>
+                <div class="discovery-sheet-bar">
+                  <span class="discovery-sheet-title" data-sheet-title></span>
+                  <button class="discovery-sheet-close" type="button" data-sheet-close><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+                </div>
+              </div>
+              <div class="discovery-sheet-body" data-sheet-body></div>
+              <div class="discovery-sheet-foot">
+                <button class="clear-filters" type="button" data-clear-filters>Réinitialiser les Filtres</button>
+                <button class="discovery-show" type="button" data-show-results></button>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="discovery-empty" data-empty-state data-current-view hidden>
-          <span>Aucune correspondance exacte trouvée.</span>
+          <svg class="discovery-empty-icon" aria-hidden="true" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>
+          <h2 class="discovery-empty-title">Aucun bien ne correspond à ces filtres.</h2>
           <p>Essayez avec moins de filtres, explorez des projets similaires ou dites-nous ce que vous recherchez.</p>
-          <a class="project-link" href="fr/contact.html#contact-form&intent=Personal%20Project%20Shortlist">Recevoir une sélection personnalisée</a>
+          <div class="discovery-empty-actions">
+            <button class="clear-filters" type="button" data-clear-filters>Réinitialiser les Filtres</button>
+            <a class="discovery-empty-cta" href="fr/contact.html#contact-form&intent=Personal%20Project%20Shortlist">Parler à un conseiller</a>
+          </div>
         </div>
 
         <div class="project-grid" data-project-grid data-current-view>
