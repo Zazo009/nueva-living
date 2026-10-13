@@ -170,5 +170,16 @@
     }).sort(function (p, q) { return p.members[0] - q.members[0]; });
   }
 
-  return { cluster: cluster, project: project, unproject: unproject, coordinateKey: coordinateKey };
+  /* The first zoom, from `fromZoom` up to `maxZoom`, at which the given points
+     no longer form one bubble; null when they never separate (two projects a few
+     metres apart stay one bubble even at the closest zoom). A click on such a
+     bubble cannot be answered by zooming, so it opens the compact card instead. */
+  function splitZoom(points, fromZoom, maxZoom, radius) {
+    for (var z = Math.max(0, Math.ceil(fromZoom)); z <= maxZoom; z += 1) {
+      if (cluster(points, z, radius).length >= 2) return z;
+    }
+    return null;
+  }
+
+  return { cluster: cluster, splitZoom: splitZoom, project: project, unproject: unproject, coordinateKey: coordinateKey };
 });

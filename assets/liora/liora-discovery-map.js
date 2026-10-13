@@ -546,24 +546,32 @@
     }
 
     function openCluster(group, latlng, button) {
-      /* Pins that share a coordinate can never be pulled apart by zooming:
-         page through them in the compact card instead. */
-      if (group.colocated) {
-        select(group.cards[0], { open: true, pan: true, set: group.cards });
-        return;
-      }
+      /* Pins that cannot be pulled apart by zooming -- the same coordinate, or two
+         projects a few metres apart that still share a bubble at the closest
+         zoom -- are paged through in the compact card instead. */
       var bounds = L.latLngBounds(group.cards.map(function (card) {
         var ll = bridge.cardPoint(card);
         return L.latLng(ll[0], ll[1]);
       }));
-      /* At least one level in, however tight the frame: a bubble that fits
-         the padded frame at the current zoom would otherwise never open. Then
-         on, to the first level at which these projects are no longer one
-         bubble, so the click always shows them apart. */
-      var zoom = map.getBoundsZoom(bounds, false, L.point(60, 60));
-      zoom = Math.min(Math.max(zoom, map.getZoom() + 1), MAX_ZOOM - 1);
-      while (zoom < MAX_ZOOM - 1 && cluster(group.cards, zoom).length < 2) zoom += 1;
-      map.setView(bounds.getCenter(), zoom, { animate: animate() });
+      /* At least one level in, however tight the frame: a bubble that fits the
+         padded frame at the current zoom would otherwise never open. Then on, to
+         the first level at which these projects are no longer one bubble, so the
+         click always shows them apart. */
+      var zoom = Math.max(map.getBoundsZoom(bounds, false, L.point(60, 60)), map.getZoom() + 1);
+      var target = group.colocated ? null : splitZoomOf(group.cards, zoom);
+      if (target === null) {
+        select(group.cards[0], { open: true, pan: true, set: group.cards });
+        return;
+      }
+      map.setView(bounds.getCenter(), target, { animate: animate() });
+    }
+
+    function splitZoomOf(cards, fromZoom) {
+      var points = cards.map(function (card) {
+        var ll = bridge.cardPoint(card);
+        return { lat: ll[0], lng: ll[1] };
+      });
+      return window.NuevaDiscoveryCluster.splitZoom(points, fromZoom, MAX_ZOOM, CLUSTER_RADIUS);
     }
 
     /* ---- Selection, rail and compact card ----------------------------- */
