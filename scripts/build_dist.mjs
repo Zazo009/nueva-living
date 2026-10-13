@@ -35,6 +35,8 @@ function contentVersion(relativePath) {
 const conversionScriptPath = 'assets/liora/liora-conversion.js';
 const discoveryScriptPath = 'assets/liora/liora-discovery.js';
 const cardGalleryScriptPath = 'assets/liora/liora-card-gallery.js';
+const discoveryMapScriptPath = 'assets/liora/liora-discovery-map.js';
+const discoveryMapStylesheetPath = 'assets/liora/liora-discovery-map.css';
 const trackingScriptPath = 'assets/liora/nueva-tracking.js';
 const shortlistScriptPath = 'assets/liora/nueva-shortlist.js';
 const shortlistStylesheetPath = 'assets/liora/nueva-shortlist.css';
@@ -48,6 +50,8 @@ const propertyStylesheetPath = 'assets/liora/liora-property.css';
 const conversionScriptVersion = contentVersion(conversionScriptPath);
 const discoveryScriptVersion = contentVersion(discoveryScriptPath);
 const cardGalleryScriptVersion = contentVersion(cardGalleryScriptPath);
+const discoveryMapScriptVersion = contentVersion(discoveryMapScriptPath);
+const discoveryMapStylesheetVersion = contentVersion(discoveryMapStylesheetPath);
 const trackingScriptVersion = contentVersion(trackingScriptPath);
 const shortlistScriptVersion = contentVersion(shortlistScriptPath);
 const shortlistStylesheetVersion = contentVersion(shortlistStylesheetPath);
@@ -606,6 +610,8 @@ const assetFiles = [
   'assets/liora/favicon-16.png',
   'assets/liora/favicon-32.png',
   'assets/liora/liora-discovery.js',
+  'assets/liora/liora-discovery-map.js',
+  'assets/liora/liora-discovery-map.css',
   'assets/liora/liora-card-gallery.js',
   'assets/liora/liora-conversion.js',
   'assets/liora/nueva-tracking.js',
@@ -973,6 +979,14 @@ function optimizeHtml(html) {
     .replace(
       /assets\/liora\/liora-discovery\.js(?:\?v=[a-z0-9]+)?/gi,
       `${discoveryScriptPath}?v=${discoveryScriptVersion}`
+    )
+    .replace(
+      /assets\/liora\/liora-discovery-map\.js(?:\?v=[a-z0-9]+)?/gi,
+      `${discoveryMapScriptPath}?v=${discoveryMapScriptVersion}`
+    )
+    .replace(
+      /assets\/liora\/liora-discovery-map\.css(?:\?v=[a-z0-9]+)?/gi,
+      `${discoveryMapStylesheetPath}?v=${discoveryMapStylesheetVersion}`
     )
     .replace(
       /assets\/liora\/liora-card-gallery\.js(?:\?v=[a-z0-9]+)?/gi,

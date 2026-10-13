@@ -5425,6 +5425,78 @@ let dropdownDecorationChecked = 0;
   }
 }
 
+let mapGuardChecked = 0;
+
+// The map view on the developments page.
+//
+// It is a second renderer of data that lives elsewhere, which is the shape
+// every enumeration here has gone stale in. Each fact below is read from its
+// authority rather than listed a second time:
+//   - Leaflet and its SRI hashes are pinned in scripts/lib/location_map.mjs for
+//     the project pages; the lazy map must load the same bytes, not a newer
+//     copy nobody verified.
+//   - The tile server is named once, so moving to a commercial provider is a
+//     one-line change and the attribution cannot be left behind.
+//   - A pin is only as good as data-lat/data-lng on its card, and those come
+//     from project.json location.site. A project with coordinates and a card
+//     without them would silently vanish from the map; a card with coordinates
+//     the project does not have would be an invented pin.
+//   - Every locale page carries every map string, so nothing falls back to
+//     English on a translated page.
+{
+  const mapJs = fs.readFileSync(path.join(root, 'assets/liora/liora-discovery-map.js'), 'utf8');
+  const locSource = fs.readFileSync(path.join(root, 'scripts/lib/location_map.mjs'), 'utf8');
+  const pinned = (name) => new RegExp(`${name} = '([^']+)'`).exec(locSource)?.[1];
+  const inMap = (name) => new RegExp(`var ${name} = '([^']+)'`).exec(mapJs)?.[1];
+  for (const name of ['LEAFLET_VERSION', 'LEAFLET_CSS_SRI', 'LEAFLET_JS_SRI']) {
+    mapGuardChecked += 1;
+    if (!pinned(name) || inMap(name) !== pinned(name)) {
+      fail('assets/liora/liora-discovery-map.js', `${name} (${inMap(name)}) is not the value pinned in scripts/lib/location_map.mjs (${pinned(name)}).`);
+    }
+  }
+  mapGuardChecked += 1;
+  const tileHosts = mapJs.match(/tile\.[a-z.]+\/\{z\}/g) || [];
+  if (tileHosts.length !== 1) {
+    fail('assets/liora/liora-discovery-map.js', `the tile server must be named in exactly one constant; found ${tileHosts.length}.`);
+  }
+
+  const projectsDir = path.join(root, 'content/liora-projects');
+  const withSite = new Map();
+  for (const slug of fs.readdirSync(projectsDir)) {
+    const file = path.join(projectsDir, slug, 'project.json');
+    if (!fs.existsSync(file)) continue;
+    const site = JSON.parse(fs.readFileSync(file, 'utf8')).location?.site;
+    if (Array.isArray(site) && site.length === 2) withSite.set(slug, site.map(Number));
+  }
+  const mapStrings = ['map', 'list', 'view', 'draw-area', 'clear-area', 'area-chip', 'draw-hint', 'zoom-in', 'zoom-out',
+    'map-label', 'cluster-many', 'prev-project', 'next-project', 'close-card', 'unmapped', 'back-to-filters'];
+  for (const locale of ['', ...ENTRY_LOCALES]) {
+    const file = path.join(dist, locale, 'developments.html');
+    if (!fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    mapGuardChecked += 1;
+    if (!/data-map-js="[^"]*liora-discovery-map\.js(\?v=[a-z0-9]+)?"/.test(html) || !/data-map-css="[^"]*liora-discovery-map\.css(\?v=[a-z0-9]+)?"/.test(html)) {
+      fail(path.relative(root, file), 'the developments page does not point at the lazy map script and stylesheet.');
+    }
+    if (locale) {
+      const missing = mapStrings.filter((key) => !new RegExp(`data-i18n-${key}="[^"]+"`).test(html));
+      if (missing.length) fail(path.relative(root, file), `map strings missing: ${missing.join(', ')}.`);
+    }
+    for (const tag of html.matchAll(/<article class="project-card dev-card" id="([^"]+)"[^>]*>/g)) {
+      const slug = tag[1];
+      const lat = /data-lat="([^"]+)"/.exec(tag[0])?.[1];
+      const lng = /data-lng="([^"]+)"/.exec(tag[0])?.[1];
+      const site = withSite.get(slug);
+      mapGuardChecked += 1;
+      if (site && (Math.abs(Number(lat) - site[0]) > 0.00001 || Math.abs(Number(lng) - site[1]) > 0.00001)) {
+        fail(path.relative(root, file), `${slug}: card coordinates (${lat}, ${lng}) differ from project.json location.site (${site}).`);
+      } else if (!site && (lat || lng)) {
+        fail(path.relative(root, file), `${slug}: card carries coordinates but project.json has no location.site.`);
+      }
+    }
+  }
+}
+
 if (warnings.length) {
   console.warn(`Consistency warnings (${warnings.length}):`);
   warnings.forEach((message) => console.warn(`- ${message}`));
@@ -5462,6 +5534,7 @@ if (failures.length) {
     + `${revealPagesChecked} pages checked for the script that unhides their scroll-revealed content, `
     + `${translationConflictsChecked} English strings checked for exactly one translation each, `
     + `${sharedFragmentsChecked} guides compared against their nine locale builds for untranslated text, `
+    + `${mapGuardChecked} map-view facts checked against their authority, `
     + `${registerPagesChecked} pages checked for one form of address per language, `
     + `${faqSchemaChecked} visible FAQs matched against their structured data, `
     + `${areaNamesChecked} locale area pages checked for one spelling of the area name, `

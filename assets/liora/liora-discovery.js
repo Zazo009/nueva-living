@@ -104,7 +104,24 @@
     showOne: root.dataset.i18nShowOne || 'Show 1 development',
     showMany: root.dataset.i18nShowMany || 'Show {n} developments',
     closeFilters: root.dataset.i18nCloseFilters || 'Close filters',
-    removeFilter: root.dataset.i18nRemoveFilter || 'Remove filter: {label}'
+    removeFilter: root.dataset.i18nRemoveFilter || 'Remove filter: {label}',
+    // Map view (liora-discovery-map.js reads these through the bridge below).
+    map: root.dataset.i18nMap || 'Map',
+    list: root.dataset.i18nList || 'List',
+    view: root.dataset.i18nView || 'View',
+    drawArea: root.dataset.i18nDrawArea || 'Draw your area',
+    clearArea: root.dataset.i18nClearArea || 'Clear area',
+    areaChip: root.dataset.i18nAreaChip || 'Area',
+    drawHint: root.dataset.i18nDrawHint || 'Drag on the map to outline an area.',
+    zoomIn: root.dataset.i18nZoomIn || 'Zoom in',
+    zoomOut: root.dataset.i18nZoomOut || 'Zoom out',
+    mapLabel: root.dataset.i18nMapLabel || 'Map of the developments that match your filters',
+    clusterMany: root.dataset.i18nClusterMany || '{n} developments',
+    prevProject: root.dataset.i18nPrevProject || 'Previous project',
+    nextProject: root.dataset.i18nNextProject || 'Next project',
+    closeCard: root.dataset.i18nCloseCard || 'Close',
+    unmapped: root.dataset.i18nUnmapped || 'Not shown on the map: {n}',
+    backToFilters: root.dataset.i18nBackToFilters || 'Back to filters'
   };
 
   const countLabel = (count) => (count === 1 ? i18n.countOne : i18n.countMany).replace('{count}', String(count));
@@ -182,6 +199,33 @@
   const formatBedrooms = (value, plus) => (plus ? `${value}+` : String(value));
 
   // --- Primary selects -------------------------------------------------
+
+  // The polygon drawn on the map, as [[lat, lng], ...] or null. It narrows the
+  // list exactly as a filter does: one more condition in update().
+  let drawnArea = null;
+  const cardPoint = (card) => {
+    const lat = parseFloat(card.dataset.lat);
+    const lng = parseFloat(card.dataset.lng);
+    return Number.isFinite(lat) && Number.isFinite(lng) ? [lat, lng] : null;
+  };
+  // Ray casting in the lat/lng plane. At the scale of a drawn area on the
+  // coast, the distortion against a projected plane is far below a pin.
+  const insidePolygon = (point, polygon) => {
+    let inside = false;
+    for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i, i += 1) {
+      const [yi, xi] = polygon[i];
+      const [yj, xj] = polygon[j];
+      const crosses = (yi > point[0]) !== (yj > point[0])
+        && point[1] < ((xj - xi) * (point[0] - yi)) / (yj - yi) + xi;
+      if (crosses) inside = !inside;
+    }
+    return inside;
+  };
+  const inDrawnArea = (card) => {
+    if (!drawnArea) return true;
+    const point = cardPoint(card);
+    return point ? insidePolygon(point, drawnArea) : false;
+  };
 
   const selectState = { area: '', propertyType: '', status: '', timing: '' };
   const chipGroups = new Map();
@@ -553,6 +597,8 @@
   const showResults = () => {
     closePop(false);
     closeSheet(false);
+    // On the map the results are already in view.
+    if (viewMode === 'map') return;
     const target = summary || grid;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
@@ -587,6 +633,9 @@
     [...selected].forEach((value) => {
       list.push({ label: filterLabel(value), group: 'more', clear: () => selected.delete(value) });
     });
+    if (drawnArea) {
+      list.push({ label: i18n.areaChip, group: 'drawn', clear: () => { drawnArea = null; } });
+    }
     return list;
   };
 
@@ -612,6 +661,35 @@
     });
   };
 
+  // --- Map view bridge -----------------------------------------------------
+  // The map is a second renderer of the same filtered list. It is loaded the
+  // first time a visitor asks for it (Leaflet, its tiles and
+  // liora-discovery-map.js all stay off the wire until then) and talks to this
+  // file only through the object below, so the filter logic has one owner.
+
+  let viewMode = 'list';
+  const mapListeners = new Set();
+  const bridge = {
+    root,
+    cards,
+    i18n,
+    lang,
+    visible: [],
+    get area() { return drawnArea; },
+    cardPoint,
+    // Called with a polygon of [lat, lng] pairs, or null to clear.
+    setArea(polygon) {
+      drawnArea = polygon && polygon.length >= 3 ? polygon : null;
+      update();
+    },
+    price: (card) => numeric(card.dataset.price, 0),
+    compactPrice: (value) => formatCompact(value),
+    areaLabel: () => (selectState.area ? optionLabel('area') : (selectByKey('area')?.options[0]?.textContent.trim() || '')),
+    openFilters: (opener) => { if (mobileQuery.matches) openSheet(opener, 'area'); else selectByKey('area')?.focus(); },
+    subscribe(listener) { mapListeners.add(listener); return () => mapListeners.delete(listener); }
+  };
+  root._discovery = bridge;
+
   // --- Core filtering -----------------------------------------------------
 
   function update() {
@@ -632,6 +710,7 @@
     const bedsMin = bedsBounds && beds.min <= bedsBounds.min ? 0 : beds.min;
 
     const visible = cards.filter((card) => {
+      if (!inDrawnArea(card)) return false;
       if (aiMatchedSlugs) return aiMatchedSlugs.has(card.id);
 
       const tokens = cardTokens(card);
@@ -681,7 +760,13 @@
       button.textContent = cta;
     });
 
-    if (emptyState) emptyState.hidden = visible.length > 0;
+    // List order, so the map's tab order and its "n / total" follow the list.
+    bridge.visible = sorted.filter((card) => visible.includes(card));
+    mapListeners.forEach((listener) => listener(bridge.visible));
+
+    // On the map the overlay says it; the list's empty state would repeat it
+    // above a map that already shows the same message.
+    if (emptyState) emptyState.hidden = visible.length > 0 || viewMode === 'map';
 
     const list = activeFilters();
     renderActive(list);
@@ -736,6 +821,7 @@
     button.addEventListener('click', () => {
       aiMatchedSlugs = null;
       selected.clear();
+      drawnArea = null;
       Object.keys(selectState).forEach((key) => setSelect(key, ''));
       rangeControllers.forEach((controller) => {
         controller.minInput.value = String(controller.bounds.min);
@@ -828,6 +914,149 @@
   restoreFromUrl();
   layoutForViewport();
   update();
+
+  // --- List / Map toggle ------------------------------------------------
+  // Two entry points open the map (the button beside Search, the phone pill),
+  // and the segmented control switches both ways. Everything the map needs is
+  // fetched here, on the first request.
+
+  const ICON_MAP = '<path d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z"/><circle cx="12" cy="11" r="2.2"/>';
+  const ICON_LIST = '<path d="M5 7h14M5 12h14M5 17h14"/>';
+  const iconSvg = (path, size) =>
+    `<svg aria-hidden="true" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${path}</svg>`;
+  const makeButton = (className, icon, label, attrs = {}) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = className;
+    Object.entries(attrs).forEach(([name, value]) => button.setAttribute(name, value));
+    button.insertAdjacentHTML('beforeend', icon);
+    if (label) {
+      const text = document.createElement('span');
+      text.textContent = label;
+      button.append(text);
+    }
+    return button;
+  };
+
+  // The map's own host sits above the grid, inside a stage that only starts
+  // laying the two side by side once the map is on.
+  const stage = document.createElement('div');
+  stage.className = 'discovery-stage';
+  const mapView = document.createElement('div');
+  mapView.className = 'discovery-map';
+  mapView.hidden = true;
+  grid.before(stage);
+  stage.append(mapView, grid);
+
+  // Controls are built here, not written into the page, so a visitor without
+  // script never sees a button that cannot work and no locale page carries
+  // English in them.
+  const aiForm = root.querySelector('[data-ai-search-form]');
+  if (aiForm) {
+    aiForm.append(makeButton('ai-search-map', iconSvg(ICON_MAP, 20), i18n.map, { 'data-map-open': '' }));
+  }
+  if (summary) {
+    const group = document.createElement('div');
+    group.className = 'discovery-view';
+    group.setAttribute('role', 'group');
+    group.setAttribute('aria-label', i18n.view);
+    group.append(
+      makeButton('discovery-view-btn', iconSvg(ICON_LIST, 16), i18n.list, { 'data-view-mode': 'list' }),
+      makeButton('discovery-view-btn', iconSvg(ICON_MAP, 16), i18n.map, { 'data-view-mode': 'map' })
+    );
+    summary.append(group);
+  }
+  const pill = makeButton('discovery-map-pill', iconSvg(ICON_MAP, 18), i18n.map, { 'data-map-open': '' });
+  (grid.closest('.section-inner') || root).append(pill);
+
+  let mapReady = null;
+  let mapOpener = null;
+
+  const absolute = (path) => new URL(path, document.baseURI).href;
+  const loadStyle = (href) => new Promise((resolve) => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    // A stylesheet that fails must not strand the visitor on a blank panel.
+    link.onload = () => resolve(true);
+    link.onerror = () => resolve(false);
+    document.head.append(link);
+  });
+  const loadScript = (src, integrity) => new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = src;
+    if (integrity) {
+      script.integrity = integrity;
+      script.crossOrigin = 'anonymous';
+    }
+    script.onload = resolve;
+    script.onerror = () => reject(new Error(`Could not load ${src}`));
+    document.head.append(script);
+  });
+
+  const ensureMap = () => {
+    if (mapReady) return mapReady;
+    const css = root.dataset.mapCss;
+    const js = root.dataset.mapJs;
+    mapReady = Promise.all([css ? loadStyle(absolute(css)) : true, js ? loadScript(absolute(js)) : Promise.reject(new Error('no map script'))])
+      .then(() => window.NuevaDiscoveryMap.init(bridge));
+    mapReady.catch(() => { mapReady = null; });
+    return mapReady;
+  };
+
+  const syncViewButtons = () => {
+    root.querySelectorAll('[data-view-mode]').forEach((button) => {
+      const on = button.dataset.viewMode === viewMode;
+      button.setAttribute('aria-pressed', on ? 'true' : 'false');
+      button.classList.toggle('is-active', on);
+    });
+  };
+
+  const setView = (mode, opener) => {
+    if (mode === viewMode) return;
+    if (mode === 'map') {
+      mapOpener = opener || null;
+      viewMode = 'map';
+      root.classList.add('is-map-view');
+      root.setAttribute('aria-busy', 'true');
+      syncViewButtons();
+      ensureMap().then((api) => {
+        if (viewMode !== 'map') return;
+        mapView.hidden = false;
+        stage.classList.add('is-map');
+        document.documentElement.classList.add('discovery-map-open');
+        api.show();
+        update();
+      }).catch(() => {
+        viewMode = 'list';
+        root.classList.remove('is-map-view');
+        syncViewButtons();
+      }).finally(() => root.removeAttribute('aria-busy'));
+    } else {
+      viewMode = 'list';
+      root.classList.remove('is-map-view');
+      stage.classList.remove('is-map');
+      document.documentElement.classList.remove('discovery-map-open');
+      mapView.hidden = true;
+      if (mapReady) mapReady.then((api) => api.hide()).catch(() => {});
+      syncViewButtons();
+      update();
+      const back = Array.from(root.querySelectorAll('[data-view-mode="list"]')).find((button) => button.getClientRects().length)
+        || mapOpener;
+      if (back) back.focus({ preventScroll: true });
+    }
+  };
+  bridge.setView = setView;
+  bridge.mapView = mapView;
+  bridge.grid = grid;
+
+  root.addEventListener('click', (event) => {
+    const opener = event.target.closest('[data-map-open]');
+    if (opener) return setView('map', opener);
+    const toggle = event.target.closest('[data-view-mode]');
+    if (toggle) setView(toggle.dataset.viewMode, toggle);
+  });
+  syncViewButtons();
 
   // --- Current / Completed projects view toggle -------------------------
 

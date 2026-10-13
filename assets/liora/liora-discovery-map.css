@@ -1,0 +1,885 @@
+/* Map view of the developments page. Fetched with liora-discovery-map.js on
+   the first request for the map, so none of this is on the wire for a visitor
+   who stays on the list (the Map button and the List/Map toggle live in
+   liora-pages.css).
+
+   Design source: design/search-panel/Map*.dc.html. Colours reuse the
+   project-card tokens, so the pins, the compact card and the rail stay one
+   palette with the cards. Direction-sensitive values are logical; the map
+   canvas itself is forced LTR, because geography does not mirror. */
+
+.discovery-stage {
+  --dm-surface: var(--card-surface, #f7f3ec);
+  --dm-field: #fbf8f2;
+  --dm-rule: var(--card-rule, #ded4c3);
+  --dm-ink: var(--card-ink, #2e2a24);
+  --dm-muted: var(--card-muted, #766e67);
+  --dm-gold: var(--card-gold, #896a3f);
+  --dm-brown: var(--card-brown, #4a3b28);
+  --dm-ui: var(--ui-font, "Montserrat", Arial, sans-serif);
+  --dm-serif: "Cinzel", Georgia, serif;
+}
+
+/* ---------- Layout ---------- */
+
+.discovery-stage.is-map {
+  display: grid;
+  grid-template-columns: minmax(340px, 420px) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  height: min(calc(100vh - 140px), 880px);
+  min-height: 560px;
+  margin-top: 16px;
+  border: 1px solid var(--dm-rule);
+  background: var(--dm-surface);
+}
+
+.discovery-stage.is-map .discovery-map {
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+}
+
+/* The real cards, one to a row, in their own scroller. */
+.discovery-stage.is-map .project-grid {
+  grid-column: 1;
+  grid-row: 1;
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: max-content;
+  align-content: start;
+  gap: 16px;
+  min-height: 0;
+  padding: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-inline-end: 1px solid var(--dm-rule);
+}
+
+.project-card.is-map-active {
+  outline: 2px solid var(--dm-gold);
+  outline-offset: -2px;
+}
+
+.project-card.is-map-hover {
+  box-shadow: 0 0 0 2px var(--dm-gold);
+}
+
+@media (max-width: 1024px) {
+  .discovery-stage.is-map {
+    display: block;
+    height: auto;
+    min-height: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .discovery-stage.is-map .discovery-map {
+    height: clamp(420px, 64vh, 680px);
+    border: 1px solid var(--dm-rule);
+  }
+
+  .discovery-stage.is-map .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: auto;
+    margin-top: 18px;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+  }
+}
+
+.discovery-map {
+  --dm-surface: var(--card-surface, #f7f3ec);
+}
+
+.dmap-stage {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  overflow: hidden;
+  background: #e6e0d2;
+}
+
+.dmap-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  direction: ltr;
+  background: #e6e0d2;
+  font-family: var(--dm-ui);
+}
+
+.dmap-canvas:focus-visible {
+  outline: 2px solid var(--dm-gold);
+  outline-offset: -2px;
+}
+
+/* Tiles that never arrive (rate limit, blocked network): a plain ground, so
+   the pins and the draw tool still read. */
+.dmap-canvas.has-tile-error {
+  background: linear-gradient(180deg, #d9e4e3 0%, #e6e0d2 60%);
+}
+
+.dmap-canvas .leaflet-control-attribution {
+  font-size: 11px;
+}
+
+/* ---------- Controls ---------- */
+
+.dmap-zoom {
+  position: absolute;
+  z-index: 6;
+  top: 16px;
+  inset-inline-end: 16px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--dm-rule);
+  background: var(--dm-field);
+}
+
+.dmap-zoom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--dm-ink);
+  cursor: pointer;
+}
+
+.dmap-zoom-btn + .dmap-zoom-btn {
+  border-top: 1px solid var(--dm-rule);
+}
+
+.dmap-tools {
+  position: absolute;
+  z-index: 6;
+  top: 16px;
+  inset-inline-start: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.dmap-tool-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--dm-rule);
+  border-radius: 0;
+  background: var(--dm-field);
+  color: var(--dm-ink);
+  font-family: var(--dm-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.dmap-tool-btn svg {
+  color: var(--dm-gold);
+}
+
+.dmap-tool-btn.is-on {
+  border-color: var(--dm-gold);
+  background: var(--dm-gold);
+  color: #fff;
+}
+
+.dmap-tool-btn.is-on svg {
+  color: #fff;
+}
+
+.dmap-tool-btn[hidden] {
+  display: none;
+}
+
+.dmap-zoom-btn:focus-visible,
+.dmap-tool-btn:focus-visible,
+.dmap-round-btn:focus-visible,
+.dmap-icon-btn:focus-visible,
+.dmap-compact-cta:focus-visible,
+.dmap-empty-reset:focus-visible,
+.dmap-pin:focus-visible .dmap-pin-label,
+.dmap-cluster:focus-visible {
+  outline: 2px solid var(--dm-gold);
+  outline-offset: 2px;
+}
+
+.dmap-hint {
+  position: absolute;
+  z-index: 6;
+  inset-inline: 0;
+  bottom: 40px;
+  margin: 0 auto;
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  padding: 12px 18px;
+  background: var(--dm-brown);
+  color: var(--dm-surface);
+  font-family: var(--dm-ui);
+  font-size: 13px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.dmap-hint[hidden],
+.dmap-note[hidden],
+.dmap-empty[hidden],
+.dmap-card[hidden],
+.dmap-draw[hidden],
+.dmap-carousel[hidden] {
+  display: none;
+}
+
+.dmap-note {
+  position: absolute;
+  z-index: 5;
+  inset-inline-start: 16px;
+  bottom: 28px;
+  margin: 0;
+  padding: 8px 12px;
+  background: var(--dm-field);
+  border: 1px solid var(--dm-rule);
+  color: var(--dm-muted);
+  font-family: var(--dm-ui);
+  font-size: 12px;
+}
+
+.dmap-draw {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  cursor: crosshair;
+  touch-action: none;
+  background: rgba(46, 42, 36, 0.06);
+}
+
+.dmap-draw svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.dmap-draw path {
+  fill: rgba(137, 106, 63, 0.12);
+  stroke: var(--dm-gold);
+  stroke-width: 2.5;
+  stroke-dasharray: 8 6;
+  stroke-linejoin: round;
+}
+
+.dmap-empty {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  inset-inline: 0;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  width: min(360px, calc(100% - 32px));
+  padding: 24px;
+  box-sizing: border-box;
+  background: var(--dm-surface);
+  border: 1px solid var(--dm-rule);
+  box-shadow: 0 10px 28px rgba(46, 42, 36, 0.2);
+  text-align: center;
+  font-family: var(--dm-ui);
+}
+
+.dmap-empty-title {
+  margin: 0 0 14px;
+  color: var(--dm-ink);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.dmap-empty-reset {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--dm-gold);
+  border-radius: 0;
+  background: transparent;
+  color: var(--dm-gold);
+  font-family: var(--dm-ui);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+/* ---------- Pins and clusters ---------- */
+
+.dmap-canvas .dmap-marker {
+  border: 0;
+  background: none;
+}
+
+.dmap-pin,
+.dmap-cluster {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--dm-ui);
+}
+
+.dmap-pin {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 4px;
+}
+
+.dmap-pin-label {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  max-width: 150px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 2px solid var(--dm-gold);
+  border-radius: 16px;
+  background: var(--dm-field);
+  box-shadow: 0 1px 4px rgba(46, 42, 36, 0.25);
+  color: var(--dm-ink);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.dmap-pin.is-hover .dmap-pin-label,
+.dmap-pin:hover .dmap-pin-label {
+  background: #efe6d4;
+}
+
+.dmap-pin.is-selected .dmap-pin-label {
+  height: 38px;
+  padding: 0 16px;
+  border: 3px solid #fff;
+  border-radius: 19px;
+  background: var(--dm-brown);
+  box-shadow: 0 2px 12px rgba(46, 42, 36, 0.4);
+  color: #fff;
+  font-size: 14px;
+}
+
+.dmap-cluster {
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--dm-surface);
+  border-radius: 50%;
+  background: var(--dm-gold);
+  box-shadow: 0 1px 6px rgba(46, 42, 36, 0.35);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.dmap-cluster.is-selected {
+  background: var(--dm-brown);
+  border-color: #fff;
+}
+
+/* ---------- Compact card (desktop and tablet) and carousel slide (phone) ---------- */
+
+.dmap-card {
+  position: absolute;
+  z-index: 7;
+  inset-inline-end: 16px;
+  bottom: 36px;
+  width: 340px;
+  max-width: calc(100% - 32px);
+  max-height: calc(100% - 120px);
+  overflow: auto;
+  background: var(--dm-surface);
+  border: 1px solid var(--dm-rule);
+  box-shadow: 0 10px 28px rgba(46, 42, 36, 0.25);
+}
+
+.dmap-compact {
+  display: flex;
+  flex-direction: column;
+  color: var(--dm-ink);
+  font-family: var(--dm-ui);
+  text-align: start;
+}
+
+.dmap-compact-media {
+  position: relative;
+  aspect-ratio: 2.1;
+  overflow: hidden;
+  background: #d8d0c0;
+}
+
+.dmap-compact-media picture,
+.dmap-compact-media img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dmap-compact-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(30, 24, 16, 0.28) 0%, rgba(0, 0, 0, 0) 30%, rgba(30, 24, 16, 0.14) 54%, rgba(24, 19, 13, 0.74) 100%);
+}
+
+.dmap-compact-overlay {
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 14px;
+}
+
+.dmap-compact-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+}
+
+.dmap-badge {
+  padding: 5px 9px;
+  background: var(--dm-gold);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.dmap-badge--units {
+  background: rgba(247, 243, 236, 0.92);
+  color: var(--dm-ink);
+}
+
+.dmap-compact-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.dmap-compact-from {
+  color: rgba(247, 243, 236, 0.82);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.dmap-compact-amount {
+  color: var(--dm-surface);
+  font-family: var(--dm-serif);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.dmap-compact-nav {
+  position: absolute;
+  inset-inline-end: 8px;
+  top: 8px;
+  display: flex;
+  gap: 6px;
+}
+
+.dmap-compact-close {
+  position: absolute;
+  inset-inline-start: 8px;
+  top: 8px;
+}
+
+.dmap-round-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(46, 42, 36, 0.62);
+  color: #fff;
+  cursor: pointer;
+}
+
+.dmap-compact-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.dmap-compact-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dmap-compact-name {
+  margin: 0;
+  color: var(--dm-gold);
+  font-family: var(--dm-serif);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+.dmap-compact-count {
+  flex: none;
+  color: var(--dm-muted);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+}
+
+.dmap-compact-loc {
+  margin: -6px 0 0;
+  color: var(--dm-muted);
+  font-size: 12px;
+}
+
+.dmap-compact-facts {
+  display: flex;
+  border-top: 1px solid var(--dm-rule);
+  border-bottom: 1px solid var(--dm-rule);
+}
+
+.dmap-fact {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+  padding: 10px;
+}
+
+.dmap-fact:first-child {
+  padding-inline-start: 0;
+}
+
+.dmap-fact:last-child {
+  padding-inline-end: 0;
+}
+
+.dmap-fact + .dmap-fact {
+  border-inline-start: 1px solid var(--dm-rule);
+}
+
+.dmap-fact-label {
+  color: #786e65;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.dmap-fact-value {
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+.dmap-fact.is-gold .dmap-fact-value {
+  color: var(--dm-gold);
+}
+
+.dmap-compact-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 17px;
+  background: var(--dm-brown);
+  color: var(--dm-surface);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.dmap-compact-cta:hover {
+  background: var(--dm-gold);
+}
+
+/* ---------- Phone: the map takes the screen ---------- */
+
+.dmap-bar,
+.dmap-carousel {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .discovery-stage.is-map {
+    display: block;
+    height: auto;
+    min-height: 0;
+    margin: 0;
+    border: 0;
+  }
+
+  .discovery-stage.is-map .project-grid {
+    display: none;
+  }
+
+  .discovery-stage.is-map .discovery-map {
+    position: fixed;
+    z-index: 40000;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    border: 0;
+    background: var(--dm-surface);
+  }
+
+  .dmap-bar {
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--dm-rule);
+    background: var(--dm-surface);
+  }
+
+  .dmap-stage {
+    position: relative;
+    inset: auto;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .dmap-icon-btn {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid var(--dm-rule);
+    border-radius: 0;
+    background: var(--dm-field);
+    color: var(--dm-ink);
+    cursor: pointer;
+  }
+
+  .dmap-heading {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    font-family: var(--dm-ui);
+  }
+
+  .dmap-heading-area {
+    overflow: hidden;
+    font-size: 13px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dmap-heading-count {
+    overflow: hidden;
+    color: var(--dm-muted);
+    font-size: 12px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Icon-only toggle in the header, as in the design. */
+  .dmap-view.discovery-view {
+    display: flex;
+  }
+
+  .dmap-view .discovery-view-btn {
+    padding: 0;
+    justify-content: center;
+    width: 44px;
+  }
+
+  .dmap-view .discovery-view-btn span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .dmap-tools {
+    top: 12px;
+    inset-inline-start: 12px;
+  }
+
+  .dmap-zoom {
+    top: 12px;
+    inset-inline-end: 12px;
+  }
+
+  .dmap-tool-btn {
+    padding: 0 14px;
+    font-size: 10px;
+  }
+
+  .dmap-card {
+    display: none;
+  }
+
+  .dmap-carousel {
+    position: absolute;
+    z-index: 7;
+    inset-inline: 0;
+    bottom: 30px;
+    display: flex;
+    gap: 10px;
+    padding: 4px 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .dmap-carousel[hidden] {
+    display: none;
+  }
+
+  .dmap-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* The carousel sits inside the stage on a phone; the stage is the
+     positioning parent, so move it with the DOM it belongs to. */
+  .dmap-slide {
+    flex: none;
+    width: 296px;
+    box-sizing: border-box;
+    scroll-snap-align: center;
+    border: 2px solid var(--dm-rule);
+    background: var(--dm-surface);
+    box-shadow: 0 8px 22px rgba(46, 42, 36, 0.25);
+  }
+
+  .dmap-slide.is-selected {
+    border-color: var(--dm-gold);
+  }
+
+  .dmap-slide .dmap-compact-media {
+    aspect-ratio: 2.7;
+  }
+
+  .dmap-slide .dmap-compact-overlay {
+    inset-inline: 0;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 10px 12px;
+  }
+
+  .dmap-slide .dmap-compact-amount {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+
+  .dmap-slide .dmap-compact-from {
+    display: none;
+  }
+
+  .dmap-slide .dmap-compact-body {
+    gap: 10px;
+    padding: 12px 14px 14px;
+  }
+
+  .dmap-slide .dmap-compact-name {
+    font-size: 18px;
+  }
+
+  .dmap-slide .dmap-fact-label {
+    font-size: 8px;
+  }
+
+  .dmap-slide .dmap-fact-value {
+    font-size: 12px;
+  }
+
+  .dmap-slide .dmap-compact-loc {
+    display: none;
+  }
+
+  .dmap-note {
+    bottom: auto;
+    top: 68px;
+  }
+
+  .dmap-hint {
+    bottom: auto;
+    top: 76px;
+  }
+}
+
+/* ---------- Right to left ----------
+   The canvas stays LTR; everything around it mirrors through the logical
+   properties above. Arabic has no case and no tracking. */
+
+[dir="rtl"] .dmap-compact-nav svg,
+[dir="rtl"] .dmap-compact-cta svg {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] :is(.dmap-tool-btn, .dmap-badge, .dmap-compact-from, .dmap-fact-label, .dmap-compact-cta, .dmap-empty-reset) {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+[dir="rtl"] .dmap-tool-btn,
+[dir="rtl"] .dmap-compact-cta {
+  font-size: 13px;
+}
+
+[lang="ar"] .dmap-compact-name {
+  font-family: "Cairo", "Montserrat", Arial, sans-serif;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dmap-pin-label {
+    transition: none;
+  }
+}

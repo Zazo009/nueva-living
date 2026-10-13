@@ -4934,3 +4934,114 @@ li,
 }
 
 [lang="ar"] .area-price-table thead th { letter-spacing: 0; text-transform: none; }
+
+/* ---------- Map entry points (the map itself is liora-discovery-map.css,
+   fetched on the first request for it) ---------- */
+
+.discovery-panel .ai-search .ai-search-map {
+  display: flex;
+  flex: 1 1 170px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 24px;
+  border: 1px solid var(--dp-gold);
+  border-radius: 0;
+  background: transparent;
+  color: var(--dp-gold);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.discovery-panel .ai-search .ai-search-map:hover {
+  background: var(--dp-gold);
+  color: #fff;
+}
+
+.discovery-view {
+  display: flex;
+  height: 44px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid var(--dp-rule);
+  background: var(--dp-field);
+}
+
+.discovery-view-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 44px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--dp-ink);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.discovery-view-btn + .discovery-view-btn {
+  border-inline-start: 1px solid var(--dp-rule);
+}
+
+.discovery-view-btn.is-active {
+  background: var(--dp-gold);
+  color: #fff;
+}
+
+.discovery-view-btn:focus-visible,
+.ai-search-map:focus-visible,
+.discovery-map-pill:focus-visible {
+  outline: 2px solid var(--dp-gold);
+  outline-offset: 2px;
+}
+
+.discovery-map-pill {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .discovery-panel .ai-search .ai-search-map,
+  .discovery-view {
+    display: none;
+  }
+
+  /* A pill that rides the bottom of the screen while the results are in
+     view, as in the design. It is last in the section, so sticky keeps it at
+     the bottom edge until the section ends. */
+  .discovery-map-pill {
+    position: sticky;
+    bottom: 24px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    height: 52px;
+    margin: 0 auto;
+    padding: 0 28px;
+    border: 0;
+    border-radius: 26px;
+    background: var(--card-brown, #4a3b28);
+    box-shadow: 0 6px 20px rgba(46, 42, 36, 0.35);
+    color: var(--card-surface, #f7f3ec);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .is-map-view .discovery-map-pill {
+    display: none;
+  }
+}

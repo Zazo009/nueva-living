@@ -299,7 +299,9 @@
   .discovery-mode,
   .discovery-show,
   .clear-filters,
-  .ai-search button[data-ai-search-submit]
+  .ai-search button[data-ai-search-submit],
+  .ai-search .ai-search-map,
+  .discovery-view-btn
 ),
 [dir="rtl"] .discovery-empty :is(.clear-filters, .discovery-empty-cta) {
   font-size: 13px;
@@ -413,6 +415,13 @@
   .why-group-head h3
 ) {
   font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* The phone Map pill sits outside the panel, so it carries its own rule. */
+[dir="rtl"] .discovery-map-pill {
+  font-size: 13px;
   letter-spacing: 0;
   text-transform: none;
 }
