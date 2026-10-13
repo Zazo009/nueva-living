@@ -1,4 +1,14 @@
 import { CARD_CHROME_ENTRIES } from './card_chrome_translations.mjs';
+import { LOCALE_CODES, DEFAULT_LOCALE, t } from './i18n.mjs';
+
+// An entry whose translations come from content/i18n/strings.json.
+function fromStrings(find, wrap, key) {
+  const entry = { find };
+  for (const code of LOCALE_CODES) {
+    if (code !== DEFAULT_LOCALE) entry[code] = wrap(t(key, code));
+  }
+  return entry;
+}
 
 // Translations for developments.html's own hand-authored page copy,
 // applied by build_developments_locales.mjs as literal find/replace over
@@ -173,7 +183,6 @@ const PAGE_ENTRIES_HEAD = [
   { find: 'data-mode="architecture" aria-selected="false">Architecture</button>', es: 'data-mode="architecture" aria-selected="false">Arquitectura</button>', fr: 'data-mode="architecture" aria-selected="false">Architecture</button>', de: 'data-mode="architecture" aria-selected="false">Architektur</button>', ru: 'data-mode="architecture" aria-selected="false">Архитектура</button>', ar: 'data-mode="architecture" aria-selected="false">العمارة</button>', nl: 'data-mode="architecture" aria-selected="false">Architectuur</button>', pl: 'data-mode="architecture" aria-selected="false">Architektura</button>', sv: 'data-mode="architecture" aria-selected="false">Arkitektur</button>', no: 'data-mode="architecture" aria-selected="false">Arkitektur</button>'  },
   { find: 'data-mode="location" aria-selected="false">Setting</button>', es: 'data-mode="location" aria-selected="false">Entorno</button>', fr: 'data-mode="location" aria-selected="false">Cadre</button>', de: 'data-mode="location" aria-selected="false">Umgebung</button>', ru: 'data-mode="location" aria-selected="false">Окружение</button>', ar: 'data-mode="location" aria-selected="false">المحيط</button>', nl: 'data-mode="location" aria-selected="false">Omgeving</button>', pl: 'data-mode="location" aria-selected="false">Otoczenie</button>', sv: 'data-mode="location" aria-selected="false">Omgivning</button>', no: 'data-mode="location" aria-selected="false">Omgivelser</button>'  },
   { find: 'data-mode="investment" aria-selected="false">Investment</button>', es: 'data-mode="investment" aria-selected="false">Inversión</button>', fr: 'data-mode="investment" aria-selected="false">Investissement</button>', de: 'data-mode="investment" aria-selected="false">Investment</button>', ru: 'data-mode="investment" aria-selected="false">Инвестиции</button>', ar: 'data-mode="investment" aria-selected="false">الاستثمار</button>', nl: 'data-mode="investment" aria-selected="false">Investering</button>', pl: 'data-mode="investment" aria-selected="false">Inwestycja</button>', sv: 'data-mode="investment" aria-selected="false">Investering</button>', no: 'data-mode="investment" aria-selected="false">Investering</button>'  },
-  { find: '<span>No lifestyle filters selected</span>', es: '<span>Sin filtros de estilo de vida seleccionados</span>', fr: '<span>Aucun filtre de style de vie sélectionné</span>', de: '<span>Keine Lifestyle-Filter ausgewählt</span>', ru: '<span>Фильтры по образу жизни не выбраны</span>', ar: '<span>لم يتم اختيار فلاتر نمط الحياة</span>', nl: '<span>Geen levensstijlfilters geselecteerd</span>', pl: '<span>Nie wybrano filtrów stylu życia</span>', sv: '<span>Inga livsstilsfilter valda</span>', no: '<span>Ingen livsstilsfiltre valgt</span>'  },
 
   // Sort
   { find: '<span>Sort</span>', es: '<span>Ordenar</span>', fr: '<span>Trier</span>', de: '<span>Sortieren</span>', ru: '<span>Сортировка</span>', ar: '<span>ترتيب</span>', nl: '<span>Sorteren</span>', pl: '<span>Sortuj</span>', sv: '<span>Sortera</span>', no: '<span>Sorter</span>'  },
@@ -184,9 +193,11 @@ const PAGE_ENTRIES_HEAD = [
   { find: '<option value="completion">Completion soonest</option>', es: '<option value="completion">Entrega más próxima</option>', fr: '<option value="completion">Livraison la plus proche</option>', de: '<option value="completion">Frühestes Fertigstellungsdatum</option>', ru: '<option value="completion">Ближайшая сдача</option>', ar: '<option value="completion">الأقرب إنجازًا</option>', nl: '<option value="completion">Eerstvolgende oplevering</option>', pl: '<option value="completion">Najbliższy termin ukończenia</option>', sv: '<option value="completion">Snarast färdigställande</option>', no: '<option value="completion">Snarest ferdigstillelse</option>'  },
 
   // Empty state
-  { find: '<span>No exact match found.</span>', es: '<span>No se encontró ninguna coincidencia exacta.</span>', fr: '<span>Aucune correspondance exacte trouvée.</span>', de: '<span>Keine genaue Übereinstimmung gefunden.</span>', ru: '<span>Точных совпадений не найдено.</span>', ar: '<span>لم يتم العثور على تطابق دقيق.</span>', nl: '<span>Geen exacte match gevonden.</span>', pl: '<span>Nie znaleziono dokładnego dopasowania.</span>', sv: '<span>Ingen exakt träff hittades.</span>', no: '<span>Ingen eksakt match funnet.</span>'  },
+  // Shared strings: the empty-state heading and advisor button reuse the
+  // translations the property pages already carry, so the wording cannot drift.
+  fromStrings('<h2 class="discovery-empty-title">No homes match these filters.</h2>', (v) => `<h2 class="discovery-empty-title">${v}</h2>`, 'availability.filterNone'),
   { find: '<p>Try fewer filters, explore similar projects or tell us what you are looking for.</p>', es: '<p>Prueba con menos filtros, explore proyectos similares o cuéntenos qué busca.</p>', fr: '<p>Essayez avec moins de filtres, explorez des projets similaires ou dites-nous ce que vous recherchez.</p>', de: '<p>Versuchen Sie es mit weniger Filtern, entdecken Sie ähnliche Projekte oder sagen Sie uns, wonach Sie suchen.</p>', ru: '<p>Попробуйте убрать часть фильтров, посмотрите похожие проекты или расскажите нам, что вы ищете.</p>', ar: '<p>جرّب عددًا أقل من الفلاتر، أو استكشف مشاريع مشابهة، أو أخبرنا بما تبحث عنه.</p>', nl: '<p>Probeer minder filters, bekijk vergelijkbare projecten of vertel ons wat u zoekt.</p>', pl: '<p>Prosimy spróbować z mniejszą liczbą filtrów, przejrzeć podobne projekty lub napisać, czego Państwo szukają.</p>', sv: '<p>Prova med färre filter, utforska liknande projekt eller berätta vad ni letar efter.</p>', no: '<p>Prøv færre filtre, utforsk lignende prosjekter eller fortell oss hva du leter etter.</p>'  },
-  { find: '>Get a Personal Shortlist</a>', es: '>Solicite su lista personalizada</a>', fr: '>Recevoir une sélection personnalisée</a>', de: '>Persönliche Auswahl erhalten</a>', ru: '>Получить персональную подборку</a>', ar: '>احصل على قائمة مختارة شخصية</a>', nl: '>Vraag een persoonlijke selectie aan</a>', pl: '>Otrzymaj osobistą listę ofert</a>', sv: '>Få en personlig urval</a>', no: '>Få en personlig utvalgsliste</a>'  },
+  fromStrings('>Speak With Advisor</a>', (v) => `>${v}</a>`, 'cta.speakWithAdvisor'),
 
   // Card meta labels + CTA (shared set lives in PROJECT_CARD_ENTRIES below;
   // merged into this page's entries at the bottom of this file)
@@ -318,109 +329,154 @@ export const DISCOVERY_RUNTIME_STRINGS = {
   es: {
     countOne: '{count} promoción seleccionada',
     countMany: '{count} promociones seleccionadas',
-    noFilters: 'Sin filtros de estilo de vida seleccionados',
     anyPrice: 'Cualquier precio',
     any: 'Cualquiera',
     searching: 'Buscando…',
     search: 'Buscar',
     aiMatching: 'Mostrando promociones que coinciden.',
     aiNoMatch: 'Ninguna promoción actual coincide con esa búsqueda.',
-    aiError: 'La búsqueda con IA no está disponible ahora mismo. Prueba los filtros de abajo.'
+    aiError: 'La búsqueda con IA no está disponible ahora mismo. Prueba los filtros de abajo.',
+    filters: 'Filtros',
+    moreFilters: 'Más filtros',
+    showOne: 'Ver 1 promoción',
+    showMany: 'Ver {n} promociones',
+    closeFilters: 'Cerrar filtros',
+    removeFilter: 'Quitar filtro: {label}'
   },
   fr: {
     countOne: '{count} programme sélectionné',
     countMany: '{count} programmes sélectionnés',
-    noFilters: 'Aucun filtre de style de vie sélectionné',
     anyPrice: 'Tout prix',
     any: 'Toutes',
     searching: 'Recherche…',
     search: 'Rechercher',
     aiMatching: 'Affichage des programmes correspondants.',
     aiNoMatch: 'Aucun programme actuel ne correspond à cette recherche.',
-    aiError: 'La recherche IA est indisponible pour le moment — essayez les filtres ci-dessous.'
+    aiError: 'La recherche IA est indisponible pour le moment — essayez les filtres ci-dessous.',
+    filters: 'Filtres',
+    moreFilters: 'Plus de filtres',
+    showOne: 'Voir 1 programme',
+    showMany: 'Voir {n} programmes',
+    closeFilters: 'Fermer les filtres',
+    removeFilter: 'Retirer le filtre : {label}'
   },
   de: {
     countOne: '{count} ausgewähltes Projekt',
     countMany: '{count} ausgewählte Projekte',
-    noFilters: 'Keine Lifestyle-Filter ausgewählt',
     anyPrice: 'Jeder Preis',
     any: 'Beliebig',
     searching: 'Suche läuft…',
     search: 'Suchen',
     aiMatching: 'Passende Projekte werden angezeigt.',
     aiNoMatch: 'Kein aktuelles Projekt entspricht dieser Suche.',
-    aiError: 'Die KI-Suche ist derzeit nicht verfügbar — nutzen Sie stattdessen die Filter unten.'
+    aiError: 'Die KI-Suche ist derzeit nicht verfügbar — nutzen Sie stattdessen die Filter unten.',
+    filters: 'Filter',
+    moreFilters: 'Weitere Filter',
+    showOne: '1 Projekt anzeigen',
+    showMany: '{n} Projekte anzeigen',
+    closeFilters: 'Filter schließen',
+    removeFilter: 'Filter entfernen: {label}'
   },
   ru: {
     countOne: '{count} отобранный проект',
     countMany: 'Отобранных проектов: {count}',
-    noFilters: 'Фильтры по образу жизни не выбраны',
     anyPrice: 'Любая цена',
     any: 'Любое число',
     searching: 'Идёт поиск…',
     search: 'Найти',
     aiMatching: 'Показаны подходящие новостройки.',
     aiNoMatch: 'Ни одна текущая новостройка не соответствует этому запросу.',
-    aiError: 'ИИ-поиск сейчас недоступен — воспользуйтесь фильтрами ниже.'
+    aiError: 'ИИ-поиск сейчас недоступен — воспользуйтесь фильтрами ниже.',
+    filters: 'Фильтры',
+    moreFilters: 'Ещё фильтры',
+    showOne: 'Показать новостройки (1)',
+    showMany: 'Показать новостройки ({n})',
+    closeFilters: 'Закрыть фильтры',
+    removeFilter: 'Убрать фильтр: {label}'
   },
   ar: {
     countOne: 'مشروع مختار واحد',
     countMany: '{count} مشاريع مختارة',
-    noFilters: 'لم يتم اختيار فلاتر نمط الحياة',
     anyPrice: 'أي سعر',
     any: 'أي عدد',
     searching: 'جارٍ البحث…',
     search: 'بحث',
     aiMatching: 'عرض المشاريع المطابقة.',
     aiNoMatch: 'لا يوجد مشروع حالي يطابق هذا البحث.',
-    aiError: 'بحث الذكاء الاصطناعي غير متاح حاليًا — جرّب الفلاتر أدناه.'
+    aiError: 'بحث الذكاء الاصطناعي غير متاح حاليًا — جرّب الفلاتر أدناه.',
+    filters: 'الفلاتر',
+    moreFilters: 'المزيد من الفلاتر',
+    showOne: 'عرض المشاريع (1)',
+    showMany: 'عرض المشاريع ({n})',
+    closeFilters: 'إغلاق الفلاتر',
+    removeFilter: 'إزالة الفلتر: {label}'
   },
   nl: {
     countOne: '{count} geselecteerd project',
     countMany: '{count} geselecteerde projecten',
-    noFilters: 'Geen levensstijlfilters geselecteerd',
     anyPrice: 'Elke prijs',
     any: 'Elk aantal',
     searching: 'Bezig met zoeken…',
     search: 'Zoeken',
     aiMatching: 'Overeenkomende projecten worden weergegeven.',
     aiNoMatch: 'Geen actueel project komt overeen met deze zoekopdracht.',
-    aiError: 'AI-zoeken is momenteel niet beschikbaar — probeer de filters hieronder.'
+    aiError: 'AI-zoeken is momenteel niet beschikbaar — probeer de filters hieronder.',
+    filters: 'Filters',
+    moreFilters: 'Meer filters',
+    showOne: '1 project tonen',
+    showMany: '{n} projecten tonen',
+    closeFilters: 'Filters sluiten',
+    removeFilter: 'Filter verwijderen: {label}'
   },
   pl: {
     countOne: '{count} wybrany projekt',
     countMany: '{count} wybranych projektów',
-    noFilters: 'Nie wybrano filtrów stylu życia',
     anyPrice: 'Dowolna cena',
     any: 'Dowolna liczba',
     searching: 'Wyszukiwanie…',
     search: 'Szukaj',
     aiMatching: 'Wyświetlanie pasujących projektów.',
     aiNoMatch: 'Żaden aktualny projekt nie pasuje do tego wyszukiwania.',
-    aiError: 'Wyszukiwanie AI jest obecnie niedostępne — skorzystaj z filtrów poniżej.'
+    aiError: 'Wyszukiwanie AI jest obecnie niedostępne — skorzystaj z filtrów poniżej.',
+    filters: 'Filtry',
+    moreFilters: 'Więcej filtrów',
+    showOne: 'Pokaż inwestycje (1)',
+    showMany: 'Pokaż inwestycje ({n})',
+    closeFilters: 'Zamknij filtry',
+    removeFilter: 'Usuń filtr: {label}'
   },
   sv: {
     countOne: '{count} valt projekt',
     countMany: '{count} valda projekt',
-    noFilters: 'Inga livsstilsfilter valda',
     anyPrice: 'Alla priser',
     any: 'Alla',
     searching: 'Söker…',
     search: 'Sök',
     aiMatching: 'Visar matchande projekt.',
     aiNoMatch: 'Inget aktuellt projekt matchar den sökningen.',
-    aiError: 'AI-sökningen är inte tillgänglig just nu — prova filtren nedan.'
+    aiError: 'AI-sökningen är inte tillgänglig just nu — prova filtren nedan.',
+    filters: 'Filter',
+    moreFilters: 'Fler filter',
+    showOne: 'Visa 1 projekt',
+    showMany: 'Visa {n} projekt',
+    closeFilters: 'Stäng filter',
+    removeFilter: 'Ta bort filter: {label}'
   },
   no: {
     countOne: '{count} valgt prosjekt',
     countMany: '{count} valgte prosjekter',
-    noFilters: 'Ingen livsstilsfiltre valgt',
     anyPrice: 'Alle priser',
     any: 'Alle',
     searching: 'Søker…',
     search: 'Søk',
     aiMatching: 'Viser samsvarende prosjekter.',
     aiNoMatch: 'Ingen nåværende prosjekter samsvarer med det søket.',
-    aiError: 'AI-søk er ikke tilgjengelig akkurat nå — prøv filtrene nedenfor.'
+    aiError: 'AI-søk er ikke tilgjengelig akkurat nå — prøv filtrene nedenfor.',
+    filters: 'Filtre',
+    moreFilters: 'Flere filtre',
+    showOne: 'Vis 1 prosjekt',
+    showMany: 'Vis {n} prosjekter',
+    closeFilters: 'Lukk filtre',
+    removeFilter: 'Fjern filter: {label}'
   }
 };

@@ -168,14 +168,19 @@ function applyDiscoveryRuntimeStrings(html, locale) {
   const attrs = [
     ['data-i18n-count-one', strings.countOne],
     ['data-i18n-count-many', strings.countMany],
-    ['data-i18n-no-filters', strings.noFilters],
     ['data-i18n-any-price', strings.anyPrice],
     ['data-i18n-any', strings.any],
     ['data-i18n-searching', strings.searching],
     ['data-i18n-search', strings.search],
     ['data-i18n-ai-matching', strings.aiMatching],
     ['data-i18n-ai-no-match', strings.aiNoMatch],
-    ['data-i18n-ai-error', strings.aiError]
+    ['data-i18n-ai-error', strings.aiError],
+    ['data-i18n-filters', strings.filters],
+    ['data-i18n-more-filters', strings.moreFilters],
+    ['data-i18n-show-one', strings.showOne],
+    ['data-i18n-show-many', strings.showMany],
+    ['data-i18n-close-filters', strings.closeFilters],
+    ['data-i18n-remove-filter', strings.removeFilter]
   ].map(([name, value]) => `${name}="${value}"`).join(' ');
   return html.replace(
     'id="development-discovery" data-discovery>',
