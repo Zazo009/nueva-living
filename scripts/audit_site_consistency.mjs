@@ -5685,6 +5685,34 @@ if (warnings.length) {
   warnings.forEach((message) => console.warn(`- ${message}`));
 }
 
+// A script that works out the visitor's locale from the URL must know all nine.
+// The viewing-exit fallback on the homepage listed five (es fr de ru ar), so a
+// Dutch, Polish, Norwegian or Swedish visitor was sent to the English page; the
+// hero search had no locale handling at all and always went to the English
+// Developments page. Any regular expression in page scripts that lists several
+// locale codes must list every one of them, and a script must not assign a bare
+// '<page>.html' to location.href on a page that is built in every language.
+{
+  const ALL = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'no', 'sv'];
+  const scanFiles = [
+    ...fs.readdirSync(path.join(root, 'pages')).filter((f) => f.endsWith('.html')).map((f) => `pages/${f}`),
+    ...fs.readdirSync(path.join(root, 'assets/liora')).filter((f) => f.endsWith('.js')).map((f) => `assets/liora/${f}`)
+  ];
+  for (const file of scanFiles) {
+    const source = fs.readFileSync(path.join(root, file), 'utf8');
+    for (const m of source.matchAll(/\(((?:es|fr|de|ru|ar|nl|pl|no|sv)(?:\|(?:es|fr|de|ru|ar|nl|pl|no|sv))+)\)/g)) {
+      const listed = m[1].split('|');
+      const missing = ALL.filter((code) => !listed.includes(code));
+      if (listed.length >= 3 && missing.length) {
+        fail(file, `a locale pattern (${m[0]}) lists ${listed.length} of the nine locales and misses ${missing.join(', ')}: those visitors would be sent to the English site.`);
+      }
+    }
+    if (file === 'pages/nueva-living-home.html' && /location\.href\s*=\s*'[a-z-]+\.html/.test(source)) {
+      fail(file, "location.href is assigned a bare '<page>.html'; on a translated homepage that lands on the English page. Prefix it with the locale from the URL.");
+    }
+  }
+}
+
 if (failures.length) {
   console.error(`Consistency audit failed (${failures.length}):`);
   failures.forEach((message) => console.error(`- ${message}`));

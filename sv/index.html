@@ -5609,7 +5609,10 @@
         }
 
         var query = params.toString();
-        window.location.href = 'developments.html' + (query ? '?' + query : '');
+        // The page is served under /<locale>/ on every translated build; a bare
+        // 'developments.html' would land on the English site.
+        var localeMatch = window.location.pathname.match(/^\/(es|fr|de|ru|ar|nl|pl|no|sv)\//);
+        window.location.href = (localeMatch ? '/' + localeMatch[1] + '/' : '/') + 'developments.html' + (query ? '?' + query : '');
       });
     })();
   </script>
@@ -20359,7 +20362,7 @@
 
     const slug = VIEWING_PROJECT_ID;
     if (slug && slug !== DEFAULT_VIEWING_PROJECT_ID || (slug && VIEWING_PROJECTS[slug])) {
-      const localeMatch = window.location.pathname.match(/^\/(es|fr|de|ru|ar)\//);
+      const localeMatch = window.location.pathname.match(/^\/(es|fr|de|ru|ar|nl|pl|no|sv)\//);
       const prefix = localeMatch ? `/${localeMatch[1]}/` : '/';
       window.location.href = `${prefix}property-${slug}.html`;
       return;
