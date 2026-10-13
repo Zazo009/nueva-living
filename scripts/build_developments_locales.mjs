@@ -180,7 +180,23 @@ function applyDiscoveryRuntimeStrings(html, locale) {
     ['data-i18n-show-one', strings.showOne],
     ['data-i18n-show-many', strings.showMany],
     ['data-i18n-close-filters', strings.closeFilters],
-    ['data-i18n-remove-filter', strings.removeFilter]
+    ['data-i18n-remove-filter', strings.removeFilter],
+    ['data-i18n-map', strings.map],
+    ['data-i18n-list', strings.list],
+    ['data-i18n-view', strings.view],
+    ['data-i18n-draw-area', strings.drawArea],
+    ['data-i18n-clear-area', strings.clearArea],
+    ['data-i18n-area-chip', strings.areaChip],
+    ['data-i18n-draw-hint', strings.drawHint],
+    ['data-i18n-zoom-in', strings.zoomIn],
+    ['data-i18n-zoom-out', strings.zoomOut],
+    ['data-i18n-map-label', strings.mapLabel],
+    ['data-i18n-cluster-many', strings.clusterMany],
+    ['data-i18n-prev-project', strings.prevProject],
+    ['data-i18n-next-project', strings.nextProject],
+    ['data-i18n-close-card', strings.closeCard],
+    ['data-i18n-unmapped', strings.unmapped],
+    ['data-i18n-back-to-filters', strings.backToFilters]
   ].map(([name, value]) => `${name}="${value}"`).join(' ');
   return html.replace(
     'id="development-discovery" data-discovery>',
