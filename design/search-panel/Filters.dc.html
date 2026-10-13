@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Price, bedrooms and more filters</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Montserrat',Arial,sans-serif;background:#F1ECE1}
+button,select,input{font-family:inherit}
+button:focus-visible,input:focus-visible{outline:2px solid #896A3F;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; padding: clamp(16px, 3vw, 32px); background: #F1ECE1; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; color: #2E2A24; font-family: 'Montserrat', Arial, sans-serif">
+
+<div role="dialog" aria-label="Price Range" style="flex: 1 1 340px; min-width: 0; box-sizing: border-box; padding: 24px; display: flex; flex-direction: column; gap: 22px; background: #FBF8F2; border: 1px solid #DED4C3; box-shadow: 0 8px 24px rgba(46,42,36,0.14)">
+<span style="font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67">Price Range</span>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; direction: ltr"><span style="font-family: 'Cinzel', Georgia, serif; font-size: 22px; font-weight: 600; color: #896A3F">€260,000</span><span aria-hidden="true" style="color: #766E67">–</span><span style="font-family: 'Cinzel', Georgia, serif; font-size: 22px; font-weight: 600; color: #896A3F">€1,000,000</span></div>
+<div aria-hidden="true" style="position: relative; height: 22px; margin: 0 11px; direction: ltr">
+<div style="position: absolute; left: 0; right: 0; top: 9px; height: 4px; background: #DED4C3"></div>
+<div style="position: absolute; left: 0; width: 15.6%; top: 9px; height: 4px; background: #896A3F"></div>
+<div style="position: absolute; left: -11px; top: 0; width: 22px; height: 22px; box-sizing: border-box; background: #FBF8F2; border: 2px solid #896A3F; border-radius: 11px"></div>
+<div style="position: absolute; left: calc(15.6% - 11px); top: 0; width: 22px; height: 22px; box-sizing: border-box; background: #FBF8F2; border: 2px solid #896A3F; border-radius: 11px"></div>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: space-between; font-size: 11px; color: #766E67; direction: ltr"><span>€260k</span><span>€5M</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid #DED4C3">
+<button type="button" style="flex: none; white-space: nowrap; min-height: 44px; padding: 0 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: #896A3F; background: transparent; border: 0; text-decoration: underline; cursor: pointer">Reset Filters</button>
+<button type="button" style="flex: 1 1 220px; white-space: nowrap; min-height: 48px; padding: 0 22px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F7F3EC; background: #4A3B28; border: 0; border-radius: 0; cursor: pointer">Show 20 developments</button>
+</div>
+</div>
+
+<div role="dialog" aria-label="Bedrooms" style="flex: 1 1 340px; min-width: 0; box-sizing: border-box; padding: 24px; display: flex; flex-direction: column; gap: 22px; background: #FBF8F2; border: 1px solid #DED4C3; box-shadow: 0 8px 24px rgba(46,42,36,0.14)">
+<span style="font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67">Bedrooms</span>
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; direction: ltr"><span style="font-family: 'Cinzel', Georgia, serif; font-size: 22px; font-weight: 600; color: #896A3F">1</span><span aria-hidden="true" style="color: #766E67">–</span><span style="font-family: 'Cinzel', Georgia, serif; font-size: 22px; font-weight: 600; color: #896A3F">6</span></div>
+<div aria-hidden="true" style="position: relative; height: 22px; margin: 0 11px; direction: ltr">
+<div style="position: absolute; left: 0; right: 0; top: 9px; height: 4px; background: #896A3F"></div>
+<div style="position: absolute; left: -11px; top: 0; width: 22px; height: 22px; box-sizing: border-box; background: #FBF8F2; border: 2px solid #896A3F; border-radius: 11px"></div>
+<div style="position: absolute; right: -11px; top: 0; width: 22px; height: 22px; box-sizing: border-box; background: #FBF8F2; border: 2px solid #896A3F; border-radius: 11px"></div>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: space-between; font-size: 11px; color: #766E67; direction: ltr"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid #DED4C3">
+<button type="button" style="flex: none; white-space: nowrap; min-height: 44px; padding: 0 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: #896A3F; background: transparent; border: 0; text-decoration: underline; cursor: pointer">Reset Filters</button>
+<button type="button" style="flex: 1 1 220px; white-space: nowrap; min-height: 48px; padding: 0 22px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F7F3EC; background: #4A3B28; border: 0; border-radius: 0; cursor: pointer">Show 20 developments</button>
+</div>
+</div>
+
+<div role="dialog" aria-label="More filters" style="flex: 1 1 420px; min-width: 0; box-sizing: border-box; padding: 24px; display: flex; flex-direction: column; gap: 22px; background: #FBF8F2; border: 1px solid #DED4C3; box-shadow: 0 8px 24px rgba(46,42,36,0.14)">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span id="st-l" style="font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67">Status</span>
+<div role="group" aria-labelledby="st-l" style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" aria-pressed="true" style="min-height: 44px; padding: 0 16px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: #896A3F; border: 1px solid #896A3F; border-radius: 0; cursor: pointer">Any Status</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Off-Plan</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Under Construction</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Completed</button>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span id="mv-l" style="font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67">Move-In Timing</span>
+<div role="group" aria-labelledby="mv-l" style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" aria-pressed="true" style="min-height: 44px; padding: 0 16px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: #896A3F; border: 1px solid #896A3F; border-radius: 0; cursor: pointer">Any Timing</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Ready Now</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Within 1 Year</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Within 2 Years</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">2+ Years</button>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span id="ls-l" style="font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #766E67">Filter by Lifestyle</span>
+<div role="group" aria-labelledby="ls-l" style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Sea View</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Beachside</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Golf Living</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Wellness Living</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Resort Lifestyle</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Family-Oriented</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Privacy &amp; Security</button>
+<button type="button" aria-pressed="false" style="min-height: 44px; padding: 0 16px; font-size: 13px; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; border-radius: 0; cursor: pointer">Walkable Lifestyle</button>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding-top: 16px; border-top: 1px solid #DED4C3">
+<button type="button" style="flex: none; white-space: nowrap; min-height: 44px; padding: 0 4px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: #896A3F; background: transparent; border: 0; text-decoration: underline; cursor: pointer">Reset Filters</button>
+<button type="button" style="flex: 1 1 220px; white-space: nowrap; min-height: 48px; padding: 0 22px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #F7F3EC; background: #4A3B28; border: 0; border-radius: 0; cursor: pointer">Show 20 developments</button>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":560}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

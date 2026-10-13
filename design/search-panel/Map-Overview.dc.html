@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Map view, all areas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Montserrat',Arial,sans-serif;background:#EDE6D8}
+button,select,input{font-family:inherit}
+a{text-decoration:none}
+button:focus-visible,a:focus-visible{outline:2px solid #896A3F;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; background: #F7F3EC; display: flex; flex-direction: column; color: #2E2A24; font-family: 'Montserrat', Arial, sans-serif">
+
+<div style="box-sizing: border-box; padding: 12px clamp(12px, 2vw, 24px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #DED4C3">
+<div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px">
+<span style="font-size: 12px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #766E67; margin-inline-end: 8px">52 developments</span>
+<span style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; font-size: 12px; background: #EDE6D8">All Locations</span>
+<button type="button" aria-label="Remove filter: €260k – €1M" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 14px; font-size: 12px; color: #2E2A24; background: #EDE6D8; border: 0; cursor: pointer">€260k – €1M<svg aria-hidden="true" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+<div role="group" aria-label="View" style="display: flex; height: 44px; box-sizing: border-box; border: 1px solid #DED4C3; overflow: hidden; background: #FBF8F2">
+<button type="button" aria-pressed="false" style="display: flex; align-items: center; gap: 8px; padding: 0 18px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #2E2A24; background: transparent; border: 0; cursor: pointer"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2E2A24" stroke-width="1.8" stroke-linejoin="round"><path d="M5 7h14M5 12h14M5 17h14" stroke-linecap="round"/></svg>List</button>
+<button type="button" aria-pressed="true" style="display: flex; align-items: center; gap: 8px; padding: 0 18px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFFFF; background: #896A3F; border: 0; cursor: pointer"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>Map</button>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: row-reverse; flex-wrap: wrap; align-items: stretch">
+
+<div style="flex: 999 1 520px; min-width: 0">
+<div style="position: relative; width: 100%; aspect-ratio: 920 / 771; min-height: 380px; overflow: hidden; background: #B4CED3">
+<svg role="img" aria-label="Map of the Costa del Sol from Casares in the west to Málaga in the east, with developments grouped by area" width="100%" height="100%" viewBox="0 0 920 771" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0">
+<path d="M0,505 L70,485 L164,421 L230,391 L305,362 L343,345 L408,327 L488,333 L540,345 L591,327 L652,280 L704,216 L770,187 L845,76 L920,58 L920,0 L0,0 Z" fill="#EFEADB" stroke="#C9BFA3" stroke-width="2" stroke-linejoin="round"/>
+<clipPath id="land"><path d="M0,505 L70,485 L164,421 L230,391 L305,362 L343,345 L408,327 L488,333 L540,345 L591,327 L652,280 L704,216 L770,187 L845,76 L920,58 L920,0 L0,0 Z"/></clipPath>
+<g clip-path="url(#land)"><rect x="98" y="0" width="165" height="771" fill="rgba(137,106,63,0.09)"/>
+<g stroke="#B8AC8E" stroke-width="1.5" stroke-dasharray="6 5" fill="none"><path d="M98,0V771"/><path d="M263,0V771"/><path d="M300,0V771"/><path d="M366,0V771"/><path d="M507,0V771"/><path d="M704,0V771"/></g></g>
+<g fill="none" stroke="#DDD6BF" stroke-width="1.5">
+<path d="M0,330 C90,300 170,330 250,290 S400,240 520,262 S700,180 800,120 S880,60 920,40"/>
+<path d="M0,250 C100,220 220,250 320,210 S520,170 640,190 S780,110 860,40"/>
+<path d="M0,170 C120,140 260,170 380,130 S600,90 700,100 S820,40 900,10"/>
+</g>
+</svg>
+
+<span aria-hidden="true" style="position: absolute; left: 91%; top: 14%; transform: translate(-50%, -50%); font-size: 10px; font-weight: 500; letter-spacing: 0.22em; color: #766E67; white-space: nowrap">MÁLAGA</span>
+<span aria-hidden="true" style="position: absolute; left: 74%; top: 82%; font-size: 11px; font-style: italic; letter-spacing: 0.3em; color: #6E959C; white-space: nowrap">Mediterranean Sea</span>
+
+<button type="button" aria-label="Marbella: 4 developments" style="position: absolute; left: 44.4%; top: 40.9%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 20px; font-size: 15px; font-weight: 700; color: #FFFFFF; background: #896A3F; border: 3px solid #F7F3EC; cursor: pointer; padding: 0">4</button>
+<span aria-hidden="true" style="position: absolute; left: 44.4%; top: 40.9%; margin-top: 28px; transform: translateX(-50%); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; color: #2E2A24; white-space: nowrap">MARBELLA</span>
+<button type="button" aria-label="Nueva Andalucía: 3 developments" style="position: absolute; left: 36.7%; top: 41.7%; transform: translate(-50%, -50%); width: 36px; height: 36px; border-radius: 18px; font-size: 15px; font-weight: 700; color: #FFFFFF; background: #896A3F; border: 3px solid #F7F3EC; cursor: pointer; padding: 0">3</button>
+<span aria-hidden="true" style="position: absolute; left: 36.7%; top: 41.7%; margin-top: -44px; transform: translateX(-50%); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; color: #2E2A24; white-space: nowrap">NUEVA ANDALUCÍA</span>
+<button type="button" aria-label="San Pedro de Alcántara: 4 developments" style="position: absolute; left: 30.6%; top: 44.7%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 20px; font-size: 15px; font-weight: 700; color: #FFFFFF; background: #896A3F; border: 3px solid #F7F3EC; cursor: pointer; padding: 0">4</button>
+<span aria-hidden="true" style="position: absolute; left: 30.6%; top: 44.7%; margin-top: 28px; transform: translateX(-50%); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; color: #2E2A24; white-space: nowrap">SAN PEDRO</span>
+<button type="button" aria-label="Mijas and Fuengirola: 19 developments" style="position: absolute; left: 69.4%; top: 35.6%; transform: translate(-50%, -50%); width: 58px; height: 58px; border-radius: 29px; font-size: 18px; font-weight: 700; color: #FFFFFF; background: #896A3F; border: 3px solid #F7F3EC; cursor: pointer; padding: 0">19</button>
+<span aria-hidden="true" style="position: absolute; left: 69.4%; top: 35.6%; margin-top: 38px; transform: translateX(-50%); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; color: #2E2A24; white-space: nowrap">MIJAS · FUENGIROLA</span>
+<button type="button" aria-label="Casares: 2 developments" style="position: absolute; left: 4.6%; top: 50.7%; transform: translate(-50%, -50%); width: 32px; height: 32px; border-radius: 16px; font-size: 15px; font-weight: 700; color: #FFFFFF; background: #896A3F; border: 3px solid #F7F3EC; cursor: pointer; padding: 0">2</button>
+<span aria-hidden="true" style="position: absolute; left: 4.6%; top: 50.7%; margin-top: 24px; transform: translateX(-50%); font-size: 10px; font-weight: 600; letter-spacing: 0.2em; color: #2E2A24; white-space: nowrap">CASARES</span>
+<button type="button" aria-label="Estepona: 20 developments, selected" style="position: absolute; left: 17.9%; top: 53.8%; transform: translate(-50%, -50%); width: 64px; height: 64px; border-radius: 32px; font-size: 18px; font-weight: 700; color: #FFFFFF; background: #4A3B28; border: 4px solid #FFFFFF; cursor: pointer; padding: 0; box-shadow: 0 2px 12px rgba(46,42,36,0.35)">20</button>
+<span aria-hidden="true" style="position: absolute; left: 17.9%; top: 53.8%; margin-top: 42px; transform: translateX(-50%); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: #2E2A24; white-space: nowrap">ESTEPONA</span>
+
+<div style="position: absolute; right: 16px; top: 16px; display: flex; flex-direction: column; background: #FBF8F2; border: 1px solid #DED4C3">
+<button type="button" aria-label="Zoom in" style="width: 44px; height: 44px; font-size: 22px; color: #2E2A24; background: transparent; border: 0; cursor: pointer">+</button>
+<button type="button" aria-label="Zoom out" style="width: 44px; height: 44px; font-size: 22px; color: #2E2A24; background: transparent; border: 0; border-top: 1px solid #DED4C3; cursor: pointer">−</button>
+</div>
+<button type="button" style="position: absolute; left: 16px; top: 16px; height: 44px; padding: 0 18px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #2E2A24; background: #FBF8F2; border: 1px solid #DED4C3; cursor: pointer">Search this area</button>
+
+<article style="position: absolute; left: 24%; top: 52%; width: 340px; max-width: calc(100% - 32px); background: #F7F3EC; border: 1px solid #DED4C3; box-shadow: 0 10px 28px rgba(46,42,36,0.25); display: flex; flex-direction: column; overflow: hidden">
+<div style="position: relative; aspect-ratio: 2.1; overflow: hidden">
+<img src="../../assets/liora/projects/cancelada-park/media/aerial-courtyard.jpg" alt="Aerial view of the Cancelada Park courtyard" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(30,24,16,0.28) 0%, rgba(0,0,0,0) 30%, rgba(30,24,16,0.14) 54%, rgba(24,19,13,0.74) 100%)"></div>
+<div style="position: absolute; inset-inline-start: 0; bottom: 0; padding: 14px; display: flex; flex-direction: column; gap: 6px; align-items: flex-start">
+<div style="display: flex; flex-wrap: wrap; gap: 1px"><span style="font-size: 9px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 9px; color: #FFFFFF; background: #896A3F">Current Release</span><span style="font-size: 9px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 9px; color: #2E2A24; background: rgba(247,243,236,0.92)">30 of 57 left</span></div>
+<div style="display: flex; align-items: baseline; gap: 8px"><span style="font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(247,243,236,0.82)">From</span><span style="font-family: 'Cinzel', Georgia, serif; font-size: 24px; font-weight: 600; line-height: 1; color: #F7F3EC">€799,000</span></div>
+</div>
+<div style="position: absolute; right: 8px; top: 8px; display: flex; gap: 6px">
+<button type="button" aria-label="Previous project" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(46,42,36,0.55); border: 0; border-radius: 22px; cursor: pointer; padding: 0"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+<button type="button" aria-label="Next project" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: rgba(46,42,36,0.55); border: 0; border-radius: 22px; cursor: pointer; padding: 0"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+</div>
+<div style="padding: 16px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px"><span style="font-family: 'Cinzel', Georgia, serif; font-size: 20px; font-weight: 500; line-height: 1.15; color: #896A3F">Cancelada Park</span><span style="flex: none; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; color: #766E67">1 / 20</span></div>
+<div style="display: flex; border-top: 1px solid #DED4C3; border-bottom: 1px solid #DED4C3">
+<div style="display: flex; flex-direction: column; flex: 1 1 auto; gap: 4px; padding-block: 10px 10px; padding-inline: 0 10px"><span style="font-size: 9px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #786E65">Delivery</span><span style="font-size: 13px; font-weight: 600">Q3 2027</span></div>
+<div style="display: flex; flex-direction: column; flex: 1 1 auto; gap: 4px; padding: 10px; border-inline-start: 1px solid #DED4C3"><span style="font-size: 9px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #786E65">Homes</span><span style="font-size: 13px; font-weight: 600">2–4 bed</span></div>
+<div style="display: flex; flex-direction: column; flex: 1 1 auto; gap: 4px; padding-block: 10px 10px; padding-inline: 10px 0; border-inline-start: 1px solid #DED4C3"><span style="font-size: 9px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #786E65">Available</span><span style="font-size: 13px; font-weight: 600; color: #896A3F">30 of 57</span></div>
+</div>
+<a href="property-cancelada-park.html" style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 17px; background: #4A3B28; color: #F7F3EC; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase"><span>Explore Project</span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</article>
+</div>
+</div>
+
+<div style="flex: 1 1 400px; max-width: 420px; min-height: 420px; align-self: stretch; position: relative; overflow: hidden; background: #F7F3EC; border-inline-end: 1px solid #DED4C3">
+<div style="position: absolute; inset: 0; overflow-y: auto; box-sizing: border-box; padding: 16px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+<span style="font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: #766E67">Estepona · 20 developments</span>
+<button type="button" style="min-height: 44px; padding: 0 4px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; color: #896A3F; background: transparent; border: 0; text-decoration: underline; cursor: pointer">Reset Filters</button>
+</div>
+
+<dc-import name="Cards" single="{{ true }}" bare="{{ true }}" mark="{{ true }}" hint-size="100%,1400px"></dc-import>
+</div>
+</div>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":840}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+items: [
+{ img: '../../assets/liora/projects/cancelada-park/media/aerial-courtyard.jpg', alt: 'Aerial view of the Cancelada Park courtyard', badge: 'Current Release', units: '30 of 57 left', loc: 'Cancelada / New Golden Mile', priceLabel: 'From', price: '€799,000', name: 'Cancelada Park', tag: 'Low-rise apartments and penthouses with large terraces, garden options and access to a wider resort setting.', delivery: 'Q3 2027', homes: '2–4 bed', size: '', avail: '30 of 57', href: 'property-cancelada-park.html' },
+{ img: '../../assets/liora/projects/jardin-del-mar-residences/media/exterior-pool-day.jpg', alt: 'Pool and gardens at Jardin del Mar Residences', badge: 'Off-Plan', units: '19 of 23 left', loc: 'Estepona', priceLabel: 'From', price: '€720,000', name: 'Jardin del Mar Residences', tag: 'Gated apartments and penthouses on the New Golden Mile with a private spa, gym, cinema and coworking lounge.', delivery: 'Q2 2028', homes: '2–3 bed', size: '154–306 m²', avail: '19 of 23', href: 'property-jardin-del-mar-residences.html' },
+{ img: '../../assets/liora/projects/guadalobon-beach-residences/media/aerial-view-development-coastline.jpg', alt: 'Aerial view of the Guadalobon Beach development and coastline', badge: 'Off-Plan', units: '11 of 87 left', loc: 'Estepona', priceLabel: '', price: 'Price on request', name: 'Guadalobon Beach Residences', tag: 'A collection of 87 apartments and townhouses in Estepona, close to Guadalobon beach, with a communal pool and gardens.', delivery: 'Estimated Q3 2028', homes: '2–4 bed', size: '89–202 m²', avail: '11 of 87', href: 'property-guadalobon-beach-residences.html' },
+{ img: '../../assets/liora/projects/vista-alta-suites/media/aerial-view-complex-hillside.jpg', alt: 'Aerial view of the Vista Alta Suites hillside complex', badge: 'Off-Plan', units: '20 of 72 left', loc: 'Estepona', priceLabel: 'From', price: 'EUR 695,000', name: 'Vista Alta Suites', tag: 'A collection of 72 apartments across seven buildings on the New Golden Mile in Estepona, with sea and mountain views and a full amenity floor.', delivery: 'Estimated Q2 2028', homes: '2–4 bed', size: '118–223 m²', avail: '20 of 72', href: 'property-vista-alta-suites.html' },
+{ img: '../../assets/liora/projects/bahia-serena-residences/media/aerial-view-complex-hillside.jpg', alt: 'Aerial view of the Bahía Serena Residences complex', badge: 'Off-Plan', units: '15 of 25 left', loc: 'Estepona', priceLabel: 'From', price: 'EUR 350,000', name: 'Bahía Serena Residences', tag: 'A boutique collection of 25 apartments across four buildings in Bahía Dorada, Estepona, a short walk from Arroyo Vaquero beach.', delivery: 'Estimated Q4 2028', homes: '1–3 bed', size: '55–137 m²', avail: '15 of 25', href: 'property-bahia-serena-residences.html' },
+{ img: '../../assets/liora/projects/mirador-las-mesas/media/aerial-view-coastal-town.jpg', alt: 'Aerial view of Mirador de Las Mesas and the coast', badge: 'Off-Plan', units: '11 of 164 left', loc: 'Estepona', priceLabel: 'From', price: 'EUR 479,000', name: 'Mirador de Las Mesas', tag: 'A gated collection of 164 apartments and penthouses in Las Mesas, Estepona, with two outdoor pools and sea and mountain views.', delivery: 'Q1 2029', homes: '1–3 bed', size: '60–157 m²', avail: '11 of 164', href: 'property-mirador-las-mesas.html' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

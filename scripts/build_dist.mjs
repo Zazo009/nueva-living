@@ -35,6 +35,8 @@ function contentVersion(relativePath) {
 const conversionScriptPath = 'assets/liora/liora-conversion.js';
 const discoveryScriptPath = 'assets/liora/liora-discovery.js';
 const cardGalleryScriptPath = 'assets/liora/liora-card-gallery.js';
+const discoveryMapScriptPath = 'assets/liora/liora-discovery-map.js';
+const discoveryMapStylesheetPath = 'assets/liora/liora-discovery-map.css';
 const trackingScriptPath = 'assets/liora/nueva-tracking.js';
 const shortlistScriptPath = 'assets/liora/nueva-shortlist.js';
 const shortlistStylesheetPath = 'assets/liora/nueva-shortlist.css';
@@ -48,6 +50,15 @@ const propertyStylesheetPath = 'assets/liora/liora-property.css';
 const conversionScriptVersion = contentVersion(conversionScriptPath);
 const discoveryScriptVersion = contentVersion(discoveryScriptPath);
 const cardGalleryScriptVersion = contentVersion(cardGalleryScriptPath);
+const discoveryClusterScriptPath = 'assets/liora/liora-discovery-cluster.js';
+// The map script loads the clustering rule with its own ?v= (see CLUSTER_URL
+// in liora-discovery-map.js), so the map's version must change when either file does.
+const discoveryMapScriptVersion = createHash('sha256')
+  .update(fs.readFileSync(path.join(root, discoveryMapScriptPath)))
+  .update(fs.readFileSync(path.join(root, discoveryClusterScriptPath)))
+  .digest('hex')
+  .slice(0, 12);
+const discoveryMapStylesheetVersion = contentVersion(discoveryMapStylesheetPath);
 const trackingScriptVersion = contentVersion(trackingScriptPath);
 const shortlistScriptVersion = contentVersion(shortlistScriptPath);
 const shortlistStylesheetVersion = contentVersion(shortlistStylesheetPath);
@@ -606,6 +617,19 @@ const assetFiles = [
   'assets/liora/favicon-16.png',
   'assets/liora/favicon-32.png',
   'assets/liora/liora-discovery.js',
+  'assets/liora/liora-discovery-map.js',
+  'assets/liora/liora-discovery-cluster.js',
+  'assets/liora/liora-discovery-map.css',
+  // The developments map, self-hosted: the libraries it draws with and the
+  // vector archive it reads. The archive is a binary the browser fetches with
+  // HTTP range requests, so it is copied byte for byte -- never listed in a
+  // directory glob that minifies, compresses or runs images through tooling.
+  'assets/liora/vendor/leaflet/leaflet.js',
+  'assets/liora/vendor/leaflet/leaflet.css',
+  'assets/liora/vendor/protomaps-leaflet/protomaps-leaflet.js',
+  'assets/liora/vendor/LICENSES.txt',
+  'assets/liora/vendor/VENDOR.json',
+  'assets/liora/tiles/costa-del-sol.pmtiles',
   'assets/liora/liora-card-gallery.js',
   'assets/liora/liora-conversion.js',
   'assets/liora/nueva-tracking.js',
@@ -973,6 +997,14 @@ function optimizeHtml(html) {
     .replace(
       /assets\/liora\/liora-discovery\.js(?:\?v=[a-z0-9]+)?/gi,
       `${discoveryScriptPath}?v=${discoveryScriptVersion}`
+    )
+    .replace(
+      /assets\/liora\/liora-discovery-map\.js(?:\?v=[a-z0-9]+)?/gi,
+      `${discoveryMapScriptPath}?v=${discoveryMapScriptVersion}`
+    )
+    .replace(
+      /assets\/liora\/liora-discovery-map\.css(?:\?v=[a-z0-9]+)?/gi,
+      `${discoveryMapStylesheetPath}?v=${discoveryMapStylesheetVersion}`
     )
     .replace(
       /assets\/liora\/liora-card-gallery\.js(?:\?v=[a-z0-9]+)?/gi,
