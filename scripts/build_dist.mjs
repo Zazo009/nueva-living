@@ -1,3 +1,4 @@
+import { buildLlms, robotsTxt, INDEXNOW_KEY } from './lib/ai_discovery.mjs';
 import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema, FOUNDERS, organizationId, personId, founderRefs } from './lib/brand.mjs';
 import { projectAreaRule } from './lib/project_area.mjs';
 import fs from 'node:fs';
@@ -2103,7 +2104,22 @@ fs.writeFileSync(
 // asked for a file that did not exist and got the 71 KB custom 404 back.
 fs.copyFileSync(path.join(root, 'assets/liora/favicon.ico'), path.join(dist, 'favicon.ico'));
 
-fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
+// Assistants and answer engines: explicit robots groups, llms.txt / llms-full.txt from
+// the public catalogue and each project's public description, and the IndexNow key file.
+{
+  const catalogue = JSON.parse(fs.readFileSync(path.join(root, 'assets/liora/data/projects-catalog.json'), 'utf8'));
+  const areaList = JSON.parse(fs.readFileSync(path.join(root, 'content/nueva-areas.json'), 'utf8'));
+  const described = catalogue.map((project) => {
+    const file = path.join(root, 'content/liora-projects', project.slug, 'project.json');
+    const description = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')).description : '';
+    return { ...project, description };
+  });
+  const { llms, full } = buildLlms({ siteUrl, dist, projects: described, areas: areaList });
+  fs.writeFileSync(path.join(dist, 'robots.txt'), robotsTxt(siteUrl));
+  fs.writeFileSync(path.join(dist, 'llms.txt'), llms);
+  fs.writeFileSync(path.join(dist, 'llms-full.txt'), full);
+  fs.writeFileSync(path.join(dist, `${INDEXNOW_KEY}.txt`), `${INDEXNOW_KEY}\n`);
+}
 
 const legacyRedirects = [
   '/liora-approach.html /why-nueva.html 301',
@@ -2219,6 +2235,14 @@ fs.writeFileSync(path.join(dist, '_headers'), `/*.html
   Cache-Control: public, max-age=3600
 
 /robots.txt
+  Cache-Control: public, max-age=3600
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600
+
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=3600
 
 /favicon.ico

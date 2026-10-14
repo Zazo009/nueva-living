@@ -3189,8 +3189,32 @@ function updateDevelopmentsPage(projects) {
     });
   }
 
+  html = withProjectItemList(html, activeProjects);
+
   writeFileSync(developmentsPage, html);
   return true;
+}
+
+// The page's CollectionPage JSON-LD names the catalogue it shows, so an assistant or
+// a search engine reading the structured data gets every development with its link,
+// not only the cards that happen to be in the rendered HTML.
+function withProjectItemList(html, projects) {
+  const pattern = /<script type="application\/ld\+json">\s*(\{[^<]*?"@type": "CollectionPage"[^<]*?\})\s*<\/script>/;
+  const match = pattern.exec(html);
+  if (!match) return html;
+  const data = JSON.parse(match[1]);
+  data.mainEntity = {
+    '@type': 'ItemList',
+    numberOfItems: projects.length,
+    itemListElement: projects.map((project, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${siteUrl}/${project.output}`,
+      name: project.name
+    }))
+  };
+  const block = `<script type="application/ld+json">\n${JSON.stringify(data, null, 2)}\n  </script>`;
+  return html.slice(0, match.index) + block + html.slice(match.index + match[0].length);
 }
 
 async function syncProjectsToCrm(projects) {

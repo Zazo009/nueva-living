@@ -5713,6 +5713,62 @@ if (warnings.length) {
   }
 }
 
+// AI discovery: llms.txt, llms-full.txt and the robots groups are what an assistant
+// reads first, so they must be there, agree with the site, and never carry a name the
+// site withholds. They are generated from the public catalogue, but the check reads the
+// finished files: a listed page that does not exist sends an assistant to a 404, and a
+// developer's real name in them would publish it in a file the pixel and text guards
+// on pages never see.
+{
+  const dist = path.join(root, 'dist');
+  const read = (name) => (fs.existsSync(path.join(dist, name)) ? fs.readFileSync(path.join(dist, name), 'utf8') : null);
+  const llms = read('llms.txt');
+  const llmsFull = read('llms-full.txt');
+  const robots = read('robots.txt');
+  const catalogue = JSON.parse(fs.readFileSync(path.join(root, 'assets/liora/data/projects-catalog.json'), 'utf8'));
+  if (llms === null) fail('dist/llms.txt', 'missing: assistants look for it at the site root.');
+  if (llmsFull === null) fail('dist/llms-full.txt', 'missing: llms.txt links to it.');
+  if (robots === null || !/User-agent: GPTBot\nAllow: \//.test(robots) || !/User-agent: ClaudeBot\nAllow: \//.test(robots)) {
+    fail('dist/robots.txt', 'must name the assistant crawlers (GPTBot, ClaudeBot, ...) with Allow: /.');
+  }
+  if (llms !== null && llmsFull !== null) {
+    for (const project of catalogue) {
+      const link = `https://nuevaliving.com/${project.url}`;
+      if (!llms.includes(link)) fail('dist/llms.txt', `${project.slug} is not listed.`);
+      if (!llmsFull.includes(link)) fail('dist/llms-full.txt', `${project.slug} is not listed.`);
+    }
+    for (const [file, text] of [['llms.txt', llms], ['llms-full.txt', llmsFull]]) {
+      for (const match of text.matchAll(/\]\((https:\/\/nuevaliving\.com\/[^)\s#?]+)\)/g)) {
+        const rel = match[1].replace('https://nuevaliving.com/', '');
+        if (!fs.existsSync(path.join(dist, rel))) fail(`dist/${file}`, `links to ${match[1]}, which is not in the build.`);
+      }
+      if (/\bcrm\b/i.test(text)) fail(`dist/${file}`, 'mentions the CRM.');
+    }
+    // Like the page guard above, a project's real name is looked for in that
+    // project's own entry only: a short real name can be an ordinary word in another
+    // project's public name ("Bahia" in "Bahia Serena Residences").
+    const chunksOf = (text, link) => {
+      const chunks = text.split('\n### ').filter((block) => block.includes(link));
+      return chunks.length ? chunks : text.split('\n').filter((line) => line.includes(link));
+    };
+    for (const entry of fs.readdirSync(path.join(root, 'content/liora-projects'), { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+      const file = path.join(root, 'content/liora-projects', entry.name, 'project.json');
+      if (!fs.existsSync(file)) continue;
+      const record = JSON.parse(fs.readFileSync(file, 'utf8'));
+      const real = String(record.crm?.realName || '').trim();
+      if (!real || real === record.name || !record.output) continue;
+      const pattern = new RegExp(`(?<![A-Za-z0-9])${real.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z0-9])`, 'i');
+      const link = `https://nuevaliving.com/${record.output}`;
+      for (const [name, text] of [['llms.txt', llms], ['llms-full.txt', llmsFull]]) {
+        if (chunksOf(text, link).some((chunk) => pattern.test(chunk))) {
+          fail(`dist/${name}`, `${record.slug}: the entry contains "${real}", the real project name.`);
+        }
+      }
+    }
+  }
+}
+
 if (failures.length) {
   console.error(`Consistency audit failed (${failures.length}):`);
   failures.forEach((message) => console.error(`- ${message}`));
