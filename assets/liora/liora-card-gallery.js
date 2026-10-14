@@ -284,13 +284,21 @@
     // reflow on every scroll frame -- 36ms of it by PSI's measurement. The
     // width only changes on resize, so it is cached.
     let cachedSlideWidth = 0;
-    const slideWidth = () => {
-      if (!cachedSlideWidth) cachedSlideWidth = track.clientWidth || 1;
+    const slideWidth = (fresh) => {
+      if (fresh || !cachedSlideWidth) cachedSlideWidth = track.clientWidth || 1;
       return cachedSlideWidth;
     };
+    // The width changes with the window, but also with the layout around the card:
+    // in the map view the card moves into a narrower rail without the window
+    // resizing. A stale width put the arrows and the ticks at the wrong slide
+    // (the ticks stopped at the fourth of six photos), so the track itself is
+    // watched.
     window.addEventListener('resize', () => { cachedSlideWidth = 0; }, { passive: true });
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(() => { cachedSlideWidth = 0; }).observe(track);
+    }
 
-    const currentIndex = () => Math.round(Math.abs(track.scrollLeft) / slideWidth());
+    const currentIndex = (fresh) => Math.round(Math.abs(track.scrollLeft) / slideWidth(fresh));
 
     // Only write when the active slide actually changes; rewriting the same
     // classes each scroll frame invalidated layout for no reason.
@@ -309,7 +317,7 @@
     const go = (next) => {
       const target = Math.min(Math.max(next, 0), slideCount - 1);
       ensureLoaded(target);
-      track.scrollTo({ left: target * slideWidth(), behavior: 'auto' });
+      track.scrollTo({ left: target * slideWidth(true), behavior: 'auto' });
       setActiveDot();
     };
 
@@ -341,11 +349,11 @@
 
     gallery.querySelector('[data-gallery-prev]')?.addEventListener('click', (event) => {
       event.stopPropagation();
-      go(currentIndex() - 1);
+      go(currentIndex(true) - 1);
     });
     gallery.querySelector('[data-gallery-next]')?.addEventListener('click', (event) => {
       event.stopPropagation();
-      go(currentIndex() + 1);
+      go(currentIndex(true) + 1);
     });
 
     const shareButton = gallery.querySelector('[data-card-share]');
@@ -368,7 +376,7 @@
         expandButton.addEventListener('click', (event) => {
           event.preventDefault();
           event.stopPropagation();
-          viewer.open(images, currentIndex(), name);
+          viewer.open(images, currentIndex(true), name);
         });
       }
     }

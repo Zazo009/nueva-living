@@ -5769,6 +5769,17 @@ if (warnings.length) {
   }
 }
 
+// The card gallery measures its slide width once and caches it. In the map view the
+// same card moves into a narrower rail without the window resizing, and the cached
+// width put the arrows and ticks at the wrong slide: photos five and six could not
+// be reached. The cache must be dropped when the track itself changes size.
+{
+  const source = fs.readFileSync(path.join(root, 'assets/liora/liora-card-gallery.js'), 'utf8');
+  if (!/new ResizeObserver\([\s\S]*?cachedSlideWidth = 0[\s\S]*?\)\.observe\(track\)/.test(source)) {
+    fail('assets/liora/liora-card-gallery.js', 'the cached slide width is not invalidated when the track resizes (ResizeObserver on the track).');
+  }
+}
+
 if (failures.length) {
   console.error(`Consistency audit failed (${failures.length}):`);
   failures.forEach((message) => console.error(`- ${message}`));
