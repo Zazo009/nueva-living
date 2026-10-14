@@ -3665,9 +3665,18 @@ li,
 
 .guide-card-body {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: 10px;
   padding: clamp(22px, 3vw, 32px);
+}
+
+/* The cards in a row share one height, but their descriptions run to
+   different lengths, so the figures and the "read the guide" link sat at
+   whatever height the text happened to end. The description absorbs the
+   slack instead, which pins everything after it to the bottom edge. */
+.guide-card-body > p {
+  margin-bottom: auto;
 }
 
 .guide-card-body .meta {
