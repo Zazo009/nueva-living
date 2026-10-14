@@ -2161,6 +2161,9 @@ const legacyRedirects = [
   '/property-benahavis-view-villas /404.html 410',
   '/property-golden-coast-residences /404.html 410',
   '/property-nueva-andalucia-suites /404.html 410',
+  // An early placeholder slug Google still holds as a 404: gone, not renamed.
+  '/property-solenne-benahavis.html /404.html 410',
+  '/property-solenne-benahavis /404.html 410',
 ];
 
 
@@ -2180,6 +2183,16 @@ const legacyRedirects = [
 //
 // Homepages are the exception in the other direction: they are canonical at
 // their directory, so /sv/index.html folds into /sv/.
+// A renamed page's old URL answered 301 only with .html; the same URL without the
+// extension, which Google had also found (/es/property-altos-de-marbella), fell
+// through to the 404. Every legacy 301 gets its extensionless twin.
+const legacyExtensionless = legacyRedirects
+  .filter((rule) => /^\S+\.html\s+\S+\s+301$/.test(rule.trim()))
+  .map((rule) => {
+    const [from, to, code] = rule.trim().split(/\s+/);
+    return `${from.slice(0, -'.html'.length)} ${to} ${code}!`;
+  })
+  .filter((rule) => !legacyRedirects.includes(rule));
 const extensionlessRedirects = [];
 {
   const walkHtml = (dir, prefix = '') => {
@@ -2222,7 +2235,7 @@ const functionRedirects = [
 ];
 fs.writeFileSync(path.join(dist, '_redirects'),
   `${functionRedirects.join('\n')}\n`
-  + `${legacyRedirects.join('\n')}\n${extensionlessRedirects.join('\n')}\n`
+  + `${legacyRedirects.join('\n')}\n${legacyExtensionless.join('\n')}\n${extensionlessRedirects.join('\n')}\n`
   + `${locale404Redirects.join('\n')}\n/* /404.html 404\n`);
 
 fs.writeFileSync(path.join(dist, '_headers'), `/*.html
