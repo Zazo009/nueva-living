@@ -28,6 +28,8 @@ export const FLOOR_PARTS = {
   'semi-basement': { es: 'Semisótano', fr: 'Demi-sous-sol', de: 'Souterrain', ru: 'Цокольный этаж', ar: 'شبه قبو', nl: 'Souterrain', pl: 'Półsuterena', sv: 'Souterräng', no: 'Underetasje' },
   'garden': { es: 'Jardín', fr: 'Jardin', de: 'Garten', ru: 'Сад', ar: 'حديقة', nl: 'Tuin', pl: 'Ogród', sv: 'Trädgård', no: 'Hage' },
   'lower level': { es: 'Planta inferior', fr: 'Niveau inférieur', de: 'Untergeschoss', ru: 'Нижний уровень', ar: 'المستوى السفلي', nl: 'Onderste niveau', pl: 'Poziom dolny', sv: 'Nedre plan', no: 'Nedre plan' },
+  'lower floor': { es: 'Planta inferior', fr: 'Étage inférieur', de: 'Unteres Geschoss', ru: 'Нижний этаж', ar: 'الطابق السفلي', nl: 'Onderste verdieping', pl: 'Dolne piętro', sv: 'Nedre våningen', no: 'Nedre etasje' },
+  'upper floor': { es: 'Planta superior', fr: 'Étage supérieur', de: 'Oberes Geschoss', ru: 'Верхний этаж', ar: 'الطابق العلوي', nl: 'Bovenste verdieping', pl: 'Górne piętro', sv: 'Övre våningen', no: 'Øvre etasje' },
   'garden level': { es: 'Planta jardín', fr: 'Niveau jardin', de: 'Gartenebene', ru: 'Садовый уровень', ar: 'مستوى الحديقة', nl: 'Tuinniveau', pl: 'Poziom ogrodu', sv: 'Trädgårdsplan', no: 'Hagenivå' },
   // Evoque's ground level mixes homes with a private garden and homes with
   // a large terrace in its place, and the price list names them apart.

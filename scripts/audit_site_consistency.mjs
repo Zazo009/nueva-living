@@ -2657,6 +2657,9 @@ let englishLeakChecked = 0;
       englishLeakChecked += 1;
       for (const text of visibleStrings(file)) {
         if (!english.has(text)) continue;
+        // A project's public name is the same in every locale on purpose, and
+        // "Almendro Homes" holds one of the listed English words.
+        if (projectNames.has(text)) continue;
         const words = text.split(' ').length;
         if ((text.match(ENGLISH) || []).length < (words >= 4 ? 2 : 1)) continue;
         offenders.push(`${locale}/${name}: "${text.slice(0, 44)}"`);
