@@ -112,7 +112,7 @@ const IDENTITY = {
   // firm on the same street; a fixed descriptor repeated in the same words
   // everywhere is how an entity is told apart from them. Changed here, it has
   // to change on the profile and the social pages in the same breath.
-  slogan: 'Private new-build advisory on the Costa del Sol'
+  slogan: 'New-build and off-plan homes on the Costa del Sol'
 };
 
 /**
