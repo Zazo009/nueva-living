@@ -1231,6 +1231,118 @@ const pages = [
   </div></section>`,
   },
   {
+    file: 'guide-mortgage-habeno.html',
+    datePublished: '2026-10-14',
+    title: 'Mortgages for Costa del Sol New-Builds with Habeno',
+    description: 'Nueva Living partners with Habeno, a mortgage broker for international buyers in Spain: how the process runs and what to settle before you apply.',
+    heroImage: 'assets/nueva/journey/project-matching-1200.webp',
+    heroKicker: 'Buying Guide',
+    seoContext: 'Mortgages with Habeno · 2026 Guide',
+    heroTitle: 'Financing your home <em>with Habeno</em>',
+    heroLead: 'Nueva Living has partnered with Habeno, a mortgage broker for international buyers in Spain. This is what that partnership is, how their process runs, and what is worth settling before you apply.',
+    breadcrumbs: [['Guides', 'guides.html']],
+    bodyClass: 'guide-article-page',
+    body: `<section class="section"><div class="section-inner">
+      <div class="guide-intro g-reveal">
+        <p class="body-copy">We help international buyers find and compare new-build and off-plan homes on the Costa del Sol. Financing is the other half of many purchases, and it is a separate service, so we work with Habeno, a mortgage broker that arranges Spanish mortgages for international buyers and compares offers from several banks on your behalf. This page describes that service as Habeno describes it, and explains where our part ends and theirs begins.</p>
+        <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+          <a class="btn" href="https://habeno.com/en/partner/nuevaliving" target="_blank" rel="noopener">See Your Mortgage Options</a>
+          <a class="btn ghost" href="guides.html#mortgage-calculator">Estimate Your Payment First</a>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section quiet-band"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">The Partnership</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Two companies, <em>two jobs</em></h2></div>
+      <p class="body-copy g-reveal">Nueva Living finds and compares homes, and guides you through the purchase. Habeno is a different company that arranges the mortgage: it prepares your application, sends it to several Spanish banks and coordinates the process with the lender, the appraiser and the notary. The mortgage itself is an agreement between you and the bank you choose, not with us and not with Habeno.</p>
+      <p class="body-copy g-reveal">You do not have to use Habeno to buy a home through us. It is the broker we work with, and the one this page describes, and you are free to arrange financing with your own bank or another broker.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">What Habeno Offers</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">One application, <em>several banks</em></h2></div>
+      <p class="body-copy g-reveal">These are the three things Habeno says its service gives an international buyer, in our words. We have not tested its offers against other lenders, and nothing here is a promise of what a bank will lend.</p>
+      <div class="cards g-reveal">
+        <article class="card"><div class="card-number">01</div><h3>Bank comparison</h3><p>One application reaches several leading Spanish banks, so the offers can be compared side by side and used against each other when negotiating.</p></article>
+        <article class="card"><div class="card-number">02</div><h3>A named advisor</h3><p>A senior advisor who specialises in international buyers coordinates the parties involved in a Spanish mortgage: the banks, lawyers, notaries and appraisers.</p></article>
+        <article class="card"><div class="card-number">03</div><h3>Tailored financing</h3><p>The structure and terms are meant to be fitted to your own financial situation, with the terms made clear before you commit.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section quiet-band" id="process"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">The Process</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Four steps, <em>and how long each one takes</em></h2></div>
+      <p class="body-copy g-reveal">The timings below are the ones Habeno publishes on its partner page, as read in October 2026. They are Habeno's estimates, they depend on the bank and on how complete your documents are, and they are not a commitment from us.</p>
+      <div class="guide-compare-grid g-reveal">
+        <div class="guide-compare-row"><div class="guide-compare-label">1 &middot; Pre-approval</div><div><p>A digital pre-approval so you know where you stand early. Habeno quotes pre-approval within 24 hours, a loan offer within one to two weeks and full approval in about six to eight weeks.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">2 &middot; Documents</div><div><p>Your advisor helps you collect and verify the documents, then submits the full application to several banks.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">3 &middot; Offers</div><div><p>You review the offers side by side with your advisor and choose one. Habeno then notifies the selected bank.</p></div></div>
+        <div class="guide-compare-row"><div class="guide-compare-label">4 &middot; Closing</div><div><p>Habeno arranges the appraisal, handles the legal paperwork and the FEIN, and schedules the notary signing.</p></div></div>
+      </div>
+      <p class="body-copy g-reveal">The FEIN, the <em>Ficha Europea de Informaci&oacute;n Normalizada</em>, is the standardised sheet in which a Spanish lender sets out the terms of its offer. It is the document to read closely, because it is what the bank is offering rather than what anyone has summarised.</p>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">The Pre-Assessment</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">What the first form <em>asks you for</em></h2></div>
+      <p class="body-copy g-reveal">Habeno describes the first step as a free pre-assessment that takes about two minutes, in three parts: the loan, your personal details, and the partner and consent step. The loan part asks for five things.</p>
+      <div class="cards g-reveal">
+        <article class="card"><h3>The price</h3><p>The estimated price of the property. Our project pages list prices before taxes, so add them: <a href="guide-purchase-costs-andalucia.html">what a new-build costs on top of the price</a>.</p></article>
+        <article class="card"><h3>The loan</h3><p>How much you want to borrow, and how much of your own funds you have available. The second number matters as much as the first.</p></article>
+        <article class="card"><h3>The type of purchase</h3><p>Second home, off-plan, new development or self-build. Say which one you are buying, because the answer shapes how the financing is arranged.</p></article>
+        <article class="card"><h3>Reservation</h3><p>Whether you have already reserved a property. The form asks the question; the page we read does not say that a reservation is required.</p></article>
+      </div>
+      <p class="body-copy g-reveal">The last step of the form is a partner and consent step. Read it before you submit: it is the text that governs how your details are shared, and it is Habeno's to state rather than ours.</p>
+    </div></section>
+
+    <section class="section quiet-band"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Before You Apply</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Settle these <em>first</em></h2></div>
+      <div class="cards g-reveal">
+        <article class="card"><h3>Your own funds</h3><p>Decide what you will contribute and where it comes from. A bank will want the origin of the money documented, and it is easier to assemble early. <a href="guide-buying-from-abroad-spain.html">Where the money came from, on paper</a>.</p></article>
+        <article class="card"><h3>The payment schedule</h3><p>An off-plan purchase is paid in stages, and the stages come before the deed. Compare the dates against Habeno's six to eight weeks for full approval before you reserve. <a href="guide-off-plan-payment-schedules.html">How off-plan payments are staged</a>.</p></article>
+        <article class="card"><h3>Your deposit protection</h3><p>Money you pay during construction is protected on terms that start at a specific point in the timeline, which is separate from the mortgage. <a href="guide-bank-guarantee-off-plan-spain.html">How the bank guarantee works</a>.</p></article>
+        <article class="card"><h3>A planning number</h3><p>Our calculator gives a rough payment and cash-needed figure from typical non-resident terms. It is a planning tool, not an offer. <a href="guides.html#mortgage-calculator">Open the calculator</a>.</p></article>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">What This Page Does Not Tell You</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">No rates, <em>no approval odds</em></h2></div>
+      <p class="body-copy g-reveal">We do not publish interest rates, loan-to-value limits or fees here, because Habeno's partner page does not state any and we will not borrow figures from elsewhere. What a bank will lend you depends on the bank, on your income and on your circumstances, and the only figures that count are the ones in your own FEIN.</p>
+      <p class="body-copy g-reveal">Nueva Living is a new-build advisory, not a financial adviser, and this page is general information rather than financial advice. Habeno's fees, its terms of service and its handling of your data are set by Habeno, so ask it directly before you apply.</p>
+      <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+        <a class="btn" href="https://habeno.com/en/partner/nuevaliving" target="_blank" rel="noopener">See Your Mortgage Options</a>
+        <a class="btn ghost" href="contact.html#contact-form">Ask Us a Question First</a>
+      </div>
+    </div></section>
+
+    <section class="section segment-faq-section"><div class="section-inner">
+      <div class="section-head"><span class="label">Common Questions</span><div class="rule"></div><h2 class="section-title">What buyers <em>ask us about financing</em></h2></div>
+      <div class="segment-faq-list">
+        <details class="segment-faq-item" open>
+          <summary>Do I have to use Habeno to buy through Nueva Living?</summary>
+          <p>No. Habeno is the mortgage broker we work with, and you can arrange financing through your own bank or another broker.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Does Habeno charge for its service?</summary>
+          <p>Habeno's partner page calls the pre-assessment free and does not state what the rest of the service costs. Ask Habeno for its fees in writing before you commit to anything.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Is the pre-approval a loan offer?</summary>
+          <p>No. By Habeno's own sequence, pre-approval comes first, a loan offer follows within one to two weeks, and full approval comes later still. A bank is bound only by the offer and the approval it actually issues.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Can I start before I have chosen a home?</summary>
+          <p>The form asks whether you have reserved a property, but the page we read does not make that a condition. The estimated price it asks for is easier to give once you have shortlisted a project, so it is a reasonable moment to ask us for one.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>In which language is the application?</summary>
+          <p>At the time of writing, Habeno's partner page and form are published in English. If you would rather go through the questions with someone first, ask us.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>How does this fit with an off-plan payment schedule?</summary>
+          <p>The two run on different clocks. The schedule sets when you pay the developer, and the mortgage process has its own lead time, which Habeno puts at about six to eight weeks for full approval. Line the two up before you reserve, and ask us for the schedule of the project you are considering.</p>
+        </details>
+      </div>
+    </div></section>`,
+  },
+  {
     file: 'guide-off-plan-payment-schedules.html',
     datePublished: '2026-08-24',
     title: 'Off-Plan Payment Schedules on the Costa del Sol',

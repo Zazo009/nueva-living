@@ -672,6 +672,14 @@ const PROCESS_GUIDES = [
     alt: 'Buyer reviewing project documents remotely'
   },
   {
+    output: 'guide-mortgage-habeno.html',
+    kicker: 'Buying Guide',
+    title: 'Mortgages with Habeno',
+    description: 'Our mortgage broker partner for international buyers: how the process runs, what the pre-assessment asks, and what to settle before you apply.',
+    image: 'assets/nueva/journey/project-matching-1200.webp',
+    alt: 'Buyer and advisor comparing projects and financing options'
+  },
+  {
     output: 'guide-bank-guarantee-off-plan-spain.html',
     kicker: 'Buying Guide',
     title: 'Bank Guarantees Explained',

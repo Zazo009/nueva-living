@@ -951,7 +951,7 @@ let entityPagesChecked = 0;
 // means the building is under construction, which is the other filter.
 const ENTRY_MODULES = [
   'footer_page_translations', 'area_faq_translations', 'area_subarea_translations',
-  'guide_abroad_translations', 'guide_card_translations', 'segment_page_translations',
+  'guide_abroad_translations', 'guide_habeno_translations', 'guide_card_translations', 'segment_page_translations',
   'segment_page_translations_clusters', 'developments_page_translations',
   'card_chrome_translations', 'static_page_translations', 'editorial_alt_translations',
   'image_alt_translations', 'unit_floor_translations', 'bespoke_scene_translations',

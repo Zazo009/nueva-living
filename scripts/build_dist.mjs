@@ -81,6 +81,7 @@ const baseHtmlFiles = [
   'guide-purchase-costs-andalucia.html',
   'guide-bank-guarantee-off-plan-spain.html',
   'guide-off-plan-payment-schedules.html',
+  'guide-mortgage-habeno.html',
   'guide-new-build-warranties-snagging.html',
   'guide-buying-from-abroad-spain.html',
   'why-nueva.html',
@@ -198,6 +199,12 @@ const basePageMeta = {
     title: 'Bank Guarantees on Off-Plan Property in Spain (2026)',
     description: 'How Spanish law protects off-plan deposits: the segregated account, the aval or seguro de caucion, and why cover starts at the building licence.',
     path: '/guide-bank-guarantee-off-plan-spain.html',
+    type: 'article'
+  },
+  'guide-mortgage-habeno.html': {
+    title: 'Mortgages for Costa del Sol New-Builds with Habeno (2026)',
+    description: 'Nueva Living partners with Habeno, a mortgage broker for international buyers in Spain: how the process runs and what to settle before you apply.',
+    path: '/guide-mortgage-habeno.html',
     type: 'article'
   },
   'guide-off-plan-payment-schedules.html': {
