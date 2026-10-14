@@ -55,7 +55,11 @@
   color: #31251a;
   font-family: "Cinzel", Georgia, serif;
   font-size: clamp(30px, 3vw, 43px);
-  font-weight: 300;
+  /* Cinzel is declared at 400-600 for Latin and at 300-600 for Cyrillic, so
+     asking for 300 matched only the Cyrillic file, which has no Latin
+     letters, and the heading fell through to Georgia on every non-Cyrillic
+     page. 400 is the lightest weight the Latin file has. */
+  font-weight: 400;
   letter-spacing: 0;
   line-height: 1.05;
 }
