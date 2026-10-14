@@ -24,9 +24,10 @@ export const SAME_AS = [
   // business this is the strongest claim here: Instagram corroborates the
   // name, this corroborates the name, the Marbella address and the phone
   // together -- the same address asserted below.
-  'https://maps.app.goo.gl/AVKXU8m9sL7LA5uK6'
-  // Still unclaimed:
-  //   'https://www.linkedin.com/company/<slug>/'
+  'https://maps.app.goo.gl/AVKXU8m9sL7LA5uK6',
+  // The company page on LinkedIn, supplied by the owner. It names the firm
+  // rather than a person, which is what separates it from a founder profile.
+  'https://www.linkedin.com/company/nueva-living/'
 ];
 
 // The coordinates the Google Business Profile itself sits on, read from the
