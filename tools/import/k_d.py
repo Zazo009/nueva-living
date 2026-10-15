@@ -12,7 +12,7 @@ a("The houses are under construction and the show house is finished and furnishe
  "De huizen zijn in aanbouw en de modelwoning is af en gemeubileerd, maar de ontwikkelaar publiceert geen opleverdatum, niet in het dossier, niet in de bouwbeschrijving en niet in het beschikbaarheidssysteem. Nueva Living vraagt de datum schriftelijk op en legt die vast in het contract in plaats van er een te noemen.",
  "Domy są w budowie, a dom pokazowy jest ukończony i umeblowany, ale deweloper nie podaje daty odbioru ani w broszurze, ani w standardzie wykończenia, ani w swoim systemie dostępności. Nueva Living prosi o datę na piśmie i wpisuje ją do umowy, zamiast podawać własną.",
  "Husene er under bygging og visningshuset er ferdig og møblert, men utbygger publiserer ingen ferdigstillelsesdato i dossieret, beskrivelsen eller tilgjengelighetssystemet. Nueva Living ber om datoen skriftlig og tar den inn i kontrakten i stedet for å oppgi en.",
- "Husen är under byggnation och visningshuset är färdigt och möblerat, men byggherren publicerar inget färdigställandedatum i broschyren, beskrivningen eller tillgänglighetssystemet. Nueva Living begär datumet skriftligt och för in det i avtalet i stället för att ange ett.")
+ "Husen är under byggnation och visningshuset är färdigt och möblerat, men exploatören publicerar inget färdigställandedatum i broschyren, beskrivningen eller tillgänglighetssystemet. Nueva Living begär datumet skriftligt och för in det i avtalet i stället för att ange ett.")
 
 a("Thirty-six townhouses on a hillside at El Higuerón, thirteen still available, each with its own rooftop pool.",
  "Treinta y seis adosados en una ladera de El Higuerón, trece todavía disponibles, cada uno con su piscina en la azotea.",

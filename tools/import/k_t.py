@@ -49,5 +49,5 @@ a("Developer visuals of the homes, the pool, the gym and the chill-out terrace."
  "Impressies van de ontwikkelaar van de woningen, het zwembad, de fitnessruimte en het chill-outterras.",
  "Wizualizacje dewelopera mieszkań, basenu, siłowni i tarasu chill-out.",
  "Utviklerens visualiseringer av boligene, bassenget, treningsrommet og chill-out-terrassen.",
- "Byggherrens visualiseringar av bostäderna, poolen, gymmet och chill-out-terrassen.")
+ "Exploatörens visualiseringar av bostäderna, poolen, gymmet och chill-out-terrassen.")
 json.dump(T, open(sys.argv[1],'w'), ensure_ascii=False, indent=1); print(len(T))

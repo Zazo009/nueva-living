@@ -2,7 +2,7 @@
 import json, sys
 T={}
 def a(en,es,fr,de,ru,ar,nl,pl,no,sv): T[en]={'es':es,'fr':fr,'de':de,'ru':ru,'ar':ar,'nl':nl,'pl':pl,'no':no,'sv':sv}
-DV={'es':'Imagen de la promotora','fr':'Image du promoteur','de':'Visualisierung des Bauträgers','ru':'Визуализация застройщика','ar':'تصميم المطور','nl':'Impressie van de ontwikkelaar','pl':'Wizualizacja dewelopera','no':'Utviklerens visualisering','sv':'Byggherrens visualisering'}
+DV={'es':'Imagen de la promotora','fr':'Image du promoteur','de':'Visualisierung des Bauträgers','ru':'Визуализация застройщика','ar':'تصميم المطور','nl':'Impressie van de ontwikkelaar','pl':'Wizualizacja dewelopera','no':'Utviklerens visualisering','sv':'Exploatörens visualisering'}
 def v(en,es,fr,de,ru,ar,nl,pl,no,sv):
     # "Developer visual of X" keeps the same lead-in in every locale.
     parts={'es':es,'fr':fr,'de':de,'ru':ru,'ar':ar,'nl':nl,'pl':pl,'no':no,'sv':sv}

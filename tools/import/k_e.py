@@ -142,7 +142,7 @@ a("The houses are under construction and the show house is complete and furnishe
  "De huizen zijn in aanbouw en de modelwoning is af en gemeubileerd, maar de ontwikkelaar publiceert geen opleverdatum. Wij vragen de datum schriftelijk op en leggen die vast in het contract in plaats van er een te noemen.",
  "Domy są w budowie, a dom pokazowy jest ukończony i umeblowany, ale deweloper nie podaje daty odbioru. Prosimy o datę na piśmie i wpisujemy ją do umowy, zamiast podawać własną.",
  "Husene er under bygging og visningshuset er ferdig og møblert, men utbygger publiserer ingen ferdigstillelsesdato. Vi ber om datoen skriftlig og tar den inn i kontrakten i stedet for å oppgi en.",
- "Husen är under byggnation och visningshuset är färdigt och möblerat, men byggherren publicerar inget färdigställandedatum. Vi begär datumet skriftligt och för in det i avtalet i stället för att ange ett.")
+ "Husen är under byggnation och visningshuset är färdigt och möblerat, men exploatören publicerar inget färdigställandedatum. Vi begär datumet skriftligt och för in det i avtalet i stället för att ange ett.")
 
 a("Three communal pools, a gym, a spa with an indoor pool and a relaxation room, a co-working lounge, and more than 100,000 sqm of Mediterranean gardens.",
  "Tres piscinas comunitarias, gimnasio, spa con piscina cubierta y sala de relax, sala de coworking y más de 100.000 m² de jardín mediterráneo.",

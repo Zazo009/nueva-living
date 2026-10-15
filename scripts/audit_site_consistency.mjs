@@ -2191,6 +2191,140 @@ let amenityOverlapChecked = 0;
   }
 }
 
+// BEGIN spanish-register helper
+// Spanish on this site addresses the reader as USTED, never as tu.
+//
+// The old guard left Spanish out on purpose: "Compara por usted los precios" is
+// the third person describing what Nueva Living does, "Compara el espacio
+// exterior" is a tu imperative, and the two are spelled identically, so any
+// pattern that catches the second flags the first. That left roughly 200 tu
+// forms live in four places at once ("Define lo que realmente quiere", "Lo que
+// haces usted", "si finalmente no sigues adelante", "Visita y decide", "¿Lo
+// sabias?", "Usa nuestro asistente de IA", the project overlays' "Recibe...",
+// "Conoce en persona..."), because a page can be consistent with itself while
+// the language around it is not.
+//
+// So this does NOT try to be clever about the ambiguous verbs. It flags only
+// forms that cannot be read as anything else, in four groups:
+//   1. tu pronouns and possessives: tu, tus, tuyo, ti, contigo, te (and the
+//      vosotros set, which Spain-Spanish usted copy never uses either).
+//   2. second-person verb endings that no third person shares: tienes, puedes,
+//      sabes, sigues, haces, sabias, recibiras, comprarias, solicitaste...
+//   3. second-person subjunctives after the words that trigger them, which is
+//      the only place they can be told from plural nouns ("firmes" is also an
+//      adjective; "antes de que firmes" is not): reserves, decidas, tengas...
+//   4. tu imperatives, two ways: enclitic forms that differ from usted by
+//      spelling alone (asegurate / aseguRESE, escribenos / escribaNOS), and
+//      segment-initial imperatives that are named WITH the complement that
+//      makes them an instruction ("Reserva la vivienda", "Visita y decide",
+//      "Consulta sobre", "Pregunta por"). A bare "Define" or "Recibe" is not
+//      flagged, nor is "Compara por usted", "Incluye plaza de garaje?" or
+//      "pide un precio medio": those are the third person and stay legal.
+// A new tu verb will not be recognised until it is listed here -- add it with
+// its complement, and add the usted form to a test case. The cost of a miss is
+// one stray tu; the cost of a false alarm is people ignoring the guard.
+const esTuWord = (alternatives) => new RegExp(`(?<!\\p{L})(?:${alternatives})(?!\\p{L})`, 'giu');
+const ES_TU_PRONOUN = esTuWord('tu|tú|tus|tuyo|tuya|tuyos|tuyas|ti|contigo|te|vosotros|vosotras|vuestro|vuestra|vuestros|vuestras');
+const ES_TU_VERB = esTuWord([
+  // present
+  'tienes', 'puedes', 'quieres', 'necesitas', 'sabes', 'sigues', 'haces(?! de luz)', 'ves', 'eres', 'estás', 'vas',
+  'debes', 'usas', 'buscas', 'prefieres', 'piensas', 'entiendes', 'llegas', 'vienes', 'dices', 'pides', 'decides',
+  'eliges', 'asumes', 'comprometes', 'obtienes', 'generas', 'presentas', 'recomiendas', 'conoces', 'compartes',
+  'vendes', 'alquilas', 'recibes', 'escribes', 'envías', 'dejas', 'miras',
+  // imperfect, conditional, preterite, future
+  'sabías', 'querías', 'tenías', 'podías', 'hacías', 'ibas', 'estabas', 'eras', 'buscabas', 'comprarías',
+  'obtendrías', 'tendrías', 'podrías', 'querrías', 'deberías', 'solicitaste', 'compraste', 'recibirás', 'querrás',
+  'tendrás', 'podrás', 'verás', 'sabrás', 'necesitarás', 'encontrarás', 'estarás', 'serás', 'llegarás', 'deberás',
+  'harás', 'irás', 'vendrás', 'elegirás', 'decidirás', 'pagarás', 'firmarás', 'reservarás', 'visitarás',
+  'has (?:guardado|visto|decidido|elegido)', 'fijáis', 'tenéis', 'podéis', 'queréis', 'sabéis', 'necesitáis', 'estáis',
+].join('|'));
+const ES_TU_SUBJUNCTIVE = new RegExp(
+  '(?<!\\p{L})(?:que|cuando|si|aunque|mientras|donde|como|cuanto|quien|vez)\\s+'
+  + '(?:(?:ya|no|nunca|solo|siempre|se|te|le|nos|lo|la|las|los)\\s+){0,2}'
+  + '(?:reserves|decidas|firmes|visites|tengas|puedas|sepas|quieras|hayas|vayas|hagas|digas|elijas|prefieras|'
+  + 'necesites|busques|compres|pagues|contrates|empieces|termines|llegues|vengas|estés|seas|cierres|abras|pidas|'
+  + 'sigas|pongas|salgas|lleves|traigas|conozcas|recibas|cuentes|cambies|mires|pruebes|pienses|sientas|recuerdes|'
+  + 'olvides|entiendas|consultes|revises|compruebes|verifiques|confirmes|utilices|tomes|encuentres|explores|'
+  + 'descubras|presentes|definas|prepares|dejes|ahorres|gastes|inviertas|obtengas|consigas|logres|alcances|'
+  + 'mantengas|conserves|cuides|disfrutes|aproveches|dispongas|exijas|requieras|permitas|muevas|pierdas|ganes|cobres)'
+  + '(?!\\p{L})', 'giu');
+const ES_TU_ENCLITIC = esTuWord([
+  'asegúrate', 'fíjate', 'múdate', 'desplázate', 'regístrate', 'quédate', 'siéntate', 'suscríbete', 'únete',
+  'acércate', 'prepárate', 'infórmate', 'ponte', 'hazte', 'vete', 'mantente', 'sitúate', 'ubícate',
+  'contáctanos', 'escríbenos', 'llámanos', 'háblanos', 'cuéntanos', 'dinos', 'pregúntanos', 'pídenos',
+  'envíanos', 'visítanos', 'déjanos', 'ayúdanos', 'preséntanos', 'descúbrelo', 'compáralo', 'compáralos',
+  'compárala', 'compáralas', 'trátala', 'trátalo', 'inténtalo', 'pruébalo', 'cuéntame', 'avísame',
+].join('|'));
+// Segment-initial tu imperatives. Each verb carries the complement that makes it an instruction, and
+// the lookahead leaves the third-person homographs alone ("Compara por usted", "Define" on its own).
+const esHead = (verb, complement) => (complement
+  ? `${verb}(?=\\s+(?:${complement})(?!\\p{L}))`
+  : `${verb}(?!\\p{L})`);
+const ES_TU_HEAD = new RegExp('^(?:' + [
+  ['Recibe(?!\\s+una\\s+lista\\s+personalizada)', '\\S+'], ['Conoce', 'en\\s+persona|el|la|los|las'],
+  ['Consulta', 'sobre|por|nuestro|nuestra|cómo|qué'], ['Pregunta', 'por|sobre|qué|si|cuánto|cuándo|cómo|dónde'],
+  ['Selecciona', '\\S+'], ['Recorre', 'el|la|los|las'], ['Elige', 'por|un|una|el|la|su'],
+  ['Comenta', 'la|el|los|las'], ['Utiliza', 'la|el|los|las|nuestra|nuestro'], ['Usa', 'nuestro|nuestra|el|la|los|las'],
+  ['Prueba', 'con|los|las|a|el|la'], ['Presenta', 'a\\s+alguien'], ['Organiza', 'una|un'], ['Vuelve', 'a|pronto'],
+  ['Define', 'su|lo'], ['Decide', 'su|entre|qué|si|cómo|dónde'], ['Paga', 'el|la|su|los|las'],
+  ['Valora', 'abrir|la|el|su|qué|si'], ['Prepara', 'la|el'], ['Sigue', 'explorando|buscando|leyendo'],
+  ['Toca', 'el|la|los|las|cualquier'],
+  ['Suma', 'los|las|el|la'], ['Comienza', 'su|por|con'], ['Recomienda', 'un|una|a\\s+alguien'],
+  ['Planifica', 'y|el|la|su'], ['Contrata', 'a|un|una|el'], ['Aclara', 'cómo|qué|si|para'],
+  ['Consigue', 'el|la|los|las|su'], ['Disfruta', 'de'], ['Haz', 'que|clic|click|una|un'],
+  ['Lee', 'la|el|las|los|más'], ['Calcula', 'su|el|la'], ['Guarda', 'un|una|el|la|su'],
+  ['Visita', 'la|el|las|los|y|nuestra|nuestro'], ['Reserva', 'la|el|una|un|con|ya|ahora|hoy'],
+  ['Elabora', 'una|un|el|la|su'], ['Compara(?!\\s+por\\s+usted)', 'su|ambos'],
+  ['Describe', 'la|el|su'], ['Descubre', 'el|la|los|las|cómo|qué|dónde'], ['Revisa', 'el|la|los|las|su|que'],
+  ['Trabaja', 'sin|desde'], ['Mantente'], ['Obtén', 'su|el|la'], ['Mantén', 'su|el|la|en'], ['Múdate'], ['Cierra\\s+y\\s+vete'],
+  ['Ten', 'en\\s+cuenta|claro|presente|a\\s+mano|cuidado'], ['Presupuesta', 'jardinero|el|la|un|una'],
+].map(([verb, complement]) => esHead(verb, complement)).join('|') + ')', 'iu');
+const ES_TU_ENTITIES = {
+  nbsp: ' ', amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", middot: '·', mdash: '—', ndash: '–', euro: '€',
+  aacute: 'á', eacute: 'é', iacute: 'í', oacute: 'ó', uacute: 'ú', Aacute: 'Á', Eacute: 'É', Iacute: 'Í',
+  Oacute: 'Ó', Uacute: 'Ú', ntilde: 'ñ', Ntilde: 'Ñ', uuml: 'ü', iexcl: '¡', iquest: '¿',
+};
+// Returns [{ why, text }] for every tu form in a Spanish string, a fragment of markup, or a whole page.
+function spanishTuFindings(source) {
+  const found = [];
+  const text = String(source)
+    .replace(/<(script|style)\b[\s\S]*?<\/\1>/gi, '\n')
+    .replace(/<[^>]*>/g, '\n')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&([A-Za-z]+);/g, (whole, name) => ES_TU_ENTITIES[name] ?? whole);
+  const note = (why, re) => {
+    for (const match of text.matchAll(re)) {
+      const at = match.index;
+      let start = Math.max(0, at - 30);
+      if (start > 0) { // begin on a word boundary, not in the middle of one
+        const space = text.indexOf(' ', start);
+        if (space !== -1 && space < at) start = space + 1;
+      }
+      found.push({ why, text: text.slice(start, at + match[0].length + 24).replace(/\s+/g, ' ').trim() });
+    }
+  };
+  note('tu pronoun or possessive', ES_TU_PRONOUN);
+  note('second-person verb', ES_TU_VERB);
+  note('second-person subjunctive', ES_TU_SUBJUNCTIVE);
+  note('tu imperative with an enclitic', ES_TU_ENCLITIC);
+  // Segment-initial imperatives: a line, a sentence, or the part after a colon or semicolon.
+  // A question ("¿Conoce a alguien...?") is the usted present indicative and is skipped.
+  for (const line of text.split('\n')) {
+    for (const piece of line.matchAll(/[^.!?:;¿¡]+[.!?:;]?/g)) {
+      const segment = piece[0].replace(/^[\s"'«»“”\-–—•*(]+/, '');
+      if (!segment || segment.endsWith('?')) continue;
+      // After a tag boundary a lower-case verb is the tail of a sentence the markup interrupted
+      // ("<a>dónde comprar en Estepona</a> presenta la Nueva Milla de Oro"), which is third person.
+      if (piece.index === 0 && !/^\p{Lu}/u.test(segment)) continue;
+      const head = segment.match(ES_TU_HEAD);
+      if (head) found.push({ why: 'tu imperative', text: segment.slice(0, 48).trim() });
+    }
+  }
+  return found;
+}
+// END spanish-register helper
+
+let spanishRegisterChecked = 0;
 let addressFormChecked = 0;
 
 // One form of address per language, in the translation tables too.
@@ -2214,12 +2348,10 @@ let addressFormChecked = 0;
     // \b in JavaScript is ASCII, so an accent reads as a word boundary and
     // "prêtes" matched \btes\b. Anchored to real whitespace instead.
     ['fr', /(?:^|\s)(tu|ton|tes|toi)(?=\s|$|[,.;:])/, 'informal "tu" where the site says "vous"'],
-    // Spanish is deliberately absent. "Compara por usted los precios" is the
-    // third person describing what Nueva Living does, and "Compara el espacio
-    // exterior" is a tu imperative -- the two are spelled identically, so a
-    // pattern that catches the second flags the first. Seven of those were
-    // fixed by reading; a guard that cannot tell them apart would only teach
-    // people to ignore it.
+    // Spanish is not in this list because it needs more than one regex: it is
+    // checked below by spanishTuFindings(), which flags only the forms that
+    // cannot be read as the third person ("Compara por usted" stays legal,
+    // "Compara su lista" does not). See the helper for what it recognises.
   ];
   const dir = path.join(root, 'scripts', 'lib');
   const offenders = [];
@@ -2233,10 +2365,76 @@ let addressFormChecked = 0;
         if (pattern.test(value)) offenders.push(`${name} [${locale}] ${why}: "${value.slice(0, 44)}"`);
       }
     }
+    // Spanish: usted, never tu. The key may be quoted ("es":) in the JSON-shaped tables.
+    for (const match of src.matchAll(/(?<![\w$.])['"]?es['"]?\s*:\s*(['"`])((?:\\.|(?!\1)[^\\])*)\1/g)) {
+      addressFormChecked += 1;
+      for (const found of spanishTuFindings(match[2])) offenders.push(`${name} [es] ${found.why}: "${found.text}"`);
+    }
   }
   if (offenders.length) {
-    fail(`${offenders.length} translation(s) address the reader the way the rest of that language does not: `
+    fail('translation tables', `${offenders.length} translation(s) address the reader the way the rest of that language does not: `
       + `${offenders.slice(0, 4).join('; ')}.`);
+  }
+}
+
+// Spanish overlays and string files: usted, never tu.
+//
+// The table check above reads the translation tables. The Spanish that
+// reaches a page also comes from the 86 project overlays (i18n.es), the area
+// guides and content/i18n, none of which that check sees -- and the project
+// overlays were where "Recibe la disponibilidad...", "Conoce en persona...",
+// "Consulta sobre..." and "Elige por planta" sat, in the same sentences as
+// "su presupuesto". Read the authority, not a list of files: every string
+// under an `es` key in these JSON sources.
+{
+  const offenders = [];
+  const scan = (where, node) => {
+    if (typeof node === 'string') {
+      spanishRegisterChecked += 1;
+      for (const found of spanishTuFindings(node)) offenders.push(`${where} ${found.why}: "${found.text}"`);
+    } else if (Array.isArray(node)) {
+      node.forEach((child, index) => scan(`${where}[${index}]`, child));
+    } else if (node && typeof node === 'object') {
+      for (const [key, child] of Object.entries(node)) scan(`${where}.${key}`, child);
+    }
+  };
+  const projectsDir = path.join(root, 'content', 'liora-projects');
+  for (const entry of fs.readdirSync(projectsDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const file = path.join(projectsDir, entry.name, 'project.json');
+    if (!fs.existsSync(file)) continue;
+    scan(`${entry.name} i18n.es`, JSON.parse(fs.readFileSync(file, 'utf8')).i18n?.es);
+  }
+  const areas = JSON.parse(fs.readFileSync(path.join(root, 'content', 'nueva-areas.json'), 'utf8'));
+  for (const area of areas) scan(`area ${area.slug} i18n.es`, area.i18n?.es);
+  const i18nDir = path.join(root, 'content', 'i18n');
+  for (const name of fs.readdirSync(i18nDir).filter((f) => f.endsWith('.json') && f !== 'locales.json')) {
+    const entries = JSON.parse(fs.readFileSync(path.join(i18nDir, name), 'utf8'));
+    for (const [key, value] of Object.entries(entries)) {
+      if (value && typeof value === 'object' && value.es !== undefined) scan(`${name} "${key}".es`, value.es);
+    }
+  }
+  if (offenders.length) {
+    fail('Spanish overlays', `${offenders.length} Spanish string(s) address the reader as tu, where the site says usted: `
+      + `${offenders.slice(0, 4).join('; ')}${offenders.length > 4 ? `; ...and ${offenders.length - 4} more` : ''}.`);
+  }
+}
+
+// Spanish written into the runtime scripts (assets/liora/*.js) is the same Spanish
+// a visitor reads, but it is neither in a page nor in an overlay: the shortlist
+// drawer says "Guardado en tu Lista" and "Enviar tu Lista" from a table inside
+// nueva-shortlist.js. A warning rather than a failure, because a guard that
+// goes in red is not the house habit; make it fail() once the scripts are clean.
+{
+  const scriptsDir = path.join(root, 'assets', 'liora');
+  for (const name of fs.readdirSync(scriptsDir).filter((f) => f.endsWith('.js')).sort()) {
+    const src = fs.readFileSync(path.join(scriptsDir, name), 'utf8');
+    for (const match of src.matchAll(/(?<![\w$.])['"]?es['"]?\s*:\s*(['"`])((?:\\.|(?!\1)[^\\])*)\1/g)) {
+      spanishRegisterChecked += 1;
+      for (const found of spanishTuFindings(match[2])) {
+        fail(`assets/liora/${name}`, `Spanish runtime string addresses the reader as tu (${found.why}): "${found.text}"`);
+      }
+    }
   }
 }
 
@@ -3098,7 +3296,8 @@ let bannedTermChecked = 0;
 //
 // Swedish carried six of these. "Utvecklaren" for the developer -- which in
 // Swedish is the person who writes software -- stood beside the correct
-// "byggherren" 491 times. "Solarium", which in Swedish is a tanning bed, stood
+// "byggherren" 491 times (the locked word was later changed to "exploatör";
+// the review-notes table is the authority, not this comment). "Solarium", which in Swedish is a tanning bed, stood
 // beside the correct "solterrass" 180 times. "Grindat" is not a Swedish word at
 // all. Two changed the meaning outright: "takvåningar i souterrängplan" said
 // penthouses in the basement, and "andrahandsförsäljning" names subletting
@@ -3891,10 +4090,12 @@ let registerPagesChecked = 0;
     // but not the imperatives Polish UI conventionally uses on buttons
     // (Zapisz, Napisz, Wyślij), which are not read as addressing anyone.
     pl: word('\\w*(?:esz|asz|isz|ysz|łeś|łaś)|Ci|Ciebie|Cię|Tobie|Twój|Twoja|Twoje|Twoim|Twoich|Twojej|Twoją', 'gu'),
-    // Spanish: tú possessives and clitics, plus infinitives carrying an
-    // enclitic -te (ayudarte, ponerte). The allowlist below covers the nouns
-    // that merely end in -te and the ones that are not clitics at all.
-    es: word('tu|tú|tus|tuyo|tuya|tuyos|tuyas|ti|contigo|te|\\w+(?:ar|er|ir)te', 'giu'),
+    // Spanish: infinitives carrying an enclitic -te (ayudarte, ponerte). The
+    // allowlist below covers the nouns that merely end in -te and the ones
+    // that are not clitics at all. The tu possessives, pronouns, verb endings
+    // and imperatives live in spanishTuFindings(), which also reads the
+    // overlays and the whole page instead of <main> alone.
+    es: word('\\w+(?:ar|er|ir)te', 'giu'),
   };
   const ALLOWED = {
     pl: /^(nasz|Nasz|wasz|Wasz|Zapisz|zapisz|Napisz|napisz|Podpisz|podpisz|Opisz|opisz|Wpisz|wpisz)$/,
@@ -3919,6 +4120,39 @@ let registerPagesChecked = 0;
     fail('dist', `${offenders.length} page(s) address the reader informally in a language the site `
       + `addresses formally: ${offenders.slice(0, 4).join(', ')}`
       + `${offenders.length > 4 ? `, …and ${offenders.length - 4} more` : ''}.`);
+  }
+}
+
+// Spanish pages as the visitor reads them: usted, never tu.
+//
+// The register check above stops at <main> and, for Spanish, only knew the tu
+// possessives and clitics. This reads the whole body (header, footer, forms,
+// lightboxes) plus the attribute text a visitor sees -- placeholders, labels,
+// titles, alt text, the page title and the meta descriptions -- for every
+// tu form spanishTuFindings() recognises, so copy that comes from the
+// homepage builder or a runtime string table is held to the same standard as
+// the translation tables.
+{
+  const dir = path.join(dist, 'es');
+  const offenders = [];
+  if (fs.existsSync(dir)) {
+    for (const file of fs.readdirSync(dir).filter((f) => f.endsWith('.html')).sort()) {
+      const html = fs.readFileSync(path.join(dir, file), 'utf8');
+      const body = html.match(/<body[\s\S]*<\/body>/)?.[0] ?? html;
+      const attributes = [...body.matchAll(/\s(?:placeholder|aria-label|title|alt|data-[a-z-]*(?:message|error|label|text|placeholder)[a-z-]*)="([^"]*)"/g)]
+        .map((m) => m[1]);
+      const head = [...html.matchAll(/<title>([\s\S]*?)<\/title>/g)].map((m) => m[1]);
+      for (const m of html.matchAll(/<meta\s[^>]*?(?:name|property)="(?:description|og:title|og:description|twitter:title|twitter:description)"[^>]*?content="([^"]*)"/g)) {
+        head.push(m[1]);
+      }
+      spanishRegisterChecked += 1;
+      const found = spanishTuFindings([body, ...attributes, ...head].join('\n'));
+      if (found.length) offenders.push(`es/${file} (${found[0].why}: "${found[0].text}", ${found.length}x)`);
+    }
+  }
+  if (offenders.length) {
+    fail('dist', `${offenders.length} Spanish page(s) address the reader as tu, where the site says usted: `
+      + `${offenders.slice(0, 4).join(', ')}${offenders.length > 4 ? `, ...and ${offenders.length - 4} more` : ''}.`);
   }
 }
 
@@ -5849,6 +6083,7 @@ if (failures.length) {
     + `${sharedFragmentsChecked} guides compared against their nine locale builds for untranslated text, `
     + `${mapGuardChecked} map-view facts checked against their authority, `
     + `${registerPagesChecked} pages checked for one form of address per language, `
+    + `${spanishRegisterChecked} Spanish overlay strings and pages checked for usted, never tu, `
     + `${faqSchemaChecked} visible FAQs matched against their structured data, `
     + `${areaNamesChecked} locale area pages checked for one spelling of the area name, `
     + `${segmentLinkChecked} area-to-segment links checked in both directions, `

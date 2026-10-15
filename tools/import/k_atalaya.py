@@ -184,7 +184,7 @@ a(13, 'Furniture, hot tubs and landscaping',
   "Meubilair, bubbelbaden en landschapsinrichting op de renders zijn illustratief en niet contractueel; de gemeubileerde ruimtes tonen een optioneel meubelpakket. De luchtopnamen tonen de villa's in een foto van het terrein geplaatst. De plattegronden zijn die van de ontwikkelaar en de daarop vermelde oppervlaktes zijn bij benadering.",
   "Meble, jacuzzi i zagospodarowanie terenu widoczne na wizualizacjach mają charakter poglądowy i nie są wiążące umownie; umeblowane pomieszczenia pokazują opcjonalny pakiet wyposażenia. Zdjęcia z lotu ptaka przedstawiają wille wmontowane w fotografię terenu. Rzuty pochodzą od dewelopera, a podane na nich powierzchnie są przybliżone.",
   "Møbler, boblebad og landskapsutforming på visualiseringene er illustrative og ikke avtalefestet; de møblerte rommene viser en valgfri møbelpakke. Flyfotoene viser villaene montert inn i et fotografi av området. Plantegningene er utviklerens, og arealene på dem er omtrentlige.",
-  "Möbler, bubbelpooler och landskapsutformning i visualiseringarna är illustrativa och inte avtalsenliga; de möblerade rummen visar ett valfritt möbelpaket. Flygbilderna visar villorna inmonterade i ett fotografi av platsen. Planritningarna är byggherrens, och ytorna på dem är ungefärliga.")
+  "Möbler, bubbelpooler och landskapsutformning i visualiseringarna är illustrativa och inte avtalsenliga; de möblerade rummen visar ett valfritt möbelpaket. Flygbilderna visar villorna inmonterade i ett fotografi av platsen. Planritningarna är exploatörens, och ytorna på dem är ungefärliga.")
 a(14, 'The pool terrace in daylight',
   "La terraza de la piscina de día", "La terrasse de la piscine en plein jour", "Die Poolterrasse bei Tageslicht", "Терраса у бассейна днём",
   "تراس المسبح في ضوء النهار", "Het zwembadterras overdag", "Taras przy basenie za dnia", "Bassengterrassen på dagtid", "Poolterrassen i dagsljus")
@@ -333,7 +333,7 @@ a(83, 'Five of the seven villas are currently listed',
   "Vijf van de zeven villa's staan momenteel als beschikbaar vermeld. Nueva Living bevestigt prijs, opleveringsmaand en parkeerplaats opnieuw bij de ontwikkelaar vóór elke bezichtiging.",
   "Pięć z siedmiu willi figuruje obecnie jako dostępne. Nueva Living ponownie potwierdza u dewelopera cenę, miesiąc odbioru i miejsca parkingowe przed każdym oglądaniem.",
   "Fem av de sju villaene er for tiden oppført som tilgjengelige. Nueva Living bekrefter pris, overleveringsmåned og parkering på nytt med utvikleren før enhver visning.",
-  "Fem av de sju villorna är just nu angivna som tillgängliga. Nueva Living bekräftar pris, leveransmånad och parkering på nytt med byggherren före varje visning.")
+  "Fem av de sju villorna är just nu angivna som tillgängliga. Nueva Living bekräftar pris, leveransmånad och parkering på nytt med exploatören före varje visning.")
 a(84, 'Contemporary lines, <em>Mediterranean materials</em>',
   "Líneas contemporáneas, <em>materiales mediterráneos</em>", "Lignes contemporaines, <em>matériaux méditerranéens</em>",
   "Zeitgenössische Linien, <em>mediterrane Materialien</em>", "Современные линии, <em>средиземноморские материалы</em>",
@@ -358,7 +358,7 @@ a(86, 'The developer’s own specification',
   "De eigen specificatie van de ontwikkelaar, samengevat per onderdeel van de woning.",
   "Własna specyfikacja dewelopera, podsumowana według części domu.",
   "Utviklerens egen spesifikasjon, oppsummert etter deler av boligen.",
-  "Byggherrens egen specifikation, sammanfattad efter bostadens delar.")
+  "Exploatörens egen specifikation, sammanfattad efter bostadens delar.")
 a(87, 'Source: the developer’s circular for these villas',
   "Fuente: la circular informativa de la promotora sobre estas villas, de mayo de 2024. La memoria de calidades definitiva es el documento de calidades de la promotora, que pedimos por escrito antes de cualquier reserva. Las imágenes, el mobiliario y el paisajismo de las recreaciones son ilustrativos.",
   "Source : la circulaire d'information du promoteur sur ces villas, datée de mai 2024. Le descriptif définitif est le mémoire de qualité du promoteur, que nous demandons par écrit avant toute réservation. Les images, le mobilier et l'aménagement paysager des images de synthèse sont illustratifs.",
@@ -368,7 +368,7 @@ a(87, 'Source: the developer’s circular for these villas',
   "Bron: de informatiebrief van de ontwikkelaar over deze villa's, van mei 2024. De definitieve specificatie is de kwaliteitsomschrijving van de ontwikkelaar, die wij vóór elke reservering schriftelijk opvragen. Beelden, meubilair en landschapsinrichting op de renders zijn illustratief.",
   "Źródło: pismo informacyjne dewelopera dotyczące tych willi z maja 2024 roku. Ostateczną specyfikacją jest opis jakości wykonania dewelopera, o który prosimy na piśmie przed jakąkolwiek rezerwacją. Obrazy, meble i zagospodarowanie terenu na wizualizacjach mają charakter poglądowy.",
   "Kilde: utviklerens informasjonsskriv om disse villaene, datert mai 2024. Den endelige spesifikasjonen er utviklerens kvalitetsbeskrivelse, som vi ber om skriftlig før enhver reservasjon. Bilder, møbler og landskapsutforming på visualiseringene er illustrative.",
-  "Källa: byggherrens informationsbrev om dessa villor, daterat maj 2024. Den slutliga specifikationen är byggherrens kvalitetsbeskrivning, som vi begär skriftligt före varje reservation. Bilder, möbler och landskapsutformning i visualiseringarna är illustrativa.")
+  "Källa: exploatörens informationsbrev om dessa villor, daterat maj 2024. Den slutliga specifikationen är exploatörens kvalitetsbeskrivning, som vi begär skriftligt före varje reservation. Bilder, möbler och landskapsutformning i visualiseringarna är illustrativa.")
 
 # ---------------------------------------------------------------- quality specification
 a(88, 'Floors and interior',
@@ -536,7 +536,7 @@ a(109, 'Customisation of materials',
   "Het aanpassen van materialen, met en zonder meerprijs, is mogelijk via de catalogus van de ontwikkelaar binnen vastgestelde termijnen. Meubelpakketten worden apart geprijsd.",
   "Personalizacja materiałów, z dopłatą i bez niej, jest możliwa z katalogu dewelopera w ustalonych terminach. Pakiety wyposażenia wyceniane są osobno.",
   "Tilpasning av materialer, med og uten tillegg, er mulig gjennom utviklerens katalog innenfor fastsatte frister. Møbelpakker prises separat.",
-  "Anpassning av material, med och utan tillägg, är möjlig via byggherrens katalog inom fastställda tidsfrister. Möbelpaket prissätts separat.")
+  "Anpassning av material, med och utan tillägg, är möjlig via exploatörens katalog inom fastställda tidsfrister. Möbelpaket prissätts separat.")
 
 # ---------------------------------------------------------------- residences
 a(110, 'Three or four bedrooms, <em>over four levels</em>',
@@ -674,7 +674,7 @@ a(123, 'Parking: two spaces on the surface under a pergola',
   "Parkeren: twee plaatsen op het maaiveld onder een pergola, zoals de plattegronden en de informatiebrief van de ontwikkelaar laten zien; deze villa heeft geen garage in de kelder.",
   "Parkowanie: dwa miejsca na powierzchni pod pergolą, jak pokazują rzuty i pismo informacyjne dewelopera; ta willa nie ma garażu w piwnicy.",
   "Parkering: to plasser på bakkeplan under en pergola, slik plantegningene og utviklerens informasjonsskriv viser; denne villaen har ingen garasje i kjelleren.",
-  "Parkering: två platser på marknivå under en pergola, som planritningarna och byggherrens informationsbrev visar; den här villan har inget garage i källaren.")
+  "Parkering: två platser på marknivå under en pergola, som planritningarna och exploatörens informationsbrev visar; den här villan har inget garage i källaren.")
 a(124, 'Basement: a multipurpose room, a laundry room and storerooms.',
   "Sótano: sala polivalente, lavandería y trasteros.", "Sous-sol : salle polyvalente, buanderie et débarras.",
   "Untergeschoss: Multifunktionsraum, Waschküche und Abstellräume.", "Цокольный этаж: многофункциональное помещение, прачечная и кладовые.",
@@ -780,7 +780,7 @@ a(139, 'The payment stages are set out in the developer’s sales contract',
   "De betalingsfasen staan in de koopovereenkomst van de ontwikkelaar. Wij bevestigen de actuele bedragen en data schriftelijk voordat u reserveert.",
   "Etapy płatności określa umowa sprzedaży dewelopera. Aktualne kwoty i terminy potwierdzamy Państwu na piśmie przed rezerwacją.",
   "Betalingstrinnene er fastsatt i utviklerens kjøpekontrakt. Vi bekrefter gjeldende beløp og datoer skriftlig før du reserverer.",
-  "Betalningsstegen framgår av byggherrens köpeavtal. Vi bekräftar gällande belopp och datum skriftligt innan ni reserverar.")
+  "Betalningsstegen framgår av exploatörens köpeavtal. Vi bekräftar gällande belopp och datum skriftligt innan ni reserverar.")
 a(140, 'Reservation and contract',
   "Reserva y contrato", "Réservation et contrat", "Reservierung und Vertrag", "Бронирование и договор", "الحجز والعقد", "Reservering en contract", "Rezerwacja i umowa", "Reservasjon og kontrakt", "Reservation och avtal")
 a(141, 'The developer’s May 2024 circular set the reservation deposit',
@@ -792,7 +792,7 @@ a(141, 'The developer’s May 2024 circular set the reservation deposit',
   "De informatiebrief van de ontwikkelaar van mei 2024 stelde de aanbetaling bij reservering vast op {E50000}, waarna de gefaseerde betalingen in de koopovereenkomst volgen.",
   "Pismo informacyjne dewelopera z maja 2024 roku ustalało zadatek rezerwacyjny na {E50000}, a kolejne płatności etapowe następowały w umowie kupna.",
   "Utviklerens informasjonsskriv fra mai 2024 fastsatte reservasjonsdepositumet til {E50000}, med de trinnvise betalingene i kjøpekontrakten etterpå.",
-  "Byggherrens informationsbrev från maj 2024 fastställde handpenningen vid bokning till {E50000}, och de stegvisa betalningarna följer sedan i köpeavtalet.")
+  "Exploatörens informationsbrev från maj 2024 fastställde handpenningen vid bokning till {E50000}, och de stegvisa betalningarna följer sedan i köpeavtalet.")
 a(142, 'Guaranteed payments',
   "Pagos avalados", "Paiements garantis", "Abgesicherte Zahlungen", "Гарантированные платежи", "دفعات مضمونة", "Gegarandeerde betalingen", "Gwarantowane płatności", "Garanterte innbetalinger", "Garanterade betalningar")
 a(143, 'The developer undertakes to guarantee the amounts paid on account',
@@ -804,7 +804,7 @@ a(143, 'The developer undertakes to guarantee the amounts paid on account',
   "De ontwikkelaar verbindt zich ertoe de vooruitbetaalde bedragen via een bank te garanderen, volgens de Spaanse bouwwet, binnen 20 dagen na elke betaling.",
   "Deweloper zobowiązuje się zagwarantować przez bank kwoty wpłacone na poczet ceny, zgodnie z hiszpańskim prawem budowlanym, w ciągu 20 dni od każdej wpłaty.",
   "Utvikleren forplikter seg til å garantere beløpene som er betalt på forskudd gjennom en bank, i henhold til spansk byggelovgivning, innen 20 dager etter hver betaling.",
-  "Byggherren förbinder sig att garantera de belopp som betalats på förskott genom en bank, enligt spansk byggnadslag, inom 20 dagar efter varje betalning.")
+  "Exploatören förbinder sig att garantera de belopp som betalats på förskott genom en bank, enligt spansk byggnadslag, inom 20 dagar efter varje betalning.")
 a(144, 'Costs on top of the price',
   "Gastos adicionales al precio", "Frais en sus du prix", "Kosten zusätzlich zum Preis", "Расходы сверх цены", "تكاليف إضافية على السعر",
   "Kosten bovenop de prijs", "Koszty poza ceną", "Kostnader utover prisen", "Kostnader utöver priset")
@@ -829,7 +829,7 @@ a(147, 'The seven plots belong to the area’s urbanisation maintenance body',
   "De zeven percelen behoren tot de onderhoudsvereniging van de urbanisatie in het gebied, met een jaarlijkse bijdrage van ongeveer {E183} tot {E272} per perceel, volgens de informatiebrief van de ontwikkelaar uit 2024.",
   "Siedem działek należy do organizacji utrzymującej osiedle w tej okolicy, z roczną opłatą rzędu od {E183} do {E272} za działkę, według pisma informacyjnego dewelopera z 2024 roku.",
   "De sju tomtene tilhører områdets vedlikeholdsforening for boligområdet, med en årlig avgift på omtrent {E183} til {E272} per tomt, ifølge utviklerens informasjonsskriv fra 2024.",
-  "De sju tomterna tillhör områdets samfällighet för underhåll av bostadsområdet, med en årlig avgift på ungefär {E183} till {E272} per tomt, enligt byggherrens informationsbrev från 2024.")
+  "De sju tomterna tillhör områdets samfällighet för underhåll av bostadsområdet, med en årlig avgift på ungefär {E183} till {E272} per tomt, enligt exploatörens informationsbrev från 2024.")
 a(148, 'The building licence, the current construction stage',
   "La licencia de obra, la fase de construcción actual y el mes de entrega de la villa que elija.",
   "Le permis de construire, l'état d'avancement du chantier et le mois de livraison de la villa que vous choisissez.",
@@ -862,7 +862,7 @@ a(151, 'Whether its two spaces are on the surface under a pergola',
   "Of de twee plaatsen op het maaiveld onder een pergola liggen, zoals de plattegronden en de informatiebrief van de ontwikkelaar laten zien, of dat er één in de kelder ligt, zoals de brochure van de ontwikkelaar van april 2026 doet vermoeden.",
   "Czy oba miejsca znajdują się na powierzchni pod pergolą, jak pokazują rzuty i pismo informacyjne dewelopera, czy jedno z nich jest w piwnicy, jak sugeruje broszura dewelopera z kwietnia 2026 roku.",
   "Om de to plassene ligger på bakkeplan under en pergola, slik plantegningene og utviklerens informasjonsskriv viser, eller om den ene ligger i kjelleren, slik utviklerens brosjyre fra april 2026 antyder.",
-  "Om de två platserna ligger på marknivå under en pergola, som planritningarna och byggherrens informationsbrev visar, eller om den ena ligger i källaren, som byggherrens broschyr från april 2026 antyder.")
+  "Om de två platserna ligger på marknivå under en pergola, som planritningarna och exploatörens informationsbrev visar, eller om den ena ligger i källaren, som exploatörens broschyr från april 2026 antyder.")
 
 a(152, 'The price list',
   "La lista de precios", "La liste de prix", "Die Preisliste", "Прайс-лист", "قائمة الأسعار", "De prijslijst", "Lista cen", "Prislisten", "Prislistan")
@@ -875,7 +875,7 @@ a(153, 'Whether the quoted price includes VAT',
   "Of de genoemde prijs btw bevat en wat het apart vermelde uitrustingsbedrag op de prijslijst van de ontwikkelaar omvat.",
   "Czy podana cena zawiera VAT i co obejmuje odrębna kwota za wyposażenie na liście cen dewelopera.",
   "Om den oppgitte prisen inkluderer mva., og hva det separate utstyrsbeløpet på utviklerens prisliste omfatter.",
-  "Om det angivna priset inkluderar moms och vad det separata utrustningsbeloppet i byggherrens prislista omfattar.")
+  "Om det angivna priset inkluderar moms och vad det separata utrustningsbeloppet i exploatörens prislista omfattar.")
 a(154, 'Five villas <em>currently available</em>',
   "Cinco villas <em>disponibles ahora</em>", "Cinq villas <em>actuellement disponibles</em>", "Fünf Villen <em>derzeit verfügbar</em>",
   "Пять вилл <em>сейчас в продаже</em>", "خمس فلل <em>متاحة حاليًا</em>", "Vijf villa's <em>momenteel beschikbaar</em>",
@@ -889,7 +889,7 @@ a(155, 'Villas 02, 03, 05, 06 and 07 are the available villas',
   "Villa 02, 03, 05, 06 en 07 zijn de beschikbare villa's. Villa 01 en 04 staan niet meer in de lijst. De prijzen zijn die van de prijslijst van de ontwikkelaar, zonder het daarin apart vermelde uitrustingsbedrag.",
   "Dostępne są wille 02, 03, 05, 06 i 07. Wille 01 i 04 nie figurują już na liście. Ceny pochodzą z listy cen dewelopera, bez odrębnej kwoty za wyposażenie, którą ta lista podaje.",
   "Villa 02, 03, 05, 06 og 07 er de tilgjengelige villaene. Villa 01 og 04 er ikke lenger oppført. Prisene er fra utviklerens prisliste, uten det separate utstyrsbeløpet den oppgir.",
-  "Villa 02, 03, 05, 06 och 07 är de tillgängliga villorna. Villa 01 och 04 är inte längre listade. Priserna är de i byggherrens prislista, utan det separata utrustningsbelopp den anger.")
+  "Villa 02, 03, 05, 06 och 07 är de tillgängliga villorna. Villa 01 och 04 är inte längre listade. Priserna är de i exploatörens prislista, utan det separata utrustningsbelopp den anger.")
 a(156, 'Prices and delivery months are transcribed from the developer’s price list of 8 October 2026',
   "Los precios y los meses de entrega están transcritos de la lista de precios de la promotora del 8 de octubre de 2026 para las cinco villas que figuran como disponibles. La lista no indica si el IVA y los gastos de compra están incluidos, y Nueva Living lo confirma antes de cualquier reserva. También muestra una cifra de equipamiento aparte para cada villa ({E56500}, y {E72400} para la Villa 02), que aquí no está incluida. La superficie construida es el total de la promotora: interior, terrazas, porches y solárium. La circular informativa de la promotora de mayo de 2024 daba como fecha de entrega marzo de 2026, que la lista de precios actual sustituye.",
   "Les prix et les mois de livraison sont transcrits de la liste de prix du promoteur du 8 octobre 2026 pour les cinq villas indiquées comme disponibles. La liste ne précise pas si la TVA et les frais d'achat sont inclus, et Nueva Living le confirme avant toute réservation. Elle indique aussi un montant d'équipement distinct pour chaque villa ({E56500}, et {E72400} pour la Villa 02), qui n'est pas inclus ici. La surface construite est le total du promoteur : intérieur, terrasses, porches et solarium. La circulaire d'information du promoteur de mai 2024 donnait une date de livraison de mars 2026, que la liste de prix actuelle remplace.",
@@ -899,7 +899,7 @@ a(156, 'Prices and delivery months are transcribed from the developer’s price 
   "Prijzen en opleveringsmaanden zijn overgenomen uit de prijslijst van de ontwikkelaar van 8 oktober 2026 voor de vijf villa's die als beschikbaar zijn vermeld. De lijst vermeldt niet of btw en aankoopkosten zijn inbegrepen, en Nueva Living bevestigt dit vóór elke reservering. Ze toont ook voor elke villa een apart uitrustingsbedrag ({E56500}, en {E72400} voor Villa 02), dat hier niet is inbegrepen. De bebouwde oppervlakte is het totaal van de ontwikkelaar: binnenruimtes, terrassen, veranda's en solarium. De informatiebrief van de ontwikkelaar van mei 2024 gaf als opleverdatum maart 2026, die de huidige prijslijst vervangt.",
   "Ceny i miesiące odbioru przepisano z listy cen dewelopera z 8 października 2026 roku dla pięciu willi wskazanych jako dostępne. Lista nie podaje, czy VAT i koszty zakupu są wliczone, a Nueva Living potwierdza to przed jakąkolwiek rezerwacją. Podaje też odrębną kwotę za wyposażenie każdej willi ({E56500}, a dla Willi 02 {E72400}), której tu nie uwzględniono. Powierzchnia zabudowy to łączna liczba dewelopera: wnętrza, tarasy, ganki i solarium. Pismo informacyjne dewelopera z maja 2024 roku podawało termin odbioru marzec 2026, który zastępuje obecna lista cen.",
   "Prisene og overleveringsmånedene er hentet fra utviklerens prisliste av 8. oktober 2026 for de fem villaene som er oppført som tilgjengelige. Listen oppgir ikke om mva. og kjøpskostnader er inkludert, og Nueva Living bekrefter dette før enhver reservasjon. Den viser også et separat utstyrsbeløp for hver villa ({E56500}, og {E72400} for Villa 02), som ikke er med her. Bygget areal er utviklerens totaltall: innvendige rom, terrasser, verandaer og solterrasse. Utviklerens informasjonsskriv fra mai 2024 oppga overlevering i mars 2026, som den gjeldende prislisten erstatter.",
-  "Priserna och leveransmånaderna är avskrivna från byggherrens prislista av den 8 oktober 2026 för de fem villor som anges som tillgängliga. Listan anger inte om moms och köpkostnader ingår, och Nueva Living bekräftar det före varje reservation. Den visar också ett separat utrustningsbelopp för varje villa ({E56500}, och {E72400} för Villa 02), som inte ingår här. Byggd yta är byggherrens totalsiffra: invändiga ytor, terrasser, verandor och solterrass. Byggherrens informationsbrev från maj 2024 angav leverans i mars 2026, vilket den nuvarande prislistan ersätter.")
+  "Priserna och leveransmånaderna är avskrivna från exploatörens prislista av den 8 oktober 2026 för de fem villor som anges som tillgängliga. Listan anger inte om moms och köpkostnader ingår, och Nueva Living bekräftar det före varje reservation. Den visar också ett separat utrustningsbelopp för varje villa ({E56500}, och {E72400} för Villa 02), som inte ingår här. Byggd yta är exploatörens totalsiffra: invändiga ytor, terrasser, verandor och solterrass. Exploatörens informationsbrev från maj 2024 angav leverans i mars 2026, vilket den nuvarande prislistan ersätter.")
 a(162, 'Aerial view of the seven villas and their plots',
   "Vista aérea de las siete villas y sus parcelas", "Vue aérienne des sept villas et de leurs parcelles", "Luftaufnahme der sieben Villen und ihrer Grundstücke",
   "Вид с воздуха на семь вилл и их участки", "منظر جوي للفلل السبع وقطع أراضيها", "Luchtopname van de zeven villa's en hun percelen",
@@ -994,7 +994,7 @@ a(172, 'The developer’s current price list gives a delivery month',
   "De huidige prijslijst van de ontwikkelaar geeft voor elke villa een opleveringsmaand: oktober 2027 voor Villa 05, november 2027 voor Villa 03, januari 2028 voor Villa 07 en februari 2028 voor Villa 02 en 06. Eerder materiaal van de ontwikkelaar gaf maart 2026, dat de huidige lijst vervangt.",
   "Obecna lista cen dewelopera podaje miesiąc odbioru każdej willi: październik 2027 roku dla Willi 05, listopad 2027 roku dla Willi 03, styczeń 2028 roku dla Willi 07 i luty 2028 roku dla Willi 02 i 06. Wcześniejsze materiały dewelopera podawały marzec 2026 roku, który zastępuje obecna lista.",
   "Utviklerens gjeldende prisliste oppgir en overleveringsmåned for hver villa: oktober 2027 for Villa 05, november 2027 for Villa 03, januar 2028 for Villa 07 og februar 2028 for Villa 02 og 06. Tidligere materiale fra utvikleren oppga mars 2026, som den gjeldende listen erstatter.",
-  "Byggherrens nuvarande prislista anger en leveransmånad för varje villa: oktober 2027 för Villa 05, november 2027 för Villa 03, januari 2028 för Villa 07 och februari 2028 för Villa 02 och 06. Tidigare material från byggherren angav mars 2026, vilket den nuvarande listan ersätter.")
+  "Exploatörens nuvarande prislista anger en leveransmånad för varje villa: oktober 2027 för Villa 05, november 2027 för Villa 03, januari 2028 för Villa 07 och februari 2028 för Villa 02 och 06. Tidigare material från exploatören angav mars 2026, vilket den nuvarande listan ersätter.")
 a(173, 'Is the solarium included?',
   "¿Está incluido el solárium?", "Le solarium est-il inclus ?", "Ist das Solarium inbegriffen?", "Входит ли солярий в стоимость?",
   "هل السولاريوم مشمول؟", "Is het solarium inbegrepen?", "Czy solarium jest w cenie?", "Er solterrassen inkludert?", "Ingår solterrassen?")
@@ -1020,7 +1020,7 @@ a(176, 'Villas 02, 03, 05 and 06 have a basement garage',
   "Villa 02, 03, 05 en 06 hebben een garage in de kelder voor twee auto's. Villa 07 heeft volgens de plattegronden en de informatiebrief van de ontwikkelaar twee plaatsen op het maaiveld onder een pergola, terwijl de brochure van de ontwikkelaar een villa beschrijft met één plaats in de kelder en één buiten. Wij bevestigen Villa 07 schriftelijk.",
   "Wille 02, 03, 05 i 06 mają garaż w piwnicy na dwa samochody. Willa 07 ma według rzutów i pisma informacyjnego dewelopera dwa miejsca na powierzchni pod pergolą, podczas gdy broszura dewelopera opisuje willę z jednym miejscem w piwnicy i jednym na zewnątrz. Willę 07 potwierdzamy na piśmie.",
   "Villa 02, 03, 05 og 06 har garasje i kjelleren for to biler. Villa 07 har ifølge plantegningene og utviklerens informasjonsskriv to plasser på bakkeplan under en pergola, mens utviklerens brosjyre beskriver en villa med én plass i kjelleren og én utenfor. Vi bekrefter Villa 07 skriftlig.",
-  "Villa 02, 03, 05 och 06 har garage i källaren för två bilar. Villa 07 har enligt planritningarna och byggherrens informationsbrev två platser på marknivå under en pergola, medan byggherrens broschyr beskriver en villa med en plats i källaren och en utanför. Vi bekräftar Villa 07 skriftligt.")
+  "Villa 02, 03, 05 och 06 har garage i källaren för två bilar. Villa 07 har enligt planritningarna och exploatörens informationsbrev två platser på marknivå under en pergola, medan exploatörens broschyr beskriver en villa med en plats i källaren och en utanför. Vi bekräftar Villa 07 skriftligt.")
 a(177, 'Is each plot private?',
   "¿Es privada cada parcela?", "Chaque parcelle est-elle privée ?", "Ist jedes Grundstück privat?", "Является ли каждый участок частным?",
   "هل كل قطعة أرض خاصة؟", "Is elk perceel privé?", "Czy każda działka jest prywatna?", "Er hver tomt privat?", "Är varje tomt privat?")

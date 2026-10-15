@@ -13,7 +13,7 @@
 export const FOOTER_PAGE_ENTRIES_GROUP_E = [
   {
     find: 'For the one-off taxes and fees due at purchase, see our <a href="guide-purchase-costs-andalucia.html">breakdown of new-build purchase costs in Andalucia</a>.',
-    es: 'Para conocer los impuestos y gastos únicos que se pagan en la compra, consulta nuestro <a href="guide-purchase-costs-andalucia.html">desglose de los costes de compra de obra nueva en Andalucía</a>.',
+    es: 'Para conocer los impuestos y gastos únicos que se pagan en la compra, consulte nuestro <a href="guide-purchase-costs-andalucia.html">desglose de los costes de compra de obra nueva en Andalucía</a>.',
     fr: 'Pour les impôts et frais ponctuels dus à l’achat, consultez notre <a href="guide-purchase-costs-andalucia.html">détail des coûts d’achat dans le neuf en Andalousie</a>.',
     de: 'Zu den einmaligen Steuern und Gebühren beim Kauf finden Sie Details in unserer <a href="guide-purchase-costs-andalucia.html">Aufstellung der Kaufnebenkosten für Neubauten in Andalusien</a>.',
     ru: 'О разовых налогах и сборах при покупке читайте в нашей <a href="guide-purchase-costs-andalucia.html">разбивке расходов на покупку новостройки в Андалусии</a>.',
@@ -25,7 +25,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
   },
   {
     find: 'The two routes are also taxed differently: new-build carries IVA and AJD, resale carries ITP. See <a href="guide-purchase-costs-andalucia.html">what a new-build actually costs in Andalucia</a> for the figures.',
-    es: 'Las dos vías tributan de forma distinta: la obra nueva paga IVA y AJD, la reventa paga ITP. Consulta <a href="guide-purchase-costs-andalucia.html">lo que cuesta realmente una obra nueva en Andalucía</a> para ver las cifras.',
+    es: 'Las dos vías tributan de forma distinta: la obra nueva paga IVA y AJD, la reventa paga ITP. Consulte <a href="guide-purchase-costs-andalucia.html">lo que cuesta realmente una obra nueva en Andalucía</a> para ver las cifras.',
     fr: 'Les deux voies sont aussi fiscalisées différemment : le neuf supporte l’IVA et l’AJD, la revente l’ITP. Voyez <a href="guide-purchase-costs-andalucia.html">ce qu’un logement neuf coûte réellement en Andalousie</a> pour les chiffres.',
     de: 'Auch steuerlich unterscheiden sich beide Wege: Neubau unterliegt IVA und AJD, der Wiederverkauf der ITP. Die Zahlen finden Sie unter <a href="guide-purchase-costs-andalucia.html">was ein Neubau in Andalusien tatsächlich kostet</a>.',
     ru: 'Эти два варианта облагаются налогом по-разному: новостройка — IVA и AJD, вторичное жильё — ITP. Цифры приведены в материале <a href="guide-purchase-costs-andalucia.html">во что на самом деле обходится новостройка в Андалусии</a>.',
@@ -80,7 +80,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ar: 'يُعدّ شراء عقار جديد من المطوّر عملية نقل أولى، ولذلك تُفرض عليه ضريبة القيمة المضافة بدلاً من ضريبة نقل الملكية المطبّقة على إعادة البيع. وفي الأندلس يعني ذلك ضريبتين منفصلتين على الصفقة نفسها.',
     nl: 'Een nieuwbouwwoning die u van de ontwikkelaar koopt is een eerste overdracht en valt daarom onder btw in plaats van de overdrachtsbelasting die bij bestaande bouw geldt. In Andalusië betekent dat twee afzonderlijke belastingen op dezelfde aankoop.',
     pl: 'Nowe mieszkanie kupione od dewelopera to pierwsze przeniesienie własności, więc podlega VAT, a nie podatkowi od czynności cywilnoprawnych stosowanemu przy rynku wtórnym. W Andaluzji oznacza to dwa odrębne podatki od tej samej transakcji.',
-    sv: 'En nyproducerad bostad som köps av byggherren är en första överlåtelse och beskattas därför med moms i stället för den överlåtelseskatt som gäller vid andrahandsköp. I Andalusien innebär det två separata skatter på samma köp.',
+    sv: 'En nyproducerad bostad som köps av exploatören är en första överlåtelse och beskattas därför med moms i stället för den överlåtelseskatt som gäller vid andrahandsköp. I Andalusien innebär det två separata skatter på samma köp.',
     no: 'En nybygd bolig kjøpt av utbyggeren er en første overdragelse, og belastes derfor med merverdiavgift i stedet for overdragelsesavgiften som gjelder ved videresalg. I Andalusia betyr det to separate skatter på samme kjøp.'
   },
   {
@@ -235,7 +235,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
   },
   {
     find: '<strong>Around &euro;57,000, or about 12.5% over the price.</strong> Taxes are the fixed &euro;50,400 of that; the rest moves with who you instruct.',
-    es: '<strong>Unos 57.000 €, o alrededor de un 12,5% sobre el precio.</strong> Los impuestos son los 50.400 € fijos; el resto depende de a quién contrates.',
+    es: '<strong>Unos 57.000 €, o alrededor de un 12,5% sobre el precio.</strong> Los impuestos son los 50.400 € fijos; el resto depende de a quién contrate.',
     fr: '<strong>Environ 57 000 €, soit à peu près 12,5% en plus du prix.</strong> Les impôts représentent les 50 400 € fixes ; le reste dépend des professionnels que vous choisissez.',
     de: '<strong>Rund 57.000 €, also etwa 12,5% über dem Kaufpreis.</strong> Davon sind 50.400 € feste Steuern; der Rest hängt davon ab, wen Sie beauftragen.',
     ru: '<strong>Около 57 000 €, то есть примерно 12,5% сверх цены.</strong> Из них 50 400 € — фиксированные налоги; остальное зависит от того, кого вы наймёте.',
@@ -413,7 +413,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
   },
   {
     find: 'Budget for',
-    es: 'Presupuesta', fr: 'À prévoir', de: 'Einplanen', ru: 'Заложите в бюджет',
+    es: 'Presupueste', fr: 'À prévoir', de: 'Einplanen', ru: 'Заложите в бюджет',
     ar: 'خصّص في ميزانيتك', nl: 'Reken op', pl: 'Zaplanuj budżet', sv: 'Räkna med', no: 'Regn med'
   },
   {

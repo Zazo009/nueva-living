@@ -80,7 +80,7 @@ a("The developer's five-stage schedule with the reservation figure and the VAT o
  "Het vijfstappenschema van de ontwikkelaar met het reserveringsbedrag en de btw per termijn.",
  "Pięcioetapowy harmonogram dewelopera z kwotą rezerwacji i VAT-em od każdej raty.",
  "Utbyggerens femtrinnsplan med reservasjonsbeløpet og merverdiavgiften på hvert avdrag.",
- "Byggherrens femstegsplan med bokningsbeloppet och momsen på varje delbetalning.")
+ "Exploatörens femstegsplan med bokningsbeloppet och momsen på varje delbetalning.")
 
 a("Floorplans","Planos","Plans","Grundrisse","Планировки","المخططات","Plattegronden","Rzuty","Plantegninger","Planritningar")
 

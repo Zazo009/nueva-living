@@ -69,7 +69,7 @@ a("The developer gives the second quarter of 2029. Nueva Living asks for that da
  "De ontwikkelaar noemt het tweede kwartaal van 2029. Nueva Living vraagt die datum schriftelijk op en eist dat het contract vastlegt wat er gebeurt bij vertraging.",
  "Deweloper podaje drugi kwartał 2029 roku. Nueva Living prosi o tę datę na piśmie i o to, by umowa określała, co się stanie w razie opóźnienia.",
  "Utbyggeren oppgir andre kvartal 2029. Nueva Living ber om den datoen skriftlig og om at kontrakten sier hva som skjer ved forsinkelse.",
- "Byggherren anger andra kvartalet 2029. Nueva Living begär det datumet skriftligt och att avtalet anger vad som gäller vid försening.")
+ "Exploatören anger andra kvartalet 2029. Nueva Living begär det datumet skriftligt och att avtalet anger vad som gäller vid försening.")
 
 a("Has the building licence been granted?",
  "¿Está concedida la licencia de obra?","Le permis de construire est-il accordé ?","Ist die Baugenehmigung erteilt?",
@@ -85,7 +85,7 @@ a("Yes, confirmed by the developer in September 2026. The written disclosure doc
  "Ja, in september 2026 door de ontwikkelaar bevestigd. Het schriftelijke informatiedocument dateert van daarvóór en vermeldt de vergunning nog als aangevraagd op 27 december 2024, dus vragen wij de verlening zelf op in plaats van op een van beide te vertrouwen.",
  "Tak, potwierdzone przez dewelopera we wrześniu 2026 roku. Pisemny dokument informacyjny powstał wcześniej i wciąż odnotowuje pozwolenie jako złożone 27 grudnia 2024 roku, dlatego prosimy o samą decyzję, a nie opieramy się na żadnym z nich.",
  "Ja, bekreftet av utbyggeren i september 2026. Det skriftlige opplysningsdokumentet er eldre og fører fortsatt opp tillatelsen som søkt 27. desember 2024, så vi ber om selve vedtaket i stedet for å stole på noen av dem.",
- "Ja, bekräftat av byggherren i september 2026. Det skriftliga informationsdokumentet är äldre och anger fortfarande lovet som ansökt den 27 december 2024, så vi begär själva beslutet i stället för att förlita oss på något av dem.")
+ "Ja, bekräftat av exploatören i september 2026. Det skriftliga informationsdokumentet är äldre och anger fortfarande lovet som ansökt den 27 december 2024, så vi begär själva beslutet i stället för att förlita oss på något av dem.")
 
 a("How many homes are for sale?",
  "¿Cuántas viviendas están a la venta?","Combien de logements sont à vendre ?","Wie viele Wohnungen stehen zum Verkauf?",
@@ -117,7 +117,7 @@ a("Twenty thousand euros plus VAT on reservation, 20 per cent plus VAT at the pr
  "Twintigduizend euro plus btw bij reservering, 20 procent plus btw bij het onderhandse contract zestig dagen later, 10 procent na twaalf maanden, 10 procent na achttien maanden en de resterende 60 procent bij de notaris bij oplevering. De ontwikkelaar verklaart dat het uitstel renteloos is en dat voorschotten door een bankgarantie zijn gedekt.",
  "Dwadzieścia tysięcy euro plus VAT przy rezerwacji, 20 procent plus VAT przy umowie przedwstępnej sześćdziesiąt dni później, 10 procent po dwunastu miesiącach, 10 procent po osiemnastu i pozostałe 60 procent u notariusza przy odbiorze. Deweloper oświadcza, że odroczenie jest nieoprocentowane, a wpłaty zabezpieczone gwarancją bankową.",
  "Tjue tusen euro pluss mva. ved reservasjon, 20 prosent pluss mva. ved den private kontrakten seksti dager senere, 10 prosent etter tolv måneder, 10 prosent etter atten måneder, og de resterende 60 prosent hos notaren ved overtakelse. Utbyggeren oppgir at utsettelsen er rentefri og at innbetalinger er sikret med bankgaranti.",
- "Tjugotusen euro plus moms vid bokning, 20 procent plus moms vid det privata avtalet sextio dagar senare, 10 procent efter tolv månader, 10 procent efter arton månader och återstående 60 procent hos notarien vid tillträdet. Byggherren uppger att uppskovet är räntefritt och att inbetalningarna är säkrade med bankgaranti.")
+ "Tjugotusen euro plus moms vid bokning, 20 procent plus moms vid det privata avtalet sextio dagar senare, 10 procent efter tolv månader, 10 procent efter arton månader och återstående 60 procent hos notarien vid tillträdet. Exploatören uppger att uppskovet är räntefritt och att inbetalningarna är säkrade med bankgaranti.")
 
 a("Do all the homes have sea views?",
  "¿Todas las viviendas tienen vistas al mar?","Tous les logements ont-ils vue sur la mer ?","Haben alle Wohnungen Meerblick?",
@@ -133,7 +133,7 @@ a("The developer designs for it: each block is set a step above the one to its s
  "De ontwikkelaar ontwerpt daarop: elk blok ligt een trede hoger dan het blok ten zuiden ervan, zodat geen enkel blok op het dak van de buren uitkijkt. Welk uitzicht een bepaalde woning heeft, hangt nog altijd af van blok en verdieping, en dat is ter plaatse het controleren waard.",
  "Deweloper tak to zaprojektował: każdy budynek jest osadzony o stopień wyżej niż ten na południe od niego, więc żaden nie patrzy na dach sąsiada. To, jaki widok ma konkretne mieszkanie, zależy jednak od budynku i piętra, a to warto sprawdzić na miejscu.",
  "Utbyggeren har prosjektert for det: hver blokk er satt et trinn høyere enn blokken sør for den, slik at ingen ser inn på naboens tak. Hvilken utsikt en bestemt bolig har, avhenger likevel av blokk og etasje, og det er verdt å sjekke på stedet.",
- "Byggherren projekterar för det: varje huskropp är satt ett steg högre än den söder om den, så att ingen tittar in i grannens tak. Vilken utsikt en viss bostad har beror ändå på huskropp och våningsplan, och det är värt att kontrollera på plats.")
+ "Exploatören projekterar för det: varje huskropp är satt ett steg högre än den söder om den, så att ingen tittar in i grannens tak. Vilken utsikt en viss bostad har beror ändå på huskropp och våningsplan, och det är värt att kontrollera på plats.")
 
 a("How long do the prices hold?",
  "¿Cuánto tiempo se mantienen los precios?","Combien de temps les prix restent-ils valables ?","Wie lange gelten die Preise?",

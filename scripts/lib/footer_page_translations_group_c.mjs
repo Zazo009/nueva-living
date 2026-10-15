@@ -49,7 +49,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Neither is inherently the better investment -- they suit different buyers, timelines and risk tolerances. Compare them below on the points that actually affect your decision.",
-    es: "Ninguna opción es inherentemente la mejor inversión: se adaptan a distintos compradores, plazos y niveles de tolerancia al riesgo. Compáralas a continuación en los puntos que realmente afectan su decisión.",
+    es: "Ninguna opción es inherentemente la mejor inversión: se adaptan a distintos compradores, plazos y niveles de tolerancia al riesgo. Compárelas a continuación en los puntos que realmente afectan su decisión.",
     fr: "Aucune des deux n’est intrinsèquement le meilleur investissement : elles conviennent à des acheteurs, des délais et des niveaux de tolérance au risque différents. Comparez-les ci-dessous sur les points qui influencent réellement votre décision.",
     de: "Keine der beiden Optionen ist grundsätzlich die bessere Investition – sie passen zu unterschiedlichen Käufern, Zeitplänen und Risikoprofilen. Vergleichen Sie sie unten anhand der Punkte, die für Ihre Entscheidung wirklich zählen.",
     ru: "Ни один из вариантов не является заведомо лучшей инвестицией — они подходят разным покупателям, срокам и уровням готовности к риску. Сравните их ниже по пунктам, которые действительно влияют на ваше решение.",
@@ -229,7 +229,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Usually priced below a comparable finished home, since you are committing years ahead of delivery and taking on construction timeline risk. That gap narrows, or closes, as a project moves toward its final released units.",
-    es: "Normalmente con un precio inferior al de una vivienda terminada comparable, ya que le comprometes con años de antelación a la entrega y asumes el riesgo del calendario de construcción. Esa diferencia se reduce, o desaparece, a medida que el proyecto se acerca a sus últimas unidades disponibles.",
+    es: "Normalmente con un precio inferior al de una vivienda terminada comparable, ya que se compromete con años de antelación a la entrega y asume el riesgo del calendario de construcción. Esa diferencia se reduce, o desaparece, a medida que el proyecto se acerca a sus últimas unidades disponibles.",
     fr: "Généralement proposé à un prix inférieur à celui d’un bien achevé comparable, car vous vous engagez des années avant la livraison et assumez le risque du calendrier de construction. Cet écart se réduit, voire disparaît, à mesure que le projet approche de ses derniers lots disponibles.",
     de: "In der Regel günstiger als eine vergleichbare fertiggestellte Immobilie, da Sie sich Jahre vor der Übergabe verpflichten und das Risiko des Bauzeitplans tragen. Dieser Preisunterschied verringert sich – oder verschwindet –, je näher das Projekt an seine letzten verfügbaren Einheiten kommt.",
     ru: "Обычно цена ниже, чем на сопоставимое готовое жильё, поскольку вы берёте на себя обязательства за годы до сдачи объекта и принимаете риск сроков строительства. Этот разрыв сокращается или исчезает по мере приближения проекта к последним доступным объектам.",
@@ -284,7 +284,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ar: "انتظار قد يمتد لسنوات حتى التسليم. ويستحق سجل المطور في الالتزام بمواعيد التسليم تدقيقًا جاديًا.",
     nl: "Wachten, soms jaren, op oplevering. De staat van dienst van de ontwikkelaar op opleverdata verdient serieus onderzoek.",
     pl: "Oczekiwanie na odbiór, czasem latami. Historia dotrzymywania terminów przez dewelopera zasługuje na rzetelne sprawdzenie.",
-    sv: "Väntan, ibland i år, på tillträde. Byggherrens historik av att hålla sina tillträdesdatum förtjänar verklig granskning.",
+    sv: "Väntan, ibland i år, på tillträde. Exploatörens historik av att hålla sina tillträdesdatum förtjänar verklig granskning.",
     no: "Venting, noen ganger i årevis, på overtakelse. Utbyggerens historikk med å holde overtakelsesdatoer fortjener reell gransking."
   },
   {
@@ -308,7 +308,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ar: "يتم إجراء فحص رسمي للعيوب قبل التسليم أو عنده، مع تدوين قائمة بالعيوب ليقوم المطور بإصلاحها بموجب ضمان البناء. وأنت تتعامل هنا مع معيار التشطيب الخاص بالمطور، ولست بصدد تقييم عقار قائم.",
     nl: "Een formele opleveringsinspectie vindt plaats voor of bij de overdracht, waarbij gebreken worden vastgelegd die de ontwikkelaar onder de bouwgarantie verhelpt. U werkt vanuit de afwerkstandaard van de ontwikkelaar, niet vanuit een bestaande woning.",
     pl: "Formalny odbiór techniczny odbywa się przed przekazaniem lub w jego trakcie, a usterki spisuje się do usunięcia przez dewelopera w ramach gwarancji. Punktem odniesienia jest standard wykończenia dewelopera, a nie ocena istniejącej nieruchomości.",
-    sv: "En formell felbesiktning sker före eller vid tillträdet, där fel listas för byggherren att åtgärda inom byggarantin. Ni utgår från byggherrens finishstandard, inte från att bedöma en befintlig bostad.",
+    sv: "En formell felbesiktning sker före eller vid tillträdet, där fel listas för exploatören att åtgärda inom byggarantin. Ni utgår från exploatörens finishstandard, inte från att bedöma en befintlig bostad.",
     no: "En formell feilbefaring skjer før eller ved overtakelse, der feil listes opp for utbygger å rette under byggegarantien. Du tar utgangspunkt i utbyggerens finishstandard, ikke i å vurdere en eksisterende bolig."
   },
   {
@@ -320,7 +320,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ar: "يعتمد إتمام الصفقة على حصول المطور على رخصة الإشغال الأولى وشهادة إتمام البناء قبل التمكن من توقيع العقد لدى الكاتب العدل. ويؤكد محاميك جاهزية هذه المستندات قبل الإتمام.",
     nl: "De overdracht hangt ervan af dat de ontwikkelaar de eerste bewoningsvergunning en het opleveringscertificaat verkrijgt voordat de akte bij de notaris kan worden getekend. Uw advocaat bevestigt dat deze er zijn voordat u afneemt.",
     pl: "Przeniesienie własności zależy od uzyskania przez dewelopera pozwolenia na użytkowanie i świadectwa ukończenia, zanim akt zostanie podpisany u notariusza. Państwa prawnik potwierdza, że dokumenty są, zanim sfinalizują Państwo zakup.",
-    sv: "Tillträdet förutsätter att byggherren fått inflyttningstillstånd och slutbevis innan köpebrevet kan skrivas hos notarien. Er jurist bekräftar att de finns på plats innan ni tillträder.",
+    sv: "Tillträdet förutsätter att exploatören fått inflyttningstillstånd och slutbevis innan köpebrevet kan skrivas hos notarien. Er jurist bekräftar att de finns på plats innan ni tillträder.",
     no: "Overtakelsen forutsetter at utbygger har fått innflyttingstillatelse og ferdigattest før skjøtet kan signeres hos notaren. Juristen din bekrefter at de foreligger før du overtar."
   },
   {
@@ -332,7 +332,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ar: "يحدث ذلك بمجرد انتهاء المبنى وحصوله على التراخيص، في تاريخ يقدره المطور ولا يضمنه. وليس من المستغرب حدوث تأخير لبضعة أشهر عن التقدير الأصلي.",
     nl: "Gebeurt zodra het gebouw klaar en vergund is, op een datum die de ontwikkelaar schat in plaats van garandeert. Vertragingen van enkele maanden ten opzichte van de eerste schatting zijn niet ongebruikelijk.",
     pl: "Następuje po ukończeniu budynku i uzyskaniu pozwoleń, w terminie, który deweloper szacuje, a nie gwarantuje. Opóźnienia kilku miesięcy wobec pierwotnego szacunku nie są niczym niezwykłym.",
-    sv: "Sker när byggnaden är färdig och godkänd, på ett datum byggherren uppskattar snarare än garanterar. Förseningar på några månader mot den ursprungliga uppskattningen är inte ovanliga.",
+    sv: "Sker när byggnaden är färdig och godkänd, på ett datum exploatören uppskattar snarare än garanterar. Förseningar på några månader mot den ursprungliga uppskattningen är inte ovanliga.",
     no: "Skjer når bygget er ferdig og godkjent, på en dato utbygger anslår framfor å garantere. Forsinkelser på noen måneder mot det opprinnelige anslaget er ikke uvanlig."
   },
   {
@@ -361,7 +361,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Removed entirely. What you see is what you get, and you can inspect the actual property before committing to anything.",
-    es: "Eliminado por completo. Lo que ves es lo que obtienes, y puede inspeccionar la propiedad real antes de comprometerse a nada.",
+    es: "Eliminado por completo. Lo que ve es lo que obtiene, y puede inspeccionar la propiedad real antes de comprometerse a nada.",
     fr: "Totalement éliminé. Ce que vous voyez est ce que vous obtenez, et vous pouvez inspecter le bien réel avant de vous engager.",
     de: "Vollständig ausgeschlossen. Was Sie sehen, ist, was Sie bekommen, und Sie können die tatsächliche Immobilie besichtigen, bevor Sie sich verpflichten.",
     ru: "Полностью отсутствует. Что вы видите, то и получаете, и вы можете осмотреть реальный объект, прежде чем брать на себя какие-либо обязательства.",
@@ -373,7 +373,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Fixed. A limitation if you wanted something different, an advantage if you would rather judge real materials and workmanship than a specification sheet.",
-    es: "Fijo. Una limitación si querías algo diferente, una ventaja si prefiere valorar materiales y acabados reales en lugar de una ficha técnica.",
+    es: "Fijo. Una limitación si quería algo diferente, una ventaja si prefiere valorar materiales y acabados reales en lugar de una ficha técnica.",
     fr: "Fixe. Une contrainte si vous souhaitiez quelque chose de différent, un avantage si vous préférez juger des matériaux et de la finition réels plutôt qu’une fiche technique.",
     de: "Festgelegt. Eine Einschränkung, wenn Sie sich etwas anderes gewünscht hätten, ein Vorteil, wenn Sie lieber echte Materialien und Verarbeitung beurteilen als ein Ausstattungsblatt.",
     ru: "Фиксированная. Ограничение, если вы хотели чего-то другого, и преимущество, если вы предпочитаете оценивать реальные материалы и качество отделки, а не спецификацию на бумаге.",
@@ -416,7 +416,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ar: "لا ينطبق بنفس الطريقة هنا. فأي عيوب تعتمد على ما قام أو لم يقم المالك الحالي بمعالجته، لذلك تكتسب المعاينة المهنية قبل الالتزام أهمية أكبر هنا من ضمان المطور.",
     nl: "Niet op dezelfde manier van toepassing. Gebreken zijn wat de huidige eigenaar wel of niet heeft verholpen, dus een professionele bouwkundige keuring vooraf weegt hier zwaarder dan een ontwikkelaarsgarantie.",
     pl: "Nie ma zastosowania w ten sam sposób. Usterki to tyle, ile obecny właściciel naprawił lub nie, więc profesjonalna ekspertyza przed zakupem znaczy tu więcej niż gwarancja dewelopera.",
-    sv: "Gäller inte på samma sätt. Eventuella fel är vad nuvarande ägare åtgärdat eller låtit bli, så en professionell besiktning innan ni binder er väger tyngre här än en byggherregaranti.",
+    sv: "Gäller inte på samma sätt. Eventuella fel är vad nuvarande ägare åtgärdat eller låtit bli, så en professionell besiktning innan ni binder er väger tyngre här än en exploatörsgaranti.",
     no: "Gjelder ikke på samme måte. Eventuelle feil er det nåværende eier har utbedret eller ikke, så en profesjonell takst før du binder du veier tyngre her enn en utbyggergaranti."
   },
   {
@@ -433,7 +433,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Set by you and the seller, typically 30 to 60 days after signing, with no construction or licensing timeline to depend on.",
-    es: "La fijáis usted y el vendedor, normalmente entre 30 y 60 días después de la firma, sin ningún calendario de construcción o de licencias del que depender.",
+    es: "La fijan usted y el vendedor, normalmente entre 30 y 60 días después de la firma, sin ningún calendario de construcción o de licencias del que depender.",
     fr: "Fixée par vous et le vendeur, généralement 30 à 60 jours après la signature, sans dépendre d’un calendrier de construction ou d’autorisation.",
     de: "Wird von Ihnen und dem Verkäufer festgelegt, in der Regel 30 bis 60 Tage nach Unterzeichnung, ohne Abhängigkeit von einem Bau- oder Genehmigungszeitplan.",
     ru: "Определяется вами и продавцом, как правило, через 30–60 дней после подписания, без зависимости от сроков строительства или получения разрешений.",
@@ -505,7 +505,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   },
   {
     find: "Most buyers are not purely one or the other. The honest way to decide is to compare specific projects against your own budget, timeline and risk tolerance, rather than deciding on off-plan versus resale as an abstract category first. For the full step-by-step process once you have decided, see <a href=\"guide-how-buying-works.html\">how buying works</a>.",
-    es: "La mayoría de los compradores no son puramente uno u otro. La forma honesta de decidir es comparar proyectos concretos con su propio presupuesto, plazos y tolerancia al riesgo, en lugar de decidir primero entre sobre plano y reventa como una categoría abstracta. Para conocer el proceso completo paso a paso una vez que hayas decidido, consulta <a href=\"guide-how-buying-works.html\">cómo funciona la compra</a>.",
+    es: "La mayoría de los compradores no son puramente uno u otro. La forma honesta de decidir es comparar proyectos concretos con su propio presupuesto, plazos y tolerancia al riesgo, en lugar de decidir primero entre sobre plano y reventa como una categoría abstracta. Para conocer el proceso completo paso a paso una vez que haya decidido, consulte <a href=\"guide-how-buying-works.html\">cómo funciona la compra</a>.",
     fr: "La plupart des acheteurs ne se rangent pas uniquement dans l’une ou l’autre catégorie. La façon la plus honnête de décider est de comparer des projets concrets à votre propre budget, calendrier et tolérance au risque, plutôt que de trancher d’abord entre sur plan et revente comme catégorie abstraite. Pour le déroulé complet une fois votre décision prise, consultez <a href=\"guide-how-buying-works.html\">comment se déroule un achat</a>.",
     de: "Die meisten Käufer gehören nicht ausschließlich der einen oder anderen Kategorie an. Der ehrliche Weg zur Entscheidung besteht darin, konkrete Projekte mit Ihrem eigenen Budget, Zeitrahmen und Ihrer Risikobereitschaft zu vergleichen, statt sich zuerst abstrakt zwischen Neubau und Bestand zu entscheiden. Den vollständigen Ablauf nach Ihrer Entscheidung finden Sie unter <a href=\"guide-how-buying-works.html\">wie der Kaufprozess funktioniert</a>.",
     ru: "Большинство покупателей не относятся строго к одной из категорий. Честный способ принять решение — сравнить конкретные проекты с вашим бюджетом, сроками и готовностью к риску, а не выбирать сначала между строящимся и вторичным жильём как абстрактной категорией. Полный пошаговый процесс после принятия решения смотрите в разделе <a href=\"guide-how-buying-works.html\">как проходит покупка</a>.",
@@ -548,7 +548,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
     ar: "<summary>فحص العيوب</summary><p>فحص رسمي قبل التسليم أو عنده لتدوين العيوب ليقوم المطور بإصلاحها بموجب ضمان البناء.</p>",
     nl: "<summary>Opleveringsinspectie</summary><p>Een formele inspectie voor of bij oplevering, waarbij gebreken worden vastgelegd die de ontwikkelaar onder de bouwgarantie verhelpt.</p>",
     pl: "<summary>Odbiór techniczny</summary><p>Formalny odbiór przed przekazaniem lub w jego trakcie, podczas którego spisuje się usterki do usunięcia przez dewelopera w ramach gwarancji budowlanej.</p>",
-    sv: "<summary>Felbesiktning</summary><p>En formell besiktning före eller vid tillträdet, där fel listas för byggherren att åtgärda inom byggarantin.</p>",
+    sv: "<summary>Felbesiktning</summary><p>En formell besiktning före eller vid tillträdet, där fel listas för exploatören att åtgärda inom byggarantin.</p>",
     no: "<summary>Feilbefaring</summary><p>En formell befaring før eller ved overtakelse, der feil listes opp for utbygger å rette under byggegarantien.</p>"
   },
   {

@@ -87,7 +87,7 @@ a("Licence, bank guarantee and a contractual date, before any money moves.",
  "Pozwolenie, gwarancja bankowa i umowna data, zanim pojawią się jakiekolwiek płatności.",
  "Tillatelse, bankgaranti og en kontraktfestet dato, før noen penger flyttes.",
  "Tillstånd, bankgaranti och ett avtalat datum, innan några pengar flyttas.")
-a("Ask about <em>this scheme</em>","Pregunta por <em>esta promoción</em>","Renseignez-vous sur <em>ce programme</em>",
+a("Ask about <em>this scheme</em>","Pregunte por <em>esta promoción</em>","Renseignez-vous sur <em>ce programme</em>",
  "Fragen Sie zu <em>dieser Anlage</em>","Спросите об <em>этом комплексе</em>","اسأل عن <em>هذا المشروع</em>",
  "Vraag naar <em>dit project</em>","Zapytaj o <em>tę inwestycję</em>","Spør om <em>dette prosjektet</em>","Fråga om <em>det här projektet</em>")
 a("Tell us what you are looking for and we will come back with the current list.",
@@ -114,7 +114,7 @@ a("We reply to every enquiry ourselves.","Respondemos personalmente a cada consu
  "Wir beantworten jede Anfrage selbst.","Мы отвечаем на каждый запрос лично.","نردّ بأنفسنا على كل استفسار.",
  "Wij beantwoorden elke aanvraag zelf.","Na każde zapytanie odpowiadamy osobiście.",
  "Vi svarer selv på hver henvendelse.","Vi svarar själva på varje förfrågan.")
-a("Thank you. We will come back to you with the current list.","Gracias. Te responderemos con la lista actual.",
+a("Thank you. We will come back to you with the current list.","Gracias. Le responderemos con la lista actual.",
  "Merci. Nous reviendrons vers vous avec la liste actuelle.","Vielen Dank. Wir melden uns mit der aktuellen Liste.",
  "Спасибо. Мы вернёмся к вам с актуальным списком.","شكراً لك. سنعود إليك بالقائمة الحالية.",
  "Dank u. Wij komen bij u terug met de actuele lijst.","Dziękujemy. Wrócimy z aktualną listą.",

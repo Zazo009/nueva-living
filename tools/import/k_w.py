@@ -2,7 +2,7 @@
 import json, sys
 T={}
 def a(en,es,fr,de,ru,ar,nl,pl,no,sv): T[en]={'es':es,'fr':fr,'de':de,'ru':ru,'ar':ar,'nl':nl,'pl':pl,'no':no,'sv':sv}
-DV={'es':'Imagen de la promotora','fr':'Image du promoteur','de':'Visualisierung des Bauträgers','ru':'Визуализация застройщика','ar':'تصميم المطور','nl':'Impressie van de ontwikkelaar','pl':'Wizualizacja dewelopera','no':'Utviklerens visualisering','sv':'Byggherrens visualisering'}
+DV={'es':'Imagen de la promotora','fr':'Image du promoteur','de':'Visualisierung des Bauträgers','ru':'Визуализация застройщика','ar':'تصميم المطور','nl':'Impressie van de ontwikkelaar','pl':'Wizualizacja dewelopera','no':'Utviklerens visualisering','sv':'Exploatörens visualisering'}
 def v(en,es,fr,de,ru,ar,nl,pl,no,sv):
     parts={'es':es,'fr':fr,'de':de,'ru':ru,'ar':ar,'nl':nl,'pl':pl,'no':no,'sv':sv}
     T['Developer visual of '+en]={l:f'{DV[l]}: {p}' for l,p in parts.items()}
@@ -236,5 +236,5 @@ a("Developer visuals of the blocks, the villas, the homes and the spa.",
  "Impressies van de ontwikkelaar van de blokken, de villa's, de woningen en de spa.",
  "Wizualizacje dewelopera budynków, willi, mieszkań i spa.",
  "Utviklerens visualiseringer av bygningene, villaene, boligene og spaet.",
- "Byggherrens visualiseringar av huskropparna, villorna, bostäderna och spat.")
+ "Exploatörens visualiseringar av huskropparna, villorna, bostäderna och spat.")
 json.dump(T, open(sys.argv[1],'w'), ensure_ascii=False, indent=1); print(len(T))

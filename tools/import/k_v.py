@@ -62,7 +62,7 @@ a("An AA energy rating, which the developer puts at about 89 per cent less energ
  "Een energielabel AA, dat de ontwikkelaar becijfert op ongeveer 89 procent minder energie dan een conventionele woning.",
  "Klasa energetyczna AA, którą deweloper określa jako około 89 procent mniej energii niż w mieszkaniu konwencjonalnym.",
  "Energiklasse AA, som utvikleren oppgir til om lag 89 prosent lavere energibruk enn i en konvensjonell bolig.",
- "Energiklass AA, som byggherren anger till omkring 89 procent lägre energianvändning än i en konventionell bostad.")
+ "Energiklass AA, som exploatören anger till omkring 89 procent lägre energianvändning än i en konventionell bostad.")
 
 a("A communal pool, a gym and a chill-out terrace.",
  "Piscina comunitaria, gimnasio y terraza chill-out.",
@@ -242,7 +242,7 @@ a("An AA rating, which the developer puts at about 89 per cent less energy than 
  "Label AA, dat de ontwikkelaar becijfert op ongeveer 89 procent minder energie dan een conventionele woning.",
  "Klasa AA, którą deweloper określa jako około 89 procent mniej energii niż w mieszkaniu konwencjonalnym.",
  "Klasse AA, som utvikleren oppgir til om lag 89 prosent lavere energibruk enn i en konvensjonell bolig.",
- "Klass AA, som byggherren anger till omkring 89 procent lägre energianvändning än i en konventionell bostad.")
+ "Klass AA, som exploatören anger till omkring 89 procent lägre energianvändning än i en konventionell bostad.")
 
 a("The village, <em>and the sea below it</em>",
  "El pueblo, <em>y el mar a sus pies</em>","Le village, <em>et la mer en dessous</em>",
@@ -293,7 +293,7 @@ a("Sofas and parasols on a lawn looking out over the coast.",
  "Soffor och parasoll på en gräsmatta med utsikt över kusten.")
 
 a("Dossier","Dosier","Dossier","Dossier","Досье","الملف التعريفي","Dossier","Dossier","Dossier","Dossier")
-a("The developer's own dossier.","El dosier de la propia promotora.","Le dossier du promoteur lui-même.","Das Dossier des Bauträgers selbst.","Собственное досье застройщика.","الملف التعريفي الخاص بالمطور.","Het eigen dossier van de ontwikkelaar.","Własny dossier dewelopera.","Utviklerens eget dossier.","Byggherrens eget dossier.")
+a("The developer's own dossier.","El dosier de la propia promotora.","Le dossier du promoteur lui-même.","Das Dossier des Bauträgers selbst.","Собственное досье застройщика.","الملف التعريفي الخاص بالمطور.","Het eigen dossier van de ontwikkelaar.","Własny dossier dewelopera.","Utviklerens eget dossier.","Exploatörens eget dossier.")
 
 a("Which homes carry the large terraces, and what that does to the price.",
  "Qué viviendas tienen las terrazas grandes y cómo repercute eso en el precio.",

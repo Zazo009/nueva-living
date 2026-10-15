@@ -83,7 +83,7 @@ a("Developer visuals of the blocks, the terraces, the homes and the communal flo
  "Visuals van de ontwikkelaar van de blokken, de terrassen, de woningen en de gemeenschappelijke verdieping.",
  "Wizualizacje dewelopera budynków, tarasów, mieszkań i piętra wspólnego.",
  "Utbyggerens visualiseringer av blokkene, terrassene, boligene og fellesetasjen.",
- "Byggherrens visualiseringar av huskropparna, terrasserna, bostäderna och gemensamhetsplanet.")
+ "Exploatörens visualiseringar av huskropparna, terrasserna, bostäderna och gemensamhetsplanet.")
 
 a("A penthouse terrace with lounge seating and the coast beyond",
  "Una terraza de ático con zona de estar y la costa al fondo","Une terrasse de penthouse avec salon et la côte au loin",

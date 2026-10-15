@@ -77,7 +77,7 @@ a("Granted, confirmed by the developer in September 2026. The written disclosure
  "Verleend, in september 2026 door de ontwikkelaar bevestigd. Het schriftelijke informatiedocument is ouder en vermeldt haar nog als aangevraagd, dus vragen wij de verlening schriftelijk op.",
  "Wydane, potwierdzone przez dewelopera we wrześniu 2026 roku. Pisemny dokument informacyjny jest starszy i wciąż odnotowuje je jako złożone, dlatego prosimy o decyzję na piśmie.",
  "Gitt, bekreftet av utbyggeren i september 2026. Det skriftlige opplysningsdokumentet er eldre og fører den fortsatt opp som søkt, så vi ber om vedtaket skriftlig.",
- "Beviljat, bekräftat av byggherren i september 2026. Det skriftliga informationsdokumentet är äldre och anger det fortfarande som ansökt, så vi begär beslutet skriftligt.")
+ "Beviljat, bekräftat av exploatören i september 2026. Det skriftliga informationsdokumentet är äldre och anger det fortfarande som ansökt, så vi begär beslutet skriftligt.")
 
 a("Your money","Su dinero","Votre argent","Ihr Geld","Ваши деньги","أموالك","Uw geld","Państwa pieniądze","Pengene dine","Era pengar")
 
@@ -90,7 +90,7 @@ a("The developer states that amounts paid on account are covered by bank guarant
  "De ontwikkelaar verklaart dat voorschotten door een bankgarantie zijn gedekt. Wij vragen de garantie zelf te zien, niet de verklaring.",
  "Deweloper oświadcza, że wpłacone kwoty są objęte gwarancją bankową. Prosimy o wgląd w samą gwarancję, a nie w oświadczenie.",
  "Utbyggeren oppgir at innbetalte beløp er dekket av bankgaranti. Vi ber om å se selve garantien, ikke påstanden.",
- "Byggherren uppger att inbetalda belopp täcks av bankgaranti. Vi ber att få se själva garantin, inte påståendet.")
+ "Exploatören uppger att inbetalda belopp täcks av bankgaranti. Vi ber att få se själva garantin, inte påståendet.")
 
 a("The figures","Las cifras","Les chiffres","Die Zahlen","Цифры","الأرقام","De cijfers","Liczby","Tallene","Siffrorna")
 

@@ -19,7 +19,7 @@ one is enforced by an automated check and a lone edit will be reverted.
 | bedrooms | **Sovrum** | Bedrooms |
 | property type | **Bostadstyp** | — |
 | availability | **Tillgänglighet** | Availability |
-| developer (byggföretaget bakom projektet) | **byggherre** | utvecklare |
+| developer (the company behind the project) | **exploatör** | utvecklare, byggherre |
 | solarium (spansk term: privat takterrass) | **solterrass** | solarium |
 | gated | **inhägnad** | grindad |
 | resale (till skillnad från nyproduktion) | **vidareförsäljning** | andrahandsförsäljning |
