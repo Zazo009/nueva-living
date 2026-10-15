@@ -41,6 +41,7 @@ const enT = (key, vars) => t(key, 'en', vars);
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { hasLiveLocationMap, renderLocationCard, leafletHead } from './lib/location_map.mjs';
 import { renderSignatureMain } from './lib/signature_page.mjs';
+import { renderMajolicaMain } from './lib/signature_majolica.mjs';
 
 const {
   DEFAULT_PROPERTY_WEBHOOK_URL,
@@ -66,6 +67,8 @@ const fontPreloadBlock = (p = '', locale = 'en') => `  <link rel="preload" href=
   <link rel="preload" href="${p}assets/fonts/arabic/SLXVc1nY6HkvangtZmpQdkhzfH5lkSscQyyS4J0.woff2" as="font" type="font/woff2" crossorigin>` : ''}`;
 const signatureCssVersion = fileVersion('assets/liora/nueva-signature.css');
 const signatureJsVersion = fileVersion('assets/liora/nueva-signature.js');
+const majolicaCssVersion = fileVersion('assets/liora/nueva-majolica.css');
+const majolicaJsVersion = fileVersion('assets/liora/nueva-majolica.js');
 const propertyCssVersion = fileVersion('assets/liora/liora-property.css');
 const rtlCssVersion = existsSync('assets/liora/liora-rtl.css') ? fileVersion('assets/liora/liora-rtl.css') : '1';
 const propertyJsVersion = fileVersion('assets/liora/liora-property.js');
@@ -1778,6 +1781,9 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const rtl = isRtl(locale);
   const p = rootPrefix(locale);
   const isSignature = sourceProject.template === 'signature';
+  // Two layouts share the template: the olive editorial column of Armani, and
+  // the blue-and-white majolica page of Design Hills.
+  const isMajolica = isSignature && sourceProject.signature?.layout === 'majolica';
   const heroImage = image(project, 'hero');
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
@@ -1938,7 +1944,20 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     ? (locale === DEFAULT_LOCALE ? project.canonical : project.canonical.replace('nuevaliving.com/', `nuevaliving.com/${localeMetaInfo.urlPrefix}/`))
     : '';
 
-  const signatureMain = isSignature
+  const signatureMain = isMajolica
+    ? renderMajolicaMain({
+      project,
+      sourceProject,
+      locale,
+      faqs,
+      projectMedia,
+      helpers: {
+        esc, t, pictureTag, actionLink, ghostAction,
+        whatsappHref, renderLocationCard, renderEnquiryForm, liveLocationMap,
+        floorplanThumb, responsiveThumb
+      }
+    })
+    : isSignature
     ? renderSignatureMain({
       project,
       sourceProject,
@@ -2317,7 +2336,10 @@ ${fontPreloadBlock(p, locale)}
   <link rel="stylesheet" href="${p}assets/liora/nueva-location-map.css?v=${locationMapCssVersion}">
 ${leafletHead()}
   <script src="${p}assets/liora/nueva-location-map.js?v=${locationMapJsVersion}" defer></script>` : ''}
-  <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>${isSignature ? `
+  <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>${isMajolica ? `
+  <link rel="preload" href="${p}assets/fonts/google/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="${p}assets/liora/nueva-majolica.css?v=${majolicaCssVersion}">
+  <script src="${p}assets/liora/nueva-majolica.js?v=${majolicaJsVersion}" defer></script>` : isSignature ? `
   <link rel="preload" href="${p}assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="${p}assets/fonts/google/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${p}assets/liora/nueva-signature.css?v=${signatureCssVersion}">
@@ -2339,7 +2361,7 @@ ${JSON.stringify(faqSchema, null, 2)}
 ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
   </script>
 </head>
-<body${isSignature ? ' class="signature-page"' : ''}
+<body${isMajolica ? ' class="majolica-page"' : isSignature ? ' class="signature-page"' : ''}
   data-locale="${locale}"
   data-project-name="${esc(project.name)}"
   data-project-message="${esc(project.enquiry.message)}"
@@ -2348,7 +2370,7 @@ ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
   ${nav(project, locale)}
   ${breadcrumb(project, locale)}
 
-  <main${isSignature ? ' class="signature-main"' : ''}>
+  <main${isMajolica ? ' class="majolica-main"' : isSignature ? ' class="signature-main"' : ''}>
 ${isSignature ? signatureMain : standardMain}
   </main>
 

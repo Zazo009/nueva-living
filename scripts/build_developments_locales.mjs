@@ -131,10 +131,17 @@ function applyCardDescriptions(html, locale) {
     // so neither markup shape can break it again, and a miss is reported
     // rather than passing quietly.
     const before = next;
-    next = next
-      .split(`<p class="dev-tagline">${en}</p>`).join(`<p class="dev-tagline">${translated}</p>`)
-      .split(`<p>${en}</p>`).join(`<p>${translated}</p>`);
-    if (before === next && next.includes(en)) {
+    // The cards are written through esc(), so a description with an ampersand
+    // ("Dolce&Gabbana") sits in the markup as "Dolce&amp;Gabbana" and never
+    // matched the raw English string: the card stayed English with no error.
+    // Both spellings are replaced.
+    const escaped = (value) => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    for (const [from, to] of [[en, translated], [escaped(en), escaped(translated)]]) {
+      next = next
+        .split(`<p class="dev-tagline">${from}</p>`).join(`<p class="dev-tagline">${to}</p>`)
+        .split(`<p>${from}</p>`).join(`<p>${to}</p>`);
+    }
+    if (before === next && (next.includes(en) || next.includes(escaped(en)))) {
       missed.push(`${slug}: card description present but not replaced for ${locale}`);
     }
   }

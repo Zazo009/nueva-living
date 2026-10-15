@@ -54,6 +54,10 @@ function cardDescriptionReplacements(locale) {
     // Both markup shapes: the card's paragraph carries a class now, and a
     // bare-<p> key silently stopped matching when it gained one.
     replacements.push([`<p class="dev-tagline">${en}</p>`, `<p class="dev-tagline">${translated}</p>`]);
+    // The card is written through esc(), so "Dolce&Gabbana" sits in the markup as
+    // "Dolce&amp;Gabbana"; the raw pair above never matched it.
+    const pair = [en, translated].map((value) => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'));
+    if (pair[0] !== en) replacements.push([`<p class="dev-tagline">${pair[0]}</p>`, `<p class="dev-tagline">${pair[1]}</p>`]);
     replacements.push([`<p>${en}</p>`, `<p>${translated}</p>`]);
   }
   return replacements;

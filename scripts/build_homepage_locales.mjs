@@ -372,6 +372,10 @@ function projectCardTaglineReplacements(locale) {
     const translatedTagline = project.i18n?.[locale]?.card?.description;
     if (!enTagline || !translatedTagline || enTagline === translatedTagline) continue;
     replacements.push([`<p class="dev-tagline">${enTagline}</p>`, `<p class="dev-tagline">${translatedTagline}</p>`]);
+    // The cards go through esc(), so an ampersand ("Dolce&Gabbana") is written
+    // "&amp;" in the markup; the raw pair above never matched it.
+    const escapedPair = [enTagline, translatedTagline].map((value) => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'));
+    if (escapedPair[0] !== enTagline) replacements.push([`<p class="dev-tagline">${escapedPair[0]}</p>`, `<p class="dev-tagline">${escapedPair[1]}</p>`]);
   }
   return replacements;
 }

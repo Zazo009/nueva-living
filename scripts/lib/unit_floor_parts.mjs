@@ -25,6 +25,7 @@ export const FLOOR_PARTS = {
   'second floor': { es: 'Segunda planta', fr: 'Deuxième étage', de: 'Zweites Obergeschoss', ru: 'Третий этаж', ar: 'الطابق الثاني', nl: 'Tweede verdieping', pl: 'Drugie piętro', sv: 'Andra våningen', no: 'Tredje etasje' },
   'third floor': { es: 'Tercera planta', fr: 'Troisième étage', de: 'Drittes Obergeschoss', ru: 'Четвёртый этаж', ar: 'الطابق الثالث', nl: 'Derde verdieping', pl: 'Trzecie piętro', sv: 'Tredje våningen', no: 'Fjerde etasje' },
   'fourth floor': { es: 'Cuarta planta', fr: 'Quatrième étage', de: 'Viertes Obergeschoss', ru: 'Пятый этаж', ar: 'الطابق الرابع', nl: 'Vierde verdieping', pl: 'Czwarte piętro', sv: 'Fjärde våningen', no: 'Femte etasje' },
+  'basement': { es: 'Sótano', fr: 'Sous-sol', de: 'Untergeschoss', ru: 'Подвальный этаж', ar: 'الطابق السفلي', nl: 'Kelder', pl: 'Piwnica', sv: 'Källare', no: 'Kjeller' },
   'semi-basement': { es: 'Semisótano', fr: 'Demi-sous-sol', de: 'Souterrain', ru: 'Цокольный этаж', ar: 'شبه قبو', nl: 'Souterrain', pl: 'Półsuterena', sv: 'Souterräng', no: 'Underetasje' },
   'garden': { es: 'Jardín', fr: 'Jardin', de: 'Garten', ru: 'Сад', ar: 'حديقة', nl: 'Tuin', pl: 'Ogród', sv: 'Trädgård', no: 'Hage' },
   'lower level': { es: 'Planta inferior', fr: 'Niveau inférieur', de: 'Untergeschoss', ru: 'Нижний уровень', ar: 'المستوى السفلي', nl: 'Onderste niveau', pl: 'Poziom dolny', sv: 'Nedre plan', no: 'Nedre plan' },

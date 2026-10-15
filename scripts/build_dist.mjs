@@ -645,6 +645,8 @@ const assetFiles = [
   'assets/liora/nueva-shortlist.js',
   'assets/liora/nueva-signature.css',
   'assets/liora/nueva-signature.js',
+  'assets/liora/nueva-majolica.css',
+  'assets/liora/nueva-majolica.js',
   'assets/liora/nueva-location-map.css',
   'assets/liora/nueva-location-map.js',
   'assets/liora/liora-compare.css',
