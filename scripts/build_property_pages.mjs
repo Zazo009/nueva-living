@@ -40,6 +40,7 @@ import { realEstateAgentSchema, organizationId } from './lib/brand.mjs';
 const enT = (key, vars) => t(key, 'en', vars);
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { hasLiveLocationMap, renderLocationCard, leafletHead } from './lib/location_map.mjs';
+import { renderSignatureMain } from './lib/signature_page.mjs';
 
 const {
   DEFAULT_PROPERTY_WEBHOOK_URL,
@@ -63,6 +64,8 @@ const siteUrl = 'https://nuevaliving.com';
 const fontPreloadBlock = (p = '', locale = 'en') => `  <link rel="preload" href="${p}assets/fonts/google/8vIJ7ww63mVu7gt79mT7PkRXMw.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="${p}assets/fonts/google/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2" as="font" type="font/woff2" crossorigin>${locale === 'ar' ? `
   <link rel="preload" href="${p}assets/fonts/arabic/SLXVc1nY6HkvangtZmpQdkhzfH5lkSscQyyS4J0.woff2" as="font" type="font/woff2" crossorigin>` : ''}`;
+const signatureCssVersion = fileVersion('assets/liora/nueva-signature.css');
+const signatureJsVersion = fileVersion('assets/liora/nueva-signature.js');
 const propertyCssVersion = fileVersion('assets/liora/liora-property.css');
 const rtlCssVersion = existsSync('assets/liora/liora-rtl.css') ? fileVersion('assets/liora/liora-rtl.css') : '1';
 const propertyJsVersion = fileVersion('assets/liora/liora-property.js');
@@ -1721,10 +1724,60 @@ ${rows}
 `;
 }
 
+// The enquiry form, shared by the standard project page and the signature
+// template so the two cannot drift apart: same fields, same consent wording,
+// same hidden project context.
+function renderEnquiryForm(project, locale) {
+  return `<form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+
+          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - ${esc(project.name)}">
+
+          <input type="hidden" id="f-project" name="project" value="${esc(project.name)}">
+          <input type="hidden" name="preferred_area" value="${esc(project.hero?.location || '')}">
+          <input type="hidden" name="property_type_interest" value="${esc(project.hero?.type || '')}">
+          <input type="hidden" name="budget_range" value="${esc(project.hero?.startingPrice || '')}">
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-first-name">${t('form.firstName', locale)}</label>
+              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="${t('form.firstName', locale)}" required>
+            </div>
+            <div class="field">
+              <label for="f-last-name">${t('form.lastName', locale)}</label>
+              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="${t('form.lastName', locale)}" required>
+            </div>
+            <div class="field">
+              <label for="f-email">${t('form.email', locale)}</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
+            </div>
+            <div class="field">
+              <label for="f-phone">${t('form.phone', locale)}</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="${t('form.phonePlaceholder', locale)}">
+            </div>
+            <div class="field full">
+              <label for="f-msg">${t('form.message', locale)}</label>
+              <textarea id="f-msg" name="message">${esc(project.enquiry.message)}</textarea>
+            </div>
+            <label class="consent-row field full" for="f-consent">
+              <input id="f-consent" name="consent" type="checkbox" required>
+              <span>${t('form.consentContact', locale)}</span>
+            </label>
+            <label class="consent-row field full" for="f-marketing-opt-in">
+              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
+              <span>${t('form.consentMarketing', locale)}</span>
+            </label>
+          </div>
+          <div class="form-submit" style="margin-top:26px;">
+            <button type="submit" class="btn project-btn">${t('form.submitRequest', locale)}</button>
+            <span class="form-note">${esc(project.enquiry.note)}</span>
+          </div>
+        </form>`;
+}
+
 function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const project = localizeProject(sourceProject, locale);
   const rtl = isRtl(locale);
   const p = rootPrefix(locale);
+  const isSignature = sourceProject.template === 'signature';
   const heroImage = image(project, 'hero');
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
@@ -1739,7 +1792,13 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const liveLocationMap = hasLiveLocationMap(project.slug);
   const privateHeroCta = project.privateViewing?.heroCta || t('cta.cinematicPresentation', locale);
   const privateCta = project.privateViewing?.ctaLabel || t('cta.cinematicPresentation', locale);
-  const projectMedia = renderProjectMedia(project, locale);
+  // The signature template shows the film in its own section, so the gallery
+  // must not carry a second copy of it (two players would also fight over the
+  // one [data-project-video] hook the page script binds).
+  const projectMedia = renderProjectMedia(
+    isSignature ? { ...project, media: { ...project.media, video: undefined } } : project,
+    locale
+  );
   const constructionTimeline = renderConstructionTimeline(project, locale);
   const furniturePackagesSection = renderFurniturePackages(project, locale);
   const qualitySpecsSection = renderQualitySpecs(project, locale);
@@ -1879,65 +1938,22 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     ? (locale === DEFAULT_LOCALE ? project.canonical : project.canonical.replace('nuevaliving.com/', `nuevaliving.com/${localeMetaInfo.urlPrefix}/`))
     : '';
 
-  return `<!doctype html>
-<html lang="${localeMetaInfo.htmlLang}" dir="${localeMetaInfo.dir}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-${baseHrefTag(locale)}  <title>${esc(pageTitle)}</title>
-  <meta name="description" content="${esc(project.seoDescription || project.description)}">
-  <link rel="canonical" href="${esc(canonicalHref)}">
-${hreflangLinks(sourceProject.output, siteUrl)}
-  <meta property="og:title" content="${esc(pageTitle)}">
-  <meta property="og:description" content="${esc(project.description)}">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="${esc(canonicalHref)}">
-  <meta property="og:locale" content="${localeMetaInfo.ogLocale}">
-  <meta property="og:image" content="${esc(assetUrl(heroImage.src))}">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${esc(pageTitle)}">
-  <meta name="twitter:description" content="${esc(twitterDescription(project, sourceProject, locale))}">
-  <meta name="twitter:image" content="${esc(assetUrl(heroImage.src))}">
-  <link rel="icon" href="${p}assets/liora/liora-favicon-512.png?v=7" type="image/png" sizes="512x512">
-  <link rel="icon" href="${p}assets/liora/favicon-32.png?v=7" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="${p}assets/liora/apple-touch-icon.png?v=7" sizes="180x180">
-${fontPreloadBlock(p, locale)}
-  <link rel="stylesheet" href="${p}assets/fonts/google/liora-fonts.css">
-  <link rel="stylesheet" href="${p}assets/liora/liora-pages.css?v=9">
-  <link rel="stylesheet" href="${p}assets/liora/liora-property.css?v=${propertyCssVersion}">${rtl ? `
-  <link rel="stylesheet" href="${p}assets/liora/liora-rtl.css?v=${rtlCssVersion}">` : ''}${liveLocationMap ? `
-  <link rel="stylesheet" href="${p}assets/liora/nueva-location-map.css?v=${locationMapCssVersion}">
-${leafletHead()}
-  <script src="${p}assets/liora/nueva-location-map.js?v=${locationMapJsVersion}" defer></script>` : ''}
-  <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>
-  <script src="${p}assets/liora/liora-calculator.js?v=${calculatorJsVersion}" defer></script>
-  <script type="application/ld+json">
-${JSON.stringify(webPageSchema, null, 2)}
-  </script>
-  <script type="application/ld+json">
-${JSON.stringify(productSchema, null, 2)}
-  </script>
-  <script type="application/ld+json">
-${JSON.stringify(agentSchema, null, 2)}
-  </script>
-  <script type="application/ld+json">
-${JSON.stringify(faqSchema, null, 2)}
-  </script>
-  <script type="application/ld+json">
-${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
-  </script>
-</head>
-<body
-  data-locale="${locale}"
-  data-project-name="${esc(project.name)}"
-  data-project-message="${esc(project.enquiry.message)}"
-  data-project-sent-message="${esc(project.enquiry.sentMessage)}"
->
-  ${nav(project, locale)}
-  ${breadcrumb(project, locale)}
-
-  <main>
-    <section class="project-hero" id="top">
+  const signatureMain = isSignature
+    ? renderSignatureMain({
+      project,
+      sourceProject,
+      locale,
+      p,
+      faqs,
+      projectMedia,
+      privateHref,
+      helpers: {
+        esc, t, pictureTag, imageTag, actionLink, ghostAction,
+        whatsappHref, renderLocationCard, renderEnquiryForm, liveLocationMap
+      }
+    })
+    : '';
+  const standardMain = `    <section class="project-hero" id="top">
       ${pictureTag(heroImage, 'project-hero-img', '', { priority: true, sizes: '100vw' })}
       <div class="project-hero-inner">
         <div class="hero-copy reveal-soft">
@@ -2267,51 +2283,71 @@ ${renderAmenities(project, locale)}
           <h2 class="section-title">${project.enquiry.headlineHtml}</h2>
           <p class="body-copy">${esc(project.enquiry.copy)}</p>
         </div>
-        <form class="enquiry-card reveal-soft" id="projectForm" name="project-material-request" method="POST" data-crm-lead action="/.netlify/functions/nueva-lead"><input type="text" name="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-
-          <input type="hidden" name="subject" data-remove-prefix value="Nueva Living enquiry - ${esc(project.name)}">
-
-          <input type="hidden" id="f-project" name="project" value="${esc(project.name)}">
-          <input type="hidden" name="preferred_area" value="${esc(project.hero?.location || '')}">
-          <input type="hidden" name="property_type_interest" value="${esc(project.hero?.type || '')}">
-          <input type="hidden" name="budget_range" value="${esc(project.hero?.startingPrice || '')}">
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-first-name">${t('form.firstName', locale)}</label>
-              <input id="f-first-name" name="first_name" type="text" autocomplete="given-name" placeholder="${t('form.firstName', locale)}" required>
-            </div>
-            <div class="field">
-              <label for="f-last-name">${t('form.lastName', locale)}</label>
-              <input id="f-last-name" name="last_name" type="text" autocomplete="family-name" placeholder="${t('form.lastName', locale)}" required>
-            </div>
-            <div class="field">
-              <label for="f-email">${t('form.email', locale)}</label>
-              <input id="f-email" name="email" type="email" autocomplete="email" placeholder="your@email.com" required>
-            </div>
-            <div class="field">
-              <label for="f-phone">${t('form.phone', locale)}</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="${t('form.phonePlaceholder', locale)}">
-            </div>
-            <div class="field full">
-              <label for="f-msg">${t('form.message', locale)}</label>
-              <textarea id="f-msg" name="message">${esc(project.enquiry.message)}</textarea>
-            </div>
-            <label class="consent-row field full" for="f-consent">
-              <input id="f-consent" name="consent" type="checkbox" required>
-              <span>${t('form.consentContact', locale)}</span>
-            </label>
-            <label class="consent-row field full" for="f-marketing-opt-in">
-              <input id="f-marketing-opt-in" name="marketing_opt_in" type="checkbox">
-              <span>${t('form.consentMarketing', locale)}</span>
-            </label>
-          </div>
-          <div class="form-submit" style="margin-top:26px;">
-            <button type="submit" class="btn project-btn">${t('form.submitRequest', locale)}</button>
-            <span class="form-note">${esc(project.enquiry.note)}</span>
-          </div>
-        </form>
+        ${renderEnquiryForm(project, locale)}
       </div>
-    </section>
+    </section>`;
+
+  return `<!doctype html>
+<html lang="${localeMetaInfo.htmlLang}" dir="${localeMetaInfo.dir}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+${baseHrefTag(locale)}  <title>${esc(pageTitle)}</title>
+  <meta name="description" content="${esc(project.seoDescription || project.description)}">
+  <link rel="canonical" href="${esc(canonicalHref)}">
+${hreflangLinks(sourceProject.output, siteUrl)}
+  <meta property="og:title" content="${esc(pageTitle)}">
+  <meta property="og:description" content="${esc(project.description)}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${esc(canonicalHref)}">
+  <meta property="og:locale" content="${localeMetaInfo.ogLocale}">
+  <meta property="og:image" content="${esc(assetUrl(heroImage.src))}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(pageTitle)}">
+  <meta name="twitter:description" content="${esc(twitterDescription(project, sourceProject, locale))}">
+  <meta name="twitter:image" content="${esc(assetUrl(heroImage.src))}">
+  <link rel="icon" href="${p}assets/liora/liora-favicon-512.png?v=7" type="image/png" sizes="512x512">
+  <link rel="icon" href="${p}assets/liora/favicon-32.png?v=7" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="${p}assets/liora/apple-touch-icon.png?v=7" sizes="180x180">
+${fontPreloadBlock(p, locale)}
+  <link rel="stylesheet" href="${p}assets/fonts/google/liora-fonts.css">
+  <link rel="stylesheet" href="${p}assets/liora/liora-pages.css?v=9">
+  <link rel="stylesheet" href="${p}assets/liora/liora-property.css?v=${propertyCssVersion}">${rtl ? `
+  <link rel="stylesheet" href="${p}assets/liora/liora-rtl.css?v=${rtlCssVersion}">` : ''}${liveLocationMap ? `
+  <link rel="stylesheet" href="${p}assets/liora/nueva-location-map.css?v=${locationMapCssVersion}">
+${leafletHead()}
+  <script src="${p}assets/liora/nueva-location-map.js?v=${locationMapJsVersion}" defer></script>` : ''}
+  <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>${isSignature ? `
+  <link rel="stylesheet" href="${p}assets/liora/nueva-signature.css?v=${signatureCssVersion}">
+  <script src="${p}assets/liora/nueva-signature.js?v=${signatureJsVersion}" defer></script>` : ''}
+  <script src="${p}assets/liora/liora-calculator.js?v=${calculatorJsVersion}" defer></script>
+  <script type="application/ld+json">
+${JSON.stringify(webPageSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+${JSON.stringify(productSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+${JSON.stringify(agentSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+${JSON.stringify(faqSchema, null, 2)}
+  </script>
+  <script type="application/ld+json">
+${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
+  </script>
+</head>
+<body${isSignature ? ' class="signature-page"' : ''}
+  data-locale="${locale}"
+  data-project-name="${esc(project.name)}"
+  data-project-message="${esc(project.enquiry.message)}"
+  data-project-sent-message="${esc(project.enquiry.sentMessage)}"
+>
+  ${nav(project, locale)}
+  ${breadcrumb(project, locale)}
+
+  <main${isSignature ? ' class="signature-main"' : ''}>
+${isSignature ? signatureMain : standardMain}
   </main>
 
 ${projectMedia.dialog ? `  ${projectMedia.dialog}\n\n` : ''}  <div class="sticky-mobile-cta" aria-label="${t('aria.projectRequestActions', locale)}">

@@ -2744,8 +2744,11 @@ let blockingCssChecked = 0;
         // the page layout itself and block by design, so a stylesheet that is
         // not one of them has been added to the critical path and should
         // either join this list deliberately or be inlined.
+        // nueva-signature.css is the whole look of a signature project page (its
+        // hero, its palette, its type); unstyled for a frame, that page is a
+        // different page, so it blocks like the project stylesheet does.
         const BLOCKING_BY_DESIGN = ['liora-pages.css', 'liora-property.css',
-          'nueva-location-map.css', 'liora-rtl.css', 'liora-compare.css'];
+          'nueva-location-map.css', 'liora-rtl.css', 'liora-compare.css', 'nueva-signature.css'];
         const name = href.split('?')[0].split('/').pop();
         if (name && !BLOCKING_BY_DESIGN.includes(name)) {
           firstPartyOffenders.push(`${path.relative(dist, full)}: ${name}`);

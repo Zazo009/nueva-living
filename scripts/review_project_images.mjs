@@ -53,7 +53,9 @@ for (const current of slugs) {
     process.exit(1);
   }
   const project = JSON.parse(fs.readFileSync(file, 'utf8'));
-  const names = [project.crm?.realName, project.crm?.realDeveloper].filter(Boolean);
+  // A project published under its own name (La Morelia, Armani Residences Marbella) has no
+  // secret to protect: its name on a sign is the name on the page.
+  const names = [project.crm?.realName, project.crm?.realDeveloper].filter((name) => name && name !== project.name && name !== project.shortName);
   const unreviewed = [];
 
   for (const rel of projectImagePaths(project)) {

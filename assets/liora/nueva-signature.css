@@ -1,0 +1,995 @@
+/* The signature project template (scripts/lib/signature_page.mjs).
+   One long editorial page with its own palette and type, so a project sold on
+   a name does not read like the apartment pages around it. Colours are the
+   olive, charcoal and ivory of the developer's own brochure. Logical
+   properties throughout, so the Arabic page mirrors without a second rule set. */
+
+.signature-page {
+  --sig-ink: #26261f;
+  --sig-charcoal: #2a2a28;
+  --sig-olive: #6b6a47;
+  --sig-olive-deep: #4d4c33;
+  --sig-ivory: #f5f2ea;
+  --sig-greige: #ddd4bd;
+  --sig-gold: #c2aa72;
+  --sig-gold-ink: #7a6736;
+  --sig-line: rgba(38, 38, 31, 0.16);
+  --sig-line-light: rgba(245, 242, 234, 0.22);
+  --sig-serif: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --sig-sans: "Montserrat", system-ui, sans-serif;
+  --sig-pad: clamp(20px, 5vw, 64px);
+  background: var(--sig-ivory);
+}
+
+.signature-page .signature-main {
+  color: var(--sig-ink);
+  background: var(--sig-ivory);
+  overflow-x: clip;
+}
+
+.sig-wrap {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--sig-pad);
+}
+
+.sig-section {
+  position: relative;
+  padding-block: clamp(72px, 11vw, 150px);
+}
+
+.sig-kicker {
+  display: block;
+  margin-block-end: 22px;
+  font: 500 11px/1.4 var(--sig-sans);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sig-gold-ink);
+}
+
+.sig-kicker::before {
+  content: "";
+  display: inline-block;
+  inline-size: 38px;
+  block-size: 1px;
+  margin-inline-end: 14px;
+  vertical-align: middle;
+  background: currentColor;
+}
+
+.signature-main h2 {
+  margin: 0 0 24px;
+  font: 400 clamp(34px, 4.6vw, 68px)/1.06 var(--sig-serif);
+  letter-spacing: 0.005em;
+  text-transform: none;
+}
+
+.signature-main h2 em {
+  font-style: italic;
+  color: inherit;
+  opacity: 0.82;
+}
+
+.signature-main h1,
+.signature-main h2,
+.signature-main h3 {
+  color: inherit;
+}
+
+.signature-main h3 {
+  margin: 0 0 12px;
+  font: 400 clamp(22px, 2vw, 28px)/1.2 var(--sig-serif);
+}
+
+.signature-main p {
+  font: 300 15px/1.85 var(--sig-sans);
+  letter-spacing: 0.01em;
+  margin: 0 0 18px;
+  color: inherit;
+}
+
+.sig-head {
+  max-inline-size: 760px;
+  margin-block-end: clamp(40px, 6vw, 80px);
+}
+
+.sig-head > p {
+  max-inline-size: 640px;
+}
+
+.sig-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+}
+
+.sig-note {
+  margin-block-start: 28px;
+  font: 400 12px/1.7 var(--sig-sans);
+  letter-spacing: 0.03em;
+  opacity: 0.72;
+  max-inline-size: 720px;
+}
+
+.signature-main picture,
+.signature-main picture img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.signature-main picture img {
+  object-fit: cover;
+}
+
+/* ---------- Hero ---------- */
+
+.sig-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-block-size: min(100svh, 1000px);
+  color: var(--sig-ivory);
+  /* The olive-to-black wash of the developer's own site: light at the top left,
+     closing to near black at the foot. */
+  background: radial-gradient(130% 100% at 12% 0%, #7b7a52 0%, #4e4d33 42%, #1c1c12 100%);
+  isolation: isolate;
+}
+
+.sig-hero-media,
+.sig-hero-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.sig-hero-media {
+  inset-inline-start: 34%;
+}
+
+.sig-hero-media picture,
+.sig-hero-media img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.sig-hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #4a4930 0%, rgba(74, 73, 48, 0.62) 28%, rgba(28, 28, 18, 0) 72%);
+}
+
+[dir="rtl"] .sig-hero-media::after {
+  background: linear-gradient(270deg, #4a4930 0%, rgba(74, 73, 48, 0.62) 28%, rgba(28, 28, 18, 0) 72%);
+}
+
+.sig-hero-shade {
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(28, 28, 18, 0.35) 0%, rgba(28, 28, 18, 0) 30%, rgba(28, 28, 18, 0.88) 100%);
+}
+
+.sig-hero-inner {
+  padding-block: clamp(120px, 20vh, 220px) clamp(28px, 4vw, 48px);
+}
+
+.sig-eyebrow {
+  margin: 0 0 clamp(18px, 3vw, 34px) !important;
+  font: 500 11px/1.5 var(--sig-sans) !important;
+  letter-spacing: 0.34em !important;
+  text-transform: uppercase;
+  color: var(--sig-gold);
+}
+
+/* The lockup as the brochure sets it: the logotype, and under it, centred and
+   at about four fifths of its width, "Residences Marbella" in a light
+   grotesque, lower case, no letter-spacing. */
+.signature-main .sig-title {
+  --mark-w: clamp(250px, 56vw, 780px);
+  display: inline-grid;
+  justify-items: center;
+  gap: calc(var(--mark-w) * 0.07);
+  margin: 0;
+  font-weight: 300;
+  line-height: 1;
+  text-transform: none;
+  color: var(--sig-ivory);
+}
+
+.sig-mark {
+  display: block;
+  inline-size: var(--mark-w);
+  block-size: auto;
+  fill: currentColor;
+}
+
+.sig-title-sub {
+  display: block;
+  font: 300 calc(var(--mark-w) * 0.093)/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.sig-vh {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.signature-main .sig-lead {
+  max-inline-size: 560px;
+  margin: clamp(22px, 3vw, 38px) 0 0;
+  font: 300 clamp(17px, 1.6vw, 21px)/1.6 var(--sig-serif);
+  letter-spacing: 0.01em;
+  color: rgba(245, 242, 234, 0.92);
+}
+
+.sig-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-block-start: clamp(26px, 3vw, 40px);
+}
+
+.signature-main .sig-hero-actions .btn {
+  border-radius: 0;
+  letter-spacing: 0.18em;
+}
+
+.sig-hero-facts {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  margin-block: clamp(24px, 4vw, 56px) 0;
+  padding-block: 22px;
+  list-style: none;
+  border-block-start: 1px solid var(--sig-line-light);
+}
+
+.sig-hero-facts li {
+  padding-inline-end: 16px;
+}
+
+.sig-hero-facts strong {
+  display: block;
+  font: 400 clamp(22px, 2.6vw, 38px)/1.1 var(--sig-serif);
+}
+
+.sig-hero-facts span {
+  display: block;
+  margin-block-start: 6px;
+  font: 400 10px/1.4 var(--sig-sans);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 234, 0.72);
+}
+
+/* ---------- Chapter navigation ---------- */
+
+.sig-chapters {
+  position: sticky;
+  top: var(--nueva-header-h, 76px);
+  z-index: 120;
+  background: rgba(28, 28, 18, 0.94);
+  backdrop-filter: blur(10px);
+  border-block-end: 1px solid rgba(194, 170, 114, 0.28);
+  color: var(--sig-ivory);
+}
+
+.sig-chapters-inner {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+  padding-block: 10px;
+}
+
+.sig-brand {
+  flex: none;
+  display: grid;
+  gap: 3px;
+  text-decoration: none;
+  color: var(--sig-ivory);
+  text-align: center;
+}
+
+.sig-brand .sig-mark {
+  inline-size: 112px;
+}
+
+.sig-brand small {
+  font: 300 10px/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(245, 242, 234, 0.85);
+}
+
+.sig-chapter-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: clamp(14px, 2.2vw, 34px);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sig-chapter-links a {
+  flex: none;
+  padding-block: 12px;
+  font: 500 10.5px/1 var(--sig-sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(245, 242, 234, 0.7);
+  border-block-end: 1px solid transparent;
+  transition: color 0.25s, border-color 0.25s;
+}
+
+.sig-chapter-links a i {
+  margin-inline-end: 8px;
+  font-style: normal;
+  color: var(--sig-gold);
+}
+
+.sig-chapter-links a:hover,
+.sig-chapter-links a.is-active {
+  color: var(--sig-ivory);
+  border-color: var(--sig-gold);
+}
+
+.signature-main .sig-bar-cta {
+  flex: none;
+  padding: 11px 18px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  border-radius: 0;
+}
+
+/* ---------- The site's own header and breadcrumb, in the project's colours ---------- */
+
+.signature-page .site-nav {
+  background: #1c1c12;
+  border-block-end: 1px solid rgba(194, 170, 114, 0.25);
+}
+
+.signature-page .breadcrumb-bar {
+  background: #25251a;
+  border-block-end: 1px solid rgba(194, 170, 114, 0.16);
+}
+
+.signature-page .breadcrumb-list,
+.signature-page .breadcrumb-list a,
+.signature-page .breadcrumb-list span {
+  color: rgba(245, 242, 234, 0.74);
+}
+
+/* ---------- Chapter numerals: the brochure's divider pages, as a ghost behind each section ---------- */
+
+.sig-section[data-no]::before {
+  content: attr(data-no);
+  position: absolute;
+  inset-block-start: clamp(10px, 3vw, 44px);
+  inset-inline-end: var(--sig-pad);
+  font: 300 clamp(110px, 21vw, 330px)/0.8 var(--sig-serif);
+  color: currentColor;
+  opacity: 0.055;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sig-section[data-no] > .sig-wrap { position: relative; z-index: 1; }
+
+/* ---------- Concept ---------- */
+
+.sig-concept-figure {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+.sig-quote {
+  margin: 0 0 34px;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+.sig-quote::before,
+.sig-quote::after { content: none; }
+
+.sig-quote footer { background: none; padding: 0; }
+
+.sig-quote p {
+  margin: 0;
+  font: 300 clamp(32px, 4vw, 58px)/1.12 var(--sig-serif);
+  font-style: italic;
+}
+
+.sig-quote p::before { content: "\201C"; }
+.sig-quote p::after { content: "\201D"; }
+
+.sig-quote footer {
+  margin-block-start: 18px;
+  font: 400 11px/1.6 var(--sig-sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sig-gold-ink);
+}
+
+/* ---------- Film ---------- */
+
+.sig-film-section {
+  background: var(--sig-charcoal);
+  color: var(--sig-ivory);
+}
+
+.sig-film-section .sig-kicker { color: var(--sig-gold); }
+
+.sig-film {
+  margin: 0;
+  max-inline-size: 1040px;
+  margin-inline: auto;
+}
+
+.sig-film-frame {
+  position: relative;
+  aspect-ratio: 832 / 464;
+  background: #1a1a17;
+  overflow: hidden;
+}
+
+.sig-film-frame video {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sig-film-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border: 0;
+  background: linear-gradient(0deg, rgba(20, 20, 14, 0.45), rgba(20, 20, 14, 0.1));
+  color: var(--sig-ivory);
+  cursor: pointer;
+  font: 500 11px/1 var(--sig-sans);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.sig-film-play span {
+  inline-size: 72px;
+  block-size: 72px;
+  border: 1px solid var(--sig-ivory);
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.sig-film-play span::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 52%;
+  transform: translate(-50%, -50%);
+  border-inline-start: 16px solid var(--sig-ivory);
+  border-block: 10px solid transparent;
+}
+
+.sig-film-play em { font-style: normal; }
+.sig-film-play:hover span { transform: scale(1.08); }
+.sig-film.is-playing .sig-film-play,
+.sig-film.is-loading .sig-film-play em { display: none; }
+
+.sig-film figcaption {
+  display: grid;
+  gap: 6px;
+  margin-block-start: 18px;
+  font: 300 13px/1.7 var(--sig-sans);
+  color: rgba(245, 242, 234, 0.78);
+}
+
+.sig-film figcaption strong {
+  font: 400 22px/1.2 var(--sig-serif);
+  color: var(--sig-ivory);
+}
+
+/* ---------- Masterplan ---------- */
+
+.sig-masterplan {
+  color: var(--sig-ivory);
+  background: var(--sig-olive-deep);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sig-masterplan-media,
+.sig-masterplan-shade,
+.sig-wellness-media,
+.sig-wellness-shade {
+  position: absolute;
+  inset: -8% 0;
+  z-index: -2;
+}
+
+.sig-masterplan-shade,
+.sig-wellness-shade {
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(30, 30, 20, 0.78), rgba(30, 30, 20, 0.62) 50%, rgba(30, 30, 20, 0.86));
+}
+
+.sig-masterplan .sig-kicker,
+.sig-wellness .sig-kicker { color: var(--sig-gold); }
+
+.sig-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-block: 1px solid var(--sig-line-light);
+  margin-block-end: 38px;
+}
+
+.sig-stat {
+  padding-block: 30px;
+  padding-inline-end: 12px;
+}
+
+.sig-stat strong {
+  display: block;
+  font: 300 clamp(40px, 5.4vw, 84px)/1 var(--sig-serif);
+}
+
+.sig-stat span {
+  display: block;
+  margin-block-start: 10px;
+  font: 400 11px/1.4 var(--sig-sans);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 234, 0.78);
+}
+
+.sig-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 14px 22px;
+}
+
+.sig-chips > span {
+  font: 500 11px/1 var(--sig-sans);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--sig-gold);
+}
+
+.sig-chips ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sig-chips li {
+  padding: 9px 16px;
+  border: 1px solid var(--sig-line-light);
+  font: 300 13px/1 var(--sig-sans);
+  letter-spacing: 0.06em;
+}
+
+/* ---------- Residences ---------- */
+
+.sig-residences { background: var(--sig-greige); }
+
+.sig-types {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 28px);
+}
+
+.sig-type {
+  padding: clamp(24px, 3vw, 40px);
+  background: var(--sig-ivory);
+}
+
+.sig-type header {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-block-end: 28px;
+  padding-block-end: 22px;
+  border-block-end: 1px solid var(--sig-line);
+}
+
+.sig-type-index {
+  font: 300 clamp(54px, 6vw, 92px)/0.9 var(--sig-serif);
+  color: var(--sig-gold-ink);
+}
+
+.signature-main .sig-type h3 { margin: 0; font-size: clamp(24px, 2.4vw, 34px); }
+
+.sig-type-facts { margin: 0; display: grid; gap: 22px; }
+.sig-type-facts div { display: grid; gap: 6px; }
+
+.sig-type-facts dt {
+  font: 500 10px/1.4 var(--sig-sans);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--sig-gold-ink);
+}
+
+.sig-type-facts dd {
+  margin: 0;
+  font: 400 clamp(22px, 2vw, 30px)/1.2 var(--sig-serif);
+}
+
+.sig-bar {
+  position: relative;
+  display: block;
+  block-size: 6px;
+  margin-block-start: 4px;
+  background: rgba(38, 38, 31, 0.1);
+}
+
+.sig-bar i {
+  position: absolute;
+  inset-block: 0;
+  background: var(--sig-olive);
+  transform-origin: left center;
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[dir="rtl"] .sig-bar i { transform-origin: right center; }
+.js-sig [data-sig-appear]:not(.is-in) .sig-bar i { transform: scaleX(0); }
+
+/* ---------- Sales ---------- */
+
+.sig-sales {
+  background: var(--sig-olive);
+  color: var(--sig-ivory);
+}
+
+.sig-sales .sig-kicker { color: var(--sig-gold); }
+.sig-sales-copy { max-inline-size: 520px; }
+
+.sig-dots {
+  display: flex;
+  gap: 10px;
+  margin-block-start: 34px;
+}
+
+.sig-dots i {
+  inline-size: clamp(16px, 2.2vw, 28px);
+  aspect-ratio: 1;
+  border: 1px solid var(--sig-ivory);
+  border-radius: 50%;
+}
+
+.sig-dots i.is-sold { background: var(--sig-gold); border-color: var(--sig-gold); }
+
+.sig-sales-rows { margin: 0 0 24px; }
+
+.sig-sales-rows > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  padding-block: 18px;
+  border-block-end: 1px solid var(--sig-line-light);
+}
+
+.sig-sales-rows dt {
+  font: 500 11px/1.4 var(--sig-sans);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 234, 0.78);
+}
+
+.sig-sales-rows dd {
+  margin: 0;
+  font: 400 clamp(22px, 2.4vw, 34px)/1.1 var(--sig-serif);
+  text-align: end;
+}
+
+.sig-sales .sig-note { opacity: 0.85; }
+
+.sig-sales-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: 28px; }
+.signature-main .sig-sales-actions .btn { border-radius: 0; letter-spacing: 0.16em; }
+
+/* ---------- Interiors ---------- */
+
+.sig-interiors {
+  background: var(--sig-charcoal);
+  color: var(--sig-ivory);
+}
+
+.sig-interiors .sig-kicker { color: var(--sig-gold); }
+
+.sig-interiors-lead {
+  margin: 0;
+  aspect-ratio: 7 / 5;
+  overflow: hidden;
+}
+
+.sig-interiors-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: clamp(12px, 1.6vw, 22px);
+  margin-block-start: clamp(12px, 1.6vw, 22px);
+}
+
+.sig-interiors-grid figure { margin: 0; overflow: hidden; aspect-ratio: 4 / 5; }
+.sig-interiors-grid figure:first-child { aspect-ratio: auto; }
+
+.sig-materials {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 34px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sig-materials i {
+  display: block;
+  aspect-ratio: 1;
+  margin-block-end: 10px;
+  border: 1px solid var(--sig-line-light);
+}
+
+.sig-materials li[data-material="0"] i { background: #d9cfb8; }
+.sig-materials li[data-material="1"] i { background: #8c6d4a; }
+.sig-materials li[data-material="2"] i { background: #5a4435; }
+.sig-materials li[data-material="3"] i { background: #c9bd9c; }
+
+.sig-materials span {
+  font: 400 10px/1.4 var(--sig-sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 242, 234, 0.78);
+}
+
+.sig-pull {
+  max-inline-size: 860px;
+  margin: clamp(48px, 7vw, 96px) auto 0 !important;
+  text-align: center;
+  font: 300 clamp(24px, 3vw, 40px)/1.3 var(--sig-serif) !important;
+  font-style: italic;
+  color: var(--sig-greige);
+}
+
+/* ---------- Wellness ---------- */
+
+.sig-wellness {
+  padding-block: 0 clamp(72px, 10vw, 140px);
+  background: var(--sig-ivory);
+}
+
+.sig-wellness-hero {
+  position: relative;
+  min-block-size: clamp(480px, 78vh, 780px);
+  display: flex;
+  align-items: flex-end;
+  color: var(--sig-ivory);
+  overflow: hidden;
+  isolation: isolate;
+  margin-block-end: clamp(48px, 7vw, 96px);
+}
+
+.sig-wellness-copy { padding-block: 0 clamp(40px, 6vw, 80px); }
+.sig-wellness-copy p { max-inline-size: 560px; }
+
+.sig-spa-figure {
+  display: inline-block;
+  margin-block-start: 8px;
+  padding-block-start: 14px;
+  border-block-start: 1px solid var(--sig-line-light);
+  font: 300 clamp(22px, 2.6vw, 36px)/1.2 var(--sig-serif);
+  font-style: italic;
+}
+
+.sig-wellness-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(28px, 4vw, 56px) clamp(24px, 3vw, 48px);
+}
+
+.sig-wellness-grid article {
+  padding-block-start: 22px;
+  border-block-start: 1px solid var(--sig-line);
+}
+
+.sig-strip {
+  display: flex;
+  gap: 14px;
+  margin-block-start: clamp(48px, 6vw, 80px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.sig-strip figure {
+  flex: 0 0 min(420px, 70vw);
+  margin: 0;
+  aspect-ratio: 3 / 2;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+/* ---------- Team ---------- */
+
+.sig-team {
+  background: var(--sig-charcoal);
+  color: var(--sig-ivory);
+}
+
+.sig-team .sig-kicker { color: var(--sig-gold); }
+
+.sig-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 44px);
+}
+
+.sig-team-grid article {
+  padding-block-start: 26px;
+  border-block-start: 1px solid var(--sig-line-light);
+}
+
+.sig-team-grid article > span {
+  font: 500 10px/1.4 var(--sig-sans);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--sig-gold);
+}
+
+.sig-team-grid h3 { margin-block: 14px 14px; font-size: clamp(24px, 2.4vw, 32px); }
+.sig-team-grid p { color: rgba(245, 242, 234, 0.82); }
+
+/* ---------- Setting ---------- */
+
+.sig-distances {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sig-distances li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+  padding-block: 15px;
+  border-block-end: 1px solid var(--sig-line);
+  font: 300 14px/1.5 var(--sig-sans);
+}
+
+.sig-distances strong {
+  font: 400 19px/1.3 var(--sig-serif);
+  text-align: end;
+}
+
+.sig-map { margin-block-start: clamp(36px, 5vw, 64px); }
+.sig-setting-aerial { margin: clamp(36px, 5vw, 64px) 0 0; aspect-ratio: 21 / 9; overflow: hidden; }
+
+/* ---------- Gallery, FAQ, enquiry ---------- */
+
+.sig-gallery { background: var(--sig-greige); }
+.sig-faq { background: var(--sig-ivory); }
+.sig-faq-wrap { max-inline-size: 960px; }
+
+.sig-enquire {
+  background: var(--sig-olive-deep);
+  color: var(--sig-ivory);
+}
+
+.sig-enquire .sig-kicker { color: var(--sig-gold); }
+
+.sig-enquire-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+
+.sig-enquire-head { margin: 0; }
+.sig-enquire .enquiry-card { background: var(--sig-ivory); color: var(--sig-ink); border-radius: 0; }
+.signature-main .sig-enquire .btn { border-radius: 0; }
+
+.sig-fine {
+  padding-block: 34px 56px;
+  background: var(--sig-ivory);
+}
+
+.sig-fine p {
+  max-inline-size: 900px;
+  font: 300 11.5px/1.7 var(--sig-sans);
+  opacity: 0.68;
+}
+
+/* ---------- Reveal ---------- */
+
+.js-sig [data-sig-appear] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.js-sig [data-sig-appear].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-sig [data-sig-appear] { opacity: 1; transform: none; transition: none; }
+  .sig-bar i { transition: none; }
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 980px) {
+  .sig-chapter-links { display: none; }
+  .sig-chapters-inner { justify-content: space-between; gap: 14px; }
+  .signature-main .sig-bar-cta {
+    flex: 1 1 0;
+    min-inline-size: 0;
+    max-inline-size: 320px;
+    margin-inline-start: auto;
+    padding: 10px 14px;
+    line-height: 1.3;
+    text-align: center;
+    white-space: normal;
+  }
+  .sig-hero-media { inset-inline-start: 0; }
+  .sig-hero-media::after { background: linear-gradient(180deg, rgba(28, 28, 18, 0.45), rgba(28, 28, 18, 0.7)); }
+  .sig-split,
+  .sig-enquire-wrap { grid-template-columns: minmax(0, 1fr); }
+  .sig-types,
+  .sig-team-grid,
+  .sig-wellness-grid { grid-template-columns: minmax(0, 1fr); }
+  .sig-hero-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 20px; }
+  .sig-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sig-interiors-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .sig-interiors-grid figure:first-child { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
+  .sig-concept-figure { aspect-ratio: 4 / 3; }
+}
+
+@media (max-width: 560px) {
+  .sig-brand .sig-mark { inline-size: 92px; }
+  .sig-brand small { font-size: 8.5px; }
+  .signature-main .sig-bar-cta { font-size: 9px; letter-spacing: 0.1em; padding: 9px 10px; }
+  .sig-hero-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sig-materials { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sig-setting-aerial { aspect-ratio: 4 / 3; }
+  .sig-hero-actions .btn { inline-size: 100%; text-align: center; }
+}
+
+/* Ghost buttons take the colour of the band they sit in. */
+.signature-main .btn.ghost {
+  background: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+  border-radius: 0;
+  letter-spacing: 0.16em;
+}
+
+.signature-main .btn.ghost:hover { background: rgba(245, 242, 234, 0.12); }
+.sig-concept .btn.ghost,
+.sig-residences .btn.ghost,
+.sig-setting .btn.ghost,
+.sig-faq .btn.ghost { color: var(--sig-ink); }
+.sig-concept .btn.ghost:hover,
+.sig-residences .btn.ghost:hover { background: rgba(38, 38, 31, 0.06); }
