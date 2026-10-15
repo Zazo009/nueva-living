@@ -1,4 +1,5 @@
 const { hashedUserData, sendMetaEvent } = require('./lib/meta-capi');
+const { spamReason } = require('./lib/lead-spam');
 
 const DEFAULT_CRM_WEBHOOK_URL = 'https://marbella-crm.vercel.app/api/webhook/liora';
 const DEFAULT_ALLOWED_ORIGINS = [
@@ -317,6 +318,25 @@ exports.handler = async (event) => {
   // and there is nothing in a newsletter signup worth recovering.
   if (cleanString(lead.website)) {
     return response(200, { ok: true, success: true }, origin);
+  }
+
+  // Content the form never produces from a person: a link in a name, an
+  // at-sign in a name, a name hundreds of characters long, a message that is
+  // mostly links. Dropped with a fake success so the sender learns nothing,
+  // and logged with the fields that tripped it so a false positive can be read
+  // back from the function log and the enquiry recovered by hand.
+  const spam = spamReason(lead);
+  if (spam) {
+    console.warn('Lead dropped as spam', {
+      reason: spam,
+      first_name: cleanString(lead.first_name).slice(0, 120),
+      last_name: cleanString(lead.last_name).slice(0, 120),
+      email: cleanString(lead.email).slice(0, 120),
+      source_page: sourcePath(lead, event),
+    });
+    return browserFormSubmission
+      ? successResponse({}, origin, true, refererLocalePrefix(event))
+      : response(200, { ok: true, success: true }, origin);
   }
 
   const payload = crmPayload(lead, event);
