@@ -65,6 +65,7 @@
      than the coast, and a clamp would fight the fit that frames the pins. */
   var BOUNDS = [[36.00, -5.75], [37.15, -3.80]];
   var FALLBACK_VIEW = [36.5, -4.95];
+  var NAMED_DISTRICTS = ['Nueva Andalucía', 'Cancelada'];
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var phone = window.matchMedia('(max-width: 640px)');
@@ -238,6 +239,28 @@
           var detail = f.props.kind_detail;
           if (detail === 'city' || detail === 'town') return true;
           return detail === 'village' ? z >= 11 : z >= 13;
+        }
+      },
+      {
+        /* Two districts the buyers ask about by name. The archive has them as
+           neighbourhoods, which the rule above does not draw (a few hundred of
+           them would bury the pins), so they are let through by name. The tiles
+           carry them from zoom 12. */
+        dataLayer: 'places',
+        minzoom: 12,
+        /* The projects sit on these districts, so a label centred on the point is
+           painted over by the pin. It is set above the point instead (below, it lost
+           to the village labels around Nueva Andalucía), about its own width to the
+           left, so it ends at the pin and the pins beside it do not cover it. */
+        symbolizer: new P.OffsetTextSymbolizer({
+          labelProps: names, fill: PALETTE.placeLabel, stroke: PALETTE.placeHalo, width: 2.5,
+          fontFamily: family, fontWeight: 500, fontStyle: 'italic', letterSpacing: 1,
+          fontSize: ramp([[12, 11.5], [15, 14]]),
+          offsetX: function (z, f) { return -(String(f.props.name || '').length * 6.4); },
+          offsetY: -30
+        }),
+        filter: function (z, f) {
+          return f.props.kind === 'neighbourhood' && NAMED_DISTRICTS.indexOf(f.props.name) >= 0;
         }
       },
       {
