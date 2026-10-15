@@ -191,14 +191,14 @@ const basePageMeta = {
     // duplicate it in the built output.
   },
   'guide-purchase-costs-andalucia.html': {
-    title: 'New-Build Purchase Costs in Andalucia (2026 Guide)',
+    title: 'Buying a New-Build in Andalucia: Taxes and Costs (2026)',
     description: 'New-build in Andalucia in 2026: IVA at 10%, AJD at 1.2%, plus notary, land registry and legal fees, and the reduced stamp-duty rates that can apply.',
     path: '/guide-purchase-costs-andalucia.html',
     type: 'article'
   },
   'guide-bank-guarantee-off-plan-spain.html': {
-    title: 'Bank Guarantees on Off-Plan Property in Spain (2026)',
-    description: 'How Spanish law protects off-plan deposits: the segregated account, the aval or seguro de caucion, and why cover starts at the building licence.',
+    title: 'Buying Off-Plan in Spain: Deposit Risks and Bank Guarantees',
+    description: 'The risks of paying a deposit off-plan in Spain: the segregated account, the aval or seguro de caucion, and why cover starts at the building licence.',
     path: '/guide-bank-guarantee-off-plan-spain.html',
     type: 'article'
   },
@@ -209,7 +209,7 @@ const basePageMeta = {
     type: 'article'
   },
   'guide-off-plan-payment-schedules.html': {
-    title: 'Off-Plan Payment Schedules on the Costa del Sol (2026)',
+    title: 'Off-Plan Payment Plans on the Costa del Sol: Real Schedules',
     description: 'Real staged payment schedules from Costa del Sol developers: reservation fees, the 30% contract stage, construction milestones and the balance at deed.',
     path: '/guide-off-plan-payment-schedules.html',
     type: 'article'
@@ -221,8 +221,8 @@ const basePageMeta = {
     type: 'article'
   },
   'guide-buying-from-abroad-spain.html': {
-    title: 'Buying in Spain from Abroad: NIE and Power of Attorney',
-    description: 'What a Costa del Sol purchase needs you present for: when the NIE is required, what a power of attorney covers, proof of funds, and how the money reaches the developer.',
+    title: 'Buying Spanish Property from Abroad: NIE, Power of Attorney',
+    description: 'Buying Spanish property from abroad: when the NIE is required, what a power of attorney covers, proof of funds and how the money reaches the developer.',
     path: '/guide-buying-from-abroad-spain.html',
     type: 'article'
   },
@@ -307,8 +307,8 @@ const basePageMeta = {
     // no other language.
   },
   'guide-how-buying-works.html': {
-    title: 'How to Buy a New-Build in Spain: 7 Steps (2026 Guide)',
-    description: 'The seven steps to buying a new-build on the Costa del Sol in 2026: reservation, private contract, bank guarantee, legal checks, completion and handover.',
+    title: 'How to Buy Off-Plan or a New-Build in Spain: 7 Steps (2026)',
+    description: 'The seven steps to buying an off-plan or new-build home on the Costa del Sol: reservation, private contract, bank guarantee, legal checks and handover.',
     path: '/guide-how-buying-works.html',
     type: 'article',
     // The FAQ schema for this page is derived from the FAQ it actually
@@ -318,7 +318,7 @@ const basePageMeta = {
     // no other language.
   },
   'guide-off-plan-vs-resale.html': {
-    title: 'Off-Plan vs Resale on the Costa del Sol: 2026 Guide',
+    title: 'Off-Plan vs Resale Property on the Costa del Sol (2026)',
     description: 'Off-plan vs resale on the Costa del Sol in 2026: price, payment structure, bank guarantees, LOE warranty, timelines and which one suits your plan.',
     path: '/guide-off-plan-vs-resale.html',
     type: 'article'

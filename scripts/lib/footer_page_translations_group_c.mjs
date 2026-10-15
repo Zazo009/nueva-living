@@ -13,15 +13,16 @@ export const FOOTER_PAGE_ENTRIES_GROUP_C = [
   {
     find: "Off-Plan vs Resale",
     es: "Obra nueva sobre plano vs. reventa",
-    fr: "Vente sur plan vs revente",
-    de: "Vom Plan vs. Wiederverkauf",
-    ru: "На стадии проекта или вторичное жильё",
+    fr: 'Sur plan ou revente',
+    de: 'Neubau oder Bestandsimmobilie',
+    ru: 'Новостройка или вторичное жильё',
     ar: "الشراء على المخطط مقابل إعادة البيع",
-    nl: "Op plan versus doorverkoop",
-    pl: "Zakup na etapie planu a rynek wtórny",
-    sv: "Köp på ritning mot begagnat",
-    no: "Kjøp på tegning vs bruktbolig"
+    nl: 'Nieuwbouw of bestaande bouw',
+    pl: 'Rynek pierwotny czy wtórny',
+    sv: 'Nyproduktion eller begagnad bostad',
+    no: 'Nybygg eller bruktbolig'
   },
+  { find: 'Off-Plan vs Resale Property on the Costa del Sol (2026)', es: 'Sobre plano o segunda mano en la Costa del Sol', fr: 'Achat sur plan ou revente : Costa del Sol', de: 'Neubau oder Bestandsimmobilie: Costa del Sol', ru: 'Новостройка или вторичное жильё в Испании', ar: 'الشراء على المخطط مقابل إعادة البيع', nl: 'Nieuwbouw of bestaande bouw: Costa del Sol', pl: 'Rynek pierwotny czy wtórny na Costa del Sol', sv: 'Nyproduktion eller begagnad bostad: skillnader', no: 'Nybygg eller bruktbolig på Costa del Sol' },
   {
     find: "Off-plan vs resale: <em>which fits your plan</em>",
     es: "Sobre plano o reventa: <em>cuál se ajusta a su plan</em>",

@@ -777,8 +777,8 @@ function guideCard(segment) {
 function renderGuidesPage(locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
-  const title = 'Costa del Sol Buying Guides | Nueva Living';
-  const description = 'Compare new-build apartments and penthouses by area across the Costa del Sol, with real prices, availability and local buying guidance from Nueva Living.';
+  const title = 'Buying a New-Build in Spain: Costa del Sol Guides | Nueva Living';
+  const description = 'How buying a new-build on the Costa del Sol actually works: the seven steps, off-plan vs resale, purchase costs in Andalucia and non-resident mortgages.';
   const schema = [
     organizationSchema(siteUrl, {
       description: t('org.description', locale),

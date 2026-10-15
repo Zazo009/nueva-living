@@ -43,7 +43,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ru: 'Новостройка в Андалусии в 2026 году: IVA 10%, AJD 1,2%, плюс нотариус, регистрация права собственности и юридические услуги, а также пониженные ставки гербового сбора.',
     ar: 'العقارات الجديدة في الأندلس في 2026: ضريبة IVA بنسبة 10%، وAJD بنسبة 1.2%، إضافة إلى أتعاب التوثيق والسجل العقاري والمحاماة، والنسب المخفّضة التي قد تنطبق.',
     nl: 'Nieuwbouw in Andalusië in 2026: 10% IVA, 1,2% AJD, plus notaris, kadaster en juridische kosten, en de verlaagde AJD-tarieven die kunnen gelden.',
-    pl: 'Nowe budownictwo w Andaluzji w 2026: IVA 10%, AJD 1,2%, plus notariusz, księgi wieczyste i koszty prawne oraz obniżone stawki AJD, które mogą mieć zastosowanie.',
+    pl: 'Nowe budownictwo w Andaluzji w 2026: IVA 10%, AJD 1,2%, notariusz, księgi wieczyste, koszty prawne i obniżone stawki AJD, które mogą mieć zastosowanie.',
     sv: 'Nyproduktion i Andalusien 2026: IVA 10%, AJD 1,2%, plus notarie, fastighetsregister och juridiska arvoden, samt de reducerade AJD-satser som kan gälla.',
     no: 'Nybygg i Andalusia i 2026: IVA på 10%, AJD på 1,2%, pluss notar, eiendomsregister og juridiske honorarer, samt de reduserte AJD-satsene som kan gjelde.'
   },
@@ -329,6 +329,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     pl: 'Koszty zakupu nowej nieruchomości w Andaluzji', sv: 'Köpkostnader för nyproduktion i Andalusien',
     no: 'Kjøpskostnader for nybygg i Andalusia'
   },
+  { find: 'Buying a New-Build in Andalucia: Taxes and Costs (2026)', es: 'Impuestos y gastos de obra nueva en Andalucía', fr: 'Frais d’achat dans le neuf en Andalousie', de: 'Kaufnebenkosten beim Neubau in Andalusien', ru: 'Налоги и расходы: новостройка в Андалусии', ar: 'الضرائب وتكاليف شراء عقار جديد في الأندلس', nl: 'Kosten en belastingen: nieuwbouw in Andalusië', pl: 'Koszty zakupu nowej nieruchomości w Andaluzji', sv: 'Kostnader vid köp av nyproduktion i Andalusien', no: 'Kostnader ved kjøp av nybygg i Andalusia' },
   {
     find: 'Ask About a Specific Project',
     es: 'Consultar por una promoción concreta', fr: 'Poser une question sur un programme précis',

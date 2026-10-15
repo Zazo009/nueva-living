@@ -7,27 +7,28 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
   // --- meta ---
   {
     find: 'How Buying Works',
-    es: 'Cómo funciona la compra',
-    fr: 'Comment se déroule l’achat',
-    de: 'So läuft der Kauf ab',
-    ru: 'Как проходит покупка',
+    es: 'Cómo comprar obra nueva',
+    fr: 'Comment se déroule l’achat dans le neuf',
+    de: 'So läuft der Neubaukauf ab',
+    ru: 'Как купить новостройку',
     ar: 'كيف تتم عملية الشراء',
-    nl: 'Hoe kopen werkt',
-    pl: 'Jak przebiega zakup',
-    sv: 'Så fungerar köpet',
-    no: 'Slik fungerer kjøpet'
+    nl: 'Hoe nieuwbouw kopen werkt',
+    pl: 'Jak przebiega zakup od dewelopera',
+    sv: 'Så köper ni nyproduktion',
+    no: 'Slik kjøper du nybygg'
   },
+  { find: 'How to Buy Off-Plan or a New-Build in Spain: 7 Steps (2026)', es: 'Cómo comprar obra nueva en España: los 7 pasos', fr: 'Acheter dans le neuf en Espagne : les 7 étapes', de: 'Neubau in Spanien kaufen: die 7 Schritte', ru: 'Как купить новостройку в Испании: 7 шагов', ar: 'شراء عقار جديد في إسبانيا: 7 خطوات', nl: 'Nieuwbouw kopen in Spanje: de 7 stappen', pl: 'Zakup od dewelopera w Hiszpanii: 7 kroków', sv: 'Köpa nyproduktion i Spanien: 7 steg', no: 'Kjøpe nybygg i Spania: kjøpekontrakt og skjøte' },
   {
-    find: 'A step-by-step guide to buying a new-build home on the Costa del Sol, from your first shortlist to collecting the keys.',
-    es: 'Una guía paso a paso para comprar una vivienda de obra nueva en la Costa del Sol, desde su primera preselección hasta recoger las llaves.',
-    fr: 'Un guide étape par étape pour l’achat d’un bien neuf sur la Costa del Sol, de votre première présélection jusqu’à la remise des clés.',
-    de: 'Ein Schritt-für-Schritt-Leitfaden für den Kauf einer Neubauimmobilie an der Costa del Sol – von Ihrer ersten Vorauswahl bis zur Schlüsselübergabe.',
-    ru: 'Пошаговое руководство по покупке новостройки на Коста-дель-Соль — от первого шорт-листа до получения ключей.',
-    ar: 'دليل تفصيلي خطوة بخطوة لشراء منزل جديد على ساحل كوستا ديل سول، بدءًا من قائمتك المختصرة الأولى وحتى استلام المفاتيح.',
-    nl: 'Een stapsgewijze gids voor het kopen van een nieuwbouwwoning aan de Costa del Sol, van uw eerste shortlist tot het ophalen van de sleutels.',
-    pl: 'Przewodnik krok po kroku po zakupie nowego domu na Costa del Sol, od pierwszej listy wybranych ofert aż po odbiór kluczy.',
-    sv: 'En steg-för-steg-guide till att köpa en nybyggd bostad på Costa del Sol, från er första urvalslista till att hämta ut nycklarna.',
-    no: 'En trinnvis guide til å kjøpe en nybygd bolig på Costa del Sol, fra din første shortlist til du henter nøklene.'
+    find: 'The seven steps to buying an off-plan or new-build home on the Costa del Sol: reservation, private contract, bank guarantee, legal checks and handover.',
+    es: 'Los siete pasos para comprar obra nueva o sobre plano en la Costa del Sol: reserva, contrato privado, aval bancario, revisión legal y entrega de llaves.',
+    fr: 'Les sept étapes d’un achat sur plan ou dans le neuf sur la Costa del Sol : réservation, contrat privé, garantie bancaire, contrôles juridiques, livraison.',
+    de: 'Die sieben Schritte zum Kauf einer Off-Plan- oder Neubauimmobilie an der Costa del Sol: Reservierung, Privatvertrag, Bankgarantie, Rechtsprüfung, Übergabe.',
+    ru: 'Семь шагов покупки новостройки на Коста-дель-Соль: бронирование, частный договор, банковская гарантия, юридическая проверка и передача ключей.',
+    ar: 'الخطوات السبع لشراء عقار جديد أو على المخطط في كوستا ديل سول: الحجز، والعقد الخاص، والضمان البنكي، والفحص القانوني، والتسليم.',
+    nl: 'Zeven stappen om nieuwbouw of een woning op plan aan de Costa del Sol te kopen: reservering, koopcontract, bankgarantie, juridische controle, oplevering.',
+    pl: 'Siedem kroków zakupu nieruchomości od dewelopera na Costa del Sol: rezerwacja, prywatna umowa kupna, gwarancja bankowa, kontrola prawna i odbiór kluczy.',
+    sv: 'Sju steg för att köpa nyproduktion på Costa del Sol, även på ritning: reservation, privat köpekontrakt, bankgaranti, juridisk kontroll och tillträde.',
+    no: 'Slik kjøper du nybygg, også på tegning, på Costa del Sol: reservasjon, privat kjøpekontrakt, bankgaranti, juridiske kontroller, skjøte og overlevering.'
   },
   {
     find: 'Buying Guide',
@@ -49,9 +50,9 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     ru: 'Покупка новостройки: <em>шаг за шагом</em>',
     ar: 'شراء منزل جديد <em>خطوة بخطوة</em>',
     nl: 'Een nieuwbouwwoning kopen, <em>stap voor stap</em>',
-    pl: 'Zakup nowego domu, <em>krok po kroku</em>',
-    sv: 'Att köpa en nybyggd bostad, <em>steg för steg</em>',
-    no: 'Å kjøpe en nybygd bolig, <em>steg for steg</em>'
+    pl: 'Zakup nieruchomości od dewelopera, <em>krok po kroku</em>',
+    sv: 'Så köper ni nyproduktion, <em>steg för steg</em>',
+    no: 'Slik kjøper du nybygg, <em>steg for steg</em>'
   },
   {
     find: 'Off-plan and new-build purchases work differently from buying a resale home. Here is exactly how the process runs, from your first shortlist to collecting the keys.',
@@ -62,7 +63,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_B = [
     ar: 'يختلف شراء العقارات على الخارطة والعقارات الجديدة عن شراء منزل من السوق الثانوي. إليك بالضبط كيف تسير العملية، من قائمتك المختصرة الأولى وحتى استلام المفاتيح.',
     nl: 'Aankopen op plan en nieuwbouw werken anders dan de aankoop van een bestaande woning. Hier leest u precies hoe het proces verloopt, van uw eerste shortlist tot het ophalen van de sleutels.',
     pl: 'Zakupy na etapie planu i nowych domów przebiegają inaczej niż zakup nieruchomości z rynku wtórnego. Oto dokładnie, jak wygląda ten proces, od pierwszej listy wybranych ofert aż po odbiór kluczy.',
-    sv: 'Köp på ritning och nybyggda bostäder fungerar annorlunda än att köpa en begagnad bostad. Här är exakt hur processen går till, från er första urvalslista till att hämta ut nycklarna.',
+    sv: 'Köp av nyproduktion och på ritning fungerar annorlunda än att köpa en begagnad bostad. Här är exakt hur processen går till, från er första urvalslista till att hämta ut nycklarna.',
     no: 'Kjøp på tegning og nybygg fungerer annerledes enn å kjøpe en bruktbolig. Her er nøyaktig hvordan prosessen foregår, fra din første shortlist til du henter nøklene.'
   },
 
