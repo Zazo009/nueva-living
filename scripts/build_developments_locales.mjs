@@ -29,6 +29,7 @@ import {
   qualifyFragmentLinks
 } from './lib/i18n.mjs';
 import { localizeCardPrices } from './lib/prices.mjs';
+import { loadPublishedProjects, developmentsFacts, fillDevelopmentsFacts } from './lib/developments_facts.mjs';
 import { replaceFooter } from './lib/site_footer.mjs';
 import {
   DEVELOPMENTS_PAGE_ENTRIES,
@@ -46,6 +47,14 @@ if (!existsSync(sourcePath)) {
 
 const siteUrl = 'https://nuevaliving.com';
 const SORTED_ENTRIES = [...DEVELOPMENTS_PAGE_ENTRIES].sort((a, b) => b.find.length - a.find.length);
+
+// The meta description quotes how many projects the page lists and the lowest
+// price among them. The English one gets both from build_dist.mjs; the
+// translations write {count} and "€{minPrice}" and are filled in here from the
+// same function, so no language carries a figure that was typed in by hand.
+// The euro amount comes out in English grouping and is then rewritten to the
+// locale's own convention by localizeCardPrices() at the end of the loop below.
+const facts = developmentsFacts(loadPublishedProjects(root));
 
 // Idempotency: remove anything this script previously injected into the
 // English source so re-running never compounds duplicates.
@@ -254,7 +263,7 @@ for (const meta of LOCALES) {
   for (const entry of SORTED_ENTRIES) {
     const replacement = entry[locale];
     if (!replacement) continue;
-    html = html.split(entry.find).join(replacement);
+    html = html.split(entry.find).join(fillDevelopmentsFacts(replacement, facts));
   }
   html = applyTagLabels(html, locale);
   html = applyCardDescriptions(html, locale);

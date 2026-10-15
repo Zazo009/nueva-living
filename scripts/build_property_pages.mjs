@@ -1362,11 +1362,16 @@ function breadcrumbSchema(project, locale = DEFAULT_LOCALE) {
 const SEO_TITLE_MAX = 60;
 const BRAND_SUFFIX = ' | Nueva Living';
 
-function seoTitle(project, locale = DEFAULT_LOCALE) {
+function seoTitle(project, locale = DEFAULT_LOCALE, sourceProject = null) {
   // English uses the audited, project-name-first title (see build_dist.mjs).
-  // Locales keep the generated pattern: the audit only covers English, and
-  // publishing unreviewed translated tags is worse than a generated one.
-  if (locale === DEFAULT_LOCALE && project.seo?.title) return project.seo.title;
+  // A locale uses the title its overlay carries only when the overlay actually
+  // has one -- the merged project falls back to the English title otherwise,
+  // which would put English into the tag. Every other locale keeps the
+  // generated pattern: publishing unreviewed translated tags is worse than a
+  // generated one, so only titles that have been written and read are used.
+  if (project.seo?.title && (locale === DEFAULT_LOCALE || sourceProject?.i18n?.[locale]?.seo?.title)) {
+    return project.seo.title;
+  }
   const area = projectArea(project, locale);
   const type = project.hero?.type || 'New Development';
   const build = (t2) => t('seo.titleTemplate', locale, { type: t2, area: area.label, name: project.shortName || project.name });
@@ -1597,10 +1602,10 @@ function renderQualitySpecs(project, locale = DEFAULT_LOCALE) {
 // already-translated hero fields rather than shipping English into nine
 // languages or machine-translating tags the audit explicitly warns against.
 function heroTitleContext(project, sourceProject, locale) {
-  if (locale === DEFAULT_LOCALE) {
-    const context = sourceProject?.seo?.h1Context;
-    if (context) return esc(context);
-  }
+  const context = locale === DEFAULT_LOCALE
+    ? sourceProject?.seo?.h1Context
+    : sourceProject?.i18n?.[locale]?.seo?.h1Context;
+  if (context) return esc(context);
   const parts = [project.hero?.type, project.hero?.location].filter(Boolean);
   return esc(parts.join(' \u00b7 '));
 }
@@ -1849,7 +1854,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const webPageSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: seoTitle(project, locale),
+    name: seoTitle(project, locale, sourceProject),
     description: project.seoDescription || project.description,
     url: schemaUrl,
     inLanguage: localeMeta(locale).htmlLang,
@@ -1868,7 +1873,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
       acceptedAnswer: { '@type': 'Answer', text: answer }
     }))
   };
-  const pageTitle = seoTitle(project, locale);
+  const pageTitle = seoTitle(project, locale, sourceProject);
   const localeMetaInfo = localeMeta(locale);
   const canonicalHref = project.canonical
     ? (locale === DEFAULT_LOCALE ? project.canonical : project.canonical.replace('nuevaliving.com/', `nuevaliving.com/${localeMetaInfo.urlPrefix}/`))

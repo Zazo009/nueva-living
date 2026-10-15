@@ -5125,6 +5125,23 @@ let indexFactsChecked = 0;
           + `sentence someone has to remember to update.`);
       }
     }
+    // The same description in every other locale. The Arabic one was written
+    // out longhand with "30" and "305,000 €" in it and stayed that way while
+    // the English beside it learned to count, because only the English file
+    // was ever compared with the project list.
+    for (const locale of fs.readdirSync(dist, { withFileTypes: true })
+      .filter((e) => e.isDirectory() && /^[a-z]{2}$/.test(e.name)).map((e) => e.name)) {
+      const localised = path.join(dist, locale, 'developments.html');
+      if (!fs.existsSync(localised)) continue;
+      const text = (fs.readFileSync(localised, 'utf8').match(/<meta name="description" content="([^"]+)"/) || [])[1] || '';
+      const counts = [...text.matchAll(/(?<![\d,.€])(\d{1,3})(?![\d,.])/g)].map((m) => Number(m[1]));
+      if (!counts.length) continue;
+      indexFactsChecked += 1;
+      if (!counts.includes(projects.length)) {
+        fail(`dist/${locale}/developments.html`, `the description says ${JSON.stringify(text.trim())} but the site `
+          + `publishes ${projects.length} projects.`);
+      }
+    }
     const money = [...description.matchAll(/€([\d,]+)/g)].map((m) => Number(m[1].replace(/,/g, '')));
     if (money.length && prices.length) {
       indexFactsChecked += 1;

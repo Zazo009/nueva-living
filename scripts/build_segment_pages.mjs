@@ -26,7 +26,7 @@ import { renderUnifiedCard } from './lib/project_card.mjs';
 import { renderFooter } from './lib/site_footer.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
-import { SEGMENT_CLUSTER_ENTRIES } from './lib/segment_page_translations_clusters.mjs';
+import { SEGMENT_CLUSTER_ENTRIES, SEGMENT_HEAD_ENTRIES } from './lib/segment_page_translations_clusters.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
 import { PROJECT_CARD_ENTRIES } from './lib/developments_page_translations.mjs';
 import { GUIDE_CARD_ENTRIES } from './lib/guide_card_translations.mjs';
@@ -42,7 +42,7 @@ import { GUIDE_CARD_ENTRIES } from './lib/guide_card_translations.mjs';
 // the shared project-card meta labels/values and CTA (same set used on
 // developments.html); per-project card descriptions come from each
 // project.json's own i18n overlay.
-const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...SEGMENT_CLUSTER_ENTRIES, ...GUIDE_CARD_ENTRIES, ...PROJECT_CARD_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
+const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...SEGMENT_CLUSTER_ENTRIES, ...SEGMENT_HEAD_ENTRIES, ...GUIDE_CARD_ENTRIES, ...PROJECT_CARD_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
   .sort((a, b) => b.find.length - a.find.length);
 
 function cardDescriptionReplacements(locale) {
@@ -314,14 +314,29 @@ function heroPicture(hero) {
 
 const COUNT_DISPLAY_MIN = 10;
 
+// {count} is resolved on the FINISHED page, after the translation pass, not in
+// the template. A title used to open with the number ("87 New-Build Homes on
+// the New Golden Mile"), so a translation table could be keyed on the words
+// after it and the number rode along in front. The English now puts the number
+// mid-title ("New Developments in Estepona: 427 Apartments & Penthouses"), and
+// every language puts it where its own grammar wants it, so the translated
+// templates keep the literal {count} and this fills it in last -- in the
+// <title>, the og: and twitter: tags, the JSON-LD name and the H1 at once.
+//
+// Below the display threshold the number is dropped rather than shown as a
+// small one. A template may wrap the figure in parentheses ("(в наличии:
+// {count})") when its language would have to decline the noun after a number;
+// the whole parenthetical goes with it.
 function resolveCount(text, stats) {
   if (!text) return text;
   if (!text.includes('{count}')) return text;
   const n = stats?.availableTotal;
   if (typeof n === 'number' && n >= COUNT_DISPLAY_MIN) {
-    return text.replace('{count}', String(n));
+    return text.replace(/\{count\}/g, String(n));
   }
-  return text.replace(/\{count\}\s*/, '');
+  return text
+    .replace(/\s*\([^()]{0,60}\{count\}[^()]{0,40}\)/g, '')
+    .replace(/\{count\}\s*/g, '');
 }
 
 // Most segments are an area crossed with a property type. A cluster segment
@@ -406,12 +421,12 @@ function faqSection(faqs) {
 
 function segmentSchema(segment, matches, locale) {
   const url = `${siteUrl}/${segment.output}`;
-  // The {count} placeholder has to be resolved here too. The <title> and the
-  // H1 both run through resolveCount(); the JSON-LD did not, so structured
-  // data was advertising a literal "{count} New-Build Apartments..." to
-  // search engines on every segment page and on the guides hub.
-  const stats = computeStats(matches);
-  const name = resolveCount(segment.title, stats);
+  // The name keeps the literal {count}: renderSegmentPage() resolves it across
+  // the whole finished page, the JSON-LD included. It was once left out of
+  // that, and structured data advertised a literal "{count} New-Build
+  // Apartments..." to search engines on every segment page and on the guides
+  // hub.
+  const name = segment.title;
   return [
     // Who publishes this. Locale segment pages carried a CollectionPage and
     // nothing identifying the company behind it.
@@ -515,10 +530,10 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-${baseHrefTag(locale)}  <title>${esc(resolveCount(segment.title, stats))}</title>
+${baseHrefTag(locale)}  <title>${esc(segment.title)}</title>
   <meta name="description" content="${esc(segment.description)}">
 ${hreflangLinks(segment.output, siteUrl)}
-${seoTags(segment.output, locale, { title: resolveCount(segment.title, stats), description: segment.description, image: `${siteUrl}/${segment.hero.image}` })}
+${seoTags(segment.output, locale, { title: segment.title, description: segment.description, image: `${siteUrl}/${segment.hero.image}` })}
   <link rel="icon" href="assets/liora/liora-favicon-512.png?v=7" type="image/png" sizes="512x512">
   <link rel="icon" href="assets/liora/favicon-32.png?v=7" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/liora/apple-touch-icon.png?v=7" sizes="180x180">
@@ -539,7 +554,7 @@ ${JSON.stringify(schema, null, 2)}
       ${heroPicture(segment.hero)}
       <div class="hero-inner">
         <span class="kicker">${segment.kicker}</span>
-        <h1 class="display-title">${resolveCount(segment.heroTitleHtml, stats)}</h1>
+        <h1 class="display-title">${segment.heroTitleHtml}</h1>
         <p class="lead">${esc(segment.heroLead)}</p>
       </div>
     </section>
@@ -581,7 +596,7 @@ ${JSON.stringify(schema, null, 2)}
   ${LANG_SWITCHER_SCRIPT}
 </body>
 </html>`;
-  return localizeCardPrices(localizeInternalLinks(applySegmentPageTranslations(html, locale), locale), locale);
+  return resolveCount(localizeCardPrices(localizeInternalLinks(applySegmentPageTranslations(html, locale), locale), locale), stats);
 }
 
 function lowestPriceAcrossSegments() {
@@ -783,7 +798,10 @@ function renderGuidesPage(locale = DEFAULT_LOCALE) {
         '@type': 'ListItem',
         position: index + 1,
         url: `${siteUrl}/${segment.output}`,
-        name: resolveCount(segment.title, computeStats(matchProjects(segment)))
+        // The card heading the page itself shows, not the page <title>: the
+        // title carries a {count} that cannot be resolved before translation,
+        // and the heading is already in every locale's table.
+        name: segment.cardHeading ? segment.cardHeading : `${segment.breadcrumbLabel} in ${segment.areaLabel}`
       }))
     },
     generalFaqSchema()
@@ -904,10 +922,10 @@ const SEGMENTS = [
     breadcrumbLabel: 'San Pedro & Guadalmina',
     breadcrumbLabelKey: 'segment.newBuildHomes',
     cardHeading: 'New-Build Homes in San Pedro & Guadalmina',
-    title: '{count} New-Build Homes in San Pedro & Guadalmina, Marbella',
-    description: 'New-build apartments, penthouses and villas in San Pedro Alcantara and Guadalmina, western Marbella, from EUR 527,500. Real availability and delivery dates.',
+    title: 'New Developments in San Pedro & Guadalmina: {count} Homes for Sale',
+    description: 'New developments for sale in San Pedro Alcantara and Guadalmina, western Marbella: new-build apartments, penthouses and villas with real availability.',
     kicker: 'Marbella West &middot; San Pedro &amp; Guadalmina',
-    heroTitleHtml: '{count} New-Build Homes for Sale in <em>San Pedro &amp; Guadalmina</em>',
+    heroTitleHtml: 'New Developments in <em>San Pedro &amp; Guadalmina</em>: {count} Homes for Sale',
     heroLead: 'Western Marbella between the town and Puerto Banús: a working Spanish high street on one side, four golf courses on the other, and the beach within walking distance of both.',
     hero: {
       image: 'assets/liora/projects/marbella-west-garden-residences/hero.jpg',
@@ -962,10 +980,10 @@ const SEGMENTS = [
     breadcrumbLabel: 'Elviria',
     breadcrumbLabelKey: 'segment.newBuildHomes',
     cardHeading: 'New-Build Homes in Elviria',
-    title: '{count} New-Build Homes in Elviria, Marbella East',
-    description: 'New-build apartments, townhouses and villas in Elviria on Marbella East, from EUR 690,000. Real availability, floorplans and delivery dates.',
+    title: 'New Developments in Elviria, Marbella: {count} Homes for Sale',
+    description: 'New developments for sale in Elviria, Marbella East: new-build and off-plan apartments, townhouses and villas with real availability and delivery dates.',
     kicker: 'Marbella East &middot; Elviria',
-    heroTitleHtml: '{count} New-Build Homes for Sale in <em>Elviria</em>',
+    heroTitleHtml: 'New Developments in <em>Elviria</em>: {count} Homes for Sale',
     heroLead: 'The pine-covered hillside east of Marbella, where the beach clubs sit below and three golf courses sit behind, and where most of Marbella East\u2019s current new-build stock is concentrated.',
     hero: {
       image: 'assets/liora/projects/elviria-hills-residences/hero.jpg',
@@ -1030,10 +1048,10 @@ const SEGMENTS = [
     // "New Golden Mile in the New Golden Mile" is what the default card
     // heading produces for a cluster whose label already names the place.
     cardHeading: 'New-Build Homes on the New Golden Mile',
-    title: '{count} New-Build Homes on the New Golden Mile',
-    description: 'New-build apartments, penthouses and villas on the New Golden Mile between Estepona and Puerto Banús, from EUR 695,000. Real availability and delivery dates.',
+    title: 'New Developments on the New Golden Mile: {count} Homes for Sale',
+    description: 'New developments for sale on the New Golden Mile between Estepona and Puerto Banús: new-build apartments, penthouses and villas with delivery dates.',
     kicker: 'Estepona &middot; New Golden Mile',
-    heroTitleHtml: '{count} New-Build Homes for Sale on the <em>New Golden Mile</em>',
+    heroTitleHtml: 'New Developments on the <em>New Golden Mile</em>: {count} Homes for Sale',
     heroLead: 'The stretch between Estepona and Puerto Banús, where beachside apartments and golf-side villas sit within a few minutes of each other.',
     hero: {
       image: 'assets/liora/projects/jardin-del-mar-residences/hero.jpg',
@@ -1085,10 +1103,10 @@ const SEGMENTS = [
     areaHref: 'area-mijas-fuengirola.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
-    title: '{count} New-Build Apartments & Penthouses in Mijas & Fuengirola',
-    description: 'New-build apartments and penthouses in Mijas, Fuengirola and Benalmadena from EUR 390,000. Real availability, floorplans and delivery dates.',
+    title: 'New Developments in Mijas & Fuengirola: {count} Apartments',
+    description: 'New developments for sale in Mijas, Fuengirola and Benalmadena: new-build and off-plan apartments and penthouses with floorplans and delivery dates.',
     kicker: 'Mijas &amp; Fuengirola &middot; Apartments &amp; Penthouses',
-    heroTitleHtml: '{count} New-Build Apartments &amp; Penthouses for Sale in <em>Mijas &amp; Fuengirola</em>',
+    heroTitleHtml: 'New Developments in <em>Mijas &amp; Fuengirola</em>: {count} Apartments &amp; Penthouses for Sale',
     heroLead: 'The eastern stretch of the coast, where the same budget buys more floor area than it does in Marbella, with current releases in Mijas, Las Lagunas and Torremuelle.',
     hero: {
       image: 'assets/liora/projects/cerrado-vista-residences/media/sunset-terrace-coastal-view.jpg',
@@ -1140,10 +1158,10 @@ const SEGMENTS = [
     areaHref: 'area-marbella.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
-    title: '{count} New-Build Apartments & Penthouses in Marbella',
-    description: 'New-build apartments and penthouses across Golf Valley, Marbella East and Marbella West, from €527,500. Real availability, floorplans and delivery dates.',
+    title: 'New Developments in Marbella: {count} Apartments & Penthouses',
+    description: 'New developments for sale in Marbella: new-build and off-plan apartments and penthouses with real availability, floorplans and delivery dates.',
     kicker: 'Marbella &middot; Apartments &amp; Penthouses',
-    heroTitleHtml: '{count} New-Build Apartments &amp; Penthouses for Sale in <em>Marbella</em>',
+    heroTitleHtml: 'New Developments in <em>Marbella</em>: {count} Apartments &amp; Penthouses for Sale',
     heroLead: 'Compare current apartment and penthouse developments across Marbella, from golf-course settings to elevated sea views, with real prices and availability confirmed before you view.',
     hero: {
       image: 'assets/liora/projects/alisios-residences/hero.jpg',
@@ -1195,10 +1213,10 @@ const SEGMENTS = [
     areaHref: 'area-estepona.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
-    title: 'New-Build Apartments & Penthouses in Estepona',
-    description: 'New-build apartments and penthouses in Estepona, from the New Golden Mile to the town centre. From €720,000, with floorplans and delivery dates.',
+    title: 'New Developments in Estepona: {count} Apartments & Penthouses',
+    description: 'New developments for sale in Estepona, from the New Golden Mile to the town centre: new-build and off-plan apartments and penthouses with floorplans.',
     kicker: 'Estepona &middot; Apartments &amp; Penthouses',
-    heroTitleHtml: '{count} New-Build Apartments &amp; Penthouses for Sale in <em>Estepona</em>',
+    heroTitleHtml: 'New Developments in <em>Estepona</em>: {count} Apartments &amp; Penthouses for Sale',
     heroLead: 'Compare current apartment and penthouse developments across Estepona, from low-rise garden homes on the New Golden Mile to gated communities in the town centre, with real prices and availability confirmed before you view.',
     hero: {
       image: 'assets/liora/projects/jardin-del-mar-residences/hero.jpg',
@@ -1249,10 +1267,10 @@ const SEGMENTS = [
     areaHref: 'area-nueva-andalucia.html',
     propertyTypes: ['apartment', 'penthouse'],
     breadcrumbLabel: 'Apartments & Penthouses',
-    title: 'New-Build Apartments & Penthouses in Nueva Andalucia',
-    description: 'New-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banús. From €450,000, with floorplans and delivery dates.',
+    title: 'New Developments in Nueva Andalucia: {count} Apartments',
+    description: 'New developments for sale in Nueva Andalucia, minutes from Puerto Banús: new-build and off-plan apartments and penthouses with floorplans.',
     kicker: 'Nueva Andaluc&iacute;a &middot; Apartments &amp; Penthouses',
-    heroTitleHtml: '{count} New-Build Apartments &amp; Penthouses for Sale in <em>Nueva Andaluc&iacute;a</em>',
+    heroTitleHtml: 'New Developments in <em>Nueva Andaluc&iacute;a</em>: {count} Apartments &amp; Penthouses for Sale',
     heroLead: 'Compare current apartment and penthouse developments in Nueva Andalucía’s Golf Valley, minutes from Puerto Banús, with real prices and availability confirmed before you view.',
     hero: {
       image: 'assets/liora/projects/los-olivos-residences/hero.jpg',

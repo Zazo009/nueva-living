@@ -1,6 +1,7 @@
 import { buildLlms, robotsTxt, INDEXNOW_KEY } from './lib/ai_discovery.mjs';
 import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema, FOUNDERS, organizationId, personId, founderRefs } from './lib/brand.mjs';
 import { projectAreaRule } from './lib/project_area.mjs';
+import { loadPublishedProjects, developmentsFacts, fillDevelopmentsFacts } from './lib/developments_facts.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -145,8 +146,8 @@ const basePageMeta = {
     // already does this; the homepage was the one exception, and it spent its
     // most valuable characters on the brand -- which appears in the title
     // regardless on a brand query, and buys nothing on a category one.
-    title: 'New-Build & Off-Plan Property, Costa del Sol | Nueva Living',
-    description: 'Independent advice on new-build and off-plan homes in Marbella, Estepona, Benahavis and Nueva Andalucia - real prices, availability and delivery dates.',
+    title: 'Costa del Sol New Developments & Off-Plan Homes | Nueva Living',
+    description: 'Independent advice on new developments and off-plan homes for sale in Marbella, Estepona, Benahavis and Nueva Andalucia: real prices and delivery dates.',
     path: '/',
     type: 'website',
     schema: [
@@ -165,8 +166,8 @@ const basePageMeta = {
       {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        name: 'New-Build & Off-Plan Property, Costa del Sol | Nueva Living',
-        description: 'Independent advice on new-build and off-plan homes in Marbella, Estepona, Benahavis and Nueva Andalucia - real prices, availability and delivery dates.',
+        name: 'Costa del Sol New Developments & Off-Plan Homes | Nueva Living',
+        description: 'Independent advice on new developments and off-plan homes for sale in Marbella, Estepona, Benahavis and Nueva Andalucia: real prices and delivery dates.',
         url: `${siteUrl}/`,
         inLanguage: 'en',
         isPartOf: { '@type': 'WebSite', name: 'Nueva Living', url: siteUrl },
@@ -175,8 +176,8 @@ const basePageMeta = {
     ]
   },
   'developments.html': {
-    title: 'New Build & Off-Plan Developments on the Costa del Sol',
-    description: 'Browse {count} new-build and off-plan developments from Marbella to Benalmadena, with guide prices from €{minPrice}, delivery dates and live availability.',
+    title: 'New Developments for Sale on the Costa del Sol | Nueva Living',
+    description: 'Browse {count} new developments for sale, new-build and off-plan, from Marbella to Benalmadena. Prices from €{minPrice}, delivery dates and live availability.',
     path: '/developments.html',
     // The organisation node used to be hand-written into developments.html
     // itself -- a third copy of the identity, and the one that disagreed with
@@ -232,46 +233,46 @@ const basePageMeta = {
     type: 'website'
   },
   'new-build-homes-elviria-marbella.html': {
-    title: '{count} New-Build Homes in Elviria, Marbella East',
-    description: 'New-build apartments, townhouses and villas in Elviria on Marbella East, from EUR 690,000. Real availability, floorplans and delivery dates.',
+    title: 'New Developments in Elviria, Marbella: {count} Homes for Sale',
+    description: 'New developments for sale in Elviria, Marbella East: new-build and off-plan apartments, townhouses and villas with real availability and delivery dates.',
     path: '/new-build-homes-elviria-marbella.html',
     type: 'website'
   },
   'new-build-homes-san-pedro-guadalmina.html': {
-    title: '{count} New-Build Homes in San Pedro & Guadalmina, Marbella',
-    description: 'New-build apartments, penthouses and villas in San Pedro Alcantara and Guadalmina, western Marbella, from EUR 527,500. Real availability and delivery dates.',
+    title: 'New Developments in San Pedro & Guadalmina: {count} Homes for Sale',
+    description: 'New developments for sale in San Pedro Alcantara and Guadalmina, western Marbella: new-build apartments, penthouses and villas with real availability.',
     path: '/new-build-homes-san-pedro-guadalmina.html',
     type: 'website'
   },
   'new-build-homes-new-golden-mile.html': {
-    title: '{count} New-Build Homes on the New Golden Mile',
-    description: 'New-build apartments, penthouses and villas on the New Golden Mile between Estepona and Puerto Banús, from EUR 695,000. Real availability and delivery dates.',
+    title: 'New Developments on the New Golden Mile: {count} Homes for Sale',
+    description: 'New developments for sale on the New Golden Mile between Estepona and Puerto Banús: new-build apartments, penthouses and villas with delivery dates.',
     path: '/new-build-homes-new-golden-mile.html',
     type: 'website'
   },
   'new-build-apartments-penthouses-mijas-fuengirola.html': {
-    title: '{count} New-Build Apartments & Penthouses in Mijas & Fuengirola',
-    description: 'New-build apartments and penthouses in Mijas, Fuengirola and Benalmadena from EUR 390,000. Real availability, floorplans and delivery dates.',
+    title: 'New Developments in Mijas & Fuengirola: {count} Apartments',
+    description: 'New developments for sale in Mijas, Fuengirola and Benalmadena: new-build and off-plan apartments and penthouses with floorplans and delivery dates.',
     path: '/new-build-apartments-penthouses-mijas-fuengirola.html',
     type: 'website'
   },
   'new-build-apartments-penthouses-marbella.html': {
-    title: '{count} New-Build Apartments & Penthouses in Marbella',
-    description: 'New-build apartments and penthouses across Golf Valley, Marbella East and Marbella West, from €527,500. Real availability, floorplans and delivery dates.',
+    title: 'New Developments in Marbella: {count} Apartments & Penthouses',
+    description: 'New developments for sale in Marbella: new-build and off-plan apartments and penthouses with real availability, floorplans and delivery dates.',
     path: '/new-build-apartments-penthouses-marbella.html',
     type: 'website'
     // No `schema` here either: build_segment_pages.mjs already writes the
     // full CollectionPage/ItemList/BreadcrumbList/FAQPage JSON-LD inline.
   },
   'new-build-apartments-penthouses-estepona.html': {
-    title: '{count} New-Build Apartments & Penthouses in Estepona',
-    description: 'New-build apartments and penthouses in Estepona, from the New Golden Mile to the town centre. From €720,000, with floorplans and delivery dates.',
+    title: 'New Developments in Estepona: {count} Apartments & Penthouses',
+    description: 'New developments for sale in Estepona, from the New Golden Mile to the town centre: new-build and off-plan apartments and penthouses with floorplans.',
     path: '/new-build-apartments-penthouses-estepona.html',
     type: 'website'
   },
   'new-build-apartments-penthouses-nueva-andalucia.html': {
-    title: '{count} New-Build Apartments & Penthouses in Nueva Andalucia',
-    description: 'New-build apartments and penthouses in Nueva Andalucia\'s Golf Valley, minutes from Puerto Banús. From €450,000, with floorplans and delivery dates.',
+    title: 'New Developments in Nueva Andalucia: {count} Apartments',
+    description: 'New developments for sale in Nueva Andalucia, minutes from Puerto Banús: new-build and off-plan apartments and penthouses with floorplans.',
     path: '/new-build-apartments-penthouses-nueva-andalucia.html',
     type: 'website'
   },
@@ -441,14 +442,10 @@ const cardLocationProjects = fs.existsSync(projectsDir)
   : [];
 
 function loadProjectPages() {
-  if (!fs.existsSync(projectsDir)) return [];
-
-  return fs.readdirSync(projectsDir, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => path.join(projectsDir, entry.name, 'project.json'))
-    .filter((file) => fs.existsSync(file))
-    .map((file) => JSON.parse(fs.readFileSync(file, 'utf8')))
-    .filter((project) => project.output && fs.existsSync(path.join(root, project.output)))
+  // The published-project filter lives in lib/developments_facts.mjs, shared
+  // with build_developments_locales.mjs so the count the English description
+  // quotes and the count the nine translations quote cannot come apart.
+  return loadPublishedProjects(root)
     .sort((a, b) => (a.card?.order ?? 999) - (b.card?.order ?? 999));
 }
 
@@ -538,22 +535,17 @@ for (const [output, area] of [
 
 // Same treatment for the developments index: the count is the live number of
 // published projects, not a number that quietly goes stale as the portfolio
-// grows. Below the display threshold it falls back to the countless title.
+// grows.
 {
   const entry = basePageMeta['developments.html'];
-  const n = projectPages.length;
   // The description was written out longhand and was never given the same
   // treatment, so it sat at "30 developments" and "from EUR 305,000" while
   // the title beside it said 47 and the cheapest project had dropped to
   // EUR 274,000. Both numbers now come from the same place the title does.
+  // The nine locale pages resolve the same placeholders from the same
+  // function (build_developments_locales.mjs).
   if (entry?.description) {
-    const prices = projectPages
-      .map((project) => Number(project.discovery?.price))
-      .filter((value) => Number.isFinite(value) && value > 0);
-    const min = prices.length ? Math.min(...prices) : null;
-    entry.description = entry.description
-      .replace('{count}', String(n))
-      .replace('{minPrice}', min ? min.toLocaleString('en-US') : '');
+    entry.description = fillDevelopmentsFacts(entry.description, developmentsFacts(projectPages));
   }
 }
 const nonDefaultLocales = LOCALES.filter((l) => l.code !== DEFAULT_LOCALE);
