@@ -2318,6 +2318,8 @@ ${fontPreloadBlock(p, locale)}
 ${leafletHead()}
   <script src="${p}assets/liora/nueva-location-map.js?v=${locationMapJsVersion}" defer></script>` : ''}
   <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>${isSignature ? `
+  <link rel="preload" href="${p}assets/fonts/google/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${p}assets/fonts/google/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${p}assets/liora/nueva-signature.css?v=${signatureCssVersion}">
   <script src="${p}assets/liora/nueva-signature.js?v=${signatureJsVersion}" defer></script>` : ''}
   <script src="${p}assets/liora/liora-calculator.js?v=${calculatorJsVersion}" defer></script>
