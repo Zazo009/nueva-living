@@ -338,8 +338,9 @@ html[dir="rtl"] .mj-ribbon { animation-name: mj-slide-rtl; }
   margin: clamp(28px, 4vw, 52px) 0 0;
   padding: clamp(24px, 3.4vw, 46px) var(--mj-pad);
   text-align: center;
-  background: var(--mj-navy) url(signature-logos/majolica-tile-dark.svg);
-  background-size: 80px 80px;
+  /* The tile shows through a veil of the same navy: texture, not competition. */
+  background: linear-gradient(rgba(28, 47, 84, 0.9), rgba(28, 47, 84, 0.9)), var(--mj-navy) url(signature-logos/majolica-tile-dark.svg);
+  background-size: auto, 80px 80px;
   color: #fff;
 }
 
@@ -607,7 +608,7 @@ html[dir="rtl"] .mj-rail-nav [data-mj-next] span { transform: rotate(-45deg); ma
 .mj-faq { background: var(--mj-tile); }
 .mj-faq-wrap { max-inline-size: 980px; }
 
-.mj-enquire { background: var(--mj-navy) url(signature-logos/majolica-tile-dark.svg); background-size: 90px 90px; color: #fff; }
+.mj-enquire { background: linear-gradient(rgba(28, 47, 84, 0.92), rgba(28, 47, 84, 0.92)), var(--mj-navy) url(signature-logos/majolica-tile-dark.svg); background-size: auto, 90px 90px; color: #fff; }
 .mj-enquire .mj-kicker { color: var(--mj-sky); }
 .mj-enquire h2 em { color: var(--mj-sky); }
 .mj-enquire-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
