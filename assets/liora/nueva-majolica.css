@@ -231,15 +231,15 @@
 .mj-ribbon,
 .mj-marquee-ribbon {
   position: relative;
-  block-size: 56px;
-  background: var(--mj-tile) url(../signature-logos/majolica-tile.svg) repeat-x;
-  background-size: 56px 56px;
+  block-size: 48px;
+  background: var(--mj-tile) url(signature-logos/majolica-tile.svg) repeat-x;
+  background-size: 48px 48px;
   animation: mj-slide 18s linear infinite;
 }
 
-@keyframes mj-slide { to { background-position-x: -224px; } }
+@keyframes mj-slide { to { background-position-x: -192px; } }
 html[dir="rtl"] .mj-ribbon { animation-name: mj-slide-rtl; }
-@keyframes mj-slide-rtl { to { background-position-x: 224px; } }
+@keyframes mj-slide-rtl { to { background-position-x: 192px; } }
 
 /* ---------- Chapter bar ---------- */
 
@@ -338,7 +338,7 @@ html[dir="rtl"] .mj-ribbon { animation-name: mj-slide-rtl; }
   margin: clamp(28px, 4vw, 52px) 0 0;
   padding: clamp(24px, 3.4vw, 46px) var(--mj-pad);
   text-align: center;
-  background: var(--mj-navy) url(../signature-logos/majolica-tile-dark.svg);
+  background: var(--mj-navy) url(signature-logos/majolica-tile-dark.svg);
   background-size: 80px 80px;
   color: #fff;
 }
@@ -607,7 +607,7 @@ html[dir="rtl"] .mj-rail-nav [data-mj-next] span { transform: rotate(-45deg); ma
 .mj-faq { background: var(--mj-tile); }
 .mj-faq-wrap { max-inline-size: 980px; }
 
-.mj-enquire { background: var(--mj-navy) url(../signature-logos/majolica-tile-dark.svg); background-size: 90px 90px; color: #fff; }
+.mj-enquire { background: var(--mj-navy) url(signature-logos/majolica-tile-dark.svg); background-size: 90px 90px; color: #fff; }
 .mj-enquire .mj-kicker { color: var(--mj-sky); }
 .mj-enquire h2 em { color: var(--mj-sky); }
 .mj-enquire-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
@@ -749,10 +749,10 @@ html[dir="rtl"] .mj-js .mj-hero.is-ready .mj-eyebrow { transform: none; }
 .mj-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(18, 29, 54, 0.4), rgba(18, 29, 54, 0.05)); }
 
 /* a band of tile where two sections meet, instead of empty space */
-.mj-seam { block-size: 36px; background: var(--mj-tile) url(../signature-logos/majolica-tile.svg) repeat-x; background-size: 36px 36px; }
+.mj-seam { block-size: 36px; background: var(--mj-tile) url(signature-logos/majolica-tile.svg) repeat-x; background-size: 36px 36px; }
 
 /* the tile curtain that slides away when the page opens */
-.mj-curtain { position: absolute; inset: 0; z-index: 5; background: var(--mj-navy) url(../signature-logos/majolica-tile-dark.svg); background-size: 96px 96px; pointer-events: none; transform: translateX(0); transition: transform 1.3s var(--mj-ease) 0.15s; }
+.mj-curtain { position: absolute; inset: 0; z-index: 5; background: var(--mj-navy) url(signature-logos/majolica-tile-dark.svg); background-size: 96px 96px; pointer-events: none; transform: translateX(0); transition: transform 1.3s var(--mj-ease) 0.15s; }
 .mj-hero.is-ready .mj-curtain { transform: translateX(-101%); }
 html[dir="rtl"] .mj-hero.is-ready .mj-curtain { transform: translateX(101%); }
 .mj-js .mj-hero:not(.is-ready) .mj-curtain { display: block; }

@@ -683,6 +683,10 @@ const assetDirectories = [
   'assets/liora/projects',
   'assets/liora/team',
   'assets/liora/viewing',
+  // The majolica tile that the Design Hills stylesheet repeats as its ribbon, seams
+  // and curtain. The logos in this folder are inlined into the pages at build time,
+  // so only the tile is fetched.
+  'assets/liora/signature-logos',
   'assets/nueva/advantages',
   'assets/nueva/journey',
   // 'content' is deliberately NOT published. It was, and that put every
