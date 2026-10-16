@@ -39,6 +39,12 @@
 
 .majolica-page .site-nav { background: var(--mj-ink); border-block-end: 1px solid rgba(255, 255, 255, 0.12); }
 .majolica-page .breadcrumb-bar { background: var(--mj-navy); border-block-end: 1px solid rgba(255, 255, 255, 0.1); }
+/* The site's breadcrumb is espresso and bronze, made for a cream bar; on navy it
+   all but disappears. Gold, in two steps, so the page you are on is the brightest. */
+.majolica-page .breadcrumb-list a { color: #d9b765; }
+.majolica-page .breadcrumb-list a:hover { color: #fff; }
+.majolica-page .breadcrumb-list [aria-current="page"] { color: #f6e5b4; }
+.majolica-page .breadcrumb-list li:not(:last-child)::after { border-top-color: rgba(217, 183, 101, 0.75); border-right-color: rgba(217, 183, 101, 0.75); }
 
 .majolica-page .majolica-main {
   color: var(--mj-navy);
