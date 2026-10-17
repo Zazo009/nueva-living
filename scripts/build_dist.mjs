@@ -85,6 +85,7 @@ const baseHtmlFiles = [
   'guide-mortgage-habeno.html',
   'guide-new-build-warranties-snagging.html',
   'guide-buying-from-abroad-spain.html',
+  'guide-buying-from-netherlands.html',
   'why-nueva.html',
   'areas.html',
   ...areas.map((area) => area.output),
@@ -218,6 +219,12 @@ const basePageMeta = {
     title: 'New-Build Warranties and Snagging in Spain (2026)',
     description: 'The ten, three and one-year guarantees on a Spanish new-build: who is liable under each, which one is insured by law, and when the clock starts.',
     path: '/guide-new-build-warranties-snagging.html',
+    type: 'article'
+  },
+  'guide-buying-from-netherlands.html': {
+    title: 'Buying a Spanish New-Build from the Netherlands (2026)',
+    description: 'Buying a Costa del Sol new-build from the Netherlands: where the NIE is applied for, what a representative needs, and which tax questions to take to a Dutch adviser.',
+    path: '/guide-buying-from-netherlands.html',
     type: 'article'
   },
   'guide-buying-from-abroad-spain.html': {

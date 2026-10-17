@@ -1234,6 +1234,82 @@ const pages = [
   </div></section>`,
   },
   {
+    file: 'guide-buying-from-netherlands.html',
+    datePublished: '2026-10-18',
+    title: 'Buying from the Netherlands: NIE in Amsterdam',
+    description: 'Buying a Costa del Sol new-build from the Netherlands: where the NIE is applied for, what a representative needs, and which tax questions to take to a Dutch adviser.',
+    heroImage: 'assets/nueva/journey/project-review-v2-1200.webp',
+    heroKicker: 'Buying Guide',
+    seoContext: 'Buying from the Netherlands · 2026 Guide',
+    heroTitle: 'Buying from the Netherlands, <em>what is different</em>',
+    heroLead: 'Most of a Costa del Sol purchase can be arranged from home. This page covers what is specific to a Dutch buyer: where the NIE is applied for, what a representative needs, and which tax questions belong with your own adviser.',
+    breadcrumbs: [['Guides', 'guides.html']],
+    bodyClass: 'guide-article-page',
+    body: `<section class="section"><div class="section-inner">
+      <div class="guide-intro g-reveal">
+        <p class="body-copy">Comparing projects, floorplans and payment schedules, even a private presentation of a development, all happen remotely. The parts that involve the Spanish state are a tax number, a power of attorney and the origin of your funds, and our general guide to buying from abroad explains each of them. This page adds only what changes when you live in the Netherlands.</p>
+        <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+          <a class="btn" href="contact.html#contact-form">Ask About Buying From the Netherlands</a>
+          <a class="btn ghost" href="guide-buying-from-abroad-spain.html">Buying From Abroad: The General Guide</a>
+        </div>
+      </div>
+    </div></section>
+  <section class="section quiet-band"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">The NIE</span><div class="rule"></div><h2 class="section-title">Applied for in Amsterdam, <em>in person or through a representative</em></h2></div>
+    <p class="body-copy g-reveal">From the Netherlands, an NIE is applied for at the Spanish Consulate General in Amsterdam. The consulate takes applications from people who will be in Spain for less than three months and have an economic, social or professional interest there, and a property purchase is the example it gives. Anyone moving to live in Spain applies in Spain instead.</p>
+    <p class="body-copy g-reveal">A representative needs a power of attorney that expressly authorises the NIE application. That is worth checking in the wording before the power is signed, because a power drawn for the purchase alone may not say it. The application also asks for the reason behind it, and for a purchase that means evidence of the purchase. Which document the consulate accepts is for the consulate to say, so ask before you book rather than at the desk.</p>
+    <div class="cards g-reveal">
+      <article class="card"><div class="card-number">01</div><h3>Where</h3><p>The Spanish Consulate General in Amsterdam, for a stay of under three months with a stated interest in Spain. A move to Spain follows a different route.</p></article>
+      <article class="card"><div class="card-number">02</div><h3>In person</h3><p>The applicant or a representative must always attend, and an appointment has to be booked through the consulate.</p></article>
+      <article class="card"><div class="card-number">03</div><h3>What it asks for</h3><p>An application stating the reason, proof that you live in the Netherlands, your passport or, for EU nationals, your identity card, and evidence of the purchase.</p></article>
+    </div>
+  </div></section>
+  <section class="section"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">From Home</span><div class="rule"></div><h2 class="section-title">What can stay <em>in the Netherlands</em></h2></div>
+    <p class="body-copy g-reveal">Reviewing projects, price lists and payment schedules, a private presentation online, reserving a home and instructing a lawyer all happen from where you live. A power of attorney can be signed before a notary in the Netherlands, though one signed outside Spain generally has to be legalised and translated for use there, which adds time rather than difficulty. <a href="guide-buying-from-abroad-spain.html">What that involves</a>.</p>
+    <p class="body-copy g-reveal">Two moments still repay a trip more than any document does: seeing the setting at the hours you would actually be there, and the handover walkthrough where defects are written down. <a href="guide-new-build-warranties-snagging.html">Why the handover date matters</a>.</p>
+  </div></section>
+  <section class="section quiet-band"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">Spanish Tax</span><div class="rule"></div><h2 class="section-title">What Spain charges <em>a non-resident owner</em></h2></div>
+    <p class="body-copy g-reveal">A non-resident who owns a home in Spain pays Spanish non-resident income tax on it every year, including when it is never rented. For a home that is not let, the Spanish tax agency calculates it on a percentage of the property&rsquo;s cadastral value, with no expenses deducted, and the owner declares it to the agency. Rates and filing dates are set by the agency and change, so we do not quote them here. <a href="guide-purchase-costs-andalucia.html">The yearly costs of owning, and the costs of buying</a>.</p>
+  </div></section>
+  <section class="section"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">Your Dutch Tax Position</span><div class="rule"></div><h2 class="section-title">The part we <em>deliberately leave out</em></h2></div>
+    <p class="body-copy g-reveal">How a Spanish home is treated in your Dutch tax return, and how the rules of the two countries interact, depends on your own circumstances and on the tax treaty between the Netherlands and Spain, which can change. We are a property advisory and not a tax adviser, so this page states no rates and no amounts. These are the questions worth taking to a Dutch tax adviser before you sign.</p>
+    <div class="cards g-reveal">
+      <article class="card"><div class="card-number">01</div><h3>Reporting</h3><p>Does the home have to be declared in my Dutch return, and under which heading?</p></article>
+      <article class="card"><div class="card-number">02</div><h3>Relief</h3><p>Is any relief for tax paid in Spain applied automatically, or does it have to be claimed?</p></article>
+      <article class="card"><div class="card-number">03</div><h3>The treaty</h3><p>Is the treaty between the Netherlands and Spain due to change, and would that affect a home bought now?</p></article>
+      <article class="card"><div class="card-number">04</div><h3>Financing</h3><p>If I borrow to buy, how is the loan treated in my Dutch return?</p></article>
+    </div>
+  </div></section>
+  <section class="section quiet-band"><div class="section-inner">
+    <div class="section-head center g-reveal"><span class="label">Before You Rely On This</span><div class="rule"></div><h2 class="section-title">Procedure changes, <em>and the consulate&rsquo;s page is the reliable version</em></h2></div>
+    <p class="body-copy g-reveal">This page describes the NIE route as the consulate publishes it, not the current paperwork. Appointments, documents and requirements change without much notice, and <a href="https://www.exteriores.gob.es/Consulados/amsterdam/en/ServiciosConsulares/Paginas/Consular/NIE.aspx" target="_blank" rel="noopener">the consulate&rsquo;s own page</a> is the version to follow. Nothing here is legal or tax advice.</p>
+  </div></section>
+  <section class="section segment-faq-section"><div class="section-inner">
+    <div class="section-head"><span class="label">Common Questions</span><div class="rule"></div><h2 class="section-title">What Dutch buyers ask us <em>before they start</em></h2></div>
+    <div class="segment-faq-list">
+      <details class="segment-faq-item" open>
+        <summary>Where do I apply for an NIE if I live in the Netherlands?</summary>
+        <p>At the Spanish Consulate General in Amsterdam, by appointment, if you will be in Spain for less than three months and have an economic, social or professional interest there, which a purchase is. If you are moving to Spain, you apply in Spain instead.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Do I have to go to Amsterdam myself?</summary>
+        <p>Either you or a representative has to attend, so there is no remote route. A representative needs a power of attorney that expressly covers the NIE application, which is how buyers avoid the trip.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Does a Dutch notary&rsquo;s power of attorney work in Spain?</summary>
+        <p>It can, once it has been legalised and translated for use in Spain. Plan for that step rather than around it, and check that the wording covers what you need it for, the NIE included.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Does Nueva Living give tax advice to Dutch buyers?</summary>
+        <p>No. We advise on the property and the purchase. How a Spanish home is treated in your Dutch tax return is a question for a Dutch tax adviser, and the page above lists what to ask.</p>
+      </details>
+    </div>
+  </div></section>`,
+  },
+  {
     file: 'guide-mortgage-habeno.html',
     datePublished: '2026-10-14',
     title: 'Mortgages for Costa del Sol New-Builds with Habeno',
