@@ -199,7 +199,29 @@ function localizedSizeLabel(label, locale) {
 function unitSizeFacts(value, locale = DEFAULT_LOCALE) {
   const raw = String(value || '').trim();
   if (!raw) return [];
-  const segments = raw.split(/,\s*/);
+
+  // "581.72 m² built / 1,090.20 m² plot" -- two figures joined by a slash. It
+  // was one "Size" cell for the villas without a thousands separator, and for the
+  // two plots over a thousand it was split at the comma INSIDE the number, so
+  // the card printed "Built / 1" with 581.72 and "Plot" with 090.20. Now it is
+  // two facts, for every villa, in every language. A string still in English on
+  // a translated page has no translated labels to show, so it keeps the old
+  // single cell and its template.
+  const slashPair = /^(\d[\d.,\s\u00a0\u202f]*?)\s*(sqm|m²|м²|م²)\s+(.+?)\s*\/\s*(\d[\d.,\s\u00a0\u202f]*?)\s*(sqm|m²|м²|م²)\s+(.+)$/i.exec(raw);
+  if (slashPair) {
+    const [, n1, u1, l1, n2, u2, l2] = slashPair;
+    const english = SIZE_LABELS[l1.trim().toLowerCase()] && SIZE_LABELS[l2.trim().toLowerCase()];
+    if (locale === DEFAULT_LOCALE || !english) {
+      return [
+        [localizedSizeLabel(l1, locale), `${n1.trim()} ${u1}`],
+        [localizedSizeLabel(l2, locale), `${n2.trim()} ${u2}`]
+      ];
+    }
+  }
+
+  // Segments are joined by a comma AND a space. A comma inside a figure
+  // ("1,090.20") has no space after it and must not split.
+  const segments = raw.split(/,\s+/);
   if (segments.length < 2) return [[t('availability.size', locale), localizedUnitSize(raw, locale)]];
 
   const parts = [];
@@ -2905,7 +2927,7 @@ function assertSizeLabels(projects) {
       );
       if (covered) continue;
       const raw = String(unit.size || '').trim();
-      const segments = raw.split(/,\s*/);
+      const segments = raw.split(/,\s+/);
       if (segments.length < 2) continue;
       for (const segment of segments) {
         const match = /^([\d.,]+)\s*(sqm|m²)\s+(.+)$/i.exec(segment.trim());
