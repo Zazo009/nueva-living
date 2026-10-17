@@ -662,6 +662,7 @@ const assetFiles = [
   'assets/liora/brand/nueva-living-hero-logo-sand-transparent.png',
   'assets/liora/brand/nueva-living-lockup-espresso-transparent.png',
   'assets/liora/brand/nueva-living-lockup-sand-transparent.png',
+  'assets/liora/brand/nueva-living-lockup-sand-tight.png',
   'assets/liora/video/hero-desktop-v5.mp4',
   // Mobile ships two encodes of the same clip; the hero loader picks HEVC
   // where the browser can decode it. hero-mobile-v2.mp4 is deliberately not
