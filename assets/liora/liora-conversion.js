@@ -554,6 +554,41 @@
     link.rel = 'noopener';
   });
 
+  // Advisor card: the chips pick a purpose and a budget, and the WhatsApp link
+  // carries them. The sentences stay in English on every locale because the
+  // message is read by the advisor, not by the visitor.
+  document.querySelectorAll('[data-advisor-card]').forEach((card) => {
+    const cta = card.querySelector('a[data-whatsapp-advisor]');
+    if (!cta) return;
+    const purposes = {
+      live: 'I am looking for a home to live in.',
+      holiday: 'I am looking for a holiday home.',
+      invest: 'I am looking for an investment.'
+    };
+    const budgets = {
+      1: 'My budget is under \u20ac500,000.',
+      2: 'My budget is \u20ac500,000 to \u20ac1,000,000.',
+      3: 'My budget is over \u20ac1,000,000.'
+    };
+    const picked = {};
+    card.addEventListener('click', (event) => {
+      const chip = event.target.closest('.advisor-chip');
+      if (!chip) return;
+      const group = chip.dataset.advisorGroup;
+      const key = chip.dataset.advisorKey;
+      const same = picked[group] === key;
+      card.querySelectorAll(`.advisor-chip[data-advisor-group="${group}"]`).forEach((other) => other.setAttribute('aria-pressed', 'false'));
+      if (same) delete picked[group];
+      else { picked[group] = key; chip.setAttribute('aria-pressed', 'true'); }
+      const context = cta.dataset.project || pageContext;
+      const parts = [advisorMessage(context, cta.dataset.intent || 'speak with an advisor')];
+      if (picked.purpose) parts.push(purposes[picked.purpose]);
+      if (picked.budget) parts.push(budgets[picked.budget]);
+      cta.href = whatsappUrl(parts.join(' '), cta.dataset.whatsappNumber);
+      track('advisor_chip', { cta_label: clean(chip.textContent), lead_context: context, advisor_group: group, advisor_choice: key });
+    });
+  });
+
   document.addEventListener('click', (event) => {
     const target = event.target.closest('a, button');
     if (!target) return;

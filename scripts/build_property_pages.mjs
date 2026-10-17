@@ -1253,6 +1253,31 @@ function advisorAction(project, label = 'Speak With Advisor') {
   return `<a class="btn project-btn ghost" href="${esc(whatsappHref(project))}" target="_blank" rel="noopener" data-whatsapp-advisor data-project="${esc(project.name)}" data-intent="speak with an advisor">${esc(label)}</a>`;
 }
 
+// The advisor card above the enquiry form: a named person, and a way in that
+// takes one tap. Each chip carries a key, not a sentence -- the WhatsApp text
+// is assembled in liora-conversion.js, in English, because that is the language
+// the advisor reads the message in on every locale of the site.
+function renderAdvisorCard(project, locale) {
+  const chip = (group, key, label) => `<button type="button" class="advisor-chip" data-advisor-group="${group}" data-advisor-key="${key}" aria-pressed="false">${t(label, locale)}</button>`;
+  return `<aside class="advisor-card reveal-soft" data-advisor-card aria-labelledby="advisor-heading">
+          <img class="advisor-photo" src="${rootPrefix(locale)}assets/liora/team/sasan-raftari-founder-compact.jpg" width="646" height="898" alt="${t('advisor.photoAlt', locale)}" loading="lazy" decoding="async">
+          <div class="advisor-body">
+            <p class="advisor-role">Sasan Raftari &middot; ${t('advisor.role', locale)}</p>
+            <h3 id="advisor-heading">${t('advisor.heading', locale)}</h3>
+            <p class="advisor-copy">${t('advisor.copy', locale)}</p>
+            <div class="advisor-group" role="group" aria-label="${t('advisor.purposeLabel', locale)}">
+              <span class="advisor-group-label">${t('advisor.purposeLabel', locale)}</span>
+              ${chip('purpose', 'live', 'advisor.purpose.live')}${chip('purpose', 'holiday', 'advisor.purpose.holiday')}${chip('purpose', 'invest', 'advisor.purpose.invest')}
+            </div>
+            <div class="advisor-group" role="group" aria-label="${t('advisor.budgetLabel', locale)}">
+              <span class="advisor-group-label">${t('advisor.budgetLabel', locale)}</span>
+              ${chip('budget', '1', 'advisor.budget.1')}${chip('budget', '2', 'advisor.budget.2')}${chip('budget', '3', 'advisor.budget.3')}
+            </div>
+            <a class="btn project-btn advisor-cta" href="${esc(whatsappHref(project))}" target="_blank" rel="noopener" data-whatsapp-advisor data-project="${esc(project.name)}" data-intent="speak with an advisor">${t('advisor.cta', locale)}</a>
+          </div>
+        </aside>`;
+}
+
 function normaliseCardList(items = []) {
   return Array.isArray(items) ? items.filter(Boolean).map(String) : [];
 }
@@ -2324,6 +2349,7 @@ ${renderAmenities(project, locale)}
           <h2 class="section-title">${project.enquiry.headlineHtml}</h2>
           <p class="body-copy">${esc(project.enquiry.copy)}</p>
         </div>
+        ${renderAdvisorCard(project, locale)}
         ${renderEnquiryForm(project, locale)}
       </div>
     </section>`;
