@@ -5084,6 +5084,15 @@ let areaProjectsChecked = 0;
         continue;
       }
       areaProjectsChecked += 1;
+      // The overlay merges over the English, so a mapArea copied into a locale overlay wins
+      // and puts that locale's map on another town. Seven projects carried "benalmadena" in
+      // five overlays for weeks (a translation-memory artefact) with every check green.
+      for (const [locale, overlay] of Object.entries(project.i18n || {})) {
+        const overlayArea = overlay?.location?.mapArea;
+        if (overlayArea !== undefined && overlayArea !== mapArea) {
+          offenders.push(`${project.slug} [${locale}]: overlay mapArea "${overlayArea}" differs from "${mapArea}"`);
+        }
+      }
       if (!featured.get(areaSlug)?.has(project.slug)) {
         offenders.push(`${project.slug} is missing from area-${areaSlug}`);
       }
