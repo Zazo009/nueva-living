@@ -266,6 +266,32 @@ h6,
   letter-spacing: 0.1em;
 }
 
+/* The emphasised words of a heading on the dark band ("get rewarded", "that
+   matter") took the bronze of the light grounds, rgb(122, 95, 54) on near-black,
+   which is about 2.5 to 1. The gold the band already uses for its links is
+   readable there. */
+.quiet-band .section-title em {
+  color: var(--nueva-gold-light, #c7a36b);
+}
+
+/* A ghost button inside the dark band reads as dark text on a dark ground: the
+   band lets buttons keep their own treatment, and the ghost's own is the
+   espresso one made for light grounds ("Introduce someone" on why-nueva.html
+   was invisible). Same recipe as .btn-ghost-light, kept as its own rule so the
+   specificity of that selector list does not move. */
+.quiet-band .btn.ghost {
+  border-color: rgba(244, 234, 217, 0.55);
+  background: rgba(244, 234, 217, 0.14);
+  color: var(--nueva-cream);
+}
+
+.quiet-band .btn.ghost:hover,
+.quiet-band .btn.ghost:focus-visible {
+  border-color: var(--nueva-cream);
+  background: rgba(244, 234, 217, 0.26);
+  color: #fffaf0;
+}
+
 @media (hover: hover) and (pointer: fine) {
   :is(
     .btn,
@@ -3055,6 +3081,81 @@ input[type="range"] {
 @media (max-width: 640px) {
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* The footer on a phone. It stacked every link on its own line, which made it
+   taller than the screen it sits on, and it left the logo on the left edge
+   under copy that is centred. Now: the brand block is centred and full width,
+   and the two link columns sit side by side, so Company (seven links) and
+   Projects + Contact (five rows) end at about the same height. The selectors
+   carry a `footer` ancestor so they win over the page-type stylesheets and
+   over the homepage's inline footer rules without !important. */
+@media (max-width: 640px) {
+  footer .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 16px;
+    padding-bottom: 22px;
+  }
+
+  footer .footer-grid > div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  footer .footer-grid .footer-logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  footer .footer-grid .footer-about {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  footer .footer-col {
+    min-width: 0;
+  }
+
+  footer .footer-col-title {
+    margin-bottom: 10px;
+  }
+
+  footer .footer-col li {
+    margin-bottom: 8px;
+  }
+
+  footer .footer-col a {
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+  }
+
+  /* An e-mail address in capitals broke in the middle of "nuevaliving";
+     lower case is narrower and stays on one line in a half-width column. */
+  footer .footer-col a[href^="mailto:"],
+  footer .footer-col a[href^="tel:"] {
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 11.5px;
+    overflow-wrap: normal;
+  }
+
+  /* The cookie-settings button is a <button>, so it kept the browser's 16px
+     and an underline while every link around it is 12px capitals. */
+  footer .footer-col .nueva-consent-reopen {
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    line-height: 1.45;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(251, 247, 239, 0.45);
+  }
+
+  footer .footer-grid .footer-about {
+    font-size: 13px;
+    line-height: 1.65;
   }
 }
 
