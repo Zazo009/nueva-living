@@ -79,6 +79,14 @@ export const AREA_DISPLAY_NAMES = {
   benahavis: 'Benahavís',
   'nueva-andalucia': 'Nueva Andalucía',
   'mijas-fuengirola': 'Mijas & Fuengirola',
+  benalmadena: 'Benalmádena',
   casares: 'Casares',
   'san-pedro-alcantara': 'San Pedro de Alcántara'
 };
+
+// The Mijas & Fuengirola type page also lists Benalmadena: its copy names Torremuelle and the coast it
+// shares with the other two towns, and buyers shop across all three. The projects themselves are filed
+// under their own area (the developments filter has a Benalmadena option), so the page needs to be told
+// which other areas it takes. Read by build_segment_pages (the list) and build_dist (the count in the
+// title), which must agree.
+export const SEGMENT_ALSO_AREAS = { 'mijas-fuengirola': ['benalmadena'] };

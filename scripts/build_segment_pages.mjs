@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { organizationSchema } from './lib/brand.mjs';
+import { SEGMENT_ALSO_AREAS } from './lib/project_area.mjs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import {
@@ -364,7 +365,7 @@ function matchProjects(segment) {
   return projects.filter((project) => {
     const discovery = project.discovery || {};
     const crm = project.crm || {};
-    const areaMatch = discovery.area === segment.area;
+    const areaMatch = discovery.area === segment.area || (SEGMENT_ALSO_AREAS[segment.area] || []).includes(discovery.area);
     const typeMatch = (crm.propertyTypes || []).some((type) => segment.propertyTypes.includes(type));
     return areaMatch && typeMatch;
   });

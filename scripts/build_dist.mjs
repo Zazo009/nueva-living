@@ -1,6 +1,6 @@
 import { buildLlms, robotsTxt, INDEXNOW_KEY } from './lib/ai_discovery.mjs';
 import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema, FOUNDERS, organizationId, personId, founderRefs } from './lib/brand.mjs';
-import { projectAreaRule } from './lib/project_area.mjs';
+import { projectAreaRule, SEGMENT_ALSO_AREAS } from './lib/project_area.mjs';
 import { loadPublishedProjects, developmentsFacts, fillDevelopmentsFacts } from './lib/developments_facts.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -121,7 +121,7 @@ const fontPreloadBlock = [
 const SEGMENT_COUNT_MIN = 10;
 function segmentAvailable(area, types) {
   return projectPages
-    .filter((p) => p.discovery?.area === area
+    .filter((p) => (p.discovery?.area === area || (SEGMENT_ALSO_AREAS[area] || []).includes(p.discovery?.area))
       && (p.crm?.propertyTypes || []).some((t) => types.includes(t)))
     .reduce((sum, p) => sum + (p.crm?.availableUnits || 0), 0);
 }
