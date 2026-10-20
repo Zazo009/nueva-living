@@ -52,22 +52,38 @@
     return Number.isFinite(parsed) ? parsed : fallback;
   };
 
+  // A completion is "YYYY-Q" or, on 17 projects, "YYYY-MM": the second number
+  // was read as a quarter either way, so "2027-12" became the twelfth quarter
+  // (December 2029) and "Within 2 Years" missed projects due in 2027. Anything
+  // above 4 is a month and is folded to its quarter.
+  const parseCompletion = (value = '') => {
+    const [year, second] = String(value).split('-').map(Number);
+    if (!year) return null;
+    let quarter = second || 4;
+    if (quarter > 4) quarter = Math.min(4, Math.ceil(quarter / 3));
+    return { year, quarter };
+  };
+
   const completionValue = (value = '') => {
-    const [year, quarter] = String(value).split('-').map(Number);
-    if (!year) return 999999;
-    return year * 10 + (quarter || 4);
+    const parsed = parseCompletion(value);
+    if (!parsed) return 999999;
+    return parsed.year * 10 + parsed.quarter;
   };
 
   // Move-in timing buckets are computed against today's date, not stored, so
   // "Within 1 Year" etc. stay accurate as time passes without manual upkeep.
   const completionDate = (value = '') => {
-    const [year, quarter] = String(value).split('-').map(Number);
-    if (!year) return null;
-    const monthIndex = ((quarter || 4) - 1) * 3 + 2;
-    return new Date(year, monthIndex, 28);
+    const parsed = parseCompletion(value);
+    if (!parsed) return null;
+    const monthIndex = (parsed.quarter - 1) * 3 + 2;
+    return new Date(parsed.year, monthIndex, 28);
   };
 
-  const timingBucket = (value) => {
+  // A finished project has no completion date to read -- the card says "Ready to
+  // move in" or "Key ready" -- so it never reached any bucket, and "Ready Now"
+  // left out every one of the 14 projects that are ready now.
+  const timingBucket = (value, status) => {
+    if (status === 'completed') return 'ready';
     const date = completionDate(value);
     if (!date) return null;
     const now = new Date();
@@ -720,7 +736,7 @@
 
       if (selectState.area && card.dataset.area !== selectState.area) return false;
       if (selectState.status && card.dataset.status !== selectState.status) return false;
-      if (selectState.timing && timingBucket(card.dataset.completion) !== selectState.timing) return false;
+      if (selectState.timing && timingBucket(card.dataset.completion, card.dataset.status) !== selectState.timing) return false;
       if (selectState.propertyType) {
         const types = listFrom(card.dataset.propertyTypes).map(normalize);
         if (!types.includes(selectState.propertyType)) return false;
