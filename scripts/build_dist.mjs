@@ -86,6 +86,7 @@ const baseHtmlFiles = [
   'guide-new-build-warranties-snagging.html',
   'guide-buying-from-abroad-spain.html',
   'guide-buying-from-netherlands.html',
+  'guide-buying-from-sweden.html',
   'why-nueva.html',
   'areas.html',
   ...areas.map((area) => area.output),
@@ -219,6 +220,12 @@ const basePageMeta = {
     title: 'New-Build Warranties and Snagging in Spain (2026)',
     description: 'The ten, three and one-year guarantees on a Spanish new-build: who is liable under each, which one is insured by law, and when the clock starts.',
     path: '/guide-new-build-warranties-snagging.html',
+    type: 'article'
+  },
+  'guide-buying-from-sweden.html': {
+    title: 'Buying a Spanish New-Build from Sweden (2026)',
+    description: 'Buying a Costa del Sol new-build from Sweden: where the NIE is applied for, what a representative needs, and which tax questions to take to a Swedish adviser.',
+    path: '/guide-buying-from-sweden.html',
     type: 'article'
   },
   'guide-buying-from-netherlands.html': {

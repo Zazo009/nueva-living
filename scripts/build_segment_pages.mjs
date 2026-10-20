@@ -684,6 +684,14 @@ function guidesCalculatorSection() {
 
 const PROCESS_GUIDES = [
   {
+    output: 'guide-buying-from-sweden.html',
+    kicker: 'Buying Guide',
+    title: 'Buying from Sweden',
+    description: 'What is different for a Swedish buyer: where the NIE is applied for, what a representative needs, and which tax questions belong with your own adviser.',
+    image: 'assets/nueva/journey/project-review-v2-1200.webp',
+    alt: 'Buyer reviewing project documents remotely'
+  },
+  {
     output: 'guide-buying-from-netherlands.html',
     kicker: 'Buying Guide',
     title: 'Buying from the Netherlands',
