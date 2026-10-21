@@ -3216,3 +3216,20 @@ input[type="range"] {
   background: var(--nueva-gold);
   color: var(--nueva-ivory);
 }
+
+/* Card buttons without a backdrop blur.
+   Every listing card carries three small round buttons (shortlist, share, full screen) and each had
+   backdrop-filter: blur(10px). The developments page has 99 cards, so 297 live blurs, each one a
+   compositing layer that samples what is behind it. WebKit on an iPhone cannot hold that: the page
+   flickered while scrolling, then the tab was killed and reloaded until Safari gave up with
+   "A problem repeatedly occurred". A slightly denser plain background looks the same over a photograph
+   and costs nothing. */
+.project-card .project-card-actions .project-card-action,
+.project-card .project-card-actions .nueva-favorite-button,
+.project-card [data-card-actions] .nueva-favorite-button,
+.project-card > .nueva-favorite-button,
+.dev-img-wrap > .nueva-favorite-button {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: rgba(24, 18, 11, 0.66);
+}
