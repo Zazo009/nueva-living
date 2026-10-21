@@ -312,7 +312,7 @@ html[dir="rtl"] .ty-detail-link span::before { content: "\2190"; }
 .ty-type p { margin: 10px 0 0; font: 300 14.5px/1.65 var(--ty-body); }
 
 .ty-rail-wrap { position: relative; margin-block-start: clamp(36px, 5vw, 70px); }
-.ty-rail { display: flex; gap: clamp(14px, 1.8vw, 24px); padding: 8px var(--ty-pad) 30px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--ty-pad); align-items: flex-start; scrollbar-width: thin; scrollbar-color: var(--ty-copper) transparent; }
+.ty-rail { display: flex; gap: clamp(14px, 1.8vw, 24px); padding: 8px var(--ty-pad) 30px; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; scroll-padding-inline: var(--ty-pad); align-items: flex-start; scrollbar-width: thin; scrollbar-color: var(--ty-copper) transparent; }
 .ty-unit { flex: 0 0 min(340px, 82vw); scroll-snap-align: start; display: flex; flex-direction: column; border-radius: 28px 28px 28px 0; overflow: hidden; background: var(--ty-linen); box-shadow: 0 18px 44px rgba(36, 16, 42, 0.1); }
 html[dir="rtl"] .ty-unit { border-radius: 28px 28px 0 28px; }
 .ty-unit-plan { display: block; background: #fff; border-block-end: 1px solid var(--ty-line); padding: 12px; }

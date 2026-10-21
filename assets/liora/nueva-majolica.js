@@ -78,8 +78,9 @@
   const rail = document.querySelector('[data-mj-rail]');
   if (rail) {
     const step = (direction) => {
-      const card = rail.querySelector('.mj-unit');
-      const width = card ? card.getBoundingClientRect().width + 20 : rail.clientWidth * 0.8;
+      // One card plus the real gap, read from where the second card sits, so a few clicks cannot drift off the snap points.
+      const cards = rail.querySelectorAll('.mj-unit');
+      const width = cards.length > 1 ? Math.abs(cards[1].offsetLeft - cards[0].offsetLeft) : rail.clientWidth * 0.8;
       rail.scrollBy({ left: direction * (rtl ? -1 : 1) * width, behavior: reduced ? 'auto' : 'smooth' });
     };
     document.querySelector('[data-mj-prev]')?.addEventListener('click', () => step(-1));

@@ -471,6 +471,11 @@ html[dir="rtl"] .mj-js .mj-panel.is-entering { animation-name: mj-panel-in-rtl; 
   padding-inline: max(var(--mj-pad), calc((100vw - 1320px) / 2 + var(--mj-pad)));
   padding-block: 8px 28px;
   overflow-x: auto;
+  /* Either axis alone: an auto y-axis made the rail a second vertical scroller (18px of the cards'
+     shadows overflowed it), which took the start of a downward swipe on a phone away from the page. */
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
   scroll-padding-inline: var(--mj-pad);
   scrollbar-width: thin;
@@ -722,13 +727,17 @@ html[dir="rtl"] .mj-js .mj-hero.is-ready .mj-eyebrow { transform: none; }
 .mj-typology,
 .mj-member,
 .mj-swatch { border-radius: 0; box-shadow: 6px 6px 0 var(--mj-cobalt); transition: transform 0.35s var(--mj-ease), box-shadow 0.35s var(--mj-ease); }
-.mj-unit:hover,
-.mj-typology:hover,
-.mj-member:hover,
-.mj-swatch:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--mj-cobalt); }
+/* Only where there is a pointer to hover with: on a touch screen the last card tapped stays "hovered",
+   lifted and with a bigger shadow, which read as the rail jumping. */
+@media (hover: hover) {
+  .mj-unit:hover,
+  .mj-typology:hover,
+  .mj-member:hover,
+  .mj-swatch:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--mj-cobalt); }
+}
 .mj-rail { padding-block-end: 22px; }
 .mj-unit-plan img { transition: transform 0.9s var(--mj-ease); }
-.mj-unit:hover .mj-unit-plan img { transform: scale(1.04); }
+@media (hover: hover) { .mj-unit:hover .mj-unit-plan img { transform: scale(1.04); } }
 
 .mj-hills-collage { position: relative; margin: 0 0 22px; }
 .mj-hills-collage figure { margin: 0; overflow: hidden; background: var(--mj-sky); }

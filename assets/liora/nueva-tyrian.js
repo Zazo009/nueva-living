@@ -138,8 +138,8 @@
   const rail = document.querySelector('[data-ty-rail]');
   if (rail) {
     const step = (direction) => {
-      const card = rail.querySelector('.ty-unit');
-      const width = card ? card.getBoundingClientRect().width + 24 : rail.clientWidth * 0.8;
+      const cards = rail.querySelectorAll('.ty-unit');
+      const width = cards.length > 1 ? Math.abs(cards[1].offsetLeft - cards[0].offsetLeft) : rail.clientWidth * 0.8;
       rail.scrollBy({ left: direction * (rtl ? -1 : 1) * width, behavior: reduced ? 'auto' : 'smooth' });
     };
     document.querySelector('[data-ty-prev]')?.addEventListener('click', () => step(-1));
