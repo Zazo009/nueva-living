@@ -753,15 +753,21 @@
     });
 
     const sorted = sortCards(cards);
+
+    // Re-appending all of the cards detaches and re-attaches every gallery and image, which on a
+    // phone is a visible flash and a lot of decoding. A filter changes which cards show, not the
+    // order they sit in, so only move them when the order actually changed (a sort).
+    const placed = Array.from(grid.children).filter((el) => el.matches('[data-project-card]'));
+    const inOrder = placed.length === sorted.length && sorted.every((card, index) => card === placed[index]);
     const fragment = document.createDocumentFragment();
 
     sorted.forEach((card) => {
       const isVisible = visible.includes(card);
       card.classList.toggle('is-filtered-out', !isVisible);
       card.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
-      fragment.append(card);
+      if (!inOrder) fragment.append(card);
     });
-    grid.append(fragment);
+    if (!inOrder) grid.append(fragment);
 
     filterButtons.forEach((button) => {
       const active = selected.has(button.dataset.filter);
@@ -1066,6 +1072,9 @@
 
   // No point showing an "Earlier Sold Projects" tab with nothing in it --
   // hide the whole tab bar until a project is actually marked archived.
+  // The bar ships hidden, so a page with nothing to switch to never flashes it before this
+  // script runs; it is shown here only when there are sold projects to switch to.
+  if (hasSoldProjects && viewTabsBar) viewTabsBar.hidden = false;
   if (!hasSoldProjects) {
     archivedTab?.remove();
     if (viewTabsBar && viewTabsBar.querySelectorAll('[data-view-tab]').length <= 1) {
