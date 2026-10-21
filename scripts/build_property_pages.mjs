@@ -42,6 +42,7 @@ import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { hasLiveLocationMap, renderLocationCard, leafletHead } from './lib/location_map.mjs';
 import { renderSignatureMain } from './lib/signature_page.mjs';
 import { renderMajolicaMain } from './lib/signature_majolica.mjs';
+import { renderTyrianMain } from './lib/signature_tyrian.mjs';
 
 const {
   DEFAULT_PROPERTY_WEBHOOK_URL,
@@ -69,6 +70,8 @@ const signatureCssVersion = fileVersion('assets/liora/nueva-signature.css');
 const signatureJsVersion = fileVersion('assets/liora/nueva-signature.js');
 const majolicaCssVersion = fileVersion('assets/liora/nueva-majolica.css');
 const majolicaJsVersion = fileVersion('assets/liora/nueva-majolica.js');
+const tyrianCssVersion = fileVersion('assets/liora/nueva-tyrian.css');
+const tyrianJsVersion = fileVersion('assets/liora/nueva-tyrian.js');
 const propertyCssVersion = fileVersion('assets/liora/liora-property.css');
 const rtlCssVersion = existsSync('assets/liora/liora-rtl.css') ? fileVersion('assets/liora/liora-rtl.css') : '1';
 const propertyJsVersion = fileVersion('assets/liora/liora-property.js');
@@ -1831,6 +1834,8 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   // Two layouts share the template: the olive editorial column of Armani, and
   // the blue-and-white majolica page of Design Hills.
   const isMajolica = isSignature && sourceProject.signature?.layout === 'majolica';
+  // ...and a third, aubergine and sand, for Tyrian.
+  const isTyrian = isSignature && sourceProject.signature?.layout === 'tyrian';
   const heroImage = image(project, 'hero');
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
@@ -1991,7 +1996,21 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     ? (locale === DEFAULT_LOCALE ? project.canonical : project.canonical.replace('nuevaliving.com/', `nuevaliving.com/${localeMetaInfo.urlPrefix}/`))
     : '';
 
-  const signatureMain = isMajolica
+  const signatureMain = isTyrian
+    ? renderTyrianMain({
+      project,
+      sourceProject,
+      locale,
+      faqs,
+      projectMedia,
+      helpers: {
+        esc, t, pictureTag, actionLink, ghostAction,
+        whatsappHref, renderLocationCard, renderEnquiryForm, liveLocationMap,
+        floorplanThumb, responsiveThumb,
+        localizedUnitFloor, localizedUnitBedrooms, localizedUnitPrice
+      }
+    })
+    : isMajolica
     ? renderMajolicaMain({
       project,
       sourceProject,
@@ -2384,7 +2403,10 @@ ${fontPreloadBlock(p, locale)}
   <link rel="stylesheet" href="${p}assets/liora/nueva-location-map.css?v=${locationMapCssVersion}">
 ${leafletHead()}
   <script src="${p}assets/liora/nueva-location-map.js?v=${locationMapJsVersion}" defer></script>` : ''}
-  <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>${isMajolica ? `
+  <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>${isTyrian ? `
+  <link rel="preload" href="${p}assets/fonts/google/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="${p}assets/liora/nueva-tyrian.css?v=${tyrianCssVersion}">
+  <script src="${p}assets/liora/nueva-tyrian.js?v=${tyrianJsVersion}" defer></script>` : isMajolica ? `
   <link rel="preload" href="${p}assets/fonts/google/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${p}assets/liora/nueva-majolica.css?v=${majolicaCssVersion}">
   <script src="${p}assets/liora/nueva-majolica.js?v=${majolicaJsVersion}" defer></script>` : isSignature ? `
@@ -2409,7 +2431,7 @@ ${JSON.stringify(faqSchema, null, 2)}
 ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
   </script>
 </head>
-<body${isMajolica ? ' class="majolica-page"' : isSignature ? ' class="signature-page"' : ''}
+<body${isTyrian ? ' class="tyrian-page"' : isMajolica ? ' class="majolica-page"' : isSignature ? ' class="signature-page"' : ''}
   data-locale="${locale}"
   data-project-name="${esc(project.name)}"
   data-project-message="${esc(project.enquiry.message)}"
@@ -2418,7 +2440,7 @@ ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
   ${nav(project, locale)}
   ${breadcrumb(project, locale)}
 
-  <main${isMajolica ? ' class="majolica-main"' : isSignature ? ' class="signature-main"' : ''}>
+  <main${isTyrian ? ' class="tyrian-main"' : isMajolica ? ' class="majolica-main"' : isSignature ? ' class="signature-main"' : ''}>
 ${isSignature ? signatureMain : standardMain}
   </main>
 
