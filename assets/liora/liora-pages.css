@@ -1482,44 +1482,71 @@ img {
 /* ---------- Results summary ---------- */
 
 .luxury-strip {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 14px 28px;
+  gap: 14px 22px;
+  inline-size: fit-content;
+  max-inline-size: 100%;
   margin: calc(-1 * clamp(10px, 2vw, 22px)) 0 clamp(28px, 4vw, 46px);
-  padding: 18px clamp(16px, 3vw, 32px);
-  border: 1px solid #c9b48f;
-  border-inline-start-width: 4px;
-  background: linear-gradient(100deg, #2e2418 0%, #4a3b28 100%);
+  padding: 10px 10px 10px 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  /* A dark ground with a gold gradient edge: the padding-box paints the fill, the border-box the edge. */
+  background:
+    linear-gradient(100deg, #1f1810 0%, #382c1c 100%) padding-box,
+    linear-gradient(100deg, #f1d9a3 0%, #b8913f 45%, #f1d9a3 100%) border-box;
   color: #f3ead9;
+  box-shadow: 0 10px 28px rgba(46, 36, 24, 0.22);
+}
+.luxury-strip::before {
+  content: "\2726";
+  flex: none;
+  font-size: 1.05rem;
+  color: #e6c77f;
 }
 .luxury-strip-eyebrow {
   display: block;
-  margin-bottom: 4px;
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #d9bd8a;
+  color: #f1d9a3;
+  white-space: nowrap;
 }
-.luxury-strip p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: rgba(243, 234, 217, 0.86); }
+.luxury-strip p {
+  margin: 2px 0 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: rgba(243, 234, 217, 0.72);
+}
 .luxury-strip-btn {
   flex: none;
   padding: 11px 22px;
-  border: 1px solid #d9bd8a;
-  background: transparent;
-  color: #f3ead9;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(100deg, #f1d9a3 0%, #c9a24d 100%);
+  color: #261d11;
   font: inherit;
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+  white-space: nowrap;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  box-shadow: 0 4px 14px rgba(201, 162, 77, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
-.luxury-strip-btn:hover, .luxury-strip-btn.is-active { background: #d9bd8a; color: #2e2418; }
+.luxury-strip-btn::after { content: "\2192"; margin-inline-start: 10px; }
+[dir="rtl"] .luxury-strip-btn::after { content: "\2190"; }
+.luxury-strip-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(201, 162, 77, 0.45); filter: brightness(1.05); }
+.luxury-strip-btn.is-active { background: #261d11; color: #f1d9a3; box-shadow: inset 0 0 0 1px #f1d9a3; }
+.luxury-strip-btn.is-active::after { content: "\2713"; }
 @media (max-width: 640px) {
-  .luxury-strip { flex-direction: column; align-items: stretch; }
-  .luxury-strip-btn { text-align: center; }
+  .luxury-strip { inline-size: auto; flex-wrap: wrap; border-radius: 22px; padding: 14px 14px 14px 18px; }
+  .luxury-strip-text { flex: 1 1 180px; }
+  .luxury-strip-eyebrow { white-space: normal; }
+  .luxury-strip-btn { flex: 1 1 100%; text-align: center; }
 }
 
 .discovery-summary {
