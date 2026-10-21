@@ -84,20 +84,20 @@
 .versace-main .btn.ghost { background: transparent; color: var(--vs-ink); border: 1px solid var(--vs-gold); }
 .versace-main .btn.ghost:hover { background: var(--vs-gold); color: #fff; }
 
-/* ---------- Hero: words on ivory, the villa beside them ---------- */
-.vs-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); grid-template-areas: "text media" "base base"; background: var(--vs-ivory); color: var(--vs-ink); }
-.vs-hero-inner { grid-area: text; align-self: center; display: grid; justify-items: start; padding: clamp(40px, 6vw, 96px) clamp(24px, 4vw, 64px) clamp(40px, 6vw, 96px) var(--vs-pad); text-align: start; }
-.vs-hero-media { grid-area: media; position: relative; margin: clamp(16px, 3vw, 40px) var(--vs-pad) clamp(16px, 3vw, 40px) 0; border-radius: var(--vs-round); overflow: hidden; min-block-size: clamp(320px, 56vw, 720px); box-shadow: 0 24px 60px rgba(27, 23, 18, 0.18); }
-.vs-hero-media img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; display: block; transform: scale(1.05); transition: transform 2.2s var(--vs-ease); }
+/* ---------- Hero: the title across the top, the whole render beneath it ---------- */
+.vs-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "text" "media" "base"; background: var(--vs-ivory); color: var(--vs-ink); }
+.vs-hero-inner { grid-area: text; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); grid-template-areas: "eyebrow eyebrow" "title lead" "by lead" "actions lead"; column-gap: clamp(28px, 6vw, 96px); align-items: start; justify-items: start; padding-block: clamp(40px, 5vw, 80px) clamp(24px, 3vw, 44px); text-align: start; }
+.vs-hero .vs-wrap.vs-hero-inner { max-inline-size: 1240px; }
+.vs-eyebrow { grid-area: eyebrow; margin: 0 0 clamp(18px, 2.4vw, 30px); font: 500 11px/1.6 var(--vs-font); letter-spacing: 0.3em; text-transform: uppercase; color: var(--vs-gold-text); }
+.vs-title { grid-area: title; margin: 0; font: 300 clamp(34px, 5.9vw, 92px)/1.02 var(--vs-font); letter-spacing: 0.1em; text-transform: uppercase; color: var(--vs-gold); white-space: nowrap; }
+.vs-by { grid-area: by; display: flex; align-items: center; gap: 16px; margin: clamp(16px, 2vw, 26px) 0 0; font: 500 clamp(10px, 1.05vw, 13px)/1.5 var(--vs-font); letter-spacing: 0.26em; text-transform: uppercase; color: var(--vs-ink); white-space: nowrap; }
+.vs-lead { grid-area: lead; align-self: center; margin: 0; max-inline-size: 440px; font: 300 clamp(15px, 1.3vw, 17px)/1.75 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-soft); }
+.vs-hero-actions { grid-area: actions; display: flex; flex-wrap: wrap; gap: 12px; margin-block-start: clamp(22px, 2.6vw, 34px); }
+.vs-hero-media { grid-area: media; position: relative; margin: 0 var(--vs-pad); max-inline-size: 1240px; inline-size: calc(100% - 2 * var(--vs-pad)); justify-self: center; aspect-ratio: 2 / 1; max-block-size: 72vh; border-radius: var(--vs-round); overflow: hidden; box-shadow: 0 28px 70px rgba(27, 23, 18, 0.2); }
+.vs-hero-media img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; display: block; transform: scale(1.04); transition: transform 2.4s var(--vs-ease); }
 .vs-hero.is-ready .vs-hero-media img { transform: scale(1); }
 .vs-hero-veil { display: none; }
-.vs-hero .vs-wrap.vs-hero-inner { max-inline-size: none; margin: 0; }
-.vs-eyebrow { margin: 0 0 22px; font: 500 11px/1.6 var(--vs-font); letter-spacing: 0.3em; text-transform: uppercase; color: var(--vs-gold-text); }
-.vs-title { margin: 0; font: 300 clamp(40px, 6.6vw, 104px)/1.02 var(--vs-font); letter-spacing: 0.1em; text-transform: uppercase; color: var(--vs-gold); }
-.vs-by { display: flex; align-items: center; gap: 16px; margin: clamp(16px, 2vw, 26px) 0 0; font: 500 clamp(11px, 1.2vw, 13px)/1.5 var(--vs-font); letter-spacing: 0.28em; text-transform: uppercase; color: var(--vs-ink); }
-.vs-lead { margin: clamp(20px, 2.6vw, 32px) 0 0; max-inline-size: 520px; font: 300 clamp(16px, 1.5vw, 19px)/1.75 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-soft); }
-.vs-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-block-start: clamp(24px, 3vw, 36px); }
-.vs-hero-base { grid-area: base; position: relative; display: grid; gap: 22px; max-inline-size: 1240px; margin-inline: auto; inline-size: 100%; padding: clamp(16px, 3vw, 36px) var(--vs-pad) clamp(36px, 5vw, 64px); }
+.vs-hero-base { grid-area: base; position: relative; display: grid; gap: 22px; max-inline-size: 1240px; margin-inline: auto; inline-size: 100%; padding: clamp(20px, 3vw, 36px) var(--vs-pad) clamp(36px, 5vw, 64px); }
 .vs-keys { display: flex; justify-content: flex-start; gap: 12px; margin: 0; }
 .vs-keys i { inline-size: 11px; block-size: 11px; transform: rotate(45deg); border: 1px solid var(--vs-gold); }
 .vs-keys i.is-lit { background: var(--vs-gold); border-color: var(--vs-gold); }
@@ -127,6 +127,12 @@ html[dir="rtl"] .vs-progress { transform-origin: right; }
 
 /* ---------- Images: softly rounded, as in the brochure ---------- */
 .vs-framed, .vs-touch-stage, .vs-slides, .vs-quad-img, .vs-masterplan, .vs-aerial, .vs-plan { border-radius: var(--vs-round); overflow: hidden; }
+
+/* Under a wide laptop the bar cannot hold the name, seven chapters and the button; the name goes first. */
+@media (max-width: 1320px) {
+  .vs-bar-brand { display: none; }
+  .vs-bar-inner { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "links cta"; }
+}
 
 /* ---------- Idea ---------- */
 .vs-idea-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(36px, 6vw, 96px); align-items: center; }
@@ -256,9 +262,11 @@ html[dir="rtl"] .vs-viewer-nav [data-vs-next] span::before { content: "\2190"; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1000px) {
-  .vs-hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "text" "media" "base"; }
-  .vs-hero-media { margin: 0 var(--vs-pad); min-block-size: 0; aspect-ratio: 4 / 3; }
-  .vs-hero-inner { padding: 36px var(--vs-pad) 28px; }
+  .vs-hero-inner { grid-template-columns: minmax(0, 1fr); grid-template-areas: "eyebrow" "title" "by" "lead" "actions"; row-gap: 0; }
+  .vs-title { white-space: normal; }
+  .vs-by { white-space: normal; }
+  .vs-lead { margin-block-start: 22px; max-inline-size: 560px; }
+  .vs-hero-media { aspect-ratio: 16 / 10; }
   .vs-idea-grid, .vs-touches, .vs-setting-grid, .vs-faq-wrap, .vs-enquire-wrap { grid-template-columns: minmax(0, 1fr); }
   .vs-slide { grid-template-columns: minmax(0, 1fr); }
   .vs-slide-img { min-block-size: 0; aspect-ratio: 16 / 10; }
