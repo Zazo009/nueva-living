@@ -44,6 +44,7 @@ import { renderSignatureMain } from './lib/signature_page.mjs';
 import { renderMajolicaMain } from './lib/signature_majolica.mjs';
 import { renderTyrianMain } from './lib/signature_tyrian.mjs';
 import { renderVersaceMain } from './lib/signature_versace.mjs';
+import { renderBentleyMain } from './lib/signature_bentley.mjs';
 
 const {
   DEFAULT_PROPERTY_WEBHOOK_URL,
@@ -75,6 +76,8 @@ const tyrianCssVersion = fileVersion('assets/liora/nueva-tyrian.css');
 const tyrianJsVersion = fileVersion('assets/liora/nueva-tyrian.js');
 const versaceCssVersion = fileVersion('assets/liora/nueva-versace.css');
 const versaceJsVersion = fileVersion('assets/liora/nueva-versace.js');
+const bentleyCssVersion = fileVersion('assets/liora/nueva-bentley.css');
+const bentleyJsVersion = fileVersion('assets/liora/nueva-bentley.js');
 const propertyCssVersion = fileVersion('assets/liora/liora-property.css');
 const rtlCssVersion = existsSync('assets/liora/liora-rtl.css') ? fileVersion('assets/liora/liora-rtl.css') : '1';
 const propertyJsVersion = fileVersion('assets/liora/liora-property.js');
@@ -1840,6 +1843,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   // ...and a third, aubergine and sand, for Tyrian.
   const isTyrian = isSignature && sourceProject.signature?.layout === 'tyrian';
   const isVersace = isSignature && sourceProject.signature?.layout === 'versace';
+  const isBentley = isSignature && sourceProject.signature?.layout === 'bentley';
   const heroImage = image(project, 'hero');
   const architectureImage = image(project, 'architecture');
   const privateImage = image(project, 'privateViewing');
@@ -2000,7 +2004,21 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     ? (locale === DEFAULT_LOCALE ? project.canonical : project.canonical.replace('nuevaliving.com/', `nuevaliving.com/${localeMetaInfo.urlPrefix}/`))
     : '';
 
-  const signatureMain = isVersace
+  const signatureMain = isBentley
+    ? renderBentleyMain({
+      project,
+      sourceProject,
+      locale,
+      faqs,
+      projectMedia,
+      helpers: {
+        esc, t, pictureTag, actionLink, ghostAction,
+        whatsappHref, renderLocationCard, renderEnquiryForm, liveLocationMap,
+        floorplanThumb, responsiveThumb,
+        localizedUnitFloor, localizedUnitBedrooms, localizedUnitPrice, localizedUnitSize
+      }
+    })
+    : isVersace
     ? renderVersaceMain({
       project,
       sourceProject,
@@ -2421,7 +2439,9 @@ ${fontPreloadBlock(p, locale)}
   <link rel="stylesheet" href="${p}assets/liora/nueva-location-map.css?v=${locationMapCssVersion}">
 ${leafletHead()}
   <script src="${p}assets/liora/nueva-location-map.js?v=${locationMapJsVersion}" defer></script>` : ''}
-  <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>${isVersace ? `
+  <script src="${p}assets/liora/liora-property.js?v=${propertyJsVersion}" defer></script>${isBentley ? `
+  <link rel="stylesheet" href="${p}assets/liora/nueva-bentley.css?v=${bentleyCssVersion}">
+  <script src="${p}assets/liora/nueva-bentley.js?v=${bentleyJsVersion}" defer></script>` : isVersace ? `
   <link rel="preload" href="${p}assets/fonts/google/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="${p}assets/liora/nueva-versace.css?v=${versaceCssVersion}">
   <script src="${p}assets/liora/nueva-versace.js?v=${versaceJsVersion}" defer></script>` : isTyrian ? `
@@ -2452,7 +2472,7 @@ ${JSON.stringify(faqSchema, null, 2)}
 ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
   </script>
 </head>
-<body${isVersace ? ' class="versace-page"' : isTyrian ? ' class="tyrian-page"' : isMajolica ? ' class="majolica-page"' : isSignature ? ' class="signature-page"' : ''}
+<body${isBentley ? ' class="bentley-page"' : isVersace ? ' class="versace-page"' : isTyrian ? ' class="tyrian-page"' : isMajolica ? ' class="majolica-page"' : isSignature ? ' class="signature-page"' : ''}
   data-locale="${locale}"
   data-project-name="${esc(project.name)}"
   data-project-message="${esc(project.enquiry.message)}"
@@ -2461,7 +2481,7 @@ ${JSON.stringify(breadcrumbSchema(project, locale), null, 2)}
   ${nav(project, locale)}
   ${breadcrumb(project, locale)}
 
-  <main${isVersace ? ' class="versace-main"' : isTyrian ? ' class="tyrian-main"' : isMajolica ? ' class="majolica-main"' : isSignature ? ' class="signature-main"' : ''}>
+  <main${isBentley ? ' class="bentley-main"' : isVersace ? ' class="versace-main"' : isTyrian ? ' class="tyrian-main"' : isMajolica ? ' class="majolica-main"' : isSignature ? ' class="signature-main"' : ''}>
 ${isSignature ? signatureMain : standardMain}
   </main>
 

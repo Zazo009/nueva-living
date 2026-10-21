@@ -665,6 +665,8 @@ const assetFiles = [
   'assets/liora/nueva-tyrian.js',
   'assets/liora/nueva-versace.css',
   'assets/liora/nueva-versace.js',
+  'assets/liora/nueva-bentley.css',
+  'assets/liora/nueva-bentley.js',
   'assets/liora/nueva-location-map.css',
   'assets/liora/nueva-location-map.js',
   'assets/liora/liora-compare.css',
@@ -2191,6 +2193,21 @@ const legacyRedirects = [
   '/pl/property-nueva-andalucia-villa-collection.html /pl/property-ocho-de-oro.html 301',
   '/no/property-nueva-andalucia-villa-collection.html /no/property-ocho-de-oro.html 301',
   '/sv/property-nueva-andalucia-villa-collection.html /sv/property-ocho-de-oro.html 301',
+  // Published as golden-mile-duplex-residences with the developer and the furnishing house
+  // kept anonymous. The owner now holds the developer's permission to publish the project under
+  // its own name, AÍDA, furnished by Bentley Home. All ten language copies were indexed, so every
+  // one of them is redirected (the old generated pages are deleted from the repo: a static file
+  // would win over these rules).
+  '/property-golden-mile-duplex-residences.html /property-aida.html 301',
+  '/es/property-golden-mile-duplex-residences.html /es/property-aida.html 301',
+  '/fr/property-golden-mile-duplex-residences.html /fr/property-aida.html 301',
+  '/de/property-golden-mile-duplex-residences.html /de/property-aida.html 301',
+  '/ru/property-golden-mile-duplex-residences.html /ru/property-aida.html 301',
+  '/ar/property-golden-mile-duplex-residences.html /ar/property-aida.html 301',
+  '/nl/property-golden-mile-duplex-residences.html /nl/property-aida.html 301',
+  '/pl/property-golden-mile-duplex-residences.html /pl/property-aida.html 301',
+  '/no/property-golden-mile-duplex-residences.html /no/property-aida.html 301',
+  '/sv/property-golden-mile-duplex-residences.html /sv/property-aida.html 301',
   // Three placeholder projects from the first build, removed when only real
   // developments were kept. Google still holds them as 404s; a 410 says they
   // are gone on purpose, which it drops from the index faster than a 404.

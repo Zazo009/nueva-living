@@ -1,0 +1,272 @@
+/* The bentley layout of the signature template (scripts/lib/signature_bentley.mjs).
+   Follows the AÍDA brochure's own look: cream pages, near-black type set small in wide-tracked
+   capitals, hairline rules between the lines of a list, square photographs with a lot of air
+   around them, and one spread in the muted green of the Bentley Home page. The wordmark is set in
+   type; no logo is reproduced. Logical properties throughout, so the Arabic page mirrors without a
+   second rule set. */
+
+.bentley-main img { block-size: auto; }
+
+.bentley-page {
+  --bn-cream: #ebe6dd;
+  --bn-paper: #f4f1ea;
+  --bn-ink: #17150f;
+  --bn-soft: #4b473e;
+  --bn-sage: #5f7767;
+  --bn-sage-deep: #4a6050;
+  --bn-line: rgba(23, 21, 15, 0.22);
+  --bn-font: "Montserrat", Arial, sans-serif;
+  --bn-pad: clamp(20px, 5vw, 72px);
+  --bn-ease: cubic-bezier(0.22, 0.72, 0.18, 1);
+  background: var(--bn-cream);
+}
+
+.bentley-page .site-nav { background: #14110d; border-block-end: 1px solid rgba(235, 230, 221, 0.18); }
+.bentley-page .breadcrumb-bar { background: var(--bn-paper); border-block-end: 1px solid var(--bn-line); }
+.bentley-page .breadcrumb-list a { color: var(--bn-sage-deep); }
+.bentley-page .breadcrumb-list a:hover { color: var(--bn-ink); }
+.bentley-page .breadcrumb-list [aria-current="page"] { color: var(--bn-ink); }
+.bentley-page .breadcrumb-list li:not(:last-child)::after { border-top-color: var(--bn-sage); border-right-color: var(--bn-sage); }
+
+.bentley-page .bentley-main { color: var(--bn-ink); background: var(--bn-cream); overflow-x: clip; font-family: var(--bn-font); }
+
+.bn-wrap { inline-size: 100%; max-inline-size: 1240px; margin-inline: auto; padding-inline: var(--bn-pad); }
+
+/* ---------- Sections ---------- */
+/* clip, not hidden: hidden would make a section the scroll container and the rooms stage could not stick to the page. */
+.bn-section { position: relative; padding-block: clamp(64px, 8vw, 120px); overflow: hidden; overflow: clip; }
+.bn-section::before { content: none; }
+.bn-head { max-inline-size: 640px; }
+.bn-kicker { display: block; margin-block-end: 14px; font: 500 10.5px/1.4 var(--bn-font); letter-spacing: 0.34em; text-transform: uppercase; color: var(--bn-sage-deep); }
+.bn-section h2 { margin: 0; font: 400 clamp(19px, 2.1vw, 28px)/1.5 var(--bn-font); letter-spacing: 0.2em; text-transform: uppercase; color: var(--bn-ink); }
+.bn-section h2 em { font-style: normal; color: var(--bn-sage); }
+.bn-head p { margin: 22px 0 0; font: 300 14.5px/1.85 var(--bn-font); letter-spacing: 0.02em; color: var(--bn-soft); }
+.bn-prose p { margin: 0 0 1.1em; font: 300 14.5px/1.9 var(--bn-font); letter-spacing: 0.02em; color: var(--bn-soft); }
+.bn-note { margin: 22px 0 0; max-inline-size: 78ch; font: 300 12.5px/1.7 var(--bn-font); letter-spacing: 0.02em; color: var(--bn-soft); }
+
+.bn-idea, .bn-types, .bn-rooms, .bn-collection, .bn-team, .bn-enquire { background: var(--bn-cream); }
+.bn-pit, .bn-wellness, .bn-golden, .bn-faq, .bn-filmsec { background: var(--bn-paper); }
+.bn-bentley { background: var(--bn-sage); color: #f1eee6; }
+.bn-bentley .bn-kicker { color: rgba(241, 238, 230, 0.8); }
+.bn-bentley h2, .bn-bentley .bn-head p { color: #f4f1ea; }
+.bn-bentley h2 em { color: #dfe8e0; }
+
+/* ---------- Buttons: a black block and a hairline ---------- */
+.bentley-main .btn { border-radius: 0; letter-spacing: 0.22em; font-family: var(--bn-font); font-weight: 500; }
+.bentley-main .btn:not(.ghost) { background: var(--bn-ink); color: var(--bn-cream); border: 1px solid var(--bn-ink); }
+.bentley-main .btn:not(.ghost):hover { background: var(--bn-sage); border-color: var(--bn-sage); color: #fff; }
+.bentley-main .btn.ghost { background: transparent; color: var(--bn-ink); border: 1px solid var(--bn-ink); }
+.bentley-main .btn.ghost:hover { background: var(--bn-ink); color: var(--bn-cream); }
+
+/* ---------- Hero: the cover of the brochure ---------- */
+.bn-hero { position: relative; background: var(--bn-cream); color: var(--bn-ink); }
+.bn-hero-grid { display: flex; flex-direction: column; align-items: center; gap: 0; max-inline-size: none; padding-inline: 0; }
+.bn-bezel { order: -1; margin: 0; inline-size: 100%; }
+.bn-bezel-img { position: relative; aspect-ratio: 21 / 9; max-block-size: 68svh; min-block-size: 280px; overflow: hidden; }
+.bn-bezel-img picture, .bn-bezel-img img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.bn-bezel-img img { transform: scale(1.04); transition: transform 2.6s var(--bn-ease); }
+.bn-hero.is-ready .bn-bezel-img img { transform: scale(1); }
+.bn-hero-copy { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(40px, 6vw, 84px) var(--bn-pad) clamp(28px, 4vw, 48px); max-inline-size: 820px; }
+.bn-eyebrow { order: 5; margin: clamp(22px, 3vw, 34px) 0 0; font: 500 10.5px/1.7 var(--bn-font); letter-spacing: 0.3em; text-transform: uppercase; color: var(--bn-soft); }
+.bn-title { margin: 0; font: 300 clamp(44px, 7vw, 92px)/1.1 var(--bn-font); letter-spacing: 0.42em; padding-inline-start: 0.42em; text-transform: uppercase; color: var(--bn-ink); }
+.bn-title span { display: inline-block; }
+.bn-by { display: flex; align-items: center; justify-content: center; gap: 18px; margin: clamp(14px, 1.8vw, 22px) 0 0; font: 500 clamp(10px, 1vw, 12px)/1.5 var(--bn-font); letter-spacing: 0.34em; text-transform: uppercase; color: var(--bn-ink); }
+.bn-by i { inline-size: clamp(24px, 5vw, 64px); block-size: 1px; background: var(--bn-ink); flex: none; }
+.bn-lead { margin: clamp(22px, 3vw, 34px) 0 0; max-inline-size: 560px; font: 300 14.5px/1.9 var(--bn-font); letter-spacing: 0.02em; color: var(--bn-soft); }
+.bn-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-block-start: clamp(22px, 3vw, 34px); }
+.bn-dials { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-block: 0 clamp(36px, 5vw, 64px); padding: 0 var(--bn-pad); border-block: 1px solid var(--bn-line); }
+.bn-dial { padding: 22px 16px; text-align: center; border-inline-end: 1px solid var(--bn-line); }
+.bn-dial:last-child { border-inline-end: 0; }
+.bn-dial strong { display: block; font: 300 clamp(18px, 1.9vw, 24px)/1.2 var(--bn-font); letter-spacing: 0.06em; color: var(--bn-ink); }
+.bn-dial span { display: block; margin-block-start: 8px; font: 500 9.5px/1.5 var(--bn-font); letter-spacing: 0.26em; text-transform: uppercase; color: var(--bn-soft); }
+.bn-hero-copy > * { opacity: 0; transform: translateY(16px); transition: opacity 0.9s var(--bn-ease), transform 0.9s var(--bn-ease); }
+.bn-hero.is-ready .bn-hero-copy > * { opacity: 1; transform: none; }
+html:not(.bn-js) .bn-hero-copy > * { opacity: 1; transform: none; }
+
+/* ---------- Chapter bar ---------- */
+.bn-bar { position: sticky; top: var(--nueva-header-h, 76px); z-index: 120; background: rgba(244, 241, 234, 0.96); backdrop-filter: blur(10px); border-block: 1px solid var(--bn-line); }
+.bn-bar-inner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "brand links cta"; align-items: center; column-gap: clamp(14px, 3vw, 40px); }
+.bn-bar-brand { grid-area: brand; padding-block: 14px; font: 400 14px/1 var(--bn-font); letter-spacing: 0.36em; text-transform: uppercase; color: var(--bn-ink); text-decoration: none; white-space: nowrap; }
+.bn-bar-links { grid-area: links; display: flex; justify-content: safe center; gap: clamp(10px, 1.3vw, 20px); overflow-x: auto; scrollbar-width: none; }
+.bn-bar-links::-webkit-scrollbar { display: none; }
+.bn-bar-links a { flex: none; padding-block: 16px; border-block-end: 1px solid transparent; font: 500 10.5px/1 var(--bn-font); letter-spacing: 0.16em; text-transform: uppercase; color: var(--bn-soft); text-decoration: none; white-space: nowrap; }
+.bn-bar-links a i { margin-inline-end: 6px; font-style: normal; color: var(--bn-sage); }
+.bn-bar-links a:hover, .bn-bar-links a.is-active { color: var(--bn-ink); border-color: var(--bn-ink); }
+.bentley-main .bn-bar-cta { grid-area: cta; justify-self: end; inline-size: fit-content; max-inline-size: 100%; min-block-size: 0; padding: 8px 18px; font-size: 9.5px; line-height: 1.2; letter-spacing: 0.16em; white-space: nowrap; }
+.bn-progress { position: absolute; inset-inline: 0; inset-block-end: -1px; block-size: 1px; background: var(--bn-ink); transform: scaleX(0); transform-origin: left; }
+html[dir="rtl"] .bn-progress { transform-origin: right; }
+
+/* ---------- Idea ---------- */
+.bn-idea-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(36px, 6vw, 96px); align-items: center; }
+.bn-pull { margin: 30px 0 0; padding-block-start: 22px; border-block-start: 1px solid var(--bn-line); }
+.bn-pull p { margin: 0; font: 300 clamp(16px, 1.5vw, 19px)/1.7 var(--bn-font); letter-spacing: 0.04em; color: var(--bn-ink); }
+.bn-chrome { margin: 0; }
+.bn-chrome picture, .bn-chrome img { display: block; inline-size: 100%; block-size: auto; }
+
+/* ---------- The film ---------- */
+.bn-film { margin: clamp(28px, 4vw, 48px) 0 0; }
+.bn-film video { display: block; inline-size: 100%; block-size: auto; aspect-ratio: 16 / 9; background: #000; }
+.bn-film figcaption { display: grid; gap: 4px; padding-block-start: 14px; font: 300 12.5px/1.6 var(--bn-font); color: var(--bn-soft); }
+.bn-film figcaption strong { font: 500 10.5px/1.5 var(--bn-font); letter-spacing: 0.22em; text-transform: uppercase; color: var(--bn-ink); }
+
+/* ---------- Bentley Home: the green spread ---------- */
+.bn-codes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(28px, 3.4vw, 52px) clamp(20px, 2.4vw, 36px); margin-block-start: clamp(36px, 5vw, 64px); }
+.bn-code { position: relative; }
+.bn-code-no { display: block; margin-block-end: 12px; font: 300 14px/1 var(--bn-font); letter-spacing: 0.3em; color: rgba(241, 238, 230, 0.78); }
+.bn-code-img { aspect-ratio: 4 / 5; overflow: hidden; background: rgba(0, 0, 0, 0.12); }
+.bn-code-img picture, .bn-code-img img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 1.4s var(--bn-ease); }
+.bn-code:hover .bn-code-img img { transform: scale(1.04); }
+.bn-code h3 { margin: 18px 0 8px; padding-block-end: 10px; border-block-end: 1px solid rgba(241, 238, 230, 0.4); font: 500 11.5px/1.5 var(--bn-font); letter-spacing: 0.22em; text-transform: uppercase; color: #f4f1ea; }
+.bn-code p { margin: 0; font: 300 13px/1.85 var(--bn-font); color: rgba(244, 241, 234, 0.88); }
+
+/* ---------- The two residences ---------- */
+.bn-switch { display: inline-flex; gap: 28px; margin-block-start: clamp(26px, 4vw, 44px); border-block-end: 1px solid var(--bn-line); }
+.bn-switch-thumb { display: none; }
+.bn-switch-btn { padding: 0 0 14px; margin-block-end: -1px; border: 0; border-block-end: 1px solid transparent; background: transparent; color: var(--bn-soft); font: 500 10.5px/1 var(--bn-font); letter-spacing: 0.24em; text-transform: uppercase; cursor: pointer; transition: color 0.25s ease, border-color 0.25s ease; }
+.bn-switch-btn:hover { color: var(--bn-ink); }
+.bn-switch-btn.is-active { color: var(--bn-ink); border-block-end-color: var(--bn-ink); }
+.bn-type-stage { margin-block-start: clamp(28px, 4vw, 48px); }
+.bn-type { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(28px, 4vw, 64px); align-items: start; }
+.bn-type[hidden] { display: none; }
+.bn-type.is-active { animation: bn-swap 0.6s var(--bn-ease) both; }
+@keyframes bn-swap { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.bn-type-img { margin: 0; }
+.bn-type-img picture, .bn-type-img img { display: block; inline-size: 100%; block-size: auto; }
+.bn-type-tag { margin: 0 0 8px; font: 500 10.5px/1.5 var(--bn-font); letter-spacing: 0.28em; text-transform: uppercase; color: var(--bn-sage-deep); }
+.bn-type h3 { margin: 0 0 14px; font: 400 clamp(18px, 1.9vw, 24px)/1.4 var(--bn-font); letter-spacing: 0.18em; text-transform: uppercase; }
+.bn-type p { font: 300 14.5px/1.85 var(--bn-font); color: var(--bn-soft); }
+.bn-type-facts { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); border-block: 1px solid var(--bn-line); }
+.bn-type-facts li { padding: 14px 10px; text-align: center; }
+.bn-type-facts strong { display: block; font: 300 20px/1.2 var(--bn-font); color: var(--bn-ink); }
+.bn-type-facts span { display: block; margin-block-start: 6px; font: 500 9px/1.5 var(--bn-font); letter-spacing: 0.22em; text-transform: uppercase; color: var(--bn-soft); }
+.bn-levels { list-style: none; margin: 14px 0 0; padding: 0; }
+.bn-levels li { display: flex; gap: 16px; padding-block: 14px; border-block-end: 1px solid var(--bn-line); }
+.bn-levels i { flex: none; min-inline-size: 28px; font: 300 14px/1.6 var(--bn-font); font-style: normal; color: var(--bn-sage); }
+.bn-levels h4 { margin: 0 0 4px; font: 500 10.5px/1.5 var(--bn-font); letter-spacing: 0.22em; text-transform: uppercase; color: var(--bn-ink); }
+.bn-levels p { margin: 0; font: 300 13px/1.7 var(--bn-font); }
+.bn-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(18px, 2.4vw, 32px); margin-block-start: clamp(36px, 5vw, 64px); }
+.bn-plan { margin: 0; background: #fff; padding: 12px; }
+.bn-plan img { display: block; inline-size: 100%; }
+.bn-plan figcaption { margin-block-start: 10px; font: 500 9.5px/1.5 var(--bn-font); letter-spacing: 0.22em; text-transform: uppercase; color: var(--bn-soft); }
+
+/* ---------- The pit lane ---------- */
+.bn-pit { padding-block: 0; }
+.bn-pit-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 80px); align-items: start; padding-block: clamp(64px, 8vw, 120px); }
+.bn-pit-lead { margin: 22px 0 0; font: 300 14.5px/1.9 var(--bn-font); color: var(--bn-soft); }
+.bn-pit-list { list-style: none; margin: 26px 0 0; padding: 0; }
+.bn-pit-list li { display: flex; gap: 18px; padding-block: 16px; border-block-start: 1px solid var(--bn-line); }
+.bn-pit-list li:last-child { border-block-end: 1px solid var(--bn-line); }
+.bn-pit-list i { flex: none; font: 300 14px/1.6 var(--bn-font); font-style: normal; color: var(--bn-sage); }
+.bn-pit-list h3 { margin: 0 0 6px; font: 500 10.5px/1.5 var(--bn-font); letter-spacing: 0.24em; text-transform: uppercase; color: var(--bn-ink); }
+.bn-pit-list p { margin: 0; font: 300 13px/1.8 var(--bn-font); color: var(--bn-soft); }
+.bn-pit-visual { display: grid; gap: 18px; }
+.bn-pit-img { margin: 0; }
+.bn-pit-img picture, .bn-pit-img img { display: block; inline-size: 100%; block-size: auto; }
+
+/* ---------- The rooms: a theatre ---------- */
+.bn-theatre { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: clamp(24px, 4vw, 64px); margin-block-start: clamp(28px, 4vw, 52px); align-items: start; }
+.bn-stage { position: sticky; top: calc(var(--nueva-header-h, 76px) + 76px); aspect-ratio: 16 / 11; max-block-size: calc(100svh - 190px); overflow: hidden; background: var(--bn-paper); }
+.bn-stage-img { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 0.9s var(--bn-ease); }
+.bn-stage-img.is-active { opacity: 1; }
+html:not(.bn-js) .bn-stage-img:first-child { opacity: 1; }
+.bn-stage-img picture, .bn-stage-img img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.bn-steps { list-style: none; margin: 0; padding: 0; }
+.bn-step { display: flex; flex-direction: column; justify-content: center; min-block-size: 68svh; padding-block: 24px; opacity: 0.28; transition: opacity 0.5s ease; border-block-end: 1px solid var(--bn-line); }
+.bn-step.is-active { opacity: 1; }
+html:not(.bn-js) .bn-step { opacity: 1; min-block-size: 0; }
+.bn-step-no { margin: 0 0 12px; font: 400 11px/1 var(--bn-font); letter-spacing: 0.28em; color: var(--bn-sage-deep); }
+.bn-step-no b { font-weight: 300; font-size: 34px; letter-spacing: 0.06em; color: var(--bn-ink); }
+.bn-step h3 { margin: 0 0 10px; font: 500 12px/1.6 var(--bn-font); letter-spacing: 0.24em; text-transform: uppercase; color: var(--bn-ink); }
+.bn-step p:not(.bn-step-no) { margin: 0; font: 300 14px/1.85 var(--bn-font); color: var(--bn-soft); }
+
+/* ---------- Wellness ---------- */
+.bn-spa-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 3.4vw, 52px) clamp(20px, 3vw, 44px); margin-block-start: clamp(28px, 4vw, 52px); }
+.bn-spa-img { aspect-ratio: 16 / 10; overflow: hidden; }
+.bn-spa-img picture, .bn-spa-img img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 1.4s var(--bn-ease); }
+.bn-spa:hover .bn-spa-img img { transform: scale(1.04); }
+.bn-spa h3 { margin: 16px 0 8px; padding-block-end: 10px; border-block-end: 1px solid var(--bn-line); font: 500 11.5px/1.5 var(--bn-font); letter-spacing: 0.22em; text-transform: uppercase; color: var(--bn-ink); }
+.bn-spa p { margin: 0; font: 300 13.5px/1.85 var(--bn-font); color: var(--bn-soft); }
+
+/* ---------- Golden Mile: a ruled list, like the brochure's contents ---------- */
+.bn-spots { margin-block-start: clamp(28px, 4vw, 52px); border-block-start: 1px solid var(--bn-line); }
+.bn-spot { display: grid; grid-template-columns: 56px minmax(160px, 0.5fr) minmax(0, 1.5fr); gap: 20px; align-items: baseline; padding-block: 22px; border-block-end: 1px solid var(--bn-line); }
+.bn-spot span { font: 300 13px/1.6 var(--bn-font); letter-spacing: 0.2em; color: var(--bn-sage); }
+.bn-spot h3 { margin: 0; font: 500 11.5px/1.6 var(--bn-font); letter-spacing: 0.24em; text-transform: uppercase; color: var(--bn-ink); }
+.bn-spot p { margin: 0; font: 300 13.5px/1.85 var(--bn-font); color: var(--bn-soft); }
+.bn-setting-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: start; margin-block-start: clamp(56px, 7vw, 100px); }
+.bn-distances, .bn-extras { list-style: none; margin: 0; padding: 0; }
+.bn-distances li { display: flex; justify-content: space-between; gap: 18px; padding-block: 14px; border-block-end: 1px solid var(--bn-line); font: 300 13.5px/1.5 var(--bn-font); color: var(--bn-soft); }
+.bn-distances strong { font: 500 13.5px/1.5 var(--bn-font); color: var(--bn-ink); text-align: end; }
+.bn-extras { margin-block-start: 20px; }
+.bn-extras li { padding-block: 5px; font: 300 12.5px/1.7 var(--bn-font); color: var(--bn-soft); }
+.bn-map { margin-block-start: 40px; }
+.bn-aerial { margin: clamp(36px, 5vw, 64px) 0 0; }
+.bn-aerial picture, .bn-aerial img { display: block; inline-size: 100%; block-size: auto; }
+
+/* ---------- The eight residences ---------- */
+.bn-keyfobs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-block-start: clamp(28px, 4vw, 52px); border-block-start: 1px solid var(--bn-line); border-inline-start: 1px solid var(--bn-line); }
+.bn-keyfob { padding: 26px 18px 24px; text-align: center; border-block-end: 1px solid var(--bn-line); border-inline-end: 1px solid var(--bn-line); opacity: 0.62; }
+.bn-keyfob.is-listed { opacity: 1; background: var(--bn-paper); }
+.bn-keyfob-no { margin: 0; font: 200 34px/1 var(--bn-font); letter-spacing: 0.1em; color: var(--bn-sage); }
+.bn-keyfob h3 { margin: 8px 0 12px; font: 500 10.5px/1.5 var(--bn-font); letter-spacing: 0.24em; text-transform: uppercase; color: var(--bn-ink); }
+.bn-keyfob-price { margin: 0; font: 400 clamp(15px, 1.5vw, 19px)/1.3 var(--bn-font); letter-spacing: 0.03em; color: var(--bn-ink); }
+.bn-keyfob-spec { margin: 10px 0 0; font: 300 12px/1.7 var(--bn-font); color: var(--bn-soft); }
+.bn-keyfob-state { margin: 14px 0 0; font: 500 9px/1 var(--bn-font); letter-spacing: 0.26em; text-transform: uppercase; color: var(--bn-sage-deep); }
+.bn-keyfob-plan { display: inline-block; margin-block-start: 12px; font: 500 9.5px/1 var(--bn-font); letter-spacing: 0.22em; text-transform: uppercase; color: var(--bn-ink); border-block-end: 1px solid var(--bn-ink); padding-block-end: 3px; text-decoration: none; }
+.bn-actions[data-bn-in] { justify-content: flex-start; }
+
+/* ---------- Team, FAQ, enquire ---------- */
+.bn-credits { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(20px, 3vw, 40px); margin-block-start: clamp(28px, 4vw, 52px); }
+.bn-credit { padding-block-start: 18px; border-block-start: 1px solid var(--bn-ink); }
+.bn-credit span { display: block; margin-block-end: 12px; font: 500 9.5px/1.5 var(--bn-font); letter-spacing: 0.28em; text-transform: uppercase; color: var(--bn-sage-deep); }
+.bn-credit h3 { margin: 0 0 10px; font: 400 14px/1.5 var(--bn-font); letter-spacing: 0.22em; text-transform: uppercase; }
+.bn-credit p { margin: 0; font: 300 13px/1.85 var(--bn-font); color: var(--bn-soft); }
+.bn-faq-wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 80px); }
+.bn-faq .faq-item { border-block-end: 1px solid var(--bn-line); }
+.bn-faq .faq-item summary { color: var(--bn-ink); font-family: var(--bn-font); font-weight: 400; font-size: 14px; letter-spacing: 0.08em; }
+.bn-faq .faq-item p { color: var(--bn-soft); font: 300 13.5px/1.85 var(--bn-font); }
+.bn-enquire-wrap { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 80px); align-items: start; }
+.bn-enquire-form { background: var(--bn-paper); color: var(--bn-ink); padding: clamp(22px, 3vw, 40px); border: 1px solid var(--bn-line); }
+.bn-enquire-private { margin-block-start: 26px !important; }
+.bn-fine { background: #14110d; color: rgba(235, 230, 221, 0.72); padding-block: 36px; }
+.bn-fine p { margin: 0 0 10px; font: 300 12px/1.7 var(--bn-font); max-inline-size: 110ch; }
+.bn-gallery { background: var(--bn-paper); color: var(--bn-ink); }
+
+/* ---------- Motion: reveal only ---------- */
+.bn-js [data-bn-in] { opacity: 0; transition: opacity 0.9s var(--bn-ease), transform 0.9s var(--bn-ease); transition-delay: var(--d, 0s); }
+.bn-js [data-bn-in="up"] { transform: translateY(24px); }
+.bn-js [data-bn-in="frame"] { transform: translateY(14px); }
+.bn-js [data-bn-in].is-in { opacity: 1; transform: none; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1320px) {
+  .bn-bar-brand { display: none; }
+  .bn-bar-inner { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "links cta"; }
+}
+@media (max-width: 1000px) {
+  .bn-idea-grid, .bn-pit-grid, .bn-setting-grid, .bn-faq-wrap, .bn-enquire-wrap, .bn-type { grid-template-columns: minmax(0, 1fr); }
+  .bn-codes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bn-keyfobs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bn-theatre { grid-template-columns: minmax(0, 1fr); }
+  .bn-stage { top: calc(var(--nueva-header-h, 76px) + 64px); aspect-ratio: 16 / 10; z-index: 3; }
+  .bn-step { min-block-size: 56svh; justify-content: flex-start; padding-block: 28px; }
+  .bn-spot { grid-template-columns: 44px minmax(0, 1fr); }
+  .bn-spot p { grid-column: 2; }
+  .bn-bezel-img { aspect-ratio: 16 / 10; }
+}
+@media (max-width: 720px) {
+  .bn-bar-brand { font-size: 12px; }
+  .bentley-main .bn-bar-cta { padding: 7px 14px; font-size: 9px; letter-spacing: 0.12em; }
+  .bn-bar-inner { grid-template-columns: minmax(0, 1fr); grid-template-areas: "cta" "links"; row-gap: 0; }
+  .bn-bar-links { justify-content: flex-start; margin-inline: calc(var(--bn-pad) * -1); padding-inline: var(--bn-pad); }
+  .bn-bar-links a { padding-block: 13px; }
+  .bn-codes, .bn-spa-grid { grid-template-columns: minmax(0, 1fr); }
+  .bn-dials { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bn-dial { border-block-end: 1px solid var(--bn-line); }
+  .bn-switch { display: flex; gap: 0; }
+  .bn-switch-btn { flex: 1; padding-inline: 8px; text-align: center; }
+  .bn-title { letter-spacing: 0.3em; padding-inline-start: 0.3em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bn-js [data-bn-in], .bn-hero-copy > *, .bn-bezel-img img, .bn-stage-img, .bn-code-img img, .bn-spa-img img { transition: none; }
+}
