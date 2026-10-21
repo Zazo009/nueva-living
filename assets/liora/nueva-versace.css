@@ -1,0 +1,282 @@
+/* The versace layout of the signature template (scripts/lib/signature_versace.mjs).
+   Follows the Ocho de Oro brochure: warm ivory pages, bronze-gold accents, near-black
+   text, headings in capitals with a wide tracking and the second half of the line in
+   gold, images with softly rounded corners. The brochure sets everything in Ofelia
+   Display, which is a commercial face; Jost is the nearest free one (light geometric
+   capitals, the same airy tracking). The page is a walk: the house's hand in the rooms,
+   the villa floor by floor, the rooms one large view at a time, and the eight villas as
+   eight keys, lit when they have a price. Logical properties throughout, so the Arabic
+   page mirrors without a second rule set. */
+
+@font-face { font-family: 'Jost'; font-style: normal; font-weight: 300 500; font-display: swap; src: url(../fonts/google/jost-cyrillic.woff2) format('woff2'); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+@font-face { font-family: 'Jost'; font-style: normal; font-weight: 300 500; font-display: swap; src: url(../fonts/google/jost-latin-ext.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Jost'; font-style: normal; font-weight: 300 500; font-display: swap; src: url(../fonts/google/jost-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+.versace-main img { block-size: auto; }
+
+.versace-page {
+  --vs-ivory: #f8f4ef;
+  --vs-paper: #fdfbf8;
+  --vs-sand: #efe8de;
+  --vs-ink: #1b1712;
+  --vs-soft: #4a4238;
+  --vs-gold: #9a7c4c;
+  --vs-gold-text: #7d6339;
+  --vs-gold-bright: #b89a68;
+  --vs-line: rgba(27, 23, 18, 0.14);
+  --vs-line-gold: rgba(154, 124, 76, 0.45);
+  --vs-font: "Jost", "Montserrat", Arial, sans-serif;
+  --vs-pad: clamp(20px, 5vw, 64px);
+  --vs-round: 12px;
+  --vs-ease: cubic-bezier(0.22, 0.72, 0.18, 1);
+  background: var(--vs-ivory);
+}
+
+.versace-page .site-nav { background: #14110d; border-block-end: 1px solid rgba(184, 154, 104, 0.25); }
+.versace-page .breadcrumb-bar { background: var(--vs-sand); border-block-end: 1px solid var(--vs-line); }
+.versace-page .breadcrumb-list a { color: var(--vs-gold-text); }
+.versace-page .breadcrumb-list a:hover { color: var(--vs-ink); }
+.versace-page .breadcrumb-list [aria-current="page"] { color: var(--vs-ink); }
+.versace-page .breadcrumb-list li:not(:last-child)::after { border-top-color: var(--vs-gold); border-right-color: var(--vs-gold); }
+
+.versace-page .versace-main { color: var(--vs-ink); background: var(--vs-ivory); overflow-x: clip; font-family: var(--vs-font); }
+
+.vs-wrap { inline-size: 100%; max-inline-size: 1240px; margin-inline: auto; padding-inline: var(--vs-pad); }
+
+/* The brochure has no ornament of its own, so the page keeps none: the short rules that
+   framed the by-line stay as thin gold lines, the long borders are not drawn. */
+.vs-greca { display: block; block-size: 1px; background: var(--vs-gold); }
+.vs-greca--short { inline-size: clamp(40px, 7vw, 90px); flex: none; }
+.vs-greca--edge { display: none; }
+
+/* ---------- Sections ---------- */
+.vs-section { position: relative; padding-block: clamp(64px, 8vw, 120px); overflow: hidden; }
+.vs-section::before {
+  content: attr(data-no);
+  position: absolute;
+  inset-block-start: clamp(24px, 3vw, 44px);
+  inset-inline-end: var(--vs-pad);
+  font: 200 clamp(70px, 11vw, 160px)/0.8 var(--vs-font);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--vs-gold);
+  opacity: 0.22;
+  pointer-events: none;
+}
+.vs-head { max-inline-size: 740px; }
+.vs-kicker { display: inline-flex; align-items: center; gap: 14px; margin-block-end: 20px; font: 500 11px/1 var(--vs-font); letter-spacing: 0.3em; text-transform: uppercase; color: var(--vs-gold-text); }
+.vs-kicker::before { content: ""; inline-size: 32px; block-size: 1px; background: currentColor; }
+.vs-section h2 { margin: 0; font: 400 clamp(26px, 3.4vw, 44px)/1.22 var(--vs-font); letter-spacing: 0.07em; text-transform: uppercase; color: var(--vs-ink); }
+.vs-section h2 em { font-style: normal; color: var(--vs-gold); }
+.vs-head p { margin: 22px 0 0; font: 300 16px/1.8 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-soft); }
+.vs-prose p { margin: 0 0 1.1em; font: 300 16px/1.85 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-soft); }
+.vs-note { margin: 22px 0 0; max-inline-size: 78ch; font: 300 13.5px/1.7 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-soft); }
+
+.vs-idea, .vs-villa-sec, .vs-collection, .vs-team { background: var(--vs-ivory); }
+.vs-versace, .vs-wellness, .vs-faq, .vs-setting { background: var(--vs-sand); }
+.vs-rooms, .vs-enquire { background: var(--vs-ivory); }
+
+/* ---------- Buttons: ink on ivory, bronze on hover ---------- */
+.versace-main .btn { border-radius: 2px; letter-spacing: 0.2em; font-family: var(--vs-font); }
+.versace-main .vs-hero .btn:not(.ghost), .versace-main .vs-bar .btn, .versace-main .vs-section .btn:not(.ghost) {
+  background: var(--vs-ink); color: var(--vs-ivory); border: 1px solid var(--vs-ink); font-weight: 500;
+}
+.versace-main .vs-hero .btn:not(.ghost):hover, .versace-main .vs-bar .btn:hover, .versace-main .vs-section .btn:not(.ghost):hover { background: var(--vs-gold); border-color: var(--vs-gold); color: #fff; }
+.versace-main .btn.ghost { background: transparent; color: var(--vs-ink); border: 1px solid var(--vs-gold); }
+.versace-main .btn.ghost:hover { background: var(--vs-gold); color: #fff; }
+
+/* ---------- Hero: words on ivory, the villa beside them ---------- */
+.vs-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); grid-template-areas: "text media" "base base"; background: var(--vs-ivory); color: var(--vs-ink); }
+.vs-hero-inner { grid-area: text; align-self: center; display: grid; justify-items: start; padding: clamp(40px, 6vw, 96px) clamp(24px, 4vw, 64px) clamp(40px, 6vw, 96px) var(--vs-pad); text-align: start; }
+.vs-hero-media { grid-area: media; position: relative; margin: clamp(16px, 3vw, 40px) var(--vs-pad) clamp(16px, 3vw, 40px) 0; border-radius: var(--vs-round); overflow: hidden; min-block-size: clamp(320px, 56vw, 720px); box-shadow: 0 24px 60px rgba(27, 23, 18, 0.18); }
+.vs-hero-media img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; display: block; transform: scale(1.05); transition: transform 2.2s var(--vs-ease); }
+.vs-hero.is-ready .vs-hero-media img { transform: scale(1); }
+.vs-hero-veil { display: none; }
+.vs-hero .vs-wrap.vs-hero-inner { max-inline-size: none; margin: 0; }
+.vs-eyebrow { margin: 0 0 22px; font: 500 11px/1.6 var(--vs-font); letter-spacing: 0.3em; text-transform: uppercase; color: var(--vs-gold-text); }
+.vs-title { margin: 0; font: 300 clamp(40px, 6.6vw, 104px)/1.02 var(--vs-font); letter-spacing: 0.1em; text-transform: uppercase; color: var(--vs-gold); }
+.vs-by { display: flex; align-items: center; gap: 16px; margin: clamp(16px, 2vw, 26px) 0 0; font: 500 clamp(11px, 1.2vw, 13px)/1.5 var(--vs-font); letter-spacing: 0.28em; text-transform: uppercase; color: var(--vs-ink); }
+.vs-lead { margin: clamp(20px, 2.6vw, 32px) 0 0; max-inline-size: 520px; font: 300 clamp(16px, 1.5vw, 19px)/1.75 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-soft); }
+.vs-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-block-start: clamp(24px, 3vw, 36px); }
+.vs-hero-base { grid-area: base; position: relative; display: grid; gap: 22px; max-inline-size: 1240px; margin-inline: auto; inline-size: 100%; padding: clamp(16px, 3vw, 36px) var(--vs-pad) clamp(36px, 5vw, 64px); }
+.vs-keys { display: flex; justify-content: flex-start; gap: 12px; margin: 0; }
+.vs-keys i { inline-size: 11px; block-size: 11px; transform: rotate(45deg); border: 1px solid var(--vs-gold); }
+.vs-keys i.is-lit { background: var(--vs-gold); border-color: var(--vs-gold); }
+.vs-hero-facts { list-style: none; margin: 0; padding: 22px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; border-block-start: 1px solid var(--vs-line-gold); text-align: start; }
+.vs-hero-facts strong { display: block; font: 300 clamp(24px, 2.6vw, 34px)/1.1 var(--vs-font); letter-spacing: 0.04em; color: var(--vs-ink); }
+.vs-hero-facts span { display: block; margin-block-start: 6px; font: 500 10.5px/1.5 var(--vs-font); letter-spacing: 0.22em; text-transform: uppercase; color: var(--vs-gold-text); }
+.vs-hero-inner > * { opacity: 0; transform: translateY(18px); transition: opacity 0.9s var(--vs-ease), transform 0.9s var(--vs-ease); }
+.vs-hero.is-ready .vs-hero-inner > * { opacity: 1; transform: none; }
+.vs-hero.is-ready .vs-hero-inner > :nth-child(2) { transition-delay: 0.1s; }
+.vs-hero.is-ready .vs-hero-inner > :nth-child(3) { transition-delay: 0.2s; }
+.vs-hero.is-ready .vs-hero-inner > :nth-child(4) { transition-delay: 0.3s; }
+.vs-hero.is-ready .vs-hero-inner > :nth-child(5) { transition-delay: 0.4s; }
+html:not(.vs-js) .vs-hero-inner > * { opacity: 1; transform: none; }
+
+/* ---------- Chapter bar ---------- */
+.vs-bar { position: sticky; top: var(--nueva-header-h, 76px); z-index: 120; background: rgba(248, 244, 239, 0.96); backdrop-filter: blur(10px); border-block: 1px solid var(--vs-line); }
+.vs-bar-inner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "brand links cta"; align-items: center; column-gap: clamp(14px, 3vw, 40px); }
+.vs-bar-brand { grid-area: brand; padding-block: 14px; font: 400 14px/1 var(--vs-font); letter-spacing: 0.24em; text-transform: uppercase; color: var(--vs-gold); text-decoration: none; white-space: nowrap; }
+.vs-bar-links { grid-area: links; display: flex; justify-content: safe center; gap: clamp(10px, 1.3vw, 20px); overflow-x: auto; scrollbar-width: none; }
+.vs-bar-links::-webkit-scrollbar { display: none; }
+.vs-bar-links a { flex: none; padding-block: 16px; border-block-end: 2px solid transparent; font: 500 11px/1 var(--vs-font); letter-spacing: 0.14em; text-transform: uppercase; color: var(--vs-soft); text-decoration: none; white-space: nowrap; }
+.vs-bar-links a i { margin-inline-end: 6px; font-style: normal; color: var(--vs-gold); }
+.vs-bar-links a:hover, .vs-bar-links a.is-active { color: var(--vs-ink); border-color: var(--vs-gold); }
+.versace-main .vs-bar-cta { grid-area: cta; justify-self: end; inline-size: fit-content; max-inline-size: 100%; min-block-size: 0; padding: 8px 18px; font-size: 9.5px; line-height: 1.2; letter-spacing: 0.16em; white-space: nowrap; }
+.vs-progress { position: absolute; inset-inline: 0; inset-block-end: -1px; block-size: 2px; background: var(--vs-gold); transform: scaleX(0); transform-origin: left; }
+html[dir="rtl"] .vs-progress { transform-origin: right; }
+
+/* ---------- Images: softly rounded, as in the brochure ---------- */
+.vs-framed, .vs-touch-stage, .vs-slides, .vs-quad-img, .vs-masterplan, .vs-aerial, .vs-plan { border-radius: var(--vs-round); overflow: hidden; }
+
+/* ---------- Idea ---------- */
+.vs-idea-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(36px, 6vw, 96px); align-items: center; }
+.vs-pull { margin: 32px 0 0; padding-inline-start: 22px; border-inline-start: 2px solid var(--vs-gold); }
+.vs-pull p { margin: 0; font: 300 clamp(20px, 2.1vw, 28px)/1.45 var(--vs-font); letter-spacing: 0.03em; color: var(--vs-ink); }
+.vs-framed { margin: 0; box-shadow: 0 24px 60px rgba(27, 23, 18, 0.16); }
+.vs-framed picture, .vs-framed img { display: block; inline-size: 100%; block-size: auto; }
+
+/* ---------- The house's hand ---------- */
+.vs-touches { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(28px, 5vw, 80px); margin-block-start: clamp(36px, 5vw, 64px); align-items: start; }
+.vs-touch-stage { position: relative; aspect-ratio: 4 / 3; box-shadow: 0 24px 60px rgba(27, 23, 18, 0.16); background: var(--vs-paper); }
+.vs-touch-img { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 0.7s var(--vs-ease); }
+.vs-touch-img.is-active { opacity: 1; }
+html:not(.vs-js) .vs-touch-img:first-child { opacity: 1; }
+.vs-touch-img picture, .vs-touch-img img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.vs-touch-list { list-style: none; margin: 0; padding: 0; }
+.vs-touch-list li { border-block-end: 1px solid var(--vs-line); }
+.vs-touch { display: flex; align-items: baseline; gap: 18px; inline-size: 100%; padding: 20px 0; background: none; border: 0; text-align: start; cursor: pointer; color: var(--vs-soft); transition: color 0.3s ease; font-family: var(--vs-font); }
+.vs-touch i { flex: none; min-inline-size: 34px; font: 300 17px/1 var(--vs-font); font-style: normal; color: var(--vs-gold); }
+.vs-touch span { font: 400 clamp(15px, 1.5vw, 19px)/1.35 var(--vs-font); letter-spacing: 0.1em; text-transform: uppercase; }
+.vs-touch:hover, .vs-touch.is-active { color: var(--vs-ink); }
+.vs-touch.is-active span { color: var(--vs-gold-text); }
+.vs-touch-text { margin: 0; max-block-size: 0; overflow: hidden; padding-inline-start: 52px; font: 300 15px/1.8 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-soft); transition: max-block-size 0.5s var(--vs-ease), padding 0.5s var(--vs-ease); }
+.vs-touch.is-active + .vs-touch-text { max-block-size: 280px; padding-block-end: 22px; }
+html:not(.vs-js) .vs-touch-text { max-block-size: none; padding-block-end: 18px; }
+
+/* ---------- The villa ---------- */
+.vs-facts { list-style: none; margin: clamp(32px, 5vw, 60px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); border-block: 1px solid var(--vs-line-gold); }
+.vs-facts li { padding: 26px 16px; text-align: center; border-inline-end: 1px solid var(--vs-line); }
+.vs-facts li:last-child { border-inline-end: 0; }
+.vs-facts strong { display: block; font: 300 clamp(26px, 3vw, 40px)/1.1 var(--vs-font); letter-spacing: 0.03em; color: var(--vs-gold); }
+.vs-facts span { display: block; margin-block-start: 8px; font: 500 10.5px/1.5 var(--vs-font); letter-spacing: 0.2em; text-transform: uppercase; color: var(--vs-soft); }
+.vs-floors { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(18px, 2.6vw, 36px); margin-block-start: clamp(32px, 5vw, 60px); }
+.vs-floor { padding: 28px 26px 30px; background: var(--vs-paper); border: 1px solid var(--vs-line); border-radius: var(--vs-round); }
+.vs-floor-no { margin: 0; font: 200 54px/1 var(--vs-font); color: var(--vs-gold-bright); }
+.vs-floor h3 { margin: 8px 0 14px; font: 400 17px/1.3 var(--vs-font); letter-spacing: 0.12em; text-transform: uppercase; color: var(--vs-ink); }
+.vs-floor ul { margin: 0; padding: 0; list-style: none; }
+.vs-floor li { padding-block: 9px; border-block-start: 1px solid var(--vs-line); font: 300 14.5px/1.55 var(--vs-font); color: var(--vs-soft); }
+.vs-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-block-start: 36px; }
+.vs-plan { margin: 0; background: #fff; border: 1px solid var(--vs-line); padding: 14px; }
+.vs-plan img { inline-size: 100%; display: block; }
+.vs-plan figcaption { margin-block-start: 10px; font: 500 10.5px/1.4 var(--vs-font); letter-spacing: 0.2em; text-transform: uppercase; color: var(--vs-gold-text); }
+
+/* ---------- The rooms ---------- */
+.vs-viewer { margin-block-start: clamp(36px, 5vw, 64px); position: relative; }
+.vs-slides { position: relative; background: var(--vs-paper); box-shadow: 0 24px 60px rgba(27, 23, 18, 0.14); }
+.vs-slide { display: grid; grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr); align-items: stretch; background: var(--vs-paper); }
+html.vs-js .vs-slide:not(.is-active) { display: none; }
+.vs-slide-img picture, .vs-slide-img img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.vs-slide-img { min-block-size: 360px; }
+.vs-slide-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(22px, 3vw, 44px); }
+.vs-slide-count { margin: 0 0 18px; font: 400 14px/1 var(--vs-font); letter-spacing: 0.2em; color: var(--vs-gold-text); }
+.vs-slide-count b { font-weight: 300; font-size: 40px; color: var(--vs-gold); }
+.vs-slide h3 { margin: 0 0 14px; font: 400 clamp(19px, 2vw, 26px)/1.3 var(--vs-font); letter-spacing: 0.1em; text-transform: uppercase; color: var(--vs-ink); }
+.vs-slide p:not(.vs-slide-count) { margin: 0; font: 300 15px/1.8 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-soft); }
+.vs-viewer-nav { position: absolute; inset-block-start: 18px; inset-inline-start: 18px; display: flex; gap: 8px; }
+.vs-viewer-nav button { inline-size: 44px; block-size: 44px; border: 1px solid rgba(255, 255, 255, 0.8); border-radius: 50%; background: rgba(27, 23, 18, 0.55); color: #fff; cursor: pointer; position: relative; transition: background 0.25s ease; }
+.vs-viewer-nav button:hover { background: var(--vs-gold); }
+.vs-viewer-nav button span { position: absolute; inset: 0; display: grid; place-items: center; }
+.vs-viewer-nav [data-vs-prev] span::before { content: "\2190"; }
+.vs-viewer-nav [data-vs-next] span::before { content: "\2192"; }
+html[dir="rtl"] .vs-viewer-nav [data-vs-prev] span::before { content: "\2192"; }
+html[dir="rtl"] .vs-viewer-nav [data-vs-next] span::before { content: "\2190"; }
+.vs-thumbs { display: flex; gap: 10px; margin-block-start: 14px; overflow-x: auto; padding-block-end: 8px; scrollbar-width: thin; scrollbar-color: var(--vs-gold) transparent; }
+.vs-thumb { flex: none; inline-size: 96px; block-size: 64px; padding: 0; border: 2px solid transparent; border-radius: 6px; overflow: hidden; background: none; cursor: pointer; opacity: 0.6; transition: opacity 0.25s ease, border-color 0.25s ease; }
+.vs-thumb:hover, .vs-thumb.is-active { opacity: 1; border-color: var(--vs-gold); }
+.vs-thumb picture, .vs-thumb img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+
+/* ---------- Wellness and outdoors ---------- */
+.vs-panel + .vs-panel { margin-block-start: clamp(56px, 8vw, 110px); }
+.vs-quad { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(22px, 3vw, 44px); margin-block-start: clamp(28px, 4vw, 52px); }
+.vs-quad-img { aspect-ratio: 16 / 10; background: var(--vs-paper); box-shadow: 0 18px 44px rgba(27, 23, 18, 0.12); }
+.vs-quad-img picture, .vs-quad-img img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.vs-quad-item h3 { margin: 18px 0 8px; font: 400 17px/1.3 var(--vs-font); letter-spacing: 0.12em; text-transform: uppercase; color: var(--vs-ink); }
+.vs-quad-item p { margin: 0; font: 300 15px/1.75 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-soft); }
+
+/* ---------- The collection: eight keys ---------- */
+.vs-masterplan { margin: clamp(28px, 4vw, 52px) 0 0; background: #000; box-shadow: 0 18px 44px rgba(27, 23, 18, 0.14); }
+.vs-masterplan picture, .vs-masterplan img { display: block; inline-size: 100%; }
+.vs-villas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-block-start: 32px; }
+.vs-villa { position: relative; padding: 24px 20px 22px; border: 1px solid var(--vs-line); border-radius: var(--vs-round); background: var(--vs-paper); text-align: center; transition: border-color 0.3s ease, transform 0.3s ease; }
+.vs-villa.is-listed { border-color: var(--vs-line-gold); }
+.vs-villa.is-listed:hover { transform: translateY(-3px); }
+.vs-villa-no { margin: 0; font: 200 46px/1 var(--vs-font); color: var(--vs-gold-bright); }
+.vs-villa h3 { margin: 6px 0 12px; font: 500 12px/1.4 var(--vs-font); letter-spacing: 0.22em; text-transform: uppercase; color: var(--vs-ink); }
+.vs-villa-price { margin: 0; font: 400 clamp(19px, 1.8vw, 24px)/1.2 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-gold-text); }
+.vs-villa-spec { margin: 10px 0 0; font: 300 13px/1.6 var(--vs-font); color: var(--vs-soft); }
+.vs-villa-state { margin: 14px 0 0; font: 500 9.5px/1 var(--vs-font); letter-spacing: 0.24em; text-transform: uppercase; color: var(--vs-gold-text); }
+.vs-villa:not(.is-listed) { background: transparent; }
+.vs-villa:not(.is-listed) .vs-villa-state, .vs-villa:not(.is-listed) .vs-villa-spec { color: var(--vs-soft); }
+.vs-villa-plan { display: inline-block; margin-block-start: 12px; font: 500 10.5px/1 var(--vs-font); letter-spacing: 0.2em; text-transform: uppercase; color: var(--vs-gold-text); }
+.vs-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-block-start: 34px; }
+
+/* ---------- Setting ---------- */
+.vs-setting-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: start; }
+.vs-distances, .vs-extras { list-style: none; margin: 0; padding: 0; }
+.vs-distances li { display: flex; justify-content: space-between; gap: 18px; padding-block: 14px; border-block-end: 1px solid var(--vs-line); font: 300 15px/1.4 var(--vs-font); color: var(--vs-soft); }
+.vs-distances strong { font: 500 15px/1.4 var(--vs-font); color: var(--vs-gold-text); text-align: end; }
+.vs-extras { margin-block-start: 22px; }
+.vs-extras li { padding-block: 6px; font: 300 14px/1.6 var(--vs-font); color: var(--vs-soft); }
+.vs-map { margin-block-start: 40px; }
+.vs-aerial { margin: clamp(36px, 5vw, 64px) var(--vs-pad) 0; }
+.vs-aerial picture, .vs-aerial img { display: block; inline-size: 100%; block-size: auto; }
+
+/* ---------- Team, FAQ, enquire ---------- */
+.vs-credits { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: clamp(20px, 3vw, 40px); margin-block-start: clamp(28px, 4vw, 52px); }
+.vs-credit { padding-block-start: 20px; border-block-start: 1px solid var(--vs-gold); }
+.vs-credit span { display: block; margin-block-end: 12px; font: 500 10.5px/1.4 var(--vs-font); letter-spacing: 0.24em; text-transform: uppercase; color: var(--vs-gold-text); }
+.vs-credit h3 { margin: 0 0 10px; font: 400 21px/1.25 var(--vs-font); letter-spacing: 0.1em; text-transform: uppercase; color: var(--vs-ink); }
+.vs-credit p { margin: 0; font: 300 14.5px/1.75 var(--vs-font); letter-spacing: 0.02em; color: var(--vs-soft); }
+.vs-faq-wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 80px); }
+.vs-faq .faq-item { border-block-end: 1px solid var(--vs-line); }
+.vs-faq .faq-item summary { color: var(--vs-ink); font-family: var(--vs-font); font-weight: 400; font-size: 17px; letter-spacing: 0.04em; }
+.vs-faq .faq-item p { color: var(--vs-soft); font: 300 15px/1.8 var(--vs-font); letter-spacing: 0.02em; }
+.vs-enquire-wrap { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 80px); align-items: start; }
+.vs-enquire-form { background: var(--vs-paper); color: var(--vs-ink); padding: clamp(22px, 3vw, 40px); border: 1px solid var(--vs-line-gold); border-radius: var(--vs-round); }
+.vs-enquire-private { margin-block-start: 26px !important; }
+.vs-fine { background: #14110d; color: rgba(248, 244, 239, 0.78); padding-block: 36px; }
+.vs-fine p { margin: 0 0 10px; font: 300 12px/1.7 var(--vs-font); max-inline-size: 110ch; }
+.vs-gallery { background: var(--vs-ivory); color: var(--vs-ink); }
+
+/* ---------- Motion ---------- */
+.vs-js [data-vs-in] { opacity: 0; transition: opacity 0.9s var(--vs-ease), transform 0.9s var(--vs-ease), clip-path 1.2s var(--vs-ease); transition-delay: var(--d, 0s); }
+.vs-js [data-vs-in="up"] { transform: translateY(28px); }
+.vs-js [data-vs-in="frame"] { clip-path: inset(6% 6% 6% 6% round 12px); transform: scale(0.98); }
+.vs-js [data-vs-in].is-in { opacity: 1; transform: none; clip-path: inset(0 0 0 0 round 12px); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .vs-hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "text" "media" "base"; }
+  .vs-hero-media { margin: 0 var(--vs-pad); min-block-size: 0; aspect-ratio: 4 / 3; }
+  .vs-hero-inner { padding: 36px var(--vs-pad) 28px; }
+  .vs-idea-grid, .vs-touches, .vs-setting-grid, .vs-faq-wrap, .vs-enquire-wrap { grid-template-columns: minmax(0, 1fr); }
+  .vs-slide { grid-template-columns: minmax(0, 1fr); }
+  .vs-slide-img { min-block-size: 0; aspect-ratio: 16 / 10; }
+  .vs-villas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .vs-bar-brand { font-size: 13px; }
+  .versace-main .vs-bar-cta { padding: 7px 14px; font-size: 9px; letter-spacing: 0.12em; }
+  .vs-bar-inner { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "brand cta" "links links"; }
+  .vs-bar-links { justify-content: flex-start; margin-inline: calc(var(--vs-pad) * -1); padding-inline: var(--vs-pad); }
+  .vs-bar-links a { padding-block: 13px; }
+  .vs-quad { grid-template-columns: minmax(0, 1fr); }
+  .vs-viewer-nav { inset-block-start: 14px; inset-inline-start: 14px; }
+  .vs-thumb { inline-size: 76px; block-size: 52px; }
+  .vs-villas { gap: 10px; }
+  .vs-villa { padding: 18px 10px; }
+  .vs-aerial { margin-inline: 0; border-radius: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vs-js [data-vs-in], .vs-hero-inner > *, .vs-hero-media img { transition: none; }
+}

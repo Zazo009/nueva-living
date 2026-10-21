@@ -2787,7 +2787,7 @@ let blockingCssChecked = 0;
         // different page, so it blocks like the project stylesheet does.
         const BLOCKING_BY_DESIGN = ['liora-pages.css', 'liora-property.css',
           'nueva-location-map.css', 'liora-rtl.css', 'liora-compare.css', 'nueva-signature.css',
-          'nueva-majolica.css', 'nueva-tyrian.css'];
+          'nueva-majolica.css', 'nueva-tyrian.css', 'nueva-versace.css'];
         const name = href.split('?')[0].split('/').pop();
         if (name && !BLOCKING_BY_DESIGN.includes(name)) {
           firstPartyOffenders.push(`${path.relative(dist, full)}: ${name}`);

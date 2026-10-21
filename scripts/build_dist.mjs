@@ -663,6 +663,8 @@ const assetFiles = [
   'assets/liora/nueva-majolica.js',
   'assets/liora/nueva-tyrian.css',
   'assets/liora/nueva-tyrian.js',
+  'assets/liora/nueva-versace.css',
+  'assets/liora/nueva-versace.js',
   'assets/liora/nueva-location-map.css',
   'assets/liora/nueva-location-map.js',
   'assets/liora/liora-compare.css',
@@ -2174,6 +2176,21 @@ const legacyRedirects = [
   '/pl/property-altos-de-marbella.html /pl/property-benahavis-ridge-residences.html 301',
   '/ru/property-altos-de-marbella.html /ru/property-benahavis-ridge-residences.html 301',
   '/sv/property-altos-de-marbella.html /sv/property-benahavis-ridge-residences.html 301',
+  // Published as nueva-andalucia-villa-collection with the developer and the interior
+  // designer kept anonymous. The owner now holds the developer's permission to publish
+  // the project under its own name, Ocho de Oro. All ten language copies were indexed, so
+  // every one of them is redirected (the old generated pages are deleted from the repo:
+  // a static file would win over these rules).
+  '/property-nueva-andalucia-villa-collection.html /property-ocho-de-oro.html 301',
+  '/es/property-nueva-andalucia-villa-collection.html /es/property-ocho-de-oro.html 301',
+  '/fr/property-nueva-andalucia-villa-collection.html /fr/property-ocho-de-oro.html 301',
+  '/de/property-nueva-andalucia-villa-collection.html /de/property-ocho-de-oro.html 301',
+  '/ru/property-nueva-andalucia-villa-collection.html /ru/property-ocho-de-oro.html 301',
+  '/ar/property-nueva-andalucia-villa-collection.html /ar/property-ocho-de-oro.html 301',
+  '/nl/property-nueva-andalucia-villa-collection.html /nl/property-ocho-de-oro.html 301',
+  '/pl/property-nueva-andalucia-villa-collection.html /pl/property-ocho-de-oro.html 301',
+  '/no/property-nueva-andalucia-villa-collection.html /no/property-ocho-de-oro.html 301',
+  '/sv/property-nueva-andalucia-villa-collection.html /sv/property-ocho-de-oro.html 301',
   // Three placeholder projects from the first build, removed when only real
   // developments were kept. Google still holds them as 404s; a 410 says they
   // are gone on purpose, which it drops from the index faster than a 404.
