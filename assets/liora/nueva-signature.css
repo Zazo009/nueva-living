@@ -208,7 +208,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-block-size: min(100svh, 1000px);
+  min-block-size: min(92svh, 940px);
   color: var(--sig-ivory);
   /* The olive-to-black wash of the developer's own site: light at the top left,
      closing to near black at the foot. */
@@ -224,51 +224,92 @@
 }
 
 .sig-hero-media {
-  inset-inline-start: 34%;
+  overflow: hidden;
 }
 
+/* The villa fills the whole hero and drifts a little closer, slowly; the olive wash of the developer's
+   own site lies over the left side where the words are, and lets go of the picture on the right. */
 .sig-hero-media picture,
 .sig-hero-media img {
   inline-size: 100%;
   block-size: 100%;
   object-fit: cover;
+  object-position: 66% 50%;
+}
+
+.sig-hero-media img {
+  transform-origin: 70% 55%;
+  animation: sig-hero-drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes sig-hero-drift {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
 }
 
 .sig-hero-media::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #4a4930 0%, rgba(74, 73, 48, 0.62) 28%, rgba(28, 28, 18, 0) 72%);
+  background: linear-gradient(90deg, rgba(40, 39, 24, 0.92) 0%, rgba(58, 57, 36, 0.8) 32%, rgba(28, 28, 18, 0.22) 66%, rgba(28, 28, 18, 0) 100%);
 }
 
 [dir="rtl"] .sig-hero-media::after {
-  background: linear-gradient(270deg, #4a4930 0%, rgba(74, 73, 48, 0.62) 28%, rgba(28, 28, 18, 0) 72%);
+  background: linear-gradient(270deg, rgba(40, 39, 24, 0.92) 0%, rgba(58, 57, 36, 0.8) 32%, rgba(28, 28, 18, 0.22) 66%, rgba(28, 28, 18, 0) 100%);
 }
 
 .sig-hero-shade {
   z-index: -1;
-  background: linear-gradient(180deg, rgba(28, 28, 18, 0.35) 0%, rgba(28, 28, 18, 0) 30%, rgba(28, 28, 18, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(28, 28, 18, 0.5) 0%, rgba(28, 28, 18, 0) 26%, rgba(28, 28, 18, 0) 52%, rgba(20, 20, 12, 0.9) 100%);
 }
 
 .sig-hero-inner {
-  padding-block: clamp(120px, 20vh, 220px) clamp(28px, 4vw, 48px);
+  padding-block: clamp(110px, 18vh, 200px) clamp(20px, 3vw, 36px);
 }
 
 .sig-eyebrow {
-  margin: 0 0 clamp(18px, 3vw, 34px) !important;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 clamp(20px, 3vw, 36px) !important;
   font: 500 11px/1.5 var(--sig-sans) !important;
   letter-spacing: 0.34em !important;
   text-transform: uppercase;
   color: var(--sig-gold);
 }
 
+.sig-eyebrow::before {
+  content: "";
+  flex: none;
+  inline-size: 44px;
+  block-size: 1px;
+  background: currentColor;
+}
+
+/* The words come up one after the other, once. */
+.sig-hero-inner > * {
+  animation: sig-hero-rise 1s cubic-bezier(0.22, 0.72, 0.18, 1) both;
+}
+.sig-hero-inner > :nth-child(2) { animation-delay: 0.12s; }
+.sig-hero-inner > :nth-child(3) { animation-delay: 0.24s; }
+.sig-hero-inner > :nth-child(4) { animation-delay: 0.36s; }
+
+@keyframes sig-hero-rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sig-hero-media img, .sig-hero-inner > * { animation: none; }
+}
+
 /* The lockup as the brochure sets it: the logotype, and under it, centred and
    at about four fifths of its width, "Residences Marbella" in a light
    grotesque, lower case, no letter-spacing. */
 .signature-main .sig-title {
-  --mark-w: clamp(250px, 56vw, 780px);
+  --mark-w: clamp(240px, 46vw, 600px);
   display: inline-grid;
-  justify-items: center;
+  justify-items: start;
   gap: calc(var(--mark-w) * 0.07);
   margin: 0;
   font-weight: 300;
@@ -287,9 +328,9 @@
 .sig-title-sub {
   display: block;
   font: 300 calc(var(--mark-w) * 0.093)/1 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  letter-spacing: 0;
+  letter-spacing: 0.01em;
   text-transform: none;
-}
+  }
 
 .sig-vh {
   position: absolute;
@@ -327,23 +368,42 @@
   letter-spacing: 0.18em;
 }
 
+/* The second button is the quiet one: a hairline, not a second solid block. */
+.signature-main .sig-hero-actions .btn.ghost {
+  font-weight: 500;
+  border-width: 1px;
+  background: rgba(245, 242, 234, 0.07);
+  backdrop-filter: blur(6px);
+}
+
+/* The key figures sit on a pane of their own along the foot of the picture, clear of the chapter bar. */
 .sig-hero-facts {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0;
-  margin-block: clamp(24px, 4vw, 56px) 0;
-  padding-block: 22px;
+  inline-size: calc(100% - 2 * var(--sig-pad, 24px));
+  max-inline-size: 1180px;
+  margin: clamp(24px, 4vw, 52px) auto clamp(22px, 3vw, 36px);
+  padding: 20px 0;
   list-style: none;
-  border-block-start: 1px solid var(--sig-line-light);
+  background: rgba(24, 24, 15, 0.58);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(194, 170, 114, 0.28);
 }
 
 .sig-hero-facts li {
-  padding-inline-end: 16px;
+  padding: 2px 22px;
+  border-inline-start: 1px solid rgba(194, 170, 114, 0.22);
+}
+
+.sig-hero-facts li:first-child {
+  border-inline-start: 0;
 }
 
 .sig-hero-facts strong {
   display: block;
-  font: 400 clamp(22px, 2.6vw, 38px)/1.1 var(--sig-serif);
+  font: 400 clamp(20px, 2.1vw, 32px)/1.1 var(--sig-serif);
+  white-space: nowrap;
 }
 
 .sig-hero-facts span {
@@ -1050,7 +1110,8 @@
   .sig-types,
   .sig-team-grid,
   .sig-wellness-grid { grid-template-columns: minmax(0, 1fr); }
-  .sig-hero-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 20px; }
+  .sig-hero-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 20px; padding-inline: 8px; }
+  .sig-hero-facts li { border-inline-start: 0; padding-inline: 14px; }
   .sig-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sig-interiors-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .sig-interiors-grid figure:first-child { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
