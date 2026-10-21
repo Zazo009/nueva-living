@@ -223,6 +223,35 @@
 
     const slides = Array.from(track.querySelectorAll('img'));
 
+    // Browsers treat a slide that sits off to the side inside a scroll track as near the viewport, so
+    // native lazy loading fetched all six photos of every card that came within range (about 590
+    // photos by the end of one scroll). Photos three to six are therefore emptied here, behind a
+    // one-pixel placeholder, and only filled in again by warmSlide(): when the visitor touches,
+    // hovers or pages the gallery. Without script nothing is emptied.
+    const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+    const hold = (img) => {
+      if (img.dataset.held === '1') return;
+      const source = img.closest('picture')?.querySelector('source[srcset]');
+      if (source) {
+        source.dataset.srcset = source.getAttribute('srcset');
+        source.removeAttribute('srcset');
+      }
+      img.dataset.src = img.getAttribute('src') || '';
+      img.dataset.held = '1';
+      img.setAttribute('src', PLACEHOLDER);
+    };
+    const release = (img) => {
+      if (img.dataset.held !== '1') return;
+      const source = img.closest('picture')?.querySelector('source[data-srcset]');
+      if (source) {
+        source.setAttribute('srcset', source.dataset.srcset);
+        source.removeAttribute('data-srcset');
+      }
+      img.setAttribute('src', img.dataset.src);
+      img.dataset.held = '0';
+    };
+    slides.slice(2).forEach(hold);
+
     // Slides past the first sit outside the viewport, so the browser defers
     // them -- and a swipe brings one into view only for the download to start
     // then, which is a blank frame for as long as it takes. Flipping
@@ -234,6 +263,7 @@
     const warmSlide = (img) => {
       if (!img || img.dataset.warmed === '1') return;
       img.dataset.warmed = '1';
+      release(img);
       img.removeAttribute('loading');
 
       const picture = img.closest('picture');
@@ -251,20 +281,27 @@
       for (const i of [target - 1, target, target + 1]) warmSlide(slides[i]);
     };
 
-    // Warm the whole gallery once the card is near the viewport rather than
-    // waiting for a swipe: six card-sized WebP files, and only for galleries
-    // the visitor actually scrolls to.
+    // A card near the viewport warms its first two photos; the rest wait for the visitor to touch,
+    // hover or page the gallery. Warming all six of every card that scrolled past put the whole
+    // list (99 cards, about 590 photos) in memory by the end of one scroll, which an iPhone does
+    // not survive: the page flickered, showed blank cards and was finally killed and reloaded.
+    // Paging still never meets a blank frame, because ensureLoaded() warms the neighbours of the
+    // slide being shown and the first press warms everything.
+    const warmNear = () => { warmSlide(slides[0]); warmSlide(slides[1]); };
     const warmAll = () => slides.forEach(warmSlide);
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         if (!entries.some((entry) => entry.isIntersecting)) return;
-        warmAll();
+        warmNear();
         observer.disconnect();
       }, { rootMargin: '400px' });
       observer.observe(gallery);
     } else {
-      warmAll();
+      warmNear();
     }
+    ['pointerdown', 'touchstart', 'mouseenter', 'focusin'].forEach((type) => {
+      gallery.addEventListener(type, warmAll, { once: true, passive: true });
+    });
 
     // The browser is better at this than any gesture code I can write. The
     // original bug was never native scrolling -- it was `scroll-snap-type: x
