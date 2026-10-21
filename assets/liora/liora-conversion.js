@@ -218,9 +218,18 @@
     const propertyType = readField(form, '[name="property_type_interest"], [name="property_type"], [name="type"]');
     const bedrooms = parseNumberRange(readField(form, '[name="bedrooms"], [name="bedroom_range"]'));
     const message = readField(form, 'textarea[name="message"], textarea, [name="message"]');
-    const contextualMessage = project && !message.toLowerCase().includes(project.toLowerCase())
+    const projectMessage = project && !message.toLowerCase().includes(project.toLowerCase())
       ? `${message ? `${message}\n\n` : ''}Project: ${project}`
       : message;
+
+    // The forms ask what the home is for (live in it, holiday home, investment) and the lead
+    // payload had nowhere to carry the answer: the CRM forwarder names its fields one by one and
+    // none of them is a purpose, so the visitor's answer was read here and then dropped. It rides
+    // in the message, which is stored, until the CRM has a column for it.
+    const purpose = readField(form, '[name="purchase_purpose"]');
+    const contextualMessage = purpose && !projectMessage.includes(purpose)
+      ? `${projectMessage ? `${projectMessage}\n\n` : ''}Purchase purpose: ${purpose}`
+      : projectMessage;
 
     // The code also goes into the message, not only into referral_code.
     //

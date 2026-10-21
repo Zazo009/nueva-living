@@ -4006,13 +4006,20 @@
     }
 
     /* Keep the first render focused on the hero. Off-screen sections are
-       laid out as they approach the viewport, with stable reserved space. */
-    #developments,
-    #areas,
-    #journey,
-    #about {
-      content-visibility: auto;
-      contain-intrinsic-size: auto 900px;
+       laid out as they approach the viewport, with stable reserved space.
+       Only where there is a mouse: on a phone, opening a form's picker or the
+       keyboard resizes the visual viewport, the engine re-decides which of
+       these sections is skipped, their heights change under the reader, and
+       the page jumps or stops answering a touch. The contact form is the
+       section after them, so it is the first thing that shows it. */
+    @media (hover: hover) and (pointer: fine) {
+      #developments,
+      #areas,
+      #journey,
+      #about {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 900px;
+      }
     }
 
     #vox:not(.on) {
