@@ -30,6 +30,7 @@ import { renderFooter } from './lib/site_footer.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
+import { PRICES_GUIDE_FILE, loadPriceProjects, computePriceStats, renderPricesBody, restoreProjectNames, datasetSchemaJson } from './lib/guide_prices_data.mjs';
 
 // Applies FOOTER_PAGE_ENTRIES (translated body prose for footer pages) as
 // literal string replacement over already-rendered HTML -- the `pages`
@@ -370,7 +371,7 @@ function withFaqSchema(html, file, locale) {
   return html.replace('</head>', `${block}</head>`);
 }
 
-function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '', englishOnly = false, datePublished, area }, locale = DEFAULT_LOCALE) {
+function page({ file, title, breadcrumbTitle, breadcrumbs, description, heroImage, heroAlt = '', heroWidth, heroHeight, heroPosition, heroKicker, seoContext, heroTitle, heroLead, body, bodyClass = '', englishOnly = false, datePublished, area, dataset, restore }, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
   // Rendered once, so the FAQ schema below can be read out of the same string
@@ -443,13 +444,30 @@ ${datePublished ? `        <p class="guide-byline"><span>${t('guide.writtenBy', 
   ${bodyClass === 'guide-article-page' ? guideRevealScript() : ''}
 </body>
 </html>`;
-  const translated = withFaqSchema(
+  const translatedRaw = withFaqSchema(
     localizeCardPrices(localizeInternalLinks(applyFooterPageTranslations(html, locale), locale), locale), file, locale);
+  // `restore` puts back text that must not go through the find/replace pass above (a project's
+  // public name is the same in every language, and the table holds place names such as
+  // "Marbella West" that would otherwise rewrite the middle of one).
+  const translated = restore ? restore(translatedRaw) : translatedRaw;
   // Same reason as the FAQ schema: built after the find/replace pass so no
   // schema.org token can be translated into something meaningless.
-  return areaSchemaBlock
+  const withArea = areaSchemaBlock
     ? translated.replace('</head>', `${areaSchemaBlock}</head>`)
     : translated;
+  // A data page also declares its tables as a schema.org Dataset. Written from the translated
+  // title and description, and after the translation pass, for the same reason as the FAQ schema.
+  if (!dataset) return withArea;
+  const read = (pattern) => (pattern.exec(withArea)?.[1] || '')
+    .replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+  const block = `  <script type="application/ld+json">\n${datasetSchemaJson({
+    locale,
+    name: read(/<title>([\s\S]*?)<\/title>/).replace(/ \| Nueva Living$/, ''),
+    description: read(/<meta name="description" content="([^"]*)"/),
+    url: pageUrl(file, locale, 'https://nuevaliving.com'),
+    stats: dataset.stats
+  })}\n  </script>\n`;
+  return withArea.replace('</head>', `${block}</head>`);
 }
 
 function esc(value) {
@@ -710,6 +728,9 @@ function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
     <section class="section area-enquiry-section" id="area-enquiry"><div class="section-inner"><div class="section-head center"><span class="label">${t('area.askAbout', locale, { name: esc(area.name) })}</span><div class="rule"></div><h2 class="section-title">${t('area.requestRelevantShortlist', locale)}</h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">${t('area.shortlistNote', locale)}</p></div>${areaForm(area, locale)}</div></section>`,
   };
 }
+
+const { projects: priceProjects } = loadPriceProjects('.');
+const priceStats = computePriceStats(priceProjects);
 
 const pages = [
   {
@@ -1384,6 +1405,22 @@ const pages = [
       </details>
     </div>
   </div></section>`,
+  },
+  {
+    file: PRICES_GUIDE_FILE,
+    datePublished: '2026-10-22',
+    title: 'New-Build Prices by Area on the Costa del Sol',
+    description: 'What new-build homes cost on the Costa del Sol, area by area: current projects, lowest, median and highest from price, home types and delivery years, read from our project files.',
+    heroImage: 'assets/nueva/journey/project-matching-1200.webp',
+    heroKicker: 'Price Data',
+    seoContext: 'New-Build Prices by Area · 2026 Data',
+    heroTitle: 'What new-builds cost, <em>area by area</em>',
+    heroLead: 'Current Costa del Sol new-build projects by area, type of home and delivery year, with the lowest, median and highest from price in each, read from our project files.',
+    breadcrumbs: [['Guides', 'guides.html']],
+    bodyClass: 'guide-article-page',
+    dataset: { stats: priceStats },
+    body: (locale) => renderPricesBody(locale, priceProjects, priceStats),
+    restore: (html) => restoreProjectNames(html, priceProjects),
   },
   {
     file: 'guide-mortgage-habeno.html',

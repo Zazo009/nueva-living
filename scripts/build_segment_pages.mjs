@@ -684,6 +684,14 @@ function guidesCalculatorSection() {
 
 const PROCESS_GUIDES = [
   {
+    output: 'guide-new-build-prices-costa-del-sol.html',
+    kicker: 'Price Data',
+    title: 'New-Build Prices by Area',
+    description: 'The lowest, median and highest from price of the current new-build projects in each area, by type of home and by delivery year, with the method.',
+    image: 'assets/nueva/journey/project-matching-1200.webp',
+    alt: 'Buyer and advisor comparing projects and financing options'
+  },
+  {
     output: 'guide-buying-from-sweden.html',
     kicker: 'Buying Guide',
     title: 'Buying from Sweden',

@@ -771,6 +771,16 @@ function unitBedCount(unit) {
   return match ? Number(match[1]) : null;
 }
 
+// A unit sold through Nueva Living stays on the page as a track record, with
+// its own label (availability.soldByUs) -- it is not for sale, so it is not
+// counted as available anywhere: not in crm.availableUnits, not in the "View
+// all N" or "Available Homes" figures, not in the filter chips, the price
+// bands or the "Showing N of M" total. `status` is absent on an available
+// unit; `sold_by_us` is the only other value.
+const UNIT_STATUS_SOLD = 'sold_by_us';
+const isSoldUnit = (unit) => unit?.status === UNIT_STATUS_SOLD;
+const availableUnitsOf = (units) => (units || []).filter((unit) => !isSoldUnit(unit));
+
 // Prices are display strings ("€1,014,000", "€890,000 + IVA"). Only the
 // leading number carries value -- the VAT/IVA suffix has no digits, so
 // stripping non-digits is safe.
@@ -1006,18 +1016,21 @@ function renderUnitCard(unit, project, locale) {
     unit.floor ? [t('availability.floor', locale), localizedUnitFloor(unit.floor, locale)] : null
   ].filter(Boolean);
 
-  return `<article class="unit-card" data-unit${beds === null ? '' : ` data-beds="${beds}"`}${price === null ? '' : ` data-price="${price}"`}>
+  const sold = isSoldUnit(unit);
+  // A sold card carries no bed/price data, so the filter can never match it;
+  // data-sold lets the script leave it out of the "Showing N of M" total.
+  return `<article class="unit-card${sold ? ' is-sold' : ''}" data-unit${sold ? ' data-sold' : ''}${sold || beds === null ? '' : ` data-beds="${beds}"`}${sold || price === null ? '' : ` data-price="${price}"`}>
                 ${media}
                 <div class="unit-card-body">
                   <div class="unit-card-head">
                     <strong class="unit-card-ref">${reference}</strong>
-                    <span class="availability-status">${t('availability.available', locale)}</span>
+                    <span class="availability-status${sold ? ' is-sold' : ''}">${t(sold ? 'availability.soldByUs' : 'availability.available', locale)}</span>
                   </div>
                   <dl class="unit-card-facts">
                     ${facts.map(([label, value]) => `<div><dt>${label}</dt><dd>${esc(value)}</dd></div>`).join('\n                    ')}
                   </dl>
-                  <p class="unit-card-price">${esc(localizedUnitPrice(unit.price, locale))}</p>
-                  <a class="unit-card-cta" href="contact.html#contact-form&intent=${encodeURIComponent(`${project.name} - ${unit.reference}`)}">${t('availability.askAboutUnit', locale, { reference })}</a>
+                  <p class="unit-card-price">${esc(localizedUnitPrice(unit.price, locale))}</p>${sold ? '' : `
+                  <a class="unit-card-cta" href="contact.html#contact-form&intent=${encodeURIComponent(`${project.name} - ${unit.reference}`)}">${t('availability.askAboutUnit', locale, { reference })}</a>`}
                 </div>
               </article>`;
 }
@@ -1064,7 +1077,9 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   const hasFloorplans = units.some((unit) => unit.floorplan);
   const hasSize = units.some((unit) => unit.size);
   const hasFloor = units.some((unit) => unit.floor);
-  const filters = renderAvailabilityFilters(units, locale);
+  // Filters, counts and price bands are built from what can still be bought.
+  const openUnits = availableUnitsOf(units);
+  const filters = renderAvailabilityFilters(openUnits, locale);
   const cardGrid = usesUnitCards(units)
     ? `<div class="unit-card-grid" role="list" aria-label="${t('aria.availableUnits', locale)}">
               ${units.map((unit) => renderUnitCard(unit, project, locale)).join('\n              ')}
@@ -1074,27 +1089,28 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   const rows = units.map((unit) => {
     const beds = unitBedCount(unit);
     const price = unitPriceValue(unit);
-    return `<tr${beds === null ? '' : ` data-beds="${beds}"`}${price === null ? '' : ` data-price="${price}"`}>
+    const sold = isSoldUnit(unit);
+    return `<tr${sold ? ' class="is-sold" data-sold' : ''}${sold || beds === null ? '' : ` data-beds="${beds}"`}${sold || price === null ? '' : ` data-price="${price}"`}>
                 <td data-label="${t('availability.reference', locale)}"><strong>${esc(localizedUnitFloor(unit.reference, locale))}</strong></td>${hasFloor ? `
                 <td data-label="${t('availability.floor', locale)}">${esc(localizedUnitFloor(unit.floor, locale))}</td>` : ''}
                 <td data-label="${t('availability.bedrooms', locale)}">${esc(localizedUnitBedrooms(unit.bedrooms, locale))}</td>${hasSize ? `
                 <td data-label="${t('availability.size', locale)}">${renderSizeCell(unit.size, locale)}</td>` : ''}
                 <td data-label="${t('availability.price', locale)}"><strong>${esc(localizedUnitPrice(unit.price, locale))}</strong></td>
-                <td data-label="${t('availability.status', locale)}"><span class="availability-status">${t('availability.available', locale)}</span></td>${hasFloorplans ? `
+                <td data-label="${t('availability.status', locale)}"><span class="availability-status${sold ? ' is-sold' : ''}">${t(sold ? 'availability.soldByUs' : 'availability.available', locale)}</span></td>${hasFloorplans ? `
                 <td data-label="${t('availability.floorplan', locale)}">${unit.floorplan ? `<a class="availability-floorplan-link" href="${esc(unit.floorplan)}" target="_blank" rel="noopener">${t('availability.viewPdf', locale)}</a>` : ''}</td>` : ''}
               </tr>`;
   }).join('\n              ');
 
   return `<div class="availability-release reveal-soft">
           <div class="availability-release-stats" aria-label="${t('aria.currentReleaseSummary', locale)}">
-            <div><span>${t('availability.availableHomes', locale)}</span><strong>${units.length}</strong></div>
+            <div><span>${t('availability.availableHomes', locale)}</span><strong>${openUnits.length}</strong></div>
             <div><span>${t('cinematic.startingPrice', locale)}</span><strong>${esc(localizedUnitPrice(availability.startingPrice, locale) || project.hero?.startingPrice || '')}</strong></div>
             <div><span>${t('availability.priceRange', locale)}</span><strong>${esc(localizedPriceRange(availability.priceRange, locale))}</strong></div>
             <div><span>${t('availability.checked', locale)}</span><strong>${esc(localizeMonthDate(availability.checkedDate, locale) || '')}</strong></div>
           </div>
           <details class="availability-disclosure">
             <summary>
-              <span>${t('availability.viewAll', locale, { count: units.length })}</span>
+              <span>${t('availability.viewAll', locale, { count: openUnits.length })}</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
             ${filters}
@@ -3119,12 +3135,30 @@ function assertTagVocabulary(projects) {
 function assertAvailability(project) {
   const units = project.availability?.units || [];
   if (!units.length) return project;
+  const unknown = units.filter((unit) => unit.status !== undefined && unit.status !== UNIT_STATUS_SOLD);
+  if (unknown.length) {
+    throw new Error(`${project.slug}: availability.units[].status may only be "${UNIT_STATUS_SOLD}" `
+      + `(absent = available); got ${JSON.stringify(unknown[0].status)} on "${unknown[0].reference}".`);
+  }
+  const open = availableUnitsOf(units);
   const declared = project.crm?.availableUnits;
-  if (declared !== units.length) {
+  if (declared !== open.length) {
     throw new Error(`${project.slug}: crm.availableUnits is ${JSON.stringify(declared)} but `
-      + `availability.units publishes ${units.length} row(s), each rendered as "Available". `
+      + `availability.units publishes ${open.length} available row(s) (${units.length - open.length} `
+      + `marked ${UNIT_STATUS_SOLD}), each available one rendered as "Available". `
       + 'They must agree -- the unit list is what the project page shows, crm.availableUnits is '
-      + 'what the filters and segment counts read.');
+      + 'what the filters and segment counts read. A sold unit is not counted.');
+  }
+  // The from-price is the lowest price still on offer. A sold unit's price must
+  // not linger as the headline figure after the unit is gone.
+  if (open.length < units.length) {
+    const prices = open.map(unitPriceValue).filter((n) => n !== null);
+    const lowest = prices.length ? Math.min(...prices) : null;
+    if (lowest !== null && project.crm?.priceMin !== lowest) {
+      throw new Error(`${project.slug}: crm.priceMin is ${JSON.stringify(project.crm?.priceMin)} but the `
+        + `lowest unit still available is ${lowest} (${units.length - open.length} unit(s) marked `
+        + `${UNIT_STATUS_SOLD}). A sold unit's price cannot be the from-price.`);
+    }
   }
   return project;
 }

@@ -2160,6 +2160,38 @@ body {
   background: #778069;
 }
 
+/* A unit sold through Nueva Living stays listed as a track record. It is not
+   for sale: muted dot, muted card, struck-through price. #5f6258 reads 5.7:1
+   on the sold card and 6.1:1 on a plain one, above the 4.5:1 floor for text. */
+.availability-status.is-sold {
+  color: #5f6258;
+}
+
+.availability-status.is-sold::before {
+  background: #8a8c82;
+}
+
+.availability-table tr.is-sold td,
+.unit-card.is-sold .unit-card-facts dd,
+.unit-card.is-sold .unit-card-ref {
+  color: #5f6258;
+}
+
+.availability-table tr.is-sold td strong,
+.unit-card.is-sold .unit-card-price {
+  color: #5f6258;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+
+.unit-card.is-sold {
+  background: rgba(74, 59, 40, 0.04);
+}
+
+.unit-card.is-sold .unit-card-plan img {
+  opacity: 0.6;
+}
+
 .availability-floorplan-link {
   display: inline-flex;
   align-items: center;

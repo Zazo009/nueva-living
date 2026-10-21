@@ -54,14 +54,18 @@ export function renderVersaceMain({ project, sourceProject, locale, faqs, projec
   const collection = s.collection || {};
   const keys = eight.map((villa) => `<i class="${villa.unit ? 'is-lit' : ''}"></i>`).join('');
 
+  // The unit table's own size strings come from the English price list; the area unit follows the language.
+  const AREA_UNIT = { ru: 'м²', ar: 'م²' };
+  const areaText = (value) => (AREA_UNIT[locale] ? String(value || '').replace(/m²/g, AREA_UNIT[locale]) : value);
+
   const villaTile = ({ number, unit }) => {
     const plan = unit?.floorplan || unit?.plan;
     return `<article class="vs-villa${unit ? ' is-listed' : ''}" data-vs-in="up" style="--d:${((number - 1) % 4) * 0.08}s">
           <p class="vs-villa-no" aria-hidden="true">${ROMAN[number - 1]}</p>
-          <h3>${esc(unit ? unit.reference : `${collection.villasLabel || ''} ${number}`.trim())}</h3>
+          <h3>${esc(`${collection.villasLabel || ''} ${number}`.trim())}</h3>
           ${unit
     ? `<p class="vs-villa-price">${esc(localizedUnitPrice(unit.price, locale))}</p>
-          <p class="vs-villa-spec">${esc([localizedUnitBedrooms(unit.bedrooms, locale), localizedUnitSize(unit.size, locale)].filter(Boolean).join(' · '))}</p>
+          <p class="vs-villa-spec">${esc([localizedUnitBedrooms(unit.bedrooms, locale), areaText(localizedUnitSize(unit.size, locale))].filter(Boolean).join(' · '))}</p>
           <p class="vs-villa-state">${esc(collection.availableLabel || '')}</p>
           ${plan ? `<a class="vs-villa-plan" href="${esc(plan)}" target="_blank" rel="noopener">${esc(t('availability.floorplan', locale))}</a>` : ''}`
     : `<p class="vs-villa-spec">${esc(collection.soldNote || '')}</p>

@@ -449,6 +449,41 @@ for (const file of countPlaceholderPages) {
   }
 }
 
+// The new-build prices page is computed from the project files, and the developments page is
+// computed from the same files by a different builder. They must agree: every project the page
+// lists has a card on the developments page, at the same price, and the page lists all of them.
+// A project added, archived or re-priced in one place and not the other fails here.
+let pricesPageChecked = 0;
+{
+  const pagePath = path.join(dist, 'guide-new-build-prices-costa-del-sol.html');
+  const devPath = path.join(dist, 'developments.html');
+  if (fs.existsSync(pagePath) && fs.existsSync(devPath)) {
+    const dev = fs.readFileSync(devPath, 'utf8');
+    const cards = new Map();
+    for (const m of dev.matchAll(/<article class="project-card[^>]*>/g)) {
+      const get = (name) => (new RegExp(`${name}="([^"]*)"`).exec(m[0]) || [])[1];
+      if (get('data-card-url')) cards.set(get('data-card-url'), { price: Number(get('data-price')), area: get('data-area') });
+    }
+    const page = fs.readFileSync(pagePath, 'utf8');
+    const rows = [...page.matchAll(/<tr><th scope="row"><a href="(property-[^"]+\.html)">[^<]*<\/a><\/th><td>[^<]*<\/td><td class="n">€([\d,]+)<\/td>/g)];
+    const stated = Number(/<article class="card"><h3>(\d+)<\/h3>/.exec(page)?.[1]);
+    pricesPageChecked = rows.length;
+    for (const [, href, amount] of rows) {
+      const card = cards.get(href);
+      if (!card) fail('guide-new-build-prices-costa-del-sol.html', `lists ${href}, which has no card on the developments page`);
+      else if (card.price !== Number(amount.replace(/,/g, ''))) {
+        fail('guide-new-build-prices-costa-del-sol.html', `${href} is listed at €${amount} but its card says ${card.price}`);
+      }
+    }
+    if (rows.length !== cards.size) {
+      fail('guide-new-build-prices-costa-del-sol.html', `lists ${rows.length} projects but the developments page shows ${cards.size}`);
+    }
+    if (stated !== rows.length) {
+      fail('guide-new-build-prices-costa-del-sol.html', `states ${stated} projects covered but lists ${rows.length}`);
+    }
+  }
+}
+
 // Accessibility fixes that are invisible by construction, and therefore the
 // easiest kind to lose: nothing looks wrong when they regress.
 let a11yPagesChecked = 0;
@@ -952,7 +987,7 @@ let entityPagesChecked = 0;
 // means the building is under construction, which is the other filter.
 const ENTRY_MODULES = [
   'footer_page_translations', 'area_faq_translations', 'area_subarea_translations',
-  'guide_abroad_translations', 'guide_habeno_translations', 'guide_netherlands_translations', 'guide_sweden_translations', 'guide_card_translations', 'segment_page_translations',
+  'guide_abroad_translations', 'guide_habeno_translations', 'guide_netherlands_translations', 'guide_sweden_translations', 'guide_prices_translations', 'guide_card_translations', 'segment_page_translations',
   'segment_page_translations_clusters', 'developments_page_translations',
   'card_chrome_translations', 'static_page_translations', 'editorial_alt_translations',
   'image_alt_translations', 'unit_floor_translations', 'bespoke_scene_translations',
@@ -6109,7 +6144,7 @@ if (failures.length) {
     + `${heroTitlesChecked} hero titles measured against their font-size cap, `
     + `${leadFormsChecked} CRM lead forms checked for a honeypot, `
     + `${schemaRefsChecked} schema @id references resolved, `
-    + `${guidesChecked} guides checked for a named author, `
+    + `${guidesChecked} guides checked for a named author, ${pricesPageChecked} prices-page rows checked against the developments cards, `
     + `${a11yPagesChecked} pages checked for skip link and labelled controls, `
     + `${internalLinksScanned} internal query-string links scanned, `
     + `${localeTitlesChecked} titles measured in every locale, `

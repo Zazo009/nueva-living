@@ -87,6 +87,7 @@ const baseHtmlFiles = [
   'guide-buying-from-abroad-spain.html',
   'guide-buying-from-netherlands.html',
   'guide-buying-from-sweden.html',
+  'guide-new-build-prices-costa-del-sol.html',
   'why-nueva.html',
   'areas.html',
   ...areas.map((area) => area.output),
@@ -220,6 +221,12 @@ const basePageMeta = {
     title: 'New-Build Warranties and Snagging in Spain (2026)',
     description: 'The ten, three and one-year guarantees on a Spanish new-build: who is liable under each, which one is insured by law, and when the clock starts.',
     path: '/guide-new-build-warranties-snagging.html',
+    type: 'article'
+  },
+  'guide-new-build-prices-costa-del-sol.html': {
+    title: 'New-Build Prices by Area on the Costa del Sol (2026 Data)',
+    description: 'What new-build homes cost on the Costa del Sol, area by area: current projects, lowest, median and highest from price, home types and delivery years, read from our project files.',
+    path: '/guide-new-build-prices-costa-del-sol.html',
     type: 'article'
   },
   'guide-buying-from-sweden.html': {

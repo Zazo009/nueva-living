@@ -447,9 +447,13 @@
     const clearBtn = panel.querySelector('[data-availability-clear]');
     if (!container) return;
 
-    const rows = Array.from(
+    const allRows = Array.from(
       table ? table.querySelectorAll('tbody tr') : grid.querySelectorAll('[data-unit]')
     );
+    // A unit sold through Nueva Living (data-sold) stays listed as a track
+    // record. It is not for sale, so it is never counted in "Showing N of M"
+    // and it is hidden as soon as any filter is applied.
+    const rows = allRows.filter((row) => !row.hasAttribute('data-sold'));
     const template = panel.getAttribute('data-count-template') || '';
     const active = { beds: 'all', price: 'all' };
 
@@ -467,13 +471,16 @@
 
     const apply = () => {
       let shown = 0;
+      const filtered = active.beds !== 'all' || active.price !== 'all';
       rows.forEach((row) => {
         const visible = matches(row);
         row.hidden = !visible;
         if (visible) shown += 1;
       });
+      allRows.forEach((row) => {
+        if (row.hasAttribute('data-sold')) row.hidden = filtered;
+      });
 
-      const filtered = active.beds !== 'all' || active.price !== 'all';
       if (countEl) {
         countEl.textContent = filtered
           ? template.replace('{shown}', String(shown)).replace('{total}', String(rows.length))

@@ -21,6 +21,7 @@ import { AREA_SUBAREA_ENTRIES } from './area_subarea_translations.mjs';
 import { GUIDE_ABROAD_ENTRIES } from './guide_abroad_translations.mjs';
 import { GUIDE_NETHERLANDS_ENTRIES } from './guide_netherlands_translations.mjs';
 import { GUIDE_SWEDEN_ENTRIES } from './guide_sweden_translations.mjs';
+import { GUIDE_PRICES_ENTRIES } from './guide_prices_translations.mjs';
 import { GUIDE_HABENO_ENTRIES } from './guide_habeno_translations.mjs';
 
 export const FOOTER_PAGE_ENTRIES = [
@@ -36,5 +37,6 @@ export const FOOTER_PAGE_ENTRIES = [
   ...GUIDE_ABROAD_ENTRIES,
   ...GUIDE_NETHERLANDS_ENTRIES,
   ...GUIDE_SWEDEN_ENTRIES,
+  ...GUIDE_PRICES_ENTRIES,
   ...GUIDE_HABENO_ENTRIES
 ];

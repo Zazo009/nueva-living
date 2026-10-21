@@ -126,13 +126,16 @@ export function renderBentleyMain({ project, sourceProject, locale, faqs, projec
   const distances = (project.location?.distances || []).map(([label, value]) => `<li><span>${esc(label)}</span><strong>${esc(value)}</strong></li>`).join('');
   const extras = (s.setting?.extras || []).map((item) => `<li>${esc(Array.isArray(item) ? item.join(' · ') : item)}</li>`).join('');
 
+  const AREA_UNIT = { ru: 'м²', ar: 'م²' };
+  const areaText = (value) => (AREA_UNIT[locale] ? String(value || '').replace(/m²/g, AREA_UNIT[locale]) : value);
+
   // ---- The eight residences: two keys lit ----------------------------------------------
   const keyTile = ({ number, code, unit }) => `<article class="bn-keyfob${unit ? ' is-listed' : ''}" data-bn-in="up" style="--d:${((number - 1) % 4) * 0.08}s">
           <p class="bn-keyfob-no" aria-hidden="true">${ROMAN[number - 1]}</p>
           <h3>${esc(unit ? unit.reference : `${collection.villasLabel || ''} ${code}`.trim())}</h3>
           ${unit
     ? `<p class="bn-keyfob-price">${esc(localizedUnitPrice(unit.price, locale))}</p>
-          <p class="bn-keyfob-spec">${esc([localizedUnitBedrooms(unit.bedrooms, locale), localizedUnitSize(unit.size, locale)].filter(Boolean).join(' · '))}</p>
+          <p class="bn-keyfob-spec">${esc([localizedUnitBedrooms(unit.bedrooms, locale), areaText(localizedUnitSize(unit.size, locale))].filter(Boolean).join(' · '))}</p>
           <p class="bn-keyfob-state">${esc(collection.availableLabel || '')}</p>
           ${unit.floorplan ? `<a class="bn-keyfob-plan" href="${esc(unit.floorplan)}" target="_blank" rel="noopener">${esc(t('availability.floorplan', locale))}</a>` : ''}`
     : `<p class="bn-keyfob-spec">${esc(collection.soldNote || '')}</p>
