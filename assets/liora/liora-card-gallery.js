@@ -250,7 +250,7 @@
       img.setAttribute('src', img.dataset.src);
       img.dataset.held = '0';
     };
-    slides.slice(2).forEach(hold);
+    slides.slice(1).forEach(hold);
 
     // Slides past the first sit outside the viewport, so the browser defers
     // them -- and a swipe brings one into view only for the download to start
@@ -281,20 +281,23 @@
       for (const i of [target - 1, target, target + 1]) warmSlide(slides[i]);
     };
 
-    // A card near the viewport warms its first two photos; the rest wait for the visitor to touch,
-    // hover or page the gallery. Warming all six of every card that scrolled past put the whole
-    // list (99 cards, about 590 photos) in memory by the end of one scroll, which an iPhone does
-    // not survive: the page flickered, showed blank cards and was finally killed and reloaded.
-    // Paging still never meets a blank frame, because ensureLoaded() warms the neighbours of the
-    // slide being shown and the first press warms everything.
-    const warmNear = () => { warmSlide(slides[0]); warmSlide(slides[1]); };
+    // The first photo loads the ordinary way. The second is warmed only once the card has stayed on
+    // screen for half a second, so a card that is flung past in a fast scroll costs one photo and not
+    // two; the rest wait for the visitor to touch, hover or page the gallery. Warming all six of every
+    // card that scrolled past put the whole list (99 cards, about 590 photos) in memory by the end of
+    // one scroll, which an iPhone does not survive: the page flickered, showed blank cards and was
+    // finally killed and reloaded. Paging still never meets a blank frame, because ensureLoaded()
+    // warms the neighbours of the slide being shown and the first press warms everything.
+    const warmNear = () => { warmSlide(slides[1]); };
     const warmAll = () => slides.forEach(warmSlide);
     if ('IntersectionObserver' in window) {
+      let dwell = 0;
       const observer = new IntersectionObserver((entries) => {
-        if (!entries.some((entry) => entry.isIntersecting)) return;
-        warmNear();
-        observer.disconnect();
-      }, { rootMargin: '400px' });
+        const on = entries.some((entry) => entry.isIntersecting);
+        clearTimeout(dwell);
+        if (!on) return;
+        dwell = setTimeout(() => { warmNear(); observer.disconnect(); }, 500);
+      }, { threshold: 0.4 });
       observer.observe(gallery);
     } else {
       warmNear();
