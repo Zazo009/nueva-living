@@ -1481,6 +1481,47 @@ img {
 
 /* ---------- Results summary ---------- */
 
+.luxury-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  margin: calc(-1 * clamp(10px, 2vw, 22px)) 0 clamp(28px, 4vw, 46px);
+  padding: 18px clamp(16px, 3vw, 32px);
+  border: 1px solid #c9b48f;
+  border-inline-start-width: 4px;
+  background: linear-gradient(100deg, #2e2418 0%, #4a3b28 100%);
+  color: #f3ead9;
+}
+.luxury-strip-eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #d9bd8a;
+}
+.luxury-strip p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: rgba(243, 234, 217, 0.86); }
+.luxury-strip-btn {
+  flex: none;
+  padding: 11px 22px;
+  border: 1px solid #d9bd8a;
+  background: transparent;
+  color: #f3ead9;
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.luxury-strip-btn:hover, .luxury-strip-btn.is-active { background: #d9bd8a; color: #2e2418; }
+@media (max-width: 640px) {
+  .luxury-strip { flex-direction: column; align-items: stretch; }
+  .luxury-strip-btn { text-align: center; }
+}
+
 .discovery-summary {
   display: flex;
   align-items: center;
