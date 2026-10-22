@@ -327,12 +327,14 @@
     // See the memory ceiling above. sleep() empties every photo of the card, the first included;
     // wake() brings back the first, or the ones around the slide the card was left on.
     const sleep = () => {
+      gallery.classList.remove('is-armed');
       slides.forEach((img) => {
         hold(img);
         img.dataset.warmed = '0';
       });
     };
     const wake = () => {
+      gallery.classList.add('is-armed');
       const shown = currentIndex(true);
       if (shown > 0) ensureLoaded(shown);
       else warmSlide(slides[0]);
@@ -340,6 +342,8 @@
     if (sleepObserver) {
       sleepers.set(gallery, { sleep, wake });
       sleepObserver.observe(gallery);
+    } else {
+      gallery.classList.add('is-armed');
     }
 
     // The browser is better at this than any gesture code I can write. The

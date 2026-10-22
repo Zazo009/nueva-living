@@ -1282,6 +1282,15 @@ html[lang="ru"] #nav .nav-links a {
   display: none;
 }
 
+/* One scroller per card is what an iPhone cannot carry: with 99 of them on the developments page,
+   each backed by its own layer of six photo-widths, Safari killed the page on the first scroll
+   (a copy of the page with the strips unscrollable did not crash; neither did one with 50 cards).
+   The script arms only the cards near the viewport (is-armed); the others keep their position
+   but are not scrollers. */
+.project-card-gallery.is-swipe:not(.is-armed) .project-card-gallery-track {
+  overflow-x: hidden;
+}
+
 .project-card-gallery.is-swipe .project-card-gallery-track img {
   scroll-snap-align: start;
   /* Stops a hard fling from coasting past several photos: the scroller may
