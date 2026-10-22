@@ -390,8 +390,11 @@ export function datasetSchemaJson({ locale, name, description, url, stats }) {
     isAccessibleForFree: true,
     keywords: ['Costa del Sol', 'new-build', 'off-plan', 'prices'],
     spatialCoverage: { '@type': 'Place', name: 'Costa del Sol, Spain' },
-    creator: { '@id': 'https://nuevaliving.com/#organization' },
-    publisher: { '@id': 'https://nuevaliving.com/#organization' },
+    // Google's Dataset check wants typed objects here, not an @id reference to the organisation node.
+    creator: { '@type': 'Organization', name: 'Nueva Living', url: 'https://nuevaliving.com/' },
+    publisher: { '@type': 'Organization', name: 'Nueva Living', url: 'https://nuevaliving.com/' },
+    // The site's own legal notice is the terms the figures are published under.
+    license: `https://nuevaliving.com/${locale === 'en' ? '' : `${locale}/`}legal-notice.html`,
     variableMeasured: ['Number of current projects', 'Lowest from price (EUR)', 'Median from price (EUR)', 'Highest from price (EUR)', 'Home types', 'Delivery quarter or year'],
     size: `${stats.total} projects`
   }, null, 2);
