@@ -3401,6 +3401,10 @@ function updateDevelopmentsPage(projects) {
 
   html = withProjectItemList(html, activeProjects);
 
+  // The result count ships in the markup and the filter script rewrites it once it runs. It used to
+  // ship as a hand-typed "5", so every load painted 5 and then jumped to 99; it is the real number now.
+  html = html.replace(/(data-result-count-summary[^>]*>)\d+( curated developments<)/g, `$1${activeProjects.length}$2`);
+
   writeFileSync(developmentsPage, html);
   return true;
 }
