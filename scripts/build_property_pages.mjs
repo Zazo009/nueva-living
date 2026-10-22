@@ -1924,6 +1924,10 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   };
   const schemaUrl = project.canonical || `https://nuevaliving.com/${project.output}`;
   const schemaPrice = project.schema?.price;
+  // A project with no published price has nothing to seed the affordability calculator with, and a
+  // stand-in figure would read as that project's price. Its section is left in the markup but hidden,
+  // and its in-page link is dropped, until a price is supplied.
+  const calculatorSeedKnown = (project.crm?.priceMin ?? project.discovery?.price ?? schemaPrice) !== undefined;
   const calculatorSeedPrice = project.crm?.priceMin ?? project.discovery?.price ?? schemaPrice ?? 500000;
   const productSchema = {
     '@context': 'https://schema.org',
@@ -2118,8 +2122,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
 ${project.media?.items?.length ? `        <a href="#media">${t('navInPage.media', locale)}</a>\n` : ''}        <a href="#location">${t('navInPage.location', locale)}</a>
 ${constructionTimeline ? `        <a href="#construction-timeline">${t('timeline.paymentTerms', locale)}</a>\n` : ''}        <a href="#residences">${t('navInPage.residences', locale)}</a>
 ${project.furniturePackages?.items?.length ? `        <a href="#furniture-packages">${t('navInPage.furniture', locale)}</a>\n` : ''}${project.qualitySpecs?.groups?.length ? `        <a href="#quality-specifications">${t('navInPage.specifications', locale)}</a>\n` : ''}        <a href="#availability">${t('navInPage.availability', locale)}</a>
-        <a href="#calculator">${t('navInPage.affordability', locale)}</a>
-${project.crm?.amenities?.length ? `        <a href="#amenities">${t('navInPage.amenities', locale)}</a>\n` : ''}        <a href="#why-this-project">${t('navInPage.why', locale)}</a>
+${calculatorSeedKnown ? `        <a href="#calculator">${t('navInPage.affordability', locale)}</a>\n` : ''}${project.crm?.amenities?.length ? `        <a href="#amenities">${t('navInPage.amenities', locale)}</a>\n` : ''}        <a href="#why-this-project">${t('navInPage.why', locale)}</a>
         <a href="#architecture">${t('navInPage.architecture', locale)}</a>
         <a href="#private-viewing">${t('cta.cinematicPresentation', locale)}</a>
         <a href="#lifestyle">${t('navInPage.lifestyle', locale)}</a>
@@ -2224,7 +2227,7 @@ ${availabilityRelease ? `        ${availabilityRelease}\n` : ''}        <div cla
       </div>
     </section>
 
-    <section class="project-section calculator-section" id="calculator">
+    <section class="project-section calculator-section" id="calculator"${calculatorSeedKnown ? '' : ' hidden'}>
       <div class="project-inner">
         <div class="section-head center reveal-soft">
           <span class="section-kicker">${t('section.affordability', locale)}</span>
