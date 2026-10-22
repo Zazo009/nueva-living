@@ -199,6 +199,24 @@
 
   // ---------- Card galleries ----------
 
+  // Memory ceiling. Loading only the first photo of each card still meant that every card scrolled
+  // past kept its photos decoded for the rest of the visit: 99 cards is about 200 decoded images,
+  // and an iPhone kills a page that holds that much. A card more than about a screen away from the
+  // viewport therefore gives its photos back (they are put behind the placeholder again, and the
+  // files stay in the HTTP cache) and takes them back when it comes within a screen. The margin is
+  // wide enough that the photo is already decoding when the card scrolls into view.
+  const sleepers = new WeakMap();
+  const sleepObserver = 'IntersectionObserver' in window
+    ? new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const control = sleepers.get(entry.target);
+          if (!control) return;
+          if (entry.isIntersecting) control.wake();
+          else control.sleep();
+        });
+      }, { rootMargin: '100% 50% 100% 50%' })
+    : null;
+
   document.querySelectorAll('[data-project-card-gallery]').forEach((gallery) => {
     const track = gallery.querySelector('[data-gallery-track]');
     const dots = Array.from(gallery.querySelectorAll('[data-gallery-dot]'));
@@ -303,8 +321,26 @@
       warmNear();
     }
     ['pointerdown', 'touchstart', 'mouseenter', 'focusin'].forEach((type) => {
-      gallery.addEventListener(type, warmAll, { once: true, passive: true });
+      gallery.addEventListener(type, warmAll, { passive: true });
     });
+
+    // See the memory ceiling above. sleep() empties every photo of the card, the first included;
+    // wake() brings back the first, or the ones around the slide the card was left on.
+    const sleep = () => {
+      slides.forEach((img) => {
+        hold(img);
+        img.dataset.warmed = '0';
+      });
+    };
+    const wake = () => {
+      const shown = currentIndex(true);
+      if (shown > 0) ensureLoaded(shown);
+      else warmSlide(slides[0]);
+    };
+    if (sleepObserver) {
+      sleepers.set(gallery, { sleep, wake });
+      sleepObserver.observe(gallery);
+    }
 
     // The browser is better at this than any gesture code I can write. The
     // original bug was never native scrolling -- it was `scroll-snap-type: x
