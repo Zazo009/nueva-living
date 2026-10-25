@@ -1,6 +1,7 @@
 import { buildLlms, robotsTxt, INDEXNOW_KEY } from './lib/ai_discovery.mjs';
 import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema, FOUNDERS, organizationId, personId, founderRefs } from './lib/brand.mjs';
 import { projectAreaRule, SEGMENT_ALSO_AREAS } from './lib/project_area.mjs';
+import { VILLA_SEGMENT_AREAS, matchVillaProjects, villaFigures } from './lib/villa_segments.mjs';
 import { loadPublishedProjects, developmentsFacts, fillDevelopmentsFacts } from './lib/developments_facts.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -103,6 +104,9 @@ const baseHtmlFiles = [
   'new-build-homes-san-pedro-guadalmina.html',
   'new-build-apartments-penthouses-estepona.html',
   'new-build-apartments-penthouses-nueva-andalucia.html',
+  'new-build-villas-estepona.html',
+  'new-build-villas-marbella.html',
+  'new-build-villas-costa-del-sol.html',
   'privacy-policy.html',
   'referrals.html',
   'thank-you.html',
@@ -136,11 +140,20 @@ function clusterAvailable(slugs) {
     .map((slug) => projectPages.find((p) => p.slug === slug))
     .reduce((sum, p) => sum + (p?.crm?.availableUnits || 0), 0);
 }
+// A villa page counts the available units of its villa-only developments, the
+// same figure villaFigures() gives build_segment_pages for the H1.
+function villaAvailable(output) {
+  return villaFigures(matchVillaProjects(projectPages.filter((p) => !p.archived), VILLA_SEGMENT_AREAS[output])).availableTotal || 0;
+}
 function segmentTitle(template, area, types = ['apartment', 'penthouse']) {
-  const n = Array.isArray(area) ? clusterAvailable(area) : segmentAvailable(area, types);
+  const n = typeof area === 'string' && area in VILLA_SEGMENT_AREAS
+    ? villaAvailable(area)
+    : Array.isArray(area) ? clusterAvailable(area) : segmentAvailable(area, types);
+  // Same as resolveCount() in build_segment_pages: below the threshold the
+  // number goes, and a parenthetical that carried it goes with it.
   return n >= SEGMENT_COUNT_MIN
     ? template.replace('{count}', String(n))
-    : template.replace(/\{count\}\s*/, '');
+    : template.replace(/\s*\([^()]{0,60}\{count\}[^()]{0,40}\)/g, '').replace(/\{count\}\s*/, '');
 }
 
 const basePageMeta = {
@@ -295,6 +308,24 @@ const basePageMeta = {
     title: 'New Developments in Nueva Andalucia: {count} Apartments',
     description: 'New developments for sale in Nueva Andalucia, minutes from Puerto Banús: new-build and off-plan apartments and penthouses with floorplans.',
     path: '/new-build-apartments-penthouses-nueva-andalucia.html',
+    type: 'website'
+  },
+  'new-build-villas-estepona.html': {
+    title: 'New-Build Villas for Sale in Estepona ({count} Available)',
+    description: 'New-build villas for sale in Estepona: detached and semi-detached, with private plots and pools, from El Campanario to Atalaya, with delivery dates.',
+    path: '/new-build-villas-estepona.html',
+    type: 'website'
+  },
+  'new-build-villas-marbella.html': {
+    title: 'New-Build Villas for Sale in Marbella ({count} Available)',
+    description: 'New-build villas for sale in Marbella: Nueva Andalucía, Cortijo Blanco and Elviria, with plot sizes, prices and delivery dates for each development.',
+    path: '/new-build-villas-marbella.html',
+    type: 'website'
+  },
+  'new-build-villas-costa-del-sol.html': {
+    title: 'New-Build Villas on the Costa del Sol ({count} Available)',
+    description: 'New-build villas for sale on the Costa del Sol: detached and semi-detached in Estepona, Marbella, Benahavís and Mijas, with plot, price and delivery dates.',
+    path: '/new-build-villas-costa-del-sol.html',
     type: 'website'
   },
   'areas.html': {
@@ -528,6 +559,9 @@ for (const [output, area] of [
   ['new-build-apartments-penthouses-mijas-fuengirola.html', 'mijas-fuengirola'],
   ['new-build-apartments-penthouses-estepona.html', 'estepona'],
   ['new-build-apartments-penthouses-nueva-andalucia.html', 'nueva-andalucia'],
+  ['new-build-villas-estepona.html', 'new-build-villas-estepona.html'],
+  ['new-build-villas-marbella.html', 'new-build-villas-marbella.html'],
+  ['new-build-villas-costa-del-sol.html', 'new-build-villas-costa-del-sol.html'],
   ['new-build-homes-elviria-marbella.html', [
     'elviria-hills-residences',
     'laurel-hill-residences',
@@ -1124,6 +1158,21 @@ const gtmHeadSnippet = `<!-- Google Tag Manager + Google tag (gtag.js) -->
     });
     dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
     gtag('js', new Date());
+    // Our own visits. Opening any page with ?internal=1 marks this browser (and ?internal=0 clears it),
+    // so a phone or a laptop away from the office is recognised where an IP address would not be.
+    // GA4 then holds the hits under traffic_type=internal for its Internal traffic filter to exclude.
+    var internalVisit = false;
+    try {
+      var internalFlag = /[?&]internal=([01])/.exec(window.location.search);
+      if (internalFlag) {
+        if (internalFlag[1] === '1') window.localStorage.setItem('nueva_internal', '1');
+        else window.localStorage.removeItem('nueva_internal');
+      }
+      internalVisit = window.localStorage.getItem('nueva_internal') === '1';
+    } catch (err) {
+      internalVisit = false;
+    }
+    if (internalVisit) gtag('set', { traffic_type: 'internal' });
     gtag('config', '${GA4_ID}');
     ${GOOGLE_ADS_ID ? `gtag('config', '${GOOGLE_ADS_ID}');` : ''}
     // Read by nueva-tracking.js. Set here so the tags cannot drift apart:

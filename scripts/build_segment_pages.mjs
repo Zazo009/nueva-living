@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { organizationSchema } from './lib/brand.mjs';
 import { SEGMENT_ALSO_AREAS } from './lib/project_area.mjs';
+import { VILLA_SEGMENT_AREAS, matchVillaProjects, villaFigures } from './lib/villa_segments.mjs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import {
@@ -28,6 +29,7 @@ import { renderFooter } from './lib/site_footer.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
 import { SEGMENT_CLUSTER_ENTRIES, SEGMENT_HEAD_ENTRIES } from './lib/segment_page_translations_clusters.mjs';
+import { SEGMENT_VILLA_ENTRIES } from './lib/segment_page_translations_villas.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
 import { PROJECT_CARD_ENTRIES } from './lib/developments_page_translations.mjs';
 import { GUIDE_CARD_ENTRIES } from './lib/guide_card_translations.mjs';
@@ -43,7 +45,7 @@ import { GUIDE_CARD_ENTRIES } from './lib/guide_card_translations.mjs';
 // the shared project-card meta labels/values and CTA (same set used on
 // developments.html); per-project card descriptions come from each
 // project.json's own i18n overlay.
-const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...SEGMENT_CLUSTER_ENTRIES, ...SEGMENT_HEAD_ENTRIES, ...GUIDE_CARD_ENTRIES, ...PROJECT_CARD_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
+const SORTED_SEGMENT_PAGE_ENTRIES = [...SEGMENT_PAGE_ENTRIES, ...SEGMENT_CLUSTER_ENTRIES, ...SEGMENT_HEAD_ENTRIES, ...SEGMENT_VILLA_ENTRIES, ...GUIDE_CARD_ENTRIES, ...PROJECT_CARD_ENTRIES, ...EDITORIAL_ALT_ENTRIES]
   .sort((a, b) => b.find.length - a.find.length);
 
 function cardDescriptionReplacements(locale) {
@@ -113,6 +115,13 @@ function localizedBreadcrumbLabel(segment, locale) {
 
 function localizedAreaLabel(segment, locale) {
   return segment.areaLabelKey ? t(segment.areaLabelKey, locale) : segment.areaLabel;
+}
+
+// The breadcrumb's parent link goes to the page that lists every area, and the audit wants one name
+// for a page across the site, so a segment that spans the whole coast links it under the nav's
+// own "All areas" label (areaCrumbKey) while its prose keeps saying "the Costa del Sol".
+function localizedAreaCrumb(segment, locale) {
+  return segment.areaCrumbKey ? t(segment.areaCrumbKey, locale) : localizedAreaLabel(segment, locale);
 }
 
 function applySegmentPageTranslations(html, locale) {
@@ -351,6 +360,10 @@ function resolveCount(text, stats) {
 // models it. Listing slugs keeps that explicit and reviewable rather than
 // inventing a second area taxonomy.
 function matchProjects(segment) {
+  // Villa pages: one shared rule (lib/villa_segments.mjs), also read by build_dist.
+  if (segment.output in VILLA_SEGMENT_AREAS) {
+    return matchVillaProjects(projects, VILLA_SEGMENT_AREAS[segment.output]);
+  }
   if (segment.slugs) {
     return segment.slugs.map((slug) => {
       const project = projects.find((candidate) => candidate.slug === slug);
@@ -371,7 +384,10 @@ function matchProjects(segment) {
   });
 }
 
-function computeStats(matches) {
+function computeStats(matches, segment) {
+  // Villa pages count only the villa-only developments in their figures; see
+  // lib/villa_segments.mjs for why.
+  if (segment && segment.output in VILLA_SEGMENT_AREAS) return villaFigures(matches);
   const prices = matches.map((p) => p.crm?.priceMin).filter((n) => typeof n === 'number');
   const bedroomsMin = matches.map((p) => p.crm?.bedroomsMin).filter((n) => typeof n === 'number');
   const bedroomsMax = matches.map((p) => p.crm?.bedroomsMax).filter((n) => typeof n === 'number');
@@ -394,6 +410,11 @@ function collectAmenities(matches) {
   return [...set];
 }
 
+// A villa page that lists mixed developments says what its figures leave out.
+// No number in it: the page shows the count, and a count in the sentence would
+// need a translation entry per value.
+const VILLA_STATS_NOTE = 'Price, bedrooms and availability cover the developments that sell villas only. Developments that also include apartments, penthouses or townhouses are listed below with their full range of home types and are left out of these figures. Figures reflect currently published developments and are reconfirmed by Nueva Living before any viewing or reservation.';
+
 function statsBand(stats) {
   const items = [
     ['Developments', String(stats.count)],
@@ -405,7 +426,7 @@ function statsBand(stats) {
   return `<section class="section quiet-band segment-stats-section"><div class="section-inner">
     <div class="area-price-panel segment-stats-panel">
       ${items.map(([label, value]) => `<div class="area-price-item"><span>${esc(label)}</span><strong>${value}</strong></div>`).join('\n      ')}
-      <p>Figures reflect currently published developments matching this search and are reconfirmed by Nueva Living before any viewing or reservation.</p>
+      <p>${stats.mixedCount ? VILLA_STATS_NOTE : 'Figures reflect currently published developments matching this search and are reconfirmed by Nueva Living before any viewing or reservation.'}</p>
     </div>
   </div></section>`;
 }
@@ -461,7 +482,7 @@ function segmentSchema(segment, matches, locale) {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Developments', item: `${siteUrl}/developments.html` },
-        { '@type': 'ListItem', position: 2, name: localizedAreaLabel(segment, locale), item: `${siteUrl}/${segment.areaHref}` },
+        { '@type': 'ListItem', position: 2, name: localizedAreaCrumb(segment, locale), item: `${siteUrl}/${segment.areaHref}` },
         { '@type': 'ListItem', position: 3, name: segment.breadcrumbLabel, item: url }
       ]
     },
@@ -481,7 +502,7 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
   const matches = matchProjects(segment);
-  const stats = computeStats(matches);
+  const stats = computeStats(matches, segment);
   const amenities = collectAmenities(matches);
 
   const highlightsSection = `<section class="section segment-subareas"><div class="section-inner">
@@ -553,7 +574,7 @@ ${JSON.stringify(schema, null, 2)}
 </head>
 <body class="segment-page">
   ${nav(locale, segment.output)}
-  ${breadcrumb(localizedBreadcrumbLabel(segment, locale), [[t('breadcrumb.developments', locale), 'developments.html'], [localizedAreaLabel(segment, locale), segment.areaHref]], locale)}
+  ${breadcrumb(localizedBreadcrumbLabel(segment, locale), [[t('breadcrumb.developments', locale), 'developments.html'], [localizedAreaCrumb(segment, locale), segment.areaHref]], locale)}
   <main>
     <section class="page-hero">
       ${heroPicture(segment.hero)}
@@ -606,7 +627,7 @@ ${JSON.stringify(schema, null, 2)}
 
 function lowestPriceAcrossSegments() {
   const prices = SEGMENTS
-    .map((segment) => computeStats(matchProjects(segment)).priceFrom)
+    .map((segment) => computeStats(matchProjects(segment), segment).priceFrom)
     .filter((n) => typeof n === 'number');
   return prices.length ? Math.min(...prices) : 500000;
 }
@@ -787,7 +808,7 @@ function processGuideCard(guide) {
 
 function guideCard(segment) {
   const matches = matchProjects(segment);
-  const stats = computeStats(matches);
+  const stats = computeStats(matches, segment);
   return `<a class="card guide-card" href="${esc(segment.output)}">
       <div class="guide-card-image"><img src="${esc(segment.hero.image)}" alt="${esc(segment.hero.alt)}" width="640" height="420" loading="lazy" decoding="async"></div>
       <div class="guide-card-body">
@@ -1341,6 +1362,181 @@ const SEGMENTS = [
       ['Do ground-floor apartments come with a private garden?', 'In many of the developments we work with, yes, ground-floor units are sold with a private garden rather than the terrace that upper floors receive, though this varies by development and by building layout. We confirm this unit by unit.'],
       ['Is a golf-view unit significantly more expensive than a garden-view unit in the same building?', 'View typically carries a real premium within the same development, though the size of that premium varies by project and by floor. Comparing the current price list across several units in the same building is the most reliable way to see it.'],
       ['Can I still use the pool, spa and gym if I only visit a few months a year?', 'Yes. Community amenities are available to owners year-round regardless of how often you visit, and are covered by the community service charge whether you use them or not.']
+    ]
+  },
+  // ---- Villa pages -------------------------------------------------------
+  // Selected by lib/villa_segments.mjs from crm.propertyTypes, not by a slug
+  // list, so a new villa project appears on its page without touching this
+  // file. Every figure on the page (count, price from, bedrooms, available)
+  // is computed from the villa-only projects; nothing below quotes a number
+  // except the two taxes, which are the ones in guide-purchase-costs-andalucia.
+  //
+  // Benahavis has no page of its own: one villa development is not a page.
+  // It is listed on the Costa del Sol page and linked from its area guide.
+  {
+    output: 'new-build-villas-estepona.html',
+    area: 'estepona',
+    areaLabel: 'Estepona',
+    areaLabelKey: 'area.estepona',
+    areaHref: 'area-estepona.html',
+    breadcrumbLabel: 'New-build villas',
+    breadcrumbLabelKey: 'segment.newBuildVillas',
+    cardHeading: 'New-Build Villas in Estepona',
+    title: 'New-Build Villas for Sale in Estepona ({count} Available)',
+    description: 'New-build villas for sale in Estepona: detached and semi-detached, with private plots and pools, from El Campanario to Atalaya, with delivery dates.',
+    kicker: 'Estepona &middot; Villas',
+    heroTitleHtml: 'New-Build Villas for Sale in <em>Estepona</em> ({count} Available)',
+    heroLead: 'Detached and semi-detached villas on their own plots, from the golf communities of the New Golden Mile to Atalaya and the hillside above the coast, each with its plot, price and delivery date.',
+    hero: {
+      image: 'assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.jpg',
+      alt: 'Detached villa with infinity pool and garden in Atalaya, Estepona',
+      width: 1920,
+      height: 1080,
+      position: 'center 55%'
+    },
+    introLabel: 'Buying A Villa In Estepona',
+    introHeadlineHtml: 'What a new-build villa <em>here includes</em>',
+    areaLinkHtml: 'Comparing places? Our guide to <a href="area-estepona.html">where to buy in Estepona, area by area</a> sets the villa areas against the town and the coast. For the taxes on top of the price, read the <a href="guide-purchase-costs-andalucia.html">new-build purchase costs guide</a>.',
+    introParagraphs: [
+      'A new-build villa in Estepona is a house on its own plot, sold from the plans or while it is being built. Most current releases include a private pool and a garden, and many add a rooftop solarium and a basement level. The plot and the built area are published for every development, so you can compare like with like.',
+      'The range is wide, from semi-detached houses with a private garden to large detached villas. The starting price on each card below shows where a development sits, and the figures above cover the developments that sell villas only.'
+    ],
+    quickFacts: [
+      ['Buyer Profile', 'Suits buyers who want private outdoor space and a pool and are content to drive to the beach, the shops and the golf.'],
+      ['Typical Status', 'Most current releases are off-plan or under construction, sold with staged payments through to completion. The delivery line on each card gives the stated date or status.'],
+      ['What Varies Most', 'Plot size, the outlook (sea, golf or hills) and the position within the community. Compare the plot and built-area figures on each project page.'],
+      ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
+    ],
+    subareasHeadlineHtml: 'Three settings, <em>three kinds of villa</em>',
+    subareas: [
+      ['El Campanario and Bel Air', 'The villa collections on the New Golden Mile sit mostly in El Campanario, around the golf and country club, with Bel Air at the Marbella end of the strip, nearest Puerto Banús.'],
+      ['Atalaya and the golf urbanisations', 'Inland golf addresses at Atalaya and Estepona Golf, with both detached villas and semi-detached houses. The semi-detached houses have a private garden and usually a communal pool.'],
+      ['La Resina, Valle Romano and the seafront', 'Hillside plots in La Resina and Valle Romano trade the walk to the beach for space and views. A mixed development at Playa del Ángel includes villas on the seafront.']
+    ],
+    developmentsHeadlineHtml: 'Current villa <em>developments</em>',
+    amenitiesHeadlineHtml: 'Amenities to expect',
+    amenitiesIntro: 'Specification varies by development, but current villa releases in Estepona typically include some combination of the following.',
+    comparisonHeadlineHtml: 'Detached or <em>semi-detached?</em>',
+    comparison: [
+      ['Detached villa', 'A house on its own plot, with its own pool and garden and no shared walls. More privacy and usually the largest plots and built areas, with more to maintain: budget for a gardener and pool service whether you are here or not.'],
+      ['Semi-detached house', 'Shares one wall with its neighbour and has a private garden, often with a communal pool rather than a private one. Usually a lower entry price and less to look after, which suits owners who are not here all year.']
+    ],
+    faq: [
+      ['How much land comes with a villa in Estepona?', 'It depends on the development and is published for each one, from a private garden beside a semi-detached house to plots of well over a thousand square metres around the largest detached villas. The plot and built-area figures are in the quick facts of every project page.'],
+      ['What decides the price of a villa in Estepona?', 'The main drivers are plot size and built area, the outlook (golf frontline or sea view) and whether the house is detached or semi-detached. Basements, lifts, solariums and private pools add to the price when they are included, so compare specifications, not only the headline figure.'],
+      ['Are these villas off-plan, or can I move in now?', 'It varies by development. Most current releases are off-plan or under construction, sold with staged payments through to completion; where a villa is finished, the card says so. The delivery line on each card shows the status the developer states, and Nueva Living reconfirms it before you reserve.'],
+      ['What taxes and costs come on top of the price?', 'On a new-build bought from the developer you pay 10% VAT (IVA) and 1.2% stamp duty (AJD) in Andalucía, 11.2% in total, before notary, land registry and legal fees. Some prices on this site are shown plus VAT, so check the basis of the figure you are comparing.']
+    ]
+  },
+  {
+    output: 'new-build-villas-marbella.html',
+    area: 'marbella',
+    areaLabel: 'Marbella',
+    areaLabelKey: 'area.marbella',
+    areaHref: 'area-marbella.html',
+    breadcrumbLabel: 'New-build villas',
+    breadcrumbLabelKey: 'segment.newBuildVillas',
+    cardHeading: 'New-Build Villas in Marbella',
+    title: 'New-Build Villas for Sale in Marbella ({count} Available)',
+    description: 'New-build villas for sale in Marbella: Nueva Andalucía, Cortijo Blanco and Elviria, with plot sizes, prices and delivery dates for each development.',
+    kicker: 'Marbella &middot; Villas',
+    heroTitleHtml: 'New-Build Villas for Sale in <em>Marbella</em> ({count} Available)',
+    heroLead: 'Villas across the municipality of Marbella, from Golf Valley and Las Brisas in Nueva Andalucía to Cortijo Blanco by the sea and the hillside of Elviria.',
+    hero: {
+      image: 'assets/liora/projects/nueva-andalucia-signature-villas/media/the-villa-and-the-pool.jpg',
+      alt: 'A villa seen across its infinity pool, the roof terrace stepping back above the glass',
+      width: 1600,
+      height: 994,
+      position: 'center 55%'
+    },
+    introLabel: 'Buying A Villa In Marbella',
+    introHeadlineHtml: 'Several addresses, <em>one municipality</em>',
+    areaLinkHtml: 'Comparing places? Our guide to <a href="area-marbella.html">where to buy in Marbella, area by area</a> covers the whole municipality. For the taxes on top of the price, read the <a href="guide-purchase-costs-andalucia.html">new-build purchase costs guide</a>.',
+    introParagraphs: [
+      'This page covers villas in the municipality of Marbella as buyers search for them: Nueva Andalucía and Las Brisas, Cortijo Blanco near San Pedro de Alcántara, and Elviria on the east side. Our area guides treat Nueva Andalucía and San Pedro separately; here they sit on one page so that the villas can be compared.',
+      'A new-build villa in Marbella is a house on its own plot, sold from the plans or while it is being built, with a private pool and usually a basement level and a rooftop solarium. The current releases are mostly large detached villas, many of them in gated communities, and the starting price on each card shows where a development sits.'
+    ],
+    quickFacts: [
+      ['Buyer Profile', 'Suits buyers who want a large private villa within reach of Puerto Banús and the golf, and who will drive for most things.'],
+      ['Typical Status', 'Most current releases are off-plan or under construction, sold with staged payments through to completion. The delivery line on each card gives the stated date or status.'],
+      ['What Varies Most', 'Plot size, the outlook (sea, golf or hills) and the position within the community. Compare the plot and built-area figures on each project page.'],
+      ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
+    ],
+    subareasHeadlineHtml: 'One municipality, <em>three kinds of address</em>',
+    subareas: [
+      ['Nueva Andalucía and the Las Brisas hills', 'Golf Valley and the hills above it hold much of the new villa stock, in communities close to Puerto Banús. Plots are large and a car is assumed; the street and the outlook move the price.'],
+      ['Cortijo Blanco, near San Pedro', 'On the coast between San Pedro de Alcántara and Puerto Banús. Cortijo Blanco is level and a few streets back from the sand, so the promenade, San Pedro centre and Puerto Banús are within walking distance.'],
+      ['Elviria and the east side', 'Elviria sits on the eastern side of Marbella, close to golf courses and beach clubs. A mixed development in Elviria West offers garden villas alongside apartments and penthouses.']
+    ],
+    developmentsHeadlineHtml: 'Current villa <em>developments</em>',
+    amenitiesHeadlineHtml: 'Amenities to expect',
+    amenitiesIntro: 'Specification varies by development, but current villa releases in Marbella typically include some combination of the following.',
+    comparisonHeadlineHtml: 'Nueva Andalucía or <em>the coast?</em>',
+    comparison: [
+      ['Nueva Andalucía and the Las Brisas hills', 'Larger plots and gated golf communities, close to Puerto Banús by car. Quieter and greener, and the better choice if privacy and space matter more than walking to the beach.'],
+      ['Cortijo Blanco, near San Pedro', 'Closer to the sea and to the services of San Pedro, with the beach a short walk away. Fewer villas to choose from, and the plots are usually smaller than in the golf communities.']
+    ],
+    faq: [
+      ['Which parts of Marbella have new-build villas?', 'Current releases are in Nueva Andalucía and Las Brisas, in Cortijo Blanco near San Pedro de Alcántara, and in Elviria. Our area guides cover each address, and the cards below show which development sits where.'],
+      ['What decides the price of a villa in Marbella?', 'The main drivers are plot size and built area, the address, and whether the villa sits in a gated community with shared facilities. Basements, lifts, solariums and private pools add to the price when they are included, so compare specifications, not only the headline figure.'],
+      ['Are these villas off-plan, or can I move in now?', 'It varies by development. Most current releases are off-plan or under construction, sold with staged payments through to completion; where a villa is finished, the card says so. The delivery line on each card shows the status the developer states, and Nueva Living reconfirms it before you reserve.'],
+      ['What taxes and costs come on top of the price?', 'On a new-build bought from the developer you pay 10% VAT (IVA) and 1.2% stamp duty (AJD) in Andalucía, 11.2% in total, before notary, land registry and legal fees. Some prices on this site are shown plus VAT, so check the basis of the figure you are comparing.']
+    ]
+  },
+  {
+    output: 'new-build-villas-costa-del-sol.html',
+    area: 'costa-del-sol',
+    areaLabel: 'the Costa del Sol',
+    areaLabelKey: 'area.costaDelSol',
+    areaCrumbKey: 'nav.allAreas',
+    areaHref: 'areas.html',
+    breadcrumbLabel: 'New-build villas',
+    breadcrumbLabelKey: 'segment.newBuildVillas',
+    cardHeading: 'New-Build Villas on the Costa del Sol',
+    title: 'New-Build Villas on the Costa del Sol ({count} Available)',
+    description: 'New-build villas for sale on the Costa del Sol: detached and semi-detached in Estepona, Marbella, Benahavís and Mijas, with plot, price and delivery dates.',
+    kicker: 'Costa del Sol &middot; Villas',
+    heroTitleHtml: 'New-Build Villas for Sale on the <em>Costa del Sol</em> ({count} Available)',
+    heroLead: 'Every villa development we currently publish, from Estepona to Marbella and the hills of Benahavís, with the plot, price and delivery date of each one.',
+    hero: {
+      image: 'assets/liora/projects/la-resina-valley-villas/media/villa-from-the-garden.jpg',
+      alt: 'A villa from its lawn, the pool terrace stepping out below the upper floor',
+      width: 1600,
+      height: 900,
+      position: 'center 55%'
+    },
+    introLabel: 'Buying A Villa On The Costa Del Sol',
+    introHeadlineHtml: 'One coast, <em>very different villas</em>',
+    areaLinkHtml: 'Looking at one place? See new-build villas in <a href="new-build-villas-estepona.html">Estepona</a> or <a href="new-build-villas-marbella.html">Marbella</a>, read the <a href="area-benahavis.html">Benahavís guide</a>, or <a href="areas.html">compare every area on the coast</a>. For the taxes on top of the price, read the <a href="guide-purchase-costs-andalucia.html">new-build purchase costs guide</a>.',
+    introParagraphs: [
+      'A new-build villa here is a house on its own plot, sold from the plans or while it is being built, usually with a private pool and a garden. This page lists every villa development we currently publish, whatever the town, so that you can compare plot, built area, price and delivery side by side.',
+      'The range is wide. Semi-detached houses with a private garden start well below the large detached villas of Nueva Andalucía and Cortijo Blanco, and the starting price on each card is the quickest way to see where a development sits. Developments that mix villas with apartments or penthouses are listed with their full range of home types and left out of the figures above.'
+    ],
+    quickFacts: [
+      ['Buyer Profile', 'Suits buyers who have settled on a villa but not yet on a town, and want to see how plots, prices and delivery compare across the coast.'],
+      ['Typical Status', 'Most current releases are off-plan or under construction, sold with staged payments through to completion. The delivery line on each card gives the stated date or status.'],
+      ['What Varies Most', 'Plot size, the outlook (sea, golf or hills) and the position within the community. Compare the plot and built-area figures on each project page.'],
+      ['Before You Reserve', 'Nueva Living confirms current availability, price list and payment terms directly with the developer.']
+    ],
+    subareasHeadlineHtml: 'Where the current villas <em>sit</em>',
+    subareas: [
+      ['Estepona, including the New Golden Mile', 'The widest choice by number of developments: detached villas around the golf communities of El Campanario and Atalaya, hillside villas in La Resina and Valle Romano, and semi-detached houses at the lower end of the price range.'],
+      ['Marbella, Nueva Andalucía and San Pedro', 'Large detached villas, many of them in gated communities, generally at the top of the price range on this page.'],
+      ['Benahavís, Mijas and the hills', 'Fewer developments, each distinct: duplex villas on an elevated plot in the Golden Triangle of Benahavís, and sea-view villas at Calahonda in Mijas.']
+    ],
+    developmentsHeadlineHtml: 'Current villa <em>developments</em>',
+    amenitiesHeadlineHtml: 'Amenities to expect',
+    amenitiesIntro: 'Specification varies by development, but current villa releases on the Costa del Sol typically include some combination of the following.',
+    comparisonHeadlineHtml: 'Estepona or <em>Marbella?</em>',
+    comparison: [
+      ['Villas in Estepona', 'More developments to choose from, a wider range of prices, and semi-detached houses as well as detached villas. Better for comparing several developments at different price points.'],
+      ['Villas in Marbella', 'Larger plots, gated communities and higher starting prices. Fewer developments, mostly detached villas, with more space and more privacy.']
+    ],
+    faq: [
+      ['Where on the Costa del Sol can I buy a new-build villa?', 'Current developments are in Estepona, in Marbella (Nueva Andalucía, Cortijo Blanco and Elviria), in Benahavís and in Mijas. The cards below show each one, and the pages for Estepona and Marbella narrow the list to a single place.'],
+      ['What does a new-build villa cost on the Costa del Sol?', 'It depends on the town, the plot and the specification, and the range is wide. Every card shows the starting price of its development, and the figures at the top of this page summarise the developments that sell villas only. Nueva Living reconfirms the current price list before a viewing.'],
+      ['Are these villas off-plan, or can I move in now?', 'It varies by development. Most current releases are off-plan or under construction, sold with staged payments through to completion; where a villa is finished, the card says so. The delivery line on each card shows the status the developer states, and Nueva Living reconfirms it before you reserve.'],
+      ['What taxes and costs come on top of the price?', 'On a new-build bought from the developer you pay 10% VAT (IVA) and 1.2% stamp duty (AJD) in Andalucía, 11.2% in total, before notary, land registry and legal fees. Some prices on this site are shown plus VAT, so check the basis of the figure you are comparing.']
     ]
   }
 ];

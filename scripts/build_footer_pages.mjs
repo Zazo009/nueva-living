@@ -651,8 +651,12 @@ function areaRelatedSection(area, locale = DEFAULT_LOCALE) {
   // label. The whole label is escaped at the end rather than the pattern
   // carrying &amp; itself, so the ampersand is escaped exactly once.
   const segmentItems = (area.relatedSegments || []).map(([kind, output, nameKey]) => {
-    const pattern = kind === 'homes' ? 'segment.homesIn' : kind === 'homesOn' ? 'segment.homesOn' : 'segment.apartmentsIn';
-    return `<li><a href="${esc(output)}">${esc(t(pattern, locale, { name: t(nameKey, locale) }))}</a></li>`;
+    const pattern = kind === 'homes' ? 'segment.homesIn'
+      : kind === 'homesOn' ? 'segment.homesOn'
+      : kind === 'villas' ? 'segment.villasIn'
+      : kind === 'villasCoast' ? 'segment.villasCoast'
+      : 'segment.apartmentsIn';
+    return `<li><a href="${esc(output)}">${esc(t(pattern, locale, { name: nameKey ? t(nameKey, locale) : '' }))}</a></li>`;
   }).join('\n      ');
 
   return `<section class="section quiet-band segment-related"><div class="section-inner">
