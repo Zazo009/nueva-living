@@ -820,7 +820,8 @@ let localeAttributesChecked = 0;
         // Two or more words of Latin script is the signal for a sentence
         // rather than a name; single words and project names pass.
         if (!/[A-Za-z]{2,}\s+[A-Za-z]{2,}/.test(value)) continue;
-        if (projectNames.has(value)) continue;
+        // The page escapes an ampersand in a name ("Residences &amp; Villas"); the names are raw.
+        if (projectNames.has(value) || projectNames.has(value.replace(/&amp;/g, '&'))) continue;
         localeAttributesChecked += 1;
         fail(relative, `${attribute}="${value}" is identical to the English page -- `
           + 'attribute text is never checked by the text-node passes above, so an '

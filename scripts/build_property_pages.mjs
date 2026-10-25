@@ -2777,6 +2777,26 @@ const IDENTICAL_BY_DESIGN = new Set([
   'pl|Salto del Agua, <em>San Pedro</em>',
   'sv|Salto del Agua, <em>San Pedro</em>',
   'no|Salto del Agua, <em>San Pedro</em>',
+  // The project's public name is a Latin-script proper noun, written the same in every language, and
+  // it is the whole of these two values (the heading and the page title's lead).
+  'es|La Quinta Summit <em>Residences &amp; Villas</em>',
+  'fr|La Quinta Summit <em>Residences &amp; Villas</em>',
+  'de|La Quinta Summit <em>Residences &amp; Villas</em>',
+  'nl|La Quinta Summit <em>Residences &amp; Villas</em>',
+  'pl|La Quinta Summit <em>Residences &amp; Villas</em>',
+  'sv|La Quinta Summit <em>Residences &amp; Villas</em>',
+  'no|La Quinta Summit <em>Residences &amp; Villas</em>',
+  'ru|La Quinta Summit <em>Residences &amp; Villas</em>',
+  'ar|La Quinta Summit <em>Residences &amp; Villas</em>',
+  'es|La Quinta Summit Residences & Villas - Benahavís',
+  'fr|La Quinta Summit Residences & Villas - Benahavís',
+  'de|La Quinta Summit Residences & Villas - Benahavís',
+  'nl|La Quinta Summit Residences & Villas - Benahavís',
+  'pl|La Quinta Summit Residences & Villas - Benahavís',
+  'sv|La Quinta Summit Residences & Villas - Benahavís',
+  'no|La Quinta Summit Residences & Villas - Benahavís',
+  'ru|La Quinta Summit Residences & Villas - Benahavís',
+  'ar|La Quinta Summit Residences & Villas - Benahavís',
 ]);
 
 // An overlay that is English with a few accents pasted on is still English.
