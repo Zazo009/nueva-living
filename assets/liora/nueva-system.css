@@ -2379,22 +2379,17 @@ so Latin numerals in the price still render in
     display: none;
   }
 
-  /* The paragraph keeps only its first clause; the hidden tail carries the
-     full sentence for desktop, and the standalone stop closes the short one.
-     Splitting on the dash rather than re-authoring means the two variants can
-     never drift apart in any of the ten locales. */
-  #hero .hero-sub-tail {
-    display: none;
-  }
-
-  #hero .hero-sub-stop {
-    display: inline;
-  }
-
+  /* The whole sentence now shows on a phone: it is the only line that says what
+     the site is, and the screen has room for it above the search. The tail still
+     carries the sentence's own full stop, so the standalone one stays hidden. */
   #hero .hero-sub {
     margin: 12px 0 0;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5;
+  }
+
+  #hero .hero-eyebrow {
+    font-size: 11px;
   }
 
   /* Both headline lines should hold one line each. The clamp steps the size
@@ -2403,6 +2398,22 @@ so Latin numerals in the price still render in
     font-size: clamp(18px, 6.1vw, 24px);
     line-height: 1.16;
     letter-spacing: 0.05em;
+  }
+}
+
+/* The line above the headline names what the site is, so it reads at a size
+   people can read rather than as a label (it was 9px). */
+@media (min-width: 769px) {
+  #hero .hero-eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    color: #f4ead9;
+    text-shadow: 0 1px 2px rgba(20, 13, 7, 0.55), 0 6px 22px rgba(20, 13, 7, 0.5);
+  }
+
+  #hero .hero-sub {
+    font-size: 16px;
+    line-height: 1.7;
   }
 }
 

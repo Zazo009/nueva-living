@@ -3349,6 +3349,8 @@ function updateHomepageViewingData(projects) {
   return true;
 }
 
+const HOME_CARD_LIMIT = 6;
+
 function updateHomepageProjectCards(projects) {
   if (!existsSync(homepagePage)) return false;
 
@@ -3362,7 +3364,9 @@ function updateHomepageProjectCards(projects) {
 
   const featured = projects
     .filter((project) => project.discovery?.featured && !project.archived)
-    .sort((a, b) => (a.discovery?.priority ?? a.card?.order ?? 999) - (b.discovery?.priority ?? b.card?.order ?? 999));
+    .sort((a, b) => (a.discovery?.priority ?? a.card?.order ?? 999) - (b.discovery?.priority ?? b.card?.order ?? 999))
+    // Six is what a visitor will compare on one page; the catalogue holds the rest.
+    .slice(0, HOME_CARD_LIMIT);
 
   const cards = featured.map(renderHomeCard).join('\n\n');
   const before = html.slice(0, start + generatedHomeCardsStart.length);
