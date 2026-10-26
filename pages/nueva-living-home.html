@@ -3747,6 +3747,50 @@
       display: none !important;
     }
 
+    /* Desktop: the menu already carries Contact Us, so a full-width bar under it
+       only took height. The two actions become a small pair in the corner that
+       appears once the hero has passed, the way the phone's bottom bar does. */
+    @media (min-width: 769px) {
+      .home-contact-actions {
+        position: fixed;
+        top: auto;
+        right: 24px;
+        bottom: 24px;
+        left: auto;
+        padding: 0;
+        background: none;
+        border-bottom: 0;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translate3d(0, 12px, 0);
+        transition: opacity 200ms ease, transform 240ms ease, visibility 0s linear 240ms;
+      }
+
+      .home-contact-actions.is-visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        transition-delay: 0s;
+      }
+
+      .home-contact-actions-inner {
+        width: auto;
+        margin: 0;
+        display: flex;
+        gap: 8px;
+      }
+
+      .home-contact-actions .home-contact-action {
+        min-height: 44px;
+        padding: 0 20px;
+        box-shadow: 0 6px 18px rgba(32, 23, 14, 0.25);
+      }
+    }
+
     .home-credibility {
       background: var(--sand-light);
       border-bottom: 1px solid rgba(168, 131, 74, 0.18);
@@ -3888,7 +3932,7 @@
           visibility 0s linear 260ms;
       }
 
-      .home-contact-actions.is-mobile-visible {
+      .home-contact-actions.is-visible {
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
@@ -7082,12 +7126,6 @@
     homeContactRailFrame = 0;
     if (!homeContactRail || !homeHero) return;
 
-    if (!homeContactRailQuery.matches) {
-      homeContactRail.classList.remove('is-mobile-visible');
-      homeContactRail.removeAttribute('aria-hidden');
-      return;
-    }
-
     const viewingOrMenuOpen =
       document.documentElement.classList.contains('private-viewing-boot') ||
       document.body.classList.contains('v-active') ||
@@ -7100,7 +7138,7 @@
     );
     const shouldShow = heroHasPassed && !contactHasArrived && !viewingOrMenuOpen;
 
-    homeContactRail.classList.toggle('is-mobile-visible', shouldShow);
+    homeContactRail.classList.toggle('is-visible', shouldShow);
     homeContactRail.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
   }
 
