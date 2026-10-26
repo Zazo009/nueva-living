@@ -954,11 +954,10 @@
   grid.before(stage);
   stage.append(mapView, grid);
 
-  // The three entry points (the button beside Search, the List/Map toggle and
-  // the phone pill) are static markup, translated like the rest of the page, so
+  // The two entry points (the List/Map toggle and the phone pill) are static markup, translated like the rest of the page, so
   // they reserve their space before this script runs. The runtime string wins
   // if one is supplied.
-  [['.ai-search-map-label', i18n.map], ['.discovery-view-label-list', i18n.list],
+  [['.discovery-view-label-list', i18n.list],
     ['.discovery-view-label-map', i18n.map], ['.discovery-map-pill-label', i18n.map]].forEach(([selector, text]) => {
     const node = root.querySelector(selector);
     if (node && text) node.textContent = text;
@@ -1109,6 +1108,18 @@
   const aiSearchSubmitLabel = root.querySelector('[data-ai-search-submit-label]');
   const aiSearchStatus = root.querySelector('[data-ai-search-status]');
   const aiSearchExamples = Array.from(root.querySelectorAll('[data-ai-search-example]'));
+  const aiToggle = root.querySelector('[data-ai-toggle]');
+  const aiPanel = root.querySelector('[data-ai-panel]');
+
+  // The assistant sits behind one line of text under the filters: the filters
+  // are what most visitors want first, and the field opens on request.
+  const setAiOpen = (open) => {
+    if (!aiToggle || !aiPanel) return;
+    aiPanel.hidden = !open;
+    aiToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) aiSearchInput?.focus({ preventScroll: true });
+  };
+  aiToggle?.addEventListener('click', () => setAiOpen(aiPanel.hidden));
 
   const setAiSearchBusy = (busy) => {
     if (aiSearchSubmit) {

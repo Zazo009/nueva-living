@@ -875,8 +875,58 @@ img {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--dp-rule);
+}
+
+.discovery-panel .ai-search-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--dp-gold);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: start;
+  cursor: pointer;
+}
+
+.ai-search-toggle-icon {
+  flex: none;
+}
+
+.ai-search-toggle [data-ai-toggle-label] {
+  text-decoration: underline;
+  text-decoration-color: rgba(137, 106, 63, 0.45);
+  text-underline-offset: 4px;
+}
+
+.discovery-panel .ai-search-toggle:hover [data-ai-toggle-label] {
+  text-decoration-color: currentColor;
+}
+
+.ai-search-toggle-caret {
+  transition: rotate 0.2s ease;
+}
+
+.ai-search-toggle[aria-expanded="true"] .ai-search-toggle-caret {
+  rotate: 180deg;
+}
+
+.ai-search-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid rgba(137, 106, 63, 0.3);
+  background: rgba(137, 106, 63, 0.07);
+}
+
+.ai-search-panel[hidden] {
+  display: none;
 }
 
 .ai-search .sr-only {
@@ -1866,7 +1916,18 @@ html.discovery-sheet-open {
   .ai-search {
     gap: 8px;
     padding: 0;
-    border-bottom: 0;
+  }
+
+  .discovery-panel .ai-search-toggle {
+    align-self: stretch;
+    padding-inline: 16px;
+    font-size: 13px;
+  }
+
+  .ai-search-panel {
+    gap: 8px;
+    padding: 12px 0;
+    border-inline: 0;
   }
 
   .ai-search [data-ai-search-form] {
@@ -5052,31 +5113,6 @@ li,
 /* ---------- Map entry points (the map itself is liora-discovery-map.css,
    fetched on the first request for it) ---------- */
 
-.discovery-panel .ai-search .ai-search-map {
-  display: flex;
-  flex: 1 1 170px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  height: 56px;
-  padding: 0 24px;
-  border: 1px solid var(--dp-gold);
-  border-radius: 0;
-  background: transparent;
-  color: var(--dp-gold);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.discovery-panel .ai-search .ai-search-map:hover {
-  background: var(--dp-gold);
-  color: #fff;
-}
-
 .discovery-view {
   display: flex;
   height: 44px;
@@ -5113,7 +5149,6 @@ li,
 }
 
 .discovery-view-btn:focus-visible,
-.ai-search-map:focus-visible,
 .discovery-map-pill:focus-visible {
   outline: 2px solid var(--dp-gold);
   outline-offset: 2px;
@@ -5124,7 +5159,6 @@ li,
 }
 
 @media (max-width: 640px) {
-  .discovery-panel .ai-search .ai-search-map,
   .discovery-view {
     display: none;
   }

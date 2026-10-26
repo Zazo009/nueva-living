@@ -823,34 +823,6 @@
           <button type="button" class="developments-view-tab" data-view-tab="archived" role="tab" aria-selected="false">Wcześniej sprzedane projekty</button>
         </div>
         <div class="discovery-panel" id="developmentDiscoveryPanel" aria-label="Filtry wyszukiwania inwestycji" data-current-view>
-          <div class="ai-search" data-ai-search>
-            <form data-ai-search-form>
-              <label class="sr-only" for="aiSearchInput">Prosimy opisać dom, którego Państwo szukają</label>
-              <div class="ai-search-field">
-                <svg class="ai-search-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
-                <input type="text" id="aiSearchInput" data-ai-search-input placeholder="Nasz asystent AI pomoże znaleźć to, czego Państwo szukają" autocomplete="off">
-              </div>
-              <button type="submit" data-ai-search-submit>
-                <svg class="ai-search-submit-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
-                <span data-ai-search-submit-label>Szukaj</span>
-              </button>
-              <button type="button" class="ai-search-map" data-map-open>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.2 6-10a6 6 0 10-12 0c0 4.8 6 10 6 10z"/><circle cx="12" cy="11" r="2.2"/></svg>
-                <span class="ai-search-map-label">Mapa</span>
-              </button>
-            </form>
-            <div class="ai-search-chips" data-ai-search-chips>
-              <button type="button" class="ai-search-chip" data-ai-search-example>Willa rodzinna z prywatnym basenem</button>
-              <button type="button" class="ai-search-chip" data-ai-search-example>Penthouse przy polu golfowym, 2 sypialnie</button>
-              <button type="button" class="ai-search-chip" data-ai-search-example>Apartament z 2 sypialniami poniżej 500 000 €</button>
-              <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>&#127958;&#65039; Plaża</button>
-              <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>&#9971;&#65039; Golf</button>
-              <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>&#127961;&#65039; Rodzina</button>
-              <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>&#128176; Inwestycja</button>
-            </div>
-            <p class="ai-search-status" data-ai-search-status role="status" hidden></p>
-          </div>
-
           <div class="discovery-quick">
             <div class="discovery-rail">
               <button class="discovery-filters-btn" type="button" data-sheet-open>
@@ -1043,6 +1015,37 @@
                   <button class="discovery-show" type="button" data-show-results></button>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div class="ai-search" data-ai-search>
+            <button type="button" class="ai-search-toggle" data-ai-toggle aria-expanded="false" aria-controls="aiSearchPanel">
+              <svg class="ai-search-toggle-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+              <span data-ai-toggle-label>Nie mają Państwo jeszcze pewności? Prosimy opisać wymarzony dom, a nasz asystent AI pomoże w poszukiwaniach</span>
+              <svg class="discovery-caret ai-search-toggle-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
+            <div class="ai-search-panel" id="aiSearchPanel" data-ai-panel hidden>
+              <form data-ai-search-form>
+                <label class="sr-only" for="aiSearchInput">Prosimy opisać dom, którego Państwo szukają</label>
+                <div class="ai-search-field">
+                  <svg class="ai-search-icon" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>
+                  <input type="text" id="aiSearchInput" data-ai-search-input placeholder="Nasz asystent AI pomoże znaleźć to, czego Państwo szukają" autocomplete="off">
+                </div>
+                <button type="submit" data-ai-search-submit>
+                  <svg class="ai-search-submit-icon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+                  <span data-ai-search-submit-label>Szukaj</span>
+                </button>
+              </form>
+              <div class="ai-search-chips" data-ai-search-chips>
+                <button type="button" class="ai-search-chip" data-ai-search-example>Willa rodzinna z prywatnym basenem</button>
+                <button type="button" class="ai-search-chip" data-ai-search-example>Penthouse przy polu golfowym, 2 sypialnie</button>
+                <button type="button" class="ai-search-chip" data-ai-search-example>Apartament z 2 sypialniami poniżej 500 000 €</button>
+                <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>Plaża</button>
+                <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>Golf</button>
+                <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>Rodzina</button>
+                <button type="button" class="ai-search-chip" data-ai-search-category data-ai-search-example>Inwestycja</button>
+              </div>
+              <p class="ai-search-status" data-ai-search-status role="status" hidden></p>
             </div>
           </div>
 
