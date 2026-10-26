@@ -68,16 +68,41 @@
   }
 
   if (projectNav && projectNavInner) {
-    const navLinks = [...projectNavInner.querySelectorAll('a[href^="#"]')];
+    // The links sit in two groups (the main ones in the bar, the rest under
+    // "More"), so the active section is looked up in the order the sections
+    // appear on the page, not the order the links were written in.
+    const navLinks = [...projectNav.querySelectorAll('a[href^="#"]')];
     const navEntries = navLinks
       .map((link) => {
         const id = decodeURIComponent(link.getAttribute('href').slice(1));
         const section = document.getElementById(id);
         return section ? { id, link, section } : null;
       })
-      .filter(Boolean);
+      .filter(Boolean)
+      .sort((a, b) => (a.section.compareDocumentPosition(b.section) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1));
+
+    const moreButton = projectNav.querySelector('[data-project-nav-more]');
+    const morePanel = projectNav.querySelector('[data-project-nav-panel]');
+
+    function setMoreOpen(open, returnFocus) {
+      if (!moreButton || !morePanel) return;
+      morePanel.hidden = !open;
+      moreButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (!open && returnFocus) moreButton.focus();
+    }
+
+    if (moreButton && morePanel) {
+      moreButton.addEventListener('click', () => setMoreOpen(morePanel.hidden));
+      document.addEventListener('pointerdown', (event) => {
+        if (!morePanel.hidden && !projectNav.contains(event.target)) setMoreOpen(false);
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !morePanel.hidden) setMoreOpen(false, true);
+      });
+    }
 
     function keepActiveLinkInView(link) {
+      if (link.parentElement !== projectNavInner) return;
       const left = link.offsetLeft - ((projectNavInner.clientWidth - link.offsetWidth) / 2);
       projectNavInner.scrollTo({
         left: Math.max(0, left),
@@ -94,6 +119,8 @@
       });
 
       const activeEntry = navEntries.find((entry) => entry.id === id);
+      // "More" carries the marker while the reader is in one of its sections.
+      moreButton?.classList.toggle('is-active', Boolean(activeEntry && morePanel?.contains(activeEntry.link)));
       if (activeEntry && shouldReveal) keepActiveLinkInView(activeEntry.link);
     }
 
@@ -148,6 +175,7 @@
         if (!navEntries.some((entry) => entry.id === id)) return;
 
         event.preventDefault();
+        setMoreOpen(false);
         scrollToSection(id, true);
       });
     });

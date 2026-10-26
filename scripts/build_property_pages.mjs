@@ -2094,6 +2094,42 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
       }
     })
     : '';
+  // The section menu leads with the four things a buyer comes for -- photos,
+  // where it is, what is available, what it costs and how it is paid -- and
+  // keeps everything else one click away under "More". Every link stays in
+  // page order; liora-property.js orders the active-section lookup by where
+  // each section sits in the document, not by which group its link is in.
+  const projectNavItems = [
+    { href: '#overview', label: t('navInPage.overview', locale) },
+    ...(project.media?.items?.length ? [{ href: '#media', label: t('navInPage.media', locale), primary: true }] : []),
+    { href: '#location', label: t('navInPage.location', locale), primary: true },
+    ...(constructionTimeline ? [{ href: '#construction-timeline', label: t('timeline.paymentTerms', locale), primary: true }] : []),
+    { href: '#residences', label: t('navInPage.residences', locale) },
+    ...(project.furniturePackages?.items?.length ? [{ href: '#furniture-packages', label: t('navInPage.furniture', locale) }] : []),
+    ...(project.qualitySpecs?.groups?.length ? [{ href: '#quality-specifications', label: t('navInPage.specifications', locale) }] : []),
+    { href: '#availability', label: t('navInPage.availability', locale), primary: true },
+    ...(calculatorSeedKnown ? [{ href: '#calculator', label: t('navInPage.affordability', locale) }] : []),
+    ...(project.crm?.amenities?.length ? [{ href: '#amenities', label: t('navInPage.amenities', locale) }] : []),
+    { href: '#why-this-project', label: t('navInPage.why', locale) },
+    { href: '#architecture', label: t('navInPage.architecture', locale) },
+    { href: '#private-viewing', label: t('cta.cinematicPresentation', locale) },
+    { href: '#lifestyle', label: t('navInPage.lifestyle', locale) },
+    { href: '#faq', label: t('navInPage.faq', locale) },
+    { href: '#enquire', label: t('navInPage.enquire', locale) }
+  ];
+  const navLink = (item) => `<a href="${item.href}">${item.label}</a>`;
+  const projectNavHtml = `    <nav class="project-nav" aria-label="${t('aria.projectSections', locale)}">
+      <div class="project-nav-inner">
+${projectNavItems.filter((item) => item.primary).map((item) => `        ${navLink(item)}`).join('\n')}
+        <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">${t('navInPage.more', locale)}</button>
+      </div>
+      <div class="project-nav-panel" id="projectNavMore" data-project-nav-panel hidden>
+        <div class="project-nav-panel-inner">
+${projectNavItems.filter((item) => !item.primary).map((item) => `          ${navLink(item)}`).join('\n')}
+        </div>
+      </div>
+    </nav>
+`;
   const standardMain = `    <section class="project-hero" id="top">
       ${pictureTag(heroImage, 'project-hero-img', '', { priority: true, sizes: '100vw' })}
       <div class="project-hero-inner">
@@ -2116,20 +2152,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
       </div>
     </section>
 
-    <nav class="project-nav" aria-label="${t('aria.projectSections', locale)}">
-      <div class="project-nav-inner">
-        <a href="#overview">${t('navInPage.overview', locale)}</a>
-${project.media?.items?.length ? `        <a href="#media">${t('navInPage.media', locale)}</a>\n` : ''}        <a href="#location">${t('navInPage.location', locale)}</a>
-${constructionTimeline ? `        <a href="#construction-timeline">${t('timeline.paymentTerms', locale)}</a>\n` : ''}        <a href="#residences">${t('navInPage.residences', locale)}</a>
-${project.furniturePackages?.items?.length ? `        <a href="#furniture-packages">${t('navInPage.furniture', locale)}</a>\n` : ''}${project.qualitySpecs?.groups?.length ? `        <a href="#quality-specifications">${t('navInPage.specifications', locale)}</a>\n` : ''}        <a href="#availability">${t('navInPage.availability', locale)}</a>
-${calculatorSeedKnown ? `        <a href="#calculator">${t('navInPage.affordability', locale)}</a>\n` : ''}${project.crm?.amenities?.length ? `        <a href="#amenities">${t('navInPage.amenities', locale)}</a>\n` : ''}        <a href="#why-this-project">${t('navInPage.why', locale)}</a>
-        <a href="#architecture">${t('navInPage.architecture', locale)}</a>
-        <a href="#private-viewing">${t('cta.cinematicPresentation', locale)}</a>
-        <a href="#lifestyle">${t('navInPage.lifestyle', locale)}</a>
-        <a href="#faq">${t('navInPage.faq', locale)}</a>
-        <a href="#enquire">${t('navInPage.enquire', locale)}</a>
-      </div>
-    </nav>
+${projectNavHtml}
 
     <section class="quick-facts-band" aria-label="${t('aria.projectQuickFacts', locale)}">
       <div class="project-inner quick-facts-shell reveal-soft">
