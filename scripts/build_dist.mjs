@@ -1717,6 +1717,7 @@ function localiseDiscoveryTags(html, locale) {
 // area page, on all nine locales. Nothing visible: they are aria-labels and
 // tooltips, which is exactly why nobody saw them.
 const GALLERY_CHROME = {
+  'More actions': { es: 'Más acciones', fr: 'Plus d\u2019actions', de: 'Weitere Aktionen', ru: 'Другие действия', ar: 'المزيد من الإجراءات', nl: 'Meer acties', pl: 'Więcej działań', sv: 'Fler åtgärder', no: 'Flere handlinger' },
   'View all photos': { es: 'Ver todas las fotos', fr: 'Voir toutes les photos', de: 'Alle Fotos ansehen', ru: 'Смотреть все фото', ar: 'عرض جميع الصور', nl: 'Alle foto\u2019s bekijken', pl: 'Zobacz wszystkie zdjęcia', sv: 'Visa alla bilder', no: 'Se alle bilder' },
   'Share this project': { es: 'Compartir este proyecto', fr: 'Partager ce projet', de: 'Dieses Projekt teilen', ru: 'Поделиться проектом', ar: 'مشاركة هذا المشروع', nl: 'Dit project delen', pl: 'Udostępnij tę inwestycję', sv: 'Dela projektet', no: 'Del prosjektet' },
   'Previous image': { es: 'Imagen anterior', fr: 'Image précédente', de: 'Vorheriges Bild', ru: 'Предыдущее фото', ar: 'الصورة السابقة', nl: 'Vorige afbeelding', pl: 'Poprzednie zdjęcie', sv: 'Föregående bild', no: 'Forrige bilde' },

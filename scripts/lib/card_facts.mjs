@@ -35,18 +35,38 @@ function toNumber(value) {
 }
 
 
-// Unit sizes are strings on the unit records ("141 m²"), and only 8 of the
-// 14 projects carry them. Pull the numbers out and keep the range.
-function sizeRange(project) {
-  const sizes = (project.availability?.units || [])
-    // The first number only: "656 sqm built / 795 sqm plot" is a built area and a plot,
-    // and stripping everything but digits used to join them into 656795.
-    .map((unit) => parseFloat((String(unit.size ?? '').match(/\d[\d.,]*/) || [''])[0].replace(',', '.')))
-    .filter((value) => Number.isFinite(value) && value > 0);
-  if (!sizes.length) return '';
-  const min = Math.round(Math.min(...sizes));
-  const max = Math.round(Math.max(...sizes));
-  return min === max ? `${min} m²` : `${min}–${max} m²`;
+// Unit sizes are strings on the unit records ("141 m²", "656 sqm built / 795 sqm plot"), and only
+// some projects carry them. The card names which size it means, so the figure is read from the
+// units that state that basis only: interior first, then built, then total. A unit that states none
+// of them is counted only when no unit does ("size").
+const SIZE_BASES = [
+  ['interior', /\b(?:interior|usable|useful|living)\b/i],
+  ['built', /\bbuilt\b/i],
+  ['total', /\btotal\b/i]
+];
+
+// "1,260.53" is one thousand two hundred and sixty, not 1.26: a comma followed by exactly three
+// digits is a thousands separator. Anything else with a comma is a decimal comma ("98,5").
+function parseSize(text) {
+  const raw = (String(text ?? '').match(/\d[\d.,]*/) || [''])[0].replace(/[.,]+$/, '');
+  if (!raw) return NaN;
+  const cleaned = /^\d{1,3}(,\d{3})+(\.\d+)?$/.test(raw)
+    ? raw.replace(/,/g, '')
+    : /^\d+,\d{1,2}$/.test(raw) ? raw.replace(',', '.') : raw.replace(/,/g, '');
+  return parseFloat(cleaned);
+}
+
+function sizeFact(project) {
+  const units = (project.availability?.units || []).filter((unit) => unit && unit.size);
+  if (!units.length) return null;
+  const read = (unit) => ({ value: parseSize(String(unit.size).split(/[/;]| and /)[0]), text: String(unit.size).split(/[/;]| and /)[0] });
+  for (const [basis, pattern] of SIZE_BASES) {
+    const values = units.map(read).filter((item) => pattern.test(item.text) && Number.isFinite(item.value) && item.value > 0).map((item) => item.value);
+    if (values.length) return { basis, min: Math.round(Math.min(...values)), max: Math.round(Math.max(...values)) };
+  }
+  const values = units.map(read).map((item) => item.value).filter((value) => Number.isFinite(value) && value > 0);
+  if (!values.length) return null;
+  return { basis: 'size', min: Math.round(Math.min(...values)), max: Math.round(Math.max(...values)) };
 }
 
 /**
@@ -72,31 +92,24 @@ export function cardFacts(project, { t }) {
 
   const min = toNumber(crm.bedroomsMin);
   const max = toNumber(crm.bedroomsMax);
-  if (min !== undefined || max !== undefined) {
-    const lo = min !== undefined ? min : max;
-    const hi = max !== undefined ? max : min;
-    columns.push({
-      label: t('card.homes'),
-      value: lo === hi ? t('card.bedSingle', { n: lo }) : t('card.bedRange', { min: lo, max: hi }),
-      sub: sizeRange(project)
-    });
-  }
+  const bedroomColumn = (min !== undefined || max !== undefined)
+    ? (() => {
+        const lo = min !== undefined ? min : max;
+        const hi = max !== undefined ? max : min;
+        return { label: t('card.bedrooms'), value: lo === hi ? String(lo) : `${lo}\u2013${hi}`, sub: '', numeric: true };
+      })()
+    : null;
+  if (bedroomColumn) columns.unshift(bedroomColumn);
 
-  // availableUnits is missing on one project but its units[] list is the
-  // available list, so its length is the same number.
-  const available = toNumber(crm.availableUnits) ?? (project.availability?.units || []).length;
-  const total = toNumber(crm.totalUnits);
-  // See project_card.mjs: "25 of 25" reads as "none of them has sold", which
-  // is more than the release list we read can support. The ratio is printed
-  // only when the total is genuinely larger than what is left.
-  if (available > 0) {
-    columns.push({
-      label: t('card.available'),
-      value: (total !== undefined && total > available)
-        ? t('card.unitsOf', { available, total })
-        : String(available),
-      sub: project.availability?.phase || '',
-      tone: 'gold'
+  const size = sizeFact(project);
+  if (size) {
+    const labelKey = { interior: 'card.sizeInterior', built: 'card.sizeBuilt', total: 'card.sizeTotal', size: 'card.size' }[size.basis];
+    columns.splice(bedroomColumn ? 1 : 0, 0, {
+      label: t(labelKey),
+      value: size.min === size.max ? `${size.min}` : `${size.min}\u2013${size.max}`,
+      unit: 'm\u00b2',
+      sub: '',
+      numeric: true
     });
   }
 

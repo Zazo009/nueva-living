@@ -76,10 +76,23 @@ export const CARD_CHROME_ENTRIES = [
   // Fixed card chrome
   entryFromKey('dev-price-label">', 'card.from'),
   entryFromKey('dev-fact-label">', 'card.delivery'),
-  entryFromKey('dev-fact-label">', 'card.homes'),
-  entryFromKey('dev-fact-label">', 'card.available'),
-  entryFromKey('dev-cta-label">', 'cta.exploreProject')
+  entryFromKey('dev-fact-label">', 'card.bedrooms'),
+  entryFromKey('dev-fact-label">', 'card.size'),
+  entryFromKey('dev-fact-label">', 'card.sizeInterior'),
+  entryFromKey('dev-fact-label">', 'card.sizeBuilt'),
+  entryFromKey('dev-fact-label">', 'card.sizeTotal'),
+  entryFromKey('project-card-menu-label">', 'card.shareAria'),
+  entryFromKey('project-card-menu-label">', 'card.fullscreenAria'),
+  entryFromKey('dev-cta-label">', 'cta.exploreProject'),
+  // The area unit follows the locale: m² in Latin script, м² in Russian, م² in Arabic.
+  { find: '<span class="dev-unit">m²</span>', es: '<span class="dev-unit">m²</span>', fr: '<span class="dev-unit">m²</span>', de: '<span class="dev-unit">m²</span>', ru: '<span class="dev-unit">м²</span>', ar: '<span class="dev-unit">م²</span>', nl: '<span class="dev-unit">m²</span>', pl: '<span class="dev-unit">m²</span>', sv: '<span class="dev-unit">m²</span>', no: '<span class="dev-unit">m²</span>' }
 ];
+
+// The release phase ("Current Release") now rides on the location line, in its own span, with the
+// same wording the fact row used: one entry per wording, copied from the old wrapper.
+CARD_CHROME_ENTRIES.push(...CARD_CHROME_ENTRIES
+  .filter((entry) => entry.find.startsWith('dev-fact-sub">'))
+  .map((entry) => Object.fromEntries(Object.entries(entry).map(([key, value]) => [key, String(value).replace('dev-fact-sub">', 'dev-badge-phase">')]))));
 
 // --- derived entries -------------------------------------------------------
 
@@ -118,18 +131,6 @@ for (const project of projects()) {
   // prints a bare number, which needs no translating.
   if (available > 0 && total !== undefined && total > available) {
     push(entryFromKey('dev-badge-units">', 'card.unitsLeft', { available, total }));
-    push(entryFromKey('dev-fact-value">', 'card.unitsOf', { available, total }));
-  }
-
-  // "2-4 bed" in the Homes column
-  const min = toNumber(crm.bedroomsMin);
-  const max = toNumber(crm.bedroomsMax);
-  if (min !== undefined || max !== undefined) {
-    const lo = min !== undefined ? min : max;
-    const hi = max !== undefined ? max : min;
-    push(lo === hi
-      ? entryFromKey('dev-fact-value">', 'card.bedSingle', { n: lo })
-      : entryFromKey('dev-fact-value">', 'card.bedRange', { min: lo, max: hi }));
   }
 
   // The release phase, same shape as delivery: prose, per project,
@@ -137,11 +138,11 @@ for (const project of projects()) {
   // this generates nothing until the values are filled in.
   const phase = project.availability?.phase;
   if (phase) {
-    const entry = { find: `dev-fact-sub">${escapeHtml(phase)}<` };
+    const entry = { find: `dev-badge-phase">${escapeHtml(phase)}<` };
     let translated = false;
     for (const locale of LOCALES) {
       const value = project.i18n?.[locale]?.availability?.phase;
-      entry[locale] = `dev-fact-sub">${escapeHtml(value || phase)}<`;
+      entry[locale] = `dev-badge-phase">${escapeHtml(value || phase)}<`;
       if (value && value !== phase) translated = true;
     }
     if (translated) push(entry);

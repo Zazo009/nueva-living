@@ -6,6 +6,7 @@
     linkCopied: { en: 'Link copied to clipboard.', es: 'Enlace copiado al portapapeles.', fr: 'Lien copié dans le presse-papiers.', de: 'Link in die Zwischenablage kopiert.', ru: 'Ссылка скопирована в буфер обмена.', ar: 'تم نسخ الرابط.' , nl: 'Link gekopieerd naar het klembord.', pl: 'Link skopiowany do schowka.', sv: 'Länken är kopierad.', no: 'Lenken er kopiert.'},
     linkCopyFailed: { en: 'Could not copy the link.', es: 'No se pudo copiar el enlace.', fr: 'Impossible de copier le lien.', de: 'Der Link konnte nicht kopiert werden.', ru: 'Не удалось скопировать ссылку.', ar: 'تعذّر نسخ الرابط.' , nl: 'Kon de link niet kopiëren.', pl: 'Nie udało się skopiować linku.', sv: 'Länken kunde inte kopieras.', no: 'Lenken kunne ikke kopieres.'},
     viewPhotos: { en: 'View all photos', es: 'Ver todas las fotos', fr: 'Voir toutes les photos', de: 'Alle Fotos ansehen', ru: 'Смотреть все фото', ar: 'عرض جميع الصور' , nl: 'Alle foto’s bekijken', pl: 'Zobacz wszystkie zdjęcia', sv: 'Visa alla bilder', no: 'Se alle bilder'},
+    more: { en: 'More actions', es: 'Más acciones', fr: 'Plus d’actions', de: 'Weitere Aktionen', ru: 'Другие действия', ar: 'المزيد من الإجراءات', nl: 'Meer acties', pl: 'Więcej działań', sv: 'Fler åtgärder', no: 'Flere handlinger' },
     close: { en: 'Close', es: 'Cerrar', fr: 'Fermer', de: 'Schließen', ru: 'Закрыть', ar: 'إغلاق' , nl: 'Sluiten', pl: 'Zamknij', sv: 'Stäng', no: 'Lukk'},
     previous: { en: 'Previous image', es: 'Imagen anterior', fr: 'Image précédente', de: 'Vorheriges Bild', ru: 'Предыдущее фото', ar: 'الصورة السابقة' , nl: 'Vorige afbeelding', pl: 'Poprzednie zdjęcie', sv: 'Föregående bild', no: 'Forrige bilde'},
     next: { en: 'Next image', es: 'Imagen siguiente', fr: 'Image suivante', de: 'Nächstes Bild', ru: 'Следующее фото', ar: 'الصورة التالية' , nl: 'Volgende afbeelding', pl: 'Następne zdjęcie', sv: 'Nästa bild', no: 'Neste bilde'},
@@ -205,6 +206,10 @@
   // viewport therefore gives its photos back (they are put behind the placeholder again, and the
   // files stay in the HTTP cache) and takes them back when it comes within a screen. The margin is
   // wide enough that the photo is already decoding when the card scrolls into view.
+  let openMenu = null;
+  document.addEventListener('pointerdown', (event) => {
+    if (openMenu && !event.target.closest('[data-card-actions]')) openMenu(false);
+  }, { passive: true });
   const sleepers = new WeakMap();
   const sleepObserver = 'IntersectionObserver' in window
     ? new IntersectionObserver((entries) => {
@@ -440,6 +445,8 @@
     if (shareButton) {
       shareButton.setAttribute('aria-label', t('share'));
       shareButton.title = t('share');
+      const shareLabel = shareButton.querySelector('.project-card-menu-label');
+      if (shareLabel) shareLabel.textContent = t('share');
       shareButton.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
@@ -451,6 +458,8 @@
     if (expandButton) {
       expandButton.setAttribute('aria-label', t('viewPhotos'));
       expandButton.title = t('viewPhotos');
+      const expandLabel = expandButton.querySelector('.project-card-menu-label');
+      if (expandLabel) expandLabel.textContent = t('viewPhotos');
       if (!images.length) expandButton.remove();
       else {
         expandButton.addEventListener('click', (event) => {
@@ -459,6 +468,37 @@
           viewer.open(images, currentIndex(true), name);
         });
       }
+    }
+
+    // The "more" menu. One is open at a time; it closes on a choice, on Escape, and on a press anywhere
+    // else, and hands focus back to its button so a keyboard user is not dropped at the top of the page.
+    const moreButton = gallery.querySelector('[data-card-more]');
+    const menu = gallery.querySelector('[data-card-menu]');
+    if (moreButton && menu) {
+      moreButton.setAttribute('aria-label', t('more'));
+      moreButton.title = t('more');
+      const close = (returnFocus) => {
+        if (menu.hidden) return;
+        menu.hidden = true;
+        moreButton.setAttribute('aria-expanded', 'false');
+        if (openMenu === close) openMenu = null;
+        if (returnFocus) moreButton.focus();
+      };
+      moreButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (!menu.hidden) { close(true); return; }
+        if (openMenu) openMenu(false);
+        menu.hidden = false;
+        moreButton.setAttribute('aria-expanded', 'true');
+        openMenu = close;
+        menu.querySelector('button')?.focus();
+      });
+      // Capture phase: the share and photos buttons stop their own clicks, so a bubbling listener would never hear them.
+      menu.addEventListener('click', () => close(false), true);
+      menu.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') { event.stopPropagation(); close(true); }
+      });
     }
 
     if (!url) return;

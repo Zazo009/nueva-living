@@ -122,7 +122,7 @@ export function renderUnifiedCard(card) {
     ? `<div class="dev-facts" data-fact-count="${facts.length}">${facts.map((fact) => `
             <div class="dev-fact${fact.tone === 'gold' ? ' dev-fact--gold' : ''}">
               <span class="dev-fact-label">${esc(fact.label)}</span>
-              <span class="dev-fact-value">${esc(fact.value)}</span>${fact.sub ? `
+              <span class="dev-fact-value${fact.numeric ? ' dev-fact-value--num' : ''}">${esc(fact.value)}${fact.unit ? ` <span class="dev-unit">${esc(fact.unit)}</span>` : ''}</span>${fact.sub ? `
               <span class="dev-fact-sub">${esc(fact.sub)}</span>` : ''}
             </div>`).join('')}
           </div>`
@@ -132,7 +132,12 @@ export function renderUnifiedCard(card) {
     ? `<div class="dev-price">${showsFromLabel ? `<span class="dev-price-label">${esc(t('card.from'))}</span>` : ''}<span class="dev-price-amount">${esc(displayPrice)}</span></div>`
     : '';
   const statusBadge = badge ? `<span class="dev-badge">${esc(badge)}</span>` : '';
-  const unitsBadge = hasUnits ? `<span class="dev-badge-units">${esc(t('card.unitsLeft', { available, total }))}</span>` : '';
+  // The count and the release phase ("12 of 80 left", then the phase) sit on the location line, in
+  // quiet type: they used to be a pill beside the price and a whole fact column, saying it twice.
+  const phase = project.availability?.phase || '';
+  const unitsBadge = hasUnits
+    ? `<span class="dev-v2-units"><span class="dev-badge-units">${esc(t('card.unitsLeft', { available, total }))}</span>${phase ? `<span class="dev-badge-phase">${esc(phase)}</span>` : ''}</span>`
+    : '';
   const waHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(name || '')}`;
 
   return `<article class="${classes}"${id ? ` id="${esc(id)}"` : ''}${style ? ` style="${style}"` : ''} data-card-url="${esc(href)}"${attrs}${price ? ` data-card-price="${esc(cleanPrice)}"` : ''}${type ? ` data-card-type="${esc(type)}"` : ''}>
@@ -143,9 +148,9 @@ export function renderUnifiedCard(card) {
           ${statusBadge ? `<div class="dev-v2-badges"><div class="dev-badges">${statusBadge}</div></div>` : ''}
         </div>
         <div class="dev-body">
-          ${location ? `<div class="dev-loc">${esc(location)}</div>` : ''}
+          ${location || unitsBadge ? `<div class="dev-v2-locline">${location ? `<div class="dev-loc">${esc(location)}</div>` : ''}${unitsBadge}</div>` : ''}
           <${heading} class="dev-name">${esc(name)}</${heading}>
-          ${priceMarkup || unitsBadge ? `<div class="dev-v2-priceline">${priceMarkup}${unitsBadge}</div>` : ''}
+          ${priceMarkup ? `<div class="dev-v2-priceline">${priceMarkup}</div>` : ''}
           <p class="dev-tagline">${esc(description)}</p>
           ${factsMarkup}
           <div class="dev-v2-cta">

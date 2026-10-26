@@ -2725,24 +2725,35 @@ input[type="range"] {
 }
 
 /* ==========================================================================
-   Listing card v2 — "nothing over the photo".
-   Append to the END of assets/liora/nueva-system.css (the homepage does not
-   load liora-pages.css, so it must live here). Scoped to .dev-card--v2:
-   cards without that class are untouched.
+   Listing card v3 -- a photo with two quiet controls and one clear action.
 
-   The gallery markup (track, arrows, dots, [data-card-actions], template) is
-   NOT changed — it is re-laid out with grid, so liora-card-gallery.js and
-   nueva-shortlist.js see exactly the DOM they expect.
+   Replaces the v2 layout, which stacked a progress bar, a badge bar and an
+   action bar around the photo (three rows, five controls, all at full
+   strength). Now: the status sits on the photo as a small chip, the heart and
+   one "more" button (share, every photo) sit in the top corner, the dots sit
+   along the bottom edge, and the arrows appear only on hover. The photo
+   comes first, then location, name, price, a two-line description, three
+   facts, one filled button and a quiet WhatsApp button.
 
-     row 1  [            photo (scroll track)          ]
-     row 2  [ ticks ─── ─── ─── ─── ....... | ‹ | › ]      46px bar
-     row 3  [ badges ............ | ♥ | share | expand ]   56px bar
+   The gallery markup, its data hooks and the script that drives it are
+   unchanged except for the wrapper around share and photos; the class name
+   stays dev-card--v2 so every page that carries the card picks this up.
+   Direction-sensitive properties are logical, so Arabic mirrors for free.
    ========================================================================== */
 
+.dev-card.dev-card--v2 {
+  border-radius: 16px;
+  overflow: hidden;           /* clips the photo's top corners */
+  border: 1px solid var(--card-rule);
+  background: var(--card-surface);
+  box-shadow: 0 1px 2px rgba(47, 36, 23, 0.06);
+}
+
+/* ---------- photo ---------- */
 .dev-card--v2 .dev-img-wrap {
   position: relative;
   aspect-ratio: auto;
-  overflow: visible;
+  overflow: hidden;
 }
 .dev-card--v2 .dev-scrim,
 .dev-card--v2 .dev-overlay { display: none; }
@@ -2751,205 +2762,332 @@ input[type="range"] {
   position: relative;
   inset: auto;
   z-index: auto;
+  display: block;
   height: auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  grid-template-rows: auto 46px 56px;
 }
-
-/* row 1 — the photo. The track keeps overflow-x:auto / display:flex from
-   nueva-system.css; only its box changes. */
+/* The track keeps its native overflow-x:auto and flex strip from above; only its box changes. */
 .dev-card--v2 .dev-img-wrap .project-card-gallery-track {
-  grid-row: 1;
-  grid-column: 1 / -1;
   aspect-ratio: 1.6;
   height: auto;
-  border-block: 1px solid var(--card-rule);
+  border: 0;
 }
 .dev-card--v2 .dev-img-wrap .project-card-gallery-track img { height: 100%; }
+/* A soft floor under the dots, so they read on a bright render. */
+.dev-card--v2 .project-card-gallery::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 54px;
+  background: linear-gradient(to top, rgba(30, 22, 12, 0.3), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
 
-/* row 3 — actions (heart is injected first by nueva-shortlist.js) */
-.dev-card--v2 .project-card-actions {
-  grid-row: 3;
-  grid-column: 1 / -1;
-  justify-self: end;
-  position: static;
-  inset: auto;
-  z-index: auto;
+/* status chip */
+.dev-card--v2 .dev-v2-badges {
+  position: absolute;
+  top: 14px;
+  inset-inline-start: 14px;
+  inset-inline-end: 112px;
+  z-index: 3;
   display: flex;
+  pointer-events: none;      /* a click falls through to the photo, which navigates */
+}
+.dev-card--v2 .dev-badges { flex-wrap: nowrap; gap: 6px; min-width: 0; max-width: 100%; }
+.dev-card--v2 .dev-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: rgba(247, 243, 236, 0.94);
+  color: var(--card-ink);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  white-space: normal;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+.dev-card--v2 .dev-badge::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--card-gold);
+}
+
+/* dots along the bottom edge. The buttons keep a 24px-tall hit area around a 6px dot. */
+.dev-card--v2 .project-card-gallery-dots {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 4px;
+  inset-block-start: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  max-width: none;
+  padding: 0;
   gap: 0;
+  transform: none;
+  pointer-events: none;
+  z-index: 2;
+}
+.dev-card--v2 .project-card-gallery-dot {
+  flex: none;
+  box-sizing: content-box;
+  width: 6px;
+  height: 6px;
+  padding: 9px 4px;
+  border: 0;
+  background: transparent;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.dev-card--v2 .project-card-gallery-dot::before {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(247, 243, 236, 0.62);
+  transition: width 0.2s ease, background 0.2s ease;
+}
+.dev-card--v2 .project-card-gallery-dot.is-active { width: 18px; background: transparent; }
+.dev-card--v2 .project-card-gallery-dot.is-active::before {
+  width: 18px;
+  border-radius: 3px;
+  background: var(--card-surface);
+}
+
+/* arrows: only when the pointer can hover over the photo, or focus is inside it */
+.dev-card--v2 .project-card-gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(247, 243, 236, 0.94);
+  color: var(--card-ink);
+  font-size: 22px;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+.dev-card--v2 .project-card-gallery-arrow--prev { inset-inline-start: 12px; }
+.dev-card--v2 .project-card-gallery-arrow--next { inset-inline-end: 12px; }
+.dev-card--v2 .project-card-gallery:hover .project-card-gallery-arrow,
+.dev-card--v2 .project-card-gallery:focus-within .project-card-gallery-arrow { opacity: 1; pointer-events: auto; }
+[dir="rtl"] .dev-card--v2 .project-card-gallery-arrow { transform: translateY(-50%) scaleX(-1); }
+@media (hover: none) {
+  .dev-card--v2 .project-card-gallery-arrow { display: none; }
+}
+
+/* top-corner controls: the heart is injected first by nueva-shortlist.js, then the "more" button */
+.dev-card--v2 .project-card-actions {
+  position: absolute;
+  top: 10px;
+  inset-inline-end: 10px;
+  inset-block-end: auto;
+  z-index: 4;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 6px;
+  align-items: flex-start;
 }
 .dev-card--v2 .project-card-action,
 .dev-card--v2 .project-card-actions .nueva-favorite-button {
   position: static;
-  width: 56px;
-  height: 56px;
-  background: transparent;
-  color: var(--card-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border: 0;
-  border-inline-start: 1px solid var(--card-rule);
-  border-radius: 0;
-  box-shadow: none;
+  border-radius: 50%;
+  background: rgba(247, 243, 236, 0.94);
+  color: var(--card-ink);
+  box-shadow: 0 1px 3px rgba(30, 22, 12, 0.18);
 }
+.dev-card--v2 .project-card-action svg,
+.dev-card--v2 .project-card-actions .nueva-favorite-button svg { width: 20px; height: 20px; }
 .dev-card--v2 .project-card-action:hover,
 .dev-card--v2 .project-card-action:focus-visible,
 .dev-card--v2 .project-card-actions .nueva-favorite-button:hover,
-.dev-card--v2 .project-card-actions .nueva-favorite-button:focus-visible {
-  background: var(--card-rule);
-  color: var(--card-ink);
-}
+.dev-card--v2 .project-card-actions .nueva-favorite-button:focus-visible { background: var(--card-surface); }
 .dev-card--v2 .project-card-actions .nueva-favorite-button.is-saved { color: var(--card-gold); }
+/* The "more" button needs the script that opens it. */
+.dev-card--v2 .project-card-action--more { display: none; }
+.dev-card--v2 .project-card-gallery.is-swipe .project-card-action--more { display: flex; }
+.dev-card--v2 .project-card-action--more[aria-expanded="true"] { background: var(--card-brown); color: var(--card-surface); }
 
-/* row 3 — badges. They sit outside the gallery in the markup and are laid
-   over the empty start of row 1; pointer-events:none lets a click fall
-   through to the gallery, which navigates exactly as the photo does. */
-.dev-card--v2 .dev-v2-badges {
+.dev-card--v2 .project-card-menu {
   position: absolute;
-  top: auto;
-  bottom: 0;
-  inset-inline-start: 0;
-  inset-inline-end: 176px;
-  height: 56px;
+  top: 52px;
+  inset-inline-end: 0;
+  min-width: 200px;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--card-surface);
+  box-shadow: 0 10px 28px rgba(30, 22, 12, 0.26);
+  display: flex;
+  flex-direction: column;
+}
+.dev-card--v2 .project-card-menu[hidden] { display: none; }
+.dev-card--v2 .project-card-menu-item {
   display: flex;
   align-items: center;
-  padding-inline: 18px;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-.dev-card--v2 .dev-badges { flex-wrap: nowrap; gap: 8px; }
-.dev-card--v2 .dev-badge-units {
-  background: transparent;
-  border: 1px solid var(--card-rule);
-  padding: 5px 10px;
-}
-
-/* row 2 — ticks + arrows */
-.dev-card--v2 .project-card-gallery-dots {
-  grid-row: 2;
-  grid-column: 1;
-  align-self: center;
-  position: static;
-  inset: auto;
-  max-width: none;
-  width: auto;
-  transform: none;
-  display: flex;
-  gap: 4px;
-  padding-inline: 18px;
-}
-.dev-card--v2 .project-card-gallery-dot {
-  flex: 1 1 0;
-  width: auto;
-  height: 2px;
-  background: var(--card-rule);
-}
-.dev-card--v2 .project-card-gallery-dot.is-active {
-  width: auto;
-  background: var(--card-gold);
-}
-.dev-card--v2 .project-card-gallery-arrow {
-  grid-row: 2;
-  position: static;
-  transform: none;
-  opacity: 1;
-  pointer-events: auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 46px;
-  margin: 0;
+  gap: 12px;
+  min-height: 44px;
+  padding: 0 12px;
   border: 0;
-  border-inline-start: 1px solid var(--card-rule);
-  border-radius: 0;
+  border-radius: 8px;
   background: transparent;
   color: var(--card-ink);
-  font-size: 22px;
-  line-height: 1;
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: start;
+  cursor: pointer;
 }
-.dev-card--v2 .project-card-gallery-arrow--prev { grid-column: 2; }
-.dev-card--v2 .project-card-gallery-arrow--next { grid-column: 3; }
-.dev-card--v2 .project-card-gallery-arrow:hover,
-.dev-card--v2 .project-card-gallery-arrow:focus-visible { background: var(--card-rule); }
-@media (hover: none) {
-  .dev-card--v2 .project-card-gallery .project-card-gallery-arrow { display: inline-flex; opacity: 1; }
-}
-/* A single-image gallery has no dots/arrows: collapse the empty bar. */
-.dev-card--v2 .project-card-gallery:not(:has([data-gallery-dot])) { grid-template-rows: auto 0 56px; }
+.dev-card--v2 .project-card-menu-item:hover,
+.dev-card--v2 .project-card-menu-item:focus-visible { background: rgba(74, 59, 40, 0.09); }
+.dev-card--v2 .project-card-menu-item svg { width: 18px; height: 18px; flex: none; }
 
-/* ---------- body: location, name and price now live here ---------- */
-.dev-card--v2 .dev-name { line-height: 1.2; }
-.dev-card--v2 .dev-loc { margin-bottom: 8px; color: var(--card-gold); }
-/* Price row (2a): its own ruled row under the name, inside .dev-body
-   so the whole row stays part of the card's click area. */
-.dev-card--v2 .dev-v2-priceline {
+/* ---------- body ---------- */
+.dev-card.dev-card--v2 .dev-body { padding: 18px 22px 22px; gap: 0; }
+.dev-card--v2 .dev-v2-locline {
   display: flex;
-  align-items: baseline;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  padding: 16px 0;
-  margin: 4px 0 2px;
-  border-top: 1px solid var(--card-rule);
-  border-bottom: 1px solid var(--card-rule);
-}
-.dev-card--v2 .dev-price {
-  flex-direction: row;
   align-items: baseline;
-  gap: 14px;
+  gap: 12px;
+}
+.dev-card--v2 .dev-loc {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--card-gold);
+}
+.dev-card--v2 .dev-v2-units {
   min-width: 0;
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--card-label);
+  text-align: end;
 }
-.dev-card--v2 .dev-price-label { color: var(--card-label); white-space: nowrap; flex: none; }
-.dev-card--v2 .dev-price-amount {
-  font-size: 30px;
-  line-height: 1;
-  color: var(--card-brown);
-  white-space: nowrap;
-}
-.dev-card--v2 .dev-v2-priceline .dev-badge-units {
-  flex: none;
+.dev-card--v2 .dev-badge-units,
+.dev-card--v2 .dev-badge-phase {
+  display: inline;
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--card-gold);
-  font-size: 10px;
-  letter-spacing: 0.2em;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: normal;
+  color: inherit;
 }
+.dev-card--v2 .dev-badge-phase::before { content: " \00b7\00a0"; }
 
-.dev-card--v2 .dev-v2-cta {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 8px;
-  margin-top: auto;
+.dev-card.dev-card--v2 .dev-name {
+  margin: 6px 0 10px;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--card-ink);
 }
-.dev-card--v2 .dev-v2-cta .dev-cta-link { margin-top: 0; }
+.dev-card--v2 .dev-v2-priceline { display: flex; margin: 0; padding: 0; border: 0; }
+.dev-card--v2 .dev-price { flex-direction: row; align-items: baseline; gap: 8px; min-width: 0; }
+.dev-card--v2 .dev-price-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--card-label);
+  white-space: nowrap;
+  flex: none;
+}
+.dev-card--v2 .dev-price-amount {
+  font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--card-ink);
+  white-space: nowrap;
+}
+.dev-card.dev-card--v2 .dev-tagline {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.dev-card--v2 .dev-facts { margin: 16px 0 18px; }
+.dev-card--v2 .dev-fact { gap: 4px; padding: 12px 14px; }
+.dev-card--v2 .dev-fact-label { font-size: 10px; letter-spacing: 0.14em; }
+.dev-card--v2 .dev-fact-value { font-size: 14px; font-weight: 600; color: var(--card-ink); }
+/* Numbers and ranges keep their left-to-right order inside a right-to-left card ("98-125", not "125-98"). */
+.dev-card--v2 .dev-fact-value--num { align-self: flex-start; direction: ltr; unicode-bidi: isolate; }
+
+/* ---------- actions ---------- */
+.dev-card--v2 .dev-v2-cta { display: flex; gap: 10px; margin-top: auto; }
+.dev-card--v2 .dev-v2-cta .dev-cta-link {
+  flex: 1 1 auto;
+  min-height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  letter-spacing: 0.14em;
+}
 .dev-card--v2 .dev-v2-cta .dev-cta-label { white-space: nowrap; }
 /* Sits above the .dev-cta-link::before overlay that makes the body a link. */
 .dev-card--v2 .dev-v2-whatsapp {
   position: relative;
   z-index: 2;
+  flex: none;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 0 18px;
+  gap: 8px;
   min-height: 48px;
-  border: 1px solid var(--card-brown);
-  color: var(--card-brown);
+  padding: 0 14px;
+  border: 1px solid rgba(74, 59, 40, 0.3);
+  border-radius: 10px;
+  color: var(--card-ink);
   font-family: var(--ui-font, "Montserrat", Arial, sans-serif);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
 }
 .dev-card--v2 .dev-v2-whatsapp:hover,
-.dev-card--v2 .dev-v2-whatsapp:focus-visible { background: var(--card-rule); }
-.dev-card--v2 .dev-v2-whatsapp svg { width: 17px; height: 17px; flex: none; }
+.dev-card--v2 .dev-v2-whatsapp:focus-visible { background: rgba(74, 59, 40, 0.08); }
+.dev-card--v2 .dev-v2-whatsapp svg { width: 18px; height: 18px; flex: none; }
 
-/* The image box must grow with its three rows. Older / page-specific rules
-   give .dev-img-wrap a fixed aspect-ratio; if one wins, the controls bar
-   spills under the body and the title is drawn over it. */
+/* The image box must grow with its content. Older / page-specific rules give .dev-img-wrap a fixed
+   aspect-ratio; if one wins, the body is drawn over the photo. */
 .dev-card.dev-card--v2 .dev-img-wrap {
   aspect-ratio: auto !important;
   height: auto !important;
@@ -2961,75 +3099,33 @@ input[type="range"] {
   inset: auto !important;
   height: auto !important;
 }
-/* The card and its body are flex columns with a height set by the grid row.
-   Without this, flex-shrink squeezes the image box and the title below
-   their content and the next element is drawn over them. */
+/* The card and its body are flex columns with a height set by the grid row; without this the
+   content is squeezed and the next element is drawn over it. */
 .dev-card.dev-card--v2 .dev-img-wrap,
 .dev-card.dev-card--v2 .dev-body > * { flex-shrink: 0; }
-
-/* A status such as "Off-Plan, Private Availability" is longer than the room beside
-   the action buttons. It wraps onto a second line inside the pill rather than being
-   cut off, so the whole status stays readable at every card width. */
-.dev-card--v2 .dev-badge {
-  min-width: 0;
-  max-width: 100%;
-  white-space: normal;
-  line-height: 1.25;
-  text-align: center;
-  overflow-wrap: anywhere;
-}
-.dev-card--v2 .dev-v2-badges .dev-badges { min-width: 0; max-width: 100%; }
-
-@media (max-width: 640px) {
-  /* Compact phone card. Swipe replaces the arrows, so the bottom bar shrinks
-     to a thin progress strip. */
-  .dev-card--v2 .dev-img-wrap .project-card-gallery { grid-template-rows: auto 14px 44px; }
-  .dev-card--v2 .project-card-gallery .project-card-gallery-arrow,
-  .dev-card--v2 .project-card-gallery-arrow { display: none !important; }
-  .dev-card--v2 .project-card-gallery-dots { grid-column: 1 / -1; padding-inline: 0; gap: 3px; }
-  .dev-card--v2 .project-card-action,
-  .dev-card--v2 .project-card-actions .nueva-favorite-button { width: 44px; height: 44px; }
-  .dev-card--v2 .dev-v2-badges { height: 44px; inset-inline-end: 132px; padding-inline: 12px; }
-  .dev-card--v2 .dev-badge { font-size: 9px; letter-spacing: 0.16em; padding: 6px 9px; }
-  .dev-card--v2 .dev-img-wrap .project-card-gallery-track { aspect-ratio: 1.45; }
-
-  .dev-card.dev-card--v2 .dev-body { padding: 16px; gap: 10px; }
-  .dev-card.dev-card--v2 .dev-name { font-size: 21px; }
-  .dev-card--v2 .dev-loc { margin-bottom: 2px; }
-  .dev-card--v2 .dev-v2-priceline { padding: 10px 0; margin: 0; }
-  .dev-card.dev-card--v2 .dev-price-amount { font-size: 24px; }
-  /* "36 of 88 left" is repeated by the Available fact right below. */
-  .dev-card--v2 .dev-v2-priceline .dev-badge-units { display: none; }
-  .dev-card.dev-card--v2 .dev-tagline { -webkit-line-clamp: 2; line-clamp: 2; font-size: 14px; }
-  .dev-card--v2 .dev-fact { padding-block: 10px; }
-
-  /* Explore + WhatsApp on one row; WhatsApp becomes a 48px icon button. */
-  .dev-card--v2 .dev-v2-cta { grid-template-columns: minmax(0, 1fr) 48px; }
-  .dev-card--v2 .dev-v2-whatsapp { padding: 0; justify-content: center; }
-  .dev-card--v2 .dev-v2-whatsapp span {
-    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
-  }
-}
-
-/* ---------- rounded "slot" card ---------- */
-.dev-card.dev-card--v2 {
-  border-radius: 18px;
-  overflow: hidden;           /* clips the photo's top corners */
-  border: 1px solid var(--card-rule);
-  box-shadow: 0 1px 2px rgba(47, 36, 23, 0.06), 0 8px 24px rgba(47, 36, 23, 0.06);
-}
-.dev-card--v2 .dev-badge { border-radius: 14px; }
-.dev-card--v2 .dev-v2-cta .dev-cta-link,
-.dev-card--v2 .dev-v2-whatsapp { border-radius: 12px; }
-.dev-card--v2 .project-card-gallery-dot { border-radius: 2px; }
-/* Focus ring drawn inside, since overflow:hidden would clip an outer one. */
+/* Focus rings are drawn inside, since overflow:hidden would clip an outer one. */
 .dev-card--v2 .project-card-action:focus-visible,
 .dev-card--v2 .project-card-actions .nueva-favorite-button:focus-visible,
-.dev-card--v2 .project-card-gallery-arrow:focus-visible { outline-offset: -3px; }
+.dev-card--v2 .project-card-gallery-arrow:focus-visible,
+.dev-card--v2 .project-card-menu-item:focus-visible,
+.dev-card--v2 .project-card-gallery-dot:focus-visible { outline-offset: 2px; }
+
 @media (max-width: 640px) {
   .dev-card.dev-card--v2 { border-radius: 14px; }
-  .dev-card--v2 .dev-v2-cta .dev-cta-link,
-  .dev-card--v2 .dev-v2-whatsapp { border-radius: 10px; }
+  .dev-card--v2 .dev-img-wrap .project-card-gallery-track { aspect-ratio: 1.55; }
+  .dev-card--v2 .dev-v2-badges { top: 12px; inset-inline-start: 12px; }
+  .dev-card--v2 .dev-badge { font-size: 10px; letter-spacing: 0.1em; padding: 5px 10px; }
+  .dev-card.dev-card--v2 .dev-body { padding: 16px 18px 18px; }
+  .dev-card.dev-card--v2 .dev-name { font-size: 20px; margin: 5px 0 8px; }
+  .dev-card--v2 .dev-price-amount { font-size: 19px; }
+  .dev-card--v2 .dev-facts { margin: 14px 0 16px; }
+  .dev-card--v2 .dev-fact { padding: 10px 12px; }
+  .dev-card--v2 .dev-fact-value { font-size: 13px; }
+  .dev-card--v2 .dev-v2-cta { flex-wrap: wrap; }
+  .dev-card--v2 .dev-v2-cta .dev-cta-link { flex: 1 1 150px; min-width: 0; padding: 0 10px; font-size: 10px; letter-spacing: 0.06em; gap: 6px; }
+  .dev-card--v2 .dev-v2-whatsapp { flex: 1 1 112px; justify-content: center; padding: 0 8px; font-size: 10px; letter-spacing: 0.06em; gap: 5px; }
+  .dev-card--v2 .dev-v2-whatsapp svg { width: 16px; height: 16px; }
+  .dev-card--v2 .dev-cta-arrow { width: 15px; height: 15px; }
 }
 
 /* --------------------------------------------------------------------------
