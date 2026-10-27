@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -863,6 +863,14 @@
             <div class="availability-filters" role="group" aria-label="Verfügbare Wohnungen filtern"
               data-availability-filters
               data-count-template="{shown} von {total} werden angezeigt">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Haustyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Wohnung</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Preis</span>
@@ -882,379 +890,379 @@
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Verfügbare Wohnungen in Higueron Wellness Residences</caption>
-                <thead><tr><th scope="col">Referenz</th><th scope="col">Etage</th><th scope="col">Schlafzimmer</th><th scope="col">Größe</th><th scope="col">Preis</th><th scope="col">Status</th></tr></thead>
+                <thead><tr><th scope="col">Referenz</th><th scope="col">Etage / Block</th><th scope="col">Schlafzimmer</th><th scope="col">Größe</th><th scope="col">Preis</th><th scope="col">Status</th></tr></thead>
                 <tbody>
-              <tr data-price="785000">
+              <tr data-type="apartment" data-price="785000">
                 <td data-label="Referenz"><strong>3</strong></td>
-                <td data-label="Etage">Block 1, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">108,72 m² Innenfläche</td>
                 <td data-label="Preis"><strong>785.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Referenz"><strong>4</strong></td>
-                <td data-label="Etage">Block 1, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">86,08 m² Innenfläche</td>
                 <td data-label="Preis"><strong>549.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="825000">
+              <tr data-type="apartment" data-price="825000">
                 <td data-label="Referenz"><strong>5</strong></td>
-                <td data-label="Etage">Block 1, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">108,73 m² Innenfläche</td>
                 <td data-label="Preis"><strong>825.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="620000">
+              <tr data-type="apartment" data-price="620000">
                 <td data-label="Referenz"><strong>6</strong></td>
-                <td data-label="Etage">Block 1, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">86,14 m² Innenfläche</td>
                 <td data-label="Preis"><strong>620.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="639000">
+              <tr data-type="apartment" data-price="639000">
                 <td data-label="Referenz"><strong>9</strong></td>
-                <td data-label="Etage">Block 1, Terrassenebene</td>
+                <td data-label="Etage / Block">Block 1, Terrassenebene</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">82,08 m² Innenfläche</td>
                 <td data-label="Preis"><strong>639.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="740000">
+              <tr data-type="apartment" data-price="740000">
                 <td data-label="Referenz"><strong>10</strong></td>
-                <td data-label="Etage">Block 1, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,73 m² Innenfläche</td>
                 <td data-label="Preis"><strong>740.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Referenz"><strong>11</strong></td>
-                <td data-label="Etage">Block 1, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">86,06 m² Innenfläche</td>
                 <td data-label="Preis"><strong>549.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="780000">
+              <tr data-type="apartment" data-price="780000">
                 <td data-label="Referenz"><strong>12</strong></td>
-                <td data-label="Etage">Block 1, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">108,70 m² Innenfläche</td>
                 <td data-label="Preis"><strong>780.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="620000">
+              <tr data-type="apartment" data-price="620000">
                 <td data-label="Referenz"><strong>13</strong></td>
-                <td data-label="Etage">Block 1, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">86,07 m² Innenfläche</td>
                 <td data-label="Preis"><strong>620.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="810000">
+              <tr data-type="apartment" data-price="810000">
                 <td data-label="Referenz"><strong>15</strong></td>
-                <td data-label="Etage">Block 1, Gartenebene</td>
+                <td data-label="Etage / Block">Block 1, Gartenebene</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,62 m² Innenfläche</td>
                 <td data-label="Preis"><strong>810.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="529000">
+              <tr data-type="apartment" data-price="529000">
                 <td data-label="Referenz"><strong>16</strong></td>
-                <td data-label="Etage">Block 1, Gartenebene</td>
+                <td data-label="Etage / Block">Block 1, Gartenebene</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">82,17 m² Innenfläche</td>
                 <td data-label="Preis"><strong>529.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="740000">
+              <tr data-type="apartment" data-price="740000">
                 <td data-label="Referenz"><strong>17</strong></td>
-                <td data-label="Etage">Block 1, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,76 m² Innenfläche</td>
                 <td data-label="Preis"><strong>740.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="499000">
+              <tr data-type="apartment" data-price="499000">
                 <td data-label="Referenz"><strong>18</strong></td>
-                <td data-label="Etage">Block 1, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">86,08 m² Innenfläche</td>
                 <td data-label="Preis"><strong>499.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Referenz"><strong>20</strong></td>
-                <td data-label="Etage">Block 1, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">86,08 m² Innenfläche</td>
                 <td data-label="Preis"><strong>549.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="795000">
+              <tr data-type="penthouse" data-price="795000">
                 <td data-label="Referenz"><strong>21</strong></td>
-                <td data-label="Etage">Block 1, Penthouse</td>
+                <td data-label="Etage / Block">Block 1, Penthouse</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">97,34 m² Innenfläche</td>
                 <td data-label="Preis"><strong>795.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="529000">
+              <tr data-type="apartment" data-price="529000">
                 <td data-label="Referenz"><strong>23</strong></td>
-                <td data-label="Etage">Block 1, Gartenebene</td>
+                <td data-label="Etage / Block">Block 1, Gartenebene</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">82,16 m² Innenfläche</td>
                 <td data-label="Preis"><strong>529.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Referenz"><strong>24</strong></td>
-                <td data-label="Etage">Block 1, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,68 m² Innenfläche</td>
                 <td data-label="Preis"><strong>599.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="780000">
+              <tr data-type="apartment" data-price="780000">
                 <td data-label="Referenz"><strong>26</strong></td>
-                <td data-label="Etage">Block 1, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,67 m² Innenfläche</td>
                 <td data-label="Preis"><strong>780.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Referenz"><strong>27</strong></td>
-                <td data-label="Etage">Block 1, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">86,08 m² Innenfläche</td>
                 <td data-label="Preis"><strong>549.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="809000">
+              <tr data-type="apartment" data-price="809000">
                 <td data-label="Referenz"><strong>29</strong></td>
-                <td data-label="Etage">Block 1, Gartenebene</td>
+                <td data-label="Etage / Block">Block 1, Gartenebene</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,62 m² Innenfläche</td>
                 <td data-label="Preis"><strong>809.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Referenz"><strong>31</strong></td>
-                <td data-label="Etage">Block 1, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,67 m² Innenfläche</td>
                 <td data-label="Preis"><strong>599.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="630000">
+              <tr data-type="apartment" data-price="630000">
                 <td data-label="Referenz"><strong>32</strong></td>
-                <td data-label="Etage">Block 1, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 1, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">88,84 m² Innenfläche</td>
                 <td data-label="Preis"><strong>630.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="750000">
+              <tr data-type="apartment" data-price="750000">
                 <td data-label="Referenz"><strong>36</strong></td>
-                <td data-label="Etage">Block 2, Gartenebene</td>
+                <td data-label="Etage / Block">Block 2, Gartenebene</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,62 m² Innenfläche</td>
                 <td data-label="Preis"><strong>750.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Referenz"><strong>38</strong></td>
-                <td data-label="Etage">Block 2, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,67 m² Innenfläche</td>
                 <td data-label="Preis"><strong>599.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="499000">
+              <tr data-type="apartment" data-price="499000">
                 <td data-label="Referenz"><strong>39</strong></td>
-                <td data-label="Etage">Block 2, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">88,33 m² Innenfläche</td>
                 <td data-label="Preis"><strong>499.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="725000">
+              <tr data-type="apartment" data-price="725000">
                 <td data-label="Referenz"><strong>40</strong></td>
-                <td data-label="Etage">Block 2, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,68 m² Innenfläche</td>
                 <td data-label="Preis"><strong>725.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="515000">
+              <tr data-type="apartment" data-price="515000">
                 <td data-label="Referenz"><strong>41</strong></td>
-                <td data-label="Etage">Block 2, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">88,82 m² Innenfläche</td>
                 <td data-label="Preis"><strong>515.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="755000">
+              <tr data-type="penthouse" data-price="755000">
                 <td data-label="Referenz"><strong>42</strong></td>
-                <td data-label="Etage">Block 2, Penthouse</td>
+                <td data-label="Etage / Block">Block 2, Penthouse</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">98,30 m² Innenfläche</td>
                 <td data-label="Preis"><strong>755.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="750000">
+              <tr data-type="apartment" data-price="750000">
                 <td data-label="Referenz"><strong>43</strong></td>
-                <td data-label="Etage">Block 2, Gartenebene</td>
+                <td data-label="Etage / Block">Block 2, Gartenebene</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,62 m² Innenfläche</td>
                 <td data-label="Preis"><strong>750.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Referenz"><strong>45</strong></td>
-                <td data-label="Etage">Block 2, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,67 m² Innenfläche</td>
                 <td data-label="Preis"><strong>599.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="725000">
+              <tr data-type="apartment" data-price="725000">
                 <td data-label="Referenz"><strong>47</strong></td>
-                <td data-label="Etage">Block 2, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,62 m² Innenfläche</td>
                 <td data-label="Preis"><strong>725.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Referenz"><strong>48</strong></td>
-                <td data-label="Etage">Block 2, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">86,08 m² Innenfläche</td>
                 <td data-label="Preis"><strong>549.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="720000">
+              <tr data-type="penthouse" data-price="720000">
                 <td data-label="Referenz"><strong>49</strong></td>
-                <td data-label="Etage">Block 2, Penthouse</td>
+                <td data-label="Etage / Block">Block 2, Penthouse</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">97,34 m² Innenfläche</td>
                 <td data-label="Preis"><strong>720.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="745000">
+              <tr data-type="apartment" data-price="745000">
                 <td data-label="Referenz"><strong>50</strong></td>
-                <td data-label="Etage">Block 2, Terrassenebene</td>
+                <td data-label="Etage / Block">Block 2, Terrassenebene</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,62 m² Innenfläche</td>
                 <td data-label="Preis"><strong>745.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="449000">
+              <tr data-type="apartment" data-price="449000">
                 <td data-label="Referenz"><strong>51</strong></td>
-                <td data-label="Etage">Block 2, Terrassenebene</td>
+                <td data-label="Etage / Block">Block 2, Terrassenebene</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">82,17 m² Innenfläche</td>
                 <td data-label="Preis"><strong>449.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Referenz"><strong>52</strong></td>
-                <td data-label="Etage">Block 2, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">106,67 m² Innenfläche</td>
                 <td data-label="Preis"><strong>599.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="459000">
+              <tr data-type="apartment" data-price="459000">
                 <td data-label="Referenz"><strong>53</strong></td>
-                <td data-label="Etage">Block 2, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">86,08 m² Innenfläche</td>
                 <td data-label="Preis"><strong>459.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Referenz"><strong>55</strong></td>
-                <td data-label="Etage">Block 2, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">86,08 m² Innenfläche</td>
                 <td data-label="Preis"><strong>549.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="745000">
+              <tr data-type="penthouse" data-price="745000">
                 <td data-label="Referenz"><strong>56</strong></td>
-                <td data-label="Etage">Block 2, Penthouse</td>
+                <td data-label="Etage / Block">Block 2, Penthouse</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">99,32 m² Innenfläche</td>
                 <td data-label="Preis"><strong>745.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Referenz"><strong>59</strong></td>
-                <td data-label="Etage">Block 2, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">105,56 m² Innenfläche</td>
                 <td data-label="Preis"><strong>599.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="449000">
+              <tr data-type="apartment" data-price="449000">
                 <td data-label="Referenz"><strong>60</strong></td>
-                <td data-label="Etage">Block 2, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">90,03 m² Innenfläche</td>
                 <td data-label="Preis"><strong>449.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="479000">
+              <tr data-type="apartment" data-price="479000">
                 <td data-label="Referenz"><strong>62</strong></td>
-                <td data-label="Etage">Block 2, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">89,80 m² Innenfläche</td>
                 <td data-label="Preis"><strong>479.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="749000">
+              <tr data-type="apartment" data-price="749000">
                 <td data-label="Referenz"><strong>64</strong></td>
-                <td data-label="Etage">Block 2, Terrassenebene</td>
+                <td data-label="Etage / Block">Block 2, Terrassenebene</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">105,52 m² Innenfläche</td>
                 <td data-label="Preis"><strong>749.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="479000">
+              <tr data-type="apartment" data-price="479000">
                 <td data-label="Referenz"><strong>65</strong></td>
-                <td data-label="Etage">Block 2, Terrassenebene</td>
+                <td data-label="Etage / Block">Block 2, Terrassenebene</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe">85,81 m² Innenfläche</td>
                 <td data-label="Preis"><strong>479.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Referenz"><strong>66</strong></td>
-                <td data-label="Etage">Block 2, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">105,52 m² Innenfläche</td>
                 <td data-label="Preis"><strong>599.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="730000">
+              <tr data-type="apartment" data-price="730000">
                 <td data-label="Referenz"><strong>68</strong></td>
-                <td data-label="Etage">Block 2, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 2, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe">105,54 m² Innenfläche</td>
                 <td data-label="Preis"><strong>730.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="499000">
+              <tr data-type="penthouse" data-price="499000">
                 <td data-label="Referenz"><strong>7</strong></td>
-                <td data-label="Etage">Block 1, Penthouse</td>
+                <td data-label="Etage / Block">Block 1, Penthouse</td>
                 <td data-label="Schlafzimmer">1 Schlafzimmer</td>
                 <td data-label="Größe">61,15 m² Innenfläche</td>
                 <td data-label="Preis"><strong>499.000 €</strong></td>

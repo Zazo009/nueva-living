@@ -35,15 +35,17 @@ function toNumber(value) {
 }
 
 
-// Unit sizes are strings on the unit records ("141 m²", "656 sqm built / 795 sqm plot"), and only
-// some projects carry them. The card names which size it means, so the figure is read from the
-// units that state that basis only: interior first, then built, then total. A unit that states none
-// of them is counted only when no unit does ("size").
-const SIZE_BASES = [
-  ['interior', /\b(?:interior|usable|useful|living)\b/i],
-  ['built', /\bbuilt\b/i],
-  ['total', /\btotal\b/i]
-];
+// Unit sizes are strings on the unit records, and most of them list several measures at once:
+// "260.83 sqm built, 151.77 sqm interior, 16.62 sqm terrace". Each measure is read on its own and
+// put in a class, so the card can say which one it shows and never reads the built area as the
+// interior one:
+//   interior  "interior", "usable", "useful", "built interior", "built inside"
+//   built     "built", "total built"
+//   total     "total" on its own
+//   size      a bare figure with no word after it
+// Terraces, gardens, solariums, pools, basements and plots are not the home's size and are skipped.
+const SIZE_BASES = ['interior', 'built', 'total', 'size'];
+const NOT_LIVING = /plot|terrace|garden|solarium|porch|basement|pool|outside|rooftop/;
 
 // "1,260.53" is one thousand two hundred and sixty, not 1.26: a comma followed by exactly three
 // digits is a thousands separator. Anything else with a comma is a decimal comma ("98,5").
@@ -56,17 +58,56 @@ function parseSize(text) {
   return parseFloat(cleaned);
 }
 
-function sizeFact(project) {
-  const units = (project.availability?.units || []).filter((unit) => unit && unit.size);
-  if (!units.length) return null;
-  const read = (unit) => ({ value: parseSize(String(unit.size).split(/[/;]| and /)[0]), text: String(unit.size).split(/[/;]| and /)[0] });
-  for (const [basis, pattern] of SIZE_BASES) {
-    const values = units.map(read).filter((item) => pattern.test(item.text) && Number.isFinite(item.value) && item.value > 0).map((item) => item.value);
-    if (values.length) return { basis, min: Math.round(Math.min(...values)), max: Math.round(Math.max(...values)) };
+function classifyMeasure(part) {
+  const text = part.toLowerCase();
+  if (!/\d/.test(text) || NOT_LIVING.test(text)) return null;
+  if (/interior|usable|useful|inside|living/.test(text)) return 'interior';
+  if (/built/.test(text)) return 'built';
+  if (/\btotal\b/.test(text)) return 'total';
+  return /^[\s\d.,]*(?:sqm|m\u00b2|m2)?\s*$/.test(text) ? 'size' : null;
+}
+
+// One unit's string -> { interior: 151.77, built: 260.83, ... }
+function measuresOf(sizeText) {
+  const found = {};
+  for (const part of String(sizeText).split(/[;/]|,(?!\d{3}(?:\D|$))/)) {
+    const basis = classifyMeasure(part);
+    const value = parseSize(part);
+    if (basis && Number.isFinite(value) && value > 0 && !(basis in found)) found[basis] = value;
   }
-  const values = units.map(read).map((item) => item.value).filter((value) => Number.isFinite(value) && value > 0);
-  if (!values.length) return null;
-  return { basis: 'size', min: Math.round(Math.min(...values)), max: Math.round(Math.max(...values)) };
+  return found;
+}
+
+function sizeFact(project) {
+  const units = (project.availability?.units || []).filter((unit) => unit && unit.size).map((unit) => measuresOf(unit.size));
+  // The basis most units state wins, so the range is the one a buyer can compare across the
+  // homes; interior beats built beats total when they cover the same number.
+  let best = null;
+  for (const basis of SIZE_BASES) {
+    const values = units.map((measures) => measures[basis]).filter(Boolean);
+    if (values.length && (!best || values.length > best.values.length)) best = { basis, values };
+  }
+  // A bare figure takes the basis the project's documents state for it, when they state one.
+  if (best && best.basis === 'size' && ['interior', 'built', 'total'].includes(project.availability?.sizeBasis)) best.basis = project.availability.sizeBasis;
+  if (best) return { basis: best.basis, min: Math.round(Math.min(...best.values)), max: Math.round(Math.max(...best.values)), covered: best.values.length, units: units.length };
+
+  // No unit states a size (the project lists types, not homes): read it from the type cards.
+  const readType = (matcher) => {
+    const numbers = [];
+    for (const item of project.residences?.items || []) {
+      for (const pair of item.meta || []) {
+        if (Array.isArray(pair) && matcher.test(String(pair[0]))) {
+          String(pair[1]).replace(/\d[\d.,]*/g, (m) => { const n = parseSize(m); if (Number.isFinite(n) && n > 0) numbers.push(n); return m; });
+        }
+      }
+    }
+    return numbers;
+  };
+  for (const [basis, matcher] of [['interior', /^interior(?! built)|interior built|usable|useful/i], ['built', /^built|total built/i]]) {
+    const numbers = readType(matcher);
+    if (numbers.length) return { basis, min: Math.round(Math.min(...numbers)), max: Math.round(Math.max(...numbers)), covered: 0, units: 0 };
+  }
+  return null;
 }
 
 /**

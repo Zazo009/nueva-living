@@ -205,7 +205,18 @@ function localizedSizeLabel(label, locale) {
   return text.replace(/^\p{L}/u, (c) => c.toUpperCase());
 }
 
-function unitSizeFacts(value, locale = DEFAULT_LOCALE) {
+// A size with no word after it ("103 m\u00b2") is labelled with what the project's own documents
+// say it measures, when they do: availability.sizeBasis is "interior", "built" or "total".
+// Without it the label stays the bare "Size", which is what the developer's list says.
+const SIZE_BASIS_KEY = { interior: 'card.sizeInterior', built: 'card.sizeBuilt', total: 'card.sizeTotal' };
+function sizeLabelFor(project, locale) {
+  const basis = project?.availability?.sizeBasis;
+  const size = t('availability.size', locale);
+  if (!SIZE_BASIS_KEY[basis]) return size;
+  return `${size} (${t(SIZE_BASIS_KEY[basis], locale).toLowerCase()})`;
+}
+
+function unitSizeFacts(value, locale = DEFAULT_LOCALE, bareLabel = t('availability.size', locale)) {
   const raw = String(value || '').trim();
   if (!raw) return [];
 
@@ -231,12 +242,12 @@ function unitSizeFacts(value, locale = DEFAULT_LOCALE) {
   // Segments are joined by a comma AND a space. A comma inside a figure
   // ("1,090.20") has no space after it and must not split.
   const segments = raw.split(/,\s+/);
-  if (segments.length < 2) return [[t('availability.size', locale), localizedUnitSize(raw, locale)]];
+  if (segments.length < 2) return [[bareLabel, localizedUnitSize(raw, locale)]];
 
   const parts = [];
   for (const segment of segments) {
     const match = /^([\d.,]+)\s*(sqm|m²)\s+(.+)$/i.exec(segment.trim());
-    if (!match) return [[t('availability.size', locale), localizedUnitSize(raw, locale)]];
+    if (!match) return [[bareLabel, localizedUnitSize(raw, locale)]];
     const [, num, unit, label] = match;
     parts.push([
       localizedSizeLabel(label, locale),
@@ -843,14 +854,43 @@ function bandLabel(band, locale) {
 // Below this the chips cost more attention than the scrolling they save.
 const FILTER_MIN_UNITS = 8;
 
-function renderAvailabilityFilters(units, locale) {
+// Homes of different kinds sharing one list -- apartments and duplex penthouses, say -- can be
+// filtered by kind. A unit states its own `type`; without one the kind is read from the floor
+// text ("Penthouse", "Duplex penthouse"), and only when some unit does say penthouse or duplex
+// are the remaining floors called apartments. A list of one kind gets no filter.
+function unitTypeOf(unit) {
+  if (unit.type) return String(unit.type);
+  const floor = String(unit.floor || '');
+  if (/duplex penthouse|penthouse.*duplex|duplex.*penthouse/i.test(floor)) return 'Duplex penthouse';
+  if (/penthouse/i.test(floor)) return 'Penthouse';
+  if (/duplex|maisonette/i.test(floor)) return 'Duplex';
+  return '';
+}
+
+function unitTypesOf(units) {
+  const stated = units.map(unitTypeOf);
+  if (!stated.some(Boolean)) return units.map(() => '');
+  return units.map((unit, index) => {
+    if (stated[index]) return stated[index];
+    return unitFloorKind(unit.floor) === 'type' ? String(unit.floor) : 'Apartment';
+  });
+}
+
+function localizedUnitType(type, locale) {
+  return type === 'Apartment' ? t('availability.typeApartment', locale) : localizedUnitFloor(type, locale);
+}
+
+const unitTypeSlug = (type) => String(type).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+function renderAvailabilityFilters(units, locale, typeOf = () => '') {
   if (units.length < FILTER_MIN_UNITS) return '';
 
   const beds = [...new Set(units.map(unitBedCount).filter((n) => n !== null))].sort((a, b) => a - b);
+  const types = [...new Set(units.map(typeOf).filter(Boolean))];
   const prices = units.map(unitPriceValue).filter((n) => n !== null);
   const bands = prices.length === units.length ? priceBands(prices) : [];
   // One bedroom count and no usable bands means there is nothing to filter by.
-  if (beds.length < 2 && !bands.length) return '';
+  if (beds.length < 2 && !bands.length && types.length < 2) return '';
 
   // "€1.75M+" and "€1M – €1.75M" are made of number runs joined by neutral
   // characters. In an RTL paragraph those neutrals take the paragraph
@@ -869,6 +909,14 @@ function renderAvailabilityFilters(units, locale) {
                 </div>
               </div>`;
 
+  const typeGroup = types.length < 2 ? '' : `<div class="availability-filter-group">
+                <span class="availability-filter-label">${t('availability.homeType', locale)}</span>
+                <div class="availability-chip-row">
+                  ${chip('type', 'all', t('availability.filterAll', locale), true)}
+                  ${types.map((type) => chip('type', unitTypeSlug(type), esc(localizedUnitType(type, locale)))).join('\n                  ')}
+                </div>
+              </div>`;
+
   const bandGroup = !bands.length ? '' : `<div class="availability-filter-group">
                 <span class="availability-filter-label">${t('availability.price', locale)}</span>
                 <div class="availability-chip-row">
@@ -880,6 +928,7 @@ function renderAvailabilityFilters(units, locale) {
   return `<div class="availability-filters" role="group" aria-label="${t('aria.filterHomes', locale)}"
               data-availability-filters
               data-count-template="${esc(t('availability.filterShowing', locale, { shown: '{shown}', total: '{total}' }))}">
+              ${typeGroup}
               ${bedGroup}
               ${bandGroup}
               <div class="availability-filter-meta">
@@ -981,7 +1030,36 @@ function renderLayoutSpins(project, sourceProject, locale) {
     </section>`;
 }
 
-function renderUnitCard(unit, project, locale) {
+// The "Floor" column holds three different kinds of value across the listings: a floor
+// ("Ground floor, Block 2"), a block on its own ("Block 3") and a house type ("Villa",
+// "Townhouse"). Printing all of them under "Floor" read as a mistake -- a buyer looking at
+// "Floor: Block 5" is right to doubt the rest of the table. Each value now says what it is.
+function unitFloorKind(value) {
+  const text = String(value || '').trim();
+  if (/\b(floor|level|penthouse|ground|basement|duplex|solarium|storey|garden|terrace|lower)\b|\d(?:st|nd|rd|th)\b/i.test(text)) return 'floor';
+  if (/^(villa|townhouse|semi-detached|premium villa|deluxe villa|superior villa)\b/i.test(text)) return 'type';
+  if (/^(block|bloque|building|portal)\b/i.test(text)) return 'block';
+  if (/\bvilla\b/i.test(text) && !/block/i.test(text)) return 'type';
+  return 'floor';
+}
+
+const UNIT_FLOOR_LABEL_KEY = {
+  floor: 'availability.floor', block: 'availability.block', type: 'availability.homeType',
+  blockOrType: 'availability.blockOrType', floorOrBlock: 'availability.floorOrBlock', floorOrType: 'availability.floorOrType'
+};
+
+// One label for the whole column: the kind every unit shares, "Block / type" when it is
+// blocks and house types together, "Floor" otherwise.
+function unitFloorColumnKey(units) {
+  const kinds = new Set(units.filter((unit) => unit.floor).map((unit) => unitFloorKind(unit.floor)));
+  if (kinds.size === 1) return UNIT_FLOOR_LABEL_KEY[[...kinds][0]];
+  if (kinds.size === 2 && kinds.has('block') && kinds.has('type')) return UNIT_FLOOR_LABEL_KEY.blockOrType;
+  if (kinds.size === 2 && kinds.has('floor') && kinds.has('block')) return UNIT_FLOOR_LABEL_KEY.floorOrBlock;
+  if (kinds.size === 2 && kinds.has('floor') && kinds.has('type')) return UNIT_FLOOR_LABEL_KEY.floorOrType;
+  return UNIT_FLOOR_LABEL_KEY.floor;
+}
+
+function renderUnitCard(unit, project, locale, type = '') {
   const beds = unitBedCount(unit);
   const price = unitPriceValue(unit);
   const thumb = floorplanThumb(unit.floorplan);
@@ -1012,14 +1090,15 @@ function renderUnitCard(unit, project, locale) {
 
   const facts = [
     [t('availability.bedrooms', locale), localizedUnitBedrooms(unit.bedrooms, locale)],
-    ...unitSizeFacts(unit.size, locale),
-    unit.floor ? [t('availability.floor', locale), localizedUnitFloor(unit.floor, locale)] : null
+    ...unitSizeFacts(unit.size, locale, sizeLabelFor(project, locale)),
+    type && unitFloorKind(unit.floor) !== 'type' ? [t('availability.homeType', locale), localizedUnitType(type, locale)] : null,
+    unit.floor ? [t(UNIT_FLOOR_LABEL_KEY[unitFloorKind(unit.floor)], locale), localizedUnitFloor(unit.floor, locale)] : null
   ].filter(Boolean);
 
   const sold = isSoldUnit(unit);
   // A sold card carries no bed/price data, so the filter can never match it;
   // data-sold lets the script leave it out of the "Showing N of M" total.
-  return `<article class="unit-card${sold ? ' is-sold' : ''}" data-unit${sold ? ' data-sold' : ''}${sold || beds === null ? '' : ` data-beds="${beds}"`}${sold || price === null ? '' : ` data-price="${price}"`}>
+  return `<article class="unit-card${sold ? ' is-sold' : ''}" data-unit${sold ? ' data-sold' : ''}${sold || !type ? '' : ` data-type="${unitTypeSlug(type)}"`}${sold || beds === null ? '' : ` data-beds="${beds}"`}${sold || price === null ? '' : ` data-price="${price}"`}>
                 ${media}
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -1077,12 +1156,19 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
   const hasFloorplans = units.some((unit) => unit.floorplan);
   const hasSize = units.some((unit) => unit.size);
   const hasFloor = units.some((unit) => unit.floor);
+  const floorHeading = t(unitFloorColumnKey(units), locale);
+  const sizeHeading = sizeLabelFor(project, locale);
   // Filters, counts and price bands are built from what can still be bought.
   const openUnits = availableUnitsOf(units);
-  const filters = renderAvailabilityFilters(openUnits, locale);
+  const typeList = unitTypesOf(units);
+  const typeByUnit = new Map(units.map((unit, index) => [unit, typeList[index]]));
+  const typeOf = (unit) => typeByUnit.get(unit) || '';
+  const filters = renderAvailabilityFilters(openUnits, locale, typeOf);
+  // Show a unit's kind only where the list has more than one.
+  const showTypes = new Set(openUnits.map(typeOf).filter(Boolean)).size > 1;
   const cardGrid = usesUnitCards(units)
     ? `<div class="unit-card-grid" role="list" aria-label="${t('aria.availableUnits', locale)}">
-              ${units.map((unit) => renderUnitCard(unit, project, locale)).join('\n              ')}
+              ${units.map((unit) => renderUnitCard(unit, project, locale, showTypes ? typeOf(unit) : '')).join('\n              ')}
             </div>`
     : '';
 
@@ -1090,11 +1176,11 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
     const beds = unitBedCount(unit);
     const price = unitPriceValue(unit);
     const sold = isSoldUnit(unit);
-    return `<tr${sold ? ' class="is-sold" data-sold' : ''}${sold || beds === null ? '' : ` data-beds="${beds}"`}${sold || price === null ? '' : ` data-price="${price}"`}>
+    return `<tr${sold ? ' class="is-sold" data-sold' : ''}${sold || !showTypes || !typeOf(unit) ? '' : ` data-type="${unitTypeSlug(typeOf(unit))}"`}${sold || beds === null ? '' : ` data-beds="${beds}"`}${sold || price === null ? '' : ` data-price="${price}"`}>
                 <td data-label="${t('availability.reference', locale)}"><strong>${esc(localizedUnitFloor(unit.reference, locale))}</strong></td>${hasFloor ? `
-                <td data-label="${t('availability.floor', locale)}">${esc(localizedUnitFloor(unit.floor, locale))}</td>` : ''}
+                <td data-label="${floorHeading}">${esc(localizedUnitFloor(unit.floor, locale))}</td>` : ''}
                 <td data-label="${t('availability.bedrooms', locale)}">${esc(localizedUnitBedrooms(unit.bedrooms, locale))}</td>${hasSize ? `
-                <td data-label="${t('availability.size', locale)}">${renderSizeCell(unit.size, locale)}</td>` : ''}
+                <td data-label="${sizeHeading}">${renderSizeCell(unit.size, locale)}</td>` : ''}
                 <td data-label="${t('availability.price', locale)}"><strong>${esc(localizedUnitPrice(unit.price, locale))}</strong></td>
                 <td data-label="${t('availability.status', locale)}"><span class="availability-status${sold ? ' is-sold' : ''}">${t(sold ? 'availability.soldByUs' : 'availability.available', locale)}</span></td>${hasFloorplans ? `
                 <td data-label="${t('availability.floorplan', locale)}">${unit.floorplan ? `<a class="availability-floorplan-link" href="${esc(unit.floorplan)}" target="_blank" rel="noopener">${t('availability.viewPdf', locale)}</a>` : ''}</td>` : ''}
@@ -1117,7 +1203,7 @@ function renderAvailabilityRelease(project, locale = DEFAULT_LOCALE) {
             ${cardGrid || `<div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">${t('availability.tableCaption', locale, { project: esc(project.name) })}</caption>
-                <thead><tr><th scope="col">${t('availability.reference', locale)}</th>${hasFloor ? `<th scope="col">${t('availability.floor', locale)}</th>` : ''}<th scope="col">${t('availability.bedrooms', locale)}</th>${hasSize ? `<th scope="col">${t('availability.size', locale)}</th>` : ''}<th scope="col">${t('availability.price', locale)}</th><th scope="col">${t('availability.status', locale)}</th>${hasFloorplans ? `<th scope="col">${t('availability.floorplan', locale)}</th>` : ''}</tr></thead>
+                <thead><tr><th scope="col">${t('availability.reference', locale)}</th>${hasFloor ? `<th scope="col">${floorHeading}</th>` : ''}<th scope="col">${t('availability.bedrooms', locale)}</th>${hasSize ? `<th scope="col">${sizeHeading}</th>` : ''}<th scope="col">${t('availability.price', locale)}</th><th scope="col">${t('availability.status', locale)}</th>${hasFloorplans ? `<th scope="col">${t('availability.floorplan', locale)}</th>` : ''}</tr></thead>
                 <tbody>
               ${rows}
                 </tbody>

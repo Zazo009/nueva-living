@@ -43,7 +43,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -802,6 +802,15 @@
               data-availability-filters
               data-count-template="عرض {shown} من {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">نوع الوحدة</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">الكل</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">شقة</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex" aria-pressed="false">دوبلكس</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex-penthouse" aria-pressed="false">بنتهاوس دوبلكس</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">غرف النوم</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">الكل</button>
@@ -825,7 +834,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>لا توجد وحدات تطابق هذه الفلاتر.</p>
             <div class="unit-card-grid" role="list" aria-label="الوحدات المتاحة">
-              <article class="unit-card" data-unit data-beds="2" data-price="772000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="772000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-102.jpg" target="_blank" rel="noopener" aria-label="مخطط 102">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-102-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-102-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -840,14 +849,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>154 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>154 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 1، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">772,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20102">استفسر عن 102</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="772000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="772000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-103.jpg" target="_blank" rel="noopener" aria-label="مخطط 103">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-103-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-103-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -862,14 +872,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>154 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>154 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 1، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">772,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20103">استفسر عن 103</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1224000">
+              <article class="unit-card" data-unit data-type="duplex" data-beds="3" data-price="1224000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-108.jpg" target="_blank" rel="noopener" aria-label="مخطط 108">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-108-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-108-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -884,14 +895,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>302 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>302 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>دوبلكس</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 1، دوبلكس في الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">1,224,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20108">استفسر عن 108</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1263000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="1263000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-110.jpg" target="_blank" rel="noopener" aria-label="مخطط 110">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-110-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-110-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -906,14 +918,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>292 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>292 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس دوبلكس</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 1، بنتهاوس دوبلكس</dd></div>
                   </dl>
                   <p class="unit-card-price">1,263,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20110">استفسر عن 110</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="772000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="772000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-202.jpg" target="_blank" rel="noopener" aria-label="مخطط 202">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-202-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-202-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -928,14 +941,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>154 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>154 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 2، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">772,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20202">استفسر عن 202</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="772000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="772000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-203.jpg" target="_blank" rel="noopener" aria-label="مخطط 203">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-203-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-203-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -950,14 +964,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>154 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>154 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 2، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">772,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20203">استفسر عن 203</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="774000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="774000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-207.jpg" target="_blank" rel="noopener" aria-label="مخطط 207">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-207-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-207-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -972,14 +987,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>155 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>155 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 2، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">774,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20207">استفسر عن 207</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1263000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="1263000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-309.jpg" target="_blank" rel="noopener" aria-label="مخطط 309">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-309-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-309-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -994,14 +1010,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>292 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>292 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس دوبلكس</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 3، بنتهاوس دوبلكس</dd></div>
                   </dl>
                   <p class="unit-card-price">1,263,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20309">استفسر عن 309</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="740000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="740000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-502.jpg" target="_blank" rel="noopener" aria-label="مخطط 502">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-502-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-502-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1016,14 +1033,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>154 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>154 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 5، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">740,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20502">استفسر عن 502</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="740000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="740000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-503.jpg" target="_blank" rel="noopener" aria-label="مخطط 503">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-503-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-503-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1038,14 +1056,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>154 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>154 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 5، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">740,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20503">استفسر عن 503</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="720000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="720000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-507.jpg" target="_blank" rel="noopener" aria-label="مخطط 507">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-507-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-507-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1060,14 +1079,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>155 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>155 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 5، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">720,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20507">استفسر عن 507</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="868000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="868000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -1076,14 +1096,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>196 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>196 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 5، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">868,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20508">استفسر عن 508</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1212000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="1212000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-512.jpg" target="_blank" rel="noopener" aria-label="مخطط 512">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-512-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-512-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1098,14 +1119,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>306 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>306 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس دوبلكس</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 5، بنتهاوس دوبلكس</dd></div>
                   </dl>
                   <p class="unit-card-price">1,212,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20512">استفسر عن 512</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="740000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="740000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-602.jpg" target="_blank" rel="noopener" aria-label="مخطط 602">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-602-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-602-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1120,14 +1142,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>154 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>154 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 6، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">740,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20602">استفسر عن 602</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="740000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="740000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-603.jpg" target="_blank" rel="noopener" aria-label="مخطط 603">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-603-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-603-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1142,14 +1165,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>154 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>154 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 6، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">740,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20603">استفسر عن 603</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="885000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="885000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -1158,14 +1182,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>185 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>185 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 6، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">885,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20604">استفسر عن 604</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="720000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="720000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-606.jpg" target="_blank" rel="noopener" aria-label="مخطط 606">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-606-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-606-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1180,14 +1205,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>155 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>155 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 6، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">720,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20606">استفسر عن 606</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1212000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="1212000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-609.jpg" target="_blank" rel="noopener" aria-label="مخطط 609">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-609-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-609-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1202,14 +1228,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>306 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>306 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس دوبلكس</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 6، بنتهاوس دوبلكس</dd></div>
                   </dl>
                   <p class="unit-card-price">1,212,000 € + ضريبة القيمة المضافة</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20609">استفسر عن 609</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="1014000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="2" data-price="1014000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-611.jpg" target="_blank" rel="noopener" aria-label="مخطط 611">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-611-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-611-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1224,7 +1251,8 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
-                    <div><dt>المساحة</dt><dd>245 م²</dd></div>
+                    <div><dt>المساحة (المساحة المبنية)</dt><dd>245 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس دوبلكس</dd></div>
                     <div><dt>الطابق</dt><dd>المبنى 6، بنتهاوس دوبلكس</dd></div>
                   </dl>
                   <p class="unit-card-price">1,014,000 € + ضريبة القيمة المضافة</p>

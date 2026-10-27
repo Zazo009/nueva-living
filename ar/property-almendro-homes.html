@@ -43,7 +43,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -736,6 +736,14 @@
             <div class="availability-filters" role="group" aria-label="تصفية الوحدات المتاحة"
               data-availability-filters
               data-count-template="عرض {shown} من {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">نوع الوحدة</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">الكل</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">شقة</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">بنتهاوس</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">السعر</span>
@@ -752,7 +760,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>لا توجد وحدات تطابق هذه الفلاتر.</p>
             <div class="unit-card-grid" role="list" aria-label="الوحدات المتاحة">
-              <article class="unit-card" data-unit data-beds="2" data-price="332000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="332000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a.jpg" target="_blank" rel="noopener" aria-label="مخطط 2-2-BAJ-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -770,13 +778,14 @@
                     <div><dt>مبنية</dt><dd>111.86 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>76.92 م²</dd></div>
                     <div><dt>تراس</dt><dd>56.54 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 2، مدخل 2، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">332,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%202-2-BAJ-A">استفسر عن 2-2-BAJ-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="332000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="332000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b.jpg" target="_blank" rel="noopener" aria-label="مخطط 2-2-BAJ-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-2-2-baj-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -794,13 +803,14 @@
                     <div><dt>مبنية</dt><dd>111.85 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>76.92 م²</dd></div>
                     <div><dt>تراس</dt><dd>56.61 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 2، مدخل 2، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">332,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%202-2-BAJ-B">استفسر عن 2-2-BAJ-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="455000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="455000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a.jpg" target="_blank" rel="noopener" aria-label="مخطط 3-1-ATC-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-3-1-atc-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -818,13 +828,14 @@
                     <div><dt>مبنية</dt><dd>126.50 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>87.71 م²</dd></div>
                     <div><dt>تراس</dt><dd>29.32 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، مدخل 1، بنتهاوس</dd></div>
                   </dl>
                   <p class="unit-card-price">455,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%203-1-ATC-A">استفسر عن 3-1-ATC-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="344000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="344000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a.jpg" target="_blank" rel="noopener" aria-label="مخطط 3-2-BAJ-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-3-2-baj-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -842,13 +853,14 @@
                     <div><dt>مبنية</dt><dd>110.62 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>76.92 م²</dd></div>
                     <div><dt>تراس</dt><dd>56.54 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، مدخل 2، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">344,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%203-2-BAJ-A">استفسر عن 3-2-BAJ-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="445000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="445000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b.jpg" target="_blank" rel="noopener" aria-label="مخطط 3-3-ATC-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-3-3-atc-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -866,13 +878,14 @@
                     <div><dt>مبنية</dt><dd>126.50 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>87.71 م²</dd></div>
                     <div><dt>تراس</dt><dd>29.32 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، مدخل 3، بنتهاوس</dd></div>
                   </dl>
                   <p class="unit-card-price">445,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%203-3-ATC-B">استفسر عن 3-3-ATC-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="370000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="370000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a.jpg" target="_blank" rel="noopener" aria-label="مخطط 5-1-BAJ-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-5-1-baj-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -891,13 +904,14 @@
                     <div><dt>مساحة داخلية</dt><dd>79.73 م²</dd></div>
                     <div><dt>تراس</dt><dd>38.87 م²</dd></div>
                     <div><dt>حديقة</dt><dd>31.00 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 5، مدخل 1، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">370,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%205-1-BAJ-A">استفسر عن 5-1-BAJ-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="373000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="373000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a.jpg" target="_blank" rel="noopener" aria-label="مخطط 5-1-1-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-5-1-1-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -915,13 +929,14 @@
                     <div><dt>مبنية</dt><dd>115.31 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>79.73 م²</dd></div>
                     <div><dt>تراس</dt><dd>39.75 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 5، مدخل 1، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">373,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%205-1-1-A">استفسر عن 5-1-1-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="380000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="380000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c.jpg" target="_blank" rel="noopener" aria-label="مخطط 5-2-ATC-C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-5-2-atc-c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -939,13 +954,14 @@
                     <div><dt>مبنية</dt><dd>107.82 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>76.44 م²</dd></div>
                     <div><dt>تراس</dt><dd>15.83 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 5، مدخل 2، بنتهاوس</dd></div>
                   </dl>
                   <p class="unit-card-price">380,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%205-2-ATC-C">استفسر عن 5-2-ATC-C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="380000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="380000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a.jpg" target="_blank" rel="noopener" aria-label="مخطط 5-3-ATC-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-5-3-atc-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -963,13 +979,14 @@
                     <div><dt>مبنية</dt><dd>107.82 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>76.44 م²</dd></div>
                     <div><dt>تراس</dt><dd>15.83 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 5، مدخل 3، بنتهاوس</dd></div>
                   </dl>
                   <p class="unit-card-price">380,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%205-3-ATC-A">استفسر عن 5-3-ATC-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="408000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="408000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b.jpg" target="_blank" rel="noopener" aria-label="مخطط 7-3-2-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-7-3-2-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -987,13 +1004,14 @@
                     <div><dt>مبنية</dt><dd>114.12 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>79.62 م²</dd></div>
                     <div><dt>تراس</dt><dd>29.91 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 7، مدخل 3، الطابق الثاني</dd></div>
                   </dl>
                   <p class="unit-card-price">408,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%207-3-2-B">استفسر عن 7-3-2-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="408000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="408000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b.jpg" target="_blank" rel="noopener" aria-label="مخطط 8-3-2-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-8-3-2-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1011,13 +1029,14 @@
                     <div><dt>مبنية</dt><dd>114.16 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>79.62 م²</dd></div>
                     <div><dt>تراس</dt><dd>29.91 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 8، مدخل 3، الطابق الثاني</dd></div>
                   </dl>
                   <p class="unit-card-price">408,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Almendro%20Homes%20-%208-3-2-B">استفسر عن 8-3-2-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="360000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="360000">
                 <a class="unit-card-plan" href="assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a.jpg" target="_blank" rel="noopener" aria-label="مخطط 9-2-ATC-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a-640.webp 640w, assets/liora/projects/almendro-homes/floorplans/home-9-2-atc-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1035,6 +1054,7 @@
                     <div><dt>مبنية</dt><dd>107.99 م²</dd></div>
                     <div><dt>مساحة داخلية</dt><dd>76.44 م²</dd></div>
                     <div><dt>تراس</dt><dd>15.91 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 9، مدخل 2، بنتهاوس</dd></div>
                   </dl>
                   <p class="unit-card-price">360,000 €</p>

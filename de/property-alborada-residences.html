@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -789,6 +789,14 @@
             <div class="availability-filters" role="group" aria-label="Verfügbare Wohnungen filtern"
               data-availability-filters
               data-count-template="{shown} von {total} werden angezeigt">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Haustyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Wohnung</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Preis</span>
@@ -807,542 +815,542 @@
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Verfügbare Wohnungen in Alborada Residences</caption>
-                <thead><tr><th scope="col">Referenz</th><th scope="col">Etage</th><th scope="col">Schlafzimmer</th><th scope="col">Größe</th><th scope="col">Preis</th><th scope="col">Status</th><th scope="col">Grundriss</th></tr></thead>
+                <thead><tr><th scope="col">Referenz</th><th scope="col">Etage / Block</th><th scope="col">Schlafzimmer</th><th scope="col">Größe</th><th scope="col">Preis</th><th scope="col">Status</th><th scope="col">Grundriss</th></tr></thead>
                 <tbody>
-              <tr data-price="415000">
+              <tr data-type="apartment" data-price="415000">
                 <td data-label="Referenz"><strong>04-01-02-A</strong></td>
-                <td data-label="Etage">Block 4, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 4, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>13,90 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>415.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referenz"><strong>04-01-BJ-A</strong></td>
-                <td data-label="Etage">Block 4, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 4, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>28,78 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>420.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="538000">
+              <tr data-type="apartment" data-price="538000">
                 <td data-label="Referenz"><strong>04-01-BJ-B</strong></td>
-                <td data-label="Etage">Block 4, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 4, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>117,01 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>45,39 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>538.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-04-01-bj-b.jpg" target="_blank" rel="noopener">PDF ansehen</a></td>
               </tr>
-              <tr data-price="430000">
+              <tr data-type="apartment" data-price="430000">
                 <td data-label="Referenz"><strong>04-02-02-A</strong></td>
-                <td data-label="Etage">Block 4, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 4, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>13,91 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>430.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="432000">
+              <tr data-type="apartment" data-price="432000">
                 <td data-label="Referenz"><strong>04-02-03-A</strong></td>
-                <td data-label="Etage">Block 4, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 4, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>13,91 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>432.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="410000">
+              <tr data-type="apartment" data-price="410000">
                 <td data-label="Referenz"><strong>04-02-BJ-A</strong></td>
-                <td data-label="Etage">Block 4, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 4, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>28,80 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>410.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="425000">
+              <tr data-type="apartment" data-price="425000">
                 <td data-label="Referenz"><strong>04-03-02-B</strong></td>
-                <td data-label="Etage">Block 4, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 4, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>13,91 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>425.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="438000">
+              <tr data-type="apartment" data-price="438000">
                 <td data-label="Referenz"><strong>04-03-03-B</strong></td>
-                <td data-label="Etage">Block 4, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 4, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>13,91 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>438.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referenz"><strong>04-03-BJ-B</strong></td>
-                <td data-label="Etage">Block 4, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 4, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>28,79 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>420.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="523000">
+              <tr data-type="apartment" data-price="523000">
                 <td data-label="Referenz"><strong>04-04-01-A</strong></td>
-                <td data-label="Etage">Block 4, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 4, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>117,21 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>21,59 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>523.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="555000">
+              <tr data-type="apartment" data-price="555000">
                 <td data-label="Referenz"><strong>04-04-02-A</strong></td>
-                <td data-label="Etage">Block 4, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 4, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>117,21 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>21,59 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>555.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="430000">
+              <tr data-type="apartment" data-price="430000">
                 <td data-label="Referenz"><strong>04-04-02-B</strong></td>
-                <td data-label="Etage">Block 4, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 4, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>13,90 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>430.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="568000">
+              <tr data-type="apartment" data-price="568000">
                 <td data-label="Referenz"><strong>04-04-03-A</strong></td>
-                <td data-label="Etage">Block 4, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 4, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>117,21 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>21,59 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>568.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="440000">
+              <tr data-type="apartment" data-price="440000">
                 <td data-label="Referenz"><strong>04-04-03-B</strong></td>
-                <td data-label="Etage">Block 4, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 4, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>13,90 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>440.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referenz"><strong>04-04-BJ-B</strong></td>
-                <td data-label="Etage">Block 4, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 4, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>95,16 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>28,78 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>420.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="435000">
+              <tr data-type="apartment" data-price="435000">
                 <td data-label="Referenz"><strong>05-01-01-A</strong></td>
-                <td data-label="Etage">Block 5, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>100,17 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>16,83 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>435.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="643000">
+              <tr data-type="apartment" data-price="643000">
                 <td data-label="Referenz"><strong>05-01-01-B</strong></td>
-                <td data-label="Etage">Block 5, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>127,45 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>121,18 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>643.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="470000">
+              <tr data-type="apartment" data-price="470000">
                 <td data-label="Referenz"><strong>05-01-02-A</strong></td>
-                <td data-label="Etage">Block 5, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>100,17 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>17,23 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>470.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="585000">
+              <tr data-type="apartment" data-price="585000">
                 <td data-label="Referenz"><strong>05-01-02-B</strong></td>
-                <td data-label="Etage">Block 5, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>127,45 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>26,55 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>585.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="495000">
+              <tr data-type="apartment" data-price="495000">
                 <td data-label="Referenz"><strong>05-01-03-A</strong></td>
-                <td data-label="Etage">Block 5, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>101,26 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>17,03 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>495.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="613000">
+              <tr data-type="apartment" data-price="613000">
                 <td data-label="Referenz"><strong>05-01-03-B</strong></td>
-                <td data-label="Etage">Block 5, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>127,45 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>26,55 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>613.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="455000">
+              <tr data-type="apartment" data-price="455000">
                 <td data-label="Referenz"><strong>05-01-BJ-A</strong></td>
-                <td data-label="Etage">Block 5, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 5, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>100,17 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>20,03 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>15,95 m²</strong> <em>Garten</em></span></td>
                 <td data-label="Preis"><strong>455.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-05-01-bj-a.jpg" target="_blank" rel="noopener">PDF ansehen</a></td>
               </tr>
-              <tr data-price="545000">
+              <tr data-type="apartment" data-price="545000">
                 <td data-label="Referenz"><strong>05-01-BJ-B</strong></td>
-                <td data-label="Etage">Block 5, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 5, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>127,22 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>33,23 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>25,43 m²</strong> <em>Garten</em></span></td>
                 <td data-label="Preis"><strong>545.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="450000">
+              <tr data-type="apartment" data-price="450000">
                 <td data-label="Referenz"><strong>05-02-01-B</strong></td>
-                <td data-label="Etage">Block 5, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>100,12 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>16,93 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>450.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="465000">
+              <tr data-type="apartment" data-price="465000">
                 <td data-label="Referenz"><strong>05-02-02-A</strong></td>
-                <td data-label="Etage">Block 5, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>103,54 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>23,17 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>465.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-05-02-02-a.jpg" target="_blank" rel="noopener">PDF ansehen</a></td>
               </tr>
-              <tr data-price="455000">
+              <tr data-type="apartment" data-price="455000">
                 <td data-label="Referenz"><strong>05-02-02-B</strong></td>
-                <td data-label="Etage">Block 5, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>100,12 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>16,89 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>455.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="475000">
+              <tr data-type="apartment" data-price="475000">
                 <td data-label="Referenz"><strong>05-02-03-A</strong></td>
-                <td data-label="Etage">Block 5, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>103,54 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>23,17 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>475.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="480000">
+              <tr data-type="apartment" data-price="480000">
                 <td data-label="Referenz"><strong>05-02-03-B</strong></td>
-                <td data-label="Etage">Block 5, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>100,12 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>16,89 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>480.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="640000">
+              <tr data-type="penthouse" data-price="640000">
                 <td data-label="Referenz"><strong>05-02-AT-A</strong></td>
-                <td data-label="Etage">Block 5, Penthouse</td>
+                <td data-label="Etage / Block">Block 5, Penthouse</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>107,24 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>95,35 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>640.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-05-02-at-a.jpg" target="_blank" rel="noopener">PDF ansehen</a></td>
               </tr>
-              <tr data-price="445000">
+              <tr data-type="apartment" data-price="445000">
                 <td data-label="Referenz"><strong>05-02-BJ-B</strong></td>
-                <td data-label="Etage">Block 5, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 5, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>101,79 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>16,76 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>19,24 m²</strong> <em>Garten</em></span></td>
                 <td data-label="Preis"><strong>445.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="410000">
+              <tr data-type="apartment" data-price="410000">
                 <td data-label="Referenz"><strong>05-03-01-B</strong></td>
-                <td data-label="Etage">Block 5, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>99,56 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>16,94 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>410.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="615000">
+              <tr data-type="apartment" data-price="615000">
                 <td data-label="Referenz"><strong>05-03-02-A</strong></td>
-                <td data-label="Etage">Block 5, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>127,83 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>48,53 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>615.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="450000">
+              <tr data-type="apartment" data-price="450000">
                 <td data-label="Referenz"><strong>05-03-02-B</strong></td>
-                <td data-label="Etage">Block 5, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>99,56 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>16,94 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>450.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="608000">
+              <tr data-type="apartment" data-price="608000">
                 <td data-label="Referenz"><strong>05-03-03-A</strong></td>
-                <td data-label="Etage">Block 5, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>127,83 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>38,12 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>608.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-05-03-03-a.jpg" target="_blank" rel="noopener">PDF ansehen</a></td>
               </tr>
-              <tr data-price="470000">
+              <tr data-type="apartment" data-price="470000">
                 <td data-label="Referenz"><strong>05-03-03-B</strong></td>
-                <td data-label="Etage">Block 5, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 5, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>99,56 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>16,94 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>470.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="570000">
+              <tr data-type="apartment" data-price="570000">
                 <td data-label="Referenz"><strong>05-03-BJ-A</strong></td>
-                <td data-label="Etage">Block 5, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 5, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>127,59 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>27,48 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>87,90 m²</strong> <em>Garten</em></span></td>
                 <td data-label="Preis"><strong>570.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="440000">
+              <tr data-type="apartment" data-price="440000">
                 <td data-label="Referenz"><strong>05-03-BJ-B</strong></td>
-                <td data-label="Etage">Block 5, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 5, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>99,56 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>16,74 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>19,38 m²</strong> <em>Garten</em></span></td>
                 <td data-label="Preis"><strong>440.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referenz"><strong>06-01-01-A</strong></td>
-                <td data-label="Etage">Block 6, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>105,87 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>24,04 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>420.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="540000">
+              <tr data-type="apartment" data-price="540000">
                 <td data-label="Referenz"><strong>06-01-01-B</strong></td>
-                <td data-label="Etage">Block 6, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>130,23 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>25,83 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>540.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referenz"><strong>06-01-02-A</strong></td>
-                <td data-label="Etage">Block 6, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>105,87 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>24,04 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>420.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="450000">
+              <tr data-type="apartment" data-price="450000">
                 <td data-label="Referenz"><strong>06-01-03-A</strong></td>
-                <td data-label="Etage">Block 6, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>105,87 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>24,04 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>450.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="410000">
+              <tr data-type="apartment" data-price="410000">
                 <td data-label="Referenz"><strong>06-01-BJ-A</strong></td>
-                <td data-label="Etage">Block 6, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>105,89 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>32,63 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>20,33 m²</strong> <em>Garten</em></span></td>
                 <td data-label="Preis"><strong>410.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="550000">
+              <tr data-type="apartment" data-price="550000">
                 <td data-label="Referenz"><strong>06-01-BJ-B</strong></td>
-                <td data-label="Etage">Block 6, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>116,53 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>154,00 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>550.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="410000">
+              <tr data-type="apartment" data-price="410000">
                 <td data-label="Referenz"><strong>06-02-01-A</strong></td>
-                <td data-label="Etage">Block 6, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>103,60 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>22,43 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>410.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="430000">
+              <tr data-type="apartment" data-price="430000">
                 <td data-label="Referenz"><strong>06-02-02-A</strong></td>
-                <td data-label="Etage">Block 6, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>103,60 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>22,43 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>430.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="430000">
+              <tr data-type="apartment" data-price="430000">
                 <td data-label="Referenz"><strong>06-02-02-B</strong></td>
-                <td data-label="Etage">Block 6, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>104,89 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>22,38 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>430.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="450000">
+              <tr data-type="apartment" data-price="450000">
                 <td data-label="Referenz"><strong>06-02-03-A</strong></td>
-                <td data-label="Etage">Block 6, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>103,60 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>22,43 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>450.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referenz"><strong>06-02-BJ-A</strong></td>
-                <td data-label="Etage">Block 6, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>103,36 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>30,42 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>14,45 m²</strong> <em>Garten</em></span></td>
                 <td data-label="Preis"><strong>420.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="530000">
+              <tr data-type="apartment" data-price="530000">
                 <td data-label="Referenz"><strong>06-03-01-A</strong></td>
-                <td data-label="Etage">Block 6, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>118,31 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>22,66 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>530.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="490000">
+              <tr data-type="apartment" data-price="490000">
                 <td data-label="Referenz"><strong>06-03-01-B</strong></td>
-                <td data-label="Etage">Block 6, Erstes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>117,76 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>27,41 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>490.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="589000">
+              <tr data-type="apartment" data-price="589000">
                 <td data-label="Referenz"><strong>06-03-02-A</strong></td>
-                <td data-label="Etage">Block 6, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>118,31 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>69,61 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>589.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="560000">
+              <tr data-type="apartment" data-price="560000">
                 <td data-label="Referenz"><strong>06-03-02-B</strong></td>
-                <td data-label="Etage">Block 6, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>117,76 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>26,16 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>560.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="440000">
+              <tr data-type="apartment" data-price="440000">
                 <td data-label="Referenz"><strong>06-03-02-C</strong></td>
-                <td data-label="Etage">Block 6, Zweites Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>105,80 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>26,15 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>440.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="550000">
+              <tr data-type="apartment" data-price="550000">
                 <td data-label="Referenz"><strong>06-03-03-A</strong></td>
-                <td data-label="Etage">Block 6, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>118,31 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>22,21 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>550.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="560000">
+              <tr data-type="apartment" data-price="560000">
                 <td data-label="Referenz"><strong>06-03-03-B</strong></td>
-                <td data-label="Etage">Block 6, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>117,76 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>22,02 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>560.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="470000">
+              <tr data-type="apartment" data-price="470000">
                 <td data-label="Referenz"><strong>06-03-03-C</strong></td>
-                <td data-label="Etage">Block 6, Drittes Obergeschoss</td>
+                <td data-label="Etage / Block">Block 6, Drittes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>105,81 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>23,91 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>470.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="645000">
+              <tr data-type="penthouse" data-price="645000">
                 <td data-label="Referenz"><strong>06-03-AT-B</strong></td>
-                <td data-label="Etage">Block 6, Penthouse</td>
+                <td data-label="Etage / Block">Block 6, Penthouse</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>111,48 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>78,36 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>645.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-06-03-at-b.jpg" target="_blank" rel="noopener">PDF ansehen</a></td>
               </tr>
-              <tr data-price="585000">
+              <tr data-type="apartment" data-price="585000">
                 <td data-label="Referenz"><strong>06-03-BJ-A</strong></td>
-                <td data-label="Etage">Block 6, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>118,65 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>90,00 m²</strong> <em>Terrasse</em></span><span class="unit-size-part"><strong>77,49 m²</strong> <em>Garten</em></span></td>
                 <td data-label="Preis"><strong>585.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="449000">
+              <tr data-type="apartment" data-price="449000">
                 <td data-label="Referenz"><strong>06-03-BJ-B</strong></td>
-                <td data-label="Etage">Block 6, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>104,98 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>79,06 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>449.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
                 <td data-label="Grundriss"></td>
               </tr>
-              <tr data-price="435000">
+              <tr data-type="apartment" data-price="435000">
                 <td data-label="Referenz"><strong>06-03-BJ-C</strong></td>
-                <td data-label="Etage">Block 6, Erdgeschoss</td>
+                <td data-label="Etage / Block">Block 6, Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
                 <td data-label="Größe"><span class="unit-size-part"><strong>105,56 m²</strong> <em>Bebaut</em></span><span class="unit-size-part"><strong>43,03 m²</strong> <em>Terrasse</em></span></td>
                 <td data-label="Preis"><strong>435.000 €</strong></td>

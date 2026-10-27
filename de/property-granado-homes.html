@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -726,6 +726,14 @@
             <div class="availability-filters" role="group" aria-label="Verfügbare Wohnungen filtern"
               data-availability-filters
               data-count-template="{shown} von {total} werden angezeigt">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Haustyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Wohnung</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Preis</span>
@@ -743,7 +751,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Keine Wohnungen entsprechen diesen Filtern.</p>
             <div class="unit-card-grid" role="list" aria-label="Verfügbare Wohnungen">
-              <article class="unit-card" data-unit data-price="327000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="327000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-1a2-p01-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 1A2-P01-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-1a2-p01-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-1a2-p01-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -762,13 +770,14 @@
                     <div><dt>Innenfläche</dt><dd>77,52 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>16,18 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>5,43 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 1A, Aufgang 2, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 1A, Aufgang 2, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">327.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%201A2-P01-A">Zu 1A2-P01-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="327000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="327000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-1a2-p01-c.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 1A2-P01-C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-1a2-p01-c-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-1a2-p01-c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -787,13 +796,14 @@
                     <div><dt>Innenfläche</dt><dd>77,69 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>16,18 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>5,43 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 1A, Aufgang 2, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 1A, Aufgang 2, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">327.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%201A2-P01-C">Zu 1A2-P01-C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="420000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="420000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-1a2-pat-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 1A2-PAT-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-1a2-pat-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-1a2-pat-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -811,13 +821,14 @@
                     <div><dt>Bebaut</dt><dd>87,81 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>61,89 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>43,66 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Penthouse</dd></div>
                     <div><dt>Etage</dt><dd>Block 1A, Aufgang 2, Penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">420.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%201A2-PAT-A">Zu 1A2-PAT-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="321000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="321000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-1b2-p01-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 1B2-P01-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-1b2-p01-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-1b2-p01-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -836,13 +847,14 @@
                     <div><dt>Innenfläche</dt><dd>77,69 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>16,18 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>5,43 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 1B, Aufgang 2, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 1B, Aufgang 2, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">321.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%201B2-P01-A">Zu 1B2-P01-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="526000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="526000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4a1-p01-c.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4A1-P01-C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4a1-p01-c-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4a1-p01-c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -861,13 +873,14 @@
                     <div><dt>Innenfläche</dt><dd>94,77 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>31,81 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>3,60 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4A, Aufgang 1, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4A, Aufgang 1, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">526.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204A1-P01-C">Zu 4A1-P01-C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="405000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="405000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4a1-p02-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4A1-P02-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4a1-p02-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4a1-p02-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -885,13 +898,14 @@
                     <div><dt>Bebaut</dt><dd>107,58 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>77,72 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>16,16 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4A, Aufgang 1, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4A, Aufgang 1, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">405.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204A1-P02-A">Zu 4A1-P02-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="558000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="558000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4a1-p02-c.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4A1-P02-C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4a1-p02-c-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4a1-p02-c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -910,13 +924,14 @@
                     <div><dt>Innenfläche</dt><dd>94,79 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>18,20 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>13,60 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4A, Aufgang 1, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4A, Aufgang 1, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">558.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204A1-P02-C">Zu 4A1-P02-C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="521000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="521000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4a1-p00-b.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4A1-P00-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4a1-p00-b-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4a1-p00-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -935,13 +950,14 @@
                     <div><dt>Innenfläche</dt><dd>100,46 m²</dd></div>
                     <div><dt>Veranda</dt><dd>27,95 m²</dd></div>
                     <div><dt>Garten</dt><dd>86,12 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4A, Aufgang 1, Erdgeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4A, Aufgang 1, Erdgeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">521.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204A1-P00-B">Zu 4A1-P00-B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="393000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="393000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4a2-p01-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4A2-P01-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4a2-p01-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4a2-p01-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -960,13 +976,14 @@
                     <div><dt>Innenfläche</dt><dd>81,74 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>16,17 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>5,43 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4A, Aufgang 2, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4A, Aufgang 2, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">393.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204A2-P01-A">Zu 4A2-P01-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="392000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="392000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4a2-p01-c.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4A2-P01-C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4a2-p01-c-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4a2-p01-c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -985,13 +1002,14 @@
                     <div><dt>Innenfläche</dt><dd>81,66 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>16,17 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>5,43 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4A, Aufgang 2, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4A, Aufgang 2, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">392.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204A2-P01-C">Zu 4A2-P01-C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="423000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="423000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4a2-p02-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4A2-P02-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4a2-p02-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4a2-p02-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1009,13 +1027,14 @@
                     <div><dt>Bebaut</dt><dd>113,26 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>81,74 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>16,17 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4A, Aufgang 2, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4A, Aufgang 2, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">423.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204A2-P02-A">Zu 4A2-P02-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="489000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="489000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4a2-pat-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4A2-PAT-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4a2-pat-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4a2-pat-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1033,13 +1052,14 @@
                     <div><dt>Bebaut</dt><dd>98,00 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>69,48 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>49,95 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Penthouse</dd></div>
                     <div><dt>Etage</dt><dd>Block 4A, Aufgang 2, Penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">489.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204A2-PAT-A">Zu 4A2-PAT-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="375000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="375000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4b1-p01-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4B1-P01-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4b1-p01-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4b1-p01-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1058,13 +1078,14 @@
                     <div><dt>Innenfläche</dt><dd>77,64 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>16,18 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>5,43 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4B, Aufgang 1, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4B, Aufgang 1, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">375.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204B1-P01-A">Zu 4B1-P01-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="330000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="330000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4b2-p01-b.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4B2-P01-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4b2-p01-b-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4b2-p01-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1083,13 +1104,14 @@
                     <div><dt>Innenfläche</dt><dd>64,73 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>20,21 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>6,78 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4B, Aufgang 2, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4B, Aufgang 2, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">330.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204B2-P01-B">Zu 4B2-P01-B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="419000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="419000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4b2-p02-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4B2-P02-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4b2-p02-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4b2-p02-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1107,13 +1129,14 @@
                     <div><dt>Bebaut</dt><dd>111,45 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>78,28 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>20,07 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4B, Aufgang 2, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4B, Aufgang 2, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">419.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204B2-P02-A">Zu 4B2-P02-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="357000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="357000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4b2-p02-b.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4B2-P02-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4b2-p02-b-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4b2-p02-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1131,13 +1154,14 @@
                     <div><dt>Bebaut</dt><dd>91,26 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>64,73 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>20,23 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4B, Aufgang 2, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4B, Aufgang 2, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">357.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204B2-P02-B">Zu 4B2-P02-B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="508000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="508000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4b2-pat-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4B2-PAT-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4b2-pat-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4b2-pat-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1155,13 +1179,14 @@
                     <div><dt>Bebaut</dt><dd>99,97 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>69,45 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>73,47 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Penthouse</dd></div>
                     <div><dt>Etage</dt><dd>Block 4B, Aufgang 2, Penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">508.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204B2-PAT-A">Zu 4B2-PAT-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="396000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="396000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-4b2-p00-b.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4B2-P00-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-4b2-p00-b-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-4b2-p00-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1180,13 +1205,14 @@
                     <div><dt>Innenfläche</dt><dd>72,76 m²</dd></div>
                     <div><dt>Veranda</dt><dd>35,09 m²</dd></div>
                     <div><dt>Garten</dt><dd>29,08 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4B, Aufgang 2, Erdgeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4B, Aufgang 2, Erdgeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">396.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%204B2-P00-B">Zu 4B2-P00-B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="447000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="447000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-6a1-p01-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 6A1-P01-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-6a1-p01-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-6a1-p01-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1205,13 +1231,14 @@
                     <div><dt>Innenfläche</dt><dd>77,64 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>16,19 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>5,43 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 6A, Aufgang 1, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 6A, Aufgang 1, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">447.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%206A1-P01-A">Zu 6A1-P01-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="322000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="322000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-6a1-p01-b.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 6A1-P01-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-6a1-p01-b-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-6a1-p01-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1230,13 +1257,14 @@
                     <div><dt>Innenfläche</dt><dd>46,00 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>14,98 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>5,03 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 6A, Aufgang 1, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 6A, Aufgang 1, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">322.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%206A1-P01-B">Zu 6A1-P01-B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="324000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="324000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-6a1-p02-b.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 6A1-P02-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-6a1-p02-b-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-6a1-p02-b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1254,13 +1282,14 @@
                     <div><dt>Bebaut</dt><dd>65,26 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>46,00 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>14,98 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 6A, Aufgang 1, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 6A, Aufgang 1, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">324.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%206A1-P02-B">Zu 6A1-P02-B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="471000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="471000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-6a1-p02-c.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 6A1-P02-C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-6a1-p02-c-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-6a1-p02-c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1278,13 +1307,14 @@
                     <div><dt>Bebaut</dt><dd>110,21 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>77,60 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>16,67 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 6A, Aufgang 1, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 6A, Aufgang 1, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">471.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%206A1-P02-C">Zu 6A1-P02-C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="370000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="370000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-6a1-p00-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 6A1-P00-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-6a1-p00-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-6a1-p00-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1303,13 +1333,14 @@
                     <div><dt>Innenfläche</dt><dd>54,66 m²</dd></div>
                     <div><dt>Veranda</dt><dd>30,94 m²</dd></div>
                     <div><dt>Garten</dt><dd>24,71 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 6A, Aufgang 1, Erdgeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 6A, Aufgang 1, Erdgeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">370.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%206A1-P00-A">Zu 6A1-P00-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="433000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="433000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-6b1-p01-c.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 6B1-P01-C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-6b1-p01-c-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-6b1-p01-c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1328,13 +1359,14 @@
                     <div><dt>Innenfläche</dt><dd>77,60 m²</dd></div>
                     <div><dt>Überdachte Terrasse</dt><dd>16,65 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>5,59 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 6B, Aufgang 1, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 6B, Aufgang 1, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">433.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%206B1-P01-C">Zu 6B1-P01-C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="461000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="461000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-6b1-p02-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 6B1-P02-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-6b1-p02-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-6b1-p02-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1352,13 +1384,14 @@
                     <div><dt>Bebaut</dt><dd>107,55 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>77,64 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>16,15 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 6B, Aufgang 1, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 6B, Aufgang 1, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">461.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%206B1-P02-A">Zu 6B1-P02-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="459000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="459000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-6b2-p02-a.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 6B2-P02-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-6b2-p02-a-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-6b2-p02-a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1376,13 +1409,14 @@
                     <div><dt>Bebaut</dt><dd>111,40 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>78,28 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>20,06 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 6B, Aufgang 2, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 6B, Aufgang 2, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">459.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%206B2-P02-A">Zu 6B2-P02-A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="465000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="465000">
                 <a class="unit-card-plan" href="assets/liora/projects/granado-homes/floorplans/plan-6b2-p02-c.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 6B2-P02-C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/granado-homes/floorplans/plan-6b2-p02-c-640.webp 640w, assets/liora/projects/granado-homes/floorplans/plan-6b2-p02-c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1400,7 +1434,8 @@
                     <div><dt>Bebaut</dt><dd>113,20 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>81,67 m²</dd></div>
                     <div><dt>Offene Terrasse</dt><dd>16,15 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 6B, Aufgang 2, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 6B, Aufgang 2, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">465.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Granado%20Homes%20-%206B2-P02-C">Zu 6B2-P02-C anfragen</a>

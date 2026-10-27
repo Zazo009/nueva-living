@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -800,6 +800,15 @@
               data-availability-filters
               data-count-template="Wyświetlono {shown} z {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Typ domu</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Wszystkie</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartament</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex" aria-pressed="false">Dwupoziomowy</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex-penthouse" aria-pressed="false">Penthouse dwupoziomowy</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Sypialnie</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">Wszystkie</button>
@@ -823,7 +832,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Żadna nieruchomość nie pasuje do tych filtrów.</p>
             <div class="unit-card-grid" role="list" aria-label="Dostępne nieruchomości">
-              <article class="unit-card" data-unit data-beds="2" data-price="772000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="772000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-102.jpg" target="_blank" rel="noopener" aria-label="Rzut 102">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-102-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-102-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -838,14 +847,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>154 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>154 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 1, parter</dd></div>
                   </dl>
                   <p class="unit-card-price">772 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20102">Zapytaj o 102</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="772000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="772000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-103.jpg" target="_blank" rel="noopener" aria-label="Rzut 103">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-103-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-103-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -860,14 +870,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>154 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>154 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 1, parter</dd></div>
                   </dl>
                   <p class="unit-card-price">772 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20103">Zapytaj o 103</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1224000">
+              <article class="unit-card" data-unit data-type="duplex" data-beds="3" data-price="1224000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-108.jpg" target="_blank" rel="noopener" aria-label="Rzut 108">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-108-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-108-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -882,14 +893,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>3 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>302 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>302 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Dwupoziomowy</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 1, duplex na pierwszym piętrze</dd></div>
                   </dl>
                   <p class="unit-card-price">1 224 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20108">Zapytaj o 108</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1263000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="1263000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-110.jpg" target="_blank" rel="noopener" aria-label="Rzut 110">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-110-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-110-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -904,14 +916,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>3 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>292 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>292 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Penthouse dwupoziomowy</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 1, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">1 263 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20110">Zapytaj o 110</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="772000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="772000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-202.jpg" target="_blank" rel="noopener" aria-label="Rzut 202">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-202-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-202-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -926,14 +939,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>154 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>154 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 2, parter</dd></div>
                   </dl>
                   <p class="unit-card-price">772 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20202">Zapytaj o 202</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="772000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="772000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-203.jpg" target="_blank" rel="noopener" aria-label="Rzut 203">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-203-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-203-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -948,14 +962,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>154 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>154 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 2, parter</dd></div>
                   </dl>
                   <p class="unit-card-price">772 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20203">Zapytaj o 203</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="774000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="774000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-207.jpg" target="_blank" rel="noopener" aria-label="Rzut 207">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-207-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-207-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -970,14 +985,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>155 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>155 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 2, pierwsze piętro</dd></div>
                   </dl>
                   <p class="unit-card-price">774 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20207">Zapytaj o 207</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1263000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="1263000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-309.jpg" target="_blank" rel="noopener" aria-label="Rzut 309">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-309-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-309-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -992,14 +1008,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>3 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>292 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>292 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Penthouse dwupoziomowy</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 3, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">1 263 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20309">Zapytaj o 309</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="740000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="740000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-502.jpg" target="_blank" rel="noopener" aria-label="Rzut 502">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-502-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-502-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1014,14 +1031,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>154 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>154 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 5, parter</dd></div>
                   </dl>
                   <p class="unit-card-price">740 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20502">Zapytaj o 502</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="740000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="740000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-503.jpg" target="_blank" rel="noopener" aria-label="Rzut 503">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-503-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-503-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1036,14 +1054,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>154 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>154 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 5, parter</dd></div>
                   </dl>
                   <p class="unit-card-price">740 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20503">Zapytaj o 503</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="720000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="720000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-507.jpg" target="_blank" rel="noopener" aria-label="Rzut 507">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-507-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-507-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1058,14 +1077,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>155 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>155 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 5, pierwsze piętro</dd></div>
                   </dl>
                   <p class="unit-card-price">720 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20507">Zapytaj o 507</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="868000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="868000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -1074,14 +1094,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>3 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>196 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>196 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 5, pierwsze piętro</dd></div>
                   </dl>
                   <p class="unit-card-price">868 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20508">Zapytaj o 508</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1212000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="1212000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-512.jpg" target="_blank" rel="noopener" aria-label="Rzut 512">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-512-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-512-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1096,14 +1117,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>3 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>306 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>306 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Penthouse dwupoziomowy</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 5, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">1 212 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20512">Zapytaj o 512</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="740000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="740000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-602.jpg" target="_blank" rel="noopener" aria-label="Rzut 602">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-602-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-602-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1118,14 +1140,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>154 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>154 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 6, parter</dd></div>
                   </dl>
                   <p class="unit-card-price">740 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20602">Zapytaj o 602</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="740000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="740000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-603.jpg" target="_blank" rel="noopener" aria-label="Rzut 603">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-603-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-603-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1140,14 +1163,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>154 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>154 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 6, parter</dd></div>
                   </dl>
                   <p class="unit-card-price">740 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20603">Zapytaj o 603</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="885000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="885000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -1156,14 +1180,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>3 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>185 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>185 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 6, parter</dd></div>
                   </dl>
                   <p class="unit-card-price">885 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20604">Zapytaj o 604</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="720000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="720000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-606.jpg" target="_blank" rel="noopener" aria-label="Rzut 606">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-606-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-606-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1178,14 +1203,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>155 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>155 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Apartament</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 6, pierwsze piętro</dd></div>
                   </dl>
                   <p class="unit-card-price">720 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20606">Zapytaj o 606</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1212000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="1212000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-609.jpg" target="_blank" rel="noopener" aria-label="Rzut 609">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-609-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-609-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1200,14 +1226,15 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>3 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>306 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>306 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Penthouse dwupoziomowy</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 6, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">1 212 000 € + VAT</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Jardin%20del%20Mar%20Residences%20-%20609">Zapytaj o 609</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="1014000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="2" data-price="1014000">
                 <a class="unit-card-plan" href="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-611.jpg" target="_blank" rel="noopener" aria-label="Rzut 611">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-611-640.webp 640w, assets/liora/projects/jardin-del-mar-residences/floorplans/vivienda-611-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1222,7 +1249,8 @@
                   </div>
                   <dl class="unit-card-facts">
                     <div><dt>Sypialnie</dt><dd>2 sypialni</dd></div>
-                    <div><dt>Powierzchnia</dt><dd>245 m²</dd></div>
+                    <div><dt>Powierzchnia (zabudowa)</dt><dd>245 m²</dd></div>
+                    <div><dt>Typ domu</dt><dd>Penthouse dwupoziomowy</dd></div>
                     <div><dt>Piętro</dt><dd>Blok 6, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">1 014 000 € + VAT</p>

@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -825,6 +825,14 @@
               data-availability-filters
               data-count-template="Показано {shown} из {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Тип жилья</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Все</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Апартаменты</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Пентхаус</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Спальни</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">Все</button>
@@ -849,7 +857,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Нет вариантов, соответствующих фильтрам.</p>
             <div class="unit-card-grid" role="list" aria-label="Доступные варианты">
-              <article class="unit-card" data-unit data-beds="2" data-price="458000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="458000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-60A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-60A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-60A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-60A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -865,13 +873,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 2</dd></div>
                     <div><dt>Площадь</dt><dd>84.68 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 06, сад</dd></div>
                   </dl>
                   <p class="unit-card-price">458 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-60A">Узнать о LK-60A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="478000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="478000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-50D.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-50D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-50D-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-50D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -887,13 +896,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.26 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 05, сад</dd></div>
                   </dl>
                   <p class="unit-card-price">478 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-50D">Узнать о LK-50D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="480000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="480000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-100A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-100A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-100A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-100A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -909,13 +919,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 10, сад</dd></div>
                   </dl>
                   <p class="unit-card-price">480 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-100A">Узнать о LK-100A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="483000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="483000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-51D.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-51D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-51D-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-51D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -931,13 +942,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.29 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 05, этаж 1</dd></div>
                   </dl>
                   <p class="unit-card-price">483 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-51D">Узнать о LK-51D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="485000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="485000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-101A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-101A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-101A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-101A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -953,13 +965,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 10, этаж 1</dd></div>
                   </dl>
                   <p class="unit-card-price">485 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-101A">Узнать о LK-101A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="488000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="488000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-52D.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-52D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-52D-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-52D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -975,13 +988,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.18 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 05, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">488 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-52D">Узнать о LK-52D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="488750">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="488750">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-52C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-52C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-52C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-52C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -997,13 +1011,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 2</dd></div>
                     <div><dt>Площадь</dt><dd>85.94 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 05, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">488 750 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-52C">Узнать о LK-52C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="490000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="490000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-102A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-102A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-102A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-102A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1019,13 +1034,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 10, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">490 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-102A">Узнать о LK-102A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="494500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="494500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-82C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-82C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-82C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-82C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1041,13 +1057,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 2</dd></div>
                     <div><dt>Площадь</dt><dd>86.13 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 08, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">494 500 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-82C">Узнать о LK-82C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="511750">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="511750">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-43B.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-43B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-43B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-43B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1063,13 +1080,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 2</dd></div>
                     <div><dt>Площадь</dt><dd>83.91 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 04, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">511 750 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-43B">Узнать о LK-43B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="523250">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="523250">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-54C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-54C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-54C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-54C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1085,13 +1103,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 2</dd></div>
                     <div><dt>Площадь</dt><dd>86.88 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 05, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">523 250 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-54C">Узнать о LK-54C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="525000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="525000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-11A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-11A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-11A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-11A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1107,13 +1126,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.26 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 01, этаж 1</dd></div>
                   </dl>
                   <p class="unit-card-price">525 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-11A">Узнать о LK-11A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="525250">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="525250">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-123C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-123C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-123C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-123C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1129,13 +1149,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 2</dd></div>
                     <div><dt>Площадь</dt><dd>85.42 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 12, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">525 250 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-123C">Узнать о LK-123C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="530750">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="530750">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-103A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-103A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-103A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-103A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1151,13 +1172,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 10, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">530 750 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-103A">Узнать о LK-103A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="531000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="531000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-33A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-33A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-33A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-33A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1173,13 +1195,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>100.29 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 03, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">531 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-33A">Узнать о LK-33A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="531000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="531000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-53D.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-53D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-53D-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-53D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1195,13 +1218,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.26 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 05, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">531 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-53D">Узнать о LK-53D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="533500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="533500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-121C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-121C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-121C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-121C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1217,13 +1241,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 2</dd></div>
                     <div><dt>Площадь</dt><dd>85.42 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 12, этаж 1</dd></div>
                   </dl>
                   <p class="unit-card-price">533 500 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-121C">Узнать о LK-121C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="541250">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="541250">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-124C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-124C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-124C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-124C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1239,13 +1264,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 2</dd></div>
                     <div><dt>Площадь</dt><dd>85.42 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 12, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">541 250 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-124C">Узнать о LK-124C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="544000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="544000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-114C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-114C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-114C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-114C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1261,13 +1287,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 11, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">544 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-114C">Узнать о LK-114C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="544500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="544500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-122C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-122C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-122C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-122C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1283,13 +1310,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 2</dd></div>
                     <div><dt>Площадь</dt><dd>85.42 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 12, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">544 500 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-122C">Узнать о LK-122C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="544750">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="544750">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-44A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-44A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-44A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-44A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1305,13 +1333,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 04, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">544 750 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-44A">Узнать о LK-44A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="544750">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="544750">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-44C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-44C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-44C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-44C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1327,13 +1356,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 04, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">544 750 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-44C">Узнать о LK-44C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="549000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="549000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-123A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-123A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-123A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-123A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1349,13 +1379,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 12, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">549 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-123A">Узнать о LK-123A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="555500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="555500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-81A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-81A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-81A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-81A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1371,13 +1402,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>92.78 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 08, этаж 1</dd></div>
                   </dl>
                   <p class="unit-card-price">555 500 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-81A">Узнать о LK-81A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="561000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="561000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-121A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-121A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-121A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-121A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1393,13 +1425,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 12, этаж 1</dd></div>
                   </dl>
                   <p class="unit-card-price">561 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-121A">Узнать о LK-121A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="572000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="572000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-132D.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-132D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-132D-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-132D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1415,13 +1448,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 13, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">572 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-132D">Узнать о LK-132D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="572000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="572000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-91C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-91C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-91C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-91C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1437,13 +1471,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>103.07 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 09, этаж 1</dd></div>
                   </dl>
                   <p class="unit-card-price">572 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-91C">Узнать о LK-91C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="577500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="577500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-92C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-92C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-92C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-92C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1459,13 +1494,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>103.66 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 09, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">577 500 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-92C">Узнать о LK-92C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="583000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="583000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-84C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-84C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-84C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-84C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1481,13 +1517,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>97.28 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 08, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">583 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-84C">Узнать о LK-84C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="588500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="588500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-93C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-93C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-93C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-93C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1503,13 +1540,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>103.07 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 09, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">588 500 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-93C">Узнать о LK-93C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="610500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="610500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-94C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-94C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-94C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-94C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1525,13 +1563,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>103.07 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 09, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">610 500 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-94C">Узнать о LK-94C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="814000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="814000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-111B.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-111B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-111B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-111B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1547,13 +1586,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>131.99 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 11, этаж 1</dd></div>
                   </dl>
                   <p class="unit-card-price">814 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-111B">Узнать о LK-111B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="825000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="825000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-101C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-101C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-101C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-101C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1569,13 +1609,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>142.90 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 10, этаж 1</dd></div>
                   </dl>
                   <p class="unit-card-price">825 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-101C">Узнать о LK-101C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="836000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="836000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-102B.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-102B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-102B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-102B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1591,13 +1632,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>131.99 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 10, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">836 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-102B">Узнать о LK-102B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="836000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="836000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-111A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-111A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-111A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-111A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1613,13 +1655,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>142.90 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 11, этаж 1</dd></div>
                   </dl>
                   <p class="unit-card-price">836 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-111A">Узнать о LK-111A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="836000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="836000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-112B.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-112B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-112B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-112B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1635,13 +1678,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>131.99 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 11, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">836 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-112B">Узнать о LK-112B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="847000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="847000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-102C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-102C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-102C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-102C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1657,13 +1701,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>142.90 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 10, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">847 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-102C">Узнать о LK-102C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="847000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="847000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-110B.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-110B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-110B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-110B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1679,13 +1724,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>131.66 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 11, сад</dd></div>
                   </dl>
                   <p class="unit-card-price">847 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-110B">Узнать о LK-110B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="858000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="858000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-100C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-100C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-100C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-100C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1701,13 +1747,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>144.03 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 10, сад</dd></div>
                   </dl>
                   <p class="unit-card-price">858 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-100C">Узнать о LK-100C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="858000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="858000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-112A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-112A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-112A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-112A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1723,13 +1770,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>142.89 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 11, этаж 2</dd></div>
                   </dl>
                   <p class="unit-card-price">858 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-112A">Узнать о LK-112A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="858000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="858000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-113B.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-113B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-113B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-113B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1745,13 +1793,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>131.63 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 11, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">858 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-113B">Узнать о LK-113B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="869000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="869000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-110A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-110A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-110A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-110A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1767,13 +1816,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>144.04 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 11, сад</dd></div>
                   </dl>
                   <p class="unit-card-price">869 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-110A">Узнать о LK-110A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="874500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="874500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-104B.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-104B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-104B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-104B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1789,13 +1839,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>131.99 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 10, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">874 500 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-104B">Узнать о LK-104B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="880000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="880000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-113A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-113A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-113A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-113A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1811,13 +1862,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>142.02 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 11, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">880 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-113A">Узнать о LK-113A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="891000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="891000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-104C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-104C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-104C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-104C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1833,13 +1885,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>142.90 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 10, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">891 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-104C">Узнать о LK-104C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="902000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="902000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-114A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-114A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-114A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-114A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1855,13 +1908,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>142.90 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 11, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">902 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-114A">Узнать о LK-114A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="980000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="980000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-74C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-74C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-74C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-74C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1877,13 +1931,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>110.74 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 07, этаж 4</dd></div>
                   </dl>
                   <p class="unit-card-price">980 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-74C">Узнать о LK-74C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="1090000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1090000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-133A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-133A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-133A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-133A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1899,13 +1954,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>150.24 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 13, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">1 090 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-133A">Узнать о LK-133A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="1090000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1090000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-13C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-13C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-13C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-13C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1921,13 +1977,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>150.25 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 01, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">1 090 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-13C">Узнать о LK-13C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="1090000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1090000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-73C.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-73C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-73C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-73C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1943,13 +2000,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>150.24 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 07, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">1 090 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-73C">Узнать о LK-73C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="1090000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1090000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-83A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-83A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-83A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-83A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1965,13 +2023,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 4</dd></div>
                     <div><dt>Площадь</dt><dd>150.24 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 08, этаж 3</dd></div>
                   </dl>
                   <p class="unit-card-price">1 090 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-83A">Узнать о LK-83A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1105000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="1105000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-45A.pdf" target="_blank" rel="noopener" aria-label="Планировка LK-45A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-45A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-45A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1987,6 +2046,7 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>Спальни: 3</dd></div>
                     <div><dt>Площадь</dt><dd>103.34 м²</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Пентхаус</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 04, пентхаус</dd></div>
                   </dl>
                   <p class="unit-card-price">1 105 000 €</p>

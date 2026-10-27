@@ -40,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -760,6 +760,14 @@
               data-availability-filters
               data-count-template="Showing {shown} of {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Home type</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartment</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Bedrooms</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
@@ -776,7 +784,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>No homes match these filters.</p>
             <div class="unit-card-grid" role="list" aria-label="Available homes">
-              <article class="unit-card" data-unit data-beds="4" data-price="1807000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1807000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.1 GF-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -794,13 +802,14 @@
                     <div><dt>Total</dt><dd>233.89 sqm</dd></div>
                     <div><dt>Interior</dt><dd>166.13 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>85.74 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,807,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%20GF-A">Ask about 1.1 GF-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1732000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1732000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.1 GF-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -818,13 +827,14 @@
                     <div><dt>Total</dt><dd>229.86 sqm</dd></div>
                     <div><dt>Interior</dt><dd>166.27 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>70.01 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,732,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%20GF-B">Ask about 1.1 GF-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="1775000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="5" data-price="1775000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.1 1F-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-1F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -842,13 +852,14 @@
                     <div><dt>Total</dt><dd>254.43 sqm</dd></div>
                     <div><dt>Interior</dt><dd>180.72 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>34.83 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,775,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%201F-B">Ask about 1.1 1F-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1527000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="1527000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.1 2F-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -866,13 +877,14 @@
                     <div><dt>Total</dt><dd>206.99 sqm</dd></div>
                     <div><dt>Interior</dt><dd>147.02 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>50.82 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Second floor, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,527,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%202F-A">Ask about 1.1 2F-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1483000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="1483000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.1 2F-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-1-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -890,13 +902,14 @@
                     <div><dt>Total</dt><dd>202.37 sqm</dd></div>
                     <div><dt>Interior</dt><dd>143.74 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>46.10 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Second floor, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,483,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.1%202F-B">Ask about 1.1 2F-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="2104000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="2104000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.2 G-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -914,13 +927,14 @@
                     <div><dt>Total</dt><dd>281.93 sqm</dd></div>
                     <div><dt>Interior</dt><dd>200.25 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>83.96 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Garden floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€2,104,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20G-A">Ask about 1.2 G-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1856000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1856000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.2 G-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-G-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -938,13 +952,14 @@
                     <div><dt>Total</dt><dd>244.96 sqm</dd></div>
                     <div><dt>Interior</dt><dd>173.99 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>79.50 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Garden floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,856,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20G-B">Ask about 1.2 G-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1736000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1736000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.2 GF-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -962,13 +977,14 @@
                     <div><dt>Total</dt><dd>230.53 sqm</dd></div>
                     <div><dt>Interior</dt><dd>163.74 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>70.00 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,736,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20GF-A">Ask about 1.2 GF-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="1798000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1798000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.2 GF-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -986,13 +1002,14 @@
                     <div><dt>Total</dt><dd>281.93 sqm</dd></div>
                     <div><dt>Interior</dt><dd>200.25 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>83.96 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,798,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%20GF-B">Ask about 1.2 GF-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1456340">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1456340">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.2 1F-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-1F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1010,13 +1027,14 @@
                     <div><dt>Total</dt><dd>203.83 sqm</dd></div>
                     <div><dt>Interior</dt><dd>144.78 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>34.83 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,456,340</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%201F-A">Ask about 1.2 1F-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.2 2F-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/1-2-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1034,13 +1052,14 @@
                     <div><dt>Total</dt><dd>207.66 sqm</dd></div>
                     <div><dt>Interior</dt><dd>147.50 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>50.82 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Second floor, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">On Request</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%201.2%202F-B">Ask about 1.2 2F-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="1820000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1820000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.1 GF-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1058,13 +1077,14 @@
                     <div><dt>Total</dt><dd>236.29 sqm</dd></div>
                     <div><dt>Interior</dt><dd>166.06 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>85.41 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,820,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%20GF-A">Ask about 2.1 GF-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1744000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1744000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.1 GF-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1082,13 +1102,14 @@
                     <div><dt>Total</dt><dd>231.54 sqm</dd></div>
                     <div><dt>Interior</dt><dd>162.72 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>70.64 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,744,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%20GF-B">Ask about 2.1 GF-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="1825000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="5" data-price="1825000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.1 1F-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-1F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1106,13 +1127,14 @@
                     <div><dt>Total</dt><dd>256.61 sqm</dd></div>
                     <div><dt>Interior</dt><dd>180.34 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>46.32 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,825,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%201F-B">Ask about 2.1 1F-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1547000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="1547000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.1 2F-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1130,13 +1152,14 @@
                     <div><dt>Total</dt><dd>208.77 sqm</dd></div>
                     <div><dt>Interior</dt><dd>146.72 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>53.74 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Second floor, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,547,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%202F-A">Ask about 2.1 2F-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1535000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="1535000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.1 2F-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-1-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1154,13 +1177,14 @@
                     <div><dt>Total</dt><dd>205.16 sqm</dd></div>
                     <div><dt>Interior</dt><dd>144.18 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>56.92 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Second floor, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,535,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.1%202F-B">Ask about 2.1 2F-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1938000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1938000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.2 G-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-G-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1178,13 +1202,14 @@
                     <div><dt>Total</dt><dd>253.55 sqm</dd></div>
                     <div><dt>Interior</dt><dd>178.19 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>88.20 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Garden floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,938,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%20G-B">Ask about 2.2 G-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1742000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1742000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.2 GF-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1202,13 +1227,14 @@
                     <div><dt>Total</dt><dd>231.37 sqm</dd></div>
                     <div><dt>Interior</dt><dd>162.60 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>70.23 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,742,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%20GF-A">Ask about 2.2 GF-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1744000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1744000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.2 GF-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-GF-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1226,13 +1252,14 @@
                     <div><dt>Total</dt><dd>231.71 sqm</dd></div>
                     <div><dt>Interior</dt><dd>162.84 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>70.23 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,744,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%20GF-B">Ask about 2.2 GF-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1442000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1442000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.2 1F-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1250,13 +1277,14 @@
                     <div><dt>Total</dt><dd>205.09 sqm</dd></div>
                     <div><dt>Interior</dt><dd>144.13 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>27.55 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,442,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%201F-A">Ask about 2.2 1F-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="1763000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="5" data-price="1763000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.2 1F-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-1F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1274,13 +1302,14 @@
                     <div><dt>Total</dt><dd>256.10 sqm</dd></div>
                     <div><dt>Interior</dt><dd>179.98 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>27.55 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,763,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%201F-B">Ask about 2.2 1F-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1480000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="1480000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.2 2F-B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-2-2F-B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1298,13 +1327,14 @@
                     <div><dt>Total</dt><dd>204.91 sqm</dd></div>
                     <div><dt>Interior</dt><dd>144.01 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>39.95 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Second floor, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,480,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.2%202F-B">Ask about 2.2 2F-B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="2155000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="2155000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.3 G-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-3-G-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1322,13 +1352,14 @@
                     <div><dt>Total</dt><dd>297.58 sqm</dd></div>
                     <div><dt>Interior</dt><dd>209.13 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>69.24 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Garden floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€2,155,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.3%20G-A">Ask about 2.3 G-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1745000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1745000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.3 GF-A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb-640.webp 640w, assets/liora/projects/selwo-panorama-residences/floorplans/2-3-GF-A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1346,13 +1377,14 @@
                     <div><dt>Total</dt><dd>231.79 sqm</dd></div>
                     <div><dt>Interior</dt><dd>162.90 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>70.64 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,745,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Panorama%20Residences%20-%202.3%20GF-A">Ask about 2.3 GF-A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1530000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="1530000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -1364,6 +1396,7 @@
                     <div><dt>Total</dt><dd>204.93 sqm</dd></div>
                     <div><dt>Interior</dt><dd>144.02 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>56.54 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Second floor, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€1,530,000</p>

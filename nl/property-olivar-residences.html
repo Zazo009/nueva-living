@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -820,6 +820,14 @@
             <div class="availability-filters" role="group" aria-label="Beschikbare woningen filteren"
               data-availability-filters
               data-count-template="{shown} van {total} weergegeven">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Woningtype</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex-penthouse" aria-pressed="false">Duplex penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Prijs</span>
@@ -836,7 +844,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Geen woningen komen overeen met deze filters.</p>
             <div class="unit-card-grid" role="list" aria-label="Beschikbare woningen">
-              <article class="unit-card" data-unit data-price="436000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="436000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-1-0a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 1 - 0A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-1-0a-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-1-0a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -854,13 +862,14 @@
                     <div><dt>Binnen</dt><dd>86,14 m²</dd></div>
                     <div><dt>Terras</dt><dd>54,20 m²</dd></div>
                     <div><dt>Tuin</dt><dd>55,40 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 436.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%201%20-%200A">Vraag naar Portiek 1 - 0A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="400000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="400000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-1-0c.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 1 - 0C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-1-0c-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-1-0c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -878,13 +887,14 @@
                     <div><dt>Binnen</dt><dd>72,63 m²</dd></div>
                     <div><dt>Terras</dt><dd>45,22 m²</dd></div>
                     <div><dt>Tuin</dt><dd>84,40 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 400.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%201%20-%200C">Vraag naar Portiek 1 - 0C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="411000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="411000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-1-0d.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 1 - 0D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-1-0d-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-1-0d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -902,13 +912,14 @@
                     <div><dt>Binnen</dt><dd>78,46 m²</dd></div>
                     <div><dt>Terras</dt><dd>33,01 m²</dd></div>
                     <div><dt>Tuin</dt><dd>109,52 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 411.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%201%20-%200D">Vraag naar Portiek 1 - 0D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="508000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="508000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-1-2a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 1 - 2A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-1-2a-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-1-2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -925,13 +936,14 @@
                     <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
                     <div><dt>Binnen</dt><dd>88,12 m²</dd></div>
                     <div><dt>Terras</dt><dd>76,54 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Verdieping</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 508.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%201%20-%202A">Vraag naar Portiek 1 - 2A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="440000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="440000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-2-0b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 2 - 0B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-2-0b-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-2-0b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -949,13 +961,14 @@
                     <div><dt>Binnen</dt><dd>72,63 m²</dd></div>
                     <div><dt>Terras</dt><dd>45,22 m²</dd></div>
                     <div><dt>Tuin</dt><dd>139,26 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 440.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%202%20-%200B">Vraag naar Portiek 2 - 0B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="330000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="330000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-2-1a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 2 - 1A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-2-1a-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-2-1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -972,13 +985,14 @@
                     <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
                     <div><dt>Binnen</dt><dd>78,46 m²</dd></div>
                     <div><dt>Terras</dt><dd>21,72 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 330.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%202%20-%201A">Vraag naar Portiek 2 - 1A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="442000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="442000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-2-2b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 2 - 2B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-2-2b-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-2-2b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -995,13 +1009,14 @@
                     <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
                     <div><dt>Binnen</dt><dd>84,99 m²</dd></div>
                     <div><dt>Terras</dt><dd>70,77 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Verdieping</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 442.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%202%20-%202B">Vraag naar Portiek 2 - 2B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="487000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="487000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-3-0b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 3 - 0B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-3-0b-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-3-0b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1019,13 +1034,14 @@
                     <div><dt>Binnen</dt><dd>72,63 m²</dd></div>
                     <div><dt>Terras</dt><dd>45,22 m²</dd></div>
                     <div><dt>Tuin</dt><dd>165,41 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 487.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%203%20-%200B">Vraag naar Portiek 3 - 0B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="525000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="525000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-3-0c.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 3 - 0C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-3-0c-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-3-0c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1043,13 +1059,14 @@
                     <div><dt>Binnen</dt><dd>72,63 m²</dd></div>
                     <div><dt>Terras</dt><dd>45,22 m²</dd></div>
                     <div><dt>Tuin</dt><dd>220,12 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 525.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%203%20-%200C">Vraag naar Portiek 3 - 0C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="514000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="514000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-3-2a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 3 - 2A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-3-2a-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-3-2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1066,13 +1083,14 @@
                     <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
                     <div><dt>Binnen</dt><dd>88,12 m²</dd></div>
                     <div><dt>Terras</dt><dd>76,54 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Verdieping</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 514.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%203%20-%202A">Vraag naar Portiek 3 - 2A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="336000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="336000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-4-1c.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 4 - 1C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-4-1c-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-4-1c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1089,13 +1107,14 @@
                     <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
                     <div><dt>Binnen</dt><dd>72,63 m²</dd></div>
                     <div><dt>Terras</dt><dd>29,84 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 336.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%204%20-%201C">Vraag naar Portiek 4 - 1C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="342000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="342000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-4-1d.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 4 - 1D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-4-1d-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-4-1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1112,13 +1131,14 @@
                     <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
                     <div><dt>Binnen</dt><dd>78,46 m²</dd></div>
                     <div><dt>Terras</dt><dd>21,72 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 342.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%204%20-%201D">Vraag naar Portiek 4 - 1D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="425000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="425000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-4-2d.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 4 - 2D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-4-2d-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-4-2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1135,13 +1155,14 @@
                     <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
                     <div><dt>Binnen</dt><dd>81,46 m²</dd></div>
                     <div><dt>Terras</dt><dd>60,83 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Verdieping</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 425.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%204%20-%202D">Vraag naar Portiek 4 - 2D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="425000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="425000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-5-2a.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 5 - 2A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-5-2a-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-5-2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1158,13 +1179,14 @@
                     <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
                     <div><dt>Binnen</dt><dd>81,46 m²</dd></div>
                     <div><dt>Terras</dt><dd>60,83 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Verdieping</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 425.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%205%20-%202A">Vraag naar Portiek 5 - 2A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="425000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="425000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-5-2d.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 5 - 2D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-5-2d-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-5-2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1181,13 +1203,14 @@
                     <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
                     <div><dt>Binnen</dt><dd>81,46 m²</dd></div>
                     <div><dt>Terras</dt><dd>60,83 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Verdieping</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 425.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portiek%205%20-%202D">Vraag naar Portiek 5 - 2D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="354000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="354000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-6-1d.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Portiek 6 - 1D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-6-1d-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-6-1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1204,6 +1227,7 @@
                     <div><dt>Slaapkamers</dt><dd>2 slaapkamers</dd></div>
                     <div><dt>Binnen</dt><dd>78,46 m²</dd></div>
                     <div><dt>Terras</dt><dd>21,72 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 354.000</p>

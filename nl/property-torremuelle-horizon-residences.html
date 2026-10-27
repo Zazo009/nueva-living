@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -697,13 +697,31 @@
               <span>Bekijk alle 10 beschikbare woningen</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
-            
+            <div class="availability-filters" role="group" aria-label="Beschikbare woningen filteren"
+              data-availability-filters
+              data-count-template="{shown} van {total} weergegeven">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Woningtype</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              
+              
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Filters wissen</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>Geen woningen komen overeen met deze filters.</p>
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Beschikbare woningen bij Torremuelle Horizon Residences</caption>
                 <thead><tr><th scope="col">Referentie</th><th scope="col">Verdieping</th><th scope="col">Slaapkamers</th><th scope="col">Oppervlakte</th><th scope="col">Prijs</th><th scope="col">Status</th><th scope="col">Plattegrond</th></tr></thead>
                 <tbody>
-              <tr data-price="750000">
+              <tr data-type="apartment" data-price="750000">
                 <td data-label="Referentie"><strong>101</strong></td>
                 <td data-label="Verdieping">Begane grond, zuidgebouw</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -712,7 +730,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/torremuelle-horizon-residences/floorplans/unit-101-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="995000">
+              <tr data-type="apartment" data-price="995000">
                 <td data-label="Referentie"><strong>103</strong></td>
                 <td data-label="Verdieping">Begane grond, zuidgebouw</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -721,7 +739,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/torremuelle-horizon-residences/floorplans/unit-103-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="990000">
+              <tr data-type="apartment" data-price="990000">
                 <td data-label="Referentie"><strong>105</strong></td>
                 <td data-label="Verdieping">Begane grond, zuidgebouw</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -730,7 +748,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/torremuelle-horizon-residences/floorplans/unit-105-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="1030000">
+              <tr data-type="apartment" data-price="1030000">
                 <td data-label="Referentie"><strong>107</strong></td>
                 <td data-label="Verdieping">Begane grond, zuidgebouw</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -739,7 +757,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/torremuelle-horizon-residences/floorplans/unit-107-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="1350000">
+              <tr data-type="penthouse" data-price="1350000">
                 <td data-label="Referentie"><strong>113</strong></td>
                 <td data-label="Verdieping">Dubbele penthouse, zuidgebouw</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -748,7 +766,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/torremuelle-horizon-residences/floorplans/unit-113-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="1345000">
+              <tr data-type="penthouse" data-price="1345000">
                 <td data-label="Referentie"><strong>114</strong></td>
                 <td data-label="Verdieping">Dubbele penthouse, zuidgebouw</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -757,7 +775,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/torremuelle-horizon-residences/floorplans/unit-114-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="950000">
+              <tr data-type="apartment" data-price="950000">
                 <td data-label="Referentie"><strong>205</strong></td>
                 <td data-label="Verdieping">Begane grond, noordgebouw</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -766,7 +784,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/torremuelle-horizon-residences/floorplans/unit-205-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="1225000">
+              <tr data-type="penthouse" data-price="1225000">
                 <td data-label="Referentie"><strong>213</strong></td>
                 <td data-label="Verdieping">Dubbele penthouse, noordgebouw</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -775,7 +793,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/torremuelle-horizon-residences/floorplans/unit-213-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="1165000">
+              <tr data-type="penthouse" data-price="1165000">
                 <td data-label="Referentie"><strong>215</strong></td>
                 <td data-label="Verdieping">Dubbele penthouse, noordgebouw</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -784,7 +802,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/torremuelle-horizon-residences/floorplans/unit-215-floorplans.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="1320000">
+              <tr data-type="penthouse" data-price="1320000">
                 <td data-label="Referentie"><strong>217</strong></td>
                 <td data-label="Verdieping">Dubbele penthouse, noordgebouw</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>

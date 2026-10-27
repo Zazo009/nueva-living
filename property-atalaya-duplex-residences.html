@@ -40,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -808,6 +808,14 @@
               data-availability-filters
               data-count-template="Showing {shown} of {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Home type</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex" aria-pressed="false">Duplex</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Bedrooms</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
@@ -824,7 +832,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>No homes match these filters.</p>
             <div class="unit-card-grid" role="list" aria-label="Available homes">
-              <article class="unit-card" data-unit data-beds="3" data-price="829000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="829000">
                 <a class="unit-card-plan" href="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-2-1b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.2.1B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-2-1b-floorplan-thumb-640.webp 640w, assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-2-1b-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -841,13 +849,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>185.03 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>52.23 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Penthouse, Block 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 829,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Duplex%20Residences%20-%201.2.1B">Ask about 1.2.1B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="839000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="839000">
                 <a class="unit-card-plan" href="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-2-2b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.2.2B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-2-2b-floorplan-thumb-640.webp 640w, assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-2-2b-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -864,13 +873,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>209.83 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>30.85 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Penthouse, Block 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 839,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Duplex%20Residences%20-%202.2.2B">Ask about 2.2.2B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="895000">
+              <article class="unit-card" data-unit data-type="duplex" data-beds="4" data-price="895000">
                 <a class="unit-card-plan" href="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-3-1a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.3.1A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-3-1a-floorplan-thumb-640.webp 640w, assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-3-1a-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -888,13 +898,14 @@
                     <div><dt>Built</dt><dd>263.99 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>35.49 sqm</dd></div>
                     <div><dt>Private pool</dt><dd>11.82 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex</dd></div>
                     <div><dt>Floor</dt><dd>Duplex, Block 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 895,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Duplex%20Residences%20-%201.3.1A">Ask about 1.3.1A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="899000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="899000">
                 <a class="unit-card-plan" href="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-3-2b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.3.2B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-3-2b-floorplan-thumb-640.webp 640w, assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-3-2b-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -911,13 +922,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>179.26 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>29.06 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Penthouse, Block 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 899,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Duplex%20Residences%20-%201.3.2B">Ask about 1.3.2B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="915000">
+              <article class="unit-card" data-unit data-type="duplex" data-beds="4" data-price="915000">
                 <a class="unit-card-plan" href="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-2-1a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.2.1A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-2-1a-floorplan-thumb-640.webp 640w, assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-2-1a-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -935,13 +947,14 @@
                     <div><dt>Built</dt><dd>263.99 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>23.80 sqm</dd></div>
                     <div><dt>Private pool</dt><dd>13.35 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex</dd></div>
                     <div><dt>Floor</dt><dd>Duplex, Block 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 915,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Duplex%20Residences%20-%201.2.1A">Ask about 1.2.1A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="935000">
+              <article class="unit-card" data-unit data-type="duplex" data-beds="4" data-price="935000">
                 <a class="unit-card-plan" href="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-2-2a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 1.2.2A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-2-2a-floorplan-thumb-640.webp 640w, assets/liora/projects/atalaya-duplex-residences/floorplans/unit-1-2-2a-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -959,13 +972,14 @@
                     <div><dt>Built</dt><dd>256.08 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>40.21 sqm</dd></div>
                     <div><dt>Private pool</dt><dd>15.30 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex</dd></div>
                     <div><dt>Floor</dt><dd>Duplex, Block 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 935,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Duplex%20Residences%20-%201.2.2A">Ask about 1.2.2A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="999000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="999000">
                 <a class="unit-card-plan" href="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-1-2b-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.1.2B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-1-2b-floorplan-thumb-640.webp 640w, assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-1-2b-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -982,13 +996,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>196.72 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>54.37 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Penthouse, Block 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 999,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Duplex%20Residences%20-%202.1.2B">Ask about 2.1.2B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="1040000">
+              <article class="unit-card" data-unit data-type="duplex" data-beds="5" data-price="1040000">
                 <a class="unit-card-plan" href="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-3-1a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.3.1A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-3-1a-floorplan-thumb-640.webp 640w, assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-3-1a-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1007,13 +1022,14 @@
                     <div><dt>Terrace</dt><dd>28.08 sqm</dd></div>
                     <div><dt>Garden</dt><dd>83.59 sqm</dd></div>
                     <div><dt>Private pool</dt><dd>12.45 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex</dd></div>
                     <div><dt>Floor</dt><dd>Duplex, Block 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,040,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Atalaya%20Duplex%20Residences%20-%202.3.1A">Ask about 2.3.1A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="1200000">
+              <article class="unit-card" data-unit data-type="duplex" data-beds="5" data-price="1200000">
                 <a class="unit-card-plan" href="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-3-2a-floorplan.pdf" target="_blank" rel="noopener" aria-label="Floorplan for 2.3.2A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-3-2a-floorplan-thumb-640.webp 640w, assets/liora/projects/atalaya-duplex-residences/floorplans/unit-2-3-2a-floorplan-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1032,6 +1048,7 @@
                     <div><dt>Terrace</dt><dd>48.85 sqm</dd></div>
                     <div><dt>Garden</dt><dd>420.85 sqm</dd></div>
                     <div><dt>Private pool</dt><dd>11.00 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex</dd></div>
                     <div><dt>Floor</dt><dd>Duplex, Block 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,200,000</p>

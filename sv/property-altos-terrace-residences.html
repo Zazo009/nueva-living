@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -778,6 +778,14 @@
             <div class="availability-filters" role="group" aria-label="Filtrera tillgängliga bostäder"
               data-availability-filters
               data-count-template="Visar {shown} av {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Bostadstyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alla</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Lägenhet</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex-penthouse" aria-pressed="false">Duplex-takvåning</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Pris</span>
@@ -795,7 +803,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Inga bostäder matchar dessa filter.</p>
             <div class="unit-card-grid" role="list" aria-label="Tillgängliga bostäder">
-              <article class="unit-card" data-unit data-price="540000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="540000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/30B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 30B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/30B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/30B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -811,13 +819,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>98,45 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 3</dd></div>
                   </dl>
                   <p class="unit-card-price">540 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2030B">Fråga om 30B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="630000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="630000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/51B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 51B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/51B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/51B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -833,13 +842,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>97,79 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 5</dd></div>
                   </dl>
                   <p class="unit-card-price">630 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2051B">Fråga om 51B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="610000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="610000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/40A.pdf" target="_blank" rel="noopener" aria-label="Planritning för 40A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/40A-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/40A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -855,13 +865,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>102,61 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 4</dd></div>
                   </dl>
                   <p class="unit-card-price">610 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2040A">Fråga om 40A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="650000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="650000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/60B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 60B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/60B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/60B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -877,13 +888,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>98,56 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 6</dd></div>
                   </dl>
                   <p class="unit-card-price">650 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2060B">Fråga om 60B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="660000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="660000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/50A.pdf" target="_blank" rel="noopener" aria-label="Planritning för 50A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/50A-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/50A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -899,13 +911,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>102,61 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 5</dd></div>
                   </dl>
                   <p class="unit-card-price">660 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2050A">Fråga om 50A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="700000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="700000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -915,13 +928,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>98,51 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 7</dd></div>
                   </dl>
                   <p class="unit-card-price">700 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2071B">Fråga om 71B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="835000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="835000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/70A.pdf" target="_blank" rel="noopener" aria-label="Planritning för 70A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/70A-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/70A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -937,13 +951,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>124,53 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 7</dd></div>
                   </dl>
                   <p class="unit-card-price">835 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2070A">Fråga om 70A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="840000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="840000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/82B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 82B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/82B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/82B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -959,13 +974,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>100,32 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 8</dd></div>
                   </dl>
                   <p class="unit-card-price">840 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2082B">Fråga om 82B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="875000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="875000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/72A.pdf" target="_blank" rel="noopener" aria-label="Planritning för 72A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/72A-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/72A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -981,13 +997,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>122,92 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 7</dd></div>
                   </dl>
                   <p class="unit-card-price">875 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2072A">Fråga om 72A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="900000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="900000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/34B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 34B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/34B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/34B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1003,13 +1020,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>118,62 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Duplex-takvåning</dd></div>
                     <div><dt>Våning</dt><dd>Hus 3</dd></div>
                   </dl>
                   <p class="unit-card-price">900 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2034B">Fråga om 34B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="950000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/81A.pdf" target="_blank" rel="noopener" aria-label="Planritning för 81A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/81A-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/81A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1025,13 +1043,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>117,71 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 8</dd></div>
                   </dl>
                   <p class="unit-card-price">950 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2081A">Fråga om 81A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1050000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="1050000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/64B.pdf" target="_blank" rel="noopener" aria-label="Planritning för 64B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/64B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/64B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1047,6 +1066,7 @@
                   <dl class="unit-card-facts">
                     <div><dt>Sovrum</dt><dd>3 sovrum</dd></div>
                     <div><dt>Storlek</dt><dd>120,63 m² invändigt</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Duplex-takvåning</dd></div>
                     <div><dt>Våning</dt><dd>Hus 6</dd></div>
                   </dl>
                   <p class="unit-card-price">1 050 000 €</p>

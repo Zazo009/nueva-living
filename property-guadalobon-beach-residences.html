@@ -40,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -695,6 +695,20 @@
               data-availability-filters
               data-count-template="Showing {shown} of {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Home type</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="townhouse-no-2-townhouse-block" aria-pressed="false">Townhouse No. 2, Townhouse Block</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="townhouse-no-3-townhouse-block" aria-pressed="false">Townhouse No. 3, Townhouse Block</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="townhouse-no-9-townhouse-block" aria-pressed="false">Townhouse No. 9, Townhouse Block</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="townhouse-no-10-townhouse-block" aria-pressed="false">Townhouse No. 10, Townhouse Block</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="townhouse-no-12-townhouse-block" aria-pressed="false">Townhouse No. 12, Townhouse Block</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="townhouse-no-13-townhouse-block" aria-pressed="false">Townhouse No. 13, Townhouse Block</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartment</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Bedrooms</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
@@ -713,101 +727,101 @@
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Available homes at Guadalobon Beach Residences</caption>
-                <thead><tr><th scope="col">Reference</th><th scope="col">Floor</th><th scope="col">Bedrooms</th><th scope="col">Size</th><th scope="col">Price</th><th scope="col">Status</th><th scope="col">Floorplan</th></tr></thead>
+                <thead><tr><th scope="col">Reference</th><th scope="col">Floor / type</th><th scope="col">Bedrooms</th><th scope="col">Size</th><th scope="col">Price</th><th scope="col">Status</th><th scope="col">Floorplan</th></tr></thead>
                 <tbody>
-              <tr data-beds="4" data-price="795000">
+              <tr data-type="townhouse-no-2-townhouse-block" data-beds="4" data-price="795000">
                 <td data-label="Reference"><strong>AN-2</strong></td>
-                <td data-label="Floor">Townhouse No. 2, Townhouse Block</td>
+                <td data-label="Floor / type">Townhouse No. 2, Townhouse Block</td>
                 <td data-label="Bedrooms">4 bedrooms</td>
                 <td data-label="Size">152.28 sqm Interior</td>
                 <td data-label="Price"><strong>EUR 795,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="4" data-price="795000">
+              <tr data-type="townhouse-no-3-townhouse-block" data-beds="4" data-price="795000">
                 <td data-label="Reference"><strong>AN-3</strong></td>
-                <td data-label="Floor">Townhouse No. 3, Townhouse Block</td>
+                <td data-label="Floor / type">Townhouse No. 3, Townhouse Block</td>
                 <td data-label="Bedrooms">4 bedrooms</td>
                 <td data-label="Size">153.12 sqm Interior</td>
                 <td data-label="Price"><strong>EUR 795,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="4" data-price="795000">
+              <tr data-type="townhouse-no-9-townhouse-block" data-beds="4" data-price="795000">
                 <td data-label="Reference"><strong>AN-9</strong></td>
-                <td data-label="Floor">Townhouse No. 9, Townhouse Block</td>
+                <td data-label="Floor / type">Townhouse No. 9, Townhouse Block</td>
                 <td data-label="Bedrooms">4 bedrooms</td>
                 <td data-label="Size"><span class="unit-size-part"><strong>200.54 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>94.65 sqm</strong> <em>Terrace and garden</em></span></td>
                 <td data-label="Price"><strong>EUR 795,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-9-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="4" data-price="795000">
+              <tr data-type="townhouse-no-10-townhouse-block" data-beds="4" data-price="795000">
                 <td data-label="Reference"><strong>AN-10</strong></td>
-                <td data-label="Floor">Townhouse No. 10, Townhouse Block</td>
+                <td data-label="Floor / type">Townhouse No. 10, Townhouse Block</td>
                 <td data-label="Bedrooms">4 bedrooms</td>
                 <td data-label="Size"><span class="unit-size-part"><strong>202.04 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>95.08 sqm</strong> <em>Terrace and garden</em></span></td>
                 <td data-label="Price"><strong>EUR 795,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-10-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="4" data-price="795000">
+              <tr data-type="townhouse-no-12-townhouse-block" data-beds="4" data-price="795000">
                 <td data-label="Reference"><strong>AN-12</strong></td>
-                <td data-label="Floor">Townhouse No. 12, Townhouse Block</td>
+                <td data-label="Floor / type">Townhouse No. 12, Townhouse Block</td>
                 <td data-label="Bedrooms">4 bedrooms</td>
                 <td data-label="Size">154.84 sqm Interior</td>
                 <td data-label="Price"><strong>EUR 795,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="4" data-price="825000">
+              <tr data-type="townhouse-no-13-townhouse-block" data-beds="4" data-price="825000">
                 <td data-label="Reference"><strong>AN-13</strong></td>
-                <td data-label="Floor">Townhouse No. 13, Townhouse Block</td>
+                <td data-label="Floor / type">Townhouse No. 13, Townhouse Block</td>
                 <td data-label="Bedrooms">4 bedrooms</td>
                 <td data-label="Size">146.48 sqm Interior</td>
                 <td data-label="Price"><strong>EUR 825,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="3" data-price="865000">
+              <tr data-type="penthouse" data-beds="3" data-price="865000">
                 <td data-label="Reference"><strong>AN-24A</strong></td>
-                <td data-label="Floor">Level 4, Portal 2, Building A (Penthouse)</td>
+                <td data-label="Floor / type">Level 4, Portal 2, Building A (Penthouse)</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
                 <td data-label="Size"><span class="unit-size-part"><strong>170.91 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>164.39 sqm</strong> <em>Terrace and rooftop solarium</em></span></td>
                 <td data-label="Price"><strong>EUR 865,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-24a-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="2" data-price="450000">
+              <tr data-type="apartment" data-beds="2" data-price="450000">
                 <td data-label="Reference"><strong>AN-54C</strong></td>
-                <td data-label="Floor">Level 4, Portal 5, Building B</td>
+                <td data-label="Floor / type">Level 4, Portal 5, Building B</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Size"><span class="unit-size-part"><strong>113.04 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>11.63 sqm</strong> <em>Terrace</em></span></td>
                 <td data-label="Price"><strong>EUR 450,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-54c-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="3" data-price="625000">
+              <tr data-type="penthouse" data-beds="3" data-price="625000">
                 <td data-label="Reference"><strong>AN-55A</strong></td>
-                <td data-label="Floor">Level 5, Portal 5, Building B (Penthouse)</td>
+                <td data-label="Floor / type">Level 5, Portal 5, Building B (Penthouse)</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
                 <td data-label="Size"><span class="unit-size-part"><strong>143.34 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>131.76 sqm</strong> <em>Terrace</em></span></td>
                 <td data-label="Price"><strong>EUR 625,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-55a-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="2" data-price="450000">
+              <tr data-type="apartment" data-beds="2" data-price="450000">
                 <td data-label="Reference"><strong>AN-64C</strong></td>
-                <td data-label="Floor">Level 4, Portal 6, Building B</td>
+                <td data-label="Floor / type">Level 4, Portal 6, Building B</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
                 <td data-label="Size"><span class="unit-size-part"><strong>105.41 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>16.21 sqm</strong> <em>Terrace</em></span></td>
                 <td data-label="Price"><strong>EUR 450,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-64c-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="3" data-price="656000">
+              <tr data-type="penthouse" data-beds="3" data-price="656000">
                 <td data-label="Reference"><strong>AN-65A</strong></td>
-                <td data-label="Floor">Level 5, Portal 6, Building B (Penthouse)</td>
+                <td data-label="Floor / type">Level 5, Portal 6, Building B (Penthouse)</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
                 <td data-label="Size"><span class="unit-size-part"><strong>138.43 sqm</strong> <em>Built</em></span><span class="unit-size-part"><strong>76.24 sqm</strong> <em>Terrace and rooftop solarium</em></span></td>
                 <td data-label="Price"><strong>EUR 656,000</strong></td>

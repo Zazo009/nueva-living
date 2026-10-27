@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -816,6 +816,14 @@
             <div class="availability-filters" role="group" aria-label="Verfügbare Wohnungen filtern"
               data-availability-filters
               data-count-template="{shown} von {total} werden angezeigt">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Haustyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Wohnung</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Preis</span>
@@ -836,7 +844,7 @@
                 <caption class="sr-only">Verfügbare Wohnungen in Las Lagunas Courtyard Residences</caption>
                 <thead><tr><th scope="col">Referenz</th><th scope="col">Etage</th><th scope="col">Schlafzimmer</th><th scope="col">Größe</th><th scope="col">Preis</th><th scope="col">Status</th></tr></thead>
                 <tbody>
-              <tr data-price="274000">
+              <tr data-type="apartment" data-price="274000">
                 <td data-label="Referenz"><strong>Wohnung 19</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -844,7 +852,7 @@
                 <td data-label="Preis"><strong>274.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="275000">
+              <tr data-type="apartment" data-price="275000">
                 <td data-label="Referenz"><strong>Wohnung 9</strong></td>
                 <td data-label="Etage">Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -852,7 +860,7 @@
                 <td data-label="Preis"><strong>275.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="279000">
+              <tr data-type="apartment" data-price="279000">
                 <td data-label="Referenz"><strong>Wohnung 8</strong></td>
                 <td data-label="Etage">Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -860,7 +868,7 @@
                 <td data-label="Preis"><strong>279.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="284000">
+              <tr data-type="apartment" data-price="284000">
                 <td data-label="Referenz"><strong>Wohnung 21</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -868,7 +876,7 @@
                 <td data-label="Preis"><strong>284.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="285000">
+              <tr data-type="apartment" data-price="285000">
                 <td data-label="Referenz"><strong>Wohnung 2</strong></td>
                 <td data-label="Etage">Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -876,7 +884,7 @@
                 <td data-label="Preis"><strong>285.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="285000">
+              <tr data-type="apartment" data-price="285000">
                 <td data-label="Referenz"><strong>Wohnung 3</strong></td>
                 <td data-label="Etage">Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -884,7 +892,7 @@
                 <td data-label="Preis"><strong>285.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="289000">
+              <tr data-type="apartment" data-price="289000">
                 <td data-label="Referenz"><strong>Wohnung 20</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -892,7 +900,7 @@
                 <td data-label="Preis"><strong>289.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="293000">
+              <tr data-type="apartment" data-price="293000">
                 <td data-label="Referenz"><strong>Wohnung 33</strong></td>
                 <td data-label="Etage">Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -900,7 +908,7 @@
                 <td data-label="Preis"><strong>293.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="294000">
+              <tr data-type="apartment" data-price="294000">
                 <td data-label="Referenz"><strong>Wohnung 11</strong></td>
                 <td data-label="Etage">Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -908,7 +916,7 @@
                 <td data-label="Preis"><strong>294.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="295000">
+              <tr data-type="apartment" data-price="295000">
                 <td data-label="Referenz"><strong>Wohnung 14</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -916,7 +924,7 @@
                 <td data-label="Preis"><strong>295.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="295000">
+              <tr data-type="apartment" data-price="295000">
                 <td data-label="Referenz"><strong>Wohnung 23</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -924,7 +932,7 @@
                 <td data-label="Preis"><strong>295.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="299000">
+              <tr data-type="apartment" data-price="299000">
                 <td data-label="Referenz"><strong>Wohnung 10</strong></td>
                 <td data-label="Etage">Erdgeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -932,7 +940,7 @@
                 <td data-label="Preis"><strong>299.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="299000">
+              <tr data-type="apartment" data-price="299000">
                 <td data-label="Referenz"><strong>Wohnung 12</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -940,7 +948,7 @@
                 <td data-label="Preis"><strong>299.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="299000">
+              <tr data-type="apartment" data-price="299000">
                 <td data-label="Referenz"><strong>Wohnung 15</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -948,7 +956,7 @@
                 <td data-label="Preis"><strong>299.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="299000">
+              <tr data-type="apartment" data-price="299000">
                 <td data-label="Referenz"><strong>Wohnung 17</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
@@ -956,7 +964,7 @@
                 <td data-label="Preis"><strong>299.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="299000">
+              <tr data-type="apartment" data-price="299000">
                 <td data-label="Referenz"><strong>Wohnung 25</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -964,7 +972,7 @@
                 <td data-label="Preis"><strong>299.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="299000">
+              <tr data-type="apartment" data-price="299000">
                 <td data-label="Referenz"><strong>Wohnung 35</strong></td>
                 <td data-label="Etage">Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -972,7 +980,7 @@
                 <td data-label="Preis"><strong>299.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="299000">
+              <tr data-type="apartment" data-price="299000">
                 <td data-label="Referenz"><strong>Wohnung 36</strong></td>
                 <td data-label="Etage">Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -980,7 +988,7 @@
                 <td data-label="Preis"><strong>299.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="304000">
+              <tr data-type="apartment" data-price="304000">
                 <td data-label="Referenz"><strong>Wohnung 28</strong></td>
                 <td data-label="Etage">Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -988,7 +996,7 @@
                 <td data-label="Preis"><strong>304.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="304000">
+              <tr data-type="apartment" data-price="304000">
                 <td data-label="Referenz"><strong>Wohnung 39</strong></td>
                 <td data-label="Etage">Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -996,7 +1004,7 @@
                 <td data-label="Preis"><strong>304.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="309000">
+              <tr data-type="apartment" data-price="309000">
                 <td data-label="Referenz"><strong>Wohnung 26</strong></td>
                 <td data-label="Etage">Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -1004,7 +1012,7 @@
                 <td data-label="Preis"><strong>309.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="309000">
+              <tr data-type="apartment" data-price="309000">
                 <td data-label="Referenz"><strong>Wohnung 29</strong></td>
                 <td data-label="Etage">Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -1012,7 +1020,7 @@
                 <td data-label="Preis"><strong>309.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="309000">
+              <tr data-type="apartment" data-price="309000">
                 <td data-label="Referenz"><strong>Wohnung 34</strong></td>
                 <td data-label="Etage">Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -1020,7 +1028,7 @@
                 <td data-label="Preis"><strong>309.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="312000">
+              <tr data-type="apartment" data-price="312000">
                 <td data-label="Referenz"><strong>Wohnung 4</strong></td>
                 <td data-label="Etage">Erdgeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
@@ -1028,7 +1036,7 @@
                 <td data-label="Preis"><strong>312.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="319000">
+              <tr data-type="apartment" data-price="319000">
                 <td data-label="Referenz"><strong>Wohnung 37</strong></td>
                 <td data-label="Etage">Zweites Obergeschoss</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -1036,7 +1044,7 @@
                 <td data-label="Preis"><strong>319.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="320000">
+              <tr data-type="penthouse" data-price="320000">
                 <td data-label="Referenz"><strong>Wohnung 45</strong></td>
                 <td data-label="Etage">Penthouse</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -1044,7 +1052,7 @@
                 <td data-label="Preis"><strong>320.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="325000">
+              <tr data-type="penthouse" data-price="325000">
                 <td data-label="Referenz"><strong>Wohnung 46</strong></td>
                 <td data-label="Etage">Penthouse</td>
                 <td data-label="Schlafzimmer">2 Schlafzimmer</td>
@@ -1052,7 +1060,7 @@
                 <td data-label="Preis"><strong>325.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="330000">
+              <tr data-type="apartment" data-price="330000">
                 <td data-label="Referenz"><strong>Wohnung 24</strong></td>
                 <td data-label="Etage">Erstes Obergeschoss</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>
@@ -1060,7 +1068,7 @@
                 <td data-label="Preis"><strong>330.000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Verfügbar</span></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="penthouse" data-price="420000">
                 <td data-label="Referenz"><strong>Wohnung 41</strong></td>
                 <td data-label="Etage">Penthouse</td>
                 <td data-label="Schlafzimmer">3 Schlafzimmer</td>

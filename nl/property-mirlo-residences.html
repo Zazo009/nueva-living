@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -841,6 +841,14 @@
             <div class="availability-filters" role="group" aria-label="Beschikbare woningen filteren"
               data-availability-filters
               data-count-template="{shown} van {total} weergegeven">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Woningtype</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Prijs</span>
@@ -858,7 +866,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Geen woningen komen overeen met deze filters.</p>
             <div class="unit-card-grid" role="list" aria-label="Beschikbare woningen">
-              <article class="unit-card" data-unit data-price="213000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="213000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -869,13 +877,14 @@
                     <div><dt>Slaapkamers</dt><dd>1 slaapkamer</dd></div>
                     <div><dt>Bebouwd</dt><dd>51,17 m²</dd></div>
                     <div><dt>Binnen</dt><dd>48,11 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 213.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%203">Vraag naar 3</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="236000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="236000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -886,13 +895,14 @@
                     <div><dt>Slaapkamers</dt><dd>1 slaapkamer</dd></div>
                     <div><dt>Bebouwd</dt><dd>54,52 m²</dd></div>
                     <div><dt>Binnen</dt><dd>57,07 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 236.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%207">Vraag naar 7</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="245000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="245000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-15.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 15">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-15-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-15-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -909,13 +919,14 @@
                     <div><dt>Slaapkamers</dt><dd>1 slaapkamer</dd></div>
                     <div><dt>Bebouwd</dt><dd>54,52 m²</dd></div>
                     <div><dt>Binnen</dt><dd>57,07 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Tweede verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 245.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2015">Vraag naar 15</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="270000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="270000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-2.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-2-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -933,13 +944,14 @@
                     <div><dt>Bebouwd</dt><dd>67,47 m²</dd></div>
                     <div><dt>Binnen</dt><dd>59,87 m²</dd></div>
                     <div><dt>Terras</dt><dd>6,54 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 270.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%202">Vraag naar 2</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="280000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="280000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-4.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 4">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-4-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-4-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -957,13 +969,14 @@
                     <div><dt>Bebouwd</dt><dd>58,36 m²</dd></div>
                     <div><dt>Binnen</dt><dd>48,91 m²</dd></div>
                     <div><dt>Terras</dt><dd>4,70 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 280.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%204">Vraag naar 4</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="293000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="293000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-10.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 10">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-10-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-10-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -981,13 +994,14 @@
                     <div><dt>Bebouwd</dt><dd>70,37 m²</dd></div>
                     <div><dt>Binnen</dt><dd>61,84 m²</dd></div>
                     <div><dt>Terras</dt><dd>2,70 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 293.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2010">Vraag naar 10</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="300000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="300000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -999,13 +1013,14 @@
                     <div><dt>Bebouwd</dt><dd>69,82 m²</dd></div>
                     <div><dt>Binnen</dt><dd>72,82 m²</dd></div>
                     <div><dt>Terras</dt><dd>4,50 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 300.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%205">Vraag naar 5</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="303000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="303000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-18.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 18">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-18-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-18-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1023,13 +1038,14 @@
                     <div><dt>Bebouwd</dt><dd>70,37 m²</dd></div>
                     <div><dt>Binnen</dt><dd>61,84 m²</dd></div>
                     <div><dt>Terras</dt><dd>2,70 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 303.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2018">Vraag naar 18</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="310000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="310000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-13.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 13">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-13-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-13-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1047,13 +1063,14 @@
                     <div><dt>Bebouwd</dt><dd>69,82 m²</dd></div>
                     <div><dt>Binnen</dt><dd>72,82 m²</dd></div>
                     <div><dt>Terras</dt><dd>4,50 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Tweede verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 310.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2013">Vraag naar 13</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="310000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="310000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-25.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 25">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-25-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-25-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1071,13 +1088,14 @@
                     <div><dt>Bebouwd</dt><dd>70,37 m²</dd></div>
                     <div><dt>Binnen</dt><dd>61,84 m²</dd></div>
                     <div><dt>Terras</dt><dd>2,70 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Tweede verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 310.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2025">Vraag naar 25</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="348000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="348000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-11.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 11">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-11-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-11-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1095,13 +1113,14 @@
                     <div><dt>Bebouwd</dt><dd>84,24 m²</dd></div>
                     <div><dt>Binnen</dt><dd>71,68 m²</dd></div>
                     <div><dt>Terras</dt><dd>2,90 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 348.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2011">Vraag naar 11</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="366000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="366000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-6.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 6">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-6-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-6-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1119,13 +1138,14 @@
                     <div><dt>Bebouwd</dt><dd>84,69 m²</dd></div>
                     <div><dt>Binnen</dt><dd>61,66 m²</dd></div>
                     <div><dt>Terras</dt><dd>8,60 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 366.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%206">Vraag naar 6</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="368000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="368000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -1137,13 +1157,14 @@
                     <div><dt>Bebouwd</dt><dd>84,24 m²</dd></div>
                     <div><dt>Binnen</dt><dd>71,68 m²</dd></div>
                     <div><dt>Terras</dt><dd>2,90 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Tweede verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 368.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2026">Vraag naar 26</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="372000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="372000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-16.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 16">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-16-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-16-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1161,13 +1182,14 @@
                     <div><dt>Bebouwd</dt><dd>87,87 m²</dd></div>
                     <div><dt>Binnen</dt><dd>78,64 m²</dd></div>
                     <div><dt>Terras</dt><dd>2,30 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 372.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2016">Vraag naar 16</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="376000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="376000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-23.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 23">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-23-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-23-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1185,13 +1207,14 @@
                     <div><dt>Bebouwd</dt><dd>87,87 m²</dd></div>
                     <div><dt>Binnen</dt><dd>78,64 m²</dd></div>
                     <div><dt>Terras</dt><dd>2,30 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Tweede verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 376.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2023">Vraag naar 23</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="421000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="421000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-9.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 9">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-9-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-9-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1209,13 +1232,14 @@
                     <div><dt>Bebouwd</dt><dd>103,27 m²</dd></div>
                     <div><dt>Binnen</dt><dd>89,67 m²</dd></div>
                     <div><dt>Terras</dt><dd>2,70 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 421.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%209">Vraag naar 9</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="429000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="429000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-27.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 27">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-27-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-27-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1233,6 +1257,7 @@
                     <div><dt>Bebouwd</dt><dd>91,12 m²</dd></div>
                     <div><dt>Binnen</dt><dd>62,84 m²</dd></div>
                     <div><dt>Terras</dt><dd>42,15 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
                     <div><dt>Verdieping</dt><dd>Penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 429.000</p>

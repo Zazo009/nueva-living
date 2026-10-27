@@ -40,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -719,6 +719,14 @@
               data-availability-filters
               data-count-template="Showing {shown} of {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Home type</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartment</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Bedrooms</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
@@ -746,7 +754,7 @@
                 <caption class="sr-only">Available homes at Mirador de Las Mesas</caption>
                 <thead><tr><th scope="col">Reference</th><th scope="col">Floor</th><th scope="col">Bedrooms</th><th scope="col">Size</th><th scope="col">Price</th><th scope="col">Status</th><th scope="col">Floorplan</th></tr></thead>
                 <tbody>
-              <tr data-beds="3" data-price="720000">
+              <tr data-type="apartment" data-beds="3" data-price="720000">
                 <td data-label="Reference"><strong>102</strong></td>
                 <td data-label="Floor">Ground Floor, Building 1</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -755,7 +763,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/mirador-las-mesas/floorplans/unit-102-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="3" data-price="1270000">
+              <tr data-type="penthouse" data-beds="3" data-price="1270000">
                 <td data-label="Reference"><strong>152</strong></td>
                 <td data-label="Floor">Penthouse, Building 1</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -764,7 +772,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="2" data-price="580000">
+              <tr data-type="apartment" data-beds="2" data-price="580000">
                 <td data-label="Reference"><strong>201</strong></td>
                 <td data-label="Floor">Ground Floor, Building 2</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -773,7 +781,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/mirador-las-mesas/floorplans/unit-201-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="3" data-price="995000">
+              <tr data-type="penthouse" data-beds="3" data-price="995000">
                 <td data-label="Reference"><strong>351</strong></td>
                 <td data-label="Floor">Penthouse, Building 3</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -782,7 +790,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="3" data-price="1450000">
+              <tr data-type="apartment" data-beds="3" data-price="1450000">
                 <td data-label="Reference"><strong>403</strong></td>
                 <td data-label="Floor">Ground Floor, Building 4</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -791,7 +799,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/mirador-las-mesas/floorplans/unit-403-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="3" data-price="1210000">
+              <tr data-type="apartment" data-beds="3" data-price="1210000">
                 <td data-label="Reference"><strong>413</strong></td>
                 <td data-label="Floor">First Floor, Building 4</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -800,7 +808,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/mirador-las-mesas/floorplans/unit-413-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="3" data-price="1230000">
+              <tr data-type="apartment" data-beds="3" data-price="1230000">
                 <td data-label="Reference"><strong>423</strong></td>
                 <td data-label="Floor">Second Floor, Building 4</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -809,7 +817,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="3" data-price="1520000">
+              <tr data-type="apartment" data-beds="3" data-price="1520000">
                 <td data-label="Reference"><strong>443</strong></td>
                 <td data-label="Floor">Fourth Floor, Building 4</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -818,7 +826,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="3" data-price="780000">
+              <tr data-type="apartment" data-beds="3" data-price="780000">
                 <td data-label="Reference"><strong>611</strong></td>
                 <td data-label="Floor">First Floor, Building 6</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -827,7 +835,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="3" data-price="890000">
+              <tr data-type="apartment" data-beds="3" data-price="890000">
                 <td data-label="Reference"><strong>711</strong></td>
                 <td data-label="Floor">First Floor, Building 7</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -836,7 +844,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/mirador-las-mesas/floorplans/unit-711-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="3" data-price="970000">
+              <tr data-type="apartment" data-beds="3" data-price="970000">
                 <td data-label="Reference"><strong>721</strong></td>
                 <td data-label="Floor">Second Floor, Building 7</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -845,7 +853,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="3" data-price="1000000">
+              <tr data-type="apartment" data-beds="3" data-price="1000000">
                 <td data-label="Reference"><strong>723</strong></td>
                 <td data-label="Floor">Second Floor, Building 7</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -854,7 +862,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="3" data-price="860000">
+              <tr data-type="apartment" data-beds="3" data-price="860000">
                 <td data-label="Reference"><strong>741</strong></td>
                 <td data-label="Floor">Fourth Floor, Building 7</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -863,7 +871,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="3" data-price="885000">
+              <tr data-type="apartment" data-beds="3" data-price="885000">
                 <td data-label="Reference"><strong>743</strong></td>
                 <td data-label="Floor">Fourth Floor, Building 7</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -872,7 +880,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="2" data-price="595000">
+              <tr data-type="apartment" data-beds="2" data-price="595000">
                 <td data-label="Reference"><strong>901</strong></td>
                 <td data-label="Floor">Ground Floor, Building 9</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -881,7 +889,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="3" data-price="1215000">
+              <tr data-type="penthouse" data-beds="3" data-price="1215000">
                 <td data-label="Reference"><strong>951</strong></td>
                 <td data-label="Floor">Penthouse, Building 9</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -890,7 +898,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"></td>
               </tr>
-              <tr data-beds="2" data-price="690000">
+              <tr data-type="apartment" data-beds="2" data-price="690000">
                 <td data-label="Reference"><strong>1012</strong></td>
                 <td data-label="Floor">First Floor, Building 10</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -899,7 +907,7 @@
                 <td data-label="Status"><span class="availability-status">Available</span></td>
                 <td data-label="Floorplan"><a class="availability-floorplan-link" href="assets/liora/projects/mirador-las-mesas/floorplans/unit-1012-floorplans.pdf" target="_blank" rel="noopener">View PDF</a></td>
               </tr>
-              <tr data-beds="2" data-price="710000">
+              <tr data-type="apartment" data-beds="2" data-price="710000">
                 <td data-label="Reference"><strong>1022</strong></td>
                 <td data-label="Floor">Second Floor, Building 10</td>
                 <td data-label="Bedrooms">2 bedrooms</td>

@@ -40,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -1057,6 +1057,15 @@
               data-availability-filters
               data-count-template="Showing {shown} of {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Home type</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartment</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex-penthouse" aria-pressed="false">Duplex penthouse</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Bedrooms</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
@@ -1083,7 +1092,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>No homes match these filters.</p>
             <div class="unit-card-grid" role="list" aria-label="Available homes">
-              <article class="unit-card" data-unit data-beds="3" data-price="1950000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="1950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11a-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11a-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11a-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1107,13 +1116,14 @@
                     <div><dt>Built</dt><dd>216.02 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>255.34 sqm</dd></div>
                     <div><dt>Garden</dt><dd>45.02 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 1, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,950,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2011A">Ask about 11A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="1495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="1495000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12a-first-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 12A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12a-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12a-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1130,13 +1140,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>129.22 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>108.83 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 1, First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012A">Ask about 12A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="1495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="1495000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12b-first-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 12B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12b-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12b-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1153,13 +1164,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>129.22 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>110.74 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 1, First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012B">Ask about 12B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="4" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13b-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13b-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13b-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1182,13 +1194,14 @@
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>253.04 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>286.20 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 1, Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2013B">Ask about 13B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2150000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2150000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11d-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11d-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11d-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1212,13 +1225,14 @@
                     <div><dt>Built</dt><dd>216.02 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>136.47 sqm</dd></div>
                     <div><dt>Garden</dt><dd>29.81 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 2, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,150,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2011D">Ask about 11D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="1495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="1495000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12c-first-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 12C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12c-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12c-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1235,13 +1249,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>129.22 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>110.90 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 2, First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012C">Ask about 12C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="1650000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="1650000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12d-first-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 12D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12d-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12d-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1258,13 +1273,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>129.22 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>126.77 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 2, First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,650,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012D">Ask about 12D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3245000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="4" data-price="3245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13c-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13c-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13c-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1287,13 +1303,14 @@
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>253.04 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>299.22 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 2, Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,245,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2013C">Ask about 13C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="4" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13d-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13d-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13d-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1316,13 +1333,14 @@
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>253.04 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>286.99 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 2, Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2013D">Ask about 13D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2475000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2475000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12e-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12e-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12e-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1346,13 +1364,14 @@
                     <div><dt>Built</dt><dd>216.02 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>205.07 sqm</dd></div>
                     <div><dt>Garden</dt><dd>28.45 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 3, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,475,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012E">Ask about 12E</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2745000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2745000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12f-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12f-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12f-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1376,13 +1395,14 @@
                     <div><dt>Built</dt><dd>216.02 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>221.06 sqm</dd></div>
                     <div><dt>Garden</dt><dd>49.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 3, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,745,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012F">Ask about 12F</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="4" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14e-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14e-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14e-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1405,13 +1425,14 @@
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>253.04 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>270.17 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 3, Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2014E">Ask about 14E</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="4" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14f-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14f-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14f-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1434,13 +1455,14 @@
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>253.04 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>275.19 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 3, Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,595,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2014F">Ask about 14F</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3300000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="3300000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12g-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12g-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12g-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1464,13 +1486,14 @@
                     <div><dt>Built</dt><dd>316.20 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>429.61 sqm</dd></div>
                     <div><dt>Garden</dt><dd>109.83 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 4, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,300,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012G">Ask about 12G</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="4950000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="5" data-price="4950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14g-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14g-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14g-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1493,13 +1516,14 @@
                     <div><dt>Bedrooms</dt><dd>5 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>362.93 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>567.14 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 4, Penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 4,950,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2014G">Ask about 14G</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2650000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2650000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22b-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22b-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22b-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1523,13 +1547,14 @@
                     <div><dt>Built</dt><dd>216.60 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>291.63 sqm</dd></div>
                     <div><dt>Garden</dt><dd>114.54 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 7, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,650,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2022B">Ask about 22B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2650000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2650000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22c-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22c-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22c-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1553,13 +1578,14 @@
                     <div><dt>Built</dt><dd>216.60 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>231.04 sqm</dd></div>
                     <div><dt>Garden</dt><dd>74.90 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 7, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,650,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2022C">Ask about 22C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21d-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21d-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21d-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1583,13 +1609,14 @@
                     <div><dt>Built</dt><dd>216.63 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>178.98 sqm</dd></div>
                     <div><dt>Garden</dt><dd>45.30 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 8, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021D">Ask about 21D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2245000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21e-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21e-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21e-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1612,13 +1639,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>216.61 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>150.90 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 8, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,245,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021E">Ask about 21E</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="1550000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="1550000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22e-first-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 22E">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22e-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22e-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1635,13 +1663,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>129.24 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>99.73 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 8, First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,550,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2022E">Ask about 22E</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="4" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23e-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23e-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23e-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1664,13 +1693,14 @@
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>253.06 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>296.32 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 8, Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,595,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023E">Ask about 23E</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21f-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21f-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21f-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1693,13 +1723,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>216.61 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>152.95 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 9, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021F">Ask about 21F</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2245000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21g-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21g-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21g-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1722,13 +1753,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>216.61 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>168.94 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 9, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,245,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021G">Ask about 21G</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="4" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23f-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23f-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23f-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1751,13 +1783,14 @@
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>253.02 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>309.41 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 9, Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023F">Ask about 23F</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="4" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23g-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23g-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23g-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1780,13 +1813,14 @@
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>253.07 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>315.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 9, Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,595,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023G">Ask about 23G</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21h-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21h-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21h-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1809,13 +1843,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>216.61 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>162.10 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021H">Ask about 21H</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="2245000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="2245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21i-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21i-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21i-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1838,13 +1873,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>216.61 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>131.71 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Ground floor &amp; basement</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 2,245,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021I">Ask about 21I</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="4" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23h-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23h-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23h-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1867,13 +1903,14 @@
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>253.05 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>277.18 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023H">Ask about 23H</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="4" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23i-second-floor.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Second floor">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23i-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23i-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1896,13 +1933,14 @@
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Built</dt><dd>253.05 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>312.60 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 3,595,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023I">Ask about 23I</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="6" data-price="6895000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="6" data-price="6895000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-2-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-2-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-2-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1933,13 +1971,14 @@
                     <div><dt>Terrace</dt><dd>248 sqm</dd></div>
                     <div><dt>Usable</dt><dd>862.28 sqm</dd></div>
                     <div><dt>Plot</dt><dd>870 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 6,895,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%202">Ask about Villa 2</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="6495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="5" data-price="6495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-4-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-4-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-4-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1970,13 +2009,14 @@
                     <div><dt>Terrace</dt><dd>208 sqm</dd></div>
                     <div><dt>Usable</dt><dd>786.74 sqm</dd></div>
                     <div><dt>Plot</dt><dd>1,045 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 6,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%204">Ask about Villa 4</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="6" data-price="7495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="6" data-price="7495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-5-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-5-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-5-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2007,13 +2047,14 @@
                     <div><dt>Terrace</dt><dd>234 sqm</dd></div>
                     <div><dt>Usable</dt><dd>867.89 sqm</dd></div>
                     <div><dt>Plot</dt><dd>1,058 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 7,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%205">Ask about Villa 5</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="7350000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="5" data-price="7350000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-6-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-6-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-6-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2044,13 +2085,14 @@
                     <div><dt>Terrace</dt><dd>186 sqm</dd></div>
                     <div><dt>Usable</dt><dd>753.42 sqm</dd></div>
                     <div><dt>Plot</dt><dd>846 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 7,350,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%206">Ask about Villa 6</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="6" data-price="8495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="6" data-price="8495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-7-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-7-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-7-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2081,13 +2123,14 @@
                     <div><dt>Terrace</dt><dd>183 sqm</dd></div>
                     <div><dt>Usable</dt><dd>743.96 sqm</dd></div>
                     <div><dt>Plot</dt><dd>979 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 8,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%207">Ask about Villa 7</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="6" data-price="8450000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="6" data-price="8450000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-10-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-10-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-10-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2118,13 +2161,14 @@
                     <div><dt>Terrace</dt><dd>247 sqm</dd></div>
                     <div><dt>Usable</dt><dd>887.79 sqm</dd></div>
                     <div><dt>Plot</dt><dd>1,614 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 8,450,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2010">Ask about Villa 10</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="6" data-price="8495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="6" data-price="8495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-11-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-11-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-11-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2155,13 +2199,14 @@
                     <div><dt>Terrace</dt><dd>233 sqm</dd></div>
                     <div><dt>Usable</dt><dd>867.42 sqm</dd></div>
                     <div><dt>Plot</dt><dd>1,185 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 8,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2011">Ask about Villa 11</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="7950000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="5" data-price="7950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-12-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-12-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-12-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2192,13 +2237,14 @@
                     <div><dt>Terrace</dt><dd>223 sqm</dd></div>
                     <div><dt>Usable</dt><dd>774.42 sqm</dd></div>
                     <div><dt>Plot</dt><dd>1,128 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 7,950,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2012">Ask about Villa 12</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="8495000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="5" data-price="8495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-14-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-14-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-14-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2229,13 +2275,14 @@
                     <div><dt>Terrace</dt><dd>211 sqm</dd></div>
                     <div><dt>Usable</dt><dd>768.58 sqm</dd></div>
                     <div><dt>Plot</dt><dd>859 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 8,495,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2014">Ask about Villa 14</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="5" data-price="8350000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="5" data-price="8350000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-15-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-15-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-15-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2266,13 +2313,14 @@
                     <div><dt>Terrace</dt><dd>224 sqm</dd></div>
                     <div><dt>Usable</dt><dd>768.58 sqm</dd></div>
                     <div><dt>Plot</dt><dd>818 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 8,350,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2015">Ask about Villa 15</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="6" data-price="8950000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="6" data-price="8950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-16-basement.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Basement">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-16-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-16-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2303,6 +2351,7 @@
                     <div><dt>Terrace</dt><dd>233 sqm</dd></div>
                     <div><dt>Usable</dt><dd>869.85 sqm</dd></div>
                     <div><dt>Plot</dt><dd>1,021 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Basement, ground floor &amp; first floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 8,950,000</p>

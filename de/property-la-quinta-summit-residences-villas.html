@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -1057,6 +1057,14 @@
             <div class="availability-filters" role="group" aria-label="Verfügbare Wohnungen filtern"
               data-availability-filters
               data-count-template="{shown} von {total} werden angezeigt">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Haustyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Wohnung</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex" aria-pressed="false">Maisonette</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Preis</span>
@@ -1074,7 +1082,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Keine Wohnungen entsprechen diesen Filtern.</p>
             <div class="unit-card-grid" role="list" aria-label="Verfügbare Wohnungen">
-              <article class="unit-card" data-unit data-price="1950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11a-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11a-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11a-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1098,13 +1106,14 @@
                     <div><dt>Bebaut</dt><dd>216,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>255,34 m²</dd></div>
                     <div><dt>Garten</dt><dd>45,02 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 1, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 1, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">1.950.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2011A">Zu 11A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1495000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12a-first-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 12A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12a-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12a-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1121,13 +1130,14 @@
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>129,22 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>108,83 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 1, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 1, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">1.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012A">Zu 12A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1495000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12b-first-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 12B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12b-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12b-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1144,13 +1154,14 @@
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>129,22 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>110,74 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 1, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 1, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">1.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012B">Zu 12B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13b-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13b-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13b-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1173,13 +1184,14 @@
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>253,04 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>286,20 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 1, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 1, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">3.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2013B">Zu 13B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2150000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2150000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11d-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11d-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11d-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1203,13 +1215,14 @@
                     <div><dt>Bebaut</dt><dd>216,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>136,47 m²</dd></div>
                     <div><dt>Garten</dt><dd>29,81 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 2, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 2, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.150.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2011D">Zu 11D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1495000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12c-first-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 12C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12c-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12c-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1226,13 +1239,14 @@
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>129,22 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>110,90 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 2, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 2, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">1.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012C">Zu 12C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1650000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1650000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12d-first-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 12D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12d-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12d-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1249,13 +1263,14 @@
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>129,22 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>126,77 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 2, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 2, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">1.650.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012D">Zu 12D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3245000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13c-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13c-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13c-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1278,13 +1293,14 @@
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>253,04 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>299,22 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 2, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 2, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">3.245.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2013C">Zu 13C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13d-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13d-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13d-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1307,13 +1323,14 @@
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>253,04 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>286,99 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 2, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 2, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">3.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2013D">Zu 13D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2475000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2475000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12e-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12e-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12e-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1337,13 +1354,14 @@
                     <div><dt>Bebaut</dt><dd>216,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>205,07 m²</dd></div>
                     <div><dt>Garten</dt><dd>28,45 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 3, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 3, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.475.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012E">Zu 12E anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2745000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2745000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12f-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12f-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12f-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1367,13 +1385,14 @@
                     <div><dt>Bebaut</dt><dd>216,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>221,06 m²</dd></div>
                     <div><dt>Garten</dt><dd>49,28 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 3, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 3, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.745.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012F">Zu 12F anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14e-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14e-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14e-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1396,13 +1415,14 @@
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>253,04 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>270,17 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 3, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 3, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">3.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2014E">Zu 14E anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14f-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14f-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14f-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1425,13 +1445,14 @@
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>253,04 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>275,19 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 3, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 3, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">3.595.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2014F">Zu 14F anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3300000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="3300000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12g-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12g-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12g-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1455,13 +1476,14 @@
                     <div><dt>Bebaut</dt><dd>316,20 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>429,61 m²</dd></div>
                     <div><dt>Garten</dt><dd>109,83 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">3.300.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012G">Zu 12G anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="4950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="4950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14g-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14g-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14g-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1484,13 +1506,14 @@
                     <div><dt>Schlafzimmer</dt><dd>5 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>362,93 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>567,14 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 4, Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 4, Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">4.950.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2014G">Zu 14G anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2650000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2650000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22b-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22b-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22b-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1514,13 +1537,14 @@
                     <div><dt>Bebaut</dt><dd>216,60 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>291,63 m²</dd></div>
                     <div><dt>Garten</dt><dd>114,54 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 7, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 7, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.650.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2022B">Zu 22B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2650000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2650000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22c-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22c-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22c-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1544,13 +1568,14 @@
                     <div><dt>Bebaut</dt><dd>216,60 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>231,04 m²</dd></div>
                     <div><dt>Garten</dt><dd>74,90 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 7, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 7, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.650.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2022C">Zu 22C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21d-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21d-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21d-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1574,13 +1599,14 @@
                     <div><dt>Bebaut</dt><dd>216,63 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>178,98 m²</dd></div>
                     <div><dt>Garten</dt><dd>45,30 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 8, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 8, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021D">Zu 21D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2245000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21e-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21e-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21e-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1603,13 +1629,14 @@
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>216,61 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>150,90 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 8, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 8, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.245.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021E">Zu 21E anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1550000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1550000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22e-first-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 22E">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22e-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22e-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1626,13 +1653,14 @@
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>129,24 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>99,73 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 8, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 8, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">1.550.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2022E">Zu 22E anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23e-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23e-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23e-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1655,13 +1683,14 @@
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>253,06 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>296,32 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 8, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 8, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">3.595.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023E">Zu 23E anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21f-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21f-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21f-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1684,13 +1713,14 @@
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>216,61 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>152,95 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 9, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 9, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021F">Zu 21F anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2245000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21g-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21g-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21g-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1713,13 +1743,14 @@
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>216,61 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>168,94 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 9, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 9, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.245.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021G">Zu 21G anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23f-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23f-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23f-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1742,13 +1773,14 @@
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>253,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>309,41 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 9, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 9, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">3.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023F">Zu 23F anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23g-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23g-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23g-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1771,13 +1803,14 @@
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>253,07 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>315,28 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 9, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 9, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">3.595.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023G">Zu 23G anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21h-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21h-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21h-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1800,13 +1833,14 @@
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>216,61 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>162,10 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 10, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 10, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021H">Zu 21H anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2245000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21i-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21i-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21i-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1829,13 +1863,14 @@
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>216,61 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>131,71 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 10, Erdgeschoss und Untergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 10, Erdgeschoss und Untergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">2.245.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021I">Zu 21I anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23h-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23h-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23h-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1858,13 +1893,14 @@
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>253,05 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>277,18 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 10, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 10, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">3.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023H">Zu 23H anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23i-second-floor.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Zweites Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23i-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23i-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1887,13 +1923,14 @@
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>253,05 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>312,60 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 10, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 10, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">3.595.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023I">Zu 23I anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="6895000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="6895000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-2-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-2-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-2-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1924,13 +1961,14 @@
                     <div><dt>Terrasse</dt><dd>248 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>862,28 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>870 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">6.895.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%202">Zu Villa 2 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="6495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="6495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-4-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-4-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-4-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1961,13 +1999,14 @@
                     <div><dt>Terrasse</dt><dd>208 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>786,74 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>1,045 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">6.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%204">Zu Villa 4 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="7495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="7495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-5-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-5-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-5-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1998,13 +2037,14 @@
                     <div><dt>Terrasse</dt><dd>234 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>867,89 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>1,058 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">7.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%205">Zu Villa 5 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="7350000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="7350000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-6-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-6-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-6-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2035,13 +2075,14 @@
                     <div><dt>Terrasse</dt><dd>186 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>753,42 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>846 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">7.350.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%206">Zu Villa 6 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-7-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-7-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-7-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2072,13 +2113,14 @@
                     <div><dt>Terrasse</dt><dd>183 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>743,96 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>979 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">8.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%207">Zu Villa 7 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8450000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8450000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-10-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-10-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-10-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2109,13 +2151,14 @@
                     <div><dt>Terrasse</dt><dd>247 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>887,79 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>1,614 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">8.450.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2010">Zu Villa 10 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-11-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-11-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-11-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2146,13 +2189,14 @@
                     <div><dt>Terrasse</dt><dd>233 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>867,42 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>1,185 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">8.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2011">Zu Villa 11 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="7950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="7950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-12-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-12-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-12-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2183,13 +2227,14 @@
                     <div><dt>Terrasse</dt><dd>223 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>774,42 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>1,128 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">7.950.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2012">Zu Villa 12 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-14-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-14-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-14-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2220,13 +2265,14 @@
                     <div><dt>Terrasse</dt><dd>211 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>768,58 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>859 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">8.495.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2014">Zu Villa 14 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8350000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8350000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-15-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-15-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-15-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2257,13 +2303,14 @@
                     <div><dt>Terrasse</dt><dd>224 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>768,58 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>818 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">8.350.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2015">Zu Villa 15 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-16-basement.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Untergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-16-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-16-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2294,6 +2341,7 @@
                     <div><dt>Terrasse</dt><dd>233 m²</dd></div>
                     <div><dt>Wohnfläche</dt><dd>869,85 m²</dd></div>
                     <div><dt>Grundstück</dt><dd>1,021 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Untergeschoss, Erdgeschoss und erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">8.950.000 €</p>

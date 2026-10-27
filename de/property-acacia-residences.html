@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -815,9 +815,27 @@
               <span>Alle 10 verfügbaren Wohnungen ansehen</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
-            
+            <div class="availability-filters" role="group" aria-label="Verfügbare Wohnungen filtern"
+              data-availability-filters
+              data-count-template="{shown} von {total} werden angezeigt">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Haustyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Wohnung</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex" aria-pressed="false">Maisonette</button>
+                </div>
+              </div>
+              
+              
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Filter zurücksetzen</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>Keine Wohnungen entsprechen diesen Filtern.</p>
             <div class="unit-card-grid" role="list" aria-label="Verfügbare Wohnungen">
-              <article class="unit-card" data-unit data-price="550000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="550000">
                 <a class="unit-card-plan" href="assets/liora/projects/acacia-residences/floorplans/first-floor-plan.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Home 3-1-3">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/acacia-residences/floorplans/first-floor-plan-640.webp 640w, assets/liora/projects/acacia-residences/floorplans/first-floor-plan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -835,13 +853,14 @@
                     <div><dt>Bebaut</dt><dd>145,68 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>113,24 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>38,56 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 3, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 3, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">550.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Acacia%20Residences%20-%20Home%203-1-3">Zu Home 3-1-3 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="500000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="500000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/acacia-residences/floorplans/penthouse-a-lower-level.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Unteres Geschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/acacia-residences/floorplans/penthouse-a-lower-level-640.webp 640w, assets/liora/projects/acacia-residences/floorplans/penthouse-a-lower-level-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -865,13 +884,14 @@
                     <div><dt>Bebaut</dt><dd>125,61 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>102,38 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>63,86 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 5, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 5, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">500.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Acacia%20Residences%20-%20Home%205-AT-6">Zu Home 5-AT-6 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="470000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="470000">
                 <a class="unit-card-plan" href="assets/liora/projects/acacia-residences/floorplans/ground-floor-plan.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Home 6-0-1">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/acacia-residences/floorplans/ground-floor-plan-640.webp 640w, assets/liora/projects/acacia-residences/floorplans/ground-floor-plan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -889,13 +909,14 @@
                     <div><dt>Bebaut</dt><dd>121,61 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>104,05 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>49,55 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 6, Erdgeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 6, Erdgeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">470.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Acacia%20Residences%20-%20Home%206-0-1">Zu Home 6-0-1 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="480000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="480000">
                 <a class="unit-card-plan" href="assets/liora/projects/acacia-residences/floorplans/ground-floor-plan.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Home 7-0-1">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/acacia-residences/floorplans/ground-floor-plan-640.webp 640w, assets/liora/projects/acacia-residences/floorplans/ground-floor-plan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -913,13 +934,14 @@
                     <div><dt>Bebaut</dt><dd>121,61 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>104,05 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>49,55 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 7, Erdgeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 7, Erdgeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">480.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Acacia%20Residences%20-%20Home%207-0-1">Zu Home 7-0-1 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="570000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="570000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -931,13 +953,14 @@
                     <div><dt>Bebaut</dt><dd>145,68 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>113,24 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>38,56 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 8, Erdgeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 8, Erdgeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">570.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Acacia%20Residences%20-%20Home%208-0-3">Zu Home 8-0-3 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="599000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="599000">
                 <a class="unit-card-plan" href="assets/liora/projects/acacia-residences/floorplans/first-floor-plan.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Home 8-1-5">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/acacia-residences/floorplans/first-floor-plan-640.webp 640w, assets/liora/projects/acacia-residences/floorplans/first-floor-plan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -955,13 +978,14 @@
                     <div><dt>Bebaut</dt><dd>145,68 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>113,24 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>38,56 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 8, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 8, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">599.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Acacia%20Residences%20-%20Home%208-1-5">Zu Home 8-1-5 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="540000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="540000">
                 <a class="unit-card-plan" href="assets/liora/projects/acacia-residences/floorplans/first-floor-plan.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Home 10-1-3">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/acacia-residences/floorplans/first-floor-plan-640.webp 640w, assets/liora/projects/acacia-residences/floorplans/first-floor-plan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -979,13 +1003,14 @@
                     <div><dt>Bebaut</dt><dd>145,68 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>113,24 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>38,56 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 10, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 10, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">540.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Acacia%20Residences%20-%20Home%2010-1-3">Zu Home 10-1-3 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="545000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="545000">
                 <a class="unit-card-plan" href="assets/liora/projects/acacia-residences/floorplans/first-floor-plan.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Home 10-1-5">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/acacia-residences/floorplans/first-floor-plan-640.webp 640w, assets/liora/projects/acacia-residences/floorplans/first-floor-plan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1003,13 +1028,14 @@
                     <div><dt>Bebaut</dt><dd>145,68 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>113,24 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>38,56 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 10, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 10, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">545.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Acacia%20Residences%20-%20Home%2010-1-5">Zu Home 10-1-5 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="595000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/acacia-residences/floorplans/penthouse-b-lower-level.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Unteres Geschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/acacia-residences/floorplans/penthouse-b-lower-level-640.webp 640w, assets/liora/projects/acacia-residences/floorplans/penthouse-b-lower-level-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1033,13 +1059,14 @@
                     <div><dt>Bebaut</dt><dd>146,73 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>114,06 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>64,54 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 10, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 10, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">595.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Acacia%20Residences%20-%20Home%2010-AT-8">Zu Home 10-AT-8 anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="600000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="600000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/acacia-residences/floorplans/penthouse-b-lower-level.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Unteres Geschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/acacia-residences/floorplans/penthouse-b-lower-level-640.webp 640w, assets/liora/projects/acacia-residences/floorplans/penthouse-b-lower-level-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1063,7 +1090,8 @@
                     <div><dt>Bebaut</dt><dd>146,73 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>114,06 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>64,54 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 10, Maisonette-Penthaus</dd></div>
+                    <div><dt>Haustyp</dt><dd>Maisonette</dd></div>
+                    <div><dt>Block</dt><dd>Block 10, Maisonette-Penthaus</dd></div>
                   </dl>
                   <p class="unit-card-price">600.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Acacia%20Residences%20-%20Home%2010-AT-9">Zu Home 10-AT-9 anfragen</a>

@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -778,6 +778,14 @@
             <div class="availability-filters" role="group" aria-label="Фильтр доступных вариантов"
               data-availability-filters
               data-count-template="Показано {shown} из {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Тип жилья</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Все</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Апартаменты</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex-penthouse" aria-pressed="false">Двухуровневый пентхаус</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Цена</span>
@@ -795,7 +803,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Нет вариантов, соответствующих фильтрам.</p>
             <div class="unit-card-grid" role="list" aria-label="Доступные варианты">
-              <article class="unit-card" data-unit data-price="540000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="540000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/30B.pdf" target="_blank" rel="noopener" aria-label="Планировка 30B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/30B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/30B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -811,13 +819,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>2 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>98,45 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 3</dd></div>
                   </dl>
                   <p class="unit-card-price">540 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2030B">Узнать о 30B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="630000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="630000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/51B.pdf" target="_blank" rel="noopener" aria-label="Планировка 51B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/51B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/51B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -833,13 +842,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>2 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>97,79 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 5</dd></div>
                   </dl>
                   <p class="unit-card-price">630 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2051B">Узнать о 51B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="610000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="610000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/40A.pdf" target="_blank" rel="noopener" aria-label="Планировка 40A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/40A-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/40A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -855,13 +865,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>2 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>102,61 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 4</dd></div>
                   </dl>
                   <p class="unit-card-price">610 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2040A">Узнать о 40A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="650000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="650000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/60B.pdf" target="_blank" rel="noopener" aria-label="Планировка 60B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/60B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/60B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -877,13 +888,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>2 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>98,56 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 6</dd></div>
                   </dl>
                   <p class="unit-card-price">650 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2060B">Узнать о 60B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="660000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="660000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/50A.pdf" target="_blank" rel="noopener" aria-label="Планировка 50A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/50A-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/50A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -899,13 +911,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>2 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>102,61 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 5</dd></div>
                   </dl>
                   <p class="unit-card-price">660 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2050A">Узнать о 50A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="700000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="700000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -915,13 +928,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>2 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>98,51 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 7</dd></div>
                   </dl>
                   <p class="unit-card-price">700 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2071B">Узнать о 71B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="835000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="835000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/70A.pdf" target="_blank" rel="noopener" aria-label="Планировка 70A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/70A-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/70A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -937,13 +951,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>3 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>124,53 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 7</dd></div>
                   </dl>
                   <p class="unit-card-price">835 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2070A">Узнать о 70A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="840000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="840000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/82B.pdf" target="_blank" rel="noopener" aria-label="Планировка 82B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/82B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/82B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -959,13 +974,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>2 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>100,32 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 8</dd></div>
                   </dl>
                   <p class="unit-card-price">840 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2082B">Узнать о 82B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="875000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="875000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/72A.pdf" target="_blank" rel="noopener" aria-label="Планировка 72A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/72A-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/72A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -981,13 +997,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>3 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>122,92 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 7</dd></div>
                   </dl>
                   <p class="unit-card-price">875 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2072A">Узнать о 72A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="900000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="900000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/34B.pdf" target="_blank" rel="noopener" aria-label="Планировка 34B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/34B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/34B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1003,13 +1020,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>3 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>118,62 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Двухуровневый пентхаус</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 3</dd></div>
                   </dl>
                   <p class="unit-card-price">900 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2034B">Узнать о 34B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="950000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/81A.pdf" target="_blank" rel="noopener" aria-label="Планировка 81A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/81A-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/81A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1025,13 +1043,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>3 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>117,71 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Апартаменты</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 8</dd></div>
                   </dl>
                   <p class="unit-card-price">950 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altos%20Terrace%20Residences%20-%2081A">Узнать о 81A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1050000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="1050000">
                 <a class="unit-card-plan" href="assets/liora/projects/altos-terrace-residences/floorplans/64B.pdf" target="_blank" rel="noopener" aria-label="Планировка 64B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altos-terrace-residences/floorplans/64B-thumb-640.webp 640w, assets/liora/projects/altos-terrace-residences/floorplans/64B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1047,6 +1066,7 @@
                   <dl class="unit-card-facts">
                     <div><dt>Спальни</dt><dd>3 спальни</dd></div>
                     <div><dt>Площадь</dt><dd>120,63 м² внутренняя площадь</dd></div>
+                    <div><dt>Тип жилья</dt><dd>Двухуровневый пентхаус</dd></div>
                     <div><dt>Этаж</dt><dd>Блок 6</dd></div>
                   </dl>
                   <p class="unit-card-price">1 050 000 €</p>

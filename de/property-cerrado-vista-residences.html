@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -705,6 +705,14 @@
             <div class="availability-filters" role="group" aria-label="Verfügbare Wohnungen filtern"
               data-availability-filters
               data-count-template="{shown} von {total} werden angezeigt">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Haustyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Wohnung</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Preis</span>
@@ -722,7 +730,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Keine Wohnungen entsprechen diesen Filtern.</p>
             <div class="unit-card-grid" role="list" aria-label="Verfügbare Wohnungen">
-              <article class="unit-card" data-unit data-price="1335000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1335000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-10a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 10A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-10a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-10a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -738,13 +746,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>178,57 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude A1</dd></div>
                   </dl>
                   <p class="unit-card-price">1.335.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2010A">Zu 10A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="450000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="450000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-10b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 10B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-10b-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-10b-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -760,13 +769,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>69,83 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude A1</dd></div>
                   </dl>
                   <p class="unit-card-price">450.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2010B">Zu 10B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="450000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="450000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-10c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 10C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-10c-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-10c-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -782,13 +792,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>69,39 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude A1</dd></div>
                   </dl>
                   <p class="unit-card-price">450.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2010C">Zu 10C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="760000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="760000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-11a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 11A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-11a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-11a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -804,13 +815,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>120,13 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude A1</dd></div>
                   </dl>
                   <p class="unit-card-price">760.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2011A">Zu 11A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="675000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="675000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-11d-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 11D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-11d-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-11d-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -826,13 +838,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>101,49 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude A1</dd></div>
                   </dl>
                   <p class="unit-card-price">675.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2011D">Zu 11D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="825000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="825000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-12a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 12A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-12a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-12a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -848,13 +861,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>120,93 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Zweiter Stock, Gebäude A1</dd></div>
                   </dl>
                   <p class="unit-card-price">825.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2012A">Zu 12A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="390000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="390000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-12b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 12B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-12b-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-12b-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -870,13 +884,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>63,23 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Zweiter Stock, Gebäude A1</dd></div>
                   </dl>
                   <p class="unit-card-price">390.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2012B">Zu 12B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="415000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="415000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-12c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 12C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-12c-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-12c-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -892,13 +907,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>63,21 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Zweiter Stock, Gebäude A1</dd></div>
                   </dl>
                   <p class="unit-card-price">415.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2012C">Zu 12C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1156000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1156000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-20a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 20A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-20a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-20a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -914,13 +930,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>169,69 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude A2</dd></div>
                   </dl>
                   <p class="unit-card-price">1.156.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2020A">Zu 20A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="425000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="425000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-20b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 20B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-20b-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-20b-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -936,13 +953,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>70,62 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude A2</dd></div>
                   </dl>
                   <p class="unit-card-price">425.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2020B">Zu 20B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="725000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="725000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-20d-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 20D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-20d-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-20d-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -958,13 +976,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>111,12 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude A2</dd></div>
                   </dl>
                   <p class="unit-card-price">725.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2020D">Zu 20D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="755000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="755000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-21a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 21A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-21a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-21a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -980,13 +999,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>120,13 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude A2</dd></div>
                   </dl>
                   <p class="unit-card-price">755.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2021A">Zu 21A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="395000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="395000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-21b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 21B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-21b-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-21b-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1002,13 +1022,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>63,20 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude A2</dd></div>
                   </dl>
                   <p class="unit-card-price">395.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2021B">Zu 21B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="675000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="675000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-21d-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 21D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-21d-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-21d-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1024,13 +1045,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>101,49 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude A2</dd></div>
                   </dl>
                   <p class="unit-card-price">675.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2021D">Zu 21D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1675000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="1675000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-23a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 23A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-23a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-23a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1046,13 +1068,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>191,45 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Penthouse</dd></div>
                     <div><dt>Etage</dt><dd>Dritter Stock (Penthouse), Gebäude A2</dd></div>
                   </dl>
                   <p class="unit-card-price">1.675.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2023A">Zu 23A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1523000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1523000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-30a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 30A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-30a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-30a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1068,13 +1091,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>183,91 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude A3</dd></div>
                   </dl>
                   <p class="unit-card-price">1.523.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2030A">Zu 30A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="527000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="527000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-30b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 30B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-30b-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-30b-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1090,13 +1114,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>70,76 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude A3</dd></div>
                   </dl>
                   <p class="unit-card-price">527.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2030B">Zu 30B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="758000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="758000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-30d-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 30D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-30d-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-30d-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1112,13 +1137,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>108,05 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude A3</dd></div>
                   </dl>
                   <p class="unit-card-price">758.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2030D">Zu 30D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1124000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1124000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-31a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 31A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-31a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-31a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1134,13 +1160,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>152,69 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude A3</dd></div>
                   </dl>
                   <p class="unit-card-price">1.124.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2031A">Zu 31A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="600000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="600000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-31b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 31B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-31b-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-31b-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1156,13 +1183,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>93,83 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude A3</dd></div>
                   </dl>
                   <p class="unit-card-price">600.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2031B">Zu 31B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="786940">
+              <article class="unit-card" data-unit data-type="apartment" data-price="786940">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-32c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 32C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-32c-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-32c-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1178,13 +1206,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>102,26 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Zweiter Stock, Gebäude A3</dd></div>
                   </dl>
                   <p class="unit-card-price">786.940 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2032C">Zu 32C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1288000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1288000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-4-1a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 4-1A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-4-1a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-4-1a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1200,13 +1229,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>168,07 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude B1</dd></div>
                   </dl>
                   <p class="unit-card-price">1.288.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%204-1A">Zu 4-1A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="629000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="629000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-40a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 40A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-40a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-40a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1222,13 +1252,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>83,11 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude B1</dd></div>
                   </dl>
                   <p class="unit-card-price">629.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2040A">Zu 40A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1175000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1175000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-40c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 40C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-40c-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-40c-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1244,13 +1275,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>150,41 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude B1</dd></div>
                   </dl>
                   <p class="unit-card-price">1.175.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2040C">Zu 40C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="485000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="485000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-41a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 41A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-41a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-41a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1266,13 +1298,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>66,14 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude B1</dd></div>
                   </dl>
                   <p class="unit-card-price">485.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2041A">Zu 41A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1200000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1200000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-42a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 42A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-42a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-42a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1288,13 +1321,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>113,23 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Zweiter Stock, Gebäude B1</dd></div>
                   </dl>
                   <p class="unit-card-price">1.200.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2042A">Zu 42A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="500000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="500000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-42b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 42B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-42b-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-42b-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1310,13 +1344,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>64,91 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Zweiter Stock, Gebäude B1</dd></div>
                   </dl>
                   <p class="unit-card-price">500.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2042B">Zu 42B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="952000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="952000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-50a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 50A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-50a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-50a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1332,13 +1367,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>128,34 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude C1</dd></div>
                   </dl>
                   <p class="unit-card-price">952.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2050A">Zu 50A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="727000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="727000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-50b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 50B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-50b-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-50b-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1354,13 +1390,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>111,56 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude C1</dd></div>
                   </dl>
                   <p class="unit-card-price">727.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2050B">Zu 50B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="484000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="484000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-50c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 50C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-50c-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-50c-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1376,13 +1413,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>60,26 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude C1</dd></div>
                   </dl>
                   <p class="unit-card-price">484.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2050C">Zu 50C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1075000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1075000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-51c-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 51C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-51c-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-51c-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1398,13 +1436,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>146,68 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude C1</dd></div>
                   </dl>
                   <p class="unit-card-price">1.075.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2051C">Zu 51C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1073100">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1073100">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-52a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 52A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-52a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-52a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1420,13 +1459,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>134,53 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Zweiter Stock, Gebäude C1</dd></div>
                   </dl>
                   <p class="unit-card-price">1.073.100 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2052A">Zu 52A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="480000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="480000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-52b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 52B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-52b-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-52b-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1442,13 +1482,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>1 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>62,28 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Zweiter Stock, Gebäude C1</dd></div>
                   </dl>
                   <p class="unit-card-price">480.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2052B">Zu 52B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2205000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="2205000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-53a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 53A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-53a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-53a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1464,13 +1505,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>4 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>200,54 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Penthouse</dd></div>
                     <div><dt>Etage</dt><dd>Dritter Stock (Penthouse), Gebäude C1</dd></div>
                   </dl>
                   <p class="unit-card-price">2.205.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2053A">Zu 53A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="703000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="703000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-6-1a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 6-1A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-6-1a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-6-1a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1486,13 +1528,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>108,63 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude C2</dd></div>
                   </dl>
                   <p class="unit-card-price">703.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%206-1A">Zu 6-1A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="840000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="840000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-60a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 60A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-60a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-60a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1508,13 +1551,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>114,24 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude C2</dd></div>
                   </dl>
                   <p class="unit-card-price">840.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2060A">Zu 60A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1331000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1331000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-60d-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 60D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-60d-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-60d-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1530,13 +1574,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>135,25 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss, Gebäude C2</dd></div>
                   </dl>
                   <p class="unit-card-price">1.331.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2060D">Zu 60D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="699000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="699000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-61a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 61A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-61a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-61a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1552,13 +1597,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>106,36 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude C2</dd></div>
                   </dl>
                   <p class="unit-card-price">699.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2061A">Zu 61A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="648000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="648000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-61b-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 61B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-61b-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-61b-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1574,13 +1620,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>2 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>92,36 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude C2</dd></div>
                   </dl>
                   <p class="unit-card-price">648.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2061B">Zu 61B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="950000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-61d-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 61D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-61d-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-61d-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1596,13 +1643,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>130,81 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erster Stock, Gebäude C2</dd></div>
                   </dl>
                   <p class="unit-card-price">950.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Cerrado%20Vista%20Residences%20-%2061D">Zu 61D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1075000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1075000">
                 <a class="unit-card-plan" href="assets/liora/projects/cerrado-vista-residences/floorplans/unit-62a-floorplans.pdf" target="_blank" rel="noopener" aria-label="Grundriss von 62A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/floorplans/unit-62a-floorplans-thumb-640.webp 640w, assets/liora/projects/cerrado-vista-residences/floorplans/unit-62a-floorplans-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1618,6 +1666,7 @@
                   <dl class="unit-card-facts">
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Größe</dt><dd>134,52 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Zweiter Stock, Gebäude C2</dd></div>
                   </dl>
                   <p class="unit-card-price">1.075.000 €</p>

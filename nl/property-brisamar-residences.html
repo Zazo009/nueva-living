@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -802,9 +802,27 @@
               <span>Bekijk alle 9 beschikbare woningen</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
-            
+            <div class="availability-filters" role="group" aria-label="Beschikbare woningen filteren"
+              data-availability-filters
+              data-count-template="{shown} van {total} weergegeven">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Woningtype</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              
+              
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Filters wissen</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>Geen woningen komen overeen met deze filters.</p>
             <div class="unit-card-grid" role="list" aria-label="Beschikbare woningen">
-              <article class="unit-card" data-unit data-price="650000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="650000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Begane grond">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -828,13 +846,14 @@
                     <div><dt>Bebouwd</dt><dd>77,32 m²</dd></div>
                     <div><dt>Terras</dt><dd>11,42 m²</dd></div>
                     <div><dt>Tuin</dt><dd>92,24 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Begane grond</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 650.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%200D">Vraag naar 0D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="549000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="549000">
                 <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 1C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-1c-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-1c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -851,13 +870,14 @@
                     <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
                     <div><dt>Bebouwd</dt><dd>87,13 m²</dd></div>
                     <div><dt>Terras</dt><dd>14,54 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Eerste verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 549.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%201C">Vraag naar 1C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="575000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="575000">
                 <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 2D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-2d-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -874,13 +894,14 @@
                     <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
                     <div><dt>Bebouwd</dt><dd>81,17 m²</dd></div>
                     <div><dt>Terras</dt><dd>11,42 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Tweede verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 575.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%202D">Vraag naar 2D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="595000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="595000">
                 <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 3B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-3b-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-3b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -897,13 +918,14 @@
                     <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
                     <div><dt>Bebouwd</dt><dd>89,11 m²</dd></div>
                     <div><dt>Terras</dt><dd>17,85 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Derde verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 595.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%203B">Vraag naar 3B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="815000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="815000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Vierde verdieping">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -927,13 +949,14 @@
                     <div><dt>Bebouwd</dt><dd>101,15 m²</dd></div>
                     <div><dt>Terras</dt><dd>20,31 m²</dd></div>
                     <div><dt>Solarium</dt><dd>19,66 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Vierde verdieping, solarium</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 815.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204A">Vraag naar 4A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="630000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="630000">
                 <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 4B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4b-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -950,13 +973,14 @@
                     <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
                     <div><dt>Bebouwd</dt><dd>89,10 m²</dd></div>
                     <div><dt>Terras</dt><dd>17,85 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Vierde verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 630.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204B">Vraag naar 4B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="665000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="665000">
                 <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van 4C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4c-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -973,13 +997,14 @@
                     <div><dt>Slaapkamers</dt><dd>3 slaapkamers</dd></div>
                     <div><dt>Bebouwd</dt><dd>87,13 m²</dd></div>
                     <div><dt>Terras</dt><dd>14,54 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Vierde verdieping</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 665.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204C">Vraag naar 4C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="860000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="860000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Vierde verdieping">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1003,13 +1028,14 @@
                     <div><dt>Bebouwd</dt><dd>81,17 m²</dd></div>
                     <div><dt>Terras</dt><dd>11,42 m²</dd></div>
                     <div><dt>Solarium</dt><dd>31,65 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Appartement</dd></div>
                     <div><dt>Verdieping</dt><dd>Vierde verdieping, solarium</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 860.000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204D">Vraag naar 4D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1050000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="1050000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg" target="_blank" rel="noopener" aria-label="Plattegrond van Penthouse">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1033,6 +1059,7 @@
                     <div><dt>Bebouwd</dt><dd>95,09 m²</dd></div>
                     <div><dt>Terras</dt><dd>17,56 m²</dd></div>
                     <div><dt>Solarium</dt><dd>66,04 m²</dd></div>
+                    <div><dt>Woningtype</dt><dd>Penthouse</dd></div>
                     <div><dt>Verdieping</dt><dd>Penthouse, solarium</dd></div>
                   </dl>
                   <p class="unit-card-price">€ 1.050.000</p>

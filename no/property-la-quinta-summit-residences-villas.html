@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -1057,6 +1057,14 @@
             <div class="availability-filters" role="group" aria-label="Filtrer tilgjengelige boliger"
               data-availability-filters
               data-count-template="Viser {shown} av {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Boligtype</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Leilighet</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex" aria-pressed="false">Toetasjes leilighet</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Pris</span>
@@ -1074,7 +1082,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Ingen boliger samsvarer med disse filtrene.</p>
             <div class="unit-card-grid" role="list" aria-label="Tilgjengelige boliger">
-              <article class="unit-card" data-unit data-price="1950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11a-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11a-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11a-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1098,13 +1106,14 @@
                     <div><dt>Bebygd</dt><dd>216,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>255,34 m²</dd></div>
                     <div><dt>Hage</dt><dd>45,02 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 1, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">1 950 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2011A">Spør om 11A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1495000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12a-first-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 12A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12a-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12a-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1121,13 +1130,14 @@
                     <div><dt>Soverom</dt><dd>2 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>129,22 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>108,83 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 1, andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">1 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012A">Spør om 12A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1495000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12b-first-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 12B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12b-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12b-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1144,13 +1154,14 @@
                     <div><dt>Soverom</dt><dd>2 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>129,22 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>110,74 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 1, andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">1 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012B">Spør om 12B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13b-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13b-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13b-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1173,13 +1184,14 @@
                     <div><dt>Soverom</dt><dd>4 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>253,04 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>286,20 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 1, duplex-toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">3 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2013B">Spør om 13B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2150000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2150000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11d-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11d-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-11d-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1203,13 +1215,14 @@
                     <div><dt>Bebygd</dt><dd>216,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>136,47 m²</dd></div>
                     <div><dt>Hage</dt><dd>29,81 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 2, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 150 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2011D">Spør om 11D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1495000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12c-first-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 12C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12c-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12c-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1226,13 +1239,14 @@
                     <div><dt>Soverom</dt><dd>2 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>129,22 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>110,90 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 2, andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">1 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012C">Spør om 12C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1650000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1650000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12d-first-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 12D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12d-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12d-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1249,13 +1263,14 @@
                     <div><dt>Soverom</dt><dd>2 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>129,22 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>126,77 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 2, andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">1 650 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012D">Spør om 12D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3245000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13c-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13c-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13c-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1278,13 +1293,14 @@
                     <div><dt>Soverom</dt><dd>4 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>253,04 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>299,22 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 2, duplex-toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">3 245 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2013C">Spør om 13C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13d-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13d-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-13d-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1307,13 +1323,14 @@
                     <div><dt>Soverom</dt><dd>4 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>253,04 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>286,99 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 2, duplex-toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">3 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2013D">Spør om 13D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2475000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2475000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12e-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12e-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12e-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1337,13 +1354,14 @@
                     <div><dt>Bebygd</dt><dd>216,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>205,07 m²</dd></div>
                     <div><dt>Hage</dt><dd>28,45 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 3, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 475 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012E">Spør om 12E</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2745000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2745000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12f-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12f-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12f-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1367,13 +1385,14 @@
                     <div><dt>Bebygd</dt><dd>216,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>221,06 m²</dd></div>
                     <div><dt>Hage</dt><dd>49,28 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 3, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 745 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012F">Spør om 12F</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14e-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14e-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14e-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1396,13 +1415,14 @@
                     <div><dt>Soverom</dt><dd>4 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>253,04 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>270,17 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 3, duplex-toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">3 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2014E">Spør om 14E</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14f-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14f-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14f-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1425,13 +1445,14 @@
                     <div><dt>Soverom</dt><dd>4 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>253,04 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>275,19 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 3, duplex-toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">3 595 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2014F">Spør om 14F</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3300000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="3300000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12g-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12g-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-12g-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1455,13 +1476,14 @@
                     <div><dt>Bebygd</dt><dd>316,20 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>429,61 m²</dd></div>
                     <div><dt>Hage</dt><dd>109,83 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 4, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">3 300 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2012G">Spør om 12G</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="4950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="4950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14g-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14g-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-14g-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1484,13 +1506,14 @@
                     <div><dt>Soverom</dt><dd>5 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>362,93 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>567,14 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 4, toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">4 950 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2014G">Spør om 14G</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2650000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2650000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22b-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22b-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22b-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1514,13 +1537,14 @@
                     <div><dt>Bebygd</dt><dd>216,60 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>291,63 m²</dd></div>
                     <div><dt>Hage</dt><dd>114,54 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 7, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 650 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2022B">Spør om 22B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2650000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2650000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22c-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22c-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22c-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1544,13 +1568,14 @@
                     <div><dt>Bebygd</dt><dd>216,60 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>231,04 m²</dd></div>
                     <div><dt>Hage</dt><dd>74,90 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 7, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 650 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2022C">Spør om 22C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21d-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21d-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21d-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1574,13 +1599,14 @@
                     <div><dt>Bebygd</dt><dd>216,63 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>178,98 m²</dd></div>
                     <div><dt>Hage</dt><dd>45,30 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 8, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021D">Spør om 21D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2245000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21e-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21e-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21e-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1603,13 +1629,14 @@
                     <div><dt>Soverom</dt><dd>3 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>216,61 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>150,90 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 8, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 245 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021E">Spør om 21E</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1550000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1550000">
                 <a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22e-first-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for 22E">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22e-first-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-22e-first-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1626,13 +1653,14 @@
                     <div><dt>Soverom</dt><dd>2 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>129,24 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>99,73 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 8, andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">1 550 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2022E">Spør om 22E</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23e-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23e-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23e-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1655,13 +1683,14 @@
                     <div><dt>Soverom</dt><dd>4 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>253,06 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>296,32 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 8, duplex-toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">3 595 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023E">Spør om 23E</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21f-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21f-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21f-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1684,13 +1713,14 @@
                     <div><dt>Soverom</dt><dd>3 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>216,61 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>152,95 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 9, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021F">Spør om 21F</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2245000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21g-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21g-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21g-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1713,13 +1743,14 @@
                     <div><dt>Soverom</dt><dd>3 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>216,61 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>168,94 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 9, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 245 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021G">Spør om 21G</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23f-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23f-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23f-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1742,13 +1773,14 @@
                     <div><dt>Soverom</dt><dd>4 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>253,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>309,41 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 9, duplex-toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">3 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023F">Spør om 23F</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23g-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23g-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23g-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1771,13 +1803,14 @@
                     <div><dt>Soverom</dt><dd>4 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>253,07 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>315,28 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 9, duplex-toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">3 595 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023G">Spør om 23G</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21h-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21h-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21h-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1800,13 +1833,14 @@
                     <div><dt>Soverom</dt><dd>3 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>216,61 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>162,10 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 10, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021H">Spør om 21H</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="2245000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="2245000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21i-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21i-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-21i-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1829,13 +1863,14 @@
                     <div><dt>Soverom</dt><dd>3 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>216,61 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>131,71 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 10, første etasje og kjeller</dd></div>
                   </dl>
                   <p class="unit-card-price">2 245 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2021I">Spør om 21I</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3495000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23h-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23h-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23h-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1858,13 +1893,14 @@
                     <div><dt>Soverom</dt><dd>4 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>253,05 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>277,18 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 10, duplex-toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">3 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023H">Spør om 23H</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="3595000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="3595000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23i-second-floor.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Tredje etasje">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23i-second-floor-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/apartment-23i-second-floor-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1887,13 +1923,14 @@
                     <div><dt>Soverom</dt><dd>4 soverom</dd></div>
                     <div><dt>Bebygd</dt><dd>253,05 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>312,60 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Toetasjes leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Hus 10, duplex-toppleilighet</dd></div>
                   </dl>
                   <p class="unit-card-price">3 595 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%2023I">Spør om 23I</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="6895000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="6895000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-2-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-2-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-2-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1924,13 +1961,14 @@
                     <div><dt>Terrasse</dt><dd>248 m²</dd></div>
                     <div><dt>Innvendig areal</dt><dd>862,28 m²</dd></div>
                     <div><dt>Tomt</dt><dd>870 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">6 895 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%202">Spør om Villa 2</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="6495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="6495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-4-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-4-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-4-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1958,13 +1996,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Soverom</dt><dd>5 soverom</dd></div>
                     <div><dt>Størrelse</dt><dd>824 m² bebygd, 208 m² terrasse, 786,74 m² innvendig areal, 1 045 m² tomt</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">6 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%204">Spør om Villa 4</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="7495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="7495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-5-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-5-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-5-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1992,13 +2031,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Soverom</dt><dd>6 soverom</dd></div>
                     <div><dt>Størrelse</dt><dd>920 m² bebygd, 234 m² terrasse, 867,89 m² innvendig areal, 1 058 m² tomt</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">7 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%205">Spør om Villa 5</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="7350000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="7350000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-6-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-6-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-6-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2029,13 +2069,14 @@
                     <div><dt>Terrasse</dt><dd>186 m²</dd></div>
                     <div><dt>Innvendig areal</dt><dd>753,42 m²</dd></div>
                     <div><dt>Tomt</dt><dd>846 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">7 350 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%206">Spør om Villa 6</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-7-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-7-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-7-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2066,13 +2107,14 @@
                     <div><dt>Terrasse</dt><dd>183 m²</dd></div>
                     <div><dt>Innvendig areal</dt><dd>743,96 m²</dd></div>
                     <div><dt>Tomt</dt><dd>979 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">8 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%207">Spør om Villa 7</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8450000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8450000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-10-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-10-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-10-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2100,13 +2142,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Soverom</dt><dd>6 soverom</dd></div>
                     <div><dt>Størrelse</dt><dd>937 m² bebygd, 247 m² terrasse, 887,79 m² innvendig areal, 1 614 m² tomt</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">8 450 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2010">Spør om Villa 10</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-11-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-11-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-11-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2134,13 +2177,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Soverom</dt><dd>6 soverom</dd></div>
                     <div><dt>Størrelse</dt><dd>920 m² bebygd, 233 m² terrasse, 867,42 m² innvendig areal, 1 185 m² tomt</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">8 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2011">Spør om Villa 11</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="7950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="7950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-12-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-12-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-12-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2168,13 +2212,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Soverom</dt><dd>5 soverom</dd></div>
                     <div><dt>Størrelse</dt><dd>829 m² bebygd, 223 m² terrasse, 774,42 m² innvendig areal, 1 128 m² tomt</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">7 950 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2012">Spør om Villa 12</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8495000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8495000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-14-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-14-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-14-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2205,13 +2250,14 @@
                     <div><dt>Terrasse</dt><dd>211 m²</dd></div>
                     <div><dt>Innvendig areal</dt><dd>768,58 m²</dd></div>
                     <div><dt>Tomt</dt><dd>859 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">8 495 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2014">Spør om Villa 14</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8350000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8350000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-15-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-15-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-15-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2242,13 +2288,14 @@
                     <div><dt>Terrasse</dt><dd>224 m²</dd></div>
                     <div><dt>Innvendig areal</dt><dd>768,58 m²</dd></div>
                     <div><dt>Tomt</dt><dd>818 m²</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">8 350 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=La%20Quinta%20Summit%20Residences%20%26%20Villas%20-%20Villa%2015">Spør om Villa 15</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="8950000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="8950000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-16-basement.jpg" target="_blank" rel="noopener" aria-label="Plantegning for Kjeller">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-16-basement-640.webp 640w, assets/liora/projects/la-quinta-summit-residences-villas/floorplans/villa-16-basement-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2276,6 +2323,7 @@
                   <dl class="unit-card-facts">
                     <div><dt>Soverom</dt><dd>6 soverom</dd></div>
                     <div><dt>Størrelse</dt><dd>921 m² bebygd, 233 m² terrasse, 869,85 m² innvendig areal, 1 021 m² tomt</dd></div>
+                    <div><dt>Boligtype</dt><dd>Leilighet</dd></div>
                     <div><dt>Etasje</dt><dd>Kjeller, første etasje og andre etasje</dd></div>
                   </dl>
                   <p class="unit-card-price">8 950 000 €</p>

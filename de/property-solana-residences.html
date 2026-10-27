@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -829,9 +829,27 @@
               <span>Alle 8 verfügbaren Wohnungen ansehen</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
-            
+            <div class="availability-filters" role="group" aria-label="Verfügbare Wohnungen filtern"
+              data-availability-filters
+              data-count-template="{shown} von {total} werden angezeigt">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Haustyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Wohnung</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              
+              
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Filter zurücksetzen</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>Keine Wohnungen entsprechen diesen Filtern.</p>
             <div class="unit-card-grid" role="list" aria-label="Verfügbare Wohnungen">
-              <article class="unit-card" data-unit data-price="1098500">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1098500">
                 <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 10A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-1-ground-floor-3-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -849,13 +867,14 @@
                     <div><dt>Bebaut</dt><dd>177,72 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>116,74 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>166,70 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 1, Erdgeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 1, Erdgeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">1.098.500 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2010A">Zu 10A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1037000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="1037000">
                 <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 24A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-2-penthouse-2-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -873,13 +892,14 @@
                     <div><dt>Bebaut</dt><dd>114,01 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>73,45 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>46,47 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Penthouse</dd></div>
                     <div><dt>Etage</dt><dd>Block 2, Penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">1.037.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2024A">Zu 24A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1126500">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1126500">
                 <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 20B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-2-ground-floor-3-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -897,13 +917,14 @@
                     <div><dt>Bebaut</dt><dd>167,61 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>109,02 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>177,29 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 2, Erdgeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 2, Erdgeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">1.126.500 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2020B">Zu 20B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="970000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="970000">
                 <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 34A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-3-penthouse-2-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -921,13 +942,14 @@
                     <div><dt>Bebaut</dt><dd>113,81 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>73,45 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>46,47 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Penthouse</dd></div>
                     <div><dt>Etage</dt><dd>Block 3, Penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">970.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2034A">Zu 34A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1254700">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="1254700">
                 <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 34B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-3-penthouse-3-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -945,13 +967,14 @@
                     <div><dt>Bebaut</dt><dd>147,78 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>96,50 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>63,86 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Penthouse</dd></div>
                     <div><dt>Etage</dt><dd>Block 3, Penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">1.254.700 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2034B">Zu 34B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="895000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="895000">
                 <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 32A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-3-second-floor-3-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -969,13 +992,14 @@
                     <div><dt>Bebaut</dt><dd>170,49 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>110,32 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>86,26 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 3, Zweites Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 3, Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">895.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2032A">Zu 32A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="645000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="645000">
                 <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 31A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-3-first-floor-2-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -993,13 +1017,14 @@
                     <div><dt>Bebaut</dt><dd>129,44 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>83,21 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>58,01 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 3, Erstes Obergeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 3, Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">645.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2031A">Zu 31A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1099000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="1099000">
                 <a class="unit-card-plan" href="assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 30A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed-640.webp 640w, assets/liora/projects/solana-residences/floorplans/block-3-ground-floor-3-bed-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1017,7 +1042,8 @@
                     <div><dt>Bebaut</dt><dd>177,41 m²</dd></div>
                     <div><dt>Innenfläche</dt><dd>116,74 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>164,79 m²</dd></div>
-                    <div><dt>Etage</dt><dd>Block 3, Erdgeschoss</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
+                    <div><dt>Block</dt><dd>Block 3, Erdgeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">1.099.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Solana%20Residences%20-%2030A">Zu 30A anfragen</a>

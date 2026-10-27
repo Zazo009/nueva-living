@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -833,6 +833,14 @@
             <div class="availability-filters" role="group" aria-label="Filtrera tillgängliga bostäder"
               data-availability-filters
               data-count-template="Visar {shown} av {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Bostadstyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alla</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Lägenhet</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex" aria-pressed="false">Etagelägenhet</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Pris</span>
@@ -850,7 +858,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Inga bostäder matchar dessa filter.</p>
             <div class="unit-card-grid" role="list" aria-label="Tillgängliga bostäder">
-              <article class="unit-card" data-unit data-price="499000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="499000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -861,13 +869,14 @@
                     <div><dt>Sovrum</dt><dd>2 sovrum</dd></div>
                     <div><dt>Byggyta</dt><dd>84,60 m²</dd></div>
                     <div><dt>Terrass</dt><dd>24,10 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Bottenvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">499 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20150B">Fråga om 150B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1035000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="1035000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-154b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 154B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-154b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-154b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -885,13 +894,14 @@
                     <div><dt>Byggyta</dt><dd>197,25 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>117,60 m²</dd></div>
                     <div><dt>Terrass</dt><dd>121,90 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Etagelägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Uppgång 15, duplex-takvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">1 035 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20154B">Fråga om 154B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1065000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="1065000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-164b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 164B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-164b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-164b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -909,13 +919,14 @@
                     <div><dt>Byggyta</dt><dd>197,25 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>117,60 m²</dd></div>
                     <div><dt>Terrass</dt><dd>121,90 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Etagelägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Uppgång 16, duplex-takvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">1 065 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20164B">Fråga om 164B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="509000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="509000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-160b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 160B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-160b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-160b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -933,13 +944,14 @@
                     <div><dt>Byggyta</dt><dd>115,25 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>74,30 m²</dd></div>
                     <div><dt>Terrass</dt><dd>24,30 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Uppgång 16, bottenvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">509 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20160B">Fråga om 160B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="759000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="759000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-162a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 162A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-162a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-162a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -957,13 +969,14 @@
                     <div><dt>Byggyta</dt><dd>154,23 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>99,30 m²</dd></div>
                     <div><dt>Terrass</dt><dd>100,70 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Uppgång 16, andra våningen</dd></div>
                   </dl>
                   <p class="unit-card-price">759 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20162A">Fråga om 162A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="829000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="829000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-163b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 163B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-163b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-163b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -981,13 +994,14 @@
                     <div><dt>Byggyta</dt><dd>157,25 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>93,80 m²</dd></div>
                     <div><dt>Terrass</dt><dd>50,70 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Uppgång 16, tredje våningen</dd></div>
                   </dl>
                   <p class="unit-card-price">829 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20163B">Fråga om 163B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="636000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="636000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-410a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 410A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-410a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-410a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1006,13 +1020,14 @@
                     <div><dt>Inomhus</dt><dd>82,70 m²</dd></div>
                     <div><dt>Terrass</dt><dd>63,20 m²</dd></div>
                     <div><dt>Trädgård</dt><dd>63,40 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 1, bottenvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">636 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20410A">Fråga om 410A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="527000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="527000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-410b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 410B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-410b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-410b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1031,13 +1046,14 @@
                     <div><dt>Inomhus</dt><dd>71,40 m²</dd></div>
                     <div><dt>Terrass</dt><dd>46,20 m²</dd></div>
                     <div><dt>Trädgård</dt><dd>42,20 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 1, bottenvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">527 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20410B">Fråga om 410B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="721000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="721000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-412b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 412B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-412b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-412b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1055,13 +1071,14 @@
                     <div><dt>Byggyta</dt><dd>101,70 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>88,30 m²</dd></div>
                     <div><dt>Terrass</dt><dd>114,70 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 1, andra våningen</dd></div>
                   </dl>
                   <p class="unit-card-price">721 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20412B">Fråga om 412B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="585000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="585000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-413a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 413A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-413a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-413a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1079,13 +1096,14 @@
                     <div><dt>Byggyta</dt><dd>100,90 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>82,60 m²</dd></div>
                     <div><dt>Terrass</dt><dd>49,70 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 1, tredje våningen</dd></div>
                   </dl>
                   <p class="unit-card-price">585 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20413A">Fråga om 413A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="892000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="892000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-414b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 414B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-414b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-414b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1103,13 +1121,14 @@
                     <div><dt>Byggyta</dt><dd>117,60 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>92,40 m²</dd></div>
                     <div><dt>Terrass</dt><dd>62,30 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Etagelägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 1, duplex-takvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">892 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20414B">Fråga om 414B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="613000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="613000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-420a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 420A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-420a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-420a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1128,13 +1147,14 @@
                     <div><dt>Inomhus</dt><dd>82,70 m²</dd></div>
                     <div><dt>Terrass</dt><dd>61,00 m²</dd></div>
                     <div><dt>Trädgård</dt><dd>46,00 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 2, bottenvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">613 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20420A">Fråga om 420A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="634000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="634000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-422a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 422A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-422a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-422a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1152,13 +1172,14 @@
                     <div><dt>Byggyta</dt><dd>102,20 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>82,40 m²</dd></div>
                     <div><dt>Terrass</dt><dd>100,40 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 2, andra våningen</dd></div>
                   </dl>
                   <p class="unit-card-price">634 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20422A">Fråga om 422A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="867000">
+              <article class="unit-card" data-unit data-type="duplex" data-price="867000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-424b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 424B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-424b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-424b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1176,13 +1197,14 @@
                     <div><dt>Byggyta</dt><dd>117,60 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>92,40 m²</dd></div>
                     <div><dt>Terrass</dt><dd>62,30 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Etagelägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 2, duplex-takvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">867 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20424B">Fråga om 424B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="563000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="563000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-430a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 430A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-430a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-430a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1200,13 +1222,14 @@
                     <div><dt>Byggyta</dt><dd>98,00 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>82,40 m²</dd></div>
                     <div><dt>Terrass</dt><dd>59,70 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 3, bottenvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">563 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20430A">Fråga om 430A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="458000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="458000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-430b.jpg" target="_blank" rel="noopener" aria-label="Planritning för 430B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-430b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-430b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1224,13 +1247,14 @@
                     <div><dt>Byggyta</dt><dd>82,70 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>70,90 m²</dd></div>
                     <div><dt>Terrass</dt><dd>46,00 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 3, bottenvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">458 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20430B">Fråga om 430B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="591000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="591000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-431d.jpg" target="_blank" rel="noopener" aria-label="Planritning för 431D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-431d-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-431d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1248,13 +1272,14 @@
                     <div><dt>Byggyta</dt><dd>100,00 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>83,60 m²</dd></div>
                     <div><dt>Terrass</dt><dd>60,20 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 3, första våningen</dd></div>
                   </dl>
                   <p class="unit-card-price">591 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20431D">Fråga om 431D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="861000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="861000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-434a.jpg" target="_blank" rel="noopener" aria-label="Planritning för 434A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-434a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-434a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1272,6 +1297,7 @@
                     <div><dt>Byggyta</dt><dd>117,00 m²</dd></div>
                     <div><dt>Inomhus</dt><dd>98,30 m²</dd></div>
                     <div><dt>Terrass</dt><dd>33,00 m²</dd></div>
+                    <div><dt>Bostadstyp</dt><dd>Lägenhet</dd></div>
                     <div><dt>Våning</dt><dd>Hus 3, takvåning</dd></div>
                   </dl>
                   <p class="unit-card-price">861 000 €</p>

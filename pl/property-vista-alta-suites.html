@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -723,6 +723,14 @@
             <div class="availability-filters" role="group" aria-label="Filtruj dostępne nieruchomości"
               data-availability-filters
               data-count-template="Wyświetlono {shown} z {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Typ domu</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Wszystkie</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartament</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Cena</span>
@@ -744,7 +752,7 @@
                 <caption class="sr-only">Dostępne nieruchomości w Vista Alta Suites</caption>
                 <thead><tr><th scope="col">Numer referencyjny</th><th scope="col">Piętro</th><th scope="col">Sypialnie</th><th scope="col">Powierzchnia</th><th scope="col">Cena</th><th scope="col">Status</th><th scope="col">Rzut</th></tr></thead>
                 <tbody>
-              <tr data-price="1200000">
+              <tr data-type="apartment" data-price="1200000">
                 <td data-label="Numer referencyjny"><strong>10D</strong></td>
                 <td data-label="Piętro">Parter, blok 1</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -753,7 +761,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-10d-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="895000">
+              <tr data-type="apartment" data-price="895000">
                 <td data-label="Numer referencyjny"><strong>11B</strong></td>
                 <td data-label="Piętro">Pierwsze piętro, blok 1</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -762,7 +770,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-11b-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="1045000">
+              <tr data-type="apartment" data-price="1045000">
                 <td data-label="Numer referencyjny"><strong>11D</strong></td>
                 <td data-label="Piętro">Pierwsze piętro, blok 1</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -771,7 +779,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"></td>
               </tr>
-              <tr data-price="814000">
+              <tr data-type="apartment" data-price="814000">
                 <td data-label="Numer referencyjny"><strong>20C</strong></td>
                 <td data-label="Piętro">Parter, blok 2</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -780,7 +788,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-20c-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="925000">
+              <tr data-type="apartment" data-price="925000">
                 <td data-label="Numer referencyjny"><strong>21B</strong></td>
                 <td data-label="Piętro">Pierwsze piętro, blok 2</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -789,7 +797,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-21b-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="2150000">
+              <tr data-type="penthouse" data-price="2150000">
                 <td data-label="Numer referencyjny"><strong>32B</strong></td>
                 <td data-label="Piętro">Penthouse, blok 3</td>
                 <td data-label="Sypialnie">4 sypialnie</td>
@@ -798,7 +806,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-32b-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="855000">
+              <tr data-type="apartment" data-price="855000">
                 <td data-label="Numer referencyjny"><strong>40A</strong></td>
                 <td data-label="Piętro">Parter, blok 4</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -807,7 +815,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-40a-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="725000">
+              <tr data-type="apartment" data-price="725000">
                 <td data-label="Numer referencyjny"><strong>40B</strong></td>
                 <td data-label="Piętro">Parter, blok 4</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -816,7 +824,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-40b-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="975000">
+              <tr data-type="apartment" data-price="975000">
                 <td data-label="Numer referencyjny"><strong>41A</strong></td>
                 <td data-label="Piętro">Pierwsze piętro, blok 4</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -825,7 +833,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-41a-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="1725000">
+              <tr data-type="penthouse" data-price="1725000">
                 <td data-label="Numer referencyjny"><strong>42B</strong></td>
                 <td data-label="Piętro">Penthouse, blok 4</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -834,7 +842,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-42b-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="895000">
+              <tr data-type="apartment" data-price="895000">
                 <td data-label="Numer referencyjny"><strong>50D</strong></td>
                 <td data-label="Piętro">Parter, blok 5</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -843,7 +851,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-50d-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="1150000">
+              <tr data-type="apartment" data-price="1150000">
                 <td data-label="Numer referencyjny"><strong>51A</strong></td>
                 <td data-label="Piętro">Pierwsze piętro, blok 5</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -852,7 +860,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-51a-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="1850000">
+              <tr data-type="penthouse" data-price="1850000">
                 <td data-label="Numer referencyjny"><strong>52A</strong></td>
                 <td data-label="Piętro">Penthouse, blok 5</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -861,7 +869,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-52a-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="845000">
+              <tr data-type="apartment" data-price="845000">
                 <td data-label="Numer referencyjny"><strong>61C</strong></td>
                 <td data-label="Piętro">Pierwsze piętro, blok 6</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -870,7 +878,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/vista-alta-suites/floorplans/unit-61c-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="875000">
+              <tr data-type="apartment" data-price="875000">
                 <td data-label="Numer referencyjny"><strong>70A</strong></td>
                 <td data-label="Piętro">Parter, blok 7</td>
                 <td data-label="Sypialnie">3 sypialnie</td>

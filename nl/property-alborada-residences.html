@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -789,6 +789,14 @@
             <div class="availability-filters" role="group" aria-label="Beschikbare woningen filteren"
               data-availability-filters
               data-count-template="{shown} van {total} weergegeven">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Woningtype</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Prijs</span>
@@ -809,7 +817,7 @@
                 <caption class="sr-only">Beschikbare woningen bij Alborada Residences</caption>
                 <thead><tr><th scope="col">Referentie</th><th scope="col">Verdieping</th><th scope="col">Slaapkamers</th><th scope="col">Oppervlakte</th><th scope="col">Prijs</th><th scope="col">Status</th><th scope="col">Plattegrond</th></tr></thead>
                 <tbody>
-              <tr data-price="415000">
+              <tr data-type="apartment" data-price="415000">
                 <td data-label="Referentie"><strong>04-01-02-A</strong></td>
                 <td data-label="Verdieping">Blok 4, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -818,7 +826,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referentie"><strong>04-01-BJ-A</strong></td>
                 <td data-label="Verdieping">Blok 4, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -827,7 +835,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="538000">
+              <tr data-type="apartment" data-price="538000">
                 <td data-label="Referentie"><strong>04-01-BJ-B</strong></td>
                 <td data-label="Verdieping">Blok 4, begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -836,7 +844,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-04-01-bj-b.jpg" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="430000">
+              <tr data-type="apartment" data-price="430000">
                 <td data-label="Referentie"><strong>04-02-02-A</strong></td>
                 <td data-label="Verdieping">Blok 4, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -845,7 +853,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="432000">
+              <tr data-type="apartment" data-price="432000">
                 <td data-label="Referentie"><strong>04-02-03-A</strong></td>
                 <td data-label="Verdieping">Blok 4, derde verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -854,7 +862,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="410000">
+              <tr data-type="apartment" data-price="410000">
                 <td data-label="Referentie"><strong>04-02-BJ-A</strong></td>
                 <td data-label="Verdieping">Blok 4, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -863,7 +871,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="425000">
+              <tr data-type="apartment" data-price="425000">
                 <td data-label="Referentie"><strong>04-03-02-B</strong></td>
                 <td data-label="Verdieping">Blok 4, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -872,7 +880,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="438000">
+              <tr data-type="apartment" data-price="438000">
                 <td data-label="Referentie"><strong>04-03-03-B</strong></td>
                 <td data-label="Verdieping">Blok 4, derde verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -881,7 +889,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referentie"><strong>04-03-BJ-B</strong></td>
                 <td data-label="Verdieping">Blok 4, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -890,7 +898,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="523000">
+              <tr data-type="apartment" data-price="523000">
                 <td data-label="Referentie"><strong>04-04-01-A</strong></td>
                 <td data-label="Verdieping">Blok 4, eerste verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -899,7 +907,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="555000">
+              <tr data-type="apartment" data-price="555000">
                 <td data-label="Referentie"><strong>04-04-02-A</strong></td>
                 <td data-label="Verdieping">Blok 4, tweede verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -908,7 +916,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="430000">
+              <tr data-type="apartment" data-price="430000">
                 <td data-label="Referentie"><strong>04-04-02-B</strong></td>
                 <td data-label="Verdieping">Blok 4, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -917,7 +925,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="568000">
+              <tr data-type="apartment" data-price="568000">
                 <td data-label="Referentie"><strong>04-04-03-A</strong></td>
                 <td data-label="Verdieping">Blok 4, derde verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -926,7 +934,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="440000">
+              <tr data-type="apartment" data-price="440000">
                 <td data-label="Referentie"><strong>04-04-03-B</strong></td>
                 <td data-label="Verdieping">Blok 4, derde verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -935,7 +943,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referentie"><strong>04-04-BJ-B</strong></td>
                 <td data-label="Verdieping">Blok 4, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -944,7 +952,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="435000">
+              <tr data-type="apartment" data-price="435000">
                 <td data-label="Referentie"><strong>05-01-01-A</strong></td>
                 <td data-label="Verdieping">Blok 5, eerste verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -953,7 +961,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="643000">
+              <tr data-type="apartment" data-price="643000">
                 <td data-label="Referentie"><strong>05-01-01-B</strong></td>
                 <td data-label="Verdieping">Blok 5, eerste verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -962,7 +970,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="470000">
+              <tr data-type="apartment" data-price="470000">
                 <td data-label="Referentie"><strong>05-01-02-A</strong></td>
                 <td data-label="Verdieping">Blok 5, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -971,7 +979,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="585000">
+              <tr data-type="apartment" data-price="585000">
                 <td data-label="Referentie"><strong>05-01-02-B</strong></td>
                 <td data-label="Verdieping">Blok 5, tweede verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -980,7 +988,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="495000">
+              <tr data-type="apartment" data-price="495000">
                 <td data-label="Referentie"><strong>05-01-03-A</strong></td>
                 <td data-label="Verdieping">Blok 5, derde verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -989,7 +997,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="613000">
+              <tr data-type="apartment" data-price="613000">
                 <td data-label="Referentie"><strong>05-01-03-B</strong></td>
                 <td data-label="Verdieping">Blok 5, derde verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -998,7 +1006,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="455000">
+              <tr data-type="apartment" data-price="455000">
                 <td data-label="Referentie"><strong>05-01-BJ-A</strong></td>
                 <td data-label="Verdieping">Blok 5, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1007,7 +1015,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-05-01-bj-a.jpg" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="545000">
+              <tr data-type="apartment" data-price="545000">
                 <td data-label="Referentie"><strong>05-01-BJ-B</strong></td>
                 <td data-label="Verdieping">Blok 5, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1016,7 +1024,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="450000">
+              <tr data-type="apartment" data-price="450000">
                 <td data-label="Referentie"><strong>05-02-01-B</strong></td>
                 <td data-label="Verdieping">Blok 5, eerste verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1025,7 +1033,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="465000">
+              <tr data-type="apartment" data-price="465000">
                 <td data-label="Referentie"><strong>05-02-02-A</strong></td>
                 <td data-label="Verdieping">Blok 5, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1034,7 +1042,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-05-02-02-a.jpg" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="455000">
+              <tr data-type="apartment" data-price="455000">
                 <td data-label="Referentie"><strong>05-02-02-B</strong></td>
                 <td data-label="Verdieping">Blok 5, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1043,7 +1051,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="475000">
+              <tr data-type="apartment" data-price="475000">
                 <td data-label="Referentie"><strong>05-02-03-A</strong></td>
                 <td data-label="Verdieping">Blok 5, derde verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1052,7 +1060,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="480000">
+              <tr data-type="apartment" data-price="480000">
                 <td data-label="Referentie"><strong>05-02-03-B</strong></td>
                 <td data-label="Verdieping">Blok 5, derde verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1061,7 +1069,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="640000">
+              <tr data-type="penthouse" data-price="640000">
                 <td data-label="Referentie"><strong>05-02-AT-A</strong></td>
                 <td data-label="Verdieping">Blok 5, penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1070,7 +1078,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-05-02-at-a.jpg" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="445000">
+              <tr data-type="apartment" data-price="445000">
                 <td data-label="Referentie"><strong>05-02-BJ-B</strong></td>
                 <td data-label="Verdieping">Blok 5, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1079,7 +1087,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="410000">
+              <tr data-type="apartment" data-price="410000">
                 <td data-label="Referentie"><strong>05-03-01-B</strong></td>
                 <td data-label="Verdieping">Blok 5, eerste verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1088,7 +1096,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="615000">
+              <tr data-type="apartment" data-price="615000">
                 <td data-label="Referentie"><strong>05-03-02-A</strong></td>
                 <td data-label="Verdieping">Blok 5, tweede verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1097,7 +1105,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="450000">
+              <tr data-type="apartment" data-price="450000">
                 <td data-label="Referentie"><strong>05-03-02-B</strong></td>
                 <td data-label="Verdieping">Blok 5, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1106,7 +1114,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="608000">
+              <tr data-type="apartment" data-price="608000">
                 <td data-label="Referentie"><strong>05-03-03-A</strong></td>
                 <td data-label="Verdieping">Blok 5, derde verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1115,7 +1123,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-05-03-03-a.jpg" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="470000">
+              <tr data-type="apartment" data-price="470000">
                 <td data-label="Referentie"><strong>05-03-03-B</strong></td>
                 <td data-label="Verdieping">Blok 5, derde verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1124,7 +1132,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="570000">
+              <tr data-type="apartment" data-price="570000">
                 <td data-label="Referentie"><strong>05-03-BJ-A</strong></td>
                 <td data-label="Verdieping">Blok 5, begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1133,7 +1141,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="440000">
+              <tr data-type="apartment" data-price="440000">
                 <td data-label="Referentie"><strong>05-03-BJ-B</strong></td>
                 <td data-label="Verdieping">Blok 5, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1142,7 +1150,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referentie"><strong>06-01-01-A</strong></td>
                 <td data-label="Verdieping">Blok 6, eerste verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1151,7 +1159,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="540000">
+              <tr data-type="apartment" data-price="540000">
                 <td data-label="Referentie"><strong>06-01-01-B</strong></td>
                 <td data-label="Verdieping">Blok 6, eerste verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1160,7 +1168,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referentie"><strong>06-01-02-A</strong></td>
                 <td data-label="Verdieping">Blok 6, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1169,7 +1177,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="450000">
+              <tr data-type="apartment" data-price="450000">
                 <td data-label="Referentie"><strong>06-01-03-A</strong></td>
                 <td data-label="Verdieping">Blok 6, derde verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1178,7 +1186,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="410000">
+              <tr data-type="apartment" data-price="410000">
                 <td data-label="Referentie"><strong>06-01-BJ-A</strong></td>
                 <td data-label="Verdieping">Blok 6, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1187,7 +1195,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="550000">
+              <tr data-type="apartment" data-price="550000">
                 <td data-label="Referentie"><strong>06-01-BJ-B</strong></td>
                 <td data-label="Verdieping">Blok 6, begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1196,7 +1204,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="410000">
+              <tr data-type="apartment" data-price="410000">
                 <td data-label="Referentie"><strong>06-02-01-A</strong></td>
                 <td data-label="Verdieping">Blok 6, eerste verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1205,7 +1213,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="430000">
+              <tr data-type="apartment" data-price="430000">
                 <td data-label="Referentie"><strong>06-02-02-A</strong></td>
                 <td data-label="Verdieping">Blok 6, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1214,7 +1222,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="430000">
+              <tr data-type="apartment" data-price="430000">
                 <td data-label="Referentie"><strong>06-02-02-B</strong></td>
                 <td data-label="Verdieping">Blok 6, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1223,7 +1231,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="450000">
+              <tr data-type="apartment" data-price="450000">
                 <td data-label="Referentie"><strong>06-02-03-A</strong></td>
                 <td data-label="Verdieping">Blok 6, derde verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1232,7 +1240,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="420000">
+              <tr data-type="apartment" data-price="420000">
                 <td data-label="Referentie"><strong>06-02-BJ-A</strong></td>
                 <td data-label="Verdieping">Blok 6, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1241,7 +1249,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="530000">
+              <tr data-type="apartment" data-price="530000">
                 <td data-label="Referentie"><strong>06-03-01-A</strong></td>
                 <td data-label="Verdieping">Blok 6, eerste verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1250,7 +1258,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="490000">
+              <tr data-type="apartment" data-price="490000">
                 <td data-label="Referentie"><strong>06-03-01-B</strong></td>
                 <td data-label="Verdieping">Blok 6, eerste verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1259,7 +1267,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="589000">
+              <tr data-type="apartment" data-price="589000">
                 <td data-label="Referentie"><strong>06-03-02-A</strong></td>
                 <td data-label="Verdieping">Blok 6, tweede verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1268,7 +1276,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="560000">
+              <tr data-type="apartment" data-price="560000">
                 <td data-label="Referentie"><strong>06-03-02-B</strong></td>
                 <td data-label="Verdieping">Blok 6, tweede verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1277,7 +1285,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="440000">
+              <tr data-type="apartment" data-price="440000">
                 <td data-label="Referentie"><strong>06-03-02-C</strong></td>
                 <td data-label="Verdieping">Blok 6, tweede verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1286,7 +1294,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="550000">
+              <tr data-type="apartment" data-price="550000">
                 <td data-label="Referentie"><strong>06-03-03-A</strong></td>
                 <td data-label="Verdieping">Blok 6, derde verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1295,7 +1303,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="560000">
+              <tr data-type="apartment" data-price="560000">
                 <td data-label="Referentie"><strong>06-03-03-B</strong></td>
                 <td data-label="Verdieping">Blok 6, derde verdieping</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1304,7 +1312,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="470000">
+              <tr data-type="apartment" data-price="470000">
                 <td data-label="Referentie"><strong>06-03-03-C</strong></td>
                 <td data-label="Verdieping">Blok 6, derde verdieping</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1313,7 +1321,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="645000">
+              <tr data-type="penthouse" data-price="645000">
                 <td data-label="Referentie"><strong>06-03-AT-B</strong></td>
                 <td data-label="Verdieping">Blok 6, penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1322,7 +1330,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/alborada-residences/floorplans/home-06-03-at-b.jpg" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="585000">
+              <tr data-type="apartment" data-price="585000">
                 <td data-label="Referentie"><strong>06-03-BJ-A</strong></td>
                 <td data-label="Verdieping">Blok 6, begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1331,7 +1339,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="449000">
+              <tr data-type="apartment" data-price="449000">
                 <td data-label="Referentie"><strong>06-03-BJ-B</strong></td>
                 <td data-label="Verdieping">Blok 6, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1340,7 +1348,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="435000">
+              <tr data-type="apartment" data-price="435000">
                 <td data-label="Referentie"><strong>06-03-BJ-C</strong></td>
                 <td data-label="Verdieping">Blok 6, begane grond</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>

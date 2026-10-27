@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -785,6 +785,19 @@
             <div class="availability-filters" role="group" aria-label="Filtrer les biens disponibles"
               data-availability-filters
               data-count-template="Affichage de {shown} sur {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Type de bien</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Toutes</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex-penthouse" aria-pressed="false">Penthouse duplex</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="bloc-6-villa-jumel-e" aria-pressed="false">Bloc 6, villa jumelée</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="bloc-7-villa-jumel-e" aria-pressed="false">Bloc 7, villa jumelée</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="bloc-8-villa-jumel-e" aria-pressed="false">Bloc 8, villa jumelée</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="bloc-9-villa-jumel-e" aria-pressed="false">Bloc 9, villa jumelée</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Prix</span>
@@ -802,7 +815,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Aucun bien ne correspond à ces filtres.</p>
             <div class="unit-card-grid" role="list" aria-label="Logements disponibles">
-              <article class="unit-card" data-unit data-price="782000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="782000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/a0e.jpg" target="_blank" rel="noopener" aria-label="Plan de 121">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/a0e-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/a0e-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -818,13 +831,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>127 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">782 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20121">Se renseigner sur 121</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="613000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="613000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b0c.jpg" target="_blank" rel="noopener" aria-label="Plan de 122">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b0c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b0c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -840,13 +854,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>84 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">613 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20122">Se renseigner sur 122</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="609000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="609000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b0d.jpg" target="_blank" rel="noopener" aria-label="Plan de 127">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b0d-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b0d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -862,13 +877,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>85 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">609 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20127">Se renseigner sur 127</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="630000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="630000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/u0.jpg" target="_blank" rel="noopener" aria-label="Plan de 128">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/u0-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/u0-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -884,13 +900,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>102 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">630 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20128">Se renseigner sur 128</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="736000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="736000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/a1c.jpg" target="_blank" rel="noopener" aria-label="Plan de 123">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/a1c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/a1c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -906,13 +923,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>127 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, premier étage</dd></div>
                   </dl>
                   <p class="unit-card-price">736 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20123">Se renseigner sur 123</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="550000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="550000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b1c.jpg" target="_blank" rel="noopener" aria-label="Plan de 124">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b1c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b1c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -928,13 +946,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>84 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, premier étage</dd></div>
                   </dl>
                   <p class="unit-card-price">550 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20124">Se renseigner sur 124</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="548000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="548000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b1d.jpg" target="_blank" rel="noopener" aria-label="Plan de 129">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b1d-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -950,13 +969,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>85 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, premier étage</dd></div>
                   </dl>
                   <p class="unit-card-price">548 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20129">Se renseigner sur 129</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="571000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="571000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/u1.jpg" target="_blank" rel="noopener" aria-label="Plan de 130">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/u1-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/u1-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -972,13 +992,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>105 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, premier étage</dd></div>
                   </dl>
                   <p class="unit-card-price">571 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20130">Se renseigner sur 130</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="974000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="974000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/a2c.jpg" target="_blank" rel="noopener" aria-label="Plan de 125">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/a2c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/a2c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -994,13 +1015,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>134 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">974 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20125">Se renseigner sur 125</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="728000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="728000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b2c.jpg" target="_blank" rel="noopener" aria-label="Plan de 126">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b2c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b2c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1016,13 +1038,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>95 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">728 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20126">Se renseigner sur 126</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="723000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="723000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b2d.jpg" target="_blank" rel="noopener" aria-label="Plan de 131">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b2d-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1038,13 +1061,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>95 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">723 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20131">Se renseigner sur 131</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="747000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="747000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/u2.jpg" target="_blank" rel="noopener" aria-label="Plan de 132">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/u2-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/u2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1060,13 +1084,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>110 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">747 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20132">Se renseigner sur 132</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="725000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="725000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/v2a.jpg" target="_blank" rel="noopener" aria-label="Plan de 138">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/v2a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/v2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1082,13 +1107,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>119 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">725 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20138">Se renseigner sur 138</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="562000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="562000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/y2.jpg" target="_blank" rel="noopener" aria-label="Plan de 139">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/y2-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/y2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1104,13 +1130,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>98 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">562 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20139">Se renseigner sur 139</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="540000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="540000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/w1a.jpg" target="_blank" rel="noopener" aria-label="Plan de 135">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/w1a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/w1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1126,13 +1153,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>87 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">540 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20135">Se renseigner sur 135</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="533000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="533000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/w1b.jpg" target="_blank" rel="noopener" aria-label="Plan de 137">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/w1b-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/w1b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1148,13 +1176,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>87 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">533 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20137">Se renseigner sur 137</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="464000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="464000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/x1.jpg" target="_blank" rel="noopener" aria-label="Plan de 136">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/x1-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/x1-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1170,13 +1199,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>1 chambre</dd></div>
                     <div><dt>Surface</dt><dd>65 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">464 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20136">Se renseigner sur 136</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="793000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="793000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/v0a.jpg" target="_blank" rel="noopener" aria-label="Plan de 133">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/v0a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/v0a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1192,13 +1222,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>116 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 10B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">793 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20133">Se renseigner sur 133</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="805000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="805000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/a0f.jpg" target="_blank" rel="noopener" aria-label="Plan de 140">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/a0f-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/a0f-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1214,13 +1245,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>128 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11A, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">805 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20140">Se renseigner sur 140</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="620000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="620000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b0c.jpg" target="_blank" rel="noopener" aria-label="Plan de 141">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b0c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b0c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1236,13 +1268,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>84 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11A, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">620 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20141">Se renseigner sur 141</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="617000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="617000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b0d.jpg" target="_blank" rel="noopener" aria-label="Plan de 146">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b0d-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b0d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1258,13 +1291,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>85 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11A, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">617 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20146">Se renseigner sur 146</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="752000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="752000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/a1d.jpg" target="_blank" rel="noopener" aria-label="Plan de 142">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/a1d-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/a1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1280,13 +1314,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>127 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11A, premier étage</dd></div>
                   </dl>
                   <p class="unit-card-price">752 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20142">Se renseigner sur 142</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="559000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="559000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b1c.jpg" target="_blank" rel="noopener" aria-label="Plan de 143">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b1c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b1c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1302,13 +1337,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>84 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11A, premier étage</dd></div>
                   </dl>
                   <p class="unit-card-price">559 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20143">Se renseigner sur 143</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="555000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="555000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b1d.jpg" target="_blank" rel="noopener" aria-label="Plan de 148">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b1d-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1324,13 +1360,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>85 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11A, premier étage</dd></div>
                   </dl>
                   <p class="unit-card-price">555 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20148">Se renseigner sur 148</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="990000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="990000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/a2d.jpg" target="_blank" rel="noopener" aria-label="Plan de 144">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/a2d-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/a2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1346,13 +1383,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>134 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">990 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20144">Se renseigner sur 144</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="737000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="737000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b2c.jpg" target="_blank" rel="noopener" aria-label="Plan de 145">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b2c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b2c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1368,13 +1406,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>95 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">737 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20145">Se renseigner sur 145</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="733000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="733000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b2d.jpg" target="_blank" rel="noopener" aria-label="Plan de 150">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b2d-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1390,13 +1429,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>95 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">733 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20150">Se renseigner sur 150</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="753000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="753000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/z2.jpg" target="_blank" rel="noopener" aria-label="Plan de 151">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/z2-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/z2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1412,13 +1452,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>110 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">753 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20151">Se renseigner sur 151</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="736000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="736000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/v2a.jpg" target="_blank" rel="noopener" aria-label="Plan de 156">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/v2a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/v2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1434,13 +1475,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>119 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">736 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20156">Se renseigner sur 156</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="727000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="727000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/v2b.jpg" target="_blank" rel="noopener" aria-label="Plan de 157">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/v2b-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/v2b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1456,13 +1498,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>119 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">727 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20157">Se renseigner sur 157</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="732000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="732000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/v1a.jpg" target="_blank" rel="noopener" aria-label="Plan de 154">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/v1a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/v1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1478,13 +1521,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>119 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">732 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20154">Se renseigner sur 154</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="721000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="721000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/v1b.jpg" target="_blank" rel="noopener" aria-label="Plan de 155">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/v1b-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/v1b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1500,13 +1544,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>119 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">721 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20155">Se renseigner sur 155</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="821000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="821000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/v0c.jpg" target="_blank" rel="noopener" aria-label="Plan de 152">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/v0c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/v0c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1522,13 +1567,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>117 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">821 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20152">Se renseigner sur 152</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="822000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="822000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/v0d.jpg" target="_blank" rel="noopener" aria-label="Plan de 153">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/v0d-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/v0d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1544,13 +1590,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>117 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 11B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">822 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20153">Se renseigner sur 153</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="872000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="872000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/a0g.jpg" target="_blank" rel="noopener" aria-label="Plan de 158">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/a0g-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/a0g-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1566,13 +1613,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>127 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12A, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">872 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20158">Se renseigner sur 158</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="683000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="683000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/l0c.jpg" target="_blank" rel="noopener" aria-label="Plan de 159">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/l0c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/l0c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1588,13 +1636,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>96 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12A, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">683 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20159">Se renseigner sur 159</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="679000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="679000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/l0d.jpg" target="_blank" rel="noopener" aria-label="Plan de 164">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/l0d-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/l0d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1610,13 +1659,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>96 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12A, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">679 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20164">Se renseigner sur 164</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="811000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="811000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/a1e.jpg" target="_blank" rel="noopener" aria-label="Plan de 160">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/a1e-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/a1e-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1632,13 +1682,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>127 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12A, premier étage</dd></div>
                   </dl>
                   <p class="unit-card-price">811 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20160">Se renseigner sur 160</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1080000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="1080000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/a2e.jpg" target="_blank" rel="noopener" aria-label="Plan de 162">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/a2e-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/a2e-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1654,13 +1705,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>135 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">1 080 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20162">Se renseigner sur 162</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="982000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="982000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/aa2.jpg" target="_blank" rel="noopener" aria-label="Plan de 163">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/aa2-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/aa2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1676,13 +1728,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>146 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse duplex</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12A, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">982 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20163">Se renseigner sur 163</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="990000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="990000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/bb2.jpg" target="_blank" rel="noopener" aria-label="Plan de 170">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/bb2-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/bb2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1698,13 +1751,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>146 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse duplex</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12A, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">990 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20170">Se renseigner sur 170</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="788000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="788000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/ae2a.jpg" target="_blank" rel="noopener" aria-label="Plan de 181">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/ae2a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/ae2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1720,13 +1774,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>117 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">788 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20181">Se renseigner sur 181</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="778000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="778000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/ae2b.jpg" target="_blank" rel="noopener" aria-label="Plan de 182">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/ae2b-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/ae2b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1742,13 +1797,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>115 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">778 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20182">Se renseigner sur 182</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="847000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="847000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/ag2.jpg" target="_blank" rel="noopener" aria-label="Plan de 184">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/ag2-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/ag2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1764,13 +1820,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>119 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">847 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20184">Se renseigner sur 184</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="781000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="781000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/ae1a.jpg" target="_blank" rel="noopener" aria-label="Plan de 177">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/ae1a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/ae1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1786,13 +1843,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>117 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">781 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20177">Se renseigner sur 177</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="770000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="770000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/ae1b.jpg" target="_blank" rel="noopener" aria-label="Plan de 178">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/ae1b-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/ae1b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1808,13 +1866,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>115 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">770 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20178">Se renseigner sur 178</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="856000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="856000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/af1.jpg" target="_blank" rel="noopener" aria-label="Plan de 179">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/af1-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/af1-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1830,13 +1889,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>132 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">856 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20179">Se renseigner sur 179</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="835000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="835000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/ag1.jpg" target="_blank" rel="noopener" aria-label="Plan de 180">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/ag1-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/ag1-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1852,13 +1912,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>119 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 12B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">835 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20180">Se renseigner sur 180</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="765000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="765000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b2a.jpg" target="_blank" rel="noopener" aria-label="Plan de 6">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b2a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1874,13 +1935,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>94 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 1A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">765 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%206">Se renseigner sur 6</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="822000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="822000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b2a.jpg" target="_blank" rel="noopener" aria-label="Plan de 33">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b2a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1896,13 +1958,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>94 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 2A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">822 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%2033">Se renseigner sur 33</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="783000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="783000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/b2b.jpg" target="_blank" rel="noopener" aria-label="Plan de 44">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/b2b-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/b2b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1918,13 +1981,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>94 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 2A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">783 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%2044">Se renseigner sur 44</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="740000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="740000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/g1a.jpg" target="_blank" rel="noopener" aria-label="Plan de 58">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/g1a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/g1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1940,13 +2004,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>96 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 3A, premier étage</dd></div>
                   </dl>
                   <p class="unit-card-price">740 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%2058">Se renseigner sur 58</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="914000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="914000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/g2.jpg" target="_blank" rel="noopener" aria-label="Plan de 65">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/g2-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/g2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1962,13 +2027,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Surface</dt><dd>107 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 3A, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">914 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%2065">Se renseigner sur 65</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="675000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="675000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/m1a.jpg" target="_blank" rel="noopener" aria-label="Plan de 87">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/m1a-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/m1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1984,13 +2050,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>127 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 4B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">675 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%2087">Se renseigner sur 87</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="675000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="675000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/m1b.jpg" target="_blank" rel="noopener" aria-label="Plan de 88">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/m1b-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/m1b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2006,13 +2073,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>127 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 4B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">675 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%2088">Se renseigner sur 88</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="681000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="681000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/m0b.jpg" target="_blank" rel="noopener" aria-label="Plan de 86">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/m0b-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/m0b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2028,13 +2096,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>128 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 4B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">681 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%2086">Se renseigner sur 86</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="639000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="639000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/e0c.jpg" target="_blank" rel="noopener" aria-label="Plan de 107">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/e0c-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/e0c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2050,13 +2119,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>123 m² intérieur</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 5B, niveau inférieur</dd></div>
                   </dl>
                   <p class="unit-card-price">639 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20107">Se renseigner sur 107</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1468000">
+              <article class="unit-card" data-unit data-type="bloc-6-villa-jumel-e" data-price="1468000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/n1-ground.jpg" target="_blank" rel="noopener" aria-label="Plan de 113">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/n1-ground-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/n1-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2072,13 +2142,13 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>167 m² intérieur</dd></div>
-                    <div><dt>Étage</dt><dd>Bloc 6, villa jumelée</dd></div>
+                    <div><dt>Type de bien</dt><dd>Bloc 6, villa jumelée</dd></div>
                   </dl>
                   <p class="unit-card-price">1 468 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20113">Se renseigner sur 113</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1500000">
+              <article class="unit-card" data-unit data-type="bloc-6-villa-jumel-e" data-price="1500000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/n2-ground.jpg" target="_blank" rel="noopener" aria-label="Plan de 114">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/n2-ground-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/n2-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2094,13 +2164,13 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>167 m² intérieur</dd></div>
-                    <div><dt>Étage</dt><dd>Bloc 6, villa jumelée</dd></div>
+                    <div><dt>Type de bien</dt><dd>Bloc 6, villa jumelée</dd></div>
                   </dl>
                   <p class="unit-card-price">1 500 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20114">Se renseigner sur 114</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1531000">
+              <article class="unit-card" data-unit data-type="bloc-7-villa-jumel-e" data-price="1531000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/o1-ground.jpg" target="_blank" rel="noopener" aria-label="Plan de 115">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/o1-ground-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/o1-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2116,13 +2186,13 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>167 m² intérieur</dd></div>
-                    <div><dt>Étage</dt><dd>Bloc 7, villa jumelée</dd></div>
+                    <div><dt>Type de bien</dt><dd>Bloc 7, villa jumelée</dd></div>
                   </dl>
                   <p class="unit-card-price">1 531 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20115">Se renseigner sur 115</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1473000">
+              <article class="unit-card" data-unit data-type="bloc-7-villa-jumel-e" data-price="1473000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/o2-ground.jpg" target="_blank" rel="noopener" aria-label="Plan de 116">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/o2-ground-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/o2-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2138,13 +2208,13 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>167 m² intérieur</dd></div>
-                    <div><dt>Étage</dt><dd>Bloc 7, villa jumelée</dd></div>
+                    <div><dt>Type de bien</dt><dd>Bloc 7, villa jumelée</dd></div>
                   </dl>
                   <p class="unit-card-price">1 473 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20116">Se renseigner sur 116</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1638000">
+              <article class="unit-card" data-unit data-type="bloc-8-villa-jumel-e" data-price="1638000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/p1-ground.jpg" target="_blank" rel="noopener" aria-label="Plan de 117">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/p1-ground-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/p1-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2160,13 +2230,13 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>174 m² intérieur</dd></div>
-                    <div><dt>Étage</dt><dd>Bloc 8, villa jumelée</dd></div>
+                    <div><dt>Type de bien</dt><dd>Bloc 8, villa jumelée</dd></div>
                   </dl>
                   <p class="unit-card-price">1 638 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20117">Se renseigner sur 117</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1563000">
+              <article class="unit-card" data-unit data-type="bloc-8-villa-jumel-e" data-price="1563000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/p2-ground.jpg" target="_blank" rel="noopener" aria-label="Plan de 118">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/p2-ground-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/p2-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2182,13 +2252,13 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>174 m² intérieur</dd></div>
-                    <div><dt>Étage</dt><dd>Bloc 8, villa jumelée</dd></div>
+                    <div><dt>Type de bien</dt><dd>Bloc 8, villa jumelée</dd></div>
                   </dl>
                   <p class="unit-card-price">1 563 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20118">Se renseigner sur 118</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1521000">
+              <article class="unit-card" data-unit data-type="bloc-9-villa-jumel-e" data-price="1521000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/p1-ground.jpg" target="_blank" rel="noopener" aria-label="Plan de 119">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/p1-ground-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/p1-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2204,13 +2274,13 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>174 m² intérieur</dd></div>
-                    <div><dt>Étage</dt><dd>Bloc 9, villa jumelée</dd></div>
+                    <div><dt>Type de bien</dt><dd>Bloc 9, villa jumelée</dd></div>
                   </dl>
                   <p class="unit-card-price">1 521 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20119">Se renseigner sur 119</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1521000">
+              <article class="unit-card" data-unit data-type="bloc-9-villa-jumel-e" data-price="1521000">
                 <a class="unit-card-plan" href="assets/liora/projects/selwo-sea-terraces/floorplans/p2-ground.jpg" target="_blank" rel="noopener" aria-label="Plan de 120">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/floorplans/p2-ground-640.webp 640w, assets/liora/projects/selwo-sea-terraces/floorplans/p2-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -2226,7 +2296,7 @@
                   <dl class="unit-card-facts">
                     <div><dt>Chambres</dt><dd>3 chambres</dd></div>
                     <div><dt>Surface</dt><dd>174 m² intérieur</dd></div>
-                    <div><dt>Étage</dt><dd>Bloc 9, villa jumelée</dd></div>
+                    <div><dt>Type de bien</dt><dd>Bloc 9, villa jumelée</dd></div>
                   </dl>
                   <p class="unit-card-price">1 521 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Selwo%20Sea%20Terraces%20-%20120">Se renseigner sur 120</a>

@@ -43,7 +43,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -889,6 +889,14 @@
               data-availability-filters
               data-count-template="عرض {shown} من {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">نوع الوحدة</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">الكل</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">بنتهاوس</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">شقة</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">غرف النوم</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">الكل</button>
@@ -916,7 +924,7 @@
                 <caption class="sr-only">المساكن المتاحة في إلفيريا هيلز ريزيدنسز</caption>
                 <thead><tr><th scope="col">المرجع</th><th scope="col">الطابق</th><th scope="col">غرف النوم</th><th scope="col">السعر</th><th scope="col">الحالة</th><th scope="col">المخطط</th></tr></thead>
                 <tbody>
-              <tr data-beds="2" data-price="950000">
+              <tr data-type="penthouse" data-beds="2" data-price="950000">
                 <td data-label="المرجع"><strong>مبنى 1 / Atico B</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -924,7 +932,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"><a class="availability-floorplan-link" href="assets/liora/projects/elviria-hills-residences/floorplans/building-1-atico-b.pdf" target="_blank" rel="noopener">عرض PDF</a></td>
               </tr>
-              <tr data-beds="3" data-price="840000">
+              <tr data-type="apartment" data-beds="3" data-price="840000">
                 <td data-label="المرجع"><strong>مبنى 1 / Bajo A</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -932,7 +940,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="810000">
+              <tr data-type="apartment" data-beds="3" data-price="810000">
                 <td data-label="المرجع"><strong>مبنى 1 / Bajo C</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -940,7 +948,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="830000">
+              <tr data-type="apartment" data-beds="3" data-price="830000">
                 <td data-label="المرجع"><strong>مبنى 2 / Bajo A</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -948,7 +956,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="810000">
+              <tr data-type="apartment" data-beds="3" data-price="810000">
                 <td data-label="المرجع"><strong>مبنى 2 / Bajo B</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -956,7 +964,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="810000">
+              <tr data-type="apartment" data-beds="3" data-price="810000">
                 <td data-label="المرجع"><strong>مبنى 2 / Bajo C</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -964,7 +972,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="850000">
+              <tr data-type="apartment" data-beds="3" data-price="850000">
                 <td data-label="المرجع"><strong>مبنى 2 / Bajo D</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -972,7 +980,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="2" data-price="980000">
+              <tr data-type="penthouse" data-beds="2" data-price="980000">
                 <td data-label="المرجع"><strong>مبنى 3 / Atico C</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -980,7 +988,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="860000">
+              <tr data-type="apartment" data-beds="3" data-price="860000">
                 <td data-label="المرجع"><strong>مبنى 3 / Bajo B</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -988,7 +996,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="840000">
+              <tr data-type="apartment" data-beds="3" data-price="840000">
                 <td data-label="المرجع"><strong>مبنى 3 / Bajo C</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -996,7 +1004,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="870000">
+              <tr data-type="apartment" data-beds="3" data-price="870000">
                 <td data-label="المرجع"><strong>مبنى 3 / Bajo D</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1004,7 +1012,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="2" data-price="790000">
+              <tr data-type="penthouse" data-beds="2" data-price="790000">
                 <td data-label="المرجع"><strong>مبنى 4 / Atico C</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -1012,7 +1020,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="850000">
+              <tr data-type="penthouse" data-beds="3" data-price="850000">
                 <td data-label="المرجع"><strong>مبنى 4 / Atico D</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1020,7 +1028,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="750000">
+              <tr data-type="apartment" data-beds="3" data-price="750000">
                 <td data-label="المرجع"><strong>مبنى 4 / Bajo A</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1028,7 +1036,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="730000">
+              <tr data-type="apartment" data-beds="3" data-price="730000">
                 <td data-label="المرجع"><strong>مبنى 4 / Bajo B</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1036,7 +1044,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="2" data-price="790000">
+              <tr data-type="penthouse" data-beds="2" data-price="790000">
                 <td data-label="المرجع"><strong>مبنى 5 / Atico C</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -1044,7 +1052,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="850000">
+              <tr data-type="penthouse" data-beds="3" data-price="850000">
                 <td data-label="المرجع"><strong>مبنى 5 / Atico D</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1052,7 +1060,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="690000">
+              <tr data-type="apartment" data-beds="3" data-price="690000">
                 <td data-label="المرجع"><strong>مبنى 5 / Bajo B</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1060,7 +1068,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="2" data-price="990000">
+              <tr data-type="penthouse" data-beds="2" data-price="990000">
                 <td data-label="المرجع"><strong>مبنى 6 / Atico B</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -1068,7 +1076,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="990000">
+              <tr data-type="apartment" data-beds="3" data-price="990000">
                 <td data-label="المرجع"><strong>مبنى 6 / Bajo A</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1076,7 +1084,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="970000">
+              <tr data-type="apartment" data-beds="3" data-price="970000">
                 <td data-label="المرجع"><strong>مبنى 6 / Bajo B</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1084,7 +1092,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="960000">
+              <tr data-type="apartment" data-beds="3" data-price="960000">
                 <td data-label="المرجع"><strong>مبنى 6 / Bajo C</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1092,7 +1100,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="970000">
+              <tr data-type="apartment" data-beds="3" data-price="970000">
                 <td data-label="المرجع"><strong>مبنى 6 / Bajo D</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1100,7 +1108,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="2" data-price="1250000">
+              <tr data-type="penthouse" data-beds="2" data-price="1250000">
                 <td data-label="المرجع"><strong>مبنى 7 / Atico B</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -1108,7 +1116,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="2" data-price="1250000">
+              <tr data-type="penthouse" data-beds="2" data-price="1250000">
                 <td data-label="المرجع"><strong>مبنى 7 / Atico C</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -1116,7 +1124,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="1300000">
+              <tr data-type="apartment" data-beds="3" data-price="1300000">
                 <td data-label="المرجع"><strong>مبنى 7 / Bajo A</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1124,7 +1132,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="1250000">
+              <tr data-type="apartment" data-beds="3" data-price="1250000">
                 <td data-label="المرجع"><strong>مبنى 7 / Bajo B</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1132,7 +1140,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="1250000">
+              <tr data-type="apartment" data-beds="3" data-price="1250000">
                 <td data-label="المرجع"><strong>مبنى 7 / Bajo C</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1140,7 +1148,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="1300000">
+              <tr data-type="apartment" data-beds="3" data-price="1300000">
                 <td data-label="المرجع"><strong>مبنى 7 / Bajo D</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1148,7 +1156,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="2" data-price="1200000">
+              <tr data-type="penthouse" data-beds="2" data-price="1200000">
                 <td data-label="المرجع"><strong>مبنى 8 / Atico B</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -1156,7 +1164,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="2" data-price="1200000">
+              <tr data-type="penthouse" data-beds="2" data-price="1200000">
                 <td data-label="المرجع"><strong>مبنى 8 / Atico C</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">2 غرف نوم</td>
@@ -1164,7 +1172,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="1350000">
+              <tr data-type="penthouse" data-beds="3" data-price="1350000">
                 <td data-label="المرجع"><strong>مبنى 8 / Atico D</strong></td>
                 <td data-label="الطابق">بنتهاوس</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1172,7 +1180,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="1100000">
+              <tr data-type="apartment" data-beds="3" data-price="1100000">
                 <td data-label="المرجع"><strong>مبنى 8 / Bajo A</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1180,7 +1188,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="990000">
+              <tr data-type="apartment" data-beds="3" data-price="990000">
                 <td data-label="المرجع"><strong>مبنى 8 / Bajo B</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1188,7 +1196,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="990000">
+              <tr data-type="apartment" data-beds="3" data-price="990000">
                 <td data-label="المرجع"><strong>مبنى 8 / Bajo C</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>
@@ -1196,7 +1204,7 @@
                 <td data-label="الحالة"><span class="availability-status">متاح</span></td>
                 <td data-label="المخطط"></td>
               </tr>
-              <tr data-beds="3" data-price="1050000">
+              <tr data-type="apartment" data-beds="3" data-price="1050000">
                 <td data-label="المرجع"><strong>مبنى 8 / Bajo D</strong></td>
                 <td data-label="الطابق">الطابق الأرضي</td>
                 <td data-label="غرف النوم">3 غرف نوم</td>

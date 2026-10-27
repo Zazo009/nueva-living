@@ -40,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -824,6 +824,14 @@
               data-availability-filters
               data-count-template="Showing {shown} of {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Home type</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartment</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Bedrooms</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
@@ -848,7 +856,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>No homes match these filters.</p>
             <div class="unit-card-grid" role="list" aria-label="Available homes">
-              <article class="unit-card" data-unit data-beds="2" data-price="458000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="458000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-60A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-60A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-60A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-60A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -864,13 +872,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>84.68 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 06, Garden</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 458,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-60A">Ask about LK-60A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="478000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="478000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-50D.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-50D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-50D-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-50D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -886,13 +895,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.26 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 05, Garden</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 478,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-50D">Ask about LK-50D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="480000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="480000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-100A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-100A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-100A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-100A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -908,13 +918,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Garden</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 480,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-100A">Ask about LK-100A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="483000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="483000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-51D.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-51D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-51D-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-51D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -930,13 +941,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.29 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 05, Floor 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 483,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-51D">Ask about LK-51D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="485000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="485000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-101A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-101A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-101A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-101A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -952,13 +964,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Floor 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 485,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-101A">Ask about LK-101A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="488000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="488000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-52D.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-52D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-52D-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-52D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -974,13 +987,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.18 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 05, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 488,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-52D">Ask about LK-52D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="488750">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="488750">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-52C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-52C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-52C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-52C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -996,13 +1010,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>85.94 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 05, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 488,750</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-52C">Ask about LK-52C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="490000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="490000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-102A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-102A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-102A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-102A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1018,13 +1033,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 490,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-102A">Ask about LK-102A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="494500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="494500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-82C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-82C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-82C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-82C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1040,13 +1056,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>86.13 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 08, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 494,500</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-82C">Ask about LK-82C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="511750">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="511750">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-43B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-43B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-43B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-43B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1062,13 +1079,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>83.91 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 04, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 511,750</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-43B">Ask about LK-43B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="523250">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="523250">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-54C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-54C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-54C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-54C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1084,13 +1102,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>86.88 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 05, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 523,250</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-54C">Ask about LK-54C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="525000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="525000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-11A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-11A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-11A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-11A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1106,13 +1125,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.26 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 01, Floor 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 525,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-11A">Ask about LK-11A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="525250">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="525250">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-123C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-123C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-123C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-123C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1128,13 +1148,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>85.42 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 12, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 525,250</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-123C">Ask about LK-123C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="530750">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="530750">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-103A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-103A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-103A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-103A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1150,13 +1171,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 530,750</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-103A">Ask about LK-103A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="531000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="531000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-33A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-33A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-33A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-33A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1172,13 +1194,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>100.29 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 03, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 531,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-33A">Ask about LK-33A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="531000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="531000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-53D.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-53D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-53D-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-53D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1194,13 +1217,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.26 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 05, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 531,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-53D">Ask about LK-53D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="533500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="533500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-121C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-121C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-121C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-121C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1216,13 +1240,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>85.42 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 12, Floor 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 533,500</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-121C">Ask about LK-121C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="541250">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="541250">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-124C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-124C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-124C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-124C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1238,13 +1263,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>85.42 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 12, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 541,250</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-124C">Ask about LK-124C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="544000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="544000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-114C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-114C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-114C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-114C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1260,13 +1286,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 11, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 544,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-114C">Ask about LK-114C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="544500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="544500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-122C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-122C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-122C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-122C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1282,13 +1309,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>85.42 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 12, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 544,500</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-122C">Ask about LK-122C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="544750">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="544750">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-44A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-44A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-44A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-44A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1304,13 +1332,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 04, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 544,750</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-44A">Ask about LK-44A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="544750">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="544750">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-44C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-44C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-44C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-44C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1326,13 +1355,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 04, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 544,750</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-44C">Ask about LK-44C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="549000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="549000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-123A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-123A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-123A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-123A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1348,13 +1378,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 12, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 549,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-123A">Ask about LK-123A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="555500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="555500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-81A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-81A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-81A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-81A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1370,13 +1401,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>92.78 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 08, Floor 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 555,500</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-81A">Ask about LK-81A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="561000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="561000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-121A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-121A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-121A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-121A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1392,13 +1424,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 12, Floor 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 561,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-121A">Ask about LK-121A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="572000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="572000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-132D.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-132D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-132D-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-132D-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1414,13 +1447,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 13, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 572,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-132D">Ask about LK-132D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="572000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="572000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-91C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-91C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-91C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-91C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1436,13 +1470,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>103.07 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 09, Floor 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 572,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-91C">Ask about LK-91C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="577500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="577500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-92C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-92C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-92C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-92C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1458,13 +1493,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>103.66 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 09, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 577,500</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-92C">Ask about LK-92C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="583000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="583000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-84C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-84C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-84C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-84C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1480,13 +1516,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>97.28 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 08, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 583,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-84C">Ask about LK-84C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="588500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="588500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-93C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-93C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-93C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-93C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1502,13 +1539,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>103.07 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 09, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 588,500</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-93C">Ask about LK-93C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="610500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="610500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-94C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-94C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-94C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-94C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1524,13 +1562,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>103.07 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 09, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 610,500</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-94C">Ask about LK-94C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="814000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="814000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-111B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-111B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-111B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-111B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1546,13 +1585,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>131.99 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 11, Floor 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 814,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-111B">Ask about LK-111B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="825000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="825000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-101C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-101C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-101C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-101C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1568,13 +1608,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>142.90 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Floor 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 825,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-101C">Ask about LK-101C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="836000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="836000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-102B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-102B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-102B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-102B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1590,13 +1631,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>131.99 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 836,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-102B">Ask about LK-102B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="836000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="836000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-111A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-111A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-111A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-111A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1612,13 +1654,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>142.90 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 11, Floor 1</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 836,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-111A">Ask about LK-111A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="836000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="836000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-112B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-112B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-112B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-112B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1634,13 +1677,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>131.99 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 11, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 836,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-112B">Ask about LK-112B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="847000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="847000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-102C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-102C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-102C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-102C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1656,13 +1700,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>142.90 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 847,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-102C">Ask about LK-102C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="847000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="847000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-110B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-110B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-110B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-110B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1678,13 +1723,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>131.66 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 11, Garden</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 847,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-110B">Ask about LK-110B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="858000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="858000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-100C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-100C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-100C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-100C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1700,13 +1746,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>144.03 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Garden</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 858,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-100C">Ask about LK-100C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="858000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="858000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-112A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-112A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-112A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-112A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1722,13 +1769,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>142.89 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 11, Floor 2</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 858,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-112A">Ask about LK-112A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="858000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="858000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-113B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-113B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-113B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-113B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1744,13 +1792,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>131.63 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 11, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 858,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-113B">Ask about LK-113B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="869000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="869000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-110A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-110A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-110A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-110A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1766,13 +1815,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>144.04 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 11, Garden</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 869,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-110A">Ask about LK-110A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="874500">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="874500">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-104B.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-104B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-104B-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-104B-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1788,13 +1838,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>131.99 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 874,500</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-104B">Ask about LK-104B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="880000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="880000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-113A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-113A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-113A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-113A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1810,13 +1861,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>142.02 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 11, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 880,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-113A">Ask about LK-113A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="891000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="891000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-104C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-104C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-104C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-104C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1832,13 +1884,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>142.90 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 10, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 891,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-104C">Ask about LK-104C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="902000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="902000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-114A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-114A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-114A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-114A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1854,13 +1907,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>142.90 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 11, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 902,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-114A">Ask about LK-114A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="980000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="980000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-74C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-74C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-74C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-74C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1876,13 +1930,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>110.74 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 07, Floor 4</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 980,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-74C">Ask about LK-74C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="1090000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1090000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-133A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-133A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-133A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-133A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1898,13 +1953,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>150.24 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 13, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,090,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-133A">Ask about LK-133A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="1090000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1090000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-13C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-13C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-13C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-13C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1920,13 +1976,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>150.25 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 01, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,090,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-13C">Ask about LK-13C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="1090000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1090000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-73C.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-73C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-73C-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-73C-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1942,13 +1999,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>150.24 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 07, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,090,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-73C">Ask about LK-73C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="4" data-price="1090000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="4" data-price="1090000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-83A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-83A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-83A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-83A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1964,13 +2022,14 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>4 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>150.24 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Block 08, Floor 3</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,090,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Miramar%20Urban%20Residences%20-%20LK-83A">Ask about LK-83A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="1105000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="1105000">
                 <a class="unit-card-plan" href="assets/liora/projects/miramar-urban-residences/floorplans/LK-45A.pdf" target="_blank" rel="noopener" aria-label="Floorplan for LK-45A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/floorplans/LK-45A-thumb-640.webp 640w, assets/liora/projects/miramar-urban-residences/floorplans/LK-45A-thumb-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1986,6 +2045,7 @@
                   <dl class="unit-card-facts">
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Size</dt><dd>103.34 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Block 04, Penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 1,105,000</p>

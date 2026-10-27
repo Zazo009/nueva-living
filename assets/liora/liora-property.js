@@ -483,9 +483,10 @@
     // and it is hidden as soon as any filter is applied.
     const rows = allRows.filter((row) => !row.hasAttribute('data-sold'));
     const template = panel.getAttribute('data-count-template') || '';
-    const active = { beds: 'all', price: 'all' };
+    const active = { type: 'all', beds: 'all', price: 'all' };
 
     const matches = (row) => {
+      if (active.type !== 'all' && row.dataset.type !== active.type) return false;
       if (active.beds !== 'all' && row.dataset.beds !== active.beds) return false;
       if (active.price !== 'all') {
         const price = Number(row.dataset.price);
@@ -499,7 +500,7 @@
 
     const apply = () => {
       let shown = 0;
-      const filtered = active.beds !== 'all' || active.price !== 'all';
+      const filtered = active.type !== 'all' || active.beds !== 'all' || active.price !== 'all';
       rows.forEach((row) => {
         const visible = matches(row);
         row.hidden = !visible;
@@ -535,6 +536,7 @@
     });
 
     clearBtn?.addEventListener('click', () => {
+      active.type = 'all';
       active.beds = 'all';
       active.price = 'all';
       panel.querySelectorAll('[data-filter-group]').forEach((peer) => {

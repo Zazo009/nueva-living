@@ -40,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -841,6 +841,14 @@
               data-availability-filters
               data-count-template="Showing {shown} of {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Home type</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartment</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Bedrooms</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
@@ -865,7 +873,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>No homes match these filters.</p>
             <div class="unit-card-grid" role="list" aria-label="Available homes">
-              <article class="unit-card" data-unit data-beds="1" data-price="213000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="1" data-price="213000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -876,13 +884,14 @@
                     <div><dt>Bedrooms</dt><dd>1 bedroom</dd></div>
                     <div><dt>Built</dt><dd>51.17 sqm</dd></div>
                     <div><dt>Interior</dt><dd>48.11 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 213,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%203">Ask about 3</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="1" data-price="236000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="1" data-price="236000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -893,13 +902,14 @@
                     <div><dt>Bedrooms</dt><dd>1 bedroom</dd></div>
                     <div><dt>Built</dt><dd>54.52 sqm</dd></div>
                     <div><dt>Interior</dt><dd>57.07 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 236,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%207">Ask about 7</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="1" data-price="245000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="1" data-price="245000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-15.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 15">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-15-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-15-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -916,13 +926,14 @@
                     <div><dt>Bedrooms</dt><dd>1 bedroom</dd></div>
                     <div><dt>Built</dt><dd>54.52 sqm</dd></div>
                     <div><dt>Interior</dt><dd>57.07 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Second floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 245,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2015">Ask about 15</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="1" data-price="270000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="1" data-price="270000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-2.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 2">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-2-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-2-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -940,13 +951,14 @@
                     <div><dt>Built</dt><dd>67.47 sqm</dd></div>
                     <div><dt>Interior</dt><dd>59.87 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>6.54 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 270,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%202">Ask about 2</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="280000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="280000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-4.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 4">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-4-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-4-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -964,13 +976,14 @@
                     <div><dt>Built</dt><dd>58.36 sqm</dd></div>
                     <div><dt>Interior</dt><dd>48.91 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>4.70 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 280,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%204">Ask about 4</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="293000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="293000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-10.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 10">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-10-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-10-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -988,13 +1001,14 @@
                     <div><dt>Built</dt><dd>70.37 sqm</dd></div>
                     <div><dt>Interior</dt><dd>61.84 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>2.70 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 293,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2010">Ask about 10</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="300000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="300000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -1006,13 +1020,14 @@
                     <div><dt>Built</dt><dd>69.82 sqm</dd></div>
                     <div><dt>Interior</dt><dd>72.82 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>4.50 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 300,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%205">Ask about 5</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="303000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="303000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-18.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 18">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-18-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-18-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1030,13 +1045,14 @@
                     <div><dt>Built</dt><dd>70.37 sqm</dd></div>
                     <div><dt>Interior</dt><dd>61.84 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>2.70 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 303,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2018">Ask about 18</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="310000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="310000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-13.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 13">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-13-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-13-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1054,13 +1070,14 @@
                     <div><dt>Built</dt><dd>69.82 sqm</dd></div>
                     <div><dt>Interior</dt><dd>72.82 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>4.50 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Second floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 310,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2013">Ask about 13</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="310000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="310000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-25.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 25">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-25-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-25-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1078,13 +1095,14 @@
                     <div><dt>Built</dt><dd>70.37 sqm</dd></div>
                     <div><dt>Interior</dt><dd>61.84 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>2.70 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Second floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 310,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2025">Ask about 25</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="348000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="348000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-11.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 11">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-11-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-11-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1102,13 +1120,14 @@
                     <div><dt>Built</dt><dd>84.24 sqm</dd></div>
                     <div><dt>Interior</dt><dd>71.68 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>2.90 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 348,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2011">Ask about 11</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="366000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="366000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-6.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 6">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-6-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-6-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1126,13 +1145,14 @@
                     <div><dt>Built</dt><dd>84.69 sqm</dd></div>
                     <div><dt>Interior</dt><dd>61.66 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>8.60 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 366,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%206">Ask about 6</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="368000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="368000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -1144,13 +1164,14 @@
                     <div><dt>Built</dt><dd>84.24 sqm</dd></div>
                     <div><dt>Interior</dt><dd>71.68 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>2.90 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Second floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 368,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2026">Ask about 26</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="372000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="372000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-16.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 16">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-16-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-16-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1168,13 +1189,14 @@
                     <div><dt>Built</dt><dd>87.87 sqm</dd></div>
                     <div><dt>Interior</dt><dd>78.64 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>2.30 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 372,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2016">Ask about 16</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="376000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="376000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-23.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 23">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-23-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-23-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1192,13 +1214,14 @@
                     <div><dt>Built</dt><dd>87.87 sqm</dd></div>
                     <div><dt>Interior</dt><dd>78.64 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>2.30 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Second floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 376,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%2023">Ask about 23</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="421000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="421000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-9.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 9">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-9-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-9-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1216,13 +1239,14 @@
                     <div><dt>Built</dt><dd>103.27 sqm</dd></div>
                     <div><dt>Interior</dt><dd>89.67 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>2.70 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 421,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Mirlo%20Residences%20-%209">Ask about 9</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="429000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="429000">
                 <a class="unit-card-plan" href="assets/liora/projects/mirlo-residences/floorplans/home-27.jpg" target="_blank" rel="noopener" aria-label="Floorplan for 27">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/mirlo-residences/floorplans/home-27-640.webp 640w, assets/liora/projects/mirlo-residences/floorplans/home-27-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1240,6 +1264,7 @@
                     <div><dt>Built</dt><dd>91.12 sqm</dd></div>
                     <div><dt>Interior</dt><dd>62.84 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>42.15 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 429,000</p>

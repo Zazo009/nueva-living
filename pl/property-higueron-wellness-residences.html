@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -863,6 +863,14 @@
             <div class="availability-filters" role="group" aria-label="Filtruj dostępne nieruchomości"
               data-availability-filters
               data-count-template="Wyświetlono {shown} z {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Typ domu</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Wszystkie</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartament</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Cena</span>
@@ -884,7 +892,7 @@
                 <caption class="sr-only">Dostępne nieruchomości w Higueron Wellness Residences</caption>
                 <thead><tr><th scope="col">Numer referencyjny</th><th scope="col">Piętro</th><th scope="col">Sypialnie</th><th scope="col">Powierzchnia</th><th scope="col">Cena</th><th scope="col">Status</th></tr></thead>
                 <tbody>
-              <tr data-price="785000">
+              <tr data-type="apartment" data-price="785000">
                 <td data-label="Numer referencyjny"><strong>3</strong></td>
                 <td data-label="Piętro">Blok 1, pierwsze piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -892,7 +900,7 @@
                 <td data-label="Cena"><strong>785 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Numer referencyjny"><strong>4</strong></td>
                 <td data-label="Piętro">Blok 1, pierwsze piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -900,7 +908,7 @@
                 <td data-label="Cena"><strong>549 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="825000">
+              <tr data-type="apartment" data-price="825000">
                 <td data-label="Numer referencyjny"><strong>5</strong></td>
                 <td data-label="Piętro">Blok 1, drugie piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -908,7 +916,7 @@
                 <td data-label="Cena"><strong>825 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="620000">
+              <tr data-type="apartment" data-price="620000">
                 <td data-label="Numer referencyjny"><strong>6</strong></td>
                 <td data-label="Piętro">Blok 1, drugie piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -916,7 +924,7 @@
                 <td data-label="Cena"><strong>620 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="639000">
+              <tr data-type="apartment" data-price="639000">
                 <td data-label="Numer referencyjny"><strong>9</strong></td>
                 <td data-label="Piętro">Blok 1, poziom tarasowy</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -924,7 +932,7 @@
                 <td data-label="Cena"><strong>639 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="740000">
+              <tr data-type="apartment" data-price="740000">
                 <td data-label="Numer referencyjny"><strong>10</strong></td>
                 <td data-label="Piętro">Blok 1, pierwsze piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -932,7 +940,7 @@
                 <td data-label="Cena"><strong>740 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Numer referencyjny"><strong>11</strong></td>
                 <td data-label="Piętro">Blok 1, pierwsze piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -940,7 +948,7 @@
                 <td data-label="Cena"><strong>549 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="780000">
+              <tr data-type="apartment" data-price="780000">
                 <td data-label="Numer referencyjny"><strong>12</strong></td>
                 <td data-label="Piętro">Blok 1, drugie piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -948,7 +956,7 @@
                 <td data-label="Cena"><strong>780 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="620000">
+              <tr data-type="apartment" data-price="620000">
                 <td data-label="Numer referencyjny"><strong>13</strong></td>
                 <td data-label="Piętro">Blok 1, drugie piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -956,7 +964,7 @@
                 <td data-label="Cena"><strong>620 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="810000">
+              <tr data-type="apartment" data-price="810000">
                 <td data-label="Numer referencyjny"><strong>15</strong></td>
                 <td data-label="Piętro">Blok 1, poziom ogrodowy</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -964,7 +972,7 @@
                 <td data-label="Cena"><strong>810 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="529000">
+              <tr data-type="apartment" data-price="529000">
                 <td data-label="Numer referencyjny"><strong>16</strong></td>
                 <td data-label="Piętro">Blok 1, poziom ogrodowy</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -972,7 +980,7 @@
                 <td data-label="Cena"><strong>529 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="740000">
+              <tr data-type="apartment" data-price="740000">
                 <td data-label="Numer referencyjny"><strong>17</strong></td>
                 <td data-label="Piętro">Blok 1, pierwsze piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -980,7 +988,7 @@
                 <td data-label="Cena"><strong>740 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="499000">
+              <tr data-type="apartment" data-price="499000">
                 <td data-label="Numer referencyjny"><strong>18</strong></td>
                 <td data-label="Piętro">Blok 1, pierwsze piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -988,7 +996,7 @@
                 <td data-label="Cena"><strong>499 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Numer referencyjny"><strong>20</strong></td>
                 <td data-label="Piętro">Blok 1, drugie piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -996,7 +1004,7 @@
                 <td data-label="Cena"><strong>549 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="795000">
+              <tr data-type="penthouse" data-price="795000">
                 <td data-label="Numer referencyjny"><strong>21</strong></td>
                 <td data-label="Piętro">Blok 1, penthouse</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1004,7 +1012,7 @@
                 <td data-label="Cena"><strong>795 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="529000">
+              <tr data-type="apartment" data-price="529000">
                 <td data-label="Numer referencyjny"><strong>23</strong></td>
                 <td data-label="Piętro">Blok 1, poziom ogrodowy</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1012,7 +1020,7 @@
                 <td data-label="Cena"><strong>529 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Numer referencyjny"><strong>24</strong></td>
                 <td data-label="Piętro">Blok 1, pierwsze piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1020,7 +1028,7 @@
                 <td data-label="Cena"><strong>599 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="780000">
+              <tr data-type="apartment" data-price="780000">
                 <td data-label="Numer referencyjny"><strong>26</strong></td>
                 <td data-label="Piętro">Blok 1, drugie piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1028,7 +1036,7 @@
                 <td data-label="Cena"><strong>780 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Numer referencyjny"><strong>27</strong></td>
                 <td data-label="Piętro">Blok 1, drugie piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1036,7 +1044,7 @@
                 <td data-label="Cena"><strong>549 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="809000">
+              <tr data-type="apartment" data-price="809000">
                 <td data-label="Numer referencyjny"><strong>29</strong></td>
                 <td data-label="Piętro">Blok 1, poziom ogrodowy</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1044,7 +1052,7 @@
                 <td data-label="Cena"><strong>809 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Numer referencyjny"><strong>31</strong></td>
                 <td data-label="Piętro">Blok 1, pierwsze piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1052,7 +1060,7 @@
                 <td data-label="Cena"><strong>599 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="630000">
+              <tr data-type="apartment" data-price="630000">
                 <td data-label="Numer referencyjny"><strong>32</strong></td>
                 <td data-label="Piętro">Blok 1, pierwsze piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1060,7 +1068,7 @@
                 <td data-label="Cena"><strong>630 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="750000">
+              <tr data-type="apartment" data-price="750000">
                 <td data-label="Numer referencyjny"><strong>36</strong></td>
                 <td data-label="Piętro">Blok 2, poziom ogrodowy</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1068,7 +1076,7 @@
                 <td data-label="Cena"><strong>750 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Numer referencyjny"><strong>38</strong></td>
                 <td data-label="Piętro">Blok 2, pierwsze piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1076,7 +1084,7 @@
                 <td data-label="Cena"><strong>599 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="499000">
+              <tr data-type="apartment" data-price="499000">
                 <td data-label="Numer referencyjny"><strong>39</strong></td>
                 <td data-label="Piętro">Blok 2, pierwsze piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1084,7 +1092,7 @@
                 <td data-label="Cena"><strong>499 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="725000">
+              <tr data-type="apartment" data-price="725000">
                 <td data-label="Numer referencyjny"><strong>40</strong></td>
                 <td data-label="Piętro">Blok 2, drugie piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1092,7 +1100,7 @@
                 <td data-label="Cena"><strong>725 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="515000">
+              <tr data-type="apartment" data-price="515000">
                 <td data-label="Numer referencyjny"><strong>41</strong></td>
                 <td data-label="Piętro">Blok 2, drugie piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1100,7 +1108,7 @@
                 <td data-label="Cena"><strong>515 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="755000">
+              <tr data-type="penthouse" data-price="755000">
                 <td data-label="Numer referencyjny"><strong>42</strong></td>
                 <td data-label="Piętro">Blok 2, penthouse</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1108,7 +1116,7 @@
                 <td data-label="Cena"><strong>755 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="750000">
+              <tr data-type="apartment" data-price="750000">
                 <td data-label="Numer referencyjny"><strong>43</strong></td>
                 <td data-label="Piętro">Blok 2, poziom ogrodowy</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1116,7 +1124,7 @@
                 <td data-label="Cena"><strong>750 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Numer referencyjny"><strong>45</strong></td>
                 <td data-label="Piętro">Blok 2, pierwsze piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1124,7 +1132,7 @@
                 <td data-label="Cena"><strong>599 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="725000">
+              <tr data-type="apartment" data-price="725000">
                 <td data-label="Numer referencyjny"><strong>47</strong></td>
                 <td data-label="Piętro">Blok 2, drugie piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1132,7 +1140,7 @@
                 <td data-label="Cena"><strong>725 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Numer referencyjny"><strong>48</strong></td>
                 <td data-label="Piętro">Blok 2, drugie piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1140,7 +1148,7 @@
                 <td data-label="Cena"><strong>549 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="720000">
+              <tr data-type="penthouse" data-price="720000">
                 <td data-label="Numer referencyjny"><strong>49</strong></td>
                 <td data-label="Piętro">Blok 2, penthouse</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1148,7 +1156,7 @@
                 <td data-label="Cena"><strong>720 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="745000">
+              <tr data-type="apartment" data-price="745000">
                 <td data-label="Numer referencyjny"><strong>50</strong></td>
                 <td data-label="Piętro">Blok 2, poziom tarasowy</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1156,7 +1164,7 @@
                 <td data-label="Cena"><strong>745 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="449000">
+              <tr data-type="apartment" data-price="449000">
                 <td data-label="Numer referencyjny"><strong>51</strong></td>
                 <td data-label="Piętro">Blok 2, poziom tarasowy</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1164,7 +1172,7 @@
                 <td data-label="Cena"><strong>449 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Numer referencyjny"><strong>52</strong></td>
                 <td data-label="Piętro">Blok 2, pierwsze piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1172,7 +1180,7 @@
                 <td data-label="Cena"><strong>599 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="459000">
+              <tr data-type="apartment" data-price="459000">
                 <td data-label="Numer referencyjny"><strong>53</strong></td>
                 <td data-label="Piętro">Blok 2, pierwsze piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1180,7 +1188,7 @@
                 <td data-label="Cena"><strong>459 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="549000">
+              <tr data-type="apartment" data-price="549000">
                 <td data-label="Numer referencyjny"><strong>55</strong></td>
                 <td data-label="Piętro">Blok 2, drugie piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1188,7 +1196,7 @@
                 <td data-label="Cena"><strong>549 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="745000">
+              <tr data-type="penthouse" data-price="745000">
                 <td data-label="Numer referencyjny"><strong>56</strong></td>
                 <td data-label="Piętro">Blok 2, penthouse</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1196,7 +1204,7 @@
                 <td data-label="Cena"><strong>745 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Numer referencyjny"><strong>59</strong></td>
                 <td data-label="Piętro">Blok 2, pierwsze piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1204,7 +1212,7 @@
                 <td data-label="Cena"><strong>599 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="449000">
+              <tr data-type="apartment" data-price="449000">
                 <td data-label="Numer referencyjny"><strong>60</strong></td>
                 <td data-label="Piętro">Blok 2, pierwsze piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1212,7 +1220,7 @@
                 <td data-label="Cena"><strong>449 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="479000">
+              <tr data-type="apartment" data-price="479000">
                 <td data-label="Numer referencyjny"><strong>62</strong></td>
                 <td data-label="Piętro">Blok 2, drugie piętro</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1220,7 +1228,7 @@
                 <td data-label="Cena"><strong>479 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="749000">
+              <tr data-type="apartment" data-price="749000">
                 <td data-label="Numer referencyjny"><strong>64</strong></td>
                 <td data-label="Piętro">Blok 2, poziom tarasowy</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1228,7 +1236,7 @@
                 <td data-label="Cena"><strong>749 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="479000">
+              <tr data-type="apartment" data-price="479000">
                 <td data-label="Numer referencyjny"><strong>65</strong></td>
                 <td data-label="Piętro">Blok 2, poziom tarasowy</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -1236,7 +1244,7 @@
                 <td data-label="Cena"><strong>479 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="599000">
+              <tr data-type="apartment" data-price="599000">
                 <td data-label="Numer referencyjny"><strong>66</strong></td>
                 <td data-label="Piętro">Blok 2, pierwsze piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1244,7 +1252,7 @@
                 <td data-label="Cena"><strong>599 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="730000">
+              <tr data-type="apartment" data-price="730000">
                 <td data-label="Numer referencyjny"><strong>68</strong></td>
                 <td data-label="Piętro">Blok 2, drugie piętro</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -1252,7 +1260,7 @@
                 <td data-label="Cena"><strong>730 000 €</strong></td>
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
               </tr>
-              <tr data-price="499000">
+              <tr data-type="penthouse" data-price="499000">
                 <td data-label="Numer referencyjny"><strong>7</strong></td>
                 <td data-label="Piętro">Blok 1, penthouse</td>
                 <td data-label="Sypialnie">1 sypialnia</td>

@@ -40,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -820,6 +820,14 @@
               data-availability-filters
               data-count-template="Showing {shown} of {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Home type</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartment</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex-penthouse" aria-pressed="false">Duplex penthouse</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Bedrooms</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
@@ -842,7 +850,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>No homes match these filters.</p>
             <div class="unit-card-grid" role="list" aria-label="Available homes">
-              <article class="unit-card" data-unit data-beds="3" data-price="436000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="436000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-1-0a.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 1 - 0A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-1-0a-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-1-0a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -860,13 +868,14 @@
                     <div><dt>Interior</dt><dd>86.14 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>54.20 sqm</dd></div>
                     <div><dt>Garden</dt><dd>55.40 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 436,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%201%20-%200A">Ask about Portal 1 - 0A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="400000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="400000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-1-0c.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 1 - 0C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-1-0c-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-1-0c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -884,13 +893,14 @@
                     <div><dt>Interior</dt><dd>72.63 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>45.22 sqm</dd></div>
                     <div><dt>Garden</dt><dd>84.40 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 400,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%201%20-%200C">Ask about Portal 1 - 0C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="411000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="411000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-1-0d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 1 - 0D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-1-0d-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-1-0d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -908,13 +918,14 @@
                     <div><dt>Interior</dt><dd>78.46 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>33.01 sqm</dd></div>
                     <div><dt>Garden</dt><dd>109.52 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 411,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%201%20-%200D">Ask about Portal 1 - 0D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="508000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="508000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-1-2a.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 1 - 2A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-1-2a-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-1-2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -931,13 +942,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Interior</dt><dd>88.12 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>76.54 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 508,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%201%20-%202A">Ask about Portal 1 - 2A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="440000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="440000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-2-0b.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 2 - 0B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-2-0b-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-2-0b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -955,13 +967,14 @@
                     <div><dt>Interior</dt><dd>72.63 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>45.22 sqm</dd></div>
                     <div><dt>Garden</dt><dd>139.26 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 440,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%202%20-%200B">Ask about Portal 2 - 0B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="330000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="330000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-2-1a.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 2 - 1A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-2-1a-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-2-1a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -978,13 +991,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Interior</dt><dd>78.46 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>21.72 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 330,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%202%20-%201A">Ask about Portal 2 - 1A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="442000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="442000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-2-2b.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 2 - 2B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-2-2b-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-2-2b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1001,13 +1015,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Interior</dt><dd>84.99 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>70.77 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 442,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%202%20-%202B">Ask about Portal 2 - 2B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="487000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="487000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-3-0b.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 3 - 0B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-3-0b-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-3-0b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1025,13 +1040,14 @@
                     <div><dt>Interior</dt><dd>72.63 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>45.22 sqm</dd></div>
                     <div><dt>Garden</dt><dd>165.41 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 487,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%203%20-%200B">Ask about Portal 3 - 0B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="525000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="525000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-3-0c.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 3 - 0C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-3-0c-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-3-0c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1049,13 +1065,14 @@
                     <div><dt>Interior</dt><dd>72.63 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>45.22 sqm</dd></div>
                     <div><dt>Garden</dt><dd>220.12 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>Ground floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 525,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%203%20-%200C">Ask about Portal 3 - 0C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="514000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="3" data-price="514000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-3-2a.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 3 - 2A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-3-2a-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-3-2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1072,13 +1089,14 @@
                     <div><dt>Bedrooms</dt><dd>3 bedrooms</dd></div>
                     <div><dt>Interior</dt><dd>88.12 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>76.54 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 514,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%203%20-%202A">Ask about Portal 3 - 2A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="336000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="336000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-4-1c.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 4 - 1C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-4-1c-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-4-1c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1095,13 +1113,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Interior</dt><dd>72.63 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>29.84 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 336,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%204%20-%201C">Ask about Portal 4 - 1C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="342000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="342000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-4-1d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 4 - 1D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-4-1d-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-4-1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1118,13 +1137,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Interior</dt><dd>78.46 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>21.72 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 342,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%204%20-%201D">Ask about Portal 4 - 1D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="425000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="2" data-price="425000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-4-2d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 4 - 2D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-4-2d-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-4-2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1141,13 +1161,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Interior</dt><dd>81.46 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>60.83 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 425,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%204%20-%202D">Ask about Portal 4 - 2D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="425000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="2" data-price="425000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-5-2a.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 5 - 2A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-5-2a-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-5-2a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1164,13 +1185,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Interior</dt><dd>81.46 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>60.83 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 425,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%205%20-%202A">Ask about Portal 5 - 2A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="425000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-beds="2" data-price="425000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-5-2d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 5 - 2D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-5-2d-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-5-2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1187,13 +1209,14 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Interior</dt><dd>81.46 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>60.83 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Duplex penthouse</dd></div>
                     <div><dt>Floor</dt><dd>Duplex penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 425,000</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Olivar%20Residences%20-%20Portal%205%20-%202D">Ask about Portal 5 - 2D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="354000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="354000">
                 <a class="unit-card-plan" href="assets/liora/projects/olivar-residences/floorplans/portal-6-1d.jpg" target="_blank" rel="noopener" aria-label="Floorplan for Portal 6 - 1D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/olivar-residences/floorplans/portal-6-1d-640.webp 640w, assets/liora/projects/olivar-residences/floorplans/portal-6-1d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1210,6 +1233,7 @@
                     <div><dt>Bedrooms</dt><dd>2 bedrooms</dd></div>
                     <div><dt>Interior</dt><dd>78.46 sqm</dd></div>
                     <div><dt>Terrace</dt><dd>21.72 sqm</dd></div>
+                    <div><dt>Home type</dt><dd>Apartment</dd></div>
                     <div><dt>Floor</dt><dd>First floor</dd></div>
                   </dl>
                   <p class="unit-card-price">EUR 354,000</p>

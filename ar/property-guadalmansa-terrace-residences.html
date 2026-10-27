@@ -43,7 +43,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -899,6 +899,14 @@
               data-availability-filters
               data-count-template="عرض {shown} من {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">نوع الوحدة</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">الكل</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">شقة</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">بنتهاوس</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">غرف النوم</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">الكل</button>
@@ -922,7 +930,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>لا توجد وحدات تطابق هذه الفلاتر.</p>
             <div class="unit-card-grid" role="list" aria-label="الوحدات المتاحة">
-              <article class="unit-card" data-unit data-beds="2" data-price="453000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="453000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3111b-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3111B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3111b-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3111b-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -939,13 +947,14 @@
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>103.35 م²</dd></div>
                     <div><dt>تراس</dt><dd>17.11 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 1، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">453,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203111B">استفسر عن 3111B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="456000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="456000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/312bjb-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 312BJB">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/312bjb-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/312bjb-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -963,13 +972,14 @@
                     <div><dt>مبنية</dt><dd>103.35 م²</dd></div>
                     <div><dt>تراس</dt><dd>46.15 م²</dd></div>
                     <div><dt>حديقة</dt><dd>41.73 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 1، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">456,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%20312BJB">استفسر عن 312BJB</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="507000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="507000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/313bjc-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 313BJC">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/313bjc-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/313bjc-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -987,13 +997,14 @@
                     <div><dt>مبنية</dt><dd>134.41 م²</dd></div>
                     <div><dt>تراس</dt><dd>59.81 م²</dd></div>
                     <div><dt>حديقة</dt><dd>38.16 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 1، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">507,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%20313BJC">استفسر عن 313BJC</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="595000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="595000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3132c-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3132C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3132c-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3132c-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1010,13 +1021,14 @@
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>131.87 م²</dd></div>
                     <div><dt>تراس</dt><dd>24.86 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 1، الطابق الثاني</dd></div>
                   </dl>
                   <p class="unit-card-price">595,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203132C">استفسر عن 3132C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="595000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="595000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3212a-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3212A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3212a-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3212a-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1033,13 +1045,14 @@
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>131.87 م²</dd></div>
                     <div><dt>تراس</dt><dd>24.86 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 2، الطابق الثاني</dd></div>
                   </dl>
                   <p class="unit-card-price">595,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203212A">استفسر عن 3212A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="625000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="625000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/321atb-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 321ATB">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/321atb-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/321atb-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1057,13 +1070,14 @@
                     <div><dt>مبنية</dt><dd>123.19 م²</dd></div>
                     <div><dt>تراس</dt><dd>32.12 م²</dd></div>
                     <div><dt>سولاريوم</dt><dd>31.70 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 2، بنتهاوس</dd></div>
                   </dl>
                   <p class="unit-card-price">625,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%20321ATB">استفسر عن 321ATB</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="434000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="434000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/322bjb-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 322BJB">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/322bjb-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/322bjb-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1080,13 +1094,14 @@
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>103.35 م²</dd></div>
                     <div><dt>تراس</dt><dd>44.46 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 2، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">434,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%20322BJB">استفسر عن 322BJB</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="414000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="414000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3221b-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3221B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3221b-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3221b-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1103,13 +1118,14 @@
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>103.35 م²</dd></div>
                     <div><dt>تراس</dt><dd>17.11 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 2، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">414,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203221B">استفسر عن 3221B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="594000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="594000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3222c-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3222C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3222c-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3222c-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1126,13 +1142,14 @@
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>132.10 م²</dd></div>
                     <div><dt>تراس</dt><dd>23.37 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 2، الطابق الثاني</dd></div>
                   </dl>
                   <p class="unit-card-price">594,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203222C">استفسر عن 3222C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="625000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="2" data-price="625000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/322atb-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 322ATB">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/322atb-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/322atb-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1150,13 +1167,14 @@
                     <div><dt>مبنية</dt><dd>115.73 م²</dd></div>
                     <div><dt>تراس</dt><dd>33.99 م²</dd></div>
                     <div><dt>سولاريوم</dt><dd>29.02 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 2، بنتهاوس</dd></div>
                   </dl>
                   <p class="unit-card-price">625,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%20322ATB">استفسر عن 322ATB</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="774000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="774000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/323atb-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 323ATB">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/323atb-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/323atb-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1174,13 +1192,14 @@
                     <div><dt>مبنية</dt><dd>130.87 م²</dd></div>
                     <div><dt>تراس</dt><dd>60.31 م²</dd></div>
                     <div><dt>سولاريوم</dt><dd>42.27 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 2، بنتهاوس</dd></div>
                   </dl>
                   <p class="unit-card-price">774,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%20323ATB">استفسر عن 323ATB</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="449000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="449000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3311b-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3311B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3311b-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3311b-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1197,13 +1216,14 @@
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>101.38 م²</dd></div>
                     <div><dt>تراس</dt><dd>14.98 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">449,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203311B">استفسر عن 3311B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="454000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="454000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3311c-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3311C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3311c-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3311c-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1220,13 +1240,14 @@
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>101.01 م²</dd></div>
                     <div><dt>تراس</dt><dd>14.98 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">454,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203311C">استفسر عن 3311C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="524000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="524000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/332bjc-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 332BJC">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/332bjc-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/332bjc-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1244,13 +1265,14 @@
                     <div><dt>مبنية</dt><dd>130.44 م²</dd></div>
                     <div><dt>تراس</dt><dd>82.44 م²</dd></div>
                     <div><dt>حديقة</dt><dd>36.77 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، الطابق الأرضي</dd></div>
                   </dl>
                   <p class="unit-card-price">524,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%20332BJC">استفسر عن 332BJC</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="2" data-price="459000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="2" data-price="459000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3321b-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3321B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3321b-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3321b-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1267,13 +1289,14 @@
                     <div><dt>غرف النوم</dt><dd>2 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>109.00 م²</dd></div>
                     <div><dt>تراس</dt><dd>17.11 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">459,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203321B">استفسر عن 3321B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="534000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="534000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3321c-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3321C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3321c-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3321c-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1290,13 +1313,14 @@
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>130.44 م²</dd></div>
                     <div><dt>تراس</dt><dd>27.08 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، الطابق الأول</dd></div>
                   </dl>
                   <p class="unit-card-price">534,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203321C">استفسر عن 3321C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="574000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="574000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3322a-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3322A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3322a-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3322a-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1313,13 +1337,14 @@
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>134.71 م²</dd></div>
                     <div><dt>تراس</dt><dd>23.82 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، الطابق الثاني</dd></div>
                   </dl>
                   <p class="unit-card-price">574,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203322A">استفسر عن 3322A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="594000">
+              <article class="unit-card" data-unit data-type="apartment" data-beds="3" data-price="594000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3322c-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 3322C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/3322c-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/3322c-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1336,13 +1361,14 @@
                     <div><dt>غرف النوم</dt><dd>3 غرف نوم</dd></div>
                     <div><dt>مبنية</dt><dd>130.38 م²</dd></div>
                     <div><dt>تراس</dt><dd>27.07 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>شقة</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، الطابق الثاني</dd></div>
                   </dl>
                   <p class="unit-card-price">594,000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Guadalmansa%20Terrace%20Residences%20-%203322C">استفسر عن 3322C</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-beds="3" data-price="774000">
+              <article class="unit-card" data-unit data-type="penthouse" data-beds="3" data-price="774000">
                 <a class="unit-card-plan" href="assets/liora/projects/guadalmansa-terrace-residences/floorplans/332atb-floorplan.jpg" target="_blank" rel="noopener" aria-label="مخطط 332ATB">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/guadalmansa-terrace-residences/floorplans/332atb-floorplan-640.webp 640w, assets/liora/projects/guadalmansa-terrace-residences/floorplans/332atb-floorplan-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1360,6 +1386,7 @@
                     <div><dt>مبنية</dt><dd>130.76 م²</dd></div>
                     <div><dt>تراس</dt><dd>63.82 م²</dd></div>
                     <div><dt>سولاريوم</dt><dd>42.27 م²</dd></div>
+                    <div><dt>نوع الوحدة</dt><dd>بنتهاوس</dd></div>
                     <div><dt>الطابق</dt><dd>مبنى 3، بنتهاوس</dd></div>
                   </dl>
                   <p class="unit-card-price">774,000 €</p>

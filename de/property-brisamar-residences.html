@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -802,9 +802,27 @@
               <span>Alle 9 verfügbaren Wohnungen ansehen</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
-            
+            <div class="availability-filters" role="group" aria-label="Verfügbare Wohnungen filtern"
+              data-availability-filters
+              data-count-template="{shown} von {total} werden angezeigt">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Haustyp</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Wohnung</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              
+              
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Filter zurücksetzen</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>Keine Wohnungen entsprechen diesen Filtern.</p>
             <div class="unit-card-grid" role="list" aria-label="Verfügbare Wohnungen">
-              <article class="unit-card" data-unit data-price="650000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="650000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Erdgeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-0d-ground-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -828,13 +846,14 @@
                     <div><dt>Bebaut</dt><dd>77,32 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>11,42 m²</dd></div>
                     <div><dt>Garten</dt><dd>92,24 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erdgeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">650.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%200D">Zu 0D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="549000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="549000">
                 <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-1c.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 1C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-1c-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-1c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -851,13 +870,14 @@
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>87,13 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>14,54 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Erstes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">549.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%201C">Zu 1C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="575000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="575000">
                 <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-2d.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 2D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-2d-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-2d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -874,13 +894,14 @@
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>81,17 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>11,42 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Zweites Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">575.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%202D">Zu 2D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="595000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="595000">
                 <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-3b.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 3B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-3b-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-3b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -897,13 +918,14 @@
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>89,11 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>17,85 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Drittes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">595.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%203B">Zu 3B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="815000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="815000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Viertes Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4a-fourth-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -927,13 +949,14 @@
                     <div><dt>Bebaut</dt><dd>101,15 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>20,31 m²</dd></div>
                     <div><dt>Solarium</dt><dd>19,66 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Viertes Obergeschoss, Solarium</dd></div>
                   </dl>
                   <p class="unit-card-price">815.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204A">Zu 4A anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="630000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="630000">
                 <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4b.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4b-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -950,13 +973,14 @@
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>89,10 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>17,85 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Viertes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">630.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204B">Zu 4B anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="665000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="665000">
                 <a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4c.jpg" target="_blank" rel="noopener" aria-label="Grundriss von 4C">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4c-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4c-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -973,13 +997,14 @@
                     <div><dt>Schlafzimmer</dt><dd>3 Schlafzimmer</dd></div>
                     <div><dt>Bebaut</dt><dd>87,13 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>14,54 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Viertes Obergeschoss</dd></div>
                   </dl>
                   <p class="unit-card-price">665.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204C">Zu 4C anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="860000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="860000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Viertes Obergeschoss">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-4d-fourth-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1003,13 +1028,14 @@
                     <div><dt>Bebaut</dt><dd>81,17 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>11,42 m²</dd></div>
                     <div><dt>Solarium</dt><dd>31,65 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Wohnung</dd></div>
                     <div><dt>Etage</dt><dd>Viertes Obergeschoss, Solarium</dd></div>
                   </dl>
                   <p class="unit-card-price">860.000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Brisamar%20Residences%20-%204D">Zu 4D anfragen</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1050000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="1050000">
                 <div class="unit-card-plans"><a class="unit-card-plan" href="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse.jpg" target="_blank" rel="noopener" aria-label="Grundriss von Penthouse">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-640.webp 640w, assets/liora/projects/brisamar-residences/floorplans/home-5a-penthouse-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1033,6 +1059,7 @@
                     <div><dt>Bebaut</dt><dd>95,09 m²</dd></div>
                     <div><dt>Terrasse</dt><dd>17,56 m²</dd></div>
                     <div><dt>Solarium</dt><dd>66,04 m²</dd></div>
+                    <div><dt>Haustyp</dt><dd>Penthouse</dd></div>
                     <div><dt>Etage</dt><dd>Penthouse, Solarium</dd></div>
                   </dl>
                   <p class="unit-card-price">1.050.000 €</p>

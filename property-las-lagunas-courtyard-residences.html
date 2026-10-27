@@ -40,7 +40,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -816,6 +816,14 @@
               data-availability-filters
               data-count-template="Showing {shown} of {total}">
               <div class="availability-filter-group">
+                <span class="availability-filter-label">Home type</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">All</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartment</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              <div class="availability-filter-group">
                 <span class="availability-filter-label">Bedrooms</span>
                 <div class="availability-chip-row">
                   <button type="button" class="availability-chip is-active" data-filter-group="beds" data-filter-value="all" aria-pressed="true">All</button>
@@ -842,7 +850,7 @@
                 <caption class="sr-only">Available homes at Las Lagunas Courtyard Residences</caption>
                 <thead><tr><th scope="col">Reference</th><th scope="col">Floor</th><th scope="col">Bedrooms</th><th scope="col">Size</th><th scope="col">Price</th><th scope="col">Status</th></tr></thead>
                 <tbody>
-              <tr data-beds="2" data-price="274000">
+              <tr data-type="apartment" data-beds="2" data-price="274000">
                 <td data-label="Reference"><strong>Apartment 19</strong></td>
                 <td data-label="Floor">First Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -850,7 +858,7 @@
                 <td data-label="Price"><strong>EUR 274,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="275000">
+              <tr data-type="apartment" data-beds="2" data-price="275000">
                 <td data-label="Reference"><strong>Apartment 9</strong></td>
                 <td data-label="Floor">Ground Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -858,7 +866,7 @@
                 <td data-label="Price"><strong>EUR 275,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="279000">
+              <tr data-type="apartment" data-beds="2" data-price="279000">
                 <td data-label="Reference"><strong>Apartment 8</strong></td>
                 <td data-label="Floor">Ground Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -866,7 +874,7 @@
                 <td data-label="Price"><strong>EUR 279,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="284000">
+              <tr data-type="apartment" data-beds="2" data-price="284000">
                 <td data-label="Reference"><strong>Apartment 21</strong></td>
                 <td data-label="Floor">First Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -874,7 +882,7 @@
                 <td data-label="Price"><strong>EUR 284,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="285000">
+              <tr data-type="apartment" data-beds="2" data-price="285000">
                 <td data-label="Reference"><strong>Apartment 2</strong></td>
                 <td data-label="Floor">Ground Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -882,7 +890,7 @@
                 <td data-label="Price"><strong>EUR 285,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="285000">
+              <tr data-type="apartment" data-beds="2" data-price="285000">
                 <td data-label="Reference"><strong>Apartment 3</strong></td>
                 <td data-label="Floor">Ground Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -890,7 +898,7 @@
                 <td data-label="Price"><strong>EUR 285,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="289000">
+              <tr data-type="apartment" data-beds="2" data-price="289000">
                 <td data-label="Reference"><strong>Apartment 20</strong></td>
                 <td data-label="Floor">First Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -898,7 +906,7 @@
                 <td data-label="Price"><strong>EUR 289,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="293000">
+              <tr data-type="apartment" data-beds="2" data-price="293000">
                 <td data-label="Reference"><strong>Apartment 33</strong></td>
                 <td data-label="Floor">Second Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -906,7 +914,7 @@
                 <td data-label="Price"><strong>EUR 293,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="294000">
+              <tr data-type="apartment" data-beds="2" data-price="294000">
                 <td data-label="Reference"><strong>Apartment 11</strong></td>
                 <td data-label="Floor">Ground Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -914,7 +922,7 @@
                 <td data-label="Price"><strong>EUR 294,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="295000">
+              <tr data-type="apartment" data-beds="2" data-price="295000">
                 <td data-label="Reference"><strong>Apartment 14</strong></td>
                 <td data-label="Floor">First Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -922,7 +930,7 @@
                 <td data-label="Price"><strong>EUR 295,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="295000">
+              <tr data-type="apartment" data-beds="2" data-price="295000">
                 <td data-label="Reference"><strong>Apartment 23</strong></td>
                 <td data-label="Floor">First Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -930,7 +938,7 @@
                 <td data-label="Price"><strong>EUR 295,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="299000">
+              <tr data-type="apartment" data-beds="2" data-price="299000">
                 <td data-label="Reference"><strong>Apartment 10</strong></td>
                 <td data-label="Floor">Ground Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -938,7 +946,7 @@
                 <td data-label="Price"><strong>EUR 299,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="299000">
+              <tr data-type="apartment" data-beds="2" data-price="299000">
                 <td data-label="Reference"><strong>Apartment 12</strong></td>
                 <td data-label="Floor">First Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -946,7 +954,7 @@
                 <td data-label="Price"><strong>EUR 299,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="299000">
+              <tr data-type="apartment" data-beds="2" data-price="299000">
                 <td data-label="Reference"><strong>Apartment 15</strong></td>
                 <td data-label="Floor">First Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -954,7 +962,7 @@
                 <td data-label="Price"><strong>EUR 299,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="3" data-price="299000">
+              <tr data-type="apartment" data-beds="3" data-price="299000">
                 <td data-label="Reference"><strong>Apartment 17</strong></td>
                 <td data-label="Floor">First Floor</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -962,7 +970,7 @@
                 <td data-label="Price"><strong>EUR 299,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="299000">
+              <tr data-type="apartment" data-beds="2" data-price="299000">
                 <td data-label="Reference"><strong>Apartment 25</strong></td>
                 <td data-label="Floor">First Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -970,7 +978,7 @@
                 <td data-label="Price"><strong>EUR 299,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="299000">
+              <tr data-type="apartment" data-beds="2" data-price="299000">
                 <td data-label="Reference"><strong>Apartment 35</strong></td>
                 <td data-label="Floor">Second Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -978,7 +986,7 @@
                 <td data-label="Price"><strong>EUR 299,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="299000">
+              <tr data-type="apartment" data-beds="2" data-price="299000">
                 <td data-label="Reference"><strong>Apartment 36</strong></td>
                 <td data-label="Floor">Second Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -986,7 +994,7 @@
                 <td data-label="Price"><strong>EUR 299,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="304000">
+              <tr data-type="apartment" data-beds="2" data-price="304000">
                 <td data-label="Reference"><strong>Apartment 28</strong></td>
                 <td data-label="Floor">Second Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -994,7 +1002,7 @@
                 <td data-label="Price"><strong>EUR 304,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="304000">
+              <tr data-type="apartment" data-beds="2" data-price="304000">
                 <td data-label="Reference"><strong>Apartment 39</strong></td>
                 <td data-label="Floor">Second Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -1002,7 +1010,7 @@
                 <td data-label="Price"><strong>EUR 304,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="309000">
+              <tr data-type="apartment" data-beds="2" data-price="309000">
                 <td data-label="Reference"><strong>Apartment 26</strong></td>
                 <td data-label="Floor">Second Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -1010,7 +1018,7 @@
                 <td data-label="Price"><strong>EUR 309,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="309000">
+              <tr data-type="apartment" data-beds="2" data-price="309000">
                 <td data-label="Reference"><strong>Apartment 29</strong></td>
                 <td data-label="Floor">Second Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -1018,7 +1026,7 @@
                 <td data-label="Price"><strong>EUR 309,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="309000">
+              <tr data-type="apartment" data-beds="2" data-price="309000">
                 <td data-label="Reference"><strong>Apartment 34</strong></td>
                 <td data-label="Floor">Second Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -1026,7 +1034,7 @@
                 <td data-label="Price"><strong>EUR 309,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="3" data-price="312000">
+              <tr data-type="apartment" data-beds="3" data-price="312000">
                 <td data-label="Reference"><strong>Apartment 4</strong></td>
                 <td data-label="Floor">Ground Floor</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -1034,7 +1042,7 @@
                 <td data-label="Price"><strong>EUR 312,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="319000">
+              <tr data-type="apartment" data-beds="2" data-price="319000">
                 <td data-label="Reference"><strong>Apartment 37</strong></td>
                 <td data-label="Floor">Second Floor</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -1042,7 +1050,7 @@
                 <td data-label="Price"><strong>EUR 319,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="320000">
+              <tr data-type="penthouse" data-beds="2" data-price="320000">
                 <td data-label="Reference"><strong>Apartment 45</strong></td>
                 <td data-label="Floor">Penthouse</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -1050,7 +1058,7 @@
                 <td data-label="Price"><strong>EUR 320,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="2" data-price="325000">
+              <tr data-type="penthouse" data-beds="2" data-price="325000">
                 <td data-label="Reference"><strong>Apartment 46</strong></td>
                 <td data-label="Floor">Penthouse</td>
                 <td data-label="Bedrooms">2 bedrooms</td>
@@ -1058,7 +1066,7 @@
                 <td data-label="Price"><strong>EUR 325,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="3" data-price="330000">
+              <tr data-type="apartment" data-beds="3" data-price="330000">
                 <td data-label="Reference"><strong>Apartment 24</strong></td>
                 <td data-label="Floor">First Floor</td>
                 <td data-label="Bedrooms">3 bedrooms</td>
@@ -1066,7 +1074,7 @@
                 <td data-label="Price"><strong>EUR 330,000</strong></td>
                 <td data-label="Status"><span class="availability-status">Available</span></td>
               </tr>
-              <tr data-beds="3" data-price="420000">
+              <tr data-type="penthouse" data-beds="3" data-price="420000">
                 <td data-label="Reference"><strong>Apartment 41</strong></td>
                 <td data-label="Floor">Penthouse</td>
                 <td data-label="Bedrooms">3 bedrooms</td>

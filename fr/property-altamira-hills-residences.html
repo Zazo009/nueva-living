@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -833,6 +833,15 @@
             <div class="availability-filters" role="group" aria-label="Filtrer les biens disponibles"
               data-availability-filters
               data-count-template="Affichage de {shown} sur {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Type de bien</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Toutes</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="duplex-penthouse" aria-pressed="false">Penthouse duplex</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Prix</span>
@@ -850,7 +859,7 @@
             </div>
             <p class="availability-empty" data-availability-empty hidden>Aucun bien ne correspond à ces filtres.</p>
             <div class="unit-card-grid" role="list" aria-label="Logements disponibles">
-              <article class="unit-card" data-unit data-price="499000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="499000">
                 
                 <div class="unit-card-body">
                   <div class="unit-card-head">
@@ -861,13 +870,14 @@
                     <div><dt>Chambres</dt><dd>2 chambres</dd></div>
                     <div><dt>Construits</dt><dd>84,60 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>24,10 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">499 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20150B">Se renseigner sur 150B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1035000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="1035000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-154b.jpg" target="_blank" rel="noopener" aria-label="Plan de 154B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-154b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-154b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -885,13 +895,14 @@
                     <div><dt>Construits</dt><dd>197,25 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>117,60 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>121,90 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse duplex</dd></div>
                     <div><dt>Étage</dt><dd>Cage 15, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">1 035 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20154B">Se renseigner sur 154B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="1065000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="1065000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-164b.jpg" target="_blank" rel="noopener" aria-label="Plan de 164B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-164b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-164b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -909,13 +920,14 @@
                     <div><dt>Construits</dt><dd>197,25 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>117,60 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>121,90 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse duplex</dd></div>
                     <div><dt>Étage</dt><dd>Cage 16, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">1 065 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20164B">Se renseigner sur 164B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="509000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="509000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-160b.jpg" target="_blank" rel="noopener" aria-label="Plan de 160B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-160b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-160b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -933,13 +945,14 @@
                     <div><dt>Construits</dt><dd>115,25 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>74,30 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>24,30 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Cage 16, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">509 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20160B">Se renseigner sur 160B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="759000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="759000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-162a.jpg" target="_blank" rel="noopener" aria-label="Plan de 162A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-162a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-162a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -957,13 +970,14 @@
                     <div><dt>Construits</dt><dd>154,23 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>99,30 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>100,70 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Cage 16, deuxième étage</dd></div>
                   </dl>
                   <p class="unit-card-price">759 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20162A">Se renseigner sur 162A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="829000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="829000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-163b.jpg" target="_blank" rel="noopener" aria-label="Plan de 163B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-163b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-163b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -981,13 +995,14 @@
                     <div><dt>Construits</dt><dd>157,25 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>93,80 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>50,70 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Cage 16, troisième étage</dd></div>
                   </dl>
                   <p class="unit-card-price">829 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20163B">Se renseigner sur 163B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="636000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="636000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-410a.jpg" target="_blank" rel="noopener" aria-label="Plan de 410A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-410a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-410a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1006,13 +1021,14 @@
                     <div><dt>Intérieurs</dt><dd>82,70 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>63,20 m²</dd></div>
                     <div><dt>De jardin</dt><dd>63,40 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 1, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">636 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20410A">Se renseigner sur 410A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="527000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="527000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-410b.jpg" target="_blank" rel="noopener" aria-label="Plan de 410B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-410b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-410b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1031,13 +1047,14 @@
                     <div><dt>Intérieurs</dt><dd>71,40 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>46,20 m²</dd></div>
                     <div><dt>De jardin</dt><dd>42,20 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 1, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">527 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20410B">Se renseigner sur 410B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="721000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="721000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-412b.jpg" target="_blank" rel="noopener" aria-label="Plan de 412B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-412b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-412b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1055,13 +1072,14 @@
                     <div><dt>Construits</dt><dd>101,70 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>88,30 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>114,70 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 1, deuxième étage</dd></div>
                   </dl>
                   <p class="unit-card-price">721 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20412B">Se renseigner sur 412B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="585000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="585000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-413a.jpg" target="_blank" rel="noopener" aria-label="Plan de 413A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-413a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-413a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1079,13 +1097,14 @@
                     <div><dt>Construits</dt><dd>100,90 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>82,60 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>49,70 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 1, troisième étage</dd></div>
                   </dl>
                   <p class="unit-card-price">585 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20413A">Se renseigner sur 413A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="892000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="892000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-414b.jpg" target="_blank" rel="noopener" aria-label="Plan de 414B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-414b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-414b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1103,13 +1122,14 @@
                     <div><dt>Construits</dt><dd>117,60 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>92,40 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>62,30 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse duplex</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 1, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">892 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20414B">Se renseigner sur 414B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="613000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="613000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-420a.jpg" target="_blank" rel="noopener" aria-label="Plan de 420A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-420a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-420a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1128,13 +1148,14 @@
                     <div><dt>Intérieurs</dt><dd>82,70 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>61,00 m²</dd></div>
                     <div><dt>De jardin</dt><dd>46,00 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 2, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">613 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20420A">Se renseigner sur 420A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="634000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="634000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-422a.jpg" target="_blank" rel="noopener" aria-label="Plan de 422A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-422a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-422a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1152,13 +1173,14 @@
                     <div><dt>Construits</dt><dd>102,20 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>82,40 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>100,40 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 2, deuxième étage</dd></div>
                   </dl>
                   <p class="unit-card-price">634 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20422A">Se renseigner sur 422A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="867000">
+              <article class="unit-card" data-unit data-type="duplex-penthouse" data-price="867000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-424b.jpg" target="_blank" rel="noopener" aria-label="Plan de 424B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-424b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-424b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1176,13 +1198,14 @@
                     <div><dt>Construits</dt><dd>117,60 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>92,40 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>62,30 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse duplex</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 2, penthouse duplex</dd></div>
                   </dl>
                   <p class="unit-card-price">867 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20424B">Se renseigner sur 424B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="563000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="563000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-430a.jpg" target="_blank" rel="noopener" aria-label="Plan de 430A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-430a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-430a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1200,13 +1223,14 @@
                     <div><dt>Construits</dt><dd>98,00 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>82,40 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>59,70 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 3, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">563 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20430A">Se renseigner sur 430A</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="458000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="458000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-430b.jpg" target="_blank" rel="noopener" aria-label="Plan de 430B">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-430b-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-430b-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1224,13 +1248,14 @@
                     <div><dt>Construits</dt><dd>82,70 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>70,90 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>46,00 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 3, rez-de-chaussée</dd></div>
                   </dl>
                   <p class="unit-card-price">458 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20430B">Se renseigner sur 430B</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="591000">
+              <article class="unit-card" data-unit data-type="apartment" data-price="591000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-431d.jpg" target="_blank" rel="noopener" aria-label="Plan de 431D">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-431d-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-431d-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1248,13 +1273,14 @@
                     <div><dt>Construits</dt><dd>100,00 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>83,60 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>60,20 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Appartement</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 3, premier étage</dd></div>
                   </dl>
                   <p class="unit-card-price">591 000 €</p>
                   <a class="unit-card-cta" href="contact.html#contact-form&intent=Altamira%20Hills%20Residences%20-%20431D">Se renseigner sur 431D</a>
                 </div>
               </article>
-              <article class="unit-card" data-unit data-price="861000">
+              <article class="unit-card" data-unit data-type="penthouse" data-price="861000">
                 <a class="unit-card-plan" href="assets/liora/projects/altamira-hills-residences/floorplans/home-434a.jpg" target="_blank" rel="noopener" aria-label="Plan de 434A">
                   <picture>
                     <source type="image/webp" srcset="assets/liora/projects/altamira-hills-residences/floorplans/home-434a-640.webp 640w, assets/liora/projects/altamira-hills-residences/floorplans/home-434a-960.webp 960w" sizes="(max-width: 640px) 88vw, (max-width: 1100px) 46vw, 30vw">
@@ -1272,6 +1298,7 @@
                     <div><dt>Construits</dt><dd>117,00 m²</dd></div>
                     <div><dt>Intérieurs</dt><dd>98,30 m²</dd></div>
                     <div><dt>De terrasse</dt><dd>33,00 m²</dd></div>
+                    <div><dt>Type de bien</dt><dd>Penthouse</dd></div>
                     <div><dt>Étage</dt><dd>Bloc 3, penthouse</dd></div>
                   </dl>
                   <p class="unit-card-price">861 000 €</p>

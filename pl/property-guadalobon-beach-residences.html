@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -692,13 +692,31 @@
               <span>Zobacz wszystkie 11 dostępne nieruchomości</span>
               <span class="availability-summary-icon" aria-hidden="true">+</span>
             </summary>
-            
+            <div class="availability-filters" role="group" aria-label="Filtruj dostępne nieruchomości"
+              data-availability-filters
+              data-count-template="Wyświetlono {shown} z {total}">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Typ domu</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Wszystkie</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Apartament</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                </div>
+              </div>
+              
+              
+              <div class="availability-filter-meta">
+                <span class="availability-filter-count" data-availability-count aria-live="polite"></span>
+                <button type="button" class="availability-filter-clear" data-availability-clear hidden>Wyczyść filtry</button>
+              </div>
+            </div>
+            <p class="availability-empty" data-availability-empty hidden>Żadna nieruchomość nie pasuje do tych filtrów.</p>
             <div class="availability-table-wrap">
               <table class="availability-table">
                 <caption class="sr-only">Dostępne nieruchomości w Guadalobon Beach Residences</caption>
                 <thead><tr><th scope="col">Numer referencyjny</th><th scope="col">Piętro</th><th scope="col">Sypialnie</th><th scope="col">Powierzchnia</th><th scope="col">Cena</th><th scope="col">Status</th><th scope="col">Rzut</th></tr></thead>
                 <tbody>
-              <tr data-price="795000">
+              <tr data-type="apartment" data-price="795000">
                 <td data-label="Numer referencyjny"><strong>AN-2</strong></td>
                 <td data-label="Piętro">Dom szeregowy nr 2, zespół domów szeregowych</td>
                 <td data-label="Sypialnie">4 sypialnie</td>
@@ -707,7 +725,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"></td>
               </tr>
-              <tr data-price="795000">
+              <tr data-type="apartment" data-price="795000">
                 <td data-label="Numer referencyjny"><strong>AN-3</strong></td>
                 <td data-label="Piętro">Dom szeregowy nr 3, zespół domów szeregowych</td>
                 <td data-label="Sypialnie">4 sypialnie</td>
@@ -716,7 +734,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"></td>
               </tr>
-              <tr data-price="795000">
+              <tr data-type="apartment" data-price="795000">
                 <td data-label="Numer referencyjny"><strong>AN-9</strong></td>
                 <td data-label="Piętro">Dom szeregowy nr 9, zespół domów szeregowych</td>
                 <td data-label="Sypialnie">4 sypialnie</td>
@@ -725,7 +743,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-9-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="795000">
+              <tr data-type="apartment" data-price="795000">
                 <td data-label="Numer referencyjny"><strong>AN-10</strong></td>
                 <td data-label="Piętro">Dom szeregowy nr 10, zespół domów szeregowych</td>
                 <td data-label="Sypialnie">4 sypialnie</td>
@@ -734,7 +752,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-10-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="795000">
+              <tr data-type="apartment" data-price="795000">
                 <td data-label="Numer referencyjny"><strong>AN-12</strong></td>
                 <td data-label="Piętro">Dom szeregowy nr 12, zespół domów szeregowych</td>
                 <td data-label="Sypialnie">4 sypialnie</td>
@@ -743,7 +761,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"></td>
               </tr>
-              <tr data-price="825000">
+              <tr data-type="apartment" data-price="825000">
                 <td data-label="Numer referencyjny"><strong>AN-13</strong></td>
                 <td data-label="Piętro">Dom szeregowy nr 13, zespół domów szeregowych</td>
                 <td data-label="Sypialnie">4 sypialnie</td>
@@ -752,7 +770,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"></td>
               </tr>
-              <tr data-price="865000">
+              <tr data-type="penthouse" data-price="865000">
                 <td data-label="Numer referencyjny"><strong>AN-24A</strong></td>
                 <td data-label="Piętro">Poziom 4, klatka 2, budynek A (Penthouse)</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -761,7 +779,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-24a-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="450000">
+              <tr data-type="apartment" data-price="450000">
                 <td data-label="Numer referencyjny"><strong>AN-54C</strong></td>
                 <td data-label="Piętro">Poziom 4, klatka 5, budynek B</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -770,7 +788,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-54c-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="625000">
+              <tr data-type="penthouse" data-price="625000">
                 <td data-label="Numer referencyjny"><strong>AN-55A</strong></td>
                 <td data-label="Piętro">Poziom 5, klatka 5, budynek B (Penthouse)</td>
                 <td data-label="Sypialnie">3 sypialnie</td>
@@ -779,7 +797,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-55a-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="450000">
+              <tr data-type="apartment" data-price="450000">
                 <td data-label="Numer referencyjny"><strong>AN-64C</strong></td>
                 <td data-label="Piętro">Poziom 4, klatka 6, budynek B</td>
                 <td data-label="Sypialnie">2 sypialnie</td>
@@ -788,7 +806,7 @@
                 <td data-label="Status"><span class="availability-status">Dostępne</span></td>
                 <td data-label="Rzut"><a class="availability-floorplan-link" href="assets/liora/projects/guadalobon-beach-residences/floorplans/unit-an-64c-floorplans.pdf" target="_blank" rel="noopener">Zobacz PDF</a></td>
               </tr>
-              <tr data-price="656000">
+              <tr data-type="penthouse" data-price="656000">
                 <td data-label="Numer referencyjny"><strong>AN-65A</strong></td>
                 <td data-label="Piętro">Poziom 5, klatka 6, budynek B (Penthouse)</td>
                 <td data-label="Sypialnie">3 sypialnie</td>

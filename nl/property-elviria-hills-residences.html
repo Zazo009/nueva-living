@@ -41,7 +41,7 @@
   <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" /></noscript>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous" defer></script>
   <script src="assets/liora/nueva-location-map.js?v=9f1cdb6f8817" defer></script>
-  <script src="assets/liora/liora-property.js?v=bad2dcbf1488" defer></script>
+  <script src="assets/liora/liora-property.js?v=8f30c98d4083" defer></script>
   <script src="assets/liora/liora-calculator.js?v=27a9ab1961fa" defer></script>
   <script type="application/ld+json">
 {
@@ -886,6 +886,14 @@
             <div class="availability-filters" role="group" aria-label="Beschikbare woningen filteren"
               data-availability-filters
               data-count-template="{shown} van {total} weergegeven">
+              <div class="availability-filter-group">
+                <span class="availability-filter-label">Woningtype</span>
+                <div class="availability-chip-row">
+                  <button type="button" class="availability-chip is-active" data-filter-group="type" data-filter-value="all" aria-pressed="true">Alle</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="penthouse" aria-pressed="false">Penthouse</button>
+                  <button type="button" class="availability-chip" data-filter-group="type" data-filter-value="apartment" aria-pressed="false">Appartement</button>
+                </div>
+              </div>
               
               <div class="availability-filter-group">
                 <span class="availability-filter-label">Prijs</span>
@@ -907,7 +915,7 @@
                 <caption class="sr-only">Beschikbare woningen bij Elviria Hills Residences</caption>
                 <thead><tr><th scope="col">Referentie</th><th scope="col">Verdieping</th><th scope="col">Slaapkamers</th><th scope="col">Prijs</th><th scope="col">Status</th><th scope="col">Plattegrond</th></tr></thead>
                 <tbody>
-              <tr data-price="950000">
+              <tr data-type="penthouse" data-price="950000">
                 <td data-label="Referentie"><strong>Gebouw 1 / Atico B</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -915,7 +923,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"><a class="availability-floorplan-link" href="assets/liora/projects/elviria-hills-residences/floorplans/building-1-atico-b.pdf" target="_blank" rel="noopener">PDF bekijken</a></td>
               </tr>
-              <tr data-price="840000">
+              <tr data-type="apartment" data-price="840000">
                 <td data-label="Referentie"><strong>Gebouw 1 / Bajo A</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -923,7 +931,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="810000">
+              <tr data-type="apartment" data-price="810000">
                 <td data-label="Referentie"><strong>Gebouw 1 / Bajo C</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -931,7 +939,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="830000">
+              <tr data-type="apartment" data-price="830000">
                 <td data-label="Referentie"><strong>Gebouw 2 / Bajo A</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -939,7 +947,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="810000">
+              <tr data-type="apartment" data-price="810000">
                 <td data-label="Referentie"><strong>Gebouw 2 / Bajo B</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -947,7 +955,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="810000">
+              <tr data-type="apartment" data-price="810000">
                 <td data-label="Referentie"><strong>Gebouw 2 / Bajo C</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -955,7 +963,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="850000">
+              <tr data-type="apartment" data-price="850000">
                 <td data-label="Referentie"><strong>Gebouw 2 / Bajo D</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -963,7 +971,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="980000">
+              <tr data-type="penthouse" data-price="980000">
                 <td data-label="Referentie"><strong>Gebouw 3 / Atico C</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -971,7 +979,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="860000">
+              <tr data-type="apartment" data-price="860000">
                 <td data-label="Referentie"><strong>Gebouw 3 / Bajo B</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -979,7 +987,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="840000">
+              <tr data-type="apartment" data-price="840000">
                 <td data-label="Referentie"><strong>Gebouw 3 / Bajo C</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -987,7 +995,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="870000">
+              <tr data-type="apartment" data-price="870000">
                 <td data-label="Referentie"><strong>Gebouw 3 / Bajo D</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -995,7 +1003,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="790000">
+              <tr data-type="penthouse" data-price="790000">
                 <td data-label="Referentie"><strong>Gebouw 4 / Atico C</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1003,7 +1011,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="850000">
+              <tr data-type="penthouse" data-price="850000">
                 <td data-label="Referentie"><strong>Gebouw 4 / Atico D</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1011,7 +1019,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="750000">
+              <tr data-type="apartment" data-price="750000">
                 <td data-label="Referentie"><strong>Gebouw 4 / Bajo A</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1019,7 +1027,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="730000">
+              <tr data-type="apartment" data-price="730000">
                 <td data-label="Referentie"><strong>Gebouw 4 / Bajo B</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1027,7 +1035,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="790000">
+              <tr data-type="penthouse" data-price="790000">
                 <td data-label="Referentie"><strong>Gebouw 5 / Atico C</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1035,7 +1043,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="850000">
+              <tr data-type="penthouse" data-price="850000">
                 <td data-label="Referentie"><strong>Gebouw 5 / Atico D</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1043,7 +1051,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="690000">
+              <tr data-type="apartment" data-price="690000">
                 <td data-label="Referentie"><strong>Gebouw 5 / Bajo B</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1051,7 +1059,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="990000">
+              <tr data-type="penthouse" data-price="990000">
                 <td data-label="Referentie"><strong>Gebouw 6 / Atico B</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1059,7 +1067,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="990000">
+              <tr data-type="apartment" data-price="990000">
                 <td data-label="Referentie"><strong>Gebouw 6 / Bajo A</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1067,7 +1075,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="970000">
+              <tr data-type="apartment" data-price="970000">
                 <td data-label="Referentie"><strong>Gebouw 6 / Bajo B</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1075,7 +1083,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="960000">
+              <tr data-type="apartment" data-price="960000">
                 <td data-label="Referentie"><strong>Gebouw 6 / Bajo C</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1083,7 +1091,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="970000">
+              <tr data-type="apartment" data-price="970000">
                 <td data-label="Referentie"><strong>Gebouw 6 / Bajo D</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1091,7 +1099,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1250000">
+              <tr data-type="penthouse" data-price="1250000">
                 <td data-label="Referentie"><strong>Gebouw 7 / Atico B</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1099,7 +1107,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1250000">
+              <tr data-type="penthouse" data-price="1250000">
                 <td data-label="Referentie"><strong>Gebouw 7 / Atico C</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1107,7 +1115,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1300000">
+              <tr data-type="apartment" data-price="1300000">
                 <td data-label="Referentie"><strong>Gebouw 7 / Bajo A</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1115,7 +1123,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1250000">
+              <tr data-type="apartment" data-price="1250000">
                 <td data-label="Referentie"><strong>Gebouw 7 / Bajo B</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1123,7 +1131,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1250000">
+              <tr data-type="apartment" data-price="1250000">
                 <td data-label="Referentie"><strong>Gebouw 7 / Bajo C</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1131,7 +1139,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1300000">
+              <tr data-type="apartment" data-price="1300000">
                 <td data-label="Referentie"><strong>Gebouw 7 / Bajo D</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1139,7 +1147,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1200000">
+              <tr data-type="penthouse" data-price="1200000">
                 <td data-label="Referentie"><strong>Gebouw 8 / Atico B</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1147,7 +1155,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1200000">
+              <tr data-type="penthouse" data-price="1200000">
                 <td data-label="Referentie"><strong>Gebouw 8 / Atico C</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">2 slaapkamers</td>
@@ -1155,7 +1163,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1350000">
+              <tr data-type="penthouse" data-price="1350000">
                 <td data-label="Referentie"><strong>Gebouw 8 / Atico D</strong></td>
                 <td data-label="Verdieping">Penthouse</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1163,7 +1171,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1100000">
+              <tr data-type="apartment" data-price="1100000">
                 <td data-label="Referentie"><strong>Gebouw 8 / Bajo A</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1171,7 +1179,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="990000">
+              <tr data-type="apartment" data-price="990000">
                 <td data-label="Referentie"><strong>Gebouw 8 / Bajo B</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1179,7 +1187,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="990000">
+              <tr data-type="apartment" data-price="990000">
                 <td data-label="Referentie"><strong>Gebouw 8 / Bajo C</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
@@ -1187,7 +1195,7 @@
                 <td data-label="Status"><span class="availability-status">Beschikbaar</span></td>
                 <td data-label="Plattegrond"></td>
               </tr>
-              <tr data-price="1050000">
+              <tr data-type="apartment" data-price="1050000">
                 <td data-label="Referentie"><strong>Gebouw 8 / Bajo D</strong></td>
                 <td data-label="Verdieping">Begane grond</td>
                 <td data-label="Slaapkamers">3 slaapkamers</td>
