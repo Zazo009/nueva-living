@@ -1323,7 +1323,7 @@ const SEGMENTS = [
     heroTitleHtml: 'New Developments in <em>Nueva Andaluc&iacute;a</em>: {count} Apartments &amp; Penthouses for Sale',
     heroLead: 'Compare current apartment and penthouse developments in Nueva Andalucía’s Golf Valley, minutes from Puerto Banús, with real prices and availability confirmed before you view.',
     hero: {
-      image: 'assets/liora/projects/los-olivos-residences/hero.jpg',
+      image: 'assets/liora/projects/aloha-forest/hero.jpg',
       alt: 'Aerial view of a new-build apartment and penthouse development under construction in Nueva Andalucía’s Golf Valley, Marbella, with the coastline beyond',
       width: 1920,
       height: 1078,
