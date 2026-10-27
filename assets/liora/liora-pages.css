@@ -5296,3 +5296,100 @@ li,
   max-width: 720px;
   margin: 0;
 }
+
+
+/* ---------- Contact form: a short first enquiry ----------
+   Name, email, phone and a message; area, type, budget and use sit behind "Add more details".
+   Labels and field lines are heavier than the site's quiet default so a first-time visitor can
+   see where to type. */
+#contact-form .field label {
+  margin-bottom: 8px;
+  color: var(--ink, #2f2417);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+#contact-form .field input,
+#contact-form .field select,
+#contact-form .field textarea {
+  padding: 0 12px;
+  border: 1px solid rgba(74, 59, 40, 0.38);
+  border-bottom-color: rgba(74, 59, 40, 0.6);
+  background: rgba(255, 255, 255, 0.55);
+  font-size: 15px;
+}
+
+#contact-form .field textarea {
+  min-height: 112px;
+  padding-block: 10px;
+}
+
+#contact-form .field input:focus,
+#contact-form .field select:focus,
+#contact-form .field textarea:focus {
+  border-color: var(--bronze, #896a3f);
+  background: #fff;
+}
+
+.form-more {
+  border-top: 1px solid rgba(74, 59, 40, 0.18);
+  border-bottom: 1px solid rgba(74, 59, 40, 0.18);
+}
+
+.form-more summary {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.form-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.form-more summary::after {
+  content: "+";
+  flex: none;
+  color: var(--bronze, #896a3f);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 22px;
+  transition: transform 0.2s ease;
+}
+
+.form-more[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.form-more summary > span,
+.form-more summary > small {
+  display: block;
+}
+
+.form-more .form-more-title {
+  color: var(--ink, #2f2417);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.form-more summary small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.form-more .form-grid {
+  padding: 8px 0 22px;
+}
+
+[dir="rtl"] .form-more .form-more-title {
+  letter-spacing: 0;
+  text-transform: none;
+}
