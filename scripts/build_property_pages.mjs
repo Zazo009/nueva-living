@@ -2205,6 +2205,11 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   ];
   const navLink = (item) => `<a href="${item.href}">${item.label}</a>`;
   const projectNavHtml = `    <nav class="project-nav" aria-label="${t('aria.projectSections', locale)}">
+      <button type="button" class="project-nav-jump" data-project-nav-jump aria-expanded="false" aria-controls="projectNavList">
+        <span class="project-nav-jump-text"><span class="project-nav-jump-label">${t('navInPage.jumpTo', locale)}</span><span class="project-nav-jump-current" data-project-nav-current></span></span>
+        <svg class="project-nav-jump-caret" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7l5 5 5-5"/></svg>
+      </button>
+      <span class="project-nav-progress" data-project-nav-progress aria-hidden="true"></span>
       <div class="project-nav-inner">
 ${projectNavItems.filter((item) => item.primary).map((item) => `        ${navLink(item)}`).join('\n')}
         <button type="button" class="project-nav-more" data-project-nav-more aria-expanded="false" aria-controls="projectNavMore">${t('navInPage.more', locale)}</button>

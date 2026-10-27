@@ -71,10 +71,25 @@
     // The links sit in two groups (the main ones in the bar, the rest under
     // "More"), so the active section is looked up in the order the sections
     // appear on the page, not the order the links were written in.
-    const navLinks = [...projectNav.querySelectorAll('a[href^="#"]')];
+    // On the translated pages the build writes these links as "de/property-x.html#media" (the page
+    // sits under <base href="../">), not "#media", so the section is read from the resolved link: the
+    // fragment of any link that points at this very page. Matching only "#..." left every translated
+    // page without its active-section marker.
+    const samePageHash = (link) => {
+      try {
+        const url = new URL(link.href, document.baseURI);
+        // Compared without ".html" or a trailing slash, so a host that serves pretty URLs still matches.
+        const bare = (path) => path.replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/\/$/, '');
+        if (bare(url.pathname) !== bare(window.location.pathname) || !url.hash) return '';
+        return decodeURIComponent(url.hash.slice(1));
+      } catch (error) {
+        return '';
+      }
+    };
+    const navLinks = [...projectNav.querySelectorAll('a[href*="#"]')].filter((link) => samePageHash(link));
     const navEntries = navLinks
       .map((link) => {
-        const id = decodeURIComponent(link.getAttribute('href').slice(1));
+        const id = samePageHash(link);
         const section = document.getElementById(id);
         return section ? { id, link, section } : null;
       })
@@ -99,6 +114,94 @@
       document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && !morePanel.hidden) setMoreOpen(false, true);
       });
+    }
+
+    // On a phone the row of tabs gives way to one "Jump to" bar: it names the section you are in,
+    // shows how far down the page you are, and opens the full list. The list is built here from the
+    // links already in the page, so without script the row of tabs is still there.
+    const jumpButton = projectNav.querySelector('[data-project-nav-jump]');
+    const jumpCurrent = projectNav.querySelector('[data-project-nav-current]');
+    const jumpProgress = projectNav.querySelector('[data-project-nav-progress]');
+    const jumpClones = new Map();
+    const phoneNav = window.matchMedia('(max-width: 768px)');
+    let jumpList = null;
+    let jumpScrim = null;
+
+    function setJumpOpen(open, returnFocus) {
+      if (!jumpButton || !jumpList) return;
+      jumpList.hidden = !open;
+      jumpButton.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open && !jumpScrim) {
+        jumpScrim = document.createElement('div');
+        jumpScrim.className = 'project-nav-scrim';
+        jumpScrim.addEventListener('click', () => setJumpOpen(false));
+        document.body.append(jumpScrim);
+      } else if (!open && jumpScrim) {
+        jumpScrim.remove();
+        jumpScrim = null;
+      }
+      if (!open && returnFocus) jumpButton.focus();
+    }
+
+    function buildJumpList() {
+      jumpList = document.createElement('div');
+      jumpList.className = 'project-nav-list';
+      jumpList.id = 'projectNavList';
+      jumpList.hidden = true;
+      const main = document.createElement('div');
+      main.className = 'project-nav-list-main';
+      const rest = document.createElement('div');
+      rest.className = 'project-nav-list-rest';
+      navEntries.forEach(({ id, link }) => {
+        const clone = link.cloneNode(true);
+        clone.classList.remove('is-active');
+        clone.removeAttribute('aria-current');
+        (link.closest('.project-nav-panel') ? rest : main).append(clone);
+        jumpClones.set(id, clone);
+        clone.addEventListener('click', (event) => {
+          event.preventDefault();
+          setJumpOpen(false);
+          scrollToSection(id, true);
+        });
+      });
+      jumpList.append(main, rest);
+      projectNav.append(jumpList);
+    }
+
+    function syncJumpMode() {
+      const on = phoneNav.matches && Boolean(jumpButton);
+      projectNav.classList.toggle('is-jump', on);
+      if (on && !jumpList) buildJumpList();
+      if (!on) setJumpOpen(false);
+    }
+
+    function renderJump(activeId, aboveFirst) {
+      if (!jumpButton) return;
+      const entry = navEntries.find((item) => item.id === activeId);
+      const name = !aboveFirst && entry ? entry.link.textContent.trim() : '';
+      if (jumpCurrent) jumpCurrent.textContent = name;
+      jumpButton.classList.toggle('has-current', Boolean(name));
+      jumpClones.forEach((clone, id) => {
+        const active = id === activeId && !aboveFirst;
+        clone.classList.toggle('is-active', active);
+        if (active) clone.setAttribute('aria-current', 'true');
+        else clone.removeAttribute('aria-current');
+      });
+    }
+
+    function renderJumpProgress() {
+      if (!jumpProgress) return;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      jumpProgress.style.width = `${max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0}%`;
+    }
+
+    if (jumpButton) {
+      jumpButton.addEventListener('click', () => setJumpOpen(jumpList ? jumpList.hidden : false));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && jumpList && !jumpList.hidden) setJumpOpen(false, true);
+      });
+      if (phoneNav.addEventListener) phoneNav.addEventListener('change', syncJumpMode);
+      syncJumpMode();
     }
 
     function keepActiveLinkInView(link) {
@@ -139,6 +242,7 @@
       if (!entry) return;
 
       setActiveSection(id);
+      renderJump(id, false);
       programmaticUntil = Date.now() + (reducedMotion ? 0 : 1200);
       window.scrollTo({
         top: Math.max(0, entry.section.getBoundingClientRect().top + window.scrollY - stickyOffset()),
@@ -148,7 +252,9 @@
         window.addEventListener('scrollend', () => { programmaticUntil = 0; requestActiveUpdate(); }, { once: true });
       }
 
-      if (shouldWriteHash) window.history.replaceState(null, '', `#${id}`);
+      // Written against the page's own path: on the translated pages <base href="../"> would turn a
+      // bare "#id" into the site root's address.
+      if (shouldWriteHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${id}`);
     }
 
     // While a click-initiated smooth scroll is in flight, the scroll handler
@@ -161,6 +267,10 @@
       if (Date.now() < programmaticUntil) return;
       const current = sectionFromScrollPosition();
       if (current) setActiveSection(current.id);
+      // Above the first section the bar says "Jump to" rather than naming one.
+      const marker = window.scrollY + stickyOffset() + 24;
+      renderJump(current?.id, Boolean(navEntries[0] && navEntries[0].section.offsetTop > marker));
+      renderJumpProgress();
     }
 
     function requestActiveUpdate() {
@@ -171,7 +281,7 @@
 
     navLinks.forEach((link) => {
       link.addEventListener('click', (event) => {
-        const id = decodeURIComponent(link.getAttribute('href').slice(1));
+        const id = samePageHash(link);
         if (!navEntries.some((entry) => entry.id === id)) return;
 
         event.preventDefault();
