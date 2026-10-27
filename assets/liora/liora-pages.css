@@ -5196,3 +5196,103 @@ li,
     display: none;
   }
 }
+
+
+/* ---------- Developments hero: compact, with the search close to the top ----------
+   The heading, one line of text and the count; the long description now sits under the
+   results. The search card overlaps the hero's lower edge on wide screens. */
+.page-hero.developments-hero {
+  min-height: 0;
+  align-items: flex-end;
+}
+
+.page-hero.developments-hero::after {
+  background:
+    linear-gradient(90deg, rgba(28, 26, 20, 0.5), rgba(54, 48, 36, 0.18) 56%, rgba(70, 58, 40, 0)),
+    linear-gradient(0deg, rgba(26, 19, 13, 0.82), rgba(26, 19, 13, 0.4) 46%, rgba(26, 19, 13, 0.06));
+}
+
+.page-hero.developments-hero img {
+  filter: saturate(0.96);
+}
+
+.page-hero.developments-hero .hero-inner {
+  padding-top: 96px;
+  padding-bottom: 28px;
+}
+
+.page-hero.developments-hero .kicker {
+  margin-bottom: 12px;
+  color: #d9b878;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+}
+
+.page-hero.developments-hero .kicker::before {
+  display: none;
+}
+
+.page-hero.developments-hero .display-title {
+  max-width: 760px;
+  font-size: clamp(25px, 7vw, 42px);
+  line-height: 1.16;
+  letter-spacing: 0.02em;
+}
+
+.page-hero.developments-hero .display-title em {
+  color: #d9b878;
+}
+
+.page-hero.developments-hero .lead {
+  max-width: 560px;
+  margin: 12px 0 0;
+  color: rgba(251, 247, 239, 0.92);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (min-width: 769px) {
+  .page-hero.developments-hero .hero-inner {
+    padding-top: 110px;
+    padding-bottom: 92px;
+  }
+
+  .page-hero.developments-hero .kicker {
+    font-size: 11.5px;
+  }
+
+  .page-hero.developments-hero .lead {
+    font-size: 15px;
+  }
+
+  .developments-discovery {
+    padding-top: 0;
+  }
+
+  .developments-discovery .discovery-panel {
+    position: relative;
+    z-index: 3;
+    margin-top: -64px;
+    border-radius: 16px;
+    box-shadow: 0 18px 44px rgba(32, 23, 14, 0.16);
+  }
+}
+
+.dev-about {
+  padding-top: 0;
+}
+
+.dev-about .dev-about-title {
+  margin: 0 0 12px;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink, #2f2417);
+}
+
+.dev-about .body-copy {
+  max-width: 720px;
+  margin: 0;
+}

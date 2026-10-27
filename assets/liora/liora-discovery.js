@@ -143,6 +143,10 @@
   };
 
   const countLabel = (count) => (count === 1 ? i18n.countOne : i18n.countMany).replace('{count}', String(count));
+
+  // The line above the page heading says how many developments there are, in the visitor's language.
+  const heroCount = document.querySelector('[data-hero-count]');
+  if (heroCount && cards.length) heroCount.textContent = countLabel(cards.length);
   const showLabel = (count) => (count === 1 ? i18n.showOne : i18n.showMany).replace('{n}', String(count));
 
   // Filter-pill labels are translated; the data-filter matching value is not.
