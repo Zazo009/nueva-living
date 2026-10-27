@@ -80,7 +80,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
     ar: 'يُعدّ شراء عقار جديد من المطوّر عملية نقل أولى، ولذلك تُفرض عليه ضريبة القيمة المضافة بدلاً من ضريبة نقل الملكية المطبّقة على إعادة البيع. وفي الأندلس يعني ذلك ضريبتين منفصلتين على الصفقة نفسها.',
     nl: 'Een nieuwbouwwoning die u van de ontwikkelaar koopt is een eerste overdracht en valt daarom onder btw in plaats van de overdrachtsbelasting die bij bestaande bouw geldt. In Andalusië betekent dat twee afzonderlijke belastingen op dezelfde aankoop.',
     pl: 'Nowe mieszkanie kupione od dewelopera to pierwsze przeniesienie własności, więc podlega VAT, a nie podatkowi od czynności cywilnoprawnych stosowanemu przy rynku wtórnym. W Andaluzji oznacza to dwa odrębne podatki od tej samej transakcji.',
-    sv: 'En nyproducerad bostad som köps av exploatören är en första överlåtelse och beskattas därför med moms i stället för den överlåtelseskatt som gäller vid andrahandsköp. I Andalusien innebär det två separata skatter på samma köp.',
+    sv: 'En nyproducerad bostad som köps av exploatören är en första överlåtelse och beskattas därför med IVA i stället för den överlåtelseskatt som gäller vid andrahandsköp. I Andalusien innebär det två separata skatter på samma köp.',
     no: 'En nybygd bolig kjøpt av utbyggeren er en første overdragelse, og belastes derfor med merverdiavgift i stedet for overdragelsesavgiften som gjelder ved videresalg. I Andalusia betyr det to separate skatter på samme kjøp.'
   },
   {
@@ -409,7 +409,7 @@ export const FOOTER_PAGE_ENTRIES_GROUP_E = [
   {
     find: 'IVA (VAT)',
     es: 'IVA', fr: 'IVA (TVA)', de: 'IVA (Mehrwertsteuer)', ru: 'IVA (НДС)',
-    ar: 'ضريبة IVA (القيمة المضافة)', nl: 'IVA (btw)', pl: 'IVA (VAT)', sv: 'IVA (moms)', no: 'IVA (mva.)'
+    ar: 'ضريبة IVA (القيمة المضافة)', nl: 'IVA (btw)', pl: 'IVA (VAT)', sv: 'IVA (spansk moms)', no: 'IVA (mva.)'
   },
   {
     find: 'Budget for',

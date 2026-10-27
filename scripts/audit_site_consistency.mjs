@@ -1241,7 +1241,7 @@ let overlayPriceChecked = 0;
   // each carried the English word next to their own, because "+ VAT" sits at
   // the end of a price string that otherwise looked correctly translated.
   const TAX_WORD = { es: 'IVA', fr: 'TVA', de: 'MwSt.', ru: 'НДС',
-    ar: 'ضريبة القيمة المضافة', nl: 'btw', pl: 'VAT', sv: 'moms', no: 'mva' };
+    ar: 'ضريبة القيمة المضافة', nl: 'btw', pl: 'VAT', sv: 'IVA', no: 'mva' };
   const ANY_TAX = /^(VAT|IVA|TVA|MwSt\.?|НДС|btw|moms|mva|skatt|ضريبة)[.,]?$/;
   const TAX_AFTER = /(?:€|\d|%)[   ]*\+[   ]*(\S+)/g;
   // The "+ VAT" shape above only reads the token that follows a plus sign, so
@@ -1265,6 +1265,9 @@ let overlayPriceChecked = 0;
         const around = value.slice(Math.max(0, m.index - want.length - 4),
           m.index + word.length + want.length + 4);
         if (around.includes(want) || (locale === 'ar' && around.includes('ضريبة'))) continue;
+        // Swedish names the tax IVA and glosses it once as "spansk moms", so
+        // that a reader who knows only the Swedish 25% does not take it for that.
+        if (locale === 'sv' && /spansk $/.test(value.slice(0, m.index))) continue;
         if (seen.has(bare)) continue;
         seen.add(bare);
         taxOffenders.push(`${file} [${locale}] ${path}: "${word}" should be "${want}"`);
