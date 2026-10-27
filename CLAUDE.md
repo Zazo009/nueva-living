@@ -64,6 +64,13 @@ filenames or schema. A guard checks 570 project pages for the developer's own na
 `netlify/functions/data/projects-catalog.json` is a separate public projection with no
 `crm` block; keep it that way.
 
+**Publishing a project under its own name** is a per-project decision, recorded as
+`crm.namePublic: true`. The flag lifts the real-name page guard, the `llms.txt` guard and the
+image-review name hunt for that project, and nothing else: `crm.realDeveloper` stays hidden. The
+audit fails if the flag is set while the name is not on the project's English page (a half-made
+switch) or is not a boolean. Setting the flag does not rename anything; the name, slug and
+redirects are separate work. `scripts/lib/real_name.mjs` is the one place the rule lives.
+
 ## Images
 
 Source ≤2000px, quality 82, progressive; `scripts/generate_image_derivatives.py`

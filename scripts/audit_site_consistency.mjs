@@ -10,6 +10,7 @@ import { UNIT_FLOORS } from './lib/unit_floor_translations.mjs';
 import { localizeProject } from './lib/i18n.mjs';
 import { FOOTER_COMPANY_LINKS, FOOTER_PROJECT_LINKS, FOOTER_CONTACT } from './lib/site_footer.mjs';
 import { imageHash, readManifest, projectImagePaths } from './lib/image_review.mjs';
+import { realNameIsPublic } from './lib/real_name.mjs';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -1958,9 +1959,24 @@ let realNameChecked = 0;
       let project;
       try { project = JSON.parse(fs.readFileSync(file, 'utf8')); } catch { continue; }
       const real = String(project.crm?.realName || '').trim();
+      if (project.crm && 'namePublic' in project.crm && typeof project.crm.namePublic !== 'boolean') {
+        offenders.push(`${dir}: crm.namePublic must be true or false`);
+        continue;
+      }
       // La Morelia is a resale and is published under its own name, so its
-      // real name and its published name are the same string.
-      if (!real || real === project.name) continue;
+      // real name and its published name are the same string. A project flagged
+      // crm.namePublic has decided to be published under its own name, so there
+      // is nothing to hold back -- but the flag has to mean something: set
+      // without the name on its English page, it is a project half switched.
+      if (!real) continue;
+      if (realNameIsPublic(project)) {
+        const english = path.join(dist, project.output || '');
+        if (project.crm?.namePublic === true && real !== project.name && project.output && fs.existsSync(english)
+          && !fs.readFileSync(english, 'utf8').toLowerCase().includes(real.toLowerCase())) {
+          offenders.push(`${dir}: crm.namePublic is set but "${real}" is not on ${project.output}`);
+        }
+        continue;
+      }
       const pattern = new RegExp(`(?<![A-Za-z0-9])${real.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z0-9])`);
       for (const locale of locales) {
         const page = path.join(dist, locale, project.output || '');
@@ -1973,8 +1989,8 @@ let realNameChecked = 0;
     }
   }
   if (offenders.length) {
-    fail('dist', `${offenders.length} page(s) publish the developer's own name for the project, `
-      + `which is held for internal use only: ${offenders.slice(0, 3).join('; ')}.`);
+    fail('dist', `${offenders.length} project(s) fail the real-name rule (published without `
+      + `crm.namePublic, or flagged without the name): ${offenders.slice(0, 3).join('; ')}.`);
   }
 }
 
@@ -6137,7 +6153,7 @@ if (warnings.length) {
       if (!fs.existsSync(file)) continue;
       const record = JSON.parse(fs.readFileSync(file, 'utf8'));
       const real = String(record.crm?.realName || '').trim();
-      if (!real || real === record.name || !record.output) continue;
+      if (!real || realNameIsPublic(record) || !record.output) continue;
       const pattern = new RegExp(`(?<![A-Za-z0-9])${real.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![A-Za-z0-9])`, 'i');
       const link = `https://nuevaliving.com/${record.output}`;
       for (const [name, text] of [['llms.txt', llms], ['llms-full.txt', llmsFull]]) {
