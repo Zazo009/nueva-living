@@ -1303,6 +1303,27 @@ let overlayPriceChecked = 0;
     fail('content/liora-projects', `${taxOffenders.length} overlay price(s) name the tax in `
       + `another language: ${taxOffenders.slice(0, 3).join('; ')}.`);
   }
+  // The overlays above are not the only place the tax is written: the guide,
+  // advisory and segment pages take their Norwegian and Swedish from shared
+  // translation tables, where Norwegian carried the Swedish "moms" for "mva"
+  // with nothing to flag it. Read the built pages themselves.
+  const WRONG_TAX_WORD = { no: /(?<![\p{L}\p{N}])moms(?![\p{L}\p{N}])/iu,
+    sv: /(?<!spansk )(?<![\p{L}\p{N}])moms(?![\p{L}\p{N}])/iu };
+  const pageTaxOffenders = [];
+  for (const [locale, wrong] of Object.entries(WRONG_TAX_WORD)) {
+    const localeDir = path.join(root, locale);
+    if (!fs.existsSync(localeDir)) continue;
+    for (const name of fs.readdirSync(localeDir)) {
+      if (!name.endsWith('.html')) continue;
+      const text = fs.readFileSync(path.join(localeDir, name), 'utf8')
+        .replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' ');
+      if (wrong.test(text)) pageTaxOffenders.push(`${locale}/${name}`);
+    }
+  }
+  if (pageTaxOffenders.length) {
+    fail('locale pages', `${pageTaxOffenders.length} page(s) name the tax with another `
+      + `language's word ("moms" in Norwegian, bare "moms" in Swedish): ${pageTaxOffenders.slice(0, 3).join(', ')}.`);
+  }
   if (offenders.length) {
     fail('content/liora-projects', `${offenders.length} overlay price(s) do not match their `
       + `language's one spelling: ${offenders.slice(0, 3).join('; ')}.`);
