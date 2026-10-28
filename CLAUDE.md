@@ -1,7 +1,7 @@
 # nueva-living
 
-Static site for nuevaliving.com: a Costa del Sol new-build advisory. 85 projects,
-10 locales, ~1,240 built pages. Everything is generated from JSON by Node scripts.
+Static site for nuevaliving.com: a Costa del Sol new-build advisory. 105 projects,
+10 locales, ~1,500 built pages. Everything is generated from JSON by Node scripts.
 
 This file is the rules that are load-bearing and **not** discoverable by reading the
 code. Everything else, read the code — it is commented unusually well, and the commit
@@ -60,7 +60,7 @@ the wrong town, an invented unit mix and a delivery date two years early.
 
 The public project name is invented. `crm.realName` and `crm.realDeveloper` hold the
 truth and **must never appear in public copy** — not in prose, alt text, captions,
-filenames or schema. A guard checks 570 project pages for the developer's own name.
+filenames or schema. A guard checks 890 project pages for the developer's own name.
 `netlify/functions/data/projects-catalog.json` is a separate public projection with no
 `crm` block; keep it that way.
 
@@ -70,6 +70,21 @@ image-review name hunt for that project, and nothing else: `crm.realDeveloper` s
 audit fails if the flag is set while the name is not on the project's English page (a half-made
 switch) or is not a boolean. Setting the flag does not rename anything; the name, slug and
 redirects are separate work. `scripts/lib/real_name.mjs` is the one place the rule lives.
+
+**Renaming a project** (invented name to real name, done for seven in October 2026) moves
+everything that carries the slug in one commit: the project folder, `assets/liora/projects/<slug>/`,
+the card images (the share-image guard ties card, slug and folder together), image-review keys,
+map data, hand-authored cards and ad links, and the media worker's routes. The old pages are
+deleted and every old page answers 301 to the new one in all ten languages, as does the old image
+folder. Regenerate the worker allowlist (`infra/media-worker/make-allowlist.mjs`) afterwards.
+Files whose path changes are served by Netlify until they are copied to R2 under the new keys.
+
+**The developer is not the marketer.** `crm.realDeveloper` takes the developer only. The agency
+that markets the project (Prime Invest, Aelca, Hacienda Casa Verde and the like) stays out of
+`crm` and out of every public text: `review_project_images.mjs --confirm` fuzzy-matches a listed
+name against the text in plans, and "Prime" matches "Primera Planta" on first-floor plans, so the
+confirm refuses. One existing exception, left on purpose: La Resina Valley Villas embeds a 360
+tour hosted on the marketer's account; the host is visible only in page source. Do not re-flag it.
 
 ## Images
 
@@ -125,7 +140,7 @@ homepage also fixes heights the rest of the site does not — `.dev-img-wrap` an
 
 ## Guards
 
-`scripts/audit_site_consistency.mjs` holds 145 checks; `verify_build_idempotent.mjs`
+`scripts/audit_site_consistency.mjs` holds well over a hundred checks (it prints a count for each at the end); `verify_build_idempotent.mjs`
 re-runs the builders and fails on any difference; `build_dist.mjs` runs `verify_cards`.
 
 They catch **disagreement**, not falsehood. A failure is almost always one value in two
@@ -146,6 +161,29 @@ month would have silently reverted live work.
 translations already in the repo, `scaffold.py` lists what a new project still needs,
 `k_*.py` hold the human translations, `assemble.py` writes the overlays and refuses to
 write a partial one. See `tools/import/README.md`.
+
+**Importing a batch of projects** works as one agent per project with a shared brief
+(`~/Downloads/<batch>/BRIEF.md`, kept between batches). The agents read the developer's
+documents and write only the project record, its images and its `k_<slug>.py`; they never run
+the build chain, edit `content/nueva-areas.json` or touch git. The coordinator then adds each slug
+to its area's `featuredProjects` in `content/nueva-areas.json`, runs the whole chain and commits.
+Things to check after the agents, because they have each bitten once:
+
+- `content/geo/location-maps.json` must change by additions only. An agent running
+  `build_location_maps.mjs --refresh --project=<slug>` wiped the other projects' entries.
+- `card.order` and `card.priority` must not collide with another project.
+- The audit wants the local tax word per locale (es IVA, fr TVA, de MwSt., ru НДС, ar ضريبة القيمة
+  المضافة, nl btw, pl VAT, sv IVA, no mva); a foreign `IVA` is only accepted right next to the local
+  word. The informal-address check reads the French colour noun *ton* as "your", so write
+  "de couleur bronze".
+- A project is only published when the documents give priced available units, plans and usable
+  images. Without a price list, stop and ask; do not build it.
+
+Sources come from Google Drive, Dropbox or an agent portal. `gdown` is throttled after about one
+folder: download through Drive's own "Ladda ned" in the user's Chrome and unpack with
+`ditto -x -k` (`unzip` fails on accented filenames). Once the project is pushed, delete the raw
+source folder from `~/Downloads`, after checking that it is covered by a project in the repo;
+originals that were never published are not covered, so ask before deleting those.
 
 ## Pushing
 
