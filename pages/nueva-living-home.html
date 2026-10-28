@@ -4049,22 +4049,14 @@
       color: #aaa094 !important;
     }
 
-    /* Keep the first render focused on the hero. Off-screen sections are
-       laid out as they approach the viewport, with stable reserved space.
-       Only where there is a mouse: on a phone, opening a form's picker or the
-       keyboard resizes the visual viewport, the engine re-decides which of
-       these sections is skipped, their heights change under the reader, and
-       the page jumps or stops answering a touch. The contact form is the
-       section after them, so it is the first thing that shows it. */
-    @media (hover: hover) and (pointer: fine) {
-      #developments,
-      #areas,
-      #journey,
-      #about {
-        content-visibility: auto;
-        contain-intrinsic-size: auto 900px;
-      }
-    }
+    /* #developments, #areas, #journey and #about used to be content-visibility:
+       auto with a 900px placeholder. A skipped section is 900px tall and a laid
+       out one is its real height (#about 768px, #areas 1148px, #journey about
+       1100px), so each time one was skipped or laid out the page below it moved
+       by the difference: on a phone when a picker opened (21 Oct), and on desktop
+       Safari, which has no scroll anchoring, as soon as the reader scrolled past
+       the six residences into #about and back. The placeholder can never be right
+       for every width and language, so the sections are laid out normally. */
 
     #vox:not(.on) {
       content-visibility: hidden;
