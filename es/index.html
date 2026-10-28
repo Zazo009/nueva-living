@@ -4156,22 +4156,14 @@
       color: #aaa094 !important;
     }
 
-    /* Keep the first render focused on the hero. Off-screen sections are
-       laid out as they approach the viewport, with stable reserved space.
-       Only where there is a mouse: on a phone, opening a form's picker or the
-       keyboard resizes the visual viewport, the engine re-decides which of
-       these sections is skipped, their heights change under the reader, and
-       the page jumps or stops answering a touch. The contact form is the
-       section after them, so it is the first thing that shows it. */
-    @media (hover: hover) and (pointer: fine) {
-      #developments,
-      #areas,
-      #journey,
-      #about {
-        content-visibility: auto;
-        contain-intrinsic-size: auto 900px;
-      }
-    }
+    /* #developments, #areas, #journey and #about used to be content-visibility:
+       auto with a 900px placeholder. A skipped section is 900px tall and a laid
+       out one is its real height (#about 768px, #areas 1148px, #journey about
+       1100px), so each time one was skipped or laid out the page below it moved
+       by the difference: on a phone when a picker opened (21 Oct), and on desktop
+       Safari, which has no scroll anchoring, as soon as the reader scrolled past
+       the six residences into #about and back. The placeholder can never be right
+       for every width and language, so the sections are laid out normally. */
 
     #vox:not(.on) {
       content-visibility: hidden;
@@ -17485,6 +17477,399 @@
       txt: "closing",
       motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
     }
+  ],
+  "paraiso-de-azahar": [
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.jpg",
+      pos: "center 50%",
+      label: "01 — Exteriores",
+      hl: "El edificio en la calle",
+      sub: "Vista generada por ordenador de un edificio blanco con tejados de teja, contraventanas verde salvia y balcones en una calle empedrada",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/aerial-roof-terraces-pools.jpg",
+      pos: "center 50%",
+      label: "02 — Exteriores",
+      hl: "Los tejados y las terrazas desde arriba",
+      sub: "Vista aérea generada por ordenador de los tejados de teja con terrazas en la azotea y piscinas privadas entre ellos",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase.jpg",
+      pos: "center 50%",
+      label: "03 — Interiores",
+      hl: "El vestíbulo de entrada",
+      sub: "Vestíbulo de entrada generado por ordenador con una escalera de madera, un rincón con cactus y un muro con el nombre del proyecto",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/living-room-kitchen-island.jpg",
+      pos: "center 50%",
+      label: "04 — Interiores",
+      hl: "Salón y cocina",
+      sub: "Salón y cocina abierta generados por ordenador con una isla de mármol y un panel de madera en el techo",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/living-dining-room.jpg",
+      pos: "center 50%",
+      label: "05 — Interiores",
+      hl: "Salón y comedor",
+      sub: "Salón comedor generado por ordenador con una mesa larga, un sofá rinconero y un panel de madera en el techo",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/main-bedroom.jpg",
+      pos: "center 50%",
+      label: "06 — Dormitorios",
+      hl: "Dormitorio principal",
+      sub: "Dormitorio principal generado por ordenador con cama doble, un panel de madera en el techo y una puerta acristalada con contraventana",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/twin-bedroom.jpg",
+      pos: "center 50%",
+      label: "07 — Dormitorios",
+      hl: "Segundo dormitorio",
+      sub: "Dormitorio generado por ordenador con dos camas individuales, una pared de paneles con luz oculta y una puerta acristalada",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/main-bathroom.jpg",
+      pos: "center 50%",
+      label: "08 — Baños",
+      hl: "Baño principal",
+      sub: "Baño generado por ordenador con ducha a ras de suelo, un lavabo de piedra y dos espejos altos",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "the-oak48": [
+    {
+      img: "assets/liora/projects/the-oak48/media/street-facade-corner.jpg",
+      pos: "center 50%",
+      label: "01 — Exteriores",
+      hl: "La esquina del edificio desde la calle",
+      sub: "Vista generada por ordenador de un bloque de apartamentos de cuatro plantas con terrazas curvas tras celosías verticales, visto desde la calle",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/terraced-corner-and-garden.jpg",
+      pos: "center 50%",
+      label: "02 — Exteriores",
+      hl: "Terrazas curvas y celosías de lamas",
+      sub: "Vista generada por ordenador de la esquina del edificio, con terrazas curvas tras lamas verticales y paneles imitación madera, palmeras y césped",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/garden-facade-and-pool.jpg",
+      pos: "center 50%",
+      label: "03 — Exteriores",
+      hl: "Las terrazas sobre el jardín y la piscina",
+      sub: "Vista generada por ordenador de las terrazas escalonadas con lamas sobre un jardín con piscina comunitaria y tumbonas",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/aerial-roof-terraces.jpg",
+      pos: "center 50%",
+      label: "04 — Exteriores",
+      hl: "La cubierta vista desde arriba",
+      sub: "Vista aérea generada por ordenador del edificio, con terrazas, solariums y pequeñas piscinas en la última planta, y la piscina comunitaria y el césped a su lado",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/ground-floor-terrace.jpg",
+      pos: "center 50%",
+      label: "05 — Terrazas",
+      hl: "Una terraza en planta baja",
+      sub: "Terraza de planta baja generada por ordenador, con mesa de comedor y sofá, que da a un macizo de arbustos y a un césped",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/solarium-pool-and-sea.jpg",
+      pos: "center 50%",
+      label: "06 — Solárium",
+      hl: "Un solárium de ático con piscina",
+      sub: "Solárium de cubierta generado por ordenador, con piscina, tumbonas y un conjunto de comedor, con vistas a la ciudad y al mar",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/solarium-terrace-and-mountains.jpg",
+      pos: "center 50%",
+      label: "07 — Solárium",
+      hl: "Una terraza de cubierta con vistas a las montañas",
+      sub: "Terraza de cubierta generada por ordenador, con mesa de comedor, sofá rinconero, tumbonas y una pequeña piscina, mirando hacia las montañas",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/living-room.jpg",
+      pos: "center 50%",
+      label: "08 — Interiores",
+      hl: "Salón",
+      sub: "Salón de planta abierta generado por ordenador, con sofá crema, mesa de comedor de madera, pared multimedia de lamas y puerta corredera de cristal a la terraza",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/kitchen.jpg",
+      pos: "center 50%",
+      label: "09 — Interiores",
+      hl: "Cocina",
+      sub: "Cocina generada por ordenador con muebles altos blancos, muebles bajos de madera, una isla con tres taburetes y una puerta corredera a la terraza",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/bathroom.jpg",
+      pos: "center 50%",
+      label: "10 — Baños",
+      hl: "Baño",
+      sub: "Baño generado por ordenador con mueble de lavabo de madera, un espejo ancho, un inodoro y una ducha con mampara de cristal con dos rociadores",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "las-mesas-blue-horizon": [
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg",
+      pos: "center 50%",
+      label: "01 — Exteriores",
+      hl: "El bloque desde la carretera",
+      sub: "Vista generada por ordenador del bloque blanco en terrazas visto desde la carretera, con palmeras y olivos en la ladera y el mar a la izquierda",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg",
+      pos: "center 50%",
+      label: "02 — Exteriores",
+      hl: "El bloque desde la terraza de la piscina",
+      sub: "Vista generada por ordenador del bloque escalonado desde la terraza de la piscina, con palmeras y una pérgola en la cubierta",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool.jpg",
+      pos: "center 50%",
+      label: "03 — Exteriores",
+      hl: "Una esquina del bloque sobre la piscina",
+      sub: "Vista generada por ordenador de una esquina del bloque con una pérgola en la cubierta sobre terrazas escalonadas, y la piscina comunitaria en primer plano",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall.jpg",
+      pos: "center 50%",
+      label: "04 — Exteriores",
+      hl: "El bloque sobre la entrada",
+      sub: "Vista generada por ordenador del bloque sobre un muro de contención de piedra, con una escalera y una cancela en la entrada, una calle delante y montañas detrás",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg",
+      pos: "center 50%",
+      label: "05 — Interiores",
+      hl: "Salón, comedor y cocina",
+      sub: "Vista generada por ordenador de un salón abierto con zona de comedor e isla de cocina y una pared corredera de cristal hacia la terraza",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view.jpg",
+      pos: "center 50%",
+      label: "06 — Interiores",
+      hl: "Un salón frente al mar",
+      sub: "Vista generada por ordenador de un salón con sofá rinconero, mesa de comedor y una amplia pared corredera de cristal hacia el mar",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.jpg",
+      pos: "center 50%",
+      label: "07 — Interiores",
+      hl: "Un dormitorio que se abre a la terraza",
+      sub: "Vista generada por ordenador de un dormitorio con cama doble, una pared tapizada y una puerta corredera de cristal a la terraza",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin.jpg",
+      pos: "center 50%",
+      label: "08 — Interiores",
+      hl: "Un baño con ducha con mampara de cristal",
+      sub: "Vista generada por ordenador de un baño con lavabo sobre encimera en un mueble de madera, un espejo redondo retroiluminado y una ducha con mampara de cristal",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "the-privilege": [
+    {
+      img: "assets/liora/projects/the-privilege/media/garden-facade-day.jpg",
+      pos: "center 50%",
+      label: "01 — Exteriores",
+      hl: "El edificio desde el jardín",
+      sub: "Vista generada por ordenador del edificio desde el jardín, con terrazas ajardinadas en cada planta, césped y una piscina delante",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/street-facade-day.jpg",
+      pos: "center 50%",
+      label: "02 — Exteriores",
+      hl: "La fachada a la calle",
+      sub: "Vista generada por ordenador del edificio desde la calle, con marcos angulares de tono bronce alrededor de las terrazas y palmeras a lo largo de la acera",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/street-corner-entrance.jpg",
+      pos: "center 50%",
+      label: "03 — Exteriores",
+      hl: "La esquina y la entrada",
+      sub: "Vista generada por ordenador de una esquina de calle con el edificio sobre un rótulo en la entrada, palmeras y un coche aparcado",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/corner-and-gate.jpg",
+      pos: "center 50%",
+      label: "04 — Exteriores",
+      hl: "El edificio desde el cruce",
+      sub: "Vista generada por ordenador del edificio desde un cruce, con un marco de cubierta de tono bronce, un rótulo en el muro de la entrada y un coche en la calzada",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/facade-over-communal-pool.jpg",
+      pos: "center 50%",
+      label: "05 — Exteriores",
+      hl: "El edificio al otro lado de la piscina comunitaria",
+      sub: "Vista generada por ordenador del edificio al otro lado de una larga piscina comunitaria con tumbonas y sombrillas blancas",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/terrace-living-room.jpg",
+      pos: "center 50%",
+      label: "06 — Terrazas",
+      hl: "Una terraza y el salón al fondo",
+      sub: "Terraza generada por ordenador con asientos y una mesa de comedor bajo una cubierta de lamas, frente a un salón acristalado, con colinas al fondo",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/terrace-in-facade-frame.jpg",
+      pos: "center 50%",
+      label: "07 — Terrazas",
+      hl: "Una terraza dentro del marco de la fachada",
+      sub: "Vista generada por ordenador de una terraza amueblada situada dentro de un marco angular de tono bronce en la fachada, con plantas trepadoras",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/living-room.jpg",
+      pos: "center 50%",
+      label: "08 — Interiores",
+      hl: "Salón y comedor",
+      sub: "Salón-comedor abierto generado por ordenador con un sofá curvo, una mesa de comedor de mármol y puertas de cristal a la terraza",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/kitchen-island-and-terrace.jpg",
+      pos: "center 50%",
+      label: "09 — Interiores",
+      hl: "Cocina y terraza",
+      sub: "Cocina generada por ordenador con una isla de mármol y taburetes, un frente de armarios de madera y una terraza con mesa de comedor",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    }
   ]
   };
   /* NUEVA GENERATED VIEWING SCENES END */
@@ -23020,6 +23405,221 @@
       ],
       "ctaLabel": "Solicitar información",
       "ctaMessage": "Hola, Nueva Living, me gustaría recibir información sobre The Sky Marbella."
+  },
+  "paraiso-de-azahar": {
+      "id": "paraiso-de-azahar",
+      "name": "Paraíso de Azahar",
+      "location": "Centro de Estepona",
+      "area": "Estepona",
+      "price": "Desde 495.000 € + IVA",
+      "bedrooms": "1-3 dormitorios",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Entrega por confirmar",
+      "status": "Sobre plano",
+      "lifestyle": "6 de 10 apartamentos de uno a tres dormitorios en un edificio en el centro de Estepona, junto al casco antiguo, cada uno con plaza de garaje y trastero, uno de ellos con patio y piscina privada. Los documentos no dan fecha de entrega. Desde 495.000 € más IVA.",
+      "overview": "Es un edificio residencial de 10 viviendas de uno, dos y tres dormitorios, en planta baja, primera, segunda y planta superior, en el centro de Estepona, junto al casco antiguo. Seis viviendas figuran con precio: una de un dormitorio y una de tres en planta baja, y cuatro en la primera planta, una de ellas con patio y piscina privada. Cada una tiene plaza de garaje y trastero.",
+      "highlights": [
+          [
+              "Fachada",
+              "Fábrica de ladrillo cerámico de medio pie, revocada, trasdosada con ladrillo hueco doble y con aislamiento proyectado en las cámaras, y acabado de mortero de base cal entre los huecos de ventana."
+          ],
+          [
+              "Carpintería exterior",
+              "Carpintería de aluminio con acabado imitación madera y rotura de puente térmico, con doble acristalamiento y cámara de aire."
+          ],
+          [
+              "Ascensor y garaje",
+              "Un ascensor para cuatro personas que para en el garaje, y un ascensor para coches en la entrada del garaje."
+          ],
+          [
+              "Energía",
+              "Agua caliente con aerotermia en cada vivienda y, según el dosier, un sistema de energía solar y una alta calificación energética."
+          ]
+      ],
+      "investmentNotes": [
+          "Ningún documento que tenemos da un importe de reserva ni un calendario de pagos, por lo que lo preguntamos al promotor y ponemos la respuesta por escrito antes de que reserve.",
+          "La lista de precios muestra los precios sin IVA e indica el tipo del 10%. Los precios de esta página son las cifras netas del promotor, y no se les suma el IVA.",
+          "Cada una de las seis viviendas a la venta incluye plaza de garaje y trastero, y la 1ºA además piscina privada. El mobiliario que aparece en las imágenes no está incluido.",
+          "La lista de precios no indica los demás gastos de compra, por lo que Nueva Living los confirma por escrito."
+      ],
+      "availability": [
+          {
+              "label": "Estado",
+              "value": "Sobre plano"
+          },
+          {
+              "label": "Documentación",
+              "value": "Folleto, planos y lista de precios actual"
+          },
+          {
+              "label": "Siguiente paso",
+              "value": "Solicite la información más reciente de Paraíso de Azahar"
+          }
+      ],
+      "ctaLabel": "Solicitar información",
+      "ctaMessage": "Hola Nueva Living, me gustaría recibir información sobre Paraíso de Azahar."
+  },
+  "the-oak48": {
+      "id": "the-oak48",
+      "name": "The OAK48",
+      "location": "Estepona",
+      "area": "Estepona",
+      "price": "Desde 375.000 € + IVA",
+      "bedrooms": "2-3 dormitorios",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Entrega por confirmar",
+      "status": "Sobre plano",
+      "lifestyle": "15 de 48 apartamentos y áticos de dos y tres dormitorios, en tres bloques cerca del casco antiguo de Estepona, con piscina, gimnasio y sala de coworking comunitarios. No se indica fecha de entrega. Desde 375.000 € más IVA.",
+      "overview": "The OAK48 es un edificio residencial de 48 viviendas en tres bloques en Estepona, cerca del casco antiguo. La lista del promotor da precio a 15 de ellas y marca las otras 33 como reservadas. Las 15 son viviendas de dos y tres dormitorios: tres en planta baja con patio, seis en las plantas primera y segunda con terraza y seis áticos con solárium en la cubierta.",
+      "highlights": [
+          [
+              "Fachadas",
+              "Fábrica de ladrillo cerámico de medio pie, revocada y pintada, con ladrillo visto en algunas zonas, trasdosada por el interior con ladrillo hueco doble y aislamiento proyectado en las cámaras, y mortero de cal entre los paños de ventanas."
+          ],
+          [
+              "Terrazas",
+              "Suelos de gres porcelánico antideslizante, techos de PVC o aluminio con acabados para exteriores, acabados imitación madera y celosías entre las terrazas de viviendas contiguas."
+          ],
+          [
+              "Carpintería exterior",
+              "Carpintería de aluminio con rotura de puente térmico y doble acristalamiento con cámara de aire."
+          ],
+          [
+              "Cubiertas",
+              "Cubiertas privativas transitables con aislamiento térmico y acústico, acabadas en gres porcelánico antideslizante, y una escalera metálica al solárium en los áticos."
+          ]
+      ],
+      "investmentNotes": [
+          "Ningún documento que tenemos indica el importe de la reserva, los pagos o sus fechas. Los pedimos y ponemos las respuestas por escrito antes de que reserve.",
+          "La lista de precios no menciona el IVA. Mostramos los precios como cifras netas más IVA, como es habitual en las viviendas nuevas en España, y confirmamos por escrito el tipo y los demás gastos de compra.",
+          "La lista de precios da un precio por vivienda y no indica qué incluye. El dosier muestra dos plantas de sótano con plazas de garaje y trasteros, y confirmamos por escrito si una plaza y un trastero van con la vivienda que elija. El mobiliario que aparece en las imágenes no está incluido."
+      ],
+      "availability": [
+          {
+              "label": "Estado",
+              "value": "Sobre plano"
+          },
+          {
+              "label": "Documentación",
+              "value": "Folleto, planos y lista de precios actual"
+          },
+          {
+              "label": "Siguiente paso",
+              "value": "Solicite la información más reciente de The OAK48"
+          }
+      ],
+      "ctaLabel": "Solicitar información",
+      "ctaMessage": "Hola Nueva Living, me gustaría recibir información sobre The OAK48."
+  },
+  "las-mesas-blue-horizon": {
+      "id": "las-mesas-blue-horizon",
+      "name": "Las Mesas Blue Horizon",
+      "location": "Las Mesas, Estepona",
+      "area": "Estepona",
+      "price": "Desde 849.000 € + IVA",
+      "bedrooms": "2-3 dormitorios",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Entrega por confirmar",
+      "status": "Sobre plano",
+      "lifestyle": "9 de 34 apartamentos de dos y tres dormitorios en Las Mesas Blue Horizon, en Las Mesas, Estepona, con vistas al mar, piscina comunitaria, gimnasio, spa, sala de coworking y sala de cine. No se indica fecha de entrega. Desde 849.000 € más IVA.",
+      "overview": "Las Mesas Blue Horizon es un conjunto residencial de tres bloques en Las Mesas, Estepona, con viviendas de dos y tres dormitorios que tienen todas dos baños. El dosier del promotor describe grandes terrazas con vistas panorámicas al Mediterráneo. Cuenta 36 viviendas, mientras que sus planos y la lista de precios muestran 34, 20 de dos dormitorios y 14 de tres, y nueve de ellas figuran con precio.",
+      "highlights": [
+          [
+              "Estructura",
+              "Hormigón armado conforme a la normativa vigente y al Código Técnico de la Edificación, sobre una cimentación diseñada a partir del estudio geotécnico."
+          ],
+          [
+              "Fachada",
+              "Fábrica de ladrillo multicapa con aislamiento interior, cámara de aire y trasdosado de yeso laminado, enfoscada y acabada con paneles de aluminio lacado y revestimiento composite."
+          ],
+          [
+              "Carpintería exterior",
+              "Carpintería de aluminio lacado oscuro con rotura de puente térmico, doble acristalamiento bajo emisivo y puertas correderas a las terrazas."
+          ],
+          [
+              "Cubiertas",
+              "Cubiertas planas invertidas, impermeabilizadas y aisladas, con grava en las zonas no transitables y baldosas cerámicas antideslizantes en las transitables."
+          ]
+      ],
+      "investmentNotes": [
+          "Veinticinco de las 34 viviendas de la lista figuran como reservadas. Nueve tienen precio, de 849.000 € a 1.245.000 € más IVA.",
+          "La lista muestra junto a cada precio un importe de IVA, el 10% del mismo, en una columna aparte. Los precios no incluyen el IVA, y Nueva Living confirma por escrito el tipo y los gastos de compra.",
+          "Los documentos que tenemos no dan importe de reserva ni calendario de pagos, así que los solicitamos por escrito antes de cualquier reserva.",
+          "El dosier muestra plazas de garaje y trasteros en tres plantas de sótano, pero la lista de precios no dice si cada vivienda incluye una. Lo confirmamos para la vivienda que usted elija."
+      ],
+      "availability": [
+          {
+              "label": "Estado",
+              "value": "Sobre plano"
+          },
+          {
+              "label": "Documentación",
+              "value": "Folleto, planos y lista de precios actual"
+          },
+          {
+              "label": "Siguiente paso",
+              "value": "Solicite la información más reciente de Las Mesas Blue Horizon"
+          }
+      ],
+      "ctaLabel": "Solicitar información",
+      "ctaMessage": "Hola Nueva Living, me gustaría recibir información sobre Las Mesas Blue Horizon."
+  },
+  "the-privilege": {
+      "id": "the-privilege",
+      "name": "The Privilege",
+      "location": "Estepona",
+      "area": "Estepona",
+      "price": "Desde 775.500 € + IVA",
+      "bedrooms": "2-3 dormitorios",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Entrega por confirmar",
+      "status": "Sobre plano",
+      "lifestyle": "17 de 32 viviendas de dos y tres dormitorios en un edificio junto al casco antiguo de Estepona, con piscinas privadas, solariums en la cubierta, piscina comunitaria, gimnasio, spa, club social y espacio de coworking, y con dos plazas de garaje y un trastero en cada vivienda a la venta. No se indica fecha de entrega. Desde 775.500 € más IVA.",
+      "overview": "The Privilege es un edificio residencial de 32 viviendas de dos y tres dormitorios junto al casco antiguo de Estepona. Tiene planta baja, cuatro plantas superiores y una cubierta-solárium, con dos sótanos para garaje y trasteros. Las viviendas de planta baja tienen jardín privado y piscina privada, y los áticos tienen terraza y un solárium privado con piscina en la cubierta.",
+      "highlights": [
+          [
+              "Estructura",
+              "Hormigón armado conforme a la normativa vigente y al Código Técnico de la Edificación, sobre una cimentación diseñada según el estudio geotécnico."
+          ],
+          [
+              "Fachada",
+              "Multicapa: muro exterior de ladrillo, aislamiento interior, cámara de aire y trasdosado de placa de yeso laminado, con acabado en vidrio y revestimientos como paneles de aluminio lacado o de GRC, a determinar por la dirección facultativa."
+          ],
+          [
+              "Carpintería exterior",
+              "Perfiles de aluminio lacado con rotura de puente térmico y doble acristalamiento con tratamiento bajo emisivo y de control solar, y estores motorizados de oscurecimiento en los dormitorios y salones."
+          ],
+          [
+              "Cubiertas",
+              "Cubiertas planas invertidas, impermeabilizadas y aisladas, con grava en las zonas no transitables y solado cerámico antideslizante en las transitables."
+          ]
+      ],
+      "investmentNotes": [
+          "Los documentos de que disponemos no indican importe de reserva ni calendario de pagos. Obtenemos las condiciones del promotor y se las enviamos por escrito antes de que usted reserve.",
+          "La lista de precios indica que sus precios no incluyen el 10% de IVA, el tipo aplicable a la vivienda nueva. Confirmamos por escrito el impuesto y los demás gastos de la compra.",
+          "La lista de precios asigna a cada vivienda a la venta dos plazas de garaje y un trastero, por número. Confirmamos las plazas y el trastero de la vivienda que usted elija.",
+          "La memoria de calidades indica que los materiales pueden ser modificados por la dirección facultativa siempre que no se reduzca su calidad, y que no tiene carácter contractual. Pedimos la memoria definitiva."
+      ],
+      "availability": [
+          {
+              "label": "Estado",
+              "value": "Sobre plano"
+          },
+          {
+              "label": "Documentación",
+              "value": "Folleto, planos y lista de precios actual"
+          },
+          {
+              "label": "Siguiente paso",
+              "value": "Solicite la información más reciente de The Privilege"
+          }
+      ],
+      "ctaLabel": "Solicitar información",
+      "ctaMessage": "Hola Nueva Living, quisiera información sobre The Privilege."
   }
   };
   const DEFAULT_VIEWING_PROJECT_ID = "altos-terrace-residences";

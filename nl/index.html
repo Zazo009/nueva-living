@@ -4156,22 +4156,14 @@
       color: #aaa094 !important;
     }
 
-    /* Keep the first render focused on the hero. Off-screen sections are
-       laid out as they approach the viewport, with stable reserved space.
-       Only where there is a mouse: on a phone, opening a form's picker or the
-       keyboard resizes the visual viewport, the engine re-decides which of
-       these sections is skipped, their heights change under the reader, and
-       the page jumps or stops answering a touch. The contact form is the
-       section after them, so it is the first thing that shows it. */
-    @media (hover: hover) and (pointer: fine) {
-      #developments,
-      #areas,
-      #journey,
-      #about {
-        content-visibility: auto;
-        contain-intrinsic-size: auto 900px;
-      }
-    }
+    /* #developments, #areas, #journey and #about used to be content-visibility:
+       auto with a 900px placeholder. A skipped section is 900px tall and a laid
+       out one is its real height (#about 768px, #areas 1148px, #journey about
+       1100px), so each time one was skipped or laid out the page below it moved
+       by the difference: on a phone when a picker opened (21 Oct), and on desktop
+       Safari, which has no scroll anchoring, as soon as the reader scrolled past
+       the six residences into #about and back. The placeholder can never be right
+       for every width and language, so the sections are laid out normally. */
 
     #vox:not(.on) {
       content-visibility: hidden;
@@ -17485,6 +17477,399 @@
       txt: "closing",
       motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
     }
+  ],
+  "paraiso-de-azahar": [
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.jpg",
+      pos: "center 50%",
+      label: "01 — Exterieur",
+      hl: "Het gebouw aan de straat",
+      sub: "Computergegenereerd beeld van een wit gebouw met pannendaken, saliegroene luiken en balkons aan een geplaveide straat",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/aerial-roof-terraces-pools.jpg",
+      pos: "center 50%",
+      label: "02 — Exterieur",
+      hl: "De daken en terrassen van bovenaf",
+      sub: "Computergegenereerd luchtbeeld van de pannendaken met dakterrassen en privézwembaden ertussen",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase.jpg",
+      pos: "center 50%",
+      label: "03 — Interieur",
+      hl: "De entreehal",
+      sub: "Computergegenereerde entreehal met een houten trap, een beplante hoek met cactussen en een muur met de naam van het project",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/living-room-kitchen-island.jpg",
+      pos: "center 50%",
+      label: "04 — Interieur",
+      hl: "Woonkamer en keuken",
+      sub: "Computergegenereerde woonkamer met open keuken, een marmeren kookeiland en een houten plafondpaneel",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/living-dining-room.jpg",
+      pos: "center 50%",
+      label: "05 — Interieur",
+      hl: "Woon-eetkamer",
+      sub: "Computergegenereerde woon- en eetkamer met een lange tafel, een hoekbank en een houten plafondpaneel",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/main-bedroom.jpg",
+      pos: "center 50%",
+      label: "06 — Slaapkamers",
+      hl: "Hoofdslaapkamer",
+      sub: "Computergegenereerde hoofdslaapkamer met een tweepersoonsbed, een houten plafondpaneel en een glazen deur met luik",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/twin-bedroom.jpg",
+      pos: "center 50%",
+      label: "07 — Slaapkamers",
+      hl: "Tweede slaapkamer",
+      sub: "Computergegenereerde slaapkamer met twee eenpersoonsbedden, een gepaneelde wand met verborgen verlichting en een glazen deur",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/main-bathroom.jpg",
+      pos: "center 50%",
+      label: "08 — Badkamers",
+      hl: "Hoofdbadkamer",
+      sub: "Computergegenereerde badkamer met een inloopdouche, een stenen wastafel en twee hoge spiegels",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "the-oak48": [
+    {
+      img: "assets/liora/projects/the-oak48/media/street-facade-corner.jpg",
+      pos: "center 50%",
+      label: "01 — Exterieur",
+      hl: "De hoek van het gebouw vanaf de straat",
+      sub: "Computergegenereerd beeld van een appartementengebouw van vier verdiepingen met gebogen terrassen achter verticale lamellen, gezien vanaf de straat",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/terraced-corner-and-garden.jpg",
+      pos: "center 50%",
+      label: "02 — Exterieur",
+      hl: "Gebogen terrassen en lamellen",
+      sub: "Computergegenereerd beeld van de hoek van het gebouw, met gebogen terrassen achter verticale latten en panelen in houtlook, palmen en een gazon",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/garden-facade-and-pool.jpg",
+      pos: "center 50%",
+      label: "03 — Exterieur",
+      hl: "De terrassen boven de tuin en het zwembad",
+      sub: "Computergegenereerd beeld van de getrapte terrassen met lamellen boven een tuin met gemeenschappelijk zwembad en ligbedden",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/aerial-roof-terraces.jpg",
+      pos: "center 50%",
+      label: "04 — Exterieur",
+      hl: "Het dakniveau van boven",
+      sub: "Computergegenereerd luchtbeeld van het gebouw met dakterrassen, solariums en kleine zwembaden op het bovenste niveau, en daarnaast het gemeenschappelijke zwembad en het gazon",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/ground-floor-terrace.jpg",
+      pos: "center 50%",
+      label: "05 — Terrassen",
+      hl: "Een terras op de begane grond",
+      sub: "Computergegenereerd terras op de begane grond met een eettafel en een bank, dat uitkomt op een struikenborder en een gazon",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/solarium-pool-and-sea.jpg",
+      pos: "center 50%",
+      label: "06 — Solarium",
+      hl: "Een penthouse-solarium met zwembad",
+      sub: "Computergegenereerd dakterras-solarium met een zwembad, ligbedden en een eethoek, met uitzicht over de stad naar de zee",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/solarium-terrace-and-mountains.jpg",
+      pos: "center 50%",
+      label: "07 — Solarium",
+      hl: "Een dakterras met uitzicht op de bergen",
+      sub: "Computergegenereerd dakterras met een eettafel, een hoekbank, ligbedden en een klein zwembad, met uitzicht op de bergen",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/living-room.jpg",
+      pos: "center 50%",
+      label: "08 — Interieur",
+      hl: "Woonkamer",
+      sub: "Computergegenereerde open woonkamer met een crèmekleurige bank, een houten eettafel, een mediawand met latten en een glazen schuifdeur naar het terras",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/kitchen.jpg",
+      pos: "center 50%",
+      label: "09 — Interieur",
+      hl: "Keuken",
+      sub: "Computergegenereerde keuken met witte bovenkasten, houten onderkasten, een eiland met drie krukken en een schuifdeur naar een terras",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/bathroom.jpg",
+      pos: "center 50%",
+      label: "10 — Badkamers",
+      hl: "Badkamer",
+      sub: "Computergegenereerde badkamer met een houten wastafelmeubel, een brede spiegel, een toilet en een douche met glazen scherm en twee regendouchekoppen",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "las-mesas-blue-horizon": [
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg",
+      pos: "center 50%",
+      label: "01 — Exterieur",
+      hl: "Het blok vanaf de weg",
+      sub: "Computergegenereerd beeld van het witte terrassenblok vanaf de weg, met palmen en olijfbomen op de helling en de zee links",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg",
+      pos: "center 50%",
+      label: "02 — Exterieur",
+      hl: "Het blok vanaf het zwembaddek",
+      sub: "Computergegenereerd beeld van het getrapte blok vanaf het zwembaddek, met palmen en een pergola op het dak",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool.jpg",
+      pos: "center 50%",
+      label: "03 — Exterieur",
+      hl: "Een hoek van het blok boven het zwembad",
+      sub: "Computergegenereerd beeld van een hoek van het blok met een pergola op het dak boven getrapte terrassen, met op de voorgrond het gemeenschappelijk zwembad",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall.jpg",
+      pos: "center 50%",
+      label: "04 — Exterieur",
+      hl: "Het blok boven de ingang",
+      sub: "Computergegenereerd beeld van het blok boven een stenen keermuur, met een trap en een poort bij de ingang, een straat ervoor en bergen erachter",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg",
+      pos: "center 50%",
+      label: "05 — Interieur",
+      hl: "Woonkamer, eetkamer en keuken",
+      sub: "Computergegenereerd beeld van een open woonkamer met eetgedeelte en keukeneiland en een glazen schuifwand naar het terras",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view.jpg",
+      pos: "center 50%",
+      label: "06 — Interieur",
+      hl: "Een woonkamer met zeezicht",
+      sub: "Computergegenereerd beeld van een woonkamer met een hoekbank, een eettafel en een brede glazen schuifwand richting de zee",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.jpg",
+      pos: "center 50%",
+      label: "07 — Interieur",
+      hl: "Een slaapkamer die uitkomt op het terras",
+      sub: "Computergegenereerd beeld van een slaapkamer met een tweepersoonsbed, een gestoffeerde wand en een glazen schuifdeur naar het terras",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin.jpg",
+      pos: "center 50%",
+      label: "08 — Interieur",
+      hl: "Een badkamer met een douche met glazen wand",
+      sub: "Computergegenereerd beeld van een badkamer met een opzetwastafel op een houten kast, een ronde verlichte spiegel en een douche met glazen wand",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "the-privilege": [
+    {
+      img: "assets/liora/projects/the-privilege/media/garden-facade-day.jpg",
+      pos: "center 50%",
+      label: "01 — Exterieur",
+      hl: "Het gebouw vanuit de tuin",
+      sub: "Computergegenereerd beeld van het gebouw vanuit de tuin, met beplante terrassen op elke verdieping, een gazon en een zwembad ervoor",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/street-facade-day.jpg",
+      pos: "center 50%",
+      label: "02 — Exterieur",
+      hl: "De gevel aan de straat",
+      sub: "Computergegenereerd beeld van het gebouw vanaf de straat, met hoekige bronskleurige kaders rond de terrassen en palmbomen langs het trottoir",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/street-corner-entrance.jpg",
+      pos: "center 50%",
+      label: "03 — Exterieur",
+      hl: "De hoek en de ingang",
+      sub: "Computergegenereerd beeld van een straathoek met het gebouw boven een bord bij de ingang, palmbomen en een geparkeerde auto",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/corner-and-gate.jpg",
+      pos: "center 50%",
+      label: "04 — Exterieur",
+      hl: "Het gebouw vanaf het kruispunt",
+      sub: "Computergegenereerd beeld van het gebouw vanaf een kruispunt, met een bronskleurig daklijst, een bord op de ingangsmuur en een auto op de weg",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/facade-over-communal-pool.jpg",
+      pos: "center 50%",
+      label: "05 — Exterieur",
+      hl: "Het gebouw aan de overkant van het gemeenschappelijke zwembad",
+      sub: "Computergegenereerd beeld van het gebouw aan de overkant van een lang gemeenschappelijk zwembad met ligbedden en witte parasols",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/terrace-living-room.jpg",
+      pos: "center 50%",
+      label: "06 — Terrassen",
+      hl: "Een terras en de woonkamer erachter",
+      sub: "Computergegenereerd terras met zitgroep en eettafel onder een lamellendak, voor een beglaasde woonkamer, met heuvels op de achtergrond",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/terrace-in-facade-frame.jpg",
+      pos: "center 50%",
+      label: "07 — Terrassen",
+      hl: "Een terras in het gevelkader",
+      sub: "Computergegenereerd beeld van een gemeubileerd terras in een hoekig bronskleurig kader in de gevel, met klimplanten",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/living-room.jpg",
+      pos: "center 50%",
+      label: "08 — Interieur",
+      hl: "Woon-eetkamer",
+      sub: "Computergegenereerde open woon- en eetkamer met een gebogen bank, een marmeren eettafel en glazen deuren naar het terras",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/kitchen-island-and-terrace.jpg",
+      pos: "center 50%",
+      label: "09 — Interieur",
+      hl: "Keuken en terras",
+      sub: "Computergegenereerde keuken met een marmeren eiland en barkrukken, een wand van houten kasten en een terras met eettafel",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    }
   ]
   };
   /* NUEVA GENERATED VIEWING SCENES END */
@@ -23020,6 +23405,221 @@
       ],
       "ctaLabel": "Projectmateriaal aanvragen",
       "ctaMessage": "Hallo Nueva Living, ik wil graag informatie over The Sky Marbella."
+  },
+  "paraiso-de-azahar": {
+      "id": "paraiso-de-azahar",
+      "name": "Paraíso de Azahar",
+      "location": "Centrum van Estepona",
+      "area": "Estepona",
+      "price": "Vanaf € 495.000 + btw",
+      "bedrooms": "1-3 slaapkamers",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Oplevering nog te bevestigen",
+      "status": "Op plan",
+      "lifestyle": "6 van de 10 appartementen met één tot drie slaapkamers in een gebouw in het centrum van Estepona, naast de oude stad, elk met een garageplaats en een berging, één met een patio en een privézwembad. De documenten geven geen opleveringsdatum. Vanaf € 495.000 excl. btw.",
+      "overview": "Dit is een woongebouw met 10 woningen met één, twee en drie slaapkamers, verdeeld over de begane grond, de eerste en tweede verdieping en een bovenste verdieping, in het centrum van Estepona, naast de oude stad. Zes woningen staan met een prijs vermeld: een met één slaapkamer en een met drie slaapkamers op de begane grond, en vier op de eerste verdieping, waarvan een met een patio en een privézwembad. Elk heeft een garageplaats en een berging.",
+      "highlights": [
+          [
+              "Gevel",
+              "Keramisch metselwerk van een halve steen, gepleisterd, met een achterwand van dubbele holle baksteen en in de spouwen gespoten isolatie, en een afwerking van kalkmortel tussen de ramen."
+          ],
+          [
+              "Beglazing",
+              "Aluminium kozijnen met een houtlookafwerking en een thermische onderbreking, met dubbele beglazing en een luchtkamer."
+          ],
+          [
+              "Lift en garage",
+              "Een lift voor vier personen die tot in de garage rijdt, en een autolift bij de ingang van de garage."
+          ],
+          [
+              "Energie",
+              "Warm water via aerothermie in elke woning en volgens het dossier een zonne-energiesysteem en een hoge energieclassificatie."
+          ]
+      ],
+      "investmentNotes": [
+          "Geen enkel document dat wij hebben noemt een reserveringsbedrag of een betalingsschema; daarom vragen wij het de ontwikkelaar na en leggen wij het antwoord schriftelijk vast voordat u reserveert.",
+          "De prijslijst toont de prijzen zonder btw en geeft het tarief aan als 10%. De prijzen op deze pagina zijn de nettobedragen van de ontwikkelaar; er wordt geen btw bij opgeteld.",
+          "Elk van de zes aangeboden woningen heeft een garageplaats en een berging, en woning 1ºA ook een privézwembad. De meubels op de beelden zijn niet inbegrepen.",
+          "De prijslijst geeft de overige aankoopkosten niet aan, dus bevestigt Nueva Living ze schriftelijk."
+      ],
+      "availability": [
+          {
+              "label": "Status",
+              "value": "Op plan"
+          },
+          {
+              "label": "Materiaal",
+              "value": "Brochure, plattegronden en actuele prijslijst"
+          },
+          {
+              "label": "Volgende stap",
+              "value": "Vraag de laatste informatie over Paraíso de Azahar aan"
+          }
+      ],
+      "ctaLabel": "Projectmateriaal aanvragen",
+      "ctaMessage": "Hallo Nueva Living, ik wil graag informatie over Paraíso de Azahar."
+  },
+  "the-oak48": {
+      "id": "the-oak48",
+      "name": "The OAK48",
+      "location": "Estepona",
+      "area": "Estepona",
+      "price": "Vanaf € 375.000 + btw",
+      "bedrooms": "2-3 slaapkamers",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Oplevering nog te bevestigen",
+      "status": "Op plan",
+      "lifestyle": "15 van de 48 appartementen en penthouses met twee en drie slaapkamers in drie blokken vlak bij de oude stad van Estepona, met een gedeeld zwembad, fitnessruimte en coworkingruimte. Er wordt geen opleveringsdatum genoemd. Vanaf € 375.000 excl. btw.",
+      "overview": "The OAK48 is een woongebouw met 48 woningen in drie blokken in Estepona, vlak bij de oude stad. De lijst van de ontwikkelaar geeft voor 15 ervan een prijs en markeert de andere 33 als gereserveerd. De 15 zijn woningen met twee en drie slaapkamers: drie op de begane grond met een patio, zes op de eerste en tweede verdieping met een terras en zes penthouses met een solarium op het dak.",
+      "highlights": [
+          [
+              "Gevels",
+              "Metselwerk van keramische baksteen van een halve steen, bepleisterd en geschilderd, met op sommige plaatsen zichtbaar metselwerk, aan de binnenkant bekleed met dubbele holle baksteen en gespoten isolatie in de spouwen, en kalkmortel tussen de raamvelden."
+          ],
+          [
+              "Terrassen",
+              "Antislip porseleinen vloeren, plafonds van pvc of aluminium met buitenafwerking, afwerkingen in houtlook en roosterschermen tussen de terrassen van naburige woningen."
+          ],
+          [
+              "Beglazing",
+              "Aluminium kozijnen met thermische onderbreking en dubbele beglazing met luchtkamer."
+          ],
+          [
+              "Daken",
+              "Begaanbare privédaken met thermische en akoestische isolatie, afgewerkt met antislip porselein, en in de penthouses een metalen trap naar het solarium."
+          ]
+      ],
+      "investmentNotes": [
+          "Geen van de documenten die wij hebben, geeft het reserveringsbedrag, de termijnen of hun data. Wij vragen ze op en leggen de antwoorden schriftelijk vast voordat u reserveert.",
+          "De prijslijst vermeldt de btw niet. Wij tonen de prijzen als nettobedragen plus btw, zoals gebruikelijk bij nieuwbouwwoningen in Spanje, en bevestigen het tarief en de overige aankoopkosten schriftelijk.",
+          "De prijslijst geeft één prijs per woning en zegt niet wat die omvat. Het dossier toont twee ondergrondse niveaus met parkeerplaatsen en bergingen, en wij bevestigen schriftelijk of een plaats en een berging bij de woning van uw keuze horen. De op de beelden getoonde meubels zijn niet inbegrepen."
+      ],
+      "availability": [
+          {
+              "label": "Status",
+              "value": "Op plan"
+          },
+          {
+              "label": "Materiaal",
+              "value": "Brochure, plattegronden en actuele prijslijst"
+          },
+          {
+              "label": "Volgende stap",
+              "value": "Vraag de laatste informatie over The OAK48 aan"
+          }
+      ],
+      "ctaLabel": "Projectmateriaal aanvragen",
+      "ctaMessage": "Hallo Nueva Living, ik wil graag informatie over The OAK48."
+  },
+  "las-mesas-blue-horizon": {
+      "id": "las-mesas-blue-horizon",
+      "name": "Las Mesas Blue Horizon",
+      "location": "Las Mesas, Estepona",
+      "area": "Estepona",
+      "price": "Vanaf € 849.000 + btw",
+      "bedrooms": "2-3 slaapkamers",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Oplevering nog te bevestigen",
+      "status": "Op plan",
+      "lifestyle": "9 van de 34 appartementen met twee en drie slaapkamers in Las Mesas Blue Horizon, in Las Mesas, Estepona, met zeezicht, een gemeenschappelijk zwembad, een fitnessruimte, een spa, een coworkingruimte en een bioscoop. Er wordt geen opleveringsdatum genoemd. Vanaf € 849.000 excl. btw.",
+      "overview": "Las Mesas Blue Horizon is een woonwijk van drie blokken in Las Mesas, Estepona, met woningen met twee en drie slaapkamers die allemaal twee badkamers hebben. De brochure van de ontwikkelaar beschrijft grote terrassen met panoramisch uitzicht op de Middellandse Zee. Ze telt 36 woningen, terwijl de plattegronden en de prijslijst er 34 tonen, 20 met twee slaapkamers en 14 met drie, en negen daarvan staan met een prijs op de lijst.",
+      "highlights": [
+          [
+              "Structuur",
+              "Gewapend beton conform de geldende voorschriften en de Technische Bouwcode, op een fundering die is ontworpen op basis van het geotechnisch onderzoek."
+          ],
+          [
+              "Gevel",
+              "Meerlagig metselwerk met binnenisolatie, een spouw en een gipsplaatbekleding, gepleisterd en afgewerkt met gelakte aluminium panelen en composietbekleding."
+          ],
+          [
+              "Beglazing",
+              "Donker gelakte aluminium kozijnen met thermische onderbreking, dubbele beglazing met lage emissie en schuifdeuren naar de terrassen."
+          ],
+          [
+              "Daken",
+              "Omgekeerde platte daken, waterdicht en geïsoleerd, met grind waar niemand loopt en antislip keramische tegels op de betreedbare delen."
+          ]
+      ],
+      "investmentNotes": [
+          "Vijfentwintig van de 34 woningen op de lijst zijn als gereserveerd aangemerkt. Negen staan met een prijs op de lijst, van € 849.000 tot € 1.245.000 excl. btw.",
+          "De lijst toont naast elke prijs in een aparte kolom een bedrag aan Spaanse btw, 10% ervan. De prijzen zijn exclusief btw, en Nueva Living bevestigt het tarief en de aankoopkosten schriftelijk.",
+          "De documenten waarover we beschikken noemen geen reserveringsbedrag en geen betalingsschema, dus we vragen ze vóór elke reservering schriftelijk op.",
+          "De brochure toont garageplaatsen en bergingen op drie kelderlagen, maar de prijslijst zegt niet of er bij elke woning een hoort. We bevestigen het voor de woning die u kiest."
+      ],
+      "availability": [
+          {
+              "label": "Status",
+              "value": "Op plan"
+          },
+          {
+              "label": "Materiaal",
+              "value": "Brochure, plattegronden en actuele prijslijst"
+          },
+          {
+              "label": "Volgende stap",
+              "value": "Vraag de laatste informatie over Las Mesas Blue Horizon aan"
+          }
+      ],
+      "ctaLabel": "Projectmateriaal aanvragen",
+      "ctaMessage": "Hallo Nueva Living, ik zou graag informatie ontvangen over Las Mesas Blue Horizon."
+  },
+  "the-privilege": {
+      "id": "the-privilege",
+      "name": "The Privilege",
+      "location": "Estepona",
+      "area": "Estepona",
+      "price": "Vanaf € 775.500 + btw",
+      "bedrooms": "2-3 slaapkamers",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Oplevering nog te bevestigen",
+      "status": "Op plan",
+      "lifestyle": "17 van de 32 woningen met twee en drie slaapkamers in een gebouw naast de oude binnenstad van Estepona, met privézwembaden, daksolariums, een gemeenschappelijk zwembad, een fitnessruimte, een spa, een sociale club en een coworkingruimte, en twee garageplaatsen en een berging bij elke aangeboden woning. Er wordt geen opleveringsdatum genoemd. Vanaf € 775.500 plus btw.",
+      "overview": "The Privilege is een woongebouw met 32 woningen met twee en drie slaapkamers naast de oude binnenstad van Estepona. Het heeft een begane grond, vier bovenverdiepingen en een solariumniveau op het dak, en twee kelderverdiepingen voor parkeerplaatsen en bergingen. De woningen op de begane grond hebben een privétuin en een privézwembad, en de penthouses hebben een terras en een privésolarium met zwembad op het dak.",
+      "highlights": [
+          [
+              "Structuur",
+              "Gewapend beton volgens de geldende regelgeving en de Spaanse bouwtechnische code, op een fundering die is ontworpen op basis van het geotechnisch onderzoek."
+          ],
+          [
+              "Gevel",
+              "Meerlagig: een buitenmuur van baksteen, isolatie aan de binnenzijde, een luchtspouw en een voorzetwand van gipsplaat, afgewerkt met glas en bekleding zoals gelakte aluminium of GRC-panelen, te bepalen door de bouwleiding."
+          ],
+          [
+              "Beglazing",
+              "Gelakte aluminium profielen met thermische onderbreking en dubbele beglazing met low-e- en zonwerende coating, en gemotoriseerde verduisterende rolgordijnen in de slaapkamers en woonkamers."
+          ],
+          [
+              "Daken",
+              "Omgekeerde platte daken, waterdicht en geïsoleerd, met grind op de niet-begaanbare delen en antislip keramische vloeren op de begaanbare delen."
+          ]
+      ],
+      "investmentNotes": [
+          "De documenten waarover wij beschikken noemen geen reserveringsbedrag en geen betalingsschema. Wij vragen de voorwaarden van de ontwikkelaar op en sturen ze u schriftelijk toe voordat u reserveert.",
+          "De prijslijst vermeldt dat de prijzen exclusief 10% btw zijn, het tarief voor nieuwbouwwoningen. Wij bevestigen de belasting en de overige aankoopkosten schriftelijk.",
+          "De prijslijst kent elke aangeboden woning twee garageplaatsen en een berging toe, met nummer. Wij bevestigen de plaatsen en de berging van de woning die u kiest.",
+          "De kwaliteitsspecificatie vermeldt dat de materialen door de bouwleiding mogen worden gewijzigd zolang hun kwaliteit niet daalt, en dat ze niet contractueel is. Wij vragen de definitieve specificatie op."
+      ],
+      "availability": [
+          {
+              "label": "Status",
+              "value": "Op plan"
+          },
+          {
+              "label": "Materiaal",
+              "value": "Brochure, plattegronden en actuele prijslijst"
+          },
+          {
+              "label": "Volgende stap",
+              "value": "Vraag de laatste informatie over The Privilege aan"
+          }
+      ],
+      "ctaLabel": "Projectmateriaal aanvragen",
+      "ctaMessage": "Hallo Nueva Living, ik wil graag informatie over The Privilege."
   }
   };
   const DEFAULT_VIEWING_PROJECT_ID = "altos-terrace-residences";

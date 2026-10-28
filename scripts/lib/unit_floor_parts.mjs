@@ -64,6 +64,7 @@ export const FLOOR_PREFIXES = {
   building: { es: 'Edificio', fr: 'Bâtiment', de: 'Gebäude', ru: 'Корпус', ar: 'مبنى', nl: 'Gebouw', pl: 'Budynek', sv: 'Byggnad', no: 'Bygg' },
   portal: { es: 'Portal', fr: 'Cage', de: 'Aufgang', ru: 'Подъезд', ar: 'مدخل', nl: 'Portiek', pl: 'Klatka', sv: 'Uppgång', no: 'Oppgang' },
   level: { es: 'Nivel', fr: 'Niveau', de: 'Ebene', ru: 'Уровень', ar: 'مستوى', nl: 'Niveau', pl: 'Poziom', sv: 'Plan', no: 'Plan' },
+  staircase: { es: 'Escalera', fr: 'Escalier', de: 'Treppenhaus', ru: 'Лестница', ar: 'درج', nl: 'Trappenhuis', pl: 'Klatka schodowa', sv: 'Trapphus', no: 'Trappeoppgang' },
   townhouse: { es: 'Adosado', fr: 'Maison de ville', de: 'Reihenhaus', ru: 'Таунхаус', ar: 'منزل متلاصق', nl: 'Herenhuis', pl: 'Dom szeregowy', sv: 'Radhus', no: 'Rekkehus' },
   floor: { es: 'Planta', fr: 'Étage', de: 'Etage', ru: 'Этаж', ar: 'الطابق', nl: 'Verdieping', pl: 'Piętro', sv: 'Våning', no: 'Etasje' }
 };

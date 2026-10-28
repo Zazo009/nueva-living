@@ -4156,22 +4156,14 @@
       color: #aaa094 !important;
     }
 
-    /* Keep the first render focused on the hero. Off-screen sections are
-       laid out as they approach the viewport, with stable reserved space.
-       Only where there is a mouse: on a phone, opening a form's picker or the
-       keyboard resizes the visual viewport, the engine re-decides which of
-       these sections is skipped, their heights change under the reader, and
-       the page jumps or stops answering a touch. The contact form is the
-       section after them, so it is the first thing that shows it. */
-    @media (hover: hover) and (pointer: fine) {
-      #developments,
-      #areas,
-      #journey,
-      #about {
-        content-visibility: auto;
-        contain-intrinsic-size: auto 900px;
-      }
-    }
+    /* #developments, #areas, #journey and #about used to be content-visibility:
+       auto with a 900px placeholder. A skipped section is 900px tall and a laid
+       out one is its real height (#about 768px, #areas 1148px, #journey about
+       1100px), so each time one was skipped or laid out the page below it moved
+       by the difference: on a phone when a picker opened (21 Oct), and on desktop
+       Safari, which has no scroll anchoring, as soon as the reader scrolled past
+       the six residences into #about and back. The placeholder can never be right
+       for every width and language, so the sections are laid out normally. */
 
     #vox:not(.on) {
       content-visibility: hidden;
@@ -17485,6 +17477,399 @@
       txt: "closing",
       motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
     }
+  ],
+  "paraiso-de-azahar": [
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.jpg",
+      pos: "center 50%",
+      label: "01 — Eksteriør",
+      hl: "Bygget langs gaten",
+      sub: "Datagenerert bilde av en hvit bygning med teglsteinstak, salvegrønne skodder og balkonger langs en brosteinsbelagt gate",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/aerial-roof-terraces-pools.jpg",
+      pos: "center 50%",
+      label: "02 — Eksteriør",
+      hl: "Takene og terrassene sett ovenfra",
+      sub: "Datagenerert flyfoto av teglsteinstakene med takterrasser og egne basseng imellom",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase.jpg",
+      pos: "center 50%",
+      label: "03 — Interiør",
+      hl: "Inngangspartiet",
+      sub: "Datagenerert inngangsparti med en tretrapp, et hjørne med kaktuser og en vegg med prosjektnavnet",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/living-room-kitchen-island.jpg",
+      pos: "center 50%",
+      label: "04 — Interiør",
+      hl: "Stue og kjøkken",
+      sub: "Datagenerert stue med åpent kjøkken, en marmoröy og et tretak-panel i taket",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/living-dining-room.jpg",
+      pos: "center 50%",
+      label: "05 — Interiør",
+      hl: "Stue og spiseplass",
+      sub: "Datagenerert stue og spisestue med et langt bord, en hjørnesofa og et tretak-panel i taket",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/main-bedroom.jpg",
+      pos: "center 50%",
+      label: "06 — Soverom",
+      hl: "Hovedsoverom",
+      sub: "Datagenerert hovedsoverom med dobbeltseng, et tretak-panel i taket og en glassdør med skodde",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/twin-bedroom.jpg",
+      pos: "center 50%",
+      label: "07 — Soverom",
+      hl: "Det andre soverommet",
+      sub: "Datagenerert soverom med to enkeltsenger, en panelvegg med skjult belysning og en glassdør",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/main-bathroom.jpg",
+      pos: "center 50%",
+      label: "08 — Bad",
+      hl: "Hovedbad",
+      sub: "Datagenerert bad med åpen dusj, en servant i stein og to høye speil",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "the-oak48": [
+    {
+      img: "assets/liora/projects/the-oak48/media/street-facade-corner.jpg",
+      pos: "center 50%",
+      label: "01 — Eksteriør",
+      hl: "Hjørnet av bygningen sett fra gaten",
+      sub: "Datagenerert bilde av en leilighetsblokk i fire etasjer med buede terrasser bak vertikale lameller, sett fra gaten",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/terraced-corner-and-garden.jpg",
+      pos: "center 50%",
+      label: "02 — Eksteriør",
+      hl: "Buede terrasser og lameller",
+      sub: "Datagenerert bilde av hjørnet av bygningen, med buede terrasser bak vertikale lameller og paneler i trelook, palmer og en plen",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/garden-facade-and-pool.jpg",
+      pos: "center 50%",
+      label: "03 — Eksteriør",
+      hl: "Terrassene over hagen og bassenget",
+      sub: "Datagenerert bilde av trappetrinnsterrassene med lameller over en hage med felles basseng og solsenger",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/aerial-roof-terraces.jpg",
+      pos: "center 50%",
+      label: "04 — Eksteriør",
+      hl: "Takplanet sett ovenfra",
+      sub: "Datagenerert flybilde av bygningen med takterrasser, solterrasser og små bassenger på øverste nivå, og det felles bassenget og plenen ved siden av",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/ground-floor-terrace.jpg",
+      pos: "center 50%",
+      label: "05 — Terrasser",
+      hl: "En terrasse på bakkeplan",
+      sub: "Datagenerert terrasse i første etasje med spisebord og sofa, som åpner mot en kant av busker og en plen",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/solarium-pool-and-sea.jpg",
+      pos: "center 50%",
+      label: "06 — Solarium",
+      hl: "Solterrasse på en toppleilighet med basseng",
+      sub: "Datagenerert solterrasse på taket med basseng, solsenger og en spisegruppe, med utsikt over byen mot havet",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/solarium-terrace-and-mountains.jpg",
+      pos: "center 50%",
+      label: "07 — Solarium",
+      hl: "En takterrasse med utsikt mot fjellene",
+      sub: "Datagenerert takterrasse med spisebord, hjørnesofa, solsenger og et lite basseng, med utsikt mot fjellene",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/living-room.jpg",
+      pos: "center 50%",
+      label: "08 — Interiør",
+      hl: "Stue",
+      sub: "Datagenerert åpen stue med kremfarget sofa, spisebord i tre, medievegg med lameller og en skyvedør i glass ut til terrassen",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/kitchen.jpg",
+      pos: "center 50%",
+      label: "09 — Interiør",
+      hl: "Kjøkken",
+      sub: "Datagenerert kjøkken med hvite overskap, underskap i tre, en øy med tre krakker og en skyvedør ut til en terrasse",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/bathroom.jpg",
+      pos: "center 50%",
+      label: "10 — Bad",
+      hl: "Bad",
+      sub: "Datagenerert bad med servantskap i tre, et bredt speil, et toalett og en dusj med glassvegg og to regndusjhoder",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "las-mesas-blue-horizon": [
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg",
+      pos: "center 50%",
+      label: "01 — Eksteriør",
+      hl: "Bygningen fra veien",
+      sub: "Datagenerert bilde av den hvite terrasseblokken sett fra veien, med palmer og oliventrær i skråningen og havet til venstre",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg",
+      pos: "center 50%",
+      label: "02 — Eksteriør",
+      hl: "Blokken sett fra bassengområdet",
+      sub: "Datagenerert bilde av den trappede blokken sett fra bassengområdet, med palmer og en pergola på taket",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool.jpg",
+      pos: "center 50%",
+      label: "03 — Eksteriør",
+      hl: "Et hjørne av blokken over bassenget",
+      sub: "Datagenerert bilde av et hjørne av blokken med en pergola på taket over trappede terrasser, og det felles bassenget i forgrunnen",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall.jpg",
+      pos: "center 50%",
+      label: "04 — Eksteriør",
+      hl: "Blokken over inngangen",
+      sub: "Datagenerert bilde av blokken over en støttemur i stein, med en trapp og en port ved inngangen, en gate foran og fjell bak",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg",
+      pos: "center 50%",
+      label: "05 — Interiør",
+      hl: "Stue, spisestue og kjøkken",
+      sub: "Datagenerert bilde av en åpen stue med spiseplass og kjøkkenøy og en skyvevegg i glass ut til terrassen",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view.jpg",
+      pos: "center 50%",
+      label: "06 — Interiør",
+      hl: "En stue mot havet",
+      sub: "Datagenerert bilde av en stue med hjørnesofa, spisebord og en bred skyvevegg i glass mot havet",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.jpg",
+      pos: "center 50%",
+      label: "07 — Interiør",
+      hl: "Et soverom med utgang til terrassen",
+      sub: "Datagenerert bilde av et soverom med dobbeltseng, en polstret vegg og en skyvedør i glass ut til terrassen",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin.jpg",
+      pos: "center 50%",
+      label: "08 — Interiør",
+      hl: "Et bad med dusj bak glassvegg",
+      sub: "Datagenerert bilde av et bad med en servant på benkeplate på en tremodul, et rundt baklyst speil og en dusj med glassvegg",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "the-privilege": [
+    {
+      img: "assets/liora/projects/the-privilege/media/garden-facade-day.jpg",
+      pos: "center 50%",
+      label: "01 — Eksteriør",
+      hl: "Bygningen sett fra hagen",
+      sub: "Datagenerert bilde av bygningen fra hagen, med beplantede terrasser i hver etasje, en plen og et basseng foran",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/street-facade-day.jpg",
+      pos: "center 50%",
+      label: "02 — Eksteriør",
+      hl: "Fasaden mot gaten",
+      sub: "Datagenerert bilde av bygningen fra gaten, med kantete bronsefargede rammer rundt terrassene og palmer langs fortauet",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/street-corner-entrance.jpg",
+      pos: "center 50%",
+      label: "03 — Eksteriør",
+      hl: "Hjørnet og inngangen",
+      sub: "Datagenerert bilde av et gatehjørne med bygningen over et skilt ved inngangen, palmer og en parkert bil",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/corner-and-gate.jpg",
+      pos: "center 50%",
+      label: "04 — Eksteriør",
+      hl: "Bygningen fra veikrysset",
+      sub: "Datagenerert bilde av bygningen fra et veikryss, med en bronsefarget takramme, et skilt på inngangsmuren og en bil på veien",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/facade-over-communal-pool.jpg",
+      pos: "center 50%",
+      label: "05 — Eksteriør",
+      hl: "Bygningen på den andre siden av fellesbassenget",
+      sub: "Datagenerert bilde av bygningen på den andre siden av et langt felles basseng med solsenger og hvite parasoller",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/terrace-living-room.jpg",
+      pos: "center 50%",
+      label: "06 — Terrasser",
+      hl: "En terrasse og stuen bak",
+      sub: "Datagenerert terrasse med sittegruppe og spisebord under et lamelltak, foran en glassfasade-stue, med åser i bakgrunnen",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/terrace-in-facade-frame.jpg",
+      pos: "center 50%",
+      label: "07 — Terrasser",
+      hl: "En terrasse inne i fasaderammen",
+      sub: "Datagenerert bilde av en møblert terrasse inne i en kantet bronsefarget ramme i fasaden, med klatreplanter",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/living-room.jpg",
+      pos: "center 50%",
+      label: "08 — Interiør",
+      hl: "Stue og spiseplass",
+      sub: "Datagenerert åpen stue og spisestue med en buet sofa, et spisebord i marmor og glassdører til terrassen",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/kitchen-island-and-terrace.jpg",
+      pos: "center 50%",
+      label: "09 — Interiør",
+      hl: "Kjøkken og terrasse",
+      sub: "Datagenerert kjøkken med en marmorøy og barstoler, en vegg av tre-skap og en terrasse med spisebord",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    }
   ]
   };
   /* NUEVA GENERATED VIEWING SCENES END */
@@ -23020,6 +23405,221 @@
       ],
       "ctaLabel": "Be om prosjektmateriell",
       "ctaMessage": "Hei Nueva Living, jeg vil gjerne ha informasjon om The Sky Marbella."
+  },
+  "paraiso-de-azahar": {
+      "id": "paraiso-de-azahar",
+      "name": "Paraíso de Azahar",
+      "location": "Sentrum av Estepona",
+      "area": "Estepona",
+      "price": "Fra 495 000 € + mva",
+      "bedrooms": "1-3 soverom",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Ferdigstillelse ikke bekreftet",
+      "status": "Kjøp på tegning",
+      "lifestyle": "6 av 10 leiligheter med ett til tre soverom i et bygg i sentrum av Estepona, ved siden av gamlebyen, hver med garasjeplass og bod, én med patio og eget basseng. Dokumentene oppgir ingen overleveringsdato. Fra 495 000 € pluss mva.",
+      "overview": "Dette er et boligbygg med 10 boliger med ett, to og tre soverom, fordelt på første, andre og tredje etasje og en øverste etasje, i sentrum av Estepona, ved siden av gamlebyen. Seks boliger er annonsert med pris: én med ett soverom og én med tre soverom i første etasje, og fire i andre etasje, én av dem med patio og eget basseng. Hver har garasjeplass og bod.",
+      "highlights": [
+          [
+              "Fasade",
+              "Teglmurverk av keramisk murstein i halv stein, pusset, med en bakvegg av dobbel hulltegl og isolasjon sprøytet inn i hulrommene, og en kalkbasert mørtelfinish mellom vinduene."
+          ],
+          [
+              "Vinduer",
+              "Aluminiumsrammer med trelignende finish og termisk brudd, med dobbeltglass og luftkammer."
+          ],
+          [
+              "Heis og garasje",
+              "En heis for fire personer som stopper i garasjen, og en bilheis ved garasjeinngangen."
+          ],
+          [
+              "Energi",
+              "Varmtvann fra aerotermisk system i hver bolig og, ifølge dossieret, et solenergianlegg og en høy energiklasse."
+          ]
+      ],
+      "investmentNotes": [
+          "Ingen av dokumentene vi har oppgir et reservasjonsbeløp eller en betalingsplan, så vi spør utbyggeren og får svaret skriftlig før dere reserverer.",
+          "Prislisten viser prisene uten mva og oppgir satsen til 10 %. Prisene på denne siden er utbyggerens nettobeløp, og mva er ikke lagt til.",
+          "Hver av de seks annonserte boligene har garasjeplass og bod, og bolig 1ºA også eget basseng. Møblene som vises på bildene er ikke inkludert.",
+          "Prislisten oppgir ikke de øvrige kjøpskostnadene, så Nueva Living bekrefter dem skriftlig."
+      ],
+      "availability": [
+          {
+              "label": "Status",
+              "value": "Kjøp på tegning"
+          },
+          {
+              "label": "Materiell",
+              "value": "Brosjyre, plantegninger og gjeldende prisliste"
+          },
+          {
+              "label": "Neste steg",
+              "value": "Be om den nyeste informasjonen om Paraíso de Azahar"
+          }
+      ],
+      "ctaLabel": "Be om prosjektmateriell",
+      "ctaMessage": "Hei Nueva Living, jeg vil gjerne ha informasjon om Paraíso de Azahar."
+  },
+  "the-oak48": {
+      "id": "the-oak48",
+      "name": "The OAK48",
+      "location": "Estepona",
+      "area": "Estepona",
+      "price": "Fra 375 000 € + mva.",
+      "bedrooms": "2-3 soverom",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Ferdigstillelse ikke bekreftet",
+      "status": "Kjøp på tegning",
+      "lifestyle": "15 av 48 leiligheter og toppleiligheter med to og tre soverom i tre hus nær gamlebyen i Estepona, med felles basseng, treningsrom og coworking-rom. Ingen overleveringsdato er oppgitt. Fra 375 000 € pluss mva.",
+      "overview": "The OAK48 er en boligbygning med 48 boliger i tre hus i Estepona, nær gamlebyen. Utbyggerens liste oppgir pris for 15 av dem og markerer de øvrige 33 som reservert. De 15 er boliger med to og tre soverom: tre i første etasje med patio, seks i andre og tredje etasje med terrasse og seks toppleiligheter med solterrasse på taket.",
+      "highlights": [
+          [
+              "Fasader",
+              "Murverk av keramisk tegl i halv stein, pusset og malt, med synlig tegl enkelte steder, kledd innvendig med dobbel hulltegl og sprøytet isolasjon i hulrommene, og kalkbasert mørtel mellom vindusfeltene."
+          ],
+          [
+              "Terrasser",
+              "Sklisikre gulv i porselenskeramikk, himlinger i PVC eller aluminium med utendørs finish, overflater i trelook og gittervegger mellom terrassene til naboboligene."
+          ],
+          [
+              "Vinduer",
+              "Aluminiumsrammer med termisk brudd og dobbelt glass med luftkammer."
+          ],
+          [
+              "Tak",
+              "Gangbare private tak med varme- og lydisolasjon, ferdigstilt i sklisikker porselenskeramikk, og en metalltrapp opp til solterrassen i toppleilighetene."
+          ]
+      ],
+      "investmentNotes": [
+          "Ingen av dokumentene vi har oppgir reservasjonsbeløpet, delbetalingene eller datoene for dem. Vi ber om dem og gir svarene skriftlig før dere reserverer.",
+          "Prislisten nevner ikke mva. Vi viser prisene som nettobeløp pluss mva., slik det er vanlig for nye boliger i Spania, og bekrefter satsen og de øvrige kjøpskostnadene skriftlig.",
+          "Prislisten oppgir én pris per bolig og sier ikke hva den omfatter. Dossieret viser to kjellernivåer med parkeringsplasser og boder, og vi bekrefter skriftlig om en plass og en bod følger med boligen dere velger. Møblene som vises på bildene er ikke inkludert."
+      ],
+      "availability": [
+          {
+              "label": "Status",
+              "value": "Kjøp på tegning"
+          },
+          {
+              "label": "Materiell",
+              "value": "Brosjyre, plantegninger og gjeldende prisliste"
+          },
+          {
+              "label": "Neste steg",
+              "value": "Be om den nyeste informasjonen om The OAK48"
+          }
+      ],
+      "ctaLabel": "Be om prosjektmateriell",
+      "ctaMessage": "Hei Nueva Living, jeg vil gjerne ha informasjon om The OAK48."
+  },
+  "las-mesas-blue-horizon": {
+      "id": "las-mesas-blue-horizon",
+      "name": "Las Mesas Blue Horizon",
+      "location": "Las Mesas, Estepona",
+      "area": "Estepona",
+      "price": "Fra 849 000 € + mva.",
+      "bedrooms": "2-3 soverom",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Ferdigstillelse ikke bekreftet",
+      "status": "Kjøp på tegning",
+      "lifestyle": "9 av 34 leiligheter med to og tre soverom i Las Mesas Blue Horizon, i Las Mesas, Estepona, med utsikt over havet, felles basseng, treningsrom, spa, coworking-rom og kino. Ingen overleveringsdato er oppgitt. Fra 849 000 € pluss mva.",
+      "overview": "Las Mesas Blue Horizon er et boligkompleks med tre blokker i Las Mesas, Estepona, med boliger med to og tre soverom som alle har to bad. Utbyggerens brosjyre beskriver store terrasser med panoramautsikt over Middelhavet. Den oppgir 36 boliger, mens planene og prislisten viser 34, 20 med to soverom og 14 med tre, og ni av dem er oppført med pris.",
+      "highlights": [
+          [
+              "Konstruksjon",
+              "Armert betong etter gjeldende forskrifter og den tekniske byggekoden, på fundamenter utformet etter den geotekniske undersøkelsen."
+          ],
+          [
+              "Fasade",
+              "Flerlags teglmurverk med innvendig isolasjon, luftspalte og gipsplatekledning, pusset og ferdigstilt med lakkerte aluminiumspaneler og komposittkledning."
+          ],
+          [
+              "Vinduer",
+              "Mørke lakkerte aluminiumsrammer med kuldebro-brudd, lavemisjons tolagsglass og skyvedører ut til terrassene."
+          ],
+          [
+              "Tak",
+              "Omvendte flate tak, tettet og isolert, med grus der ingen går og sklisikre keramiske fliser der de kan betres."
+          ]
+      ],
+      "investmentNotes": [
+          "Tjuefem av de 34 boligene på listen er merket som reservert. Ni er oppført med pris, fra 849 000 € til 1 245 000 € pluss mva.",
+          "Listen viser et beløp for spansk mva. ved siden av hver pris, 10 % av den, i en egen kolonne. Prisene inkluderer ikke mva., og Nueva Living bekrefter satsen og kjøpskostnadene skriftlig.",
+          "Dokumentene vi har oppgir verken reservasjonsbeløp eller betalingsplan, så vi ber om dem skriftlig før enhver reservasjon.",
+          "Brosjyren viser garasjeplasser og boder på tre kjellernivåer, men prislisten sier ikke om én følger med hver bolig. Vi bekrefter det for boligen som velges."
+      ],
+      "availability": [
+          {
+              "label": "Status",
+              "value": "Kjøp på tegning"
+          },
+          {
+              "label": "Materiell",
+              "value": "Brosjyre, plantegninger og gjeldende prisliste"
+          },
+          {
+              "label": "Neste steg",
+              "value": "Be om den nyeste informasjonen om Las Mesas Blue Horizon"
+          }
+      ],
+      "ctaLabel": "Be om prosjektmateriell",
+      "ctaMessage": "Hei Nueva Living, jeg vil gjerne ha informasjon om Las Mesas Blue Horizon."
+  },
+  "the-privilege": {
+      "id": "the-privilege",
+      "name": "The Privilege",
+      "location": "Estepona",
+      "area": "Estepona",
+      "price": "Fra 775 500 € + mva.",
+      "bedrooms": "2-3 soverom",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "Ferdigstillelse ikke bekreftet",
+      "status": "Kjøp på tegning",
+      "lifestyle": "17 av 32 boliger med to og tre soverom i en bygning ved siden av gamlebyen i Estepona, med private basseng, solterrasser på taket, felles basseng, treningsrom, spa, sosial klubb og coworking-areal, og to garasjeplasser og en bod til hver oppførte bolig. Ingen overleveringsdato er oppgitt. Fra 775 500 € pluss mva.",
+      "overview": "The Privilege er en boligbygning med 32 boliger med to og tre soverom ved siden av gamlebyen i Estepona. Den har første etasje, fire etasjer over og et solterrassenivå på taket, med to kjelleretasjer for parkering og boder. Boligene i første etasje har privat hage og privat basseng, og toppleilighetene har terrasse og en privat solterrasse med basseng på taket.",
+      "highlights": [
+          [
+              "Konstruksjon",
+              "Armert betong etter gjeldende regler og den tekniske byggekoden, på et fundament utformet etter den geotekniske undersøkelsen."
+          ],
+          [
+              "Fasade",
+              "Flerlags: en yttervegg av murstein, innvendig isolasjon, et luftrom og en gipsforkledning, ferdigstilt med glass og kledning som lakkerte aluminiums- eller GRC-paneler, som fastsettes av prosjektledelsen."
+          ],
+          [
+              "Vinduer",
+              "Lakkerte aluminiumsprofiler med termisk brudd og dobbeltvindu med lavemisjons- og solkontrollbehandling, og motoriserte mørkleggingsgardiner i soverom og stuer."
+          ],
+          [
+              "Tak",
+              "Omvendte flate tak, vanntettet og isolert, med grus i områdene der ingen går og sklisikre keramiske fliser der de er tilgjengelige."
+          ]
+      ],
+      "investmentNotes": [
+          "Dokumentene vi har, oppgir verken reservasjonsbeløp eller betalingsplan. Vi innhenter utbyggerens vilkår og sender dem skriftlig før reservasjon.",
+          "Prislisten oppgir at prisene ikke inkluderer 10 % mva, satsen for nye boliger. Vi bekrefter skatten og de øvrige kjøpskostnadene skriftlig.",
+          "Prislisten gir hver oppførte bolig to garasjeplasser og en bod, med nummer. Vi bekrefter plassene og boden til boligen dere velger.",
+          "Kvalitetsspesifikasjonen oppgir at materialene kan endres av prosjektledelsen så lenge kvaliteten ikke reduseres, og at den ikke er kontraktsfestet. Vi ber om den endelige spesifikasjonen."
+      ],
+      "availability": [
+          {
+              "label": "Status",
+              "value": "Kjøp på tegning"
+          },
+          {
+              "label": "Materiell",
+              "value": "Brosjyre, plantegninger og gjeldende prisliste"
+          },
+          {
+              "label": "Neste steg",
+              "value": "Be om den nyeste informasjonen om The Privilege"
+          }
+      ],
+      "ctaLabel": "Be om prosjektmateriell",
+      "ctaMessage": "Hei Nueva Living, jeg vil gjerne ha informasjon om The Privilege."
   }
   };
   const DEFAULT_VIEWING_PROJECT_ID = "altos-terrace-residences";

@@ -4156,22 +4156,14 @@
       color: #aaa094 !important;
     }
 
-    /* Keep the first render focused on the hero. Off-screen sections are
-       laid out as they approach the viewport, with stable reserved space.
-       Only where there is a mouse: on a phone, opening a form's picker or the
-       keyboard resizes the visual viewport, the engine re-decides which of
-       these sections is skipped, their heights change under the reader, and
-       the page jumps or stops answering a touch. The contact form is the
-       section after them, so it is the first thing that shows it. */
-    @media (hover: hover) and (pointer: fine) {
-      #developments,
-      #areas,
-      #journey,
-      #about {
-        content-visibility: auto;
-        contain-intrinsic-size: auto 900px;
-      }
-    }
+    /* #developments, #areas, #journey and #about used to be content-visibility:
+       auto with a 900px placeholder. A skipped section is 900px tall and a laid
+       out one is its real height (#about 768px, #areas 1148px, #journey about
+       1100px), so each time one was skipped or laid out the page below it moved
+       by the difference: on a phone when a picker opened (21 Oct), and on desktop
+       Safari, which has no scroll anchoring, as soon as the reader scrolled past
+       the six residences into #about and back. The placeholder can never be right
+       for every width and language, so the sections are laid out normally. */
 
     #vox:not(.on) {
       content-visibility: hidden;
@@ -17486,6 +17478,399 @@
       txt: "closing",
       motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
     }
+  ],
+  "paraiso-de-azahar": [
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/street-facade-corner.jpg",
+      pos: "center 50%",
+      label: "01 — الواجهات الخارجية",
+      hl: "المبنى على الشارع",
+      sub: "منظر مُولَّد بالحاسوب لمبنى أبيض بأسقف من القرميد وأبواب خشبية بلون أخضر مريمي وشرفات على شارع مرصوف بالحجارة",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/aerial-roof-terraces-pools.jpg",
+      pos: "center 50%",
+      label: "02 — الواجهات الخارجية",
+      hl: "الأسقف والتراسات من الأعلى",
+      sub: "منظر جوي مُولَّد بالحاسوب لأسقف القرميد مع تراسات على السطح ومسابح خاصة بينها",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/entrance-hall-staircase.jpg",
+      pos: "center 50%",
+      label: "03 — الداخل",
+      hl: "ردهة المدخل",
+      sub: "ردهة مدخل مُولَّدة بالحاسوب بدرج خشبي وزاوية مزروعة بالصبّار وجدار يحمل اسم المشروع",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/living-room-kitchen-island.jpg",
+      pos: "center 50%",
+      label: "04 — الداخل",
+      hl: "غرفة المعيشة والمطبخ",
+      sub: "غرفة معيشة ومطبخ مفتوح مُولَّدان بالحاسوب بجزيرة من الرخام ولوح خشبي في السقف",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/living-dining-room.jpg",
+      pos: "center 50%",
+      label: "05 — الداخل",
+      hl: "غرفة معيشة وطعام",
+      sub: "غرفة معيشة وطعام مُولَّدة بالحاسوب بطاولة طويلة وأريكة زاوية ولوح خشبي في السقف",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/main-bedroom.jpg",
+      pos: "center 50%",
+      label: "06 — غرف النوم",
+      hl: "غرفة النوم الرئيسية",
+      sub: "غرفة نوم رئيسية مُولَّدة بالحاسوب بسرير مزدوج ولوح خشبي في السقف وباب زجاجي بمصراع",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/twin-bedroom.jpg",
+      pos: "center 50%",
+      label: "07 — غرف النوم",
+      hl: "غرفة النوم الثانية",
+      sub: "غرفة نوم مُولَّدة بالحاسوب بسريرين مفردين وجدار مكسو بألواح بإضاءة مخفية وباب زجاجي",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/paraiso-de-azahar/media/main-bathroom.jpg",
+      pos: "center 50%",
+      label: "08 — الحمامات",
+      hl: "الحمام الرئيسي",
+      sub: "حمام مُولَّد بالحاسوب بدش مفتوح وحوض من الحجر ومرآتين طويلتين",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "the-oak48": [
+    {
+      img: "assets/liora/projects/the-oak48/media/street-facade-corner.jpg",
+      pos: "center 50%",
+      label: "01 — الواجهات الخارجية",
+      hl: "زاوية المبنى من جهة الشارع",
+      sub: "منظر مُولَّد بالحاسوب لمبنى سكني من أربعة طوابق بتراسات منحنية خلف شرائح رأسية، من جهة الشارع",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/terraced-corner-and-garden.jpg",
+      pos: "center 50%",
+      label: "02 — الواجهات الخارجية",
+      hl: "تراسات منحنية وشرائح رأسية",
+      sub: "منظر مُولَّد بالحاسوب لزاوية المبنى بتراسات منحنية خلف شرائح رأسية وألواح بمظهر الخشب، مع نخيل ومرج",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/garden-facade-and-pool.jpg",
+      pos: "center 50%",
+      label: "03 — الواجهات الخارجية",
+      hl: "التراسات فوق الحديقة والمسبح",
+      sub: "منظر مُولَّد بالحاسوب لتراسات متدرجة بشرائح رأسية فوق حديقة فيها مسبح مشترك وكراسي استلقاء",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/aerial-roof-terraces.jpg",
+      pos: "center 50%",
+      label: "04 — الواجهات الخارجية",
+      hl: "مستوى السطح من الأعلى",
+      sub: "منظر جوي مُولَّد بالحاسوب للمبنى مع تراسات وسولاريوم وأحواض سباحة صغيرة في الطابق العلوي، والمسبح المشترك والمرج بجانبه",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/ground-floor-terrace.jpg",
+      pos: "center 50%",
+      label: "05 — الشرفات",
+      hl: "تراس في الطابق الأرضي",
+      sub: "تراس في الطابق الأرضي مُولَّد بالحاسوب بطاولة طعام وأريكة، يطل على حاجز من الشجيرات ومرج",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/solarium-pool-and-sea.jpg",
+      pos: "center 50%",
+      label: "06 — السطح الشمسي",
+      hl: "سولاريوم بنتهاوس مع مسبح",
+      sub: "سولاريوم على السطح مُولَّد بالحاسوب بمسبح وكراسي استلقاء ومجموعة طعام، بإطلالة على المدينة والبحر",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/solarium-terrace-and-mountains.jpg",
+      pos: "center 50%",
+      label: "07 — السطح الشمسي",
+      hl: "تراس سطح بإطلالة نحو الجبال",
+      sub: "تراس سطح مُولَّد بالحاسوب بطاولة طعام وأريكة زاوية وكراسي استلقاء وحوض سباحة صغير، بإطلالة نحو الجبال",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/living-room.jpg",
+      pos: "center 50%",
+      label: "08 — الداخل",
+      hl: "غرفة المعيشة",
+      sub: "غرفة معيشة مفتوحة مُولَّدة بالحاسوب بأريكة بلون الكريم وطاولة طعام خشبية وجدار وسائط من الشرائح وباب زجاجي منزلق إلى التراس",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/kitchen.jpg",
+      pos: "center 50%",
+      label: "09 — الداخل",
+      hl: "المطبخ",
+      sub: "مطبخ مُولَّد بالحاسوب بخزائن علوية بيضاء وخزائن سفلية خشبية وجزيرة مع ثلاثة مقاعد عالية وباب منزلق إلى التراس",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-oak48/media/bathroom.jpg",
+      pos: "center 50%",
+      label: "10 — الحمامات",
+      hl: "حمام",
+      sub: "حمام مُولَّد بالحاسوب بخزانة مغسلة خشبية ومرآة عريضة ومرحاض ودش بحاجز زجاجي ورأسي رش مطري",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "las-mesas-blue-horizon": [
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/terraced-block-from-road.jpg",
+      pos: "center 50%",
+      label: "01 — الواجهات الخارجية",
+      hl: "المبنى من الطريق",
+      sub: "منظر مولَّد بالحاسوب للمبنى الأبيض ذي التراسات من جهة الطريق، مع نخيل وأشجار زيتون على المنحدر والبحر إلى اليسار",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-from-pool-deck.jpg",
+      pos: "center 50%",
+      label: "02 — الواجهات الخارجية",
+      hl: "المبنى من منصة المسبح",
+      sub: "منظر مولَّد بالحاسوب للمبنى المتدرج من منصة المسبح، مع نخيل وبرغولا على السطح",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-above-pool.jpg",
+      pos: "center 50%",
+      label: "03 — الواجهات الخارجية",
+      hl: "زاوية من المبنى فوق المسبح",
+      sub: "منظر مولَّد بالحاسوب لزاوية من المبنى مع برغولا على السطح فوق تراسات متدرجة، والمسبح المشترك في المقدمة",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/block-above-stone-wall.jpg",
+      pos: "center 50%",
+      label: "04 — الواجهات الخارجية",
+      hl: "المبنى فوق المدخل",
+      sub: "منظر مولَّد بالحاسوب للمبنى فوق جدار استنادي حجري، مع درج وبوابة عند المدخل وشارع في المقدمة وجبال في الخلفية",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/living-dining-kitchen.jpg",
+      pos: "center 50%",
+      label: "05 — الداخل",
+      hl: "المعيشة والطعام والمطبخ",
+      sub: "منظر مولَّد بالحاسوب لغرفة معيشة مفتوحة مع منطقة طعام وجزيرة مطبخ وجدار زجاجي منزلق نحو التراس",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/living-room-sea-view.jpg",
+      pos: "center 50%",
+      label: "06 — الداخل",
+      hl: "صالة معيشة تطل على البحر",
+      sub: "منظر مولَّد بالحاسوب لغرفة معيشة بأريكة زاوية وطاولة طعام وجدار زجاجي منزلق واسع نحو البحر",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/bedroom-terrace.jpg",
+      pos: "center 50%",
+      label: "07 — الداخل",
+      hl: "غرفة نوم تفتح على التراس",
+      sub: "منظر مولَّد بالحاسوب لغرفة نوم بسرير مزدوج وجدار مبطّن وباب زجاجي منزلق إلى التراس",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/las-mesas-blue-horizon/media/bathroom-single-basin.jpg",
+      pos: "center 50%",
+      label: "08 — الداخل",
+      hl: "حمام بدُش بحاجز زجاجي",
+      sub: "منظر مولَّد بالحاسوب لحمام بحوض فوق سطح على خزانة خشبية ومرآة دائرية بإضاءة خلفية ودُش بحاجز زجاجي",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    }
+  ],
+  "the-privilege": [
+    {
+      img: "assets/liora/projects/the-privilege/media/garden-facade-day.jpg",
+      pos: "center 50%",
+      label: "01 — الواجهات الخارجية",
+      hl: "المبنى من الحديقة",
+      sub: "منظر مُولَّد بالحاسوب للمبنى من الحديقة، مع تراسات مزروعة في كل طابق ومرج ومسبح في المقدمة",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/street-facade-day.jpg",
+      pos: "center 50%",
+      label: "02 — الواجهات الخارجية",
+      hl: "الواجهة المطلة على الشارع",
+      sub: "منظر مُولَّد بالحاسوب للمبنى من الشارع، مع إطارات زاوية بلون البرونز حول التراسات ونخيل على طول الرصيف",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/street-corner-entrance.jpg",
+      pos: "center 50%",
+      label: "03 — الواجهات الخارجية",
+      hl: "الزاوية والمدخل",
+      sub: "منظر مُولَّد بالحاسوب لزاوية شارع يظهر فيها المبنى فوق لافتة عند المدخل مع نخيل وسيارة متوقفة",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/corner-and-gate.jpg",
+      pos: "center 50%",
+      label: "04 — الواجهات الخارجية",
+      hl: "المبنى من التقاطع",
+      sub: "منظر مُولَّد بالحاسوب للمبنى من تقاطع طرق، مع إطار سقف بلون البرونز ولافتة على جدار المدخل وسيارة على الطريق",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/facade-over-communal-pool.jpg",
+      pos: "center 50%",
+      label: "05 — الواجهات الخارجية",
+      hl: "المبنى على الجانب الآخر من المسبح المشترك",
+      sub: "منظر مُولَّد بالحاسوب للمبنى على الجانب الآخر من مسبح مشترك طويل مع كراسي استلقاء ومظلات بيضاء",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/terrace-living-room.jpg",
+      pos: "center 50%",
+      label: "06 — الشرفات",
+      hl: "تراس وغرفة المعيشة خلفه",
+      sub: "تراس مُولَّد بالحاسوب بمقاعد وطاولة طعام تحت سقف من الشرائح أمام غرفة معيشة زجاجية، وتلال في الخلفية",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/terrace-in-facade-frame.jpg",
+      pos: "center 50%",
+      label: "07 — الشرفات",
+      hl: "تراس داخل إطار الواجهة",
+      sub: "منظر مُولَّد بالحاسوب لتراس مفروش داخل إطار زاوي بلون البرونز في الواجهة، مع نباتات متسلقة",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/living-room.jpg",
+      pos: "center 50%",
+      label: "08 — الداخل",
+      hl: "غرفة معيشة وطعام",
+      sub: "غرفة معيشة وطعام مفتوحة مُولَّدة بالحاسوب بأريكة منحنية وطاولة طعام من الرخام وأبواب زجاجية إلى التراس",
+      gold: false,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "exterior",
+      motion: (p) => ({ s: 1.055 - p * 0.018, x: p * 10, y: 0 })
+    },
+    {
+      img: "assets/liora/projects/the-privilege/media/kitchen-island-and-terrace.jpg",
+      pos: "center 50%",
+      label: "09 — الداخل",
+      hl: "المطبخ والتراس",
+      sub: "مطبخ مُولَّد بالحاسوب بجزيرة من الرخام ومقاعد مرتفعة وجدار من الخزائن الخشبية وتراس بطاولة طعام",
+      gold: true,
+      ov: "linear-gradient(to right, rgba(10,9,8,0.42), rgba(10,9,8,0.15), rgba(10,9,8,0.06))",
+      txt: "closing",
+      motion: (p) => ({ s: 1.06 - p * 0.02, x: p * -10, y: p * -2 })
+    }
   ]
   };
   /* NUEVA GENERATED VIEWING SCENES END */
@@ -23021,6 +23406,221 @@
       ],
       "ctaLabel": "طلب معلومات المشروع",
       "ctaMessage": "مرحبًا Nueva Living، أودّ الحصول على معلومات عن The Sky Marbella."
+  },
+  "paraiso-de-azahar": {
+      "id": "paraiso-de-azahar",
+      "name": "Paraíso de Azahar",
+      "location": "وسط إستيبونا",
+      "area": "Estepona",
+      "price": "ابتداءً من 495,000 € + ضريبة القيمة المضافة",
+      "bedrooms": "1-3 غرف النوم",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "موعد الإنجاز قيد التأكيد",
+      "status": "على المخطط",
+      "lifestyle": "6 من أصل 10 شقق بغرفة إلى ثلاث غرف نوم في مبنى وسط إستيبونا بجوار البلدة القديمة، لكل منها موقف في المرآب وغرفة تخزين، وإحداها بفناء ومسبح خاص. لا تذكر الوثائق موعد تسليم. ابتداءً من 495,000 € دون ضريبة القيمة المضافة.",
+      "overview": "هذا مبنى سكني من 10 مساكن بغرفة وغرفتين وثلاث غرف نوم، موزعة على الطابق الأرضي والأول والثاني وطابق علوي، في وسط إستيبونا بجوار البلدة القديمة. ستة مساكن معروضة بسعر: مسكن بغرفة نوم ومسكن بثلاث غرف نوم في الطابق الأرضي، وأربعة في الطابق الأول، أحدها بفناء ومسبح خاص. ولكل منها موقف في المرآب وغرفة تخزين.",
+      "highlights": [
+          [
+              "الواجهة",
+              "بناء بالطوب الخزفي بسماكة نصف طوبة، مكسو بالملاط، مع جدار تبطين من الطوب المجوّف المزدوج وعزل مرشوش في الفراغات، وطلاء بملاط أساسه الجير بين النوافذ."
+          ],
+          [
+              "الزجاج",
+              "إطارات من الألمنيوم بتشطيب بمظهر الخشب وفاصل حراري، بزجاج مزدوج وحجرة هواء."
+          ],
+          [
+              "المصعد والمرآب",
+              "مصعد يتسع لأربعة أشخاص ويتوقف عند المرآب، ومصعد للسيارات عند مدخل المرآب."
+          ],
+          [
+              "الطاقة",
+              "ماء ساخن بنظام حراري هوائي في كل مسكن، وبحسب الملف نظام للطاقة الشمسية وتصنيف طاقة مرتفع."
+          ]
+      ],
+      "investmentNotes": [
+          "لا تذكر أي وثيقة بحوزتنا مبلغ الحجز ولا جدول الدفعات، لذلك نسأل المطوّر ونثبّت الجواب كتابةً قبل أن تحجزوا.",
+          "تعرض قائمة الأسعار الأسعار دون ضريبة القيمة المضافة وتحدد نسبتها بـ 10%. والأسعار في هذه الصفحة هي أرقام المطوّر الصافية، ولا تُضاف إليها ضريبة القيمة المضافة.",
+          "يشمل كل مسكن من المساكن الستة المعروضة موقفًا في المرآب وغرفة تخزين، ويشمل المسكن 1ºA مسبحًا خاصًا أيضًا. والأثاث الظاهر في الصور غير مشمول.",
+          "لا تذكر قائمة الأسعار مصاريف الشراء الأخرى، لذلك تؤكدها Nueva Living كتابةً."
+      ],
+      "availability": [
+          {
+              "label": "الحالة",
+              "value": "على المخطط"
+          },
+          {
+              "label": "المستندات",
+              "value": "الكتيب والمخططات وقائمة الأسعار الحالية"
+          },
+          {
+              "label": "الخطوة التالية",
+              "value": "اطلب أحدث المعلومات عن Paraíso de Azahar"
+          }
+      ],
+      "ctaLabel": "طلب معلومات المشروع",
+      "ctaMessage": "مرحبًا Nueva Living، أودّ الحصول على معلومات عن Paraíso de Azahar."
+  },
+  "the-oak48": {
+      "id": "the-oak48",
+      "name": "The OAK48",
+      "location": "إستيبونا",
+      "area": "Estepona",
+      "price": "ابتداءً من 375,000 € + ضريبة القيمة المضافة",
+      "bedrooms": "2-3 غرف النوم",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "موعد الإنجاز قيد التأكيد",
+      "status": "على المخطط",
+      "lifestyle": "15 من أصل 48 شقة وبنتهاوس بغرفتين أو ثلاث غرف نوم في ثلاثة مبانٍ قرب البلدة القديمة في إستيبونا، مع مسبح مشترك وصالة رياضية وقاعة عمل مشتركة. لم يُذكر موعد تسليم. ابتداءً من 375,000 € دون ضريبة القيمة المضافة.",
+      "overview": "The OAK48 مبنى سكني من 48 مسكنًا في ثلاثة مبانٍ في إستيبونا، قرب البلدة القديمة. وتحدد قائمة المطوّر سعرًا لـ15 منها وتُدرج الـ33 الباقية على أنها محجوزة. والمساكن الخمسة عشر بغرفتين أو ثلاث غرف نوم: ثلاثة في الطابق الأرضي مع فناء، وستة في الطابقين الأول والثاني مع تراس، وستة بنتهاوس مع سولاريوم على السطح.",
+      "highlights": [
+          [
+              "الواجهات",
+              "جدران من الطوب الخزفي بسماكة نصف طوبة، مكسوة بالمونة ومطلية، مع طوب ظاهر في بعض المواضع، ومبطَّنة من الداخل بطوب مجوف مزدوج وعزل مرشوش في الفراغات، وملاط جيري بين ألواح النوافذ."
+          ],
+          [
+              "الشرفات",
+              "أرضيات من بورسلان الغريس المانع للانزلاق، وأسقف من PVC أو الألمنيوم بتشطيبات للأماكن الخارجية، وتشطيبات بمظهر الخشب، وفواصل شبكية بين تراسات المساكن المتجاورة."
+          ],
+          [
+              "الزجاج",
+              "إطارات من الألمنيوم بقطع حراري وزجاج مزدوج بغرفة هوائية."
+          ],
+          [
+              "الأسقف",
+              "أسطح خاصة قابلة للاستخدام بعزل حراري وصوتي، مكسوة ببورسلان الغريس المانع للانزلاق، ودرج معدني يصل إلى السولاريوم في البنتهاوس."
+          ]
+      ],
+      "investmentNotes": [
+          "لا تذكر أي وثيقة بحوزتنا مبلغ الحجز أو الدفعات أو مواعيدها. نطلبها ونضع الإجابات كتابةً قبل أن تحجزوا.",
+          "لا تذكر قائمة الأسعار ضريبة القيمة المضافة. نعرض الأسعار بصفتها مبالغ صافية تُضاف إليها الضريبة، كما هو معتاد في المساكن الجديدة في إسبانيا، ونؤكد النسبة وسائر تكاليف الشراء كتابةً.",
+          "تذكر قائمة الأسعار سعرًا واحدًا لكل مسكن ولا تبيّن ما يشمله. ويُظهر ملف المطوّر طابقين سفليين لمواقف السيارات وغرف التخزين، ونؤكد كتابةً ما إذا كان موقف وغرفة تخزين يأتيان مع المسكن الذي تختارونه. والأثاث الظاهر في الصور غير مشمول."
+      ],
+      "availability": [
+          {
+              "label": "الحالة",
+              "value": "على المخطط"
+          },
+          {
+              "label": "المستندات",
+              "value": "الكتيب والمخططات وقائمة الأسعار الحالية"
+          },
+          {
+              "label": "الخطوة التالية",
+              "value": "اطلب أحدث المعلومات عن The OAK48"
+          }
+      ],
+      "ctaLabel": "طلب معلومات المشروع",
+      "ctaMessage": "مرحبًا Nueva Living، أودّ الحصول على معلومات عن The OAK48."
+  },
+  "las-mesas-blue-horizon": {
+      "id": "las-mesas-blue-horizon",
+      "name": "Las Mesas Blue Horizon",
+      "location": "لاس ميساس، إستيبونا",
+      "area": "Estepona",
+      "price": "ابتداءً من 849,000 € + ضريبة القيمة المضافة",
+      "bedrooms": "2-3 غرف النوم",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "موعد الإنجاز قيد التأكيد",
+      "status": "على المخطط",
+      "lifestyle": "9 من أصل 34 شقة بغرفتي نوم وثلاث غرف نوم في Las Mesas Blue Horizon، في لاس ميساس، إستيبونا، بإطلالة على البحر، مع مسبح مشترك وصالة رياضية ومنتجع صحي وقاعة عمل مشترك وقاعة سينما. لم يُذكر موعد إنجاز. ابتداءً من 849,000 € دون ضريبة القيمة المضافة.",
+      "overview": "Las Mesas Blue Horizon مجمع سكني من ثلاثة مبانٍ في لاس ميساس، إستيبونا، بمساكن من غرفتي نوم وثلاث غرف نوم، في كل منها حمّامان. ويصف كتيّب المطوّر تراسات واسعة بإطلالة بانورامية على البحر المتوسط. ويذكر 36 مسكنًا، بينما تُظهر مخططاته وقائمة الأسعار 34 مسكنًا، منها 20 بغرفتي نوم و14 بثلاث غرف نوم، وتسعة منها مدرجة بالسعر.",
+      "highlights": [
+          [
+              "الهيكل",
+              "خرسانة مسلحة وفق الأنظمة المعمول بها والكود الفني للبناء، على أساسات مصمَّمة بحسب الدراسة الجيوتقنية."
+          ],
+          [
+              "الواجهة",
+              "بناء من الطوب متعدد الطبقات مع عزل داخلي وفراغ هوائي وبطانة من الجبس المقوى، مع لياسة وتشطيب بألواح من الألمنيوم المطلي وكسوة مركّبة."
+          ],
+          [
+              "الزجاج",
+              "إطارات من الألمنيوم المطلي الداكن بفاصل حراري، وزجاج مزدوج منخفض الانبعاثية، وأبواب منزلقة إلى التراسات."
+          ],
+          [
+              "الأسقف",
+              "أسطح مسطحة مقلوبة معزولة مائيًا وحراريًا، بالحصى في المناطق غير المخصصة للسير وببلاط خزفي مانع للانزلاق في المناطق التي يمكن السير عليها."
+          ]
+      ],
+      "investmentNotes": [
+          "خمسة وعشرون مسكنًا من أصل 34 في القائمة مُعلَّمة بأنها محجوزة. وتسعة منها مدرجة بالسعر، من 849,000 € إلى 1,245,000 € دون ضريبة القيمة المضافة.",
+          "تُظهر القائمة بجانب كل سعر مبلغ IVA (ضريبة القيمة المضافة الإسبانية)، وهو 10% منه، في عمود منفصل. والأسعار لا تشمل ضريبة القيمة المضافة، وتؤكد Nueva Living النسبة وتكاليف الشراء كتابةً.",
+          "لا تذكر الوثائق التي بحوزتنا مبلغ حجز ولا جدول دفعات، لذلك نطلبهما كتابةً قبل أي حجز.",
+          "يُظهر الكتيّب مواقف مرآب وغرف تخزين على ثلاثة مستويات سفلية، لكن قائمة الأسعار لا تذكر ما إذا كان لكل مسكن موقف وغرفة. ونؤكد ذلك للمسكن الذي تختارونه."
+      ],
+      "availability": [
+          {
+              "label": "الحالة",
+              "value": "على المخطط"
+          },
+          {
+              "label": "المستندات",
+              "value": "الكتيب والمخططات وقائمة الأسعار الحالية"
+          },
+          {
+              "label": "الخطوة التالية",
+              "value": "اطلب أحدث المعلومات عن Las Mesas Blue Horizon"
+          }
+      ],
+      "ctaLabel": "طلب معلومات المشروع",
+      "ctaMessage": "مرحبًا Nueva Living، أودّ الحصول على معلومات عن Las Mesas Blue Horizon."
+  },
+  "the-privilege": {
+      "id": "the-privilege",
+      "name": "The Privilege",
+      "location": "إستيبونا",
+      "area": "Estepona",
+      "price": "ابتداءً من 775,500 € + ضريبة القيمة المضافة",
+      "bedrooms": "2-3 غرف النوم",
+      "builtSize": "",
+      "terraceSize": "",
+      "completion": "موعد الإنجاز قيد التأكيد",
+      "status": "على المخطط",
+      "lifestyle": "17 من 32 مسكناً بغرفتي نوم وثلاث غرف نوم في مبنى بجوار البلدة القديمة في إستيبونا، مع مسابح خاصة وسولاريوم على السطح ومسبح مشترك وصالة رياضية وسبا ونادٍ اجتماعي ومساحة عمل مشتركة، وموقفين في المرآب وغرفة تخزين لكل مسكن مدرج. لم يُذكر موعد التسليم. ابتداءً من 775,500 € زائد ضريبة القيمة المضافة.",
+      "overview": "The Privilege مبنى سكني من 32 مسكناً بغرفتي نوم وثلاث غرف نوم بجوار البلدة القديمة في إستيبونا. فيه طابق أرضي وأربعة طوابق علوية ومستوى سولاريوم على السطح، وطابقان سفليان للمواقف والمخازن. للمساكن الأرضية حديقة خاصة ومسبح خاص، وللبنتهاوس تراس وسولاريوم خاص بمسبح على السطح.",
+      "highlights": [
+          [
+              "الهيكل",
+              "خرسانة مسلحة وفق الأنظمة السارية والكود الفني للبناء، على أساسات مصممة بحسب الدراسة الجيوتقنية."
+          ],
+          [
+              "الواجهة",
+              "متعددة الطبقات: جدار خارجي من الطوب وعزل داخلي وفراغ هوائي وبطانة من ألواح الجبس، بتشطيب من الزجاج وكسوات مثل ألواح الألمنيوم المطلي أو GRC، تحددها إدارة المشروع."
+          ],
+          [
+              "الزجاج",
+              "إطارات من الألمنيوم المطلي بفاصل حراري وزجاج مزدوج بمعالجة منخفضة الانبعاثية ومعالجة للتحكم في الشمس، وستائر معتمة بمحركات في غرف النوم وغرف المعيشة."
+          ],
+          [
+              "الأسقف",
+              "أسقف مسطحة مقلوبة معزولة مائيًا وحراريًا، بالحصى في المناطق غير المخصصة للمشي وببلاط سيراميك مانع للانزلاق في المناطق المخصصة للمشي."
+          ]
+      ],
+      "investmentNotes": [
+          "لا تذكر الوثائق التي لدينا مبلغ حجز ولا جدول دفعات. نحصل على شروط المطوّر ونرسلها إليكم كتابيًا قبل الحجز.",
+          "تذكر قائمة الأسعار أن أسعارها لا تشمل ضريبة القيمة المضافة البالغة 10%، وهي النسبة المطبقة على المساكن الجديدة. نؤكد الضريبة وسائر تكاليف الشراء كتابةً.",
+          "تخصص قائمة الأسعار لكل مسكن مدرج موقفين في المرآب وغرفة تخزين، بالأرقام. نؤكد المواقف وغرفة التخزين الخاصة بالمسكن الذي تختارونه.",
+          "تذكر مواصفات الجودة أن إدارة المشروع قد تغيّر المواد ما دامت جودتها لا تنخفض، وأنها غير ملزمة تعاقديًا. نطلب المواصفات النهائية."
+      ],
+      "availability": [
+          {
+              "label": "الحالة",
+              "value": "على المخطط"
+          },
+          {
+              "label": "المستندات",
+              "value": "الكتيب والمخططات وقائمة الأسعار الحالية"
+          },
+          {
+              "label": "الخطوة التالية",
+              "value": "اطلب أحدث المعلومات عن The Privilege"
+          }
+      ],
+      "ctaLabel": "طلب معلومات المشروع",
+      "ctaMessage": "مرحباً Nueva Living، أودّ الحصول على معلومات عن The Privilege."
   }
   };
   const DEFAULT_VIEWING_PROJECT_ID = "altos-terrace-residences";
