@@ -22,12 +22,20 @@ const normalizedPhone = (value) => clean(value).replace(/\D/g, '');
 // Raw personal data never leaves here. Email and phone are hashed; the cookie
 // values and the request metadata are not personal data and Meta matches them
 // as they are.
-function hashedUserData({ email, phone, fbp, fbc, ip, userAgent } = {}) {
+function hashedUserData({ email, phone, fbp, fbc, leadId, ip, userAgent } = {}) {
   const userData = {};
   const em = normalizedEmail(email);
   if (em) userData.em = [sha256(em)];
   const ph = normalizedPhone(phone);
   if (ph) userData.ph = [sha256(ph)];
+  // Meta's own lead ID, which it ranks above every other key. Sent as the
+  // digits it arrived as and never through Number(): these run to 17 digits,
+  // and about half of the 17-digit ones do not survive a double -- they come
+  // back off by one, which is not an error anywhere, just a valid-looking ID
+  // belonging to somebody else. Not personal data of ours, and Meta matches
+  // it unhashed.
+  const lead = clean(leadId).replace(/\D/g, '');
+  if (lead) userData.lead_id = lead;
   const p = clean(fbp);
   if (p) userData.fbp = p;
   const c = clean(fbc);

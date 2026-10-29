@@ -7,9 +7,13 @@
 // enquiries a month and no viewings.
 //
 // This endpoint is how the loop closes. The CRM calls it when a lead changes
-// stage; the person is matched to Meta by hashed email and phone, the same way
-// the original Lead event was, so the conversion lands against the ad that
-// produced it however many weeks earlier.
+// stage; the person is matched to Meta by its own lead ID and click and browser
+// IDs where the CRM has them, and by hashed email and phone otherwise, so the
+// conversion lands against the ad that produced it however many weeks earlier.
+// The weaker keys are not a fallback to be embarrassed about -- a hashed email
+// is all there is for a lead someone typed in by hand -- but a reservation six
+// weeks after the click is precisely where they stop matching, and precisely
+// where the identifiers Meta issued itself still do.
 //
 // Purchase carries the value. That is the point: given a number, Meta can bid
 // toward revenue rather than toward volume, which for homes between EUR
@@ -61,9 +65,15 @@ exports.handler = async (event) => {
   // would only teach the optimiser that something happened.
   if (!mapping) return reply(200, { ok: true, sent: false, reason: `stage "${stage}" is not reported` });
 
-  const userData = hashedUserData({ email: body.email, phone: body.phone });
+  const userData = hashedUserData({
+    email: body.email,
+    phone: body.phone,
+    leadId: body.meta_lead_id,
+    fbc: body.fbc,
+    fbp: body.fbp,
+  });
   if (!Object.keys(userData).length) {
-    return reply(422, { ok: false, error: 'An email or phone number is required to match the person' });
+    return reply(422, { ok: false, error: 'Something to match the person on is required' });
   }
 
   const now = Math.floor(Date.now() / 1000);
@@ -96,7 +106,14 @@ exports.handler = async (event) => {
   // happened. Identical inputs give an identical id, which is what makes a
   // retry idempotent. It only works if occurred_at comes from the CRM's own
   // record rather than being left out -- so the spec asks for it.
-  const personKey = normalizedEmail(body.email) || normalizedPhone(body.phone);
+  // The strongest key this person has, so the derived ID is stable for a lead
+  // that has no email at all. Order matters only in that it must not change
+  // between a send and its retry; it is the same order the matching uses.
+  const personKey = clean(body.meta_lead_id)
+    || normalizedEmail(body.email)
+    || normalizedPhone(body.phone)
+    || clean(body.fbc)
+    || clean(body.fbp);
   const eventId = clean(body.event_id)
     || `crm_${sha256(`${stage}|${personKey}|${eventTime}`).slice(0, 32)}`;
 
