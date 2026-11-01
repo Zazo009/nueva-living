@@ -12,7 +12,8 @@ messages carry the reasoning.
 Run the whole chain, in this order, or not at all:
 
 ```
-node scripts/stage_pages.mjs && node scripts/build_footer_pages.mjs && \
+node scripts/check_capi_payload.mjs && node scripts/stage_pages.mjs && \
+node scripts/build_footer_pages.mjs && \
 node scripts/build_property_pages.mjs && node scripts/build_segment_pages.mjs && \
 node scripts/build_homepage_locales.mjs && node scripts/build_developments_locales.mjs && \
 node scripts/build_static_page_locales.mjs && node scripts/verify_build_idempotent.mjs && \
@@ -141,7 +142,9 @@ homepage also fixes heights the rest of the site does not — `.dev-img-wrap` an
 ## Guards
 
 `scripts/audit_site_consistency.mjs` holds well over a hundred checks (it prints a count for each at the end); `verify_build_idempotent.mjs`
-re-runs the builders and fails on any difference; `build_dist.mjs` runs `verify_cards`.
+re-runs the builders and fails on any difference; `build_dist.mjs` runs `verify_cards`;
+`check_capi_payload.mjs` drives the CRM event handler with the network stubbed and checks
+the bytes Meta would receive, because the Conversions API answers 200 to a malformed event.
 
 They catch **disagreement**, not falsehood. A failure is almost always one value in two
 places with one of them updated. Fix the data, not the guard.

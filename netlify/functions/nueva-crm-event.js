@@ -23,6 +23,10 @@ const { clean, sha256, normalizedEmail, normalizedPhone, hashedUserData, sendMet
 // Meta rejects an event older than seven days on this endpoint.
 const MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
 
+// The tool the stage changes come from, as Meta asks it to be named. Ours is
+// in-house, so there is no vendor name to give.
+const LEAD_EVENT_SOURCE = 'Nueva Living CRM';
+
 // The CRM's vocabulary, mapped onto Meta's. Schedule and Purchase are standard
 // events the optimiser understands; a qualified lead has no standard
 // equivalent, so it goes as a custom event -- usable as an audience and as a
@@ -85,7 +89,12 @@ exports.handler = async (event) => {
   }
   if (eventTime > now) eventTime = now;
 
-  const customData = {};
+  // Required on every Conversion Leads event, and the reason this integration
+  // is recognised as one at all: event_source says these came from a CRM
+  // rather than a browser, and lead_event_source names which. Without them
+  // Meta takes the events but does not credit them to the lead ads that
+  // produced them, which is the whole purpose of sending them.
+  const customData = { event_source: 'crm', lead_event_source: LEAD_EVENT_SOURCE };
   if (mapping.wantsValue) {
     const value = Number(body.value);
     if (Number.isFinite(value) && value > 0) {
@@ -125,7 +134,8 @@ exports.handler = async (event) => {
     eventId,
     eventTime,
     // Not a browser: this happened in a CRM, days or weeks after the click.
-    actionSource: 'other',
+    // Meta's spec names the exact value for every Conversion Leads event.
+    actionSource: 'system_generated',
     userData,
     customData,
     label: 'Meta CRM event',

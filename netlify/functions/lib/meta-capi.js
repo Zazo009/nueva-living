@@ -47,6 +47,20 @@ function hashedUserData({ email, phone, fbp, fbc, leadId, ip, userAgent } = {}) 
   return userData;
 }
 
+// Meta types lead_id as an integer, and it runs to 17 digits. Both facts
+// matter at once: JSON.stringify of a Number loses about half of those to
+// rounding, and a quoted string is not the type the spec asks for. So it is
+// carried through the object as digits, then unquoted in the serialised body
+// -- the only place a JSON integer too large for a double can be produced
+// without a BigInt dependency. Digits only, so the replacement cannot alter
+// anything but the one value.
+function serialize(event, token) {
+  const body = JSON.stringify({ data: [event], access_token: token });
+  const lead = event.user_data && event.user_data.lead_id;
+  if (!lead) return body;
+  return body.replace(`"lead_id":"${lead}"`, `"lead_id":${lead}`);
+}
+
 // Always resolves. A slow or unhappy Meta must never be able to fail the
 // request that triggered it -- a lead is worth more than its measurement.
 async function sendMetaEvent({
@@ -73,7 +87,7 @@ async function sendMetaEvent({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       // In the body, not the query string, so it stays out of URL logs.
-      body: JSON.stringify({ data: [event], access_token: token }),
+      body: serialize(event, token),
       signal: controller.signal,
     });
     if (!res.ok) {

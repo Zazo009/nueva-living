@@ -12,7 +12,13 @@
   # audit_site_consistency reads dist, so it runs last. It checks the nav,
   # the language switchers and the heading structure that have each silently
   # regressed before.
-  command = "node scripts/stage_pages.mjs && node scripts/build_footer_pages.mjs && node scripts/build_property_pages.mjs && node scripts/build_segment_pages.mjs && node scripts/build_homepage_locales.mjs && node scripts/build_developments_locales.mjs && node scripts/build_static_page_locales.mjs && node scripts/verify_build_idempotent.mjs && node scripts/build_dist.mjs && node scripts/audit_site_consistency.mjs"
+  #
+  # check_capi_payload touches no pages, so it runs first and fails fast. It
+  # drives the CRM event handler with the network stubbed and checks the bytes
+  # Meta would receive: the Conversions API answers 200 to a malformed event,
+  # so a wrong action_source or a rounded lead ID has no symptom except
+  # attribution that never arrives.
+  command = "node scripts/check_capi_payload.mjs && node scripts/stage_pages.mjs && node scripts/build_footer_pages.mjs && node scripts/build_property_pages.mjs && node scripts/build_segment_pages.mjs && node scripts/build_homepage_locales.mjs && node scripts/build_developments_locales.mjs && node scripts/build_static_page_locales.mjs && node scripts/verify_build_idempotent.mjs && node scripts/build_dist.mjs && node scripts/audit_site_consistency.mjs"
 
 [functions]
   directory = "netlify/functions"
