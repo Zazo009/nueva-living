@@ -7,7 +7,12 @@
 // right once rather than twice.
 const crypto = require('crypto');
 
-const API_VERSION = 'v21.0';
+// Graph versions are retired about two years after release, and a retired one
+// does not degrade -- it answers an error, every event, with nothing else
+// changing. This was v21.0 (October 2024), which the CRM's own lead fetch had
+// already moved past: it reads leads on v26.0. Two versions for one
+// integration is one of them being forgotten, so this follows that one.
+const API_VERSION = 'v26.0';
 const TIMEOUT_MS = 2500;
 
 const clean = (value) => String(value ?? '').replace(/\s+/g, ' ').trim();

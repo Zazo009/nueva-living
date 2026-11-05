@@ -77,6 +77,30 @@ expect(
   `the event went to ${url}, which is not the CRM dataset. Lead-status events sent to the website dataset are accepted and credited to nothing`,
 );
 
+// The Graph version, which has a floor rather than a value.
+//
+// Meta retires a version roughly two years after release and a retired one
+// does not degrade: it answers an error for every event and nothing else
+// changes, so outbound attribution stops with no other symptom. This sender
+// sat on v21.0 (October 2024) while the CRM's lead fetch had already moved to
+// v26.0 -- two versions for one integration, one of them forgotten.
+//
+// A floor is all a build can honestly check: it cannot know what Meta has
+// retired today, but it can refuse to go back below the version this
+// integration was verified against.
+const MIN_GRAPH_VERSION = 26;
+const version = /graph\.facebook\.com\/v(\d+)\.(\d+)\//.exec(url ?? '');
+expect(
+  version !== null,
+  `the Conversions API URL does not name a Graph version: ${url}`,
+);
+if (version) {
+  expect(
+    Number(version[1]) >= MIN_GRAPH_VERSION,
+    `events are sent on Graph v${version[1]}.${version[2]}, below the v${MIN_GRAPH_VERSION} this integration was verified against. A retired version answers an error for every event and changes nothing else`,
+  );
+}
+
 if (body) {
   const event = JSON.parse(body).data[0];
   expect(
