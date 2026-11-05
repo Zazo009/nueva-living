@@ -14,6 +14,12 @@
 // to 17 digits, and about half of those do not survive a round trip through a
 // JavaScript double. An off-by-one lead ID is not an error anywhere either.
 //
+// The dataset is checked on the request URL for the same reason. A dataset is
+// either set up for CRM events or it is not, and the website pixel's is not:
+// sent there these are accepted, appear in Events Manager, and are credited to
+// no campaign. Both pairs of variables are set here, so the guard fails if the
+// handler ever reaches for the website's.
+//
 // This drives the real handler with the network stubbed, so it checks what
 // Meta would receive and not what the source says.
 import { createRequire } from 'node:module';
@@ -27,11 +33,17 @@ const LEAD_ID = '16418614712855791';
 const SECRET = 'guard-secret';
 
 process.env.CRM_WEBHOOK_SECRET = SECRET;
-process.env.META_CAPI_TOKEN = 'guard-token';
-process.env.META_DATASET_ID = 'guard-dataset';
+// The website's pair, which these events must not use.
+process.env.META_CAPI_TOKEN = 'guard-web-token';
+process.env.META_DATASET_ID = 'guard-web-dataset';
+// The CRM's own.
+process.env.META_CRM_CAPI_TOKEN = 'guard-crm-token';
+process.env.META_CRM_DATASET_ID = 'guard-crm-dataset';
 
 let body = null;
-globalThis.fetch = async (_url, options) => {
+let url = null;
+globalThis.fetch = async (requestUrl, options) => {
+  url = String(requestUrl);
   body = options.body;
   return { ok: true, status: 200, text: async () => '' };
 };
@@ -60,8 +72,17 @@ const expect = (ok, detail) => { if (!ok) failures.push(detail); };
 expect(response.statusCode === 200, `handler answered ${response.statusCode}, not 200`);
 expect(body !== null, 'the handler never called Meta');
 
+expect(
+  url !== null && url.includes('guard-crm-dataset'),
+  `the event went to ${url}, which is not the CRM dataset. Lead-status events sent to the website dataset are accepted and credited to nothing`,
+);
+
 if (body) {
   const event = JSON.parse(body).data[0];
+  expect(
+    JSON.parse(body).access_token === 'guard-crm-token',
+    'the event was sent with the website dataset\'s token, which does not belong to the CRM dataset',
+  );
   expect(
     event.action_source === 'system_generated',
     `action_source is "${event.action_source}", and Meta's spec names "system_generated" for every Conversion Leads event`,
@@ -91,4 +112,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log('CRM events to Meta: system_generated, crm, lead_event_source and an exact 17-digit lead_id.');
+console.log('CRM events to Meta: own dataset, system_generated, crm, lead_event_source and an exact 17-digit lead_id.');

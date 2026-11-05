@@ -126,9 +126,37 @@ exports.handler = async (event) => {
   const eventId = clean(body.event_id)
     || `crm_${sha256(`${stage}|${personKey}|${eventTime}`).slice(0, 32)}`;
 
+  // Its own dataset, not the website's.
+  //
+  // A dataset is either set up for CRM events or it is not, and the website
+  // pixel's is not. Sent there, these are accepted, show up in Events Manager,
+  // and are credited to nothing -- the failure that looks exactly like success
+  // and is the one documented reason campaigns do not optimise on lead-status
+  // events. The web events in nueva-lead.js keep META_DATASET_ID; these need
+  // a second dataset created for CRM events.
+  //
+  // The fallback keeps a half-configured account measuring something rather
+  // than nothing, but it says so in the log and in the reply, which the CRM
+  // stores on the event row. A silent fallback would be the same trap again.
+  let datasetId = clean(process.env.META_CRM_DATASET_ID);
+  let token = clean(process.env.META_CRM_CAPI_TOKEN);
+  let wrongDataset = false;
+  if (!datasetId) {
+    datasetId = clean(process.env.META_DATASET_ID);
+    token = clean(process.env.META_CAPI_TOKEN);
+    wrongDataset = Boolean(datasetId);
+    if (wrongDataset) {
+      console.error(
+        'META_CRM_DATASET_ID is not set, so CRM events are going to the website dataset. '
+        + 'Meta will accept them and credit them to no campaign. Create a dataset for CRM '
+        + 'events in Events Manager and set META_CRM_DATASET_ID and META_CRM_CAPI_TOKEN.',
+      );
+    }
+  }
+
   const result = await sendMetaEvent({
-    token: clean(process.env.META_CAPI_TOKEN),
-    datasetId: clean(process.env.META_DATASET_ID),
+    token,
+    datasetId,
     eventName: mapping.event,
     // The CRM's own id where it sends one, a derived one where it does not.
     eventId,
@@ -141,5 +169,12 @@ exports.handler = async (event) => {
     label: 'Meta CRM event',
   });
 
-  return reply(200, { ok: true, event: mapping.event, ...result });
+  return reply(200, {
+    ok: true,
+    event: mapping.event,
+    ...result,
+    // Recorded on the CRM's event row, so the misconfiguration is visible
+    // where someone would look to find out why nothing optimised.
+    ...(wrongDataset ? { warning: 'sent to the website dataset; META_CRM_DATASET_ID is not set' } : {}),
+  });
 };
