@@ -18,7 +18,11 @@
   # Meta would receive: the Conversions API answers 200 to a malformed event,
   # so a wrong action_source or a rounded lead ID has no symptom except
   # attribution that never arrives.
-  command = "node scripts/check_capi_payload.mjs && node scripts/stage_pages.mjs && node scripts/build_footer_pages.mjs && node scripts/build_property_pages.mjs && node scripts/build_segment_pages.mjs && node scripts/build_homepage_locales.mjs && node scripts/build_developments_locales.mjs && node scripts/build_static_page_locales.mjs && node scripts/verify_build_idempotent.mjs && node scripts/build_dist.mjs && node scripts/audit_site_consistency.mjs"
+  #
+  # check_crm_property_sync runs beside it, for the same reason: a project the
+  # CRM refuses still publishes here, and the only sign is one "sync skipped"
+  # line in the log.
+  command = "node scripts/check_capi_payload.mjs && node scripts/check_crm_property_sync.mjs && node scripts/stage_pages.mjs && node scripts/build_footer_pages.mjs && node scripts/build_property_pages.mjs && node scripts/build_segment_pages.mjs && node scripts/build_homepage_locales.mjs && node scripts/build_developments_locales.mjs && node scripts/build_static_page_locales.mjs && node scripts/verify_build_idempotent.mjs && node scripts/build_dist.mjs && node scripts/audit_site_consistency.mjs"
 
 [functions]
   directory = "netlify/functions"
