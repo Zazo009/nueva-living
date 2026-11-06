@@ -128,6 +128,41 @@ if (body) {
   );
 }
 
+// Every stage the CRM can send must actually be reported.
+//
+// The handler answers 200 with sent:false for a stage it does not recognise,
+// which is correct for "lost" and silent for a typo. If the CRM's vocabulary
+// and this map ever drift apart, that whole stage stops reaching Meta and
+// both sides keep answering 200. The CRM holds up its half with
+// check-conversion-stages.mjs, which refuses to send anything outside this
+// list; this is the other half.
+const CRM_SENDS = ['qualified', 'viewing_booked', 'reserved'];
+for (const stage of CRM_SENDS) {
+  body = null;
+  const reply = await handler({
+    httpMethod: 'POST',
+    headers: { 'x-webhook-secret': SECRET },
+    body: JSON.stringify({ stage, email: `${stage}@example.com`, meta_lead_id: LEAD_ID }),
+  });
+  const parsed = JSON.parse(reply.body);
+  expect(
+    parsed.sent === true && body !== null,
+    `stage "${stage}" is not reported: the handler answered ${reply.statusCode} ${reply.body}. The CRM sends it and Meta never hears about it`,
+  );
+}
+
+// And one the CRM does not send must still be refused politely rather than
+// crashing, because that is the path every unmapped stage takes.
+const cold = await handler({
+  httpMethod: 'POST',
+  headers: { 'x-webhook-secret': SECRET },
+  body: JSON.stringify({ stage: 'lost', email: 'cold@example.com' }),
+});
+expect(
+  cold.statusCode === 200 && JSON.parse(cold.body).sent === false,
+  `an unreported stage answered ${cold.statusCode} ${cold.body}, not a 200 saying it was not sent`,
+);
+
 if (failures.length) {
   console.error(`\nCRM events would reach Meta in the wrong shape (${failures.length}):\n`);
   for (const failure of failures) console.error(`  ${failure}`);
@@ -136,4 +171,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log('CRM events to Meta: own dataset, system_generated, crm, lead_event_source and an exact 17-digit lead_id.');
+console.log(`CRM events to Meta: own dataset, system_generated, crm, lead_event_source, an exact 17-digit lead_id, and all ${CRM_SENDS.length} stages the CRM sends are reported.`);
