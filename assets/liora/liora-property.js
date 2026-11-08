@@ -819,3 +819,97 @@
     }, { once: true });
   });
 })();
+
+/* The walkthrough: a floor plan with a marker over every room that has a
+   photograph. Every room is in the page already, so this only decides which
+   floor and which room to show. A visitor picks a room on the plan or steps
+   through the rooms that have photographs; nothing is fetched. */
+(() => {
+  document.querySelectorAll('[data-walkthrough]').forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll('[data-wt-tab]'));
+    const floors = Array.from(root.querySelectorAll('[data-wt-floor-panel]'));
+    const rooms = Array.from(root.querySelectorAll('[data-wt-room-panel]'));
+    const spots = Array.from(root.querySelectorAll('[data-wt-room]'));
+    const tour = rooms.filter((room) => room.hasAttribute('data-wt-tour'));
+    const step = root.querySelector('[data-wt-step]');
+    const template = root.getAttribute('data-step') || '{index}/{total}';
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current = Math.max(0, rooms.findIndex((room) => room.classList.contains('is-active')));
+
+    function showFloor(index) {
+      tabs.forEach((tab) => {
+        const on = Number(tab.getAttribute('data-wt-tab')) === index;
+        tab.setAttribute('aria-selected', String(on));
+        tab.tabIndex = on ? 0 : -1;
+      });
+      floors.forEach((floor) => {
+        floor.classList.toggle('is-active', Number(floor.getAttribute('data-wt-floor-panel')) === index);
+      });
+    }
+
+    function select(index, options = {}) {
+      current = index;
+      const room = rooms[index];
+      rooms.forEach((item, position) => item.classList.toggle('is-active', position === index));
+      spots.forEach((spot) => {
+        spot.classList.toggle('on', Number(spot.getAttribute('data-wt-room')) === index);
+      });
+      if (options.floor !== false) showFloor(Number(room.getAttribute('data-wt-floor')));
+      const position = tour.indexOf(room);
+      step.textContent = position < 0 ? ''
+        : template.replace('{index}', String(position + 1)).replace('{total}', String(tour.length));
+      if (options.reveal && window.matchMedia('(max-width: 900px)').matches) {
+        room.scrollIntoView({ block: 'nearest', behavior: reduced.matches ? 'auto' : 'smooth' });
+      }
+    }
+
+    function stepTo(direction) {
+      const ahead = direction > 0;
+      const candidates = tour.filter((room) => {
+        const index = rooms.indexOf(room);
+        return ahead ? index > current : index < current;
+      });
+      const target = candidates.length
+        ? (ahead ? candidates[0] : candidates[candidates.length - 1])
+        : (ahead ? tour[0] : tour[tour.length - 1]);
+      if (target) select(rooms.indexOf(target), { reveal: true });
+    }
+
+    tabs.forEach((tab, position) => {
+      tab.addEventListener('click', () => {
+        const floor = Number(tab.getAttribute('data-wt-tab'));
+        const first = rooms.find((room) => Number(room.getAttribute('data-wt-floor')) === floor
+          && room.hasAttribute('data-wt-tour'))
+          || rooms.find((room) => Number(room.getAttribute('data-wt-floor')) === floor);
+        if (first) select(rooms.indexOf(first));
+      });
+      tab.addEventListener('keydown', (event) => {
+        const move = { ArrowRight: 1, ArrowLeft: -1 }[event.key];
+        if (!move) return;
+        const next = tabs[(position + move + tabs.length) % tabs.length];
+        next.focus();
+        next.click();
+        event.preventDefault();
+      });
+    });
+
+    spots.forEach((spot) => {
+      const index = Number(spot.getAttribute('data-wt-room'));
+      spot.addEventListener('click', () => select(index, { floor: false, reveal: true }));
+      spot.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        select(index, { floor: false, reveal: true });
+      });
+    });
+
+    const back = root.querySelector('[data-wt-prev]');
+    const next = root.querySelector('[data-wt-next]');
+    if (back) back.addEventListener('click', () => stepTo(-1));
+    if (next) next.addEventListener('click', () => stepTo(1));
+
+    root.setAttribute('data-wt-ready', '');
+    root.querySelectorAll('[data-wt-tabs], [data-wt-nav]').forEach((el) => { el.hidden = false; });
+    select(current);
+  });
+})();

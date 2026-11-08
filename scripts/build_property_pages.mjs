@@ -1030,6 +1030,108 @@ function renderLayoutSpins(project, sourceProject, locale) {
     </section>`;
 }
 
+// The walkthrough ties one house's floor plans to its photographs: pick a
+// floor, pick a room on the plan, see the room. It exists because a plan on its
+// own does not tell a buyer what a room feels like and a gallery on its own
+// does not tell them where it is. Every room is in the page as markup -- the
+// plan carries a marker over each room that has a photograph, and the room's
+// panel carries the name, the area printed on the plan and the photograph -- so
+// without JavaScript the section reads as the plans followed by the rooms. The
+// script only chooses which floor and which room to show.
+//
+// A locale overlay carries the words (names, texts, alt) and nothing else: the
+// rectangles over the plan, the photograph paths and the areas are the same in
+// every language and are read from the merged project like any other
+// structural field. A photograph is named by its path alone; its alt text and
+// dimensions come from the gallery entry with the same path, so the same
+// picture is described once, in every language, not twice.
+function renderWalkthrough(project, locale) {
+  const walkthrough = project.walkthrough;
+  if (!walkthrough?.floors?.length) return '';
+  const media = new Map((project.media?.items || []).map((item) => [item.src, item]));
+  let count = 0;
+  const floors = walkthrough.floors.map((floor, floorIndex) => ({
+    ...floor,
+    floorIndex,
+    rooms: floor.rooms.map((room) => ({ ...room, number: count++, floorIndex }))
+  }));
+  const rooms = floors.flatMap((floor) => floor.rooms);
+  const start = rooms.find((room) => room.photos?.length) || rooms[0];
+  const area = (figure) => (locale === DEFAULT_LOCALE ? `${figure} m²` : localizedSizeFigure(figure, locale));
+
+  const tabs = floors.map((floor) => {
+    const active = floor.floorIndex === start.floorIndex;
+    return `<button type="button" class="wt-tab" role="tab" id="wt-tab-${floor.floorIndex}" aria-controls="wt-floor-${floor.floorIndex}" aria-selected="${active}" tabindex="${active ? 0 : -1}" data-wt-tab="${floor.floorIndex}">${esc(floor.name)}</button>`;
+  }).join('\n            ');
+
+  const plans = floors.map((floor) => {
+    const active = floor.floorIndex === start.floorIndex;
+    const { width, height } = floor.image;
+    const spots = floor.rooms.map((room) => {
+      const [x, y, w, h] = room.rect;
+      const rect = `<rect class="wt-spot${room.photos?.length ? ' has-photo' : ''}${room === start ? ' on' : ''}" data-wt-room="${room.number}" x="${x}" y="${y}" width="${w}" height="${h}" rx="6" role="button" tabindex="0" aria-label="${esc(room.name)}"><title>${esc(room.name)}</title></rect>`;
+      return room.photos?.length
+        ? `${rect}<circle class="wt-dot" cx="${Math.round(x + w / 2)}" cy="${Math.round(y + h / 2)}" r="14" aria-hidden="true"/>`
+        : rect;
+    }).join('');
+    return `<div class="wt-floor${active ? ' is-active' : ''}" id="wt-floor-${floor.floorIndex}" role="tabpanel" aria-labelledby="wt-tab-${floor.floorIndex}" data-wt-floor-panel="${floor.floorIndex}">
+              <h3 class="wt-floor-name">${esc(floor.name)}</h3>
+              <div class="wt-plan">
+                ${pictureTag(floor.image, 'wt-plan-img', 'lazy', { sizes: '(max-width: 900px) 92vw, 56vw' })}
+                <svg class="wt-overlay" viewBox="0 0 ${width} ${height}" focusable="false">${spots}</svg>
+              </div>
+            </div>`;
+  }).join('\n            ');
+
+  const panels = rooms.map((room) => {
+    const photos = (room.photos || []).map((src) => {
+      const item = media.get(src) || {};
+      return `<figure>${pictureTag({ src, width: item.width, height: item.height, alt: item.alt || '' }, '', 'lazy', { sizes: '(max-width: 900px) 92vw, 36vw' })}</figure>`;
+    }).join('');
+    const figures = (room.areas || []).map((figure) => `<span dir="ltr">${esc(area(figure))}</span>`).join(' · ');
+    return `<article class="wt-room${room === start ? ' is-active' : ''}" id="wt-room-${room.number}" data-wt-room-panel="${room.number}" data-wt-floor="${room.floorIndex}"${room.photos?.length ? ' data-wt-tour' : ''}>
+              ${photos
+                ? `<div class="wt-photos wt-photos--${room.photos.length}">${photos}</div>`
+                : `<p class="wt-nophoto">${t('walkthrough.noPhoto', locale)}</p>`}
+              <div class="wt-body">
+                <h3>${esc(room.name)}</h3>${figures ? `
+                <p class="wt-area">${figures}</p>` : ''}${room.text ? `
+                <p class="wt-text">${esc(room.text)}</p>` : ''}
+              </div>
+            </article>`;
+  }).join('\n            ');
+
+  return `
+
+    <section class="project-section walkthrough" id="walkthrough" data-walkthrough data-step="${esc(t('walkthrough.step', locale, { index: '{index}', total: '{total}' }))}">
+      <div class="project-inner">
+        <div class="reveal-soft">
+          <span class="section-kicker">${t('section.walkthrough', locale)}</span>
+          <div class="rule"></div>
+          <h2 class="section-headline">${walkthrough.headlineHtml}</h2>
+          <p class="project-lead">${esc(walkthrough.copy)}</p>
+        </div>
+        <div class="wt-tabs" role="tablist" aria-label="${esc(t('walkthrough.floors', locale))}" hidden data-wt-tabs>
+            ${tabs}
+        </div>
+        <div class="wt-stage">
+          <div class="wt-plans">
+            ${plans}
+          </div>
+          <div class="wt-side">
+            ${panels}
+            <div class="wt-nav" hidden data-wt-nav>
+              <button type="button" class="btn ghost project-btn" data-wt-prev>${t('walkthrough.back', locale)}</button>
+              <span class="wt-step" data-wt-step aria-live="polite"></span>
+              <button type="button" class="btn ghost project-btn" data-wt-next>${t('walkthrough.next', locale)}</button>
+            </div>
+          </div>
+        </div>
+        ${walkthrough.note ? `<p class="layout-spin-note">${esc(walkthrough.note)}</p>` : ''}
+      </div>
+    </section>`;
+}
+
 // The "Floor" column holds three different kinds of value across the listings: a floor
 // ("Ground floor, Block 2"), a block on its own ("Block 3") and a house type ("Villa",
 // "Townhouse"). Printing all of them under "Floor" read as a mistake -- a buyer looking at
@@ -1971,6 +2073,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
   const furniturePackagesSection = renderFurniturePackages(project, locale);
   const qualitySpecsSection = renderQualitySpecs(project, locale);
   const layoutSpinsSection = renderLayoutSpins(project, sourceProject, locale);
+  const walkthroughSection = renderWalkthrough(project, locale);
   const availabilityRelease = renderAvailabilityRelease(project, locale);
   const hasPublishedAvailability = Boolean(project.availability?.units?.length);
   const hasFloorplans = Boolean(project.availability?.units?.some((unit) => unit.floorplan));
@@ -2193,6 +2296,7 @@ function renderProject(sourceProject, locale = DEFAULT_LOCALE) {
     { href: '#residences', label: t('navInPage.residences', locale) },
     ...(project.furniturePackages?.items?.length ? [{ href: '#furniture-packages', label: t('navInPage.furniture', locale) }] : []),
     ...(project.qualitySpecs?.groups?.length ? [{ href: '#quality-specifications', label: t('navInPage.specifications', locale) }] : []),
+    ...(project.walkthrough?.floors?.length ? [{ href: '#walkthrough', label: t('navInPage.walkthrough', locale) }] : []),
     { href: '#availability', label: t('navInPage.availability', locale), primary: true },
     ...(calculatorSeedKnown ? [{ href: '#calculator', label: t('navInPage.affordability', locale) }] : []),
     ...(project.crm?.amenities?.length ? [{ href: '#amenities', label: t('navInPage.amenities', locale) }] : []),
@@ -2318,7 +2422,7 @@ ${hasPublishedAvailability ? '' : `            ${availabilityBrowseAction}\n`}  
       </div>
     </section>
 
-${layoutSpinsSection}${furniturePackagesSection}${qualitySpecsSection}
+${layoutSpinsSection}${furniturePackagesSection}${qualitySpecsSection}${walkthroughSection}
 
     <section class="project-section" id="availability">
       <div class="project-inner">
