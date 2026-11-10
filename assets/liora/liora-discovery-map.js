@@ -677,8 +677,19 @@
       var media = el('div', 'dmap-compact-media');
       if (picture) {
         var clone = picture.cloneNode(true);
+        /* A card far from the viewport is put to sleep by liora-card-gallery.js: every photo, the
+           first included, sits behind a one-pixel placeholder with the real address in data-src /
+           data-srcset. The clone has no gallery to wake it, so restore the real address here. */
+        clone.querySelectorAll('source[data-srcset]').forEach(function (source) {
+          source.setAttribute('srcset', source.dataset.srcset);
+          source.removeAttribute('data-srcset');
+        });
         clone.querySelectorAll('source').forEach(function (source) { source.sizes = '340px'; });
         var image = clone.querySelector('img');
+        if (image && image.dataset.held === '1' && image.dataset.src) {
+          image.setAttribute('src', image.dataset.src);
+          image.removeAttribute('data-held');
+        }
         if (image) {
           image.loading = 'lazy';
           image.decoding = 'async';
