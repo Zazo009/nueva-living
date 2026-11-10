@@ -30,7 +30,7 @@ import { renderFooter } from './lib/site_footer.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { FOOTER_PAGE_ENTRIES } from './lib/footer_page_translations.mjs';
 import { EDITORIAL_ALT_ENTRIES } from './lib/editorial_alt_translations.mjs';
-import { PRICES_GUIDE_FILE, loadPriceProjects, computePriceStats, renderPricesBody, restoreProjectNames, datasetSchemaJson } from './lib/guide_prices_data.mjs';
+import { PRICES_GUIDE_FILE, PRICES_CSV_PATH, pricesCsv, loadPriceProjects, computePriceStats, renderPricesBody, restoreProjectNames, datasetSchemaJson } from './lib/guide_prices_data.mjs';
 
 // Applies FOOTER_PAGE_ENTRIES (translated body prose for footer pages) as
 // literal string replacement over already-rendered HTML -- the `pages`
@@ -735,6 +735,8 @@ function areaDetailPage(sourceArea, locale = DEFAULT_LOCALE) {
 
 const { projects: priceProjects } = loadPriceProjects('.');
 const priceStats = computePriceStats(priceProjects);
+// The prices page links this file; it is written here so it can never be older than the page.
+writeFileSync(PRICES_CSV_PATH, pricesCsv(priceProjects, priceStats));
 
 const pages = [
   {

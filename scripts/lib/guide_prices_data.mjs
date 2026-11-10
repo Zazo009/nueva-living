@@ -22,6 +22,9 @@ import { MONTH_NAMES, localizeMonthDate } from './dates.mjs';
 import { GUIDE_PRICES_COPY } from './guide_prices_translations.mjs';
 
 export const PRICES_GUIDE_FILE = 'guide-new-build-prices-costa-del-sol.html';
+// The list table as a file, for anyone who wants to work with the figures. One English file serves
+// all ten languages: it is data, and the page it is linked from explains the columns.
+export const PRICES_CSV_PATH = 'assets/liora/data/new-build-prices-costa-del-sol.csv';
 
 const TYPE_ORDER = ['apartment', 'penthouse', 'villa', 'townhouse'];
 const TYPE_TAG = { apartment: 'Apartments', penthouse: 'Penthouses', villa: 'Villas', townhouse: 'Townhouses' };
@@ -184,6 +187,23 @@ export function computePriceStats(projects) {
   };
 }
 
+// The same rows as the "every project" table, in the same order, from the same public fields. No
+// build date is written into it, so an unchanged project list gives an identical file.
+export function pricesCsv(projects, stats = computePriceStats(projects)) {
+  const areaOrder = new Map(stats.areas.map((a, i) => [a.slug, i]));
+  const listed = [...projects].sort((a, b) => areaOrder.get(a.area) - areaOrder.get(b.area) || a.price - b.price || a.slug.localeCompare(b.slug));
+  const cell = (value) => (/[",\n]/.test(String(value)) ? `"${String(value).replace(/"/g, '""')}"` : String(value));
+  const tax = { net: 'excluded', gross: 'included', unstated: 'not stated' };
+  const rows = listed.map((p) => {
+    const c = p.completion;
+    const when = c.kind === 'ready' ? 'ready' : c.kind === 'dated' ? (c.precise ? `Q${c.quarter} ${c.year}` : String(c.year)) : '';
+    const checked = p.checked ? `${p.checked.year}-${String(p.checked.month + 1).padStart(2, '0')}` : '';
+    return [p.name, t(`area.${AREA_KEY[p.area]}`, DEFAULT_LOCALE), p.price, tax[p.tax], p.types.join(' '), when, checked,
+      `https://nuevaliving.com/${p.output}`].map(cell).join(',');
+  });
+  return `${['project', 'area', 'from_price_eur', 'vat_in_price', 'home_types', 'delivery', 'price_checked', 'url'].join(',')}\n${rows.join('\n')}\n`;
+}
+
 // ---------------------------------------------------------------------------------------------
 // Rendering
 // ---------------------------------------------------------------------------------------------
@@ -340,7 +360,8 @@ export function renderPricesBody(locale, projects, stats = computePriceStats(pro
     return `<tr><th scope="row">${projectLink(p)}</th><td>${areaName(p.area, locale)}</td>${plainPrice(p.price, locale)}<td>${esc(taxLabel[p.tax])}</td><td>${esc(typeLabel(p.types))}</td><td class="n">${esc(when)}</td></tr>`;
   });
   const list = section(esc(copy.listLabel), copy.listTitle, esc(copy.listIntro),
-    table({ caption: copy.listCaption, head: [copy.thProject, copy.thArea, copy.thFrom, copy.thTax, copy.thTypes, copy.thDelivery], rows: listRows }));
+    table({ caption: copy.listCaption, head: [copy.thProject, copy.thArea, copy.thFrom, copy.thTax, copy.thTypes, copy.thDelivery], rows: listRows })
+    + `<p class="np-note g-reveal"><a href="${PRICES_CSV_PATH}">${esc(copy.csvLink)}</a></p>`);
 
   // 6. method
   const vars = {
@@ -396,6 +417,7 @@ export function datasetSchemaJson({ locale, name, description, url, stats }) {
     // The site's own legal notice is the terms the figures are published under.
     license: `https://nuevaliving.com/${locale === 'en' ? '' : `${locale}/`}legal-notice.html`,
     variableMeasured: ['Number of current projects', 'Lowest from price (EUR)', 'Median from price (EUR)', 'Highest from price (EUR)', 'Home types', 'Delivery quarter or year'],
-    size: `${stats.total} projects`
+    size: `${stats.total} projects`,
+    distribution: [{ '@type': 'DataDownload', encodingFormat: 'text/csv', contentUrl: `https://nuevaliving.com/${PRICES_CSV_PATH}` }]
   }, null, 2);
 }
