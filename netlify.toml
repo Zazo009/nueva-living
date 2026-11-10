@@ -44,6 +44,14 @@
   [headers.values]
     Cache-Control = "public, max-age=86400"
 
+# The data files keep a fixed URL and change with every price update: the prices CSV that the
+# prices guide links and the catalogue the compare page fetches. /assets/* is otherwise immutable
+# for a year, which would pin a stale file (and once pinned a 404 fetched before a deploy finished).
+[[headers]]
+  for = "/assets/liora/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
 [[redirects]]
   from = "/*"
   to = "/404.html"

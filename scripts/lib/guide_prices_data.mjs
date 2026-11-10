@@ -24,7 +24,9 @@ import { GUIDE_PRICES_COPY } from './guide_prices_translations.mjs';
 export const PRICES_GUIDE_FILE = 'guide-new-build-prices-costa-del-sol.html';
 // The list table as a file, for anyone who wants to work with the figures. One English file serves
 // all ten languages: it is data, and the page it is linked from explains the columns.
-export const PRICES_CSV_PATH = 'assets/liora/data/new-build-prices-costa-del-sol.csv';
+// The data folder is the one part of /assets with a short cache (netlify.toml): this file and the
+// catalogue beside it change with every price update and keep a fixed URL.
+export const PRICES_CSV_PATH = 'assets/liora/data/costa-del-sol-new-build-prices.csv';
 
 const TYPE_ORDER = ['apartment', 'penthouse', 'villa', 'townhouse'];
 const TYPE_TAG = { apartment: 'Apartments', penthouse: 'Penthouses', villa: 'Villas', townhouse: 'Townhouses' };
