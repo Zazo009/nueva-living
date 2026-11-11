@@ -18,6 +18,18 @@
 // would refuse -- an area outside the allowed list, a bad URL, bedrooms the
 // wrong way round -- stops the build with the project named, rather than
 // quietly dropping it.
+//
+// It is not enough on its own, and the first version of this guard proved it.
+// Removing the placeholder ceiling from Armani made this pass, and the CRM
+// still answered 422: name, area, price_min and price_max are required. The
+// guard ran the SITE's validator, where price_max may be absent, while the
+// CRM's webhook demanded it. Two validators, one boundary, and the guard
+// watching the near side of it.
+//
+// So the CRM's own rules are stated below, deliberately as a copy. They live
+// in another repository and a build here cannot import them; writing them out
+// is what makes the divergence visible when someone changes one side. The CRM
+// has a matching guard holding its webhook to the same list.
 import { createRequire } from 'node:module'
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
@@ -28,6 +40,33 @@ const {
   normalizePropertyPayload,
   validatePropertyPayload,
 } = require('../lib/nueva-property-sync.cjs')
+
+// The CRM's property webhook, as of migration 045. Kept in step by hand with
+// src/app/api/webhook/property/route.ts in the CRM repository.
+//
+//   required:  name, area, price_min
+//   optional:  price_max -- a project may publish only a starting price, but
+//              a ceiling below the floor is refused, and so is a non-number
+//
+// A rule relaxed there is harmless here; a rule tightened there and not
+// copied here is a project that builds, deploys and never arrives.
+function crmWebhookErrors(payload) {
+  const errors = []
+  for (const field of ['name', 'area', 'price_min']) {
+    if (payload[field] === undefined || payload[field] === null || payload[field] === '') {
+      errors.push(`the CRM requires ${field} and the payload has none`)
+    }
+  }
+  const max = payload.price_max
+  if (max !== undefined && max !== null) {
+    if (!Number.isFinite(Number(max))) {
+      errors.push(`the CRM requires price_max to be a number, and this is ${JSON.stringify(max)}`)
+    } else if (Number(max) < Number(payload.price_min)) {
+      errors.push(`the CRM refuses price_max ${max} below price_min ${payload.price_min}`)
+    }
+  }
+  return errors
+}
 
 const DIR = 'content/liora-projects'
 
@@ -43,10 +82,10 @@ for (const slug of readdirSync(DIR).sort()) {
   checked++
 
   let errors
+  let payload
   try {
-    errors = validatePropertyPayload(
-      normalizePropertyPayload(projectToPropertyPayload(project), { infer: true })
-    )
+    payload = normalizePropertyPayload(projectToPropertyPayload(project), { infer: true })
+    errors = [...validatePropertyPayload(payload), ...crmWebhookErrors(payload)]
   } catch (error) {
     failures.push(`${slug}: the sync threw -- ${error.message}`)
     continue
