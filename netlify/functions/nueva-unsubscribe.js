@@ -28,6 +28,14 @@ function clean(value) {
   return typeof value === 'string' ? value.trim() : '';
 }
 
+// Secrets are one opaque string and never contain whitespace, so all of it
+// goes rather than just the ends. A secret pasted with a line break trims to
+// a secret with a line break still in the middle of it, and the only symptom
+// is a 401 that reads as "wrong value".
+function credential(value) {
+  return String(value ?? '').replace(/\s+/g, '');
+}
+
 // Matches the CRM's own normalisation so the same address always produces the
 // same token, whatever casing the list carries it in.
 function normalizedEmail(value) {
@@ -191,8 +199,8 @@ exports.handler = async (event) => {
     return json(405, { ok: false, error: 'Method not allowed' });
   }
 
-  const unsubscribeSecret = clean(process.env.UNSUBSCRIBE_SECRET);
-  const webhookSecret = clean(process.env.CRM_WEBHOOK_SECRET);
+  const unsubscribeSecret = credential(process.env.UNSUBSCRIBE_SECRET);
+  const webhookSecret = credential(process.env.CRM_WEBHOOK_SECRET);
   if (!unsubscribeSecret || !webhookSecret) {
     console.error('Unsubscribe is not configured', {
       hasUnsubscribeSecret: Boolean(unsubscribeSecret),

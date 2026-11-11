@@ -56,7 +56,10 @@ function safeJson(value) {
 }
 
 function cleanEnvironmentValue(value) {
-  const cleaned = typeof value === 'string' ? value.trim() : '';
+  // Whitespace goes entirely, not just from the ends. These values are one
+  // opaque string, and a line break surviving in the middle of a token fails
+  // as "Bad signature" -- a broken value that has stopped looking broken.
+  const cleaned = String(value ?? '').replace(/\s+/g, '');
   if (cleaned.length < 2) return cleaned;
   const first = cleaned[0];
   const last = cleaned[cleaned.length - 1];

@@ -18,7 +18,7 @@
 // Purchase carries the value. That is the point: given a number, Meta can bid
 // toward revenue rather than toward volume, which for homes between EUR
 // 269,000 and EUR 14,600,000 is a different business entirely.
-const { clean, sha256, normalizedEmail, normalizedPhone, hashedUserData, sendMetaEvent } = require('./lib/meta-capi');
+const { clean, credential, sha256, normalizedEmail, normalizedPhone, hashedUserData, sendMetaEvent } = require('./lib/meta-capi');
 
 // Meta rejects an event older than seven days on this endpoint.
 const MAX_AGE_SECONDS = 7 * 24 * 60 * 60;
@@ -50,8 +50,8 @@ function reply(statusCode, body) {
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return reply(405, { ok: false, error: 'Method not allowed' });
 
-  const secret = clean(process.env.CRM_WEBHOOK_SECRET);
-  const provided = clean(event.headers['x-webhook-secret'] || event.headers['X-Webhook-Secret']);
+  const secret = credential(process.env.CRM_WEBHOOK_SECRET);
+  const provided = credential(event.headers['x-webhook-secret'] || event.headers['X-Webhook-Secret']);
   // Same shared secret the site already uses to authenticate to the CRM. The
   // direction is reversed here, but the trust boundary is the same two parties.
   if (!secret || provided !== secret) return reply(401, { ok: false, error: 'Unauthorized' });
@@ -138,12 +138,12 @@ exports.handler = async (event) => {
   // The fallback keeps a half-configured account measuring something rather
   // than nothing, but it says so in the log and in the reply, which the CRM
   // stores on the event row. A silent fallback would be the same trap again.
-  let datasetId = clean(process.env.META_CRM_DATASET_ID);
-  let token = clean(process.env.META_CRM_CAPI_TOKEN);
+  let datasetId = credential(process.env.META_CRM_DATASET_ID);
+  let token = credential(process.env.META_CRM_CAPI_TOKEN);
   let wrongDataset = false;
   if (!datasetId) {
-    datasetId = clean(process.env.META_DATASET_ID);
-    token = clean(process.env.META_CAPI_TOKEN);
+    datasetId = credential(process.env.META_DATASET_ID);
+    token = credential(process.env.META_CAPI_TOKEN);
     wrongDataset = Boolean(datasetId);
     if (wrongDataset) {
       console.error(

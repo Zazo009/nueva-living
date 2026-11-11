@@ -16,6 +16,16 @@ const API_VERSION = 'v26.0';
 const TIMEOUT_MS = 2500;
 
 const clean = (value) => String(value ?? '').replace(/\s+/g, ' ').trim();
+
+// For values that are one opaque string and never contain a space: tokens,
+// dataset ids, shared secrets. clean() collapses a newline into a space,
+// which for prose is right and for a token is a disaster -- the token stays
+// broken and now looks intact. A dataset token pasted into Netlify with a
+// line break produced exactly this, and Meta's answer was
+//   {"error":{"message":"Bad signature","code":190}}
+// which names neither the variable nor the whitespace. Credentials get every
+// whitespace character removed instead.
+const credential = (value) => String(value ?? '').replace(/\s+/g, '');
 const sha256 = (value) => crypto.createHash('sha256').update(String(value)).digest('hex');
 
 // Meta's normalisation, not ours. An unnormalised hash is a valid hash of the
@@ -112,4 +122,4 @@ async function sendMetaEvent({
   }
 }
 
-module.exports = { clean, sha256, normalizedEmail, normalizedPhone, hashedUserData, sendMetaEvent };
+module.exports = { clean, credential, sha256, normalizedEmail, normalizedPhone, hashedUserData, sendMetaEvent };
