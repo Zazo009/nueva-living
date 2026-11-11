@@ -913,6 +913,13 @@
 
   function restoreFromUrl() {
     const params = new URLSearchParams(window.location.search);
+    // Links from other pages carry the filter in the fragment
+    // (developments.html#area=marbella): a query string on an internal link
+    // would give crawlers a second URL for this page. A fragment that is a
+    // plain anchor parses to keys nothing below reads.
+    new URLSearchParams(window.location.hash.replace(/^#/, '')).forEach((value, key) => {
+      if (value && !params.has(key)) params.set(key, value);
+    });
     if (!params.toString()) return;
 
     [['area', 'area'], ['type', 'propertyType'], ['status', 'status'], ['timing', 'timing']].forEach(([param, key]) => {

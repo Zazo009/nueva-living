@@ -129,6 +129,14 @@
         return;
       }
       render(matched);
+      // One saved project is a fact sheet, not a comparison. Reached from the
+      // "Compare" link on a project page before anything else is saved.
+      if (matched.length === 1) {
+        root.insertAdjacentHTML('beforeend', `<div class="compare-empty compare-one">
+      <p class="body-copy">${escapeHtml(tt('oneOnly', 'Only one project is saved. Save another to see them side by side.'))}</p>
+      <a class="btn" href="${localeHref('developments.html')}">${tt('browse', 'Browse Developments')}</a>
+    </div>`);
+      }
     })
     .catch(() => {
       emptyState(tt('emptyError', 'Comparison data is unavailable right now. Please try again shortly.'));

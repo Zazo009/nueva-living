@@ -64,7 +64,8 @@ export const COMPARE_RUNTIME_STRINGS = {
     note: 'Los precios, la disponibilidad y las fechas de entrega son orientativos y Nueva Living los reconfirma antes de cualquier reserva.',
     emptyNotSaved: 'Aún no ha guardado ninguna promoción. Guarde un proyecto desde su página o tarjeta para compararlo aquí.',
     emptyNotFound: 'No hemos podido encontrar sus promociones guardadas. Puede que se hayan actualizado; pruebe a navegar de nuevo.',
-    emptyError: 'Los datos de comparación no están disponibles ahora mismo. Inténtelo de nuevo en breve.'
+    emptyError: 'Los datos de comparación no están disponibles ahora mismo. Inténtelo de nuevo en breve.',
+    oneOnly: 'Solo hay un proyecto guardado. Guarde otro para verlos uno al lado del otro.'
   },
   fr: {
     onRequest: 'Sur demande', priceFrom: 'À partir de {price}', bedroomsRange: '{min}-{max} chambres', bedroomsOne: '{n} chambres', toBeConfirmed: 'À confirmer', dateLocale: 'fr-FR',
@@ -74,7 +75,8 @@ export const COMPARE_RUNTIME_STRINGS = {
     note: 'Les prix, la disponibilité et les dates de livraison sont indicatifs et reconfirmés par Nueva Living avant toute réservation.',
     emptyNotSaved: 'Vous n’avez encore enregistré aucun programme. Enregistrez un projet depuis sa page ou sa fiche pour le comparer ici.',
     emptyNotFound: 'Nous n’avons pas retrouvé vos programmes enregistrés. Ils ont peut-être été mis à jour — essayez de naviguer à nouveau.',
-    emptyError: 'Les données de comparaison sont indisponibles pour le moment. Veuillez réessayer sous peu.'
+    emptyError: 'Les données de comparaison sont indisponibles pour le moment. Veuillez réessayer sous peu.',
+    oneOnly: 'Un seul projet est enregistré. Enregistrez-en un autre pour les voir côte à côte.'
   },
   de: {
     onRequest: 'Auf Anfrage', priceFrom: 'Ab {price}', bedroomsRange: '{min}-{max} Schlafzimmer', bedroomsOne: '{n} Schlafzimmer', toBeConfirmed: 'Wird bestätigt', dateLocale: 'de-DE',
@@ -84,7 +86,8 @@ export const COMPARE_RUNTIME_STRINGS = {
     note: 'Preise, Verfügbarkeit und Übergabetermine sind Richtwerte und werden von Nueva Living vor jeder Reservierung erneut bestätigt.',
     emptyNotSaved: 'Sie haben noch keine Projekte gespeichert. Speichern Sie ein Projekt über seine Seite oder Karte, um es hier zu vergleichen.',
     emptyNotFound: 'Wir konnten Ihre gespeicherten Projekte nicht finden. Sie wurden möglicherweise aktualisiert — versuchen Sie es erneut.',
-    emptyError: 'Die Vergleichsdaten sind derzeit nicht verfügbar. Bitte versuchen Sie es in Kürze erneut.'
+    emptyError: 'Die Vergleichsdaten sind derzeit nicht verfügbar. Bitte versuchen Sie es in Kürze erneut.',
+    oneOnly: 'Es ist nur ein Projekt gespeichert. Speichern Sie ein weiteres, um beide nebeneinander zu sehen.'
   },
   ru: {
     onRequest: 'По запросу', priceFrom: 'От {price}', bedroomsRange: '{min}-{max} спален', bedroomsOne: 'Спален: {n}', toBeConfirmed: 'Уточняется', dateLocale: 'ru-RU',
@@ -94,7 +97,8 @@ export const COMPARE_RUNTIME_STRINGS = {
     note: 'Цены, наличие и сроки сдачи являются ориентировочными и подтверждаются Nueva Living перед любым бронированием.',
     emptyNotSaved: 'Вы ещё не сохранили ни одной новостройки. Сохраните проект на его странице или карточке, чтобы сравнить его здесь.',
     emptyNotFound: 'Мы не нашли сохранённые вами проекты. Возможно, они были обновлены — попробуйте выбрать заново.',
-    emptyError: 'Данные для сравнения сейчас недоступны. Пожалуйста, попробуйте чуть позже.'
+    emptyError: 'Данные для сравнения сейчас недоступны. Пожалуйста, попробуйте чуть позже.',
+    oneOnly: 'Сохранён только один проект. Сохраните ещё один, чтобы увидеть их рядом.'
   },
   ar: {
     onRequest: 'عند الطلب', priceFrom: 'ابتداءً من {price}', bedroomsRange: '{min}-{max} غرف نوم', bedroomsOne: '{n} غرف نوم', toBeConfirmed: 'قيد التأكيد', dateLocale: 'ar',
@@ -104,7 +108,8 @@ export const COMPARE_RUNTIME_STRINGS = {
     note: 'الأسعار والتوافر ومواعيد التسليم إرشادية وتعيد Nueva Living تأكيدها قبل أي حجز.',
     emptyNotSaved: 'لم تحفظ أي مشاريع بعد. احفظ مشروعًا من صفحته أو بطاقته لمقارنته هنا.',
     emptyNotFound: 'لم نتمكن من العثور على مشاريعك المحفوظة. ربما تم تحديثها — جرّب التصفح من جديد.',
-    emptyError: 'بيانات المقارنة غير متاحة حاليًا. يرجى المحاولة مرة أخرى قريبًا.'
+    emptyError: 'بيانات المقارنة غير متاحة حاليًا. يرجى المحاولة مرة أخرى قريبًا.',
+    oneOnly: 'يوجد مشروع واحد محفوظ فقط. احفظ مشروعًا آخر لعرضهما جنبًا إلى جنب.'
   },
   nl: {
     onRequest: 'Op aanvraag', priceFrom: 'Vanaf {price}', bedroomsRange: '{min}-{max} slaapkamers', bedroomsOne: '{n} slaapkamers', toBeConfirmed: 'Nog te bevestigen', dateLocale: 'nl-NL',
@@ -114,7 +119,8 @@ export const COMPARE_RUNTIME_STRINGS = {
     note: 'Prijzen, beschikbaarheid en opleverdata zijn indicatief en worden door Nueva Living bevestigd vóór elke reservering.',
     emptyNotSaved: 'U heeft nog geen project opgeslagen. Sla een project op via de pagina of kaart ervan om het hier te vergelijken.',
     emptyNotFound: 'We konden uw opgeslagen projecten niet vinden. Mogelijk zijn ze bijgewerkt; probeer opnieuw te bladeren.',
-    emptyError: 'De vergelijkingsgegevens zijn op dit moment niet beschikbaar. Probeer het straks opnieuw.'
+    emptyError: 'De vergelijkingsgegevens zijn op dit moment niet beschikbaar. Probeer het straks opnieuw.',
+    oneOnly: 'Er is maar één project opgeslagen. Sla er nog een op om ze naast elkaar te zien.'
   },
   pl: {
     onRequest: 'Na zapytanie', priceFrom: 'Od {price}', bedroomsRange: '{min}-{max} sypialnie', bedroomsOne: '{n} sypialnie', toBeConfirmed: 'Do potwierdzenia', dateLocale: 'pl-PL',
@@ -124,7 +130,8 @@ export const COMPARE_RUNTIME_STRINGS = {
     note: 'Ceny, dostępność i terminy oddania mają charakter orientacyjny i są potwierdzane przez Nueva Living przed dokonaniem rezerwacji.',
     emptyNotSaved: 'Nie zapisałeś/aś jeszcze żadnej inwestycji. Zapisz projekt na jego stronie lub karcie, aby porównać go tutaj.',
     emptyNotFound: 'Nie udało się odnaleźć Twoich zapisanych inwestycji. Mogły zostać zaktualizowane — spróbuj przejrzeć je ponownie.',
-    emptyError: 'Dane porównawcze są obecnie niedostępne. Spróbuj ponownie za chwilę.'
+    emptyError: 'Dane porównawcze są obecnie niedostępne. Spróbuj ponownie za chwilę.',
+    oneOnly: 'Zapisana jest tylko jedna inwestycja. Zapisz kolejną, aby zobaczyć je obok siebie.'
   },
   sv: {
     onRequest: 'På förfrågan', priceFrom: 'Från {price}', bedroomsRange: '{min}-{max} sovrum', bedroomsOne: '{n} sovrum', toBeConfirmed: 'Bekräftas senare', dateLocale: 'sv-SE',
@@ -134,7 +141,8 @@ export const COMPARE_RUNTIME_STRINGS = {
     note: 'Priser, tillgänglighet och tillträdesdatum är vägledande och bekräftas av Nueva Living innan bokning.',
     emptyNotSaved: 'Du har inte sparat något projekt än. Spara ett projekt från dess sida eller kort för att jämföra det här.',
     emptyNotFound: 'Vi kunde inte hitta dina sparade projekt. De kan ha uppdaterats — försök bläddra igen.',
-    emptyError: 'Jämförelsedata är inte tillgängliga just nu. Försök igen inom kort.'
+    emptyError: 'Jämförelsedata är inte tillgängliga just nu. Försök igen inom kort.',
+    oneOnly: 'Bara ett projekt är sparat. Spara ett till för att se dem sida vid sida.'
   },
   no: {
     onRequest: 'På forespørsel', priceFrom: 'Fra {price}', bedroomsRange: '{min}-{max} soverom', bedroomsOne: '{n} soverom', toBeConfirmed: 'Bekreftes senere', dateLocale: 'nb-NO',
@@ -144,6 +152,7 @@ export const COMPARE_RUNTIME_STRINGS = {
     note: 'Priser, tilgjengelighet og overleveringsdatoer er veiledende og bekreftes av Nueva Living før eventuell reservasjon.',
     emptyNotSaved: 'Du har ikke lagret noen prosjekter ennå. Lagre et prosjekt fra siden eller kortet for å sammenligne det her.',
     emptyNotFound: 'Vi fant ikke de lagrede prosjektene dine. De kan ha blitt oppdatert — prøv å bla på nytt.',
-    emptyError: 'Sammenligningsdataene er ikke tilgjengelige akkurat nå. Prøv igjen om litt.'
+    emptyError: 'Sammenligningsdataene er ikke tilgjengelige akkurat nå. Prøv igjen om litt.',
+    oneOnly: 'Bare ett prosjekt er lagret. Lagre ett til for å se dem side om side.'
   }
 };

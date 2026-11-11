@@ -671,7 +671,7 @@ function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
         </div>
         <div class="media-gallery-footer">
           <button type="button" class="btn project-btn ghost media-show-all" data-media-show-all>${t('media.viewAllImages', locale, { count: media.items.length })}</button>
-          <p class="media-note">${esc(media.note || '')}</p>
+          <p class="media-note">${esc(media.note || t('media.defaultNote', locale))}</p>
         </div>
       </div>
     </section>`,
@@ -2535,6 +2535,7 @@ ${renderAmenities(project, locale)}
           </div>
           <div class="why-group reveal-soft">
             <div class="why-group-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><h3>${t('why.investmentCase', locale)}</h3></div>
+            ${project.investment?.copy ? `<p class="why-group-note">${esc(project.investment.copy)}</p>` : ''}
             <div class="why-point-grid">
               ${(project.investment?.cards || []).map(([title, body]) => `<article class="why-point reveal-soft"><h3>${esc(title)}</h3><p>${esc(body)}</p></article>`).join('\n              ')}
             </div>
@@ -2761,7 +2762,14 @@ function buildCompareCatalog(projects) {
         bedroomsMax: crm.bedroomsMax ?? null,
         totalUnits: crm.totalUnits ?? null,
         availableUnits: crm.availableUnits ?? null,
-        constructionStatus: crm.constructionStatus || null,
+        // crm.constructionStatus is free text on most projects ("Off-plan on the
+        // documents we hold: no construction stage..."), and the compare table
+        // printed it whole. The table has room for the three stages the
+        // developments filter uses, so it gets the same normalised value; a
+        // value that normalises to none of them is left out rather than shown.
+        constructionStatus: COMPARE_STATUSES.includes(normaliseConstructionStatus(crm.constructionStatus))
+          ? normaliseConstructionStatus(crm.constructionStatus)
+          : null,
         // crm.deliveryDate is set on no project, so this read null 58 times
         // out of 58 and the compare table answered "To be confirmed" for a
         // site where every project states a quarter. hero.delivery is that
@@ -3433,6 +3441,8 @@ const MEDIA_TILE_SIZES = '(max-width: 640px) 46vw, (max-width: 1100px) 30vw, 23v
 // The text is worth keeping: it goes to the CRM payload and says more than a
 // slug can. So it stays in the data and is normalised here, at the one point
 // where the filter actually reads it.
+const COMPARE_STATUSES = ['off_plan', 'under_construction', 'completed'];
+
 function normaliseConstructionStatus(value) {
   if (!value) return value;
   const v = String(value).trim().toLowerCase();

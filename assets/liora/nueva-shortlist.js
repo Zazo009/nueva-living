@@ -41,6 +41,7 @@
       no: 'Trykk på hjertet ved et prosjekt for å bygge en egen liste du kan lagre, sammenligne og sende til oss.'
     },
     browseDevelopments: { en: 'Browse Developments', es: 'Ver Promociones', fr: 'Voir les Programmes', de: 'Projekte Durchsuchen', ru: 'Смотреть проекты', ar: 'تصفح المشاريع', nl: 'Projecten Bekijken', pl: 'Zobacz Inwestycje', sv: 'Visa Projekt', no: 'Se Prosjekter' },
+    compare: { en: 'Compare', es: 'Comparar', fr: 'Comparer', de: 'Vergleichen', ru: 'Сравнить', ar: 'مقارنة', nl: 'Vergelijken', pl: 'Porównaj', sv: 'Jämför', no: 'Sammenlign' },
     compareSaved: { en: 'Compare Saved Projects', es: 'Comparar Proyectos Guardados', fr: 'Comparer les Projets Enregistrés', de: 'Gespeicherte Projekte Vergleichen', ru: 'Сравнить сохранённые проекты', ar: 'مقارنة المشاريع المحفوظة', nl: 'Opgeslagen Projecten Vergelijken', pl: 'Porównaj Zapisane Inwestycje', sv: 'Jämför Sparade Projekt', no: 'Sammenlign Lagrede Prosjekter' },
     sendYourShortlist: { en: 'Send Your Shortlist', es: 'Enviar su Lista', fr: 'Envoyer votre Liste', de: 'Merkliste Senden', ru: 'Отправить список', ar: 'إرسال قائمتك', nl: 'Uw Lijst Versturen', pl: 'Wyślij Swoją Listę', sv: 'Skicka Er Lista', no: 'Send Listen Din' },
     sendShortlistIntro: {
@@ -219,13 +220,24 @@
     });
   }
 
-  function showToast(message) {
+  // The compare page was reachable only from inside the drawer, and only once
+  // two projects were saved. The moment a second project is saved is the
+  // moment a comparison becomes possible, so the confirmation offers it.
+  function showToast(message, offerCompare = false) {
     const toast = document.querySelector('[data-shortlist-toast]');
     if (!toast) return;
     toast.textContent = message;
+    if (offerCompare) {
+      const link = document.createElement('a');
+      link.className = 'nueva-shortlist-toast-link';
+      link.href = localeHref('compare.html');
+      link.textContent = t('compareSaved');
+      toast.appendChild(link);
+    }
+    toast.classList.toggle('has-action', offerCompare);
     toast.classList.add('is-visible');
     window.clearTimeout(toastTimer);
-    toastTimer = window.setTimeout(() => toast.classList.remove('is-visible'), 2400);
+    toastTimer = window.setTimeout(() => toast.classList.remove('is-visible', 'has-action'), offerCompare ? 6000 : 2400);
   }
 
   function toggleProject(project) {
@@ -237,7 +249,7 @@
 
     writeShortlist();
     render();
-    showToast(added ? t('addedToShortlist', { name: project.name }) : t('removedFromShortlist', { name: project.name }));
+    showToast(added ? t('addedToShortlist', { name: project.name }) : t('removedFromShortlist', { name: project.name }), added && savedProjects.length >= 2);
     track(added ? 'shortlist_add' : 'shortlist_remove', project);
   }
 
@@ -280,6 +292,23 @@
     const actions = document.querySelector('.project-hero .hero-actions');
     if (!project || !actions || actions.querySelector('[data-shortlist-id]')) return;
     actions.appendChild(favoriteButton(project, 'nueva-save-project'));
+
+    // "Compare" from the project itself: saves this project if it is not
+    // saved yet, then opens the table. With nothing else saved the table
+    // shows this project alone and says how to add a second.
+    const compare = document.createElement('a');
+    compare.className = 'nueva-compare-project';
+    compare.href = localeHref('compare.html');
+    compare.textContent = t('compare');
+    compare.addEventListener('click', () => {
+      if (!isSaved(project.id)) {
+        savedProjects.push(project);
+        writeShortlist();
+        track('shortlist_add', project);
+      }
+      track('compare_open', project);
+    });
+    actions.appendChild(compare);
   }
 
   function triggerMarkup(className) {
