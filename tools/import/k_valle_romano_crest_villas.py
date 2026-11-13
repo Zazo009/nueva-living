@@ -206,16 +206,6 @@ a(13, 'A living room open to a terrace and pool above the golf valley',
   'Salon otwarty na taras i basen nad doliną z polem golfowym',
   'En stue som åpner seg mot en terrasse og et basseng over golfdalen',
   'Ett vardagsrum som öppnar sig mot en terrass och pool ovanför golfdalen')
-a(14, 'Computer-generated images from the developer',
-  'Imágenes generadas por ordenador del catálogo del promotor. Ilustran el proyecto y no son las casas terminadas; el mobiliario, la decoración y la vegetación son orientativos y no se incluyen en la venta. El club de golf y Estepona son fotografías. Los planos de las villas 3 y 8 son los dibujos del catálogo, que los presenta como representativos de su tipología.',
-  'Images de synthèse issues du catalogue du promoteur. Elles illustrent le projet et ne montrent pas les maisons achevées ; le mobilier, la décoration et les plantations sont indicatifs et ne sont pas inclus dans la vente. Le club-house du golf et Estepona sont des photographies. Les plans des villas 3 et 8 sont les dessins du catalogue, qui les présente comme représentatifs de leur type.',
-  'Computergenerierte Bilder aus dem Katalog des Bauträgers. Sie veranschaulichen das Projekt und zeigen nicht die fertigen Häuser; Möbel, Dekoration und Bepflanzung sind beispielhaft und nicht im Kaufpreis enthalten. Das Golf-Clubhaus und Estepona sind Fotografien. Die Pläne der Villen 3 und 8 sind die Zeichnungen des Katalogs, der sie als repräsentativ für ihren Typ bezeichnet.',
-  'Компьютерные визуализации из каталога застройщика. Они иллюстрируют проект и не являются готовыми домами; мебель, декор и озеленение показаны условно и в продажу не входят. Клубный дом гольф-клуба и Эстепона — фотографии. Планировки вилл 3 и 8 — чертежи из каталога, который называет их типовыми для своего типа.',
-  'صور مُنشأة بالحاسوب من كتالوج المطوّر. وهي توضّح المشروع وليست المنازل المكتملة؛ والأثاث والديكور والنباتات استرشادية ولا تدخل في البيع. أما نادي الغولف وإستيبونا فصور فوتوغرافية. ومخططات الفيلتين 3 و8 هي رسومات الكتالوج، الذي يصفها بأنها ممثلة لنمطها.',
-  'Computergegenereerde beelden uit de catalogus van de ontwikkelaar. Ze illustreren het project en tonen niet de afgewerkte huizen; meubilair, decoratie en beplanting zijn indicatief en niet inbegrepen bij de verkoop. Het golfclubhuis en Estepona zijn foto’s. De plattegronden van villa 3 en 8 zijn de tekeningen uit de catalogus, die ze representatief noemt voor hun type.',
-  'Wizualizacje komputerowe z katalogu dewelopera. Ilustrują projekt i nie przedstawiają gotowych domów; meble, wystrój i zieleń mają charakter poglądowy i nie są objęte sprzedażą. Klub golfowy i Estepona to fotografie. Rzuty willi 3 i 8 to rysunki z katalogu, który określa je jako reprezentatywne dla danego typu.',
-  'Datagenererte bilder fra utbyggerens katalog. De illustrerer prosjektet og viser ikke de ferdige husene; møbler, innredning og beplantning er veiledende og inngår ikke i salget. Golfklubbhuset og Estepona er fotografier. Plantegningene for villa 3 og 8 er katalogens tegninger, som den beskriver som representative for typen.',
-  'Datorgenererade bilder ur exploatörens katalog. De illustrerar projektet och visar inte de färdiga husen; möbler, inredning och växtlighet är vägledande och ingår inte i köpet. Golfklubbhuset och Estepona är fotografier. Planritningarna för villa 3 och 8 är katalogens ritningar, som den beskriver som representativa för typen.')
 a(15, 'A Type I villa, its upper terrace',
   'Una villa de tipo I, con la terraza superior a la sombra de una pérgola sobre el jardín',
   'Une villa de type I, sa terrasse supérieure ombragée par une pergola au-dessus du jardin',
@@ -403,60 +393,6 @@ a(38, 'First floor plan of Villa 2',
   'Rzut piętra willi 2: wejście, miejsca postojowe i trzy sypialnie',
   'Plantegning av andre etasje i villa 2, med inngang, parkering og tre soverom',
   'Planritning över första våningen i villa 2, med entré, parkering och tre sovrum')
-a(39, 'Ground floor plan of Villa 3',
-  'Plano de la planta baja de la villa 3, representativo del tipo II, con el salón, la cocina y la piscina',
-  'Plan du rez-de-chaussée de la villa 3, représentatif du type II, avec le séjour, la cuisine et la piscine',
-  'Grundriss des Erdgeschosses der Villa 3, repräsentativ für Typ II, mit Wohnzimmer, Küche und Pool',
-  'План первого этажа виллы 3, типовой для типа II: гостиная, кухня и бассейн',
-  'مخطط الطابق الأرضي للفيلا 3، الممثل للنمط الثاني، مع غرفة المعيشة والمطبخ والمسبح',
-  'Plattegrond van de begane grond van villa 3, representatief voor type II, met de woonkamer, de keuken en het zwembad',
-  'Rzut parteru willi 3, reprezentatywny dla typu II: salon, kuchnia i basen',
-  'Plantegning av første etasje i villa 3, representativ for type II, med stue, kjøkken og basseng',
-  'Planritning över bottenvåningen i villa 3, representativ för typ II, med vardagsrum, kök och pool')
-a(40, 'Villa 3, ground floor (Type II)',
-  'Villa 3, planta baja (tipo II)', 'Villa 3, rez-de-chaussée (type II)', 'Villa 3, Erdgeschoss (Typ II)', 'Вилла 3, первый этаж (тип II)',
-  'الفيلا 3، الطابق الأرضي (النمط الثاني)', 'Villa 3, begane grond (type II)', 'Willa 3, parter (typ II)', 'Villa 3, første etasje (type II)',
-  'Villa 3, bottenvåning (typ II)')
-a(41, 'First floor plan of Villa 3',
-  'Plano de la planta primera de la villa 3, representativo del tipo II, con el aparcamiento y tres dormitorios',
-  'Plan du premier étage de la villa 3, représentatif du type II, avec le stationnement et trois chambres',
-  'Grundriss des Obergeschosses der Villa 3, repräsentativ für Typ II, mit Stellplätzen und drei Schlafzimmern',
-  'План второго этажа виллы 3, типовой для типа II: парковка и три спальни',
-  'مخطط الطابق الأول للفيلا 3، الممثل للنمط الثاني، مع موقف السيارات وثلاث غرف نوم',
-  'Plattegrond van de eerste verdieping van villa 3, representatief voor type II, met het parkeren en drie slaapkamers',
-  'Rzut piętra willi 3, reprezentatywny dla typu II: miejsca postojowe i trzy sypialnie',
-  'Plantegning av andre etasje i villa 3, representativ for type II, med parkering og tre soverom',
-  'Planritning över första våningen i villa 3, representativ för typ II, med parkering och tre sovrum')
-a(42, 'Villa 3, first floor (Type II)',
-  'Villa 3, planta primera (tipo II)', 'Villa 3, premier étage (type II)', 'Villa 3, Obergeschoss (Typ II)', 'Вилла 3, второй этаж (тип II)',
-  'الفيلا 3، الطابق الأول (النمط الثاني)', 'Villa 3, eerste verdieping (type II)', 'Willa 3, piętro (typ II)', 'Villa 3, andre etasje (type II)',
-  'Villa 3, första våningen (typ II)')
-a(43, 'Ground floor plan of Villa 8',
-  'Plano de la planta baja de la villa 8, con la cocina, el salón, el espacio a doble altura y la piscina',
-  'Plan du rez-de-chaussée de la villa 8, avec la cuisine, le séjour, l’espace en double hauteur et la piscine',
-  'Grundriss des Erdgeschosses der Villa 8 mit Küche, Wohnzimmer, doppelter Raumhöhe und Pool',
-  'План первого этажа виллы 8: кухня, гостиная, пространство двойной высоты и бассейн',
-  'مخطط الطابق الأرضي للفيلا 8، مع المطبخ وغرفة المعيشة والفراغ المزدوج الارتفاع والمسبح',
-  'Plattegrond van de begane grond van villa 8, met de keuken, de woonkamer, de vide en het zwembad',
-  'Rzut parteru willi 8: kuchnia, salon, przestrzeń o podwójnej wysokości i basen',
-  'Plantegning av første etasje i villa 8, med kjøkken, stue, rom med dobbel takhøyde og basseng',
-  'Planritning över bottenvåningen i villa 8, med kök, vardagsrum, rum i dubbel höjd och pool')
-a(44, 'Villa 8, ground floor',
-  'Villa 8, planta baja', 'Villa 8, rez-de-chaussée', 'Villa 8, Erdgeschoss', 'Вилла 8, первый этаж', 'الفيلا 8، الطابق الأرضي',
-  'Villa 8, begane grond', 'Willa 8, parter', 'Villa 8, første etasje', 'Villa 8, bottenvåning')
-a(45, 'First floor plan of Villa 8',
-  'Plano de la planta primera de la villa 8, con el dormitorio principal y su vestidor, otros dos dormitorios y el aparcamiento',
-  'Plan du premier étage de la villa 8, avec la chambre principale et son dressing, deux autres chambres et le stationnement',
-  'Grundriss des Obergeschosses der Villa 8 mit Hauptschlafzimmer und Ankleide, zwei weiteren Schlafzimmern und Stellplatz',
-  'План второго этажа виллы 8: главная спальня с гардеробной, ещё две спальни и парковка',
-  'مخطط الطابق الأول للفيلا 8، مع غرفة النوم الرئيسية وغرفة ملابسها، وغرفتي نوم أخريين، وموقف السيارات',
-  'Plattegrond van de eerste verdieping van villa 8, met de hoofdslaapkamer en inloopkast, twee andere slaapkamers en het parkeren',
-  'Rzut piętra willi 8: główna sypialnia z garderobą, dwie kolejne sypialnie i miejsce postojowe',
-  'Plantegning av andre etasje i villa 8, med hovedsoverom og garderobe, to soverom til og parkering',
-  'Planritning över första våningen i villa 8, med huvudsovrum och klädkammare, ytterligare två sovrum och parkering')
-a(46, 'Villa 8, first floor',
-  'Villa 8, planta primera', 'Villa 8, premier étage', 'Villa 8, Obergeschoss', 'Вилла 8, второй этаж', 'الفيلا 8، الطابق الأول',
-  'Villa 8, eerste verdieping', 'Willa 8, piętro', 'Villa 8, andre etasje', 'Villa 8, första våningen')
 
 # ---------------------------------------------------------------- overview
 a(47, 'Eight villas, <em>three types</em>',
@@ -499,16 +435,6 @@ a(51, 'Three types, <em>eight plots</em>',
   'Tres tipologías, <em>ocho parcelas</em>', 'Trois types, <em>huit parcelles</em>', 'Drei Typen, <em>acht Grundstücke</em>',
   'Три типа, <em>восемь участков</em>', 'ثلاثة أنماط، <em>ثماني قطع أرض</em>', 'Drie types, <em>acht percelen</em>',
   'Trzy typy, <em>osiem działek</em>', 'Tre typer, <em>åtte tomter</em>', 'Tre typer, <em>åtta tomter</em>')
-a(52, 'The areas below are the price list',
-  'Las superficies siguientes son las de la lista de precios, redondeadas al metro cuadrado. Las villas 1 y 2 tienen sus propios planos; el catálogo dibuja la villa 3 para el tipo II y la villa 8 para el tipo III, e indica que la distribución y las dimensiones varían de una villa a otra.',
-  'Les surfaces ci-dessous sont celles de la liste de prix, arrondies au mètre carré. Les villas 1 et 2 ont leurs propres plans ; le catalogue dessine la villa 3 pour le type II et la villa 8 pour le type III, et précise que l’agencement et les dimensions varient d’une villa à l’autre.',
-  'Die folgenden Flächen stammen aus der Preisliste, auf den Quadratmeter gerundet. Für die Villen 1 und 2 gibt es eigene Planblätter; der Katalog zeichnet Villa 3 für Typ II und Villa 8 für Typ III und weist darauf hin, dass Aufteilung und Maße von Villa zu Villa abweichen.',
-  'Площади ниже взяты из прайс-листа и округлены до квадратного метра. Для вилл 1 и 2 есть собственные листы планировок; каталог показывает виллу 3 для типа II и виллу 8 для типа III и оговаривает, что планировка и размеры у каждой виллы свои.',
-  'المساحات أدناه مأخوذة من قائمة الأسعار ومقرّبة إلى المتر المربع. للفيلتين 1 و2 مخططاتهما الخاصة، أما الكتالوج فيرسم الفيلا 3 للنمط الثاني والفيلا 8 للنمط الثالث، ويذكر أن التوزيع والأبعاد تختلف من فيلا إلى أخرى.',
-  'De oppervlakten hieronder komen uit de prijslijst, afgerond op de vierkante meter. Villa 1 en 2 hebben eigen tekeningen; de catalogus tekent villa 3 voor type II en villa 8 voor type III, en vermeldt dat indeling en afmetingen per villa verschillen.',
-  'Poniższe powierzchnie pochodzą z cennika i są zaokrąglone do metra kwadratowego. Wille 1 i 2 mają własne arkusze rzutów; katalog przedstawia willę 3 dla typu II i willę 8 dla typu III i zaznacza, że układ i wymiary różnią się w zależności od willi.',
-  'Arealene nedenfor er prislistens, avrundet til nærmeste kvadratmeter. Villa 1 og 2 har egne tegningsark; katalogen tegner villa 3 for type II og villa 8 for type III, og opplyser at planløsning og mål varierer fra villa til villa.',
-  'Ytorna nedan är prislistans, avrundade till hela kvadratmeter. Villa 1 och 2 har egna ritningsblad; katalogen ritar villa 3 för typ II och villa 8 för typ III, och anger att planlösning och mått varierar från villa till villa.')
 a(53, '122 and 124 sqm of interior',
   '122 y 124 {U} interiores, 279 y 281 {U} construidos en total, en parcelas de 400 y 411 {U} orientadas al suroeste.',
   '122 et 124 {U} intérieurs, 279 et 281 {U} construits au total, sur des parcelles de 400 et 411 {U} orientées sud-ouest.',
@@ -529,7 +455,7 @@ a(54, 'Ground floor: an open living room, dining area and kitchen',
   'Parter: otwarty salon z jadalnią i kuchnią o powierzchni od {N28.42} do {N30.92} {U}, pralnia, schowek o powierzchni około 10 {U} doświetlony przez angielski dziedziniec, łazienka, zadaszony taras i basen o powierzchni około 19 {U}.',
   'Første etasje: åpen stue, spiseplass og kjøkken på {N28.42} til {N30.92} {U}, vaskerom, en bod på rundt 10 {U} med lys fra en lysgård, et bad, en overbygd terrasse og et basseng på rundt 19 {U}.',
   'Bottenvåning: öppet vardagsrum, matplats och kök om {N28.42} till {N30.92} {U}, tvättstuga, ett förråd på cirka 10 {U} med dagsljus från en ljusgård, ett badrum, en övertäckt terrass och en pool på cirka 19 {U}.')
-a(55, 'First floor, at street level',
+a(55, 'First floor, at street level: the entrance, parking for two cars',
   'Planta primera, a nivel de calle: el acceso, aparcamiento para dos coches, tres dormitorios, un vestidor, dos baños y una terraza de unos 29 {U} bajo pérgola.',
   'Premier étage, au niveau de la rue : l’entrée, le stationnement pour deux voitures, trois chambres, un dressing, deux salles de bains et une terrasse d’environ 29 {U} sous pergola.',
   'Obergeschoss, auf Straßenniveau: der Eingang, Stellplätze für zwei Autos, drei Schlafzimmer, eine Ankleide, zwei Badezimmer und eine Terrasse von etwa 29 {U} unter einer Pergola.',
@@ -539,16 +465,6 @@ a(55, 'First floor, at street level',
   'Piętro, na poziomie ulicy: wejście, miejsca postojowe na dwa samochody, trzy sypialnie, garderoba, dwie łazienki i taras o powierzchni około 29 {U} pod pergolą.',
   'Andre etasje, på gatenivå: inngangen, parkering for to biler, tre soverom, en garderobe, to bad og en terrasse på rundt 29 {U} under pergola.',
   'Första våningen, i gatuplan: entrén, parkering för två bilar, tre sovrum, en klädkammare, två badrum och en terrass på cirka 29 {U} under pergola.')
-a(56, 'The price list and the plan sheets',
-  'La lista de precios y el resumen de las fichas de planos indican cuatro dormitorios y cuatro baños; los cuadros de superficies de los planos de planta enumeran tres dormitorios, un vestidor y tres baños.',
-  'La liste de prix et le récapitulatif des fiches de plans indiquent quatre chambres et quatre salles de bains ; les tableaux de surfaces des plans d’étage énumèrent trois chambres, un dressing et trois salles de bains.',
-  'Die Preisliste und die Zusammenfassung auf den Planblättern nennen vier Schlafzimmer und vier Badezimmer; die Raumtabellen der Grundrisse führen drei Schlafzimmer, eine Ankleide und drei Badezimmer auf.',
-  'Прайс-лист и сводка на листах планировок указывают четыре спальни и четыре ванные комнаты; экспликации помещений на поэтажных планах перечисляют три спальни, гардеробную и три ванные комнаты.',
-  'تذكر قائمة الأسعار وملخص أوراق المخططات أربع غرف نوم وأربعة حمامات، بينما تسرد جداول الغرف في مخططات الطوابق ثلاث غرف نوم وغرفة ملابس وثلاثة حمامات.',
-  'De prijslijst en de samenvatting op de tekeningbladen noemen vier slaapkamers en vier badkamers; de ruimtestaten op de plattegronden vermelden drie slaapkamers, een inloopkast en drie badkamers.',
-  'Cennik i podsumowanie na arkuszach rzutów podają cztery sypialnie i cztery łazienki; zestawienia pomieszczeń na rzutach kondygnacji wymieniają trzy sypialnie, garderobę i trzy łazienki.',
-  'Prislisten og sammendraget på tegningsarkene oppgir fire soverom og fire bad; romskjemaene på plantegningene lister opp tre soverom, en garderobe og tre bad.',
-  'Prislistan och sammanställningen på ritningsbladen anger fyra sovrum och fyra badrum; rumsförteckningarna på planritningarna listar tre sovrum, en klädkammare och tre badrum.')
 a(57, '167 to 183 sqm of interior',
   'De 167 a 183 {U} interiores y de 327 a 370 {U} construidos en total, en parcelas de 533 a 560 {U}.',
   'De 167 à 183 {U} intérieurs et de 327 à 370 {U} construits au total, sur des parcelles de 533 à 560 {U}.',
@@ -569,26 +485,6 @@ a(58, 'Villas 3, 4 and 5 face north-west',
   'Wille 3, 4 i 5 mają ekspozycję północno-zachodnią; wille 6 i 7 są zwrócone na południowy wschód i mają wyższą cenę.',
   'Villa 3, 4 og 5 vender mot nordvest; villa 6 og 7 vender mot sørøst og er priset høyere.',
   'Villa 3, 4 och 5 vetter mot nordväst; villa 6 och 7 vetter mot sydost och är dyrare.')
-a(59, 'The catalogue\'s plan for Villa 3',
-  'El plano del catálogo para la villa 3 muestra en la planta baja el salón, la cocina, un lavadero, almacenaje, una terraza cubierta y la piscina.',
-  'Le plan du catalogue pour la villa 3 montre au rez-de-chaussée le séjour, la cuisine, une buanderie, des rangements, une terrasse couverte et la piscine.',
-  'Der Katalogplan für Villa 3 zeigt im Erdgeschoss Wohnzimmer, Küche, Hauswirtschaftsraum, Abstellflächen, eine überdachte Terrasse und den Pool.',
-  'План виллы 3 в каталоге показывает на первом этаже гостиную, кухню, постирочную, кладовые, крытую террасу и бассейн.',
-  'يُظهر مخطط الكتالوج للفيلا 3 في الطابق الأرضي غرفة المعيشة والمطبخ وغرفة غسيل ومساحات تخزين وتراساً مغطى والمسبح.',
-  'De catalogusplattegrond van villa 3 toont op de begane grond de woonkamer, de keuken, een wasruimte, bergruimte, een overdekt terras en het zwembad.',
-  'Rzut willi 3 w katalogu pokazuje na parterze salon, kuchnię, pralnię, pomieszczenia schowkowe, zadaszony taras i basen.',
-  'Katalogens plantegning for villa 3 viser stue, kjøkken, vaskerom, bod, en overbygd terrasse og bassenget i første etasje.',
-  'Katalogens planritning för villa 3 visar vardagsrum, kök, tvättstuga, förråd, en övertäckt terrass och poolen på bottenvåningen.')
-a(60, 'On its first floor it labels three bedrooms',
-  'En la planta primera señala tres dormitorios y tres baños, aparcamiento para dos coches, una terraza bajo pérgola y una terraza descubierta. La lista de precios indica cuatro dormitorios y cuatro baños para la gama.',
-  'À l’étage, il indique trois chambres et trois salles de bains, le stationnement pour deux voitures, une terrasse sous pergola et une terrasse découverte. La liste de prix indique quatre chambres et quatre salles de bains pour la gamme.',
-  'Im Obergeschoss beschriftet er drei Schlafzimmer und drei Badezimmer, Stellplätze für zwei Autos, eine Terrasse unter einer Pergola und eine offene Terrasse. Die Preisliste nennt für die Reihe vier Schlafzimmer und vier Badezimmer.',
-  'На втором этаже на нём подписаны три спальни и три ванные комнаты, парковка на две машины, терраса под перголой и открытая терраса. Прайс-лист указывает для линейки четыре спальни и четыре ванные комнаты.',
-  'وفي الطابق الأول يحدد ثلاث غرف نوم وثلاثة حمامات، وموقفاً لسيارتين، وتراساً تحت برغولا وتراساً مكشوفاً. أما قائمة الأسعار فتذكر أربع غرف نوم وأربعة حمامات للمجموعة.',
-  'Op de eerste verdieping vermeldt hij drie slaapkamers en drie badkamers, parkeerplaats voor twee auto’s, een terras onder een pergola en een open terras. De prijslijst noemt voor de reeks vier slaapkamers en vier badkamers.',
-  'Na piętrze oznacza trzy sypialnie i trzy łazienki, miejsca postojowe na dwa samochody, taras pod pergolą i taras odkryty. Cennik podaje dla całej oferty cztery sypialnie i cztery łazienki.',
-  'I andre etasje merker den av tre soverom og tre bad, parkering for to biler, en terrasse under pergola og en åpen terrasse. Prislisten oppgir fire soverom og fire bad for hele utvalget.',
-  'På första våningen märker den ut tre sovrum och tre badrum, parkering för två bilar, en terrass under pergola och en öppen terrass. Prislistan anger fyra sovrum och fyra badrum för hela utbudet.')
 a(61, '433 sqm of interior and 604 sqm',
   '433 {U} interiores y 604 {U} construidos en total, en una parcela de {G1002} {U} orientada al sureste.',
   '433 {U} intérieurs et 604 {U} construits au total, sur une parcelle de {G1002} {U} orientée sud-est.',
@@ -599,36 +495,6 @@ a(61, '433 sqm of interior and 604 sqm',
   '433 {U} powierzchni wewnętrznej i łącznie 604 {U} zabudowy, na działce o powierzchni {G1002} {U} z ekspozycją południowo-wschodnią.',
   '433 {U} innvendig og totalt 604 {U} bebygd, på en tomt på {G1002} {U} mot sørøst.',
   '433 {U} inneryta och totalt 604 {U} byggyta, på en tomt om {G1002} {U} i sydostläge.')
-a(62, 'Ground floor: the kitchen, the living room and a double-height space',
-  'Planta baja: la cocina, el salón y un espacio a doble altura, abiertos a una terraza cubierta y a la piscina.',
-  'Rez-de-chaussée : la cuisine, le séjour et un espace en double hauteur, ouverts sur une terrasse couverte et la piscine.',
-  'Erdgeschoss: Küche, Wohnzimmer und ein Raum mit doppelter Höhe, offen zu einer überdachten Terrasse und zum Pool.',
-  'Первый этаж: кухня, гостиная и пространство двойной высоты с выходом на крытую террасу и к бассейну.',
-  'الطابق الأرضي: المطبخ وغرفة المعيشة وفراغ مزدوج الارتفاع، تنفتح على تراس مغطى وعلى المسبح.',
-  'Begane grond: de keuken, de woonkamer en een vide, die uitkomen op een overdekt terras en het zwembad.',
-  'Parter: kuchnia, salon i przestrzeń o podwójnej wysokości, otwarte na zadaszony taras i basen.',
-  'Første etasje: kjøkkenet, stuen og et rom med dobbel takhøyde, som åpner seg mot en overbygd terrasse og bassenget.',
-  'Bottenvåning: köket, vardagsrummet och ett rum i dubbel höjd, som öppnar sig mot en övertäckt terrass och poolen.')
-a(63, 'First floor: a principal bedroom with its dressing room',
-  'Planta primera: un dormitorio principal con su vestidor, otros dos dormitorios y una terraza bajo pérgola.',
-  'Premier étage : une chambre principale avec son dressing, deux autres chambres et une terrasse sous pergola.',
-  'Obergeschoss: ein Hauptschlafzimmer mit Ankleide, zwei weitere Schlafzimmer und eine Terrasse unter einer Pergola.',
-  'Второй этаж: главная спальня с гардеробной, ещё две спальни и терраса под перголой.',
-  'الطابق الأول: غرفة نوم رئيسية مع غرفة ملابسها، وغرفتا نوم أخريان، وتراس تحت برغولا.',
-  'Eerste verdieping: een hoofdslaapkamer met inloopkast, twee andere slaapkamers en een terras onder een pergola.',
-  'Piętro: główna sypialnia z garderobą, dwie kolejne sypialnie i taras pod pergolą.',
-  'Andre etasje: et hovedsoverom med garderobe, to soverom til og en terrasse under pergola.',
-  'Första våningen: ett huvudsovrum med klädkammare, ytterligare två sovrum och en terrass under pergola.')
-a(64, 'The catalogue says the villa',
-  'El catálogo indica que los planos completos de la villa incluyen un sótano, que no hemos recibido; la memoria de calidades incluye el sótano entre las opciones de pago, así que confirmamos qué incluye el precio.',
-  'Le catalogue indique que les plans complets de la villa comprennent un sous-sol, que nous n’avons pas reçu ; le descriptif range le sous-sol parmi les options payantes, nous vérifions donc ce que comprend le prix.',
-  'Laut Katalog umfassen die vollständigen Pläne der Villa ein Untergeschoss, das uns nicht vorliegt; die Baubeschreibung führt ein Untergeschoss unter den kostenpflichtigen Optionen, daher klären wir, was der Preis enthält.',
-  'Каталог сообщает, что полный комплект планов виллы включает подвальный этаж, который нам не передан; спецификация относит подвал к платным опциям, поэтому мы уточняем, что входит в цену.',
-  'يذكر الكتالوج أن المخططات الكاملة للفيلا تشمل قبواً لم نتسلمه، بينما تدرج المواصفات القبو ضمن الخيارات المدفوعة، لذا نتحقق مما يشمله السعر.',
-  'Volgens de catalogus omvatten de volledige plannen van de villa een kelder, die wij niet hebben ontvangen; de technische omschrijving noemt een kelder bij de betaalde opties, dus we bevestigen wat de prijs omvat.',
-  'Katalog podaje, że pełne rzuty willi obejmują piwnicę, której nie otrzymaliśmy; specyfikacja wymienia piwnicę wśród płatnych opcji, dlatego potwierdzamy, co obejmuje cena.',
-  'Katalogen sier at villaens fullstendige tegninger omfatter en kjeller, som vi ikke har fått; beskrivelsen fører en kjeller blant tilleggsvalgene mot betaling, så vi bekrefter hva prisen omfatter.',
-  'Katalogen anger att villans fullständiga ritningar omfattar en källare, som vi inte har fått; byggbeskrivningen tar upp en källare bland tillvalen mot betalning, så vi bekräftar vad priset omfattar.')
 
 # ---------------------------------------------------------------- availability
 a(66, 'Eight villas <em>on the price list</em>',
@@ -645,16 +511,6 @@ a(67, 'The developer\'s price list names eight villas',
   'Cennik dewelopera wymienia osiem willi i zaznacza, że opisuje inwestycję, a nie to, co jest jeszcze w sprzedaży. Nueva Living ponownie potwierdza cenę i dostępność przed każdą wizytą lub rezerwacją.',
   'Utbyggerens prisliste nevner åtte villaer og opplyser at den beskriver prosjektet, ikke hva som fortsatt er til salgs. Nueva Living bekrefter pris og tilgjengelighet på nytt før enhver visning eller reservasjon.',
   'Exploatörens prislista tar upp åtta villor och anger att den beskriver projektet, inte vad som fortfarande är till salu. Nueva Living bekräftar pris och tillgänglighet på nytt före varje visning eller bokning.')
-a(68, 'Availability and prices as listed in the developer\'s price list of October 2026',
-  'Disponibilidad y precios según la lista de precios del promotor de octubre de 2026, que se reconfirman antes de la reserva. La lista indica que describe la promoción y no la disponibilidad actual, y no dice si incluye el IVA: en una villa de obra nueva en España el IVA del {P10} se suma al precio de compra, así que confirmamos por escrito cuál se aplica. Las superficies son las de la lista, redondeadas al metro cuadrado. Su superficie construida total es mayor que la suma del interior y las terrazas, y la lista no explica a qué corresponde la diferencia. Dormitorios y baños: la lista de precios y el resumen de las fichas de planos de las villas 1 y 2 indican cuatro de cada; los cuadros de superficies de esos planos de planta enumeran tres dormitorios, un vestidor y tres baños. Los planos de las villas 3 y 8 proceden del catálogo, que los presenta como representativos de su tipología.',
-  'Disponibilité et prix selon la liste de prix du promoteur d’octobre 2026, reconfirmés avant la réservation. La liste précise qu’elle décrit le programme et n’indique pas la disponibilité actuelle, et elle ne dit pas si la TVA est comprise : sur une villa neuve en Espagne, la TVA de {P10} s’ajoute au prix d’achat, nous confirmons donc par écrit ce qui s’applique. Les surfaces sont celles de la liste, arrondies au mètre carré. Sa surface construite totale dépasse l’intérieur et les terrasses réunis, et la liste ne précise pas à quoi correspond la différence. Chambres et salles de bains : la liste de prix et le récapitulatif des fiches de plans des villas 1 et 2 en indiquent quatre de chaque ; les tableaux de surfaces de ces plans d’étage énumèrent trois chambres, un dressing et trois salles de bains. Les plans des villas 3 et 8 proviennent du catalogue, qui les présente comme représentatifs de leur type.',
-  'Verfügbarkeit und Preise laut der Preisliste des Bauträgers vom Oktober 2026, vor der Reservierung erneut bestätigt. Die Liste gibt an, dass sie das Projekt beschreibt und nicht die aktuelle Verfügbarkeit, und sie sagt nicht, ob die MwSt. enthalten ist: Bei einer neu gebauten Villa in Spanien kommen {P10} MwSt. auf den Kaufpreis, daher bestätigen wir schriftlich, was gilt. Die Flächen sind die der Liste, auf den Quadratmeter gerundet. Ihre gesamte bebaute Fläche ist größer als Innenfläche und Terrassen zusammen, und die Liste sagt nicht, was die Differenz umfasst. Schlafzimmer und Badezimmer: Die Preisliste und die Zusammenfassung auf den Planblättern der Villen 1 und 2 nennen je vier; die Raumtabellen dieser Grundrisse führen drei Schlafzimmer, eine Ankleide und drei Badezimmer auf. Die Pläne der Villen 3 und 8 stammen aus dem Katalog, der sie als repräsentativ für ihren Typ bezeichnet.',
-  'Наличие и цены по прайс-листу застройщика за октябрь 2026 года, повторно подтверждаются перед бронированием. В прайс-листе сказано, что он описывает проект и не отражает текущее наличие, и не указано, включён ли НДС: при покупке новой виллы в Испании НДС {P10} добавляется к цене, поэтому мы письменно подтверждаем, что применяется. Площади взяты из прайс-листа и округлены до квадратного метра. Общая площадь застройки в нём больше суммы внутренней площади и террас, и прайс-лист не объясняет, что составляет разницу. Спальни и ванные комнаты: прайс-лист и сводка на листах планировок вилл 1 и 2 указывают по четыре; экспликации помещений на этих поэтажных планах перечисляют три спальни, гардеробную и три ванные комнаты. Планировки вилл 3 и 8 взяты из каталога, который называет их типовыми для своего типа.',
-  'التوفر والأسعار وفق قائمة أسعار المطوّر لشهر أكتوبر 2026، ويُعاد تأكيدها قبل الحجز. وتذكر القائمة أنها تصف المشروع ولا تبيّن التوفر الحالي، ولا توضح ما إذا كانت ضريبة القيمة المضافة مشمولة: ففي الفيلا الجديدة في إسبانيا تُضاف ضريبة القيمة المضافة بنسبة {P10} إلى سعر الشراء، لذا نؤكد كتابياً ما ينطبق. المساحات هي مساحات القائمة مقرّبة إلى المتر المربع. ومساحتها المبنية الإجمالية أكبر من مجموع المساحة الداخلية والتراسات، ولا توضح القائمة ما يغطيه الفرق. غرف النوم والحمامات: تذكر قائمة الأسعار وملخص أوراق مخططات الفيلتين 1 و2 أربعاً من كل منهما، بينما تسرد جداول الغرف في مخططات الطوابق هذه ثلاث غرف نوم وغرفة ملابس وثلاثة حمامات. ومخططات الفيلتين 3 و8 مأخوذة من الكتالوج، الذي يصفها بأنها ممثلة لنمطها.',
-  'Beschikbaarheid en prijzen volgens de prijslijst van de ontwikkelaar van oktober 2026, opnieuw bevestigd vóór reservering. De lijst vermeldt dat zij het project beschrijft en niet de actuele beschikbaarheid, en zegt niet of de btw is inbegrepen: bij een nieuwbouwvilla in Spanje komt {P10} btw bovenop de koopprijs, dus we bevestigen schriftelijk wat van toepassing is. De oppervlakten zijn die van de lijst, afgerond op de vierkante meter. Het totale bebouwde oppervlak is groter dan binnenoppervlak en terrassen samen, en de lijst zegt niet wat het verschil omvat. Slaapkamers en badkamers: de prijslijst en de samenvatting op de tekeningbladen van villa 1 en 2 noemen er elk vier; de ruimtestaten op die plattegronden vermelden drie slaapkamers, een inloopkast en drie badkamers. De plattegronden van villa 3 en 8 komen uit de catalogus, die ze representatief noemt voor hun type.',
-  'Dostępność i ceny według cennika dewelopera z października 2026 roku, ponownie potwierdzane przed rezerwacją. Cennik zaznacza, że opisuje inwestycję i nie wskazuje aktualnej dostępności, i nie podaje, czy cena obejmuje VAT: przy nowo wybudowanej willi w Hiszpanii do ceny zakupu dolicza się {P10} VAT, dlatego potwierdzamy na piśmie, co obowiązuje. Powierzchnie pochodzą z cennika i są zaokrąglone do metra kwadratowego. Podana w nim całkowita powierzchnia zabudowy jest większa niż suma powierzchni wewnętrznej i tarasów, a cennik nie wyjaśnia, co obejmuje różnica. Sypialnie i łazienki: cennik i podsumowanie na arkuszach rzutów willi 1 i 2 podają po cztery; zestawienia pomieszczeń na tych rzutach kondygnacji wymieniają trzy sypialnie, garderobę i trzy łazienki. Rzuty willi 3 i 8 pochodzą z katalogu, który określa je jako reprezentatywne dla danego typu.',
-  'Tilgjengelighet og priser ifølge utbyggerens prisliste fra oktober 2026, bekreftet på nytt før reservasjon. Listen opplyser at den beskriver prosjektet og ikke viser dagens tilgjengelighet, og den sier ikke om mva er inkludert: på en nybygd villa i Spania kommer {P10} mva i tillegg til kjøpesummen, så vi bekrefter skriftlig hva som gjelder. Arealene er listens, avrundet til nærmeste kvadratmeter. Det totale bebygde arealet er større enn innvendig areal og terrasser til sammen, og listen sier ikke hva differansen omfatter. Soverom og bad: prislisten og sammendraget på tegningsarkene for villa 1 og 2 oppgir fire av hver; romskjemaene på de samme plantegningene lister opp tre soverom, en garderobe og tre bad. Tegningene for villa 3 og 8 er hentet fra katalogen, som beskriver dem som representative for typen.',
-  'Tillgänglighet och priser enligt exploatörens prislista från oktober 2026, bekräftade på nytt före bokning. Listan anger att den beskriver projektet och inte visar aktuell tillgänglighet, och den säger inte om IVA (spansk moms) ingår: på en nybyggd villa i Spanien läggs IVA om {P10} på köpeskillingen, så vi bekräftar skriftligt vad som gäller. Ytorna är listans, avrundade till hela kvadratmeter. Den totala byggytan är större än inneryta och terrasser tillsammans, och listan anger inte vad skillnaden omfattar. Sovrum och badrum: prislistan och sammanställningen på ritningsbladen för villa 1 och 2 anger fyra av vardera; rumsförteckningarna på samma planritningar listar tre sovrum, en klädkammare och tre badrum. Planritningarna för villa 3 och 8 kommer från katalogen, som beskriver dem som representativa för typen.')
 
 # ---------------------------------------------------------------- payment terms
 a(78, '€10,000, deducted from the first 20%',
@@ -727,16 +583,6 @@ a(86, 'The range runs from two compact villas',
   'Oferta obejmuje zarówno dwie kompaktowe wille na działkach 400 {U}, jak i jedną z 433 {U} powierzchni wewnętrznej na {G1002} {U}, wszystkie w tym samym niewielkim zespole.',
   'Utvalget spenner fra to kompakte villaer på tomter på 400 {U} til én med 433 {U} innvendig på {G1002} {U}, alle i den samme lille gruppen.',
   'Utbudet sträcker sig från två kompakta villor på tomter om 400 {U} till en med 433 {U} inneryta på {G1002} {U}, alla i samma lilla grupp.')
-a(87, 'The licence is not yet granted',
-  'La licencia aún no está concedida, la constructora no está elegida y los documentos no coinciden en el número de dormitorios de las villas más pequeñas. Resolvemos cada punto por escrito.',
-  'Le permis n’est pas encore délivré, l’entreprise générale n’est pas choisie et les documents divergent sur le nombre de chambres des plus petites villas. Nous réglons chaque point par écrit.',
-  'Die Genehmigung ist noch nicht erteilt, das Bauunternehmen nicht ausgewählt, und die Unterlagen weichen bei der Zahl der Schlafzimmer der kleinsten Villen voneinander ab. Wir klären jeden Punkt schriftlich.',
-  'Разрешение ещё не выдано, подрядчик не выбран, а документы расходятся в числе спален у самых небольших вилл. Мы проясняем каждый пункт письменно.',
-  'لم تُمنح الرخصة بعد، ولم يُختر المقاول، وتختلف الوثائق في عدد غرف نوم أصغر الفلل. نحسم كل نقطة كتابياً.',
-  'De vergunning is nog niet verleend, de aannemer is niet gekozen en de documenten verschillen over het aantal slaapkamers van de kleinste villa’s. We leggen elk punt schriftelijk vast.',
-  'Pozwolenie nie zostało jeszcze wydane, wykonawca nie jest wybrany, a dokumenty różnią się co do liczby sypialni w najmniejszych willach. Każdą kwestię ustalamy na piśmie.',
-  'Tillatelsen er ennå ikke gitt, entreprenøren er ikke valgt, og dokumentene er uenige om antall soverom i de minste villaene. Vi avklarer hvert punkt skriftlig.',
-  'Bygglovet är ännu inte beviljat, entreprenören är inte vald och handlingarna är oeniga om antalet sovrum i de minsta villorna. Vi reder ut varje punkt skriftligt.')
 a(88, 'The houses are priced off-plan',
   'Las casas tienen precio sobre plano, con la finalización prevista para el {Q}, y el {P60} del precio se paga en la escritura.',
   'Les maisons sont vendues sur plan, avec un achèvement prévu au {Q}, et {P60} du prix sont dus à l’acte notarié.',
@@ -791,16 +637,6 @@ a(93, 'The tender is complete but the contractor is not yet chosen',
   'Upphandlingen är avslutad, men entreprenören är ännu inte vald. Vi frågar vem som bygger husen och när arbetena börjar.')
 a(94, 'The room count',
   'El número de estancias', 'Le nombre de pièces', 'Die Zimmerzahl', 'Число комнат', 'عدد الغرف', 'Het aantal kamers', 'Liczba pomieszczeń', 'Antall rom', 'Antalet rum')
-a(95, 'Four bedrooms on the price list, three on the Villa 1 and 2 floor plans',
-  'Cuatro dormitorios en la lista de precios, tres en los planos de planta de las villas 1 y 2. Contrastamos la distribución de la villa que elija con los planos del contrato.',
-  'Quatre chambres sur la liste de prix, trois sur les plans d’étage des villas 1 et 2. Nous vérifions l’agencement de la villa que vous choisissez au regard des plans contractuels.',
-  'Vier Schlafzimmer auf der Preisliste, drei in den Grundrissen der Villen 1 und 2. Wir gleichen die Aufteilung der von Ihnen gewählten Villa mit den Vertragsplänen ab.',
-  'Четыре спальни в прайс-листе, три на поэтажных планах вилл 1 и 2. Мы сверяем планировку выбранной вами виллы с планами, приложенными к договору.',
-  'أربع غرف نوم في قائمة الأسعار، وثلاث في مخططات طوابق الفيلتين 1 و2. نطابق توزيع الفيلا التي تختارونها مع مخططات العقد.',
-  'Vier slaapkamers op de prijslijst, drie op de plattegronden van villa 1 en 2. Wij toetsen de indeling van de villa die u kiest aan de contracttekeningen.',
-  'Cztery sypialnie w cenniku, trzy na rzutach kondygnacji willi 1 i 2. Sprawdzamy układ wybranej przez Państwa willi z rysunkami stanowiącymi część umowy.',
-  'Fire soverom på prislisten, tre på plantegningene for villa 1 og 2. Vi kontrollerer planløsningen i villaen du velger mot kontraktstegningene.',
-  'Fyra sovrum på prislistan, tre på planritningarna för villa 1 och 2. Vi stämmer av planlösningen i den villa ni väljer mot kontraktsritningarna.')
 a(96, 'Bank guarantee and VAT',
   'Aval bancario e IVA', 'Garantie bancaire et TVA', 'Bankbürgschaft und MwSt.', 'Банковская гарантия и НДС', 'الضمان المصرفي وضريبة القيمة المضافة',
   'Bankgarantie en btw', 'Gwarancja bankowa i VAT', 'Bankgaranti og mva', 'Bankgaranti och IVA (spansk moms)')
@@ -1049,16 +885,6 @@ a(124, 'How many bedrooms do the villas have?',
   '¿Cuántos dormitorios tienen las villas?', 'Combien de chambres comptent les villas ?', 'Wie viele Schlafzimmer haben die Villen?',
   'Сколько спален в виллах?', 'كم عدد غرف النوم في الفلل؟', 'Hoeveel slaapkamers hebben de villa’s?',
   'Ile sypialni mają wille?', 'Hvor mange soverom har villaene?', 'Hur många sovrum har villorna?')
-a(125, 'The price list gives four bedrooms and four bathrooms. For Villas 1 and 2',
-  'La lista de precios indica cuatro dormitorios y cuatro baños. Para las villas 1 y 2, los cuadros de superficies de los planos de planta enumeran tres dormitorios, un vestidor y tres baños, y los planos del catálogo de las villas 3 y 8 señalan tres dormitorios. Contrastamos la distribución de cada villa con los planos del contrato.',
-  'La liste de prix indique quatre chambres et quatre salles de bains. Pour les villas 1 et 2, les tableaux de surfaces des plans d’étage énumèrent trois chambres, un dressing et trois salles de bains, et les plans du catalogue des villas 3 et 8 indiquent trois chambres. Nous vérifions l’agencement de chaque villa au regard des plans contractuels.',
-  'Die Preisliste nennt vier Schlafzimmer und vier Badezimmer. Für die Villen 1 und 2 führen die Raumtabellen der Grundrisse drei Schlafzimmer, eine Ankleide und drei Badezimmer auf, und die Katalogpläne der Villen 3 und 8 beschriften drei Schlafzimmer. Wir gleichen die Aufteilung jeder Villa mit den Vertragsplänen ab.',
-  'Прайс-лист указывает четыре спальни и четыре ванные комнаты. Для вилл 1 и 2 экспликации на поэтажных планах перечисляют три спальни, гардеробную и три ванные комнаты, а на планах вилл 3 и 8 в каталоге подписаны три спальни. Мы сверяем планировку каждой виллы с планами, приложенными к договору.',
-  'تذكر قائمة الأسعار أربع غرف نوم وأربعة حمامات. أما للفيلتين 1 و2 فتسرد جداول الغرف في مخططات الطوابق ثلاث غرف نوم وغرفة ملابس وثلاثة حمامات، وتحدد مخططات الكتالوج للفيلتين 3 و8 ثلاث غرف نوم. نطابق توزيع كل فيلا مع مخططات العقد.',
-  'De prijslijst noemt vier slaapkamers en vier badkamers. Voor villa 1 en 2 vermelden de ruimtestaten op de plattegronden drie slaapkamers, een inloopkast en drie badkamers, en de catalogusplattegronden van villa 3 en 8 tonen drie slaapkamers. Wij toetsen de indeling van elke villa aan de contracttekeningen.',
-  'Cennik podaje cztery sypialnie i cztery łazienki. Dla willi 1 i 2 zestawienia pomieszczeń na rzutach kondygnacji wymieniają trzy sypialnie, garderobę i trzy łazienki, a rzuty willi 3 i 8 w katalogu oznaczają trzy sypialnie. Sprawdzamy układ każdej willi z rysunkami stanowiącymi część umowy.',
-  'Prislisten oppgir fire soverom og fire bad. For villa 1 og 2 lister romskjemaene på plantegningene opp tre soverom, en garderobe og tre bad, og katalogens tegninger av villa 3 og 8 merker av tre soverom. Vi kontrollerer planløsningen i hver villa mot kontraktstegningene.',
-  'Prislistan anger fyra sovrum och fyra badrum. För villa 1 och 2 listar rumsförteckningarna på planritningarna tre sovrum, en klädkammare och tre badrum, och katalogens ritningar av villa 3 och 8 märker ut tre sovrum. Vi stämmer av planlösningen i varje villa mot kontraktsritningarna.')
 a(126, 'From 122 to 433 sqm of interior',
   'De 122 a 433 {U} interiores y de 279 a 604 {U} construidos en total, en parcelas de 400 a {G1002} {U}.',
   'De 122 à 433 {U} intérieurs et de 279 à 604 {U} construits au total, sur des parcelles de 400 à {G1002} {U}.',
@@ -1147,6 +973,235 @@ a(136, 'Eight Detached Villas, Estepona',
   'Восемь отдельных вилл, Эстепона', 'ثماني فلل مستقلة، إستيبونا', 'Acht vrijstaande villa’s, Estepona',
   'Osiem wolnostojących willi, Estepona', 'Åtte frittstående villaer, Estepona', 'Åtta fristående villor, Estepona')
 
+# ---------------------------------------------------------------- per-villa plan sheets (13 Nov 2026 follow-up)
+# Every villa now has its own plan set from the agent intranet: a site plan and one sheet per floor,
+# with a basement sheet for Villa 8. The alts and captions are written from one pattern per level.
+CAP = {   # site plan, basement, ground floor, first floor
+    'es': ('plano de implantación', 'sótano', 'planta baja', 'planta primera'),
+    'fr': ('plan de masse', 'sous-sol', 'rez-de-chaussée', 'premier étage'),
+    'de': ('Lageplan', 'Untergeschoss', 'Erdgeschoss', 'Obergeschoss'),
+    'ru': ('генплан', 'подвальный этаж', 'первый этаж', 'второй этаж'),
+    'ar': ('مخطط الموقع', 'القبو', 'الطابق الأرضي', 'الطابق الأول'),
+    'nl': ('situatietekening', 'kelder', 'begane grond', 'eerste verdieping'),
+    'pl': ('plan zagospodarowania', 'piwnica', 'parter', 'piętro'),
+    'no': ('situasjonsplan', 'kjeller', 'første etasje', 'andre etasje'),
+    'sv': ('situationsplan', 'källare', 'bottenvåning', 'första våningen'),
+}
+VNAME = {'es': 'Villa {}', 'fr': 'Villa {}', 'de': 'Villa {}', 'ru': 'Вилла {}', 'ar': 'الفيلا {}',
+         'nl': 'Villa {}', 'pl': 'Willa {}', 'no': 'Villa {}', 'sv': 'Villa {}'}
+SEP = {l: ('، ' if l == 'ar' else ', ') for l in LOCS}
+for n in range(1, 9):
+    for k, en in enumerate(('site plan', 'basement', 'ground floor', 'first floor')):
+        if en == 'basement' and n != 8:
+            continue
+        T[f'Villa {n}, {en}'] = {l: VNAME[l].format(n) + SEP[l] + CAP[l][k] for l in LOCS}
+
+SITE = ('Plano de implantación de la villa {n}, con la casa, las terrazas, la piscina y el aparcamiento',
+        'Plan de masse de la villa {n}, avec la maison, les terrasses, la piscine et le stationnement',
+        'Lageplan der Villa {n} mit Haus, Terrassen, Pool und Stellplätzen',
+        'Генплан виллы {n}: дом, террасы, бассейн и парковка',
+        'مخطط موقع الفيلا {n}، مع المنزل والتراسات والمسبح وموقف السيارات',
+        'Situatietekening van villa {n}, met het huis, de terrassen, het zwembad en het parkeren',
+        'Plan zagospodarowania willi {n}: dom, tarasy, basen i miejsca postojowe',
+        'Situasjonsplan for villa {n}, med huset, terrassene, bassenget og parkeringen',
+        'Situationsplan för villa {n}, med huset, terrasserna, poolen och parkeringen')
+GROUND = ('Plano de la planta baja de la villa {n}, con el salón, la cocina, la terraza cubierta y la piscina',
+          'Plan du rez-de-chaussée de la villa {n}, avec le séjour, la cuisine, la terrasse couverte et la piscine',
+          'Grundriss des Erdgeschosses der Villa {n} mit Wohnzimmer, Küche, überdachter Terrasse und Pool',
+          'План первого этажа виллы {n}: гостиная, кухня, крытая терраса и бассейн',
+          'مخطط الطابق الأرضي للفيلا {n}، مع غرفة المعيشة والمطبخ والتراس المغطى والمسبح',
+          'Plattegrond van de begane grond van villa {n}, met de woonkamer, de keuken, het overdekte terras en het zwembad',
+          'Rzut parteru willi {n}: salon, kuchnia, zadaszony taras i basen',
+          'Plantegning av første etasje i villa {n}, med stue, kjøkken, overbygd terrasse og basseng',
+          'Planritning över bottenvåningen i villa {n}, med vardagsrum, kök, övertäckt terrass och pool')
+FIRST_ENTRY = ('Plano de la planta primera de la villa {n}, con el acceso, el aparcamiento y tres dormitorios',
+               'Plan du premier étage de la villa {n}, avec l’entrée, le stationnement et trois chambres',
+               'Grundriss des Obergeschosses der Villa {n} mit Eingang, Stellplätzen und drei Schlafzimmern',
+               'План второго этажа виллы {n}: вход, парковка и три спальни',
+               'مخطط الطابق الأول للفيلا {n}، مع المدخل وموقف السيارات وثلاث غرف نوم',
+               'Plattegrond van de eerste verdieping van villa {n}, met de entree, het parkeren en drie slaapkamers',
+               'Rzut piętra willi {n}: wejście, miejsca postojowe i trzy sypialnie',
+               'Plantegning av andre etasje i villa {n}, med inngang, parkering og tre soverom',
+               'Planritning över första våningen i villa {n}, med entré, parkering och tre sovrum')
+FIRST_BEDS = ('Plano de la planta primera de la villa {n}, con tres dormitorios y sus baños',
+              'Plan du premier étage de la villa {n}, avec trois chambres et leurs salles de bains',
+              'Grundriss des Obergeschosses der Villa {n} mit drei Schlafzimmern und ihren Badezimmern',
+              'План второго этажа виллы {n}: три спальни с ванными комнатами',
+              'مخطط الطابق الأول للفيلا {n}، مع ثلاث غرف نوم وحماماتها',
+              'Plattegrond van de eerste verdieping van villa {n}, met drie slaapkamers en hun badkamers',
+              'Rzut piętra willi {n}: trzy sypialnie z łazienkami',
+              'Plantegning av andre etasje i villa {n}, med tre soverom og badene deres',
+              'Planritning över första våningen i villa {n}, med tre sovrum och deras badrum')
+
+
+def plan(en, pattern, n):
+    T[en] = {l: t.format(n=n) for l, t in zip(LOCS, pattern)}
+
+
+for n in range(3, 9):
+    plan(f'Site plan of Villa {n}, with the house, the terraces, the pool and the parking', SITE, n)
+for n in range(3, 8):
+    plan(f'Ground floor plan of Villa {n}, with the living room, kitchen, covered terrace and pool', GROUND, n)
+for n in range(3, 6):
+    plan(f'First floor plan of Villa {n}, with the entrance, parking and three bedrooms', FIRST_ENTRY, n)
+for n in (6, 7):
+    plan(f'First floor plan of Villa {n}, with three bedrooms and their bathrooms', FIRST_BEDS, n)
+
+a(71, 'Ground floor plan of Villa 8',
+  'Plano de la planta baja de la villa 8, con la cocina, el salón, el espacio a doble altura y la piscina',
+  'Plan du rez-de-chaussée de la villa 8, avec la cuisine, le séjour, l’espace en double hauteur et la piscine',
+  'Grundriss des Erdgeschosses der Villa 8 mit Küche, Wohnzimmer, doppelter Raumhöhe und Pool',
+  'План первого этажа виллы 8: кухня, гостиная, пространство двойной высоты и бассейн',
+  'مخطط الطابق الأرضي للفيلا 8، مع المطبخ وغرفة المعيشة والفراغ المزدوج الارتفاع والمسبح',
+  'Plattegrond van de begane grond van villa 8, met de keuken, de woonkamer, de vide en het zwembad',
+  'Rzut parteru willi 8: kuchnia, salon, przestrzeń o podwójnej wysokości i basen',
+  'Plantegning av første etasje i villa 8, med kjøkken, stue, rom med dobbel takhøyde og basseng',
+  'Planritning över bottenvåningen i villa 8, med kök, vardagsrum, rum i dubbel höjd och pool')
+a(73, 'First floor plan of Villa 8',
+  'Plano de la planta primera de la villa 8, con el dormitorio principal y su vestidor, otros dos dormitorios y el aparcamiento',
+  'Plan du premier étage de la villa 8, avec la chambre principale et son dressing, deux autres chambres et le stationnement',
+  'Grundriss des Obergeschosses der Villa 8 mit Hauptschlafzimmer und Ankleide, zwei weiteren Schlafzimmern und Stellplatz',
+  'План второго этажа виллы 8: главная спальня с гардеробной, ещё две спальни и парковка',
+  'مخطط الطابق الأول للفيلا 8، مع غرفة النوم الرئيسية وغرفة ملابسها، وغرفتي نوم أخريين، وموقف السيارات',
+  'Plattegrond van de eerste verdieping van villa 8, met de hoofdslaapkamer en inloopkast, twee andere slaapkamers en het parkeren',
+  'Rzut piętra willi 8: główna sypialnia z garderobą, dwie kolejne sypialnie i miejsce postojowe',
+  'Plantegning av andre etasje i villa 8, med hovedsoverom og garderobe, to soverom til og parkering',
+  'Planritning över första våningen i villa 8, med huvudsovrum och klädkammare, ytterligare två sovrum och parkering')
+a(69, 'Basement plan of Villa 8',
+  'Plano del sótano de la villa 8, con dos salas de usos múltiples, un cuarto de instalaciones y un jardín interior',
+  'Plan du sous-sol de la villa 8, avec deux pièces polyvalentes, un local technique et un jardin intérieur',
+  'Grundriss des Untergeschosses der Villa 8 mit zwei Mehrzweckräumen, einem Technikraum und einem Innengarten',
+  'План подвального этажа виллы 8: два многофункциональных помещения, техническое помещение и внутренний сад',
+  'مخطط قبو الفيلا 8، مع غرفتين متعددتي الاستخدامات وغرفة للتجهيزات الفنية وحديقة داخلية',
+  'Plattegrond van de kelder van villa 8, met twee multifunctionele ruimtes, een technische ruimte en een binnentuin',
+  'Rzut piwnicy willi 8: dwa pomieszczenia wielofunkcyjne, pomieszczenie techniczne i ogród wewnętrzny',
+  'Plantegning av kjelleren i villa 8, med to flerbruksrom, et teknisk rom og en innvendig hage',
+  'Planritning över källaren i villa 8, med två multifunktionsrum, ett teknikrum och en inre trädgård')
+
+# Villa 8's three levels; Arabic joins them with و, the others come from FLOOR_PARTS in assemble.py.
+T['Basement, ground floor & first floor'] = {'ar': 'الطابق السفلي والطابق الأرضي والطابق الأول'}
+
+a(14, 'Computer-generated images from the developer',
+  'Imágenes generadas por ordenador del catálogo del promotor. Ilustran el proyecto y no son las casas terminadas; el mobiliario, la decoración y la vegetación son orientativos y no se incluyen en la venta. El club de golf y Estepona son fotografías. Los planos están recortados de las fichas de planos del promotor para cada villa.',
+  'Images de synthèse issues du catalogue du promoteur. Elles illustrent le projet et ne montrent pas les maisons achevées ; le mobilier, la décoration et les plantations sont indicatifs et ne sont pas inclus dans la vente. Le club-house du golf et Estepona sont des photographies. Les plans sont extraits des fiches de plans du promoteur pour chaque villa.',
+  'Computergenerierte Bilder aus dem Katalog des Bauträgers. Sie veranschaulichen das Projekt und zeigen nicht die fertigen Häuser; Möbel, Dekoration und Bepflanzung sind beispielhaft und nicht im Kaufpreis enthalten. Das Golf-Clubhaus und Estepona sind Fotografien. Die Pläne stammen aus den Planblättern des Bauträgers für jede einzelne Villa.',
+  'Компьютерные визуализации из каталога застройщика. Они иллюстрируют проект и не являются готовыми домами; мебель, декор и озеленение показаны условно и в продажу не входят. Клубный дом гольф-клуба и Эстепона — фотографии. Планировки взяты из листов планов застройщика по каждой вилле.',
+  'صور مُنشأة بالحاسوب من كتالوج المطوّر. وهي توضّح المشروع وليست المنازل المكتملة؛ والأثاث والديكور والنباتات استرشادية ولا تدخل في البيع. أما نادي الغولف وإستيبونا فصور فوتوغرافية. والمخططات مقتطعة من أوراق مخططات المطوّر الخاصة بكل فيلا.',
+  'Computergegenereerde beelden uit de catalogus van de ontwikkelaar. Ze illustreren het project en tonen niet de afgewerkte huizen; meubilair, decoratie en beplanting zijn indicatief en niet inbegrepen bij de verkoop. Het golfclubhuis en Estepona zijn foto’s. De plattegronden komen uit de tekeningbladen van de ontwikkelaar voor elke villa.',
+  'Wizualizacje komputerowe z katalogu dewelopera. Ilustrują projekt i nie przedstawiają gotowych domów; meble, wystrój i zieleń mają charakter poglądowy i nie są objęte sprzedażą. Klub golfowy i Estepona to fotografie. Rzuty pochodzą z arkuszy rysunków dewelopera dla każdej willi.',
+  'Datagenererte bilder fra utbyggerens katalog. De illustrerer prosjektet og viser ikke de ferdige husene; møbler, innredning og beplantning er veiledende og inngår ikke i salget. Golfklubbhuset og Estepona er fotografier. Plantegningene er hentet fra utbyggerens tegningsark for hver villa.',
+  'Datorgenererade bilder ur exploatörens katalog. De illustrerar projektet och visar inte de färdiga husen; möbler, inredning och växtlighet är vägledande och ingår inte i köpet. Golfklubbhuset och Estepona är fotografier. Planritningarna är hämtade ur exploatörens ritningsblad för varje villa.')
+a(80, 'The areas below are the price list',
+  'Las superficies siguientes son las de la lista de precios, redondeadas al metro cuadrado; las estancias siguen las fichas de planos de cada villa, con un plano de implantación y una ficha por planta.',
+  'Les surfaces ci-dessous sont celles de la liste de prix, arrondies au mètre carré ; les pièces suivent les fiches de plans propres à chaque villa, un plan de masse et une fiche par niveau.',
+  'Die folgenden Flächen stammen aus der Preisliste, auf den Quadratmeter gerundet; die Räume folgen den eigenen Planblättern jeder Villa, einem Lageplan und einem Blatt je Geschoss.',
+  'Площади ниже взяты из прайс-листа и округлены до квадратного метра; помещения описаны по собственным листам планов каждой виллы — генплану и листу на каждый этаж.',
+  'المساحات أدناه مأخوذة من قائمة الأسعار ومقرّبة إلى المتر المربع، أما الغرف فتتبع أوراق المخططات الخاصة بكل فيلا: مخطط للموقع وورقة لكل طابق.',
+  'De oppervlakten hieronder komen uit de prijslijst, afgerond op de vierkante meter; de ruimtes volgen de eigen tekeningbladen van elke villa, een situatietekening en één blad per verdieping.',
+  'Poniższe powierzchnie pochodzą z cennika i są zaokrąglone do metra kwadratowego; pomieszczenia opisano według arkuszy rysunków każdej willi: planu zagospodarowania i arkusza dla każdej kondygnacji.',
+  'Arealene nedenfor er prislistens, avrundet til nærmeste kvadratmeter; rommene følger hver villas egne tegningsark, en situasjonsplan og ett ark per etasje.',
+  'Ytorna nedan är prislistans, avrundade till hela kvadratmeter; rummen följer varje villas egna ritningsblad, en situationsplan och ett blad per våning.')
+a(84, 'The price list and the summary on every plan sheet give four bedrooms and four bathrooms;',
+  'La lista de precios y el resumen de cada ficha de planos indican cuatro dormitorios y cuatro baños; los cuadros de superficies de los planos de planta de las villas 1 y 2 enumeran tres dormitorios, un vestidor y tres baños.',
+  'La liste de prix et le récapitulatif de chaque fiche de plans indiquent quatre chambres et quatre salles de bains ; les tableaux de surfaces des plans d’étage des villas 1 et 2 énumèrent trois chambres, un dressing et trois salles de bains.',
+  'Die Preisliste und die Zusammenfassung auf jedem Planblatt nennen vier Schlafzimmer und vier Badezimmer; die Raumtabellen der Grundrisse der Villen 1 und 2 führen drei Schlafzimmer, eine Ankleide und drei Badezimmer auf.',
+  'Прайс-лист и сводка на каждом листе планов указывают четыре спальни и четыре ванные комнаты; экспликации на поэтажных планах вилл 1 и 2 перечисляют три спальни, гардеробную и три ванные комнаты.',
+  'تذكر قائمة الأسعار وملخص كل ورقة مخططات أربع غرف نوم وأربعة حمامات، بينما تسرد جداول الغرف في مخططات طوابق الفيلتين 1 و2 ثلاث غرف نوم وغرفة ملابس وثلاثة حمامات.',
+  'De prijslijst en de samenvatting op elk tekeningblad noemen vier slaapkamers en vier badkamers; de ruimtestaten op de plattegronden van villa 1 en 2 vermelden drie slaapkamers, een inloopkast en drie badkamers.',
+  'Cennik i podsumowanie na każdym arkuszu rysunków podają cztery sypialnie i cztery łazienki; zestawienia pomieszczeń na rzutach willi 1 i 2 wymieniają trzy sypialnie, garderobę i trzy łazienki.',
+  'Prislisten og sammendraget på hvert tegningsark oppgir fire soverom og fire bad; romskjemaene på plantegningene for villa 1 og 2 lister opp tre soverom, en garderobe og tre bad.',
+  'Prislistan och sammanställningen på varje ritningsblad anger fyra sovrum och fyra badrum; rumsförteckningarna på planritningarna för villa 1 och 2 listar tre sovrum, en klädkammare och tre badrum.')
+a(87, 'Villas 3 to 5, on their plan sheets',
+  'Villas 3 a 5, según sus fichas de planos: en la planta baja, el salón, la cocina, un lavadero, almacenaje, un baño, una terraza cubierta y la piscina; en la planta primera, el acceso, aparcamiento para dos coches, tres dormitorios con baño propio y una terraza bajo pérgola. Los planos de la villa 5 dibujan además un ascensor.',
+  'Villas 3 à 5, selon leurs fiches de plans : au rez-de-chaussée, le séjour, la cuisine, une buanderie, des rangements, une salle de bains, une terrasse couverte et la piscine ; au premier étage, l’entrée, le stationnement pour deux voitures, trois chambres avec chacune sa salle de bains et une terrasse sous pergola. Les plans de la villa 5 dessinent aussi un ascenseur.',
+  'Villen 3 bis 5, laut ihren Planblättern: im Erdgeschoss Wohnzimmer, Küche, Hauswirtschaftsraum, Abstellflächen, ein Badezimmer, eine überdachte Terrasse und der Pool; im Obergeschoss der Eingang, Stellplätze für zwei Autos, drei Schlafzimmer mit eigenem Bad und eine Terrasse unter einer Pergola. Die Pläne der Villa 5 zeichnen zudem einen Aufzug.',
+  'Виллы 3–5, по их листам планов: на первом этаже гостиная, кухня, постирочная, кладовые, ванная комната, крытая терраса и бассейн; на втором этаже вход, парковка на две машины, три спальни с собственными ванными комнатами и терраса под перголой. На планах виллы 5 также показан лифт.',
+  'الفلل من 3 إلى 5، وفق أوراق مخططاتها: في الطابق الأرضي غرفة المعيشة والمطبخ وغرفة غسيل ومساحات تخزين وحمّام وتراس مغطى والمسبح؛ وفي الطابق الأول المدخل وموقف لسيارتين وثلاث غرف نوم لكل منها حمّامها وتراس تحت برغولا. وتُظهر مخططات الفيلا 5 مصعداً أيضاً.',
+  'Villa 3 tot 5, volgens hun tekeningbladen: op de begane grond de woonkamer, de keuken, een wasruimte, bergruimte, een badkamer, een overdekt terras en het zwembad; op de eerste verdieping de entree, parkeerplaats voor twee auto’s, drie slaapkamers met eigen badkamer en een terras onder een pergola. De plattegronden van villa 5 tekenen ook een lift.',
+  'Wille 3–5, według ich arkuszy rysunków: na parterze salon, kuchnia, pralnia, schowki, łazienka, zadaszony taras i basen; na piętrze wejście, miejsca postojowe na dwa samochody, trzy sypialnie z własnymi łazienkami i taras pod pergolą. Rzuty willi 5 pokazują także windę.',
+  'Villa 3 til 5, ifølge tegningsarkene: i første etasje stue, kjøkken, vaskerom, bod, et bad, en overbygd terrasse og bassenget; i andre etasje inngangen, parkering for to biler, tre soverom med eget bad og en terrasse under pergola. Tegningene for villa 5 viser også en heis.',
+  'Villa 3 till 5, enligt sina ritningsblad: på bottenvåningen vardagsrum, kök, tvättstuga, förråd, ett badrum, en övertäckt terrass och poolen; på första våningen entrén, parkering för två bilar, tre sovrum med eget badrum och en terrass under pergola. Ritningarna för villa 5 visar även en hiss.')
+a(88, 'Villas 6 and 7 are entered at ground level',
+  'A las villas 6 y 7 se entra a nivel de planta baja, junto al aparcamiento, con el salón, la cocina, un lavadero, almacenaje, un aseo, la piscina y un acceso al sótano, aunque sus fichas no incluyen plano de sótano; los tres dormitorios, cada uno con su baño, están en la planta primera.',
+  'On entre dans les villas 6 et 7 de plain-pied à côté du stationnement, avec le séjour, la cuisine, une buanderie, des rangements, un WC invités, la piscine et un accès au sous-sol, bien que leurs fiches ne comportent aucun plan de sous-sol ; les trois chambres, chacune avec sa salle de bains, sont au premier étage.',
+  'Die Villen 6 und 7 betritt man ebenerdig neben den Stellplätzen, mit Wohnzimmer, Küche, Hauswirtschaftsraum, Abstellflächen, Gäste-WC, Pool und einem Zugang zum Untergeschoss, obwohl ihre Planblätter keinen Untergeschossplan enthalten; die drei Schlafzimmer mit jeweils eigenem Bad liegen im Obergeschoss.',
+  'В виллы 6 и 7 входят на уровне первого этажа рядом с парковкой; здесь гостиная, кухня, постирочная, кладовые, гостевой санузел, бассейн и спуск в подвал, хотя плана подвального этажа в их листах нет; три спальни, каждая со своей ванной комнатой, находятся на втором этаже.',
+  'يُدخل إلى الفيلتين 6 و7 من مستوى الطابق الأرضي بجوار موقف السيارات، حيث غرفة المعيشة والمطبخ وغرفة الغسيل ومساحات التخزين ودورة مياه للضيوف والمسبح ومدخل إلى القبو، رغم أن أوراقهما لا تتضمن مخططاً للقبو؛ أما غرف النوم الثلاث، ولكل منها حمّامها، ففي الطابق الأول.',
+  'Villa 6 en 7 betreed je gelijkvloers naast het parkeren, met de woonkamer, de keuken, een wasruimte, bergruimte, een gastentoilet, het zwembad en een toegang naar de kelder, al bevatten hun tekeningbladen geen kelderplan; de drie slaapkamers, elk met eigen badkamer, liggen op de eerste verdieping.',
+  'Do willi 6 i 7 wchodzi się na poziomie parteru obok miejsc postojowych; są tam salon, kuchnia, pralnia, schowki, toaleta dla gości, basen i zejście do piwnicy, choć ich arkusze nie zawierają rzutu piwnicy; trzy sypialnie, każda z własną łazienką, znajdują się na piętrze.',
+  'Villa 6 og 7 har inngang på bakkenivå ved parkeringen, med stue, kjøkken, vaskerom, bod, gjestetoalett, basseng og en nedgang til kjeller, selv om tegningsarkene ikke har noen kjellerplan; de tre soverommene, hvert med eget bad, ligger i andre etasje.',
+  'Villa 6 och 7 har entré i markplan intill parkeringen, med vardagsrum, kök, tvättstuga, förråd, gästtoalett, pool och en nedgång till källare, även om ritningsbladen saknar källarplan; de tre sovrummen, vart och ett med eget badrum, ligger på första våningen.')
+a(90, 'Ground floor: the kitchen with a pantry',
+  'Planta baja: la cocina con despensa, un salón de {N47.43} {U} y un espacio a doble altura, con un baño, un lavadero y almacén, abiertos a una terraza cubierta, una terraza bajo pérgola y una piscina de {N31.74} {U}.',
+  'Rez-de-chaussée : la cuisine avec cellier, un séjour de {N47.43} {U} et un espace en double hauteur, avec une salle de bains, une buanderie et un rangement, ouverts sur une terrasse couverte, une terrasse sous pergola et une piscine de {N31.74} {U}.',
+  'Erdgeschoss: die Küche mit Speisekammer, ein Wohnzimmer von {N47.43} {U} und ein Raum mit doppelter Höhe, dazu ein Badezimmer, ein Hauswirtschaftsraum und ein Abstellraum, offen zu einer überdachten Terrasse, einer Terrasse unter einer Pergola und einem Pool von {N31.74} {U}.',
+  'Первый этаж: кухня с кладовой, гостиная {N47.43} {U} и пространство двойной высоты, а также ванная комната, постирочная и кладовая, с выходом на крытую террасу, террасу под перголой и к бассейну {N31.74} {U}.',
+  'الطابق الأرضي: المطبخ مع مخزن للمؤن، وغرفة معيشة بمساحة {N47.43} {U}، وفراغ مزدوج الارتفاع، مع حمّام وغرفة غسيل ومخزن، تنفتح على تراس مغطى وتراس تحت برغولا ومسبح بمساحة {N31.74} {U}.',
+  'Begane grond: de keuken met voorraadkamer, een woonkamer van {N47.43} {U} en een vide, met een badkamer, een wasruimte en een berging, uitkomend op een overdekt terras, een terras onder een pergola en een zwembad van {N31.74} {U}.',
+  'Parter: kuchnia ze spiżarnią, salon o powierzchni {N47.43} {U} i przestrzeń o podwójnej wysokości, a także łazienka, pralnia i schowek, z wyjściem na zadaszony taras, taras pod pergolą i basen o powierzchni {N31.74} {U}.',
+  'Første etasje: kjøkkenet med spiskammer, en stue på {N47.43} {U} og et rom med dobbel takhøyde, med bad, vaskerom og bod, som åpner seg mot en overbygd terrasse, en terrasse under pergola og et basseng på {N31.74} {U}.',
+  'Bottenvåning: köket med skafferi, ett vardagsrum på {N47.43} {U} och ett rum i dubbel höjd, med badrum, tvättstuga och förråd, som öppnar sig mot en övertäckt terrass, en terrass under pergola och en pool på {N31.74} {U}.')
+a(91, 'First floor, at street level: the entrance and parking',
+  'Planta primera, a nivel de calle: el acceso y el aparcamiento, un dormitorio principal con vestidor de {N12.89} {U}, otros dos dormitorios de 18 {U} cada uno y tres baños.',
+  'Premier étage, au niveau de la rue : l’entrée et le stationnement, une chambre principale avec un dressing de {N12.89} {U}, deux autres chambres de 18 {U} chacune et trois salles de bains.',
+  'Obergeschoss, auf Straßenniveau: Eingang und Stellplatz, ein Hauptschlafzimmer mit einer Ankleide von {N12.89} {U}, zwei weitere Schlafzimmer von je 18 {U} und drei Badezimmer.',
+  'Второй этаж, на уровне улицы: вход и парковка, главная спальня с гардеробной {N12.89} {U}, ещё две спальни по 18 {U} и три ванные комнаты.',
+  'الطابق الأول، على مستوى الشارع: المدخل وموقف السيارات، وغرفة نوم رئيسية مع غرفة ملابس بمساحة {N12.89} {U}، وغرفتا نوم أخريان مساحة كل منهما 18 {U}، وثلاثة حمامات.',
+  'Eerste verdieping, op straatniveau: de entree en het parkeren, een hoofdslaapkamer met een inloopkast van {N12.89} {U}, twee andere slaapkamers van elk 18 {U} en drie badkamers.',
+  'Piętro, na poziomie ulicy: wejście i miejsce postojowe, główna sypialnia z garderobą o powierzchni {N12.89} {U}, dwie kolejne sypialnie po 18 {U} i trzy łazienki.',
+  'Andre etasje, på gatenivå: inngangen og parkeringen, et hovedsoverom med en garderobe på {N12.89} {U}, to soverom til på 18 {U} hver og tre bad.',
+  'Första våningen, i gatuplan: entrén och parkeringen, ett huvudsovrum med en klädkammare på {N12.89} {U}, ytterligare två sovrum på 18 {U} vardera och tre badrum.')
+a(92, 'Basement, drawn on its own sheet',
+  'Sótano, dibujado en su propia ficha: dos salas de usos múltiples de {N76.46} y {N44.83} {U}, un cuarto de instalaciones y un jardín interior, con {N170.02} {U} construidos. La memoria de calidades incluye el sótano entre las opciones de pago, así que confirmamos por escrito qué incluye el precio.',
+  'Sous-sol, dessiné sur sa propre fiche : deux pièces polyvalentes de {N76.46} et {N44.83} {U}, un local technique et un jardin intérieur, pour {N170.02} {U} construits. Le descriptif range le sous-sol parmi les options payantes, nous confirmons donc par écrit ce que comprend le prix.',
+  'Untergeschoss, auf einem eigenen Blatt gezeichnet: zwei Mehrzweckräume von {N76.46} und {N44.83} {U}, ein Technikraum und ein Innengarten, {N170.02} {U} bebaut. Die Baubeschreibung führt ein Untergeschoss unter den kostenpflichtigen Optionen, daher bestätigen wir schriftlich, was der Preis enthält.',
+  'Подвальный этаж, показанный на отдельном листе: два многофункциональных помещения {N76.46} и {N44.83} {U}, техническое помещение и внутренний сад, {N170.02} {U} застройки. Спецификация относит подвал к платным опциям, поэтому мы письменно подтверждаем, что входит в цену.',
+  'القبو، مرسوم على ورقة خاصة به: غرفتان متعددتا الاستخدامات بمساحة {N76.46} و{N44.83} {U}، وغرفة للتجهيزات الفنية، وحديقة داخلية، بمساحة مبنية {N170.02} {U}. وتدرج المواصفات القبو ضمن الخيارات المدفوعة، لذا نؤكد كتابياً ما يشمله السعر.',
+  'Kelder, getekend op een eigen blad: twee multifunctionele ruimtes van {N76.46} en {N44.83} {U}, een technische ruimte en een binnentuin, {N170.02} {U} bebouwd. De technische omschrijving noemt een kelder bij de betaalde opties, dus we bevestigen schriftelijk wat de prijs omvat.',
+  'Piwnica, pokazana na osobnym arkuszu: dwa pomieszczenia wielofunkcyjne o powierzchni {N76.46} i {N44.83} {U}, pomieszczenie techniczne i ogród wewnętrzny, {N170.02} {U} zabudowy. Specyfikacja wymienia piwnicę wśród płatnych opcji, dlatego potwierdzamy na piśmie, co obejmuje cena.',
+  'Kjeller, tegnet på eget ark: to flerbruksrom på {N76.46} og {N44.83} {U}, et teknisk rom og en innvendig hage, {N170.02} {U} bebygd. Beskrivelsen fører en kjeller blant tilleggsvalgene mot betaling, så vi bekrefter skriftlig hva prisen omfatter.',
+  'Källare, ritad på ett eget blad: två multifunktionsrum på {N76.46} och {N44.83} {U}, ett teknikrum och en inre trädgård, {N170.02} {U} byggyta. Byggbeskrivningen tar upp en källare bland tillvalen mot betalning, så vi bekräftar skriftligt vad priset omfattar.')
+a(96, 'Availability and prices as listed in the developer',
+  'Disponibilidad y precios según la lista de precios del promotor de octubre de 2026, que se reconfirman antes de la reserva. La lista indica que describe la promoción y no la disponibilidad actual, y no dice si incluye el IVA: en una villa de obra nueva en España el IVA del {P10} se suma al precio de compra, así que confirmamos por escrito cuál se aplica. Las superficies son las de la lista, redondeadas al metro cuadrado. Su superficie construida total es mayor que la suma del interior y las terrazas, y la lista no explica a qué corresponde la diferencia. Dormitorios y baños: la lista de precios y el resumen de la ficha de planos de cada villa indican cuatro de cada, pero todos los cuadros de superficies enumeran tres dormitorios. Las villas 3 a 8 incluyen tres baños de dormitorio y un cuarto baño o aseo; las villas 1 y 2, tres baños y un vestidor. Las fichas de planos dan las superficies al centímetro: de {N121.83} a {N432.79} {U} construidos interiores, de {N99.08} a {N373.20} {U} útiles, parcelas de {N400.00} a {G1001},88 {U} y piscinas de {N16.74} a {N31.74} {U}. En las villas 3 a 6 las cifras de las fichas quedan hasta aproximadamente 1 {U} por debajo de las de la lista: la parcela de la villa 6, por ejemplo, mide {N532.06} {U} en su ficha y 533 {U} en la lista.',
+  'Disponibilité et prix selon la liste de prix du promoteur d’octobre 2026, reconfirmés avant la réservation. La liste précise qu’elle décrit le programme et n’indique pas la disponibilité actuelle, et elle ne dit pas si la TVA est comprise : sur une villa neuve en Espagne, la TVA de {P10} s’ajoute au prix d’achat, nous confirmons donc par écrit ce qui s’applique. Les surfaces sont celles de la liste, arrondies au mètre carré. Sa surface construite totale dépasse l’intérieur et les terrasses réunis, et la liste ne précise pas à quoi correspond la différence. Chambres et salles de bains : la liste de prix et le récapitulatif de la fiche de plans de chaque villa en indiquent quatre de chaque, mais tous les tableaux de surfaces énumèrent trois chambres. Les villas 3 à 8 comptent trois salles de bains attenantes aux chambres et une quatrième salle de bains ou un WC invités ; les villas 1 et 2, trois salles de bains et un dressing. Les fiches de plans donnent les surfaces au centimètre près : de {N121.83} à {N432.79} {U} construits intérieurs, de {N99.08} à {N373.20} {U} utiles, des parcelles de {N400.00} à {G1001},88 {U} et des piscines de {N16.74} à {N31.74} {U}. Pour les villas 3 à 6, les chiffres des fiches sont jusqu’à environ 1 {U} inférieurs à ceux de la liste : la parcelle de la villa 6, par exemple, mesure {N532.06} {U} sur sa fiche et 533 {U} sur la liste.',
+  'Verfügbarkeit und Preise laut der Preisliste des Bauträgers vom Oktober 2026, vor der Reservierung erneut bestätigt. Die Liste gibt an, dass sie das Projekt beschreibt und nicht die aktuelle Verfügbarkeit, und sie sagt nicht, ob die MwSt. enthalten ist: Bei einer neu gebauten Villa in Spanien kommen {P10} MwSt. auf den Kaufpreis, daher bestätigen wir schriftlich, was gilt. Die Flächen sind die der Liste, auf den Quadratmeter gerundet. Ihre gesamte bebaute Fläche ist größer als Innenfläche und Terrassen zusammen, und die Liste sagt nicht, was die Differenz umfasst. Schlafzimmer und Badezimmer: Die Preisliste und die Zusammenfassung auf dem Planblatt jeder Villa nennen je vier, aber jede Raumtabelle führt drei Schlafzimmer auf. Die Villen 3 bis 8 haben drei Bäder zu den Schlafzimmern und ein viertes Bad oder Gäste-WC; die Villen 1 und 2 drei Badezimmer und eine Ankleide. Die Planblätter geben die Flächen auf den Zentimeter genau an: {N121.83} bis {N432.79} {U} bebaute Innenfläche, {N99.08} bis {N373.20} {U} Nutzfläche, Grundstücke von {N400.00} bis {G1001},88 {U} und Pools von {N16.74} bis {N31.74} {U}. Bei den Villen 3 bis 6 liegen die Werte der Planblätter bis zu etwa 1 {U} unter denen der Liste: Das Grundstück der Villa 6 etwa misst auf seinem Blatt {N532.06} {U} und in der Liste 533 {U}.',
+  'Наличие и цены по прайс-листу застройщика за октябрь 2026 года, повторно подтверждаются перед бронированием. В прайс-листе сказано, что он описывает проект и не отражает текущее наличие, и не указано, включён ли НДС: при покупке новой виллы в Испании НДС {P10} добавляется к цене, поэтому мы письменно подтверждаем, что применяется. Площади взяты из прайс-листа и округлены до квадратного метра. Общая площадь застройки в нём больше суммы внутренней площади и террас, и прайс-лист не объясняет, что составляет разницу. Спальни и ванные комнаты: прайс-лист и сводка на листе планов каждой виллы указывают по четыре, но во всех экспликациях перечислены три спальни. У вилл 3–8 три ванные комнаты при спальнях и четвёртая ванная или гостевой санузел; у вилл 1 и 2 — три ванные комнаты и гардеробная. Листы планов дают площади с точностью до сантиметра: от {N121.83} до {N432.79} {U} внутренней площади застройки, от {N99.08} до {N373.20} {U} полезной площади, участки от {N400.00} до {G1001},88 {U} и бассейны от {N16.74} до {N31.74} {U}. У вилл 3–6 цифры листов примерно на 1 {U} меньше, чем в прайс-листе: например, участок виллы 6 на её листе составляет {N532.06} {U}, а в прайс-листе — 533 {U}.',
+  'التوفر والأسعار وفق قائمة أسعار المطوّر لشهر أكتوبر 2026، ويُعاد تأكيدها قبل الحجز. وتذكر القائمة أنها تصف المشروع ولا تبيّن التوفر الحالي، ولا توضح ما إذا كانت ضريبة القيمة المضافة مشمولة: ففي الفيلا الجديدة في إسبانيا تُضاف ضريبة القيمة المضافة بنسبة {P10} إلى سعر الشراء، لذا نؤكد كتابياً ما ينطبق. المساحات هي مساحات القائمة مقرّبة إلى المتر المربع. ومساحتها المبنية الإجمالية أكبر من مجموع المساحة الداخلية والتراسات، ولا توضح القائمة ما يغطيه الفرق. غرف النوم والحمامات: تذكر قائمة الأسعار وملخص ورقة مخططات كل فيلا أربعاً من كل منهما، لكن جميع جداول الغرف تسرد ثلاث غرف نوم. وفي الفلل من 3 إلى 8 ثلاثة حمامات لغرف النوم وحمّام رابع أو دورة مياه للضيوف، وفي الفيلتين 1 و2 ثلاثة حمامات وغرفة ملابس. وتعطي أوراق المخططات المساحات بدقة السنتيمتر: من {N121.83} إلى {N432.79} {U} مساحة داخلية مبنية، ومن {N99.08} إلى {N373.20} {U} مساحة صافية، وقطع أرض من {N400.00} إلى {G1001}.88 {U}، ومسابح من {N16.74} إلى {N31.74} {U}. وفي الفلل من 3 إلى 6 تقل أرقام الأوراق بما يصل إلى نحو 1 {U} عن أرقام القائمة: فقطعة أرض الفيلا 6 مثلاً {N532.06} {U} في ورقتها و533 {U} في القائمة.',
+  'Beschikbaarheid en prijzen volgens de prijslijst van de ontwikkelaar van oktober 2026, opnieuw bevestigd vóór reservering. De lijst vermeldt dat zij het project beschrijft en niet de actuele beschikbaarheid, en zegt niet of de btw is inbegrepen: bij een nieuwbouwvilla in Spanje komt {P10} btw bovenop de koopprijs, dus we bevestigen schriftelijk wat van toepassing is. De oppervlakten zijn die van de lijst, afgerond op de vierkante meter. Het totale bebouwde oppervlak is groter dan binnenoppervlak en terrassen samen, en de lijst zegt niet wat het verschil omvat. Slaapkamers en badkamers: de prijslijst en de samenvatting op het tekeningblad van elke villa noemen er elk vier, maar elke ruimtestaat vermeldt drie slaapkamers. Villa 3 tot 8 hebben drie badkamers bij de slaapkamers en een vierde badkamer of gastentoilet; villa 1 en 2 drie badkamers en een inloopkast. De tekeningbladen geven de oppervlakten tot op de centimeter: {N121.83} tot {N432.79} {U} bebouwd binnenoppervlak, {N99.08} tot {N373.20} {U} gebruiksoppervlak, percelen van {N400.00} tot {G1001},88 {U} en zwembaden van {N16.74} tot {N31.74} {U}. Bij villa 3 tot 6 liggen de cijfers van de bladen tot ongeveer 1 {U} onder die van de lijst: het perceel van villa 6 meet bijvoorbeeld {N532.06} {U} op zijn blad en 533 {U} op de lijst.',
+  'Dostępność i ceny według cennika dewelopera z października 2026 roku, ponownie potwierdzane przed rezerwacją. Cennik zaznacza, że opisuje inwestycję i nie wskazuje aktualnej dostępności, i nie podaje, czy cena obejmuje VAT: przy nowo wybudowanej willi w Hiszpanii do ceny zakupu dolicza się {P10} VAT, dlatego potwierdzamy na piśmie, co obowiązuje. Powierzchnie pochodzą z cennika i są zaokrąglone do metra kwadratowego. Podana w nim całkowita powierzchnia zabudowy jest większa niż suma powierzchni wewnętrznej i tarasów, a cennik nie wyjaśnia, co obejmuje różnica. Sypialnie i łazienki: cennik i podsumowanie na arkuszu rysunków każdej willi podają po cztery, ale każde zestawienie pomieszczeń wymienia trzy sypialnie. Wille 3–8 mają trzy łazienki przy sypialniach i czwartą łazienkę lub toaletę dla gości; wille 1 i 2 trzy łazienki i garderobę. Arkusze rysunków podają powierzchnie z dokładnością do centymetra: od {N121.83} do {N432.79} {U} wewnętrznej powierzchni zabudowy, od {N99.08} do {N373.20} {U} powierzchni użytkowej, działki od {N400.00} do {G1001},88 {U} i baseny od {N16.74} do {N31.74} {U}. W willach 3–6 wartości z arkuszy są do około 1 {U} niższe niż w cenniku: działka willi 6 ma na przykład na swoim arkuszu {N532.06} {U}, a w cenniku 533 {U}.',
+  'Tilgjengelighet og priser ifølge utbyggerens prisliste fra oktober 2026, bekreftet på nytt før reservasjon. Listen opplyser at den beskriver prosjektet og ikke viser dagens tilgjengelighet, og den sier ikke om mva er inkludert: på en nybygd villa i Spania kommer {P10} mva i tillegg til kjøpesummen, så vi bekrefter skriftlig hva som gjelder. Arealene er listens, avrundet til nærmeste kvadratmeter. Det totale bebygde arealet er større enn innvendig areal og terrasser til sammen, og listen sier ikke hva differansen omfatter. Soverom og bad: prislisten og sammendraget på tegningsarket for hver villa oppgir fire av hver, men alle romskjemaene lister opp tre soverom. Villa 3 til 8 har tre bad til soverommene og et fjerde bad eller gjestetoalett; villa 1 og 2 har tre bad og en garderobe. Tegningsarkene gir arealene på centimeteren: {N121.83} til {N432.79} {U} innvendig bebygd, {N99.08} til {N373.20} {U} bruksareal, tomter på {N400.00} til {G1001},88 {U} og basseng på {N16.74} til {N31.74} {U}. For villa 3 til 6 ligger tallene på arkene opptil rundt 1 {U} under listens: tomten til villa 6 er for eksempel {N532.06} {U} på arket og 533 {U} i listen.',
+  'Tillgänglighet och priser enligt exploatörens prislista från oktober 2026, bekräftade på nytt före bokning. Listan anger att den beskriver projektet och inte visar aktuell tillgänglighet, och den säger inte om IVA (spansk moms) ingår: på en nybyggd villa i Spanien läggs IVA om {P10} på köpeskillingen, så vi bekräftar skriftligt vad som gäller. Ytorna är listans, avrundade till hela kvadratmeter. Den totala byggytan är större än inneryta och terrasser tillsammans, och listan anger inte vad skillnaden omfattar. Sovrum och badrum: prislistan och sammanställningen på ritningsbladet för varje villa anger fyra av vardera, men alla rumsförteckningar listar tre sovrum. Villa 3 till 8 har tre badrum till sovrummen och ett fjärde badrum eller en gästtoalett; villa 1 och 2 har tre badrum och en klädkammare. Ritningsbladen anger ytorna på centimetern: {N121.83} till {N432.79} {U} invändig byggyta, {N99.08} till {N373.20} {U} boarea, tomter om {N400.00} till {G1001},88 {U} och pooler på {N16.74} till {N31.74} {U}. För villa 3 till 6 ligger bladens siffror upp till cirka 1 {U} under listans: tomten för villa 6 är till exempel {N532.06} {U} på sitt blad och 533 {U} i listan.')
+a(115, 'The licence is not yet granted',
+  'La licencia aún no está concedida, la constructora no está elegida y los documentos no coinciden en el número de dormitorios. Resolvemos cada punto por escrito.',
+  'Le permis n’est pas encore délivré, l’entreprise générale n’est pas choisie et les documents divergent sur le nombre de chambres. Nous réglons chaque point par écrit.',
+  'Die Genehmigung ist noch nicht erteilt, das Bauunternehmen nicht ausgewählt, und die Unterlagen weichen bei der Zahl der Schlafzimmer voneinander ab. Wir klären jeden Punkt schriftlich.',
+  'Разрешение ещё не выдано, подрядчик не выбран, а документы расходятся в числе спален. Мы проясняем каждый пункт письменно.',
+  'لم تُمنح الرخصة بعد، ولم يُختر المقاول، وتختلف الوثائق في عدد غرف النوم. نحسم كل نقطة كتابياً.',
+  'De vergunning is nog niet verleend, de aannemer is niet gekozen en de documenten verschillen over het aantal slaapkamers. We leggen elk punt schriftelijk vast.',
+  'Pozwolenie nie zostało jeszcze wydane, wykonawca nie jest wybrany, a dokumenty różnią się co do liczby sypialni. Każdą kwestię ustalamy na piśmie.',
+  'Tillatelsen er ennå ikke gitt, entreprenøren er ikke valgt, og dokumentene er uenige om antall soverom. Vi avklarer hvert punkt skriftlig.',
+  'Bygglovet är ännu inte beviljat, entreprenören är inte vald och handlingarna är oeniga om antalet sovrum. Vi reder ut varje punkt skriftligt.')
+a(123, 'Four bedrooms on the price list and the plan summaries',
+  'Cuatro dormitorios en la lista de precios y en los resúmenes de los planos, tres en el cuadro de superficies de cada villa. Contrastamos la distribución de la villa que elija con los planos del contrato.',
+  'Quatre chambres sur la liste de prix et les récapitulatifs des plans, trois dans le tableau de surfaces de chaque villa. Nous vérifions l’agencement de la villa que vous choisissez au regard des plans contractuels.',
+  'Vier Schlafzimmer auf der Preisliste und in den Zusammenfassungen der Pläne, drei in der Raumtabelle jeder Villa. Wir gleichen die Aufteilung der von Ihnen gewählten Villa mit den Vertragsplänen ab.',
+  'Четыре спальни в прайс-листе и сводках планов, три в экспликации каждой виллы. Мы сверяем планировку выбранной вами виллы с планами, приложенными к договору.',
+  'أربع غرف نوم في قائمة الأسعار وملخصات المخططات، وثلاث في جدول الغرف لكل فيلا. نطابق توزيع الفيلا التي تختارونها مع مخططات العقد.',
+  'Vier slaapkamers op de prijslijst en in de samenvattingen van de plannen, drie in de ruimtestaat van elke villa. Wij toetsen de indeling van de villa die u kiest aan de contracttekeningen.',
+  'Cztery sypialnie w cenniku i podsumowaniach rzutów, trzy w zestawieniu pomieszczeń każdej willi. Sprawdzamy układ wybranej przez Państwa willi z rysunkami stanowiącymi część umowy.',
+  'Fire soverom på prislisten og i sammendragene på tegningene, tre i romskjemaet for hver villa. Vi kontrollerer planløsningen i villaen du velger mot kontraktstegningene.',
+  'Fyra sovrum på prislistan och i ritningarnas sammanställningar, tre i varje villas rumsförteckning. Vi stämmer av planlösningen i den villa ni väljer mot kontraktsritningarna.')
+a(153, 'The price list and the summary on every plan sheet give four bedrooms and four bathrooms, but',
+  'La lista de precios y el resumen de cada ficha de planos indican cuatro dormitorios y cuatro baños, pero los cuadros de superficies de los planos de cada villa enumeran tres dormitorios. Las villas 3 a 8 tienen tres baños de dormitorio y un cuarto baño o aseo; las villas 1 y 2, tres baños y un vestidor, y la villa 8 añade un sótano con dos salas de usos múltiples. Contrastamos la distribución de cada villa con los planos del contrato.',
+  'La liste de prix et le récapitulatif de chaque fiche de plans indiquent quatre chambres et quatre salles de bains, mais les tableaux de surfaces des plans de chaque villa énumèrent trois chambres. Les villas 3 à 8 ont trois salles de bains attenantes aux chambres et une quatrième salle de bains ou un WC invités ; les villas 1 et 2, trois salles de bains et un dressing, et la villa 8 ajoute un sous-sol avec deux pièces polyvalentes. Nous vérifions l’agencement de chaque villa au regard des plans contractuels.',
+  'Die Preisliste und die Zusammenfassung auf jedem Planblatt nennen vier Schlafzimmer und vier Badezimmer, aber die Raumtabellen in den Grundrissen jeder Villa führen drei Schlafzimmer auf. Die Villen 3 bis 8 haben drei Bäder zu den Schlafzimmern und ein viertes Bad oder Gäste-WC; die Villen 1 und 2 drei Badezimmer und eine Ankleide, und Villa 8 hat zusätzlich ein Untergeschoss mit zwei Mehrzweckräumen. Wir gleichen die Aufteilung jeder Villa mit den Vertragsplänen ab.',
+  'Прайс-лист и сводка на каждом листе планов указывают четыре спальни и четыре ванные комнаты, но экспликации на планах каждой виллы перечисляют три спальни. У вилл 3–8 три ванные комнаты при спальнях и четвёртая ванная или гостевой санузел; у вилл 1 и 2 — три ванные комнаты и гардеробная, а у виллы 8 есть ещё подвальный этаж с двумя многофункциональными помещениями. Мы сверяем планировку каждой виллы с планами, приложенными к договору.',
+  'تذكر قائمة الأسعار وملخص كل ورقة مخططات أربع غرف نوم وأربعة حمامات، لكن جداول الغرف في مخططات كل فيلا تسرد ثلاث غرف نوم. في الفلل من 3 إلى 8 ثلاثة حمامات لغرف النوم وحمّام رابع أو دورة مياه للضيوف، وفي الفيلتين 1 و2 ثلاثة حمامات وغرفة ملابس، وتضيف الفيلا 8 قبواً بغرفتين متعددتي الاستخدامات. نطابق توزيع كل فيلا مع مخططات العقد.',
+  'De prijslijst en de samenvatting op elk tekeningblad noemen vier slaapkamers en vier badkamers, maar de ruimtestaten op de plattegronden van elke villa vermelden drie slaapkamers. Villa 3 tot 8 hebben drie badkamers bij de slaapkamers en een vierde badkamer of gastentoilet; villa 1 en 2 drie badkamers en een inloopkast, en villa 8 heeft daarnaast een kelder met twee multifunctionele ruimtes. Wij toetsen de indeling van elke villa aan de contracttekeningen.',
+  'Cennik i podsumowanie na każdym arkuszu rysunków podają cztery sypialnie i cztery łazienki, ale zestawienia pomieszczeń na rzutach każdej willi wymieniają trzy sypialnie. Wille 3–8 mają trzy łazienki przy sypialniach i czwartą łazienkę lub toaletę dla gości; wille 1 i 2 trzy łazienki i garderobę, a willa 8 ma dodatkowo piwnicę z dwiema salami wielofunkcyjnymi. Sprawdzamy układ każdej willi z rysunkami stanowiącymi część umowy.',
+  'Prislisten og sammendraget på hvert tegningsark oppgir fire soverom og fire bad, men romskjemaene på plantegningene for hver villa lister opp tre soverom. Villa 3 til 8 har tre bad til soverommene og et fjerde bad eller gjestetoalett; villa 1 og 2 har tre bad og en garderobe, og villa 8 har i tillegg en kjeller med to flerbruksrom. Vi kontrollerer planløsningen i hver villa mot kontraktstegningene.',
+  'Prislistan och sammanställningen på varje ritningsblad anger fyra sovrum och fyra badrum, men rumsförteckningarna på planritningarna för varje villa listar tre sovrum. Villa 3 till 8 har tre badrum till sovrummen och ett fjärde badrum eller en gästtoalett; villa 1 och 2 har tre badrum och en klädkammare, och villa 8 har dessutom en källare med två multifunktionsrum. Vi stämmer av planlösningen i varje villa mot kontraktsritningarna.')
+
 # The translation memory spells this one "Pooltrassen" in Swedish; it is "Poolterrassen".
 override('The pool terrace',
   'La terraza de la piscina', 'La terrasse de la piscine', 'Die Poolterrasse', 'Терраса у бассейна', 'تراس المسبح',
@@ -1169,7 +1224,7 @@ T['Ground floor & first floor'] = {'ar': 'الطابق الأرضي والطاب
 
 # The floor label "Ground floor & first floor" is a plain FLOOR_PARTS phrase that assemble.py writes
 # itself; availability.phase is empty and passes through.
-LEFT = {'Ground floor & first floor', ''}
+LEFT = {'Ground floor & first floor', 'Basement, ground floor & first floor', ''}
 missing = [(i, s) for i, s in enumerate(todo) if s not in T and s not in LEFT]
 assert not missing, missing
 json.dump(T, open(f'{SP}/tr_a.json', 'w'), ensure_ascii=False, indent=1)
