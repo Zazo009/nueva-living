@@ -2355,6 +2355,19 @@ const legacyRedirects = [
   '/assets/liora/projects/paraiso-spa-residences/* /assets/liora/projects/naya-residences/:splat 301',
   '/assets/liora/projects/brezo-residences/* /assets/liora/projects/vitta-marina/:splat 301',
   '/assets/liora/projects/los-olivos-residences/* /assets/liora/projects/aloha-forest/:splat 301',
+  // Higueron Garden Villas renamed Higueron Garden Townhouses: the houses are townhouses, not villas.
+  // All ten language copies and the image folder redirect, as in the pilot above; the old pages are deleted.
+  '/property-higueron-garden-villas.html /property-higueron-garden-townhouses.html 301',
+  '/ar/property-higueron-garden-villas.html /ar/property-higueron-garden-townhouses.html 301',
+  '/de/property-higueron-garden-villas.html /de/property-higueron-garden-townhouses.html 301',
+  '/es/property-higueron-garden-villas.html /es/property-higueron-garden-townhouses.html 301',
+  '/fr/property-higueron-garden-villas.html /fr/property-higueron-garden-townhouses.html 301',
+  '/nl/property-higueron-garden-villas.html /nl/property-higueron-garden-townhouses.html 301',
+  '/no/property-higueron-garden-villas.html /no/property-higueron-garden-townhouses.html 301',
+  '/pl/property-higueron-garden-villas.html /pl/property-higueron-garden-townhouses.html 301',
+  '/ru/property-higueron-garden-villas.html /ru/property-higueron-garden-townhouses.html 301',
+  '/sv/property-higueron-garden-villas.html /sv/property-higueron-garden-townhouses.html 301',
+  '/assets/liora/projects/higueron-garden-villas/* /assets/liora/projects/higueron-garden-townhouses/:splat 301',
   // Three placeholder projects from the first build, removed when only real
   // developments were kept. Google still holds them as 404s; a 410 says they
   // are gone on purpose, which it drops from the index faster than a 404.

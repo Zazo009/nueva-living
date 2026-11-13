@@ -94,13 +94,13 @@ a(3, '65 new-build apartments, penthouses and semi-detached villas at Selwo',
   "{N65} nyproducerade lägenheter, takvåningar och parhusvillor i Selwo, Estepona: ett till tre sovrum, {N65} till {N174} {U} invändig yta, havsutsikt, från {E464000}, leverans från K4 2026.")
 a(4, '65 apartments, penthouses and villas at Selwo, Estepona, with sea views',
   "{N65} apartamentos, áticos y villas en Selwo, Estepona, con vistas al mar, desde {E464000}.", "{N65} appartements, penthouses et villas à Selwo, Estepona, avec vue sur la mer, à partir de {E464000}.",
-  "{N65} Wohnungen, Penthouses und Villen in Selwo, Estepona, mit Meerblick, ab {E464000}.", "{N65} квартир, пентхаусов и вилл в Сельво, Эстепона, с видом на море, от {E464000}.",
+  "{N65} Wohnungen, Penthäuser und Villen in Selwo, Estepona, mit Meerblick, ab {E464000}.", "{N65} квартир, пентхаусов и вилл в Сельво, Эстепона, с видом на море, от {E464000}.",
   "{N65} شقة وبنتهاوس وفيلا في سيلفو بإستيبونا بإطلالات على البحر، ابتداءً من {E464000}.", "{N65} appartementen, penthouses en villa’s in Selwo, Estepona, met zeezicht, vanaf {E464000}.",
   "{N65} apartamentów, penthouse’ów i willi w Selwo, Estepona, z widokiem na morze, od {E464000}.", "{N65} leiligheter, toppleiligheter og villaer i Selwo, Estepona, med utsikt mot havet, fra {E464000}.",
   "{N65} lägenheter, takvåningar och villor i Selwo, Estepona, med havsutsikt, från {E464000}.")
 a(5, '65 homes available', "{N65} viviendas disponibles", "{N65} logements disponibles", "{N65} Wohnungen verfügbar", "{N65} квартир доступно", "{N65} مسكنًا متاحًا", "{N65} woningen beschikbaar", "{N65} mieszkań dostępnych", "{N65} boliger tilgjengelige", "{N65} bostäder tillgängliga")
 a(6, 'Selwo, Estepona', "Selwo, Estepona", "Selwo, Estepona", "Selwo, Estepona", "Сельво, Эстепона", "سيلفو، إستيبونا", "Selwo, Estepona", "Selwo, Estepona", "Selwo, Estepona", "Selwo, Estepona")
-a(7, 'Apartments, Penthouses & Villas', "Apartamentos, áticos y villas", "Appartements, penthouses et villas", "Wohnungen, Penthouses und Villen", "Апартаменты, пентхаусы и виллы", "شقق وبنتهاوس وفلل",
+a(7, 'Apartments, Penthouses & Villas', "Apartamentos, áticos y villas", "Appartements, penthouses et villas", "Wohnungen, Penthäuser und Villen", "Апартаменты, пентхаусы и виллы", "شقق وبنتهاوس وفلل",
   "Appartementen, penthouses en villa’s", "Apartamenty, penthouse’y i wille", "Leiligheter, toppleiligheter og villaer", "Lägenheter, takvåningar och villor")
 a(8, 'Q4 2026 - Q3 2028', "T4 2026 - T3 2028", "T4 2026 - T3 2028", "Q4 2026 - Q3 2028", "4 кв. 2026 - 3 кв. 2028", "الربع الرابع 2026 - الربع الثالث 2028", "K4 2026 - K3 2028", "IV kw. 2026 - III kw. 2028", "K4 2026 - K3 2028", "K4 2026 - K3 2028")
 a(9, '65 apartments, penthouses and semi-detached villas available at Selwo',
