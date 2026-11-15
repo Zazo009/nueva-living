@@ -34,6 +34,7 @@ import { FLOOR_PARTS, FLOOR_PREFIXES } from './lib/unit_floor_parts.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
 import { PRICE_FORMAT } from './lib/prices.mjs';
 import { realEstateAgentSchema, organizationId } from './lib/brand.mjs';
+import { buildMcpCatalog } from './lib/mcp_catalog.mjs';
 // The homepage and developments grids are rendered in English and then
 // localized by find/replace entry tables, so the card resolves its strings
 // against English here and card_chrome_translations.mjs swaps them later.
@@ -3936,6 +3937,8 @@ const crmSync = await syncProjectsToCrm(projects);
 const searchCatalogDir = path.resolve('netlify/functions/data');
 mkdirSync(searchCatalogDir, { recursive: true });
 writeFileSync(path.join(searchCatalogDir, 'projects-catalog.json'), JSON.stringify(buildSearchCatalog(projects), null, 2));
+// The assistant connector's catalogue: public page fields only, in all ten languages.
+writeFileSync(path.join(searchCatalogDir, 'mcp-catalog.json'), JSON.stringify(buildMcpCatalog(projects)));
 
 const compareCatalogDir = path.resolve('assets/liora/data');
 mkdirSync(compareCatalogDir, { recursive: true });

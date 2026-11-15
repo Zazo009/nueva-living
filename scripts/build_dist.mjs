@@ -2472,6 +2472,9 @@ const locale404Redirects = nonDefaultLocales
 // itself was green -- audit_site_consistency now fails on the repeat.
 const functionRedirects = [
   '/unsubscribe /.netlify/functions/nueva-unsubscribe 200',
+  // The assistant connector. A rewrite, not a redirect: MCP clients POST, and not all of them
+  // follow a redirect with the body intact.
+  '/mcp /.netlify/functions/nueva-mcp 200!',
 ];
 fs.writeFileSync(path.join(dist, '_redirects'),
   `${functionRedirects.join('\n')}\n`

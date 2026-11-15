@@ -1,0 +1,387 @@
+// Nueva Living inside Claude and ChatGPT: a Model Context Protocol server at https://nuevaliving.com/mcp.
+//
+// A person adds the address as a connector (Claude: Customize > Connectors > Add custom connector;
+// ChatGPT: an app in developer mode) and can then search the projects in their own words. The
+// assistant calls the three tools below and answers from what they return.
+//
+// Transport: MCP "Streamable HTTP", stateless. Every request is one JSON-RPC message in a POST and
+// gets one JSON answer; no session, no server-sent events, no state between calls. That is all the
+// protocol requires of a server that never pushes anything, and it is what a Netlify function can
+// do. The protocol is small enough to speak by hand, which keeps this function free of
+// dependencies, like every other function here.
+//
+// What it may say: data/mcp-catalog.json, built by build_property_pages from the fields the project
+// pages already print, in the ten site languages. Never the crm block. The audit checks each entry
+// for its own project's real name and developer, as it does the pages.
+//
+// Leads: request_details hands the enquiry to nueva-lead.js, the same forwarder the site's forms
+// use, so it reaches the CRM with the same spam rules and the same field mapping.
+const catalog = require('./data/mcp-catalog.json');
+const lead = require('./nueva-lead');
+
+const SERVER_INFO = { name: 'nueva-living', title: 'Nueva Living', version: '1.0.0' };
+const PROTOCOL_VERSIONS = ['2025-06-18', '2025-03-26', '2024-11-05'];
+const LANGUAGES = ['en', 'es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
+const PROPERTY_TYPES = ['apartment', 'penthouse', 'villa', 'townhouse', 'duplex'];
+const STAGES = ['off_plan', 'under_construction', 'completed'];
+const MAX_RESULTS = 6;
+
+const INSTRUCTIONS = [
+  'Nueva Living is an independent advisory for new-build homes on the Costa del Sol, Spain (Marbella, Estepona, Benahavís, Casares, Mijas and nearby).',
+  'search_developments returns up to six developments that fit a brief, plus suggestions that narrow it. Present those; do not call again just to collect more. When the person wants other options, narrow or change the criteria with them and search again.',
+  'Every fact, price, date and figure must come from tool output. Never invent a development, a unit, an amenity, a distance or a delivery date, and never estimate how many developments or homes Nueva Living has.',
+  'Prices are the developer\'s list prices before Spanish VAT (IVA) and purchase costs unless the price note says otherwise. Say so when you quote one. Availability and prices are reconfirmed by Nueva Living before any reservation; do not describe a home as reserved for the person or as the last one.',
+  'Images are mostly computer-generated renders from the developer, not photographs of the finished building. Map positions are approximate.',
+  'To put the person in touch with an advisor, use request_details, only after they have asked to be contacted and agreed to share their name and e-mail for that purpose. Otherwise link to the development page, where they can enquire themselves.',
+  'Answer in the person\'s language; pass it as `language` so names, prices and dates come back in it.',
+].join(' ');
+
+// --- small helpers ---------------------------------------------------------------------------
+
+function fold(value) {
+  return String(value || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+    .replace(/[^a-z0-9Ѐ-ӿ؀-ۿ]+/g, ' ').trim();
+}
+
+function words(value) {
+  return fold(value).split(' ').filter((w) => w.length > 2);
+}
+
+function lang(value) {
+  return LANGUAGES.includes(value) ? value : 'en';
+}
+
+function areaName(slug, language) {
+  const area = catalog.areas.find((a) => a.slug === slug);
+  return area ? (area.names[language] || area.names.en) : slug;
+}
+
+function haystack(project) {
+  const en = project.locales.en;
+  return fold([
+    en.name, en.location, en.type, en.summary, en.description, en.locationNote,
+    project.area, areaName(project.area, 'en'), project.tags.join(' '),
+  ].join(' '));
+}
+
+const HAYSTACKS = new Map(catalog.projects.map((p) => [p.slug, haystack(p)]));
+
+// A place the person names: an area slug or name in any language, or a place mentioned on a
+// project's own page (Nueva Andalucía, New Golden Mile, La Cala de Mijas...).
+function matchesLocation(project, location) {
+  const wanted = fold(location);
+  if (!wanted || /^(costa del sol|spain|espana|andalucia|malaga)$/.test(wanted)) return true;
+  const area = catalog.areas.find((a) => a.slug === project.area);
+  if (area && Object.values(area.names).some((n) => fold(n) === wanted || fold(n).includes(wanted))) return true;
+  if (fold(project.area).includes(wanted)) return true;
+  const en = project.locales.en;
+  return fold(`${en.location} ${en.name} ${project.tags.join(' ')}`).includes(wanted);
+}
+
+function overlapsBudget(project, min, max) {
+  const low = project.priceMin;
+  const high = project.priceMax || project.priceMin;
+  if (low == null) return !max && !min;
+  if (max && low > max) return false;
+  if (min && high < min) return false;
+  return true;
+}
+
+function card(project, language) {
+  const l = project.locales[language] || project.locales.en;
+  return {
+    slug: project.slug,
+    name: l.name,
+    area: areaName(project.area, language),
+    location: l.location,
+    type: l.type,
+    from: l.from,
+    priceRange: l.priceRange || null,
+    priceMinEur: project.priceMin,
+    priceMaxEur: project.priceMax,
+    bedrooms: project.bedroomsMin == null ? null
+      : project.bedroomsMin === project.bedroomsMax || project.bedroomsMax == null
+        ? `${project.bedroomsMin}` : `${project.bedroomsMin}-${project.bedroomsMax}`,
+    stage: project.status,
+    delivery: l.delivery || null,
+    summary: l.summary,
+    image: project.image,
+    url: l.url,
+  };
+}
+
+function suggestions(pool, args) {
+  const out = [];
+  const areas = [...new Set(pool.map((p) => p.area))];
+  if (!args.location && areas.length > 1) out.push({ narrow_by: 'location', options: areas.slice(0, 6).map((a) => areaName(a, lang(args.language))) });
+  const types = [...new Set(pool.flatMap((p) => p.propertyTypes))];
+  if (!args.property_type && types.length > 1) out.push({ narrow_by: 'property_type', options: types });
+  if (!args.budget_max) {
+    const prices = pool.map((p) => p.priceMin).filter(Boolean).sort((a, b) => a - b);
+    if (prices.length > 3) out.push({ narrow_by: 'budget_max', options: [prices[Math.floor(prices.length / 3)], prices[Math.floor((2 * prices.length) / 3)]].map((n) => Math.ceil(n / 100000) * 100000) });
+  }
+  if (!args.stage) {
+    const stages = [...new Set(pool.map((p) => p.status).filter(Boolean))];
+    if (stages.length > 1) out.push({ narrow_by: 'stage', options: stages });
+  }
+  return out;
+}
+
+// --- tools -----------------------------------------------------------------------------------
+
+const TOOLS = [
+  {
+    name: 'search_developments',
+    title: 'Search Nueva Living developments',
+    description: 'Searches the new-build developments Nueva Living advises on along the Costa del Sol (Marbella, Estepona, Benahavís, Casares, Mijas and nearby). Returns up to six best matches with name, area, type, list price from, bedrooms, construction stage, expected delivery, a photo and the page link, whether more matches exist, and suggestions that narrow the search. Prices are EUR list prices before VAT and purchase costs.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        location: { type: 'string', maxLength: 120, description: 'Town, area or neighbourhood in the person\'s words, e.g. "Marbella", "Estepona", "Nueva Andalucía", "New Golden Mile", "Benahavís".' },
+        budget_min: { type: 'integer', minimum: 0, description: 'EUR, total purchase price.' },
+        budget_max: { type: 'integer', minimum: 0, description: 'EUR, total purchase price, inclusive.' },
+        bedrooms_min: { type: 'integer', minimum: 0, maximum: 10 },
+        property_type: { type: 'string', enum: PROPERTY_TYPES },
+        stage: { type: 'string', enum: STAGES, description: 'off_plan = sold before or at the start of construction; under_construction; completed = key ready.' },
+        wishes: { type: 'string', maxLength: 300, description: 'Anything else in the person\'s words that ranks the results: "sea views", "golf", "walk to the beach", "gated", "investment", "private pool".' },
+        language: { type: 'string', enum: LANGUAGES, description: 'Language of the person. Names, prices and dates come back in it. Default en.' },
+      },
+      additionalProperties: false,
+    },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  },
+  {
+    name: 'get_development',
+    title: 'Get development details',
+    description: 'Full details of one development by its slug from a search result: description, location and drive times, delivery, price range and the note on what the prices include, the homes on the price list with bedrooms, size and price, up to eight images, approximate map position and the page link.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        slug: { type: 'string', minLength: 2, maxLength: 80, description: 'Development slug from search_developments, e.g. "valle-romano-crest-villas".' },
+        language: { type: 'string', enum: LANGUAGES },
+      },
+      required: ['slug'],
+      additionalProperties: false,
+    },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+  },
+  {
+    name: 'request_details',
+    title: 'Ask a Nueva Living advisor to get in touch',
+    description: 'Sends the person\'s enquiry to a Nueva Living advisor, who replies by e-mail (or phone, if given) with current availability, prices and plans. Call only when the person has asked to be contacted and has agreed to share their name and e-mail for that purpose; set consent to true only then.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        first_name: { type: 'string', minLength: 1, maxLength: 60 },
+        last_name: { type: 'string', minLength: 1, maxLength: 60 },
+        email: { type: 'string', format: 'email', maxLength: 120 },
+        phone: { type: 'string', maxLength: 30 },
+        slugs: { type: 'array', maxItems: 6, items: { type: 'string' }, description: 'Developments the person is asking about.' },
+        message: { type: 'string', maxLength: 1000, description: 'What the person wants to know, in their words.' },
+        budget_max: { type: 'integer', minimum: 0 },
+        consent: { type: 'boolean', description: 'True only if the person agreed to be contacted and to have these details stored for that.' },
+        language: { type: 'string', enum: LANGUAGES },
+      },
+      required: ['first_name', 'last_name', 'email', 'consent'],
+      additionalProperties: false,
+    },
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: true },
+  },
+];
+
+function searchDevelopments(args) {
+  const language = lang(args.language);
+  let pool = catalog.projects.filter((p) => p.priceMin != null || p.locales.en.from);
+  if (args.location) pool = pool.filter((p) => matchesLocation(p, args.location));
+  const locationFound = pool.length > 0;
+  if (args.property_type) pool = pool.filter((p) => p.propertyTypes.includes(args.property_type));
+  if (args.stage) pool = pool.filter((p) => p.status === args.stage);
+  if (args.bedrooms_min) pool = pool.filter((p) => (p.bedroomsMax ?? p.bedroomsMin ?? 0) >= args.bedrooms_min);
+  if (args.budget_min || args.budget_max) pool = pool.filter((p) => overlapsBudget(p, args.budget_min, args.budget_max));
+
+  const wishes = words(args.wishes);
+  const scored = pool.map((p) => {
+    const hay = HAYSTACKS.get(p.slug);
+    const score = wishes.reduce((sum, w) => sum + (hay.includes(w) ? 1 : 0), 0);
+    return { p, score };
+  }).sort((a, b) => b.score - a.score || (a.p.priceMin || 9e12) - (b.p.priceMin || 9e12));
+
+  const results = scored.slice(0, MAX_RESULTS).map(({ p }) => card(p, language));
+  const out = {
+    results,
+    more_matches: scored.length > MAX_RESULTS,
+    refine: scored.length > MAX_RESULTS ? suggestions(scored.map((s) => s.p), args) : [],
+    note: 'List prices in EUR before VAT and purchase costs; availability and prices are reconfirmed by Nueva Living before reservation. Images are mostly renders.',
+  };
+  if (!results.length) {
+    out.message = !locationFound
+      ? `Nueva Living does not currently advise on a development in "${args.location}". Areas covered: ${catalog.areas.map((a) => a.names[language] || a.names.en).join(', ')}.`
+      : 'No development fits every criterion. Suggest relaxing one of them (budget, bedrooms, type or stage).';
+  }
+  return out;
+}
+
+function getDevelopment(args) {
+  const language = lang(args.language);
+  const project = catalog.projects.find((p) => p.slug === String(args.slug || '').trim());
+  if (!project) return { error: `No development with slug "${args.slug}". Use search_developments first.` };
+  const l = project.locales[language] || project.locales.en;
+  return {
+    ...card(project, language),
+    description: l.description,
+    why: l.why,
+    availability: l.availability,
+    price_note: l.priceNote,
+    checked: l.checked,
+    homes: l.units,
+    location_note: l.locationNote,
+    distances: l.distances,
+    map: project.coordinates ? { lat: project.coordinates[0], lng: project.coordinates[1], approximate: true } : null,
+    images: l.images,
+    images_note: l.mediaNote,
+    tags: project.tags,
+    enquire: l.url,
+  };
+}
+
+// Leads are the one write. A function instance lives for minutes to hours, so this counter is a
+// brake on a loop inside one conversation, not a defence against a determined sender; the CRM's
+// own spam rules (lib/lead-spam.js, via nueva-lead) still apply to everything that passes.
+const recent = new Map();
+function tooMany(key) {
+  const now = Date.now();
+  const hits = (recent.get(key) || []).filter((t) => now - t < 3600e3);
+  hits.push(now);
+  recent.set(key, hits);
+  return hits.length > 5;
+}
+
+async function requestDetails(args, event) {
+  if (args.consent !== true) {
+    return { sent: false, error: 'The person has not agreed to be contacted. Ask them first, or give them the development link to enquire themselves.' };
+  }
+  const email = String(args.email || '').trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { sent: false, error: 'That e-mail address is not valid.' };
+  const ip = event.headers['x-nf-client-connection-ip'] || event.headers['x-forwarded-for'] || 'unknown';
+  if (tooMany(`${ip}|${email.toLowerCase()}`)) return { sent: false, error: 'Several enquiries were just sent from here. A Nueva Living advisor will reply to those first.' };
+
+  const projects = (args.slugs || [])
+    .map((slug) => catalog.projects.find((p) => p.slug === slug))
+    .filter(Boolean);
+  const names = projects.map((p) => p.locales.en.name);
+  const message = [
+    String(args.message || '').trim(),
+    names.length ? `Developments: ${names.join(', ')}` : '',
+    `Sent from an AI assistant (MCP connector), language ${lang(args.language)}.`,
+  ].filter(Boolean).join(' ');
+
+  const result = await lead.handler({
+    httpMethod: 'POST',
+    headers: { 'content-type': 'application/json', 'user-agent': event.headers['user-agent'] || '', 'x-nf-client-connection-ip': ip },
+    body: JSON.stringify({
+      first_name: args.first_name,
+      last_name: args.last_name,
+      email,
+      phone: args.phone || '',
+      message,
+      project: names[0] || '',
+      budget_max: args.budget_max || '',
+      preferred_areas: [...new Set(projects.map((p) => p.area))],
+      property_types: [...new Set(projects.flatMap((p) => p.propertyTypes))],
+      consent: true,
+      consent_text: 'Agreed in an AI assistant conversation to be contacted by Nueva Living and for these details to be stored for that purpose',
+      source_page: '/mcp',
+      utm_source: 'ai-assistant',
+    }),
+  });
+  if (result.statusCode >= 400) {
+    console.error('MCP lead not accepted', { status: result.statusCode, body: String(result.body).slice(0, 200) });
+    return { sent: false, error: 'The enquiry could not be sent just now. Give the person the development page link to enquire there.' };
+  }
+  return { sent: true, message: 'Sent. A Nueva Living advisor will reply by e-mail, normally within one working day.' };
+}
+
+// --- JSON-RPC over HTTP ------------------------------------------------------------------------
+
+const HEADERS = {
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'Content-Type, Accept, Authorization, Mcp-Session-Id, Mcp-Protocol-Version',
+  'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
+  'Cache-Control': 'no-store',
+};
+
+function reply(statusCode, body) {
+  return { statusCode, headers: HEADERS, body: body === undefined ? '' : JSON.stringify(body) };
+}
+
+function rpcResult(id, result) {
+  return reply(200, { jsonrpc: '2.0', id, result });
+}
+
+function rpcError(id, code, message) {
+  return reply(200, { jsonrpc: '2.0', id: id ?? null, error: { code, message } });
+}
+
+function toolResult(data) {
+  const isError = Boolean(data.error);
+  return { content: [{ type: 'text', text: JSON.stringify(data) }], structuredContent: data, isError };
+}
+
+exports.handler = async (event) => {
+  if (event.httpMethod === 'OPTIONS') return reply(204);
+  if (event.httpMethod === 'GET') {
+    // No server-to-client stream: the spec's answer is 405. A browser landing here gets a pointer.
+    return { statusCode: 405, headers: { ...HEADERS, Allow: 'POST', 'Content-Type': 'text/plain; charset=utf-8' }, body: 'Nueva Living MCP server. Add https://nuevaliving.com/mcp as a connector in Claude or ChatGPT.\n' };
+  }
+  if (event.httpMethod !== 'POST') return reply(405, { error: 'Method not allowed' });
+
+  let message;
+  try {
+    message = JSON.parse(event.isBase64Encoded ? Buffer.from(event.body || '', 'base64').toString('utf8') : event.body || '');
+  } catch {
+    return rpcError(null, -32700, 'Parse error');
+  }
+  if (Array.isArray(message)) return rpcError(null, -32600, 'Batches are not supported');
+  if (!message || message.jsonrpc !== '2.0' || typeof message.method !== 'string') return rpcError(message?.id, -32600, 'Invalid request');
+
+  const { id, method, params = {} } = message;
+  // Notifications (initialized, cancelled...) carry no id and get no body.
+  if (id === undefined || id === null) return reply(202);
+
+  try {
+    switch (method) {
+      case 'initialize': {
+        const asked = params.protocolVersion;
+        return rpcResult(id, {
+          protocolVersion: PROTOCOL_VERSIONS.includes(asked) ? asked : PROTOCOL_VERSIONS[0],
+          capabilities: { tools: { listChanged: false } },
+          serverInfo: SERVER_INFO,
+          instructions: INSTRUCTIONS,
+        });
+      }
+      case 'ping':
+        return rpcResult(id, {});
+      case 'tools/list':
+        return rpcResult(id, { tools: TOOLS });
+      case 'resources/list':
+        return rpcResult(id, { resources: [] });
+      case 'resources/templates/list':
+        return rpcResult(id, { resourceTemplates: [] });
+      case 'prompts/list':
+        return rpcResult(id, { prompts: [] });
+      case 'tools/call': {
+        const args = params.arguments || {};
+        if (params.name === 'search_developments') return rpcResult(id, toolResult(searchDevelopments(args)));
+        if (params.name === 'get_development') return rpcResult(id, toolResult(getDevelopment(args)));
+        if (params.name === 'request_details') return rpcResult(id, toolResult(await requestDetails(args, event)));
+        return rpcError(id, -32602, `Unknown tool: ${params.name}`);
+      }
+      default:
+        return rpcError(id, -32601, `Method not found: ${method}`);
+    }
+  } catch (error) {
+    console.error('MCP request failed', { method, message: error.message });
+    return rpcError(id, -32603, 'Internal error');
+  }
+};
