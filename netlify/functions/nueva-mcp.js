@@ -100,6 +100,39 @@ function haystack(project) {
 
 const HAYSTACKS = new Map(catalog.projects.map((p) => [p.slug, haystack(p)]));
 
+// Wishes that name a feature, in the ten site languages (folded: no accents, lower case). An
+// assistant should put these in `features`, but a person's own words often arrive in `wishes`
+// ("egen pool", "vistas al mar"); a project with the feature then ranks first. Words every project
+// shares ("pool", "golf" in Estepona) would otherwise decide the order on their own.
+const WISH_FEATURES = {
+  private_pool: ['egen pool', 'privat pool', 'private pool', 'own pool', 'piscina privada', 'piscine privee', 'privatpool', 'eigener pool', 'eigenem pool', 'prive zwembad', 'privezwembad', 'eigen zwembad', 'prywatny basen', 'prywatnym basenem', 'частныи бассеин', 'собственныи бассеин', 'مسبح خاص', 'privat basseng', 'eget basseng'],
+  sea_view: ['havsutsikt', 'havutsikt', 'sea view', 'ocean view', 'vistas al mar', 'vista al mar', 'vue mer', 'vue sur la mer', 'meerblick', 'zeezicht', 'uitzicht op zee', 'widok na morze', 'вид на море', 'اطلالة على البحر'],
+  beach: ['nara stranden', 'vid stranden', 'near the beach', 'beachfront', 'walk to the beach', 'cerca de la playa', 'primera linea', 'pres de la plage', 'strandnah', 'am strand', 'nabij het strand', 'aan het strand', 'blisko plazy', 'у пляжа', 'рядом с пляжем', 'قرب الشاطئ', 'naer stranden', 'nær stranden'],
+  golf: ['golf', 'гольф', 'غولف'],
+  gated: ['inhagnat', 'gated', 'urbanizacion cerrada', 'residence fermee', 'bewachte', 'afgesloten', 'osiedle zamkniete', 'закрыт', 'inngjerdet', 'مسور'],
+  gym: ['gym', 'gimnasio', 'salle de sport', 'fitness', 'silownia', 'спортзал', 'treningsrom', 'صالة رياضية'],
+  spa: ['spa', 'sauna', 'спа'],
+  garden: ['tradgard', 'garden', 'jardin', 'garten', 'tuin', 'ogrod', 'сад', 'hage', 'حديقة'],
+  rooftop: ['takterrass', 'rooftop', 'roof terrace', 'solarium', 'dachterrasse', 'dakterras', 'toit-terrasse', 'toit terrasse', 'taras na dachu', 'терраса на крыше', 'takterrasse'],
+  lift: ['hiss', 'elevator', 'ascensor', 'ascenseur', 'aufzug', 'winda', 'лифт', 'مصعد', 'heis'],
+  indoor_pool: ['inomhuspool', 'indoor pool', 'piscina cubierta', 'piscine interieure', 'innenpool', 'hallenbad', 'binnenzwembad', 'kryty basen', 'крытыи бассеин', 'مسبح داخلي', 'innendors basseng'],
+  mountain_view: ['bergsutsikt', 'mountain view', 'vistas a la montana', 'vue montagne', 'bergblick', 'bergzicht', 'widok na gory', 'вид на горы', 'fjellutsikt'],
+};
+const WISH_PHRASES = Object.entries(WISH_FEATURES).map(([feature, phrases]) => [feature, phrases.map(fold)]);
+
+function wishedFeatures(wishes) {
+  const text = ` ${fold(wishes)} `;
+  if (!text.trim()) return [];
+  return WISH_PHRASES.filter(([, phrases]) => phrases.some((p) => text.includes(` ${p} `) || text.includes(` ${p}`))).map(([f]) => f);
+}
+
+// How much a wish word says: one most projects contain ranks almost nothing.
+function wordWeight(word) {
+  let n = 0;
+  for (const hay of HAYSTACKS.values()) if (hay.includes(word)) n += 1;
+  return n / HAYSTACKS.size > 0.4 ? 0.1 : 1;
+}
+
 // A place the person names: an area slug or name in any language, or a place mentioned on a
 // project's own page (Nueva Andalucía, New Golden Mile, La Cala de Mijas...).
 function matchesLocation(project, location) {
@@ -263,10 +296,12 @@ function searchDevelopments(args) {
     return !(args.budget_min || args.budget_max) || overlapsBudget(p, args.budget_min, args.budget_max);
   });
 
-  const wishes = words(args.wishes);
+  const wishes = words(args.wishes).map((w) => [w, wordWeight(w)]);
+  const wished = wishedFeatures(args.wishes).filter((f) => !features.includes(f));
   const scored = pool.map((p) => {
     const hay = HAYSTACKS.get(p.slug);
-    const score = wishes.reduce((sum, w) => sum + (hay.includes(w) ? 1 : 0), 0);
+    const score = wished.reduce((sum, f) => sum + (p.features.includes(f) ? 5 : 0), 0)
+      + wishes.reduce((sum, [w, weight]) => sum + (hay.includes(w) ? weight : 0), 0);
     return { p, score };
   }).sort((a, b) => b.score - a.score || (a.p.priceMin || 9e12) - (b.p.priceMin || 9e12));
 
@@ -278,6 +313,7 @@ function searchDevelopments(args) {
     kind: 'search',
     language,
     query: { ...args, features, language },
+    understood_wishes: wished,
     results,
     total: scored.length,
     more_matches: scored.length > MAX_RESULTS,
