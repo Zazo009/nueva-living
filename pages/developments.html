@@ -217,29 +217,45 @@
               <div class="discovery-active" data-active-filters></div>
               <button class="discovery-quick-btn" type="button" data-sheet-open data-sheet-section="propertyType"><span data-text="type"></span><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
               <button class="discovery-quick-btn" type="button" data-sheet-open data-sheet-section="bedrooms"><span data-text="bedrooms"></span><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+              <button class="discovery-quick-btn" type="button" data-sheet-open data-sheet-section="size"><span data-text="size"></span><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
               <button class="discovery-quick-btn" type="button" data-sheet-open data-sheet-section="more"><span data-text="lifestyle"></span><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
             </div>
           </div>
 
           <div class="discovery-bar">
-            <div class="discovery-group discovery-section" data-chip-group="area">
-              <label class="discovery-field">
-                <span>Location</span>
-                <span class="discovery-select-wrap">
-                  <select data-filter-select="area">
-                    <option value="">All Locations</option>
-                    <option value="marbella">Marbella</option>
-                    <option value="estepona">Estepona</option>
-                    <option value="casares">Casares</option>
-                    <option value="benahavis">Benah&aacute;vis</option>
-                    <option value="nueva-andalucia">Nueva Andaluc&iacute;a</option>
-                    <option value="san-pedro-alcantara">San Pedro de Alc&aacute;ntara</option>
-                    <option value="mijas-fuengirola">Mijas &amp; Fuengirola</option>
-                    <option value="benalmadena">Benalm&aacute;dena</option>
-                  </select>
-                  <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-                </span>
-              </label>
+            <div class="discovery-field discovery-pop-field" data-pop-field="area">
+              <span data-pop-label></span>
+              <button class="discovery-trigger" type="button" data-pop-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="discoveryPopArea">
+                <span data-pop-value></span>
+                <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="discovery-pop" id="discoveryPopArea" role="dialog" hidden>
+                <div class="discovery-pop-body">
+                    <div class="discovery-group discovery-section" data-chip-group="area">
+                      <label class="discovery-field">
+                        <span>Location</span>
+                        <span class="discovery-select-wrap">
+                          <select data-filter-select="area">
+                            <option value="">All Locations</option>
+                            <option value="marbella">Marbella</option>
+                            <option value="estepona">Estepona</option>
+                            <option value="casares">Casares</option>
+                            <option value="benahavis">Benah&aacute;vis</option>
+                            <option value="nueva-andalucia">Nueva Andaluc&iacute;a</option>
+                            <option value="san-pedro-alcantara">San Pedro de Alc&aacute;ntara</option>
+                            <option value="mijas-fuengirola">Mijas &amp; Fuengirola</option>
+                            <option value="benalmadena">Benalm&aacute;dena</option>
+                          </select>
+                          <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                        </span>
+                      </label>
+                    </div>
+                </div>
+                <div class="discovery-pop-foot">
+                  <button class="clear-filters" type="button" data-clear-filters>Reset Filters</button>
+                  <button class="discovery-show" type="button" data-show-results></button>
+                </div>
+              </div>
             </div>
             <div class="discovery-group discovery-section" data-chip-group="propertyType">
               <label class="discovery-field">
@@ -294,6 +310,30 @@
                       <input type="range" min="1" max="6" step="1" value="1" data-range-input="min" aria-label="Minimum bedrooms">
                       <input type="range" min="1" max="6" step="1" value="6" data-range-input="max" aria-label="Maximum bedrooms">
                     </div>
+                  </div>
+                </div>
+                <div class="discovery-pop-foot">
+                  <button class="clear-filters" type="button" data-clear-filters>Reset Filters</button>
+                  <button class="discovery-show" type="button" data-show-results></button>
+                </div>
+              </div>
+            </div>
+            <div class="discovery-field discovery-pop-field" data-pop-field="size">
+              <span data-pop-label></span>
+              <button class="discovery-trigger" type="button" data-pop-trigger aria-haspopup="dialog" aria-expanded="false" aria-controls="discoveryPopSize">
+                <span data-pop-value></span>
+                <svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="discovery-pop" id="discoveryPopSize" role="dialog" hidden>
+                <div class="discovery-pop-body">
+                  <div class="discovery-field discovery-size discovery-section" data-size-field>
+                    <span><span data-size-label></span><em class="range-readout" data-size-readout></em></span>
+                    <div class="discovery-size-row">
+                      <span class="discovery-select-wrap"><select data-size-select="min"></select><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+                      <span class="discovery-size-dash" aria-hidden="true">–</span>
+                      <span class="discovery-select-wrap"><select data-size-select="max"></select><svg class="discovery-caret" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+                    </div>
+                    <p class="discovery-size-note" data-size-note></p>
                   </div>
                 </div>
                 <div class="discovery-pop-foot">

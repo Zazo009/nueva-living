@@ -61,6 +61,7 @@ const INSTRUCTIONS = [
   'Every fact, price, date and figure must come from tool output. Never invent a development, a unit, an amenity, a distance or a delivery date, and never estimate how many developments or homes Nueva Living has.',
   'Prices are the developer\'s list prices before Spanish VAT (IVA) and purchase costs unless the price note says otherwise. Say so when you quote one. Availability and prices are reconfirmed by Nueva Living before any reservation; do not describe a home as reserved for the person or as the last one.',
   'Images are mostly computer-generated renders from the developer, not photographs of the finished building. Map positions are approximate.',
+  'Sizes are the developer\'s own figures: built area where the developer gives it, otherwise interior (each result\'s size.basis says which, "mixed" when the price list uses both). Developers measure differently, so a size search allows 10% either side; say so when sizes are close to the limit, and say when a development gives only interior area.',
   'To put the person in touch with an advisor, use request_details, only after they have asked to be contacted and agreed to share their name and e-mail for that purpose. Otherwise link to the development page, where they can enquire themselves.',
   'Answer in the person\'s language; pass it as `language` so names, prices and dates come back in it. Put requirements such as sea views, a private pool, golf or walking to the beach in `features`; anything else goes in `wishes`, in any language.',
   `A person can also reach a Nueva Living advisor directly at ${ADVISOR.email}, on WhatsApp ${ADVISOR.whatsapp}, or through ${ADVISOR.contact}.`,
@@ -135,7 +136,21 @@ function wordWeight(word) {
 
 // A place the person names: an area slug or name in any language, or a place mentioned on a
 // project's own page (Nueva Andalucía, New Golden Mile, La Cala de Mijas...).
+// Several places in one request ("Estepona or Marbella", "Mijas, Fuengirola") match any of them.
+function locationParts(location) {
+  return String(location || '')
+    .split(/[,;/|]|\s(?:or|and|o|y|ou|et|oder|und|of|en|eller|och|lub|i|или|и|أو|و)\s/i)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
 function matchesLocation(project, location) {
+  const parts = locationParts(location);
+  if (parts.length > 1) return parts.some((part) => matchesPlace(project, part));
+  return matchesPlace(project, location);
+}
+
+function matchesPlace(project, location) {
   const wanted = fold(location);
   if (!wanted || /^(costa del sol|spain|espana|andalucia|malaga)$/.test(wanted)) return true;
   const area = catalog.areas.find((a) => a.slug === project.area);
@@ -173,6 +188,7 @@ function card(project, language, matching) {
     delivery: l.delivery || null,
     summary: l.summary,
     features: project.features,
+    size: sizeSummary(project),
     homesListed: project.homes.length,
     homesMatching: matching ? matching.count : null,
     fromMatchingEur: matching ? matching.from : null,
@@ -184,13 +200,40 @@ function card(project, language, matching) {
 
 // The homes on a project's price list that fit the budget and bedrooms, when the list prices them.
 // A project whose list prices nothing ("on request") is judged by its range instead.
+// Size is the developer's figure (built where given, otherwise interior) and developers measure
+// differently, so a size range is widened by SIZE_MARGIN either side, as on the website's filter.
+const SIZE_MARGIN = 0.1;
+function sizeFits(sqm, args) {
+  if (!args.size_min && !args.size_max) return true;
+  if (sqm == null) return false;
+  if (args.size_min && sqm < args.size_min * (1 - SIZE_MARGIN)) return false;
+  if (args.size_max && sqm > args.size_max * (1 + SIZE_MARGIN)) return false;
+  return true;
+}
+
+// The homes on a project's price list that fit the budget, bedrooms and size, when the list prices them.
+// A project whose list prices nothing ("on request") is judged by its range instead.
 function homesMatching(project, args) {
-  const priced = project.homes.filter((h) => h.priceEur != null);
-  if (!priced.length || !(args.budget_min || args.budget_max || args.bedrooms_min)) return null;
-  const fit = priced.filter((h) => (!args.budget_max || h.priceEur <= args.budget_max)
-    && (!args.budget_min || h.priceEur >= args.budget_min)
-    && (!args.bedrooms_min || h.bedrooms == null || h.bedrooms >= args.bedrooms_min));
-  return { count: fit.length, from: fit.length ? Math.min(...fit.map((h) => h.priceEur)) : null };
+  const sized = Boolean(args.size_min || args.size_max);
+  const priced = project.homes.filter((h) => h.priceEur != null || (sized && h.sqm != null));
+  if (!priced.length || !(args.budget_min || args.budget_max || args.bedrooms_min || sized)) return null;
+  const fit = priced.filter((h) => (!args.budget_max || (h.priceEur != null && h.priceEur <= args.budget_max))
+    && (!args.budget_min || (h.priceEur != null && h.priceEur >= args.budget_min))
+    && (!args.bedrooms_min || h.bedrooms == null || h.bedrooms >= args.bedrooms_min)
+    && sizeFits(h.sqm, args));
+  const prices = fit.map((h) => h.priceEur).filter((n) => n != null);
+  return { count: fit.length, from: prices.length ? Math.min(...prices) : null };
+}
+
+// "78-106 m²" and whether that is built area, interior, or a mix of the two across the list.
+function sizeSummary(project) {
+  const sized = project.homes.filter((h) => h.sqm != null);
+  if (!sized.length) return null;
+  const sizes = sized.map((h) => h.sqm);
+  const low = Math.min(...sizes);
+  const high = Math.max(...sizes);
+  const bases = new Set(sized.map((h) => h.sizeBasis));
+  return { range: low === high ? `${low} m²` : `${low}-${high} m²`, basis: bases.size > 1 ? 'mixed' : [...bases][0] };
 }
 
 function suggestions(pool, args) {
@@ -220,10 +263,12 @@ const TOOLS = [
     inputSchema: {
       type: 'object',
       properties: {
-        location: { type: 'string', maxLength: 120, description: 'Town, area or neighbourhood in the person\'s words, e.g. "Marbella", "Estepona", "Nueva Andalucía", "New Golden Mile", "Benahavís".' },
+        location: { type: 'string', maxLength: 120, description: 'Town, area or neighbourhood in the person\'s words, e.g. "Marbella", "Estepona", "Nueva Andalucía", "New Golden Mile", "Benahavís". Several places separated by commas match any of them: "Estepona, Marbella".' },
         budget_min: { type: 'integer', minimum: 0, description: 'EUR, total purchase price.' },
         budget_max: { type: 'integer', minimum: 0, description: 'EUR, total purchase price, inclusive.' },
         bedrooms_min: { type: 'integer', minimum: 0, maximum: 10 },
+        size_min: { type: 'integer', minimum: 20, maximum: 5000, description: 'Square metres. The developer\'s own figure is used (built area where given, otherwise interior) with a 10% margin, as developers measure differently.' },
+        size_max: { type: 'integer', minimum: 20, maximum: 5000, description: 'Square metres, as size_min.' },
         property_type: { type: 'string', enum: PROPERTY_TYPES },
         stage: { type: 'string', enum: STAGES, description: 'off_plan = sold before or at the start of construction; under_construction; completed = key ready.' },
         features: { type: 'array', maxItems: 8, items: { type: 'string', enum: FEATURES }, description: 'Required features; every one listed must be named on the development\'s page. beach = beachfront or walking distance to the beach.' },
@@ -293,6 +338,7 @@ function searchDevelopments(args) {
   pool = pool.filter((p) => {
     const m = homesMatching(p, args);
     if (m) { matches.set(p.slug, m); return m.count > 0; }
+    if (args.size_min || args.size_max) return false;
     return !(args.budget_min || args.budget_max) || overlapsBudget(p, args.budget_min, args.budget_max);
   });
 

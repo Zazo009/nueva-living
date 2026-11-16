@@ -14,6 +14,7 @@ import path from 'node:path';
 import { LOCALES, localizeProject, pageUrl } from './i18n.mjs';
 import { PRICE_FORMAT } from './prices.mjs';
 import { localizeMonthDate } from './dates.mjs';
+import { unitSize } from './unit_size.mjs';
 
 const SITE = 'https://nuevaliving.com';
 const MAX_IMAGES = 8;
@@ -172,10 +173,17 @@ function buildProjects(projects) {
         tags: [...new Set(tags)],
         features: featuresOf(project),
         // Numbers read from the English price list, one per home, for budget and bedroom search.
-        homes: (project.availability?.units || []).map((unit) => ({
-          priceEur: eur(unit.price),
-          bedrooms: bedroomsOf(unit.bedrooms),
-        })),
+        // sqm is the developer's own figure, built where given, otherwise interior; sizeBasis says
+        // which (scripts/lib/unit_size.mjs explains why there is no conversion between them).
+        homes: (project.availability?.units || []).map((unit) => {
+          const size = unitSize(unit.size);
+          return {
+            priceEur: eur(unit.price),
+            bedrooms: bedroomsOf(unit.bedrooms),
+            sqm: size ? size.sqm : null,
+            sizeBasis: size ? size.basis : null,
+          };
+        }),
         image: absolute(project.images?.card?.src || project.images?.hero?.src),
         // Every pin on the site is the developer's own location or our reading of their map;
         // none is a cadastral point. The connector says so whatever the source.

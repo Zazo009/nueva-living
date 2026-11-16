@@ -1314,6 +1314,40 @@ img {
   display: none;
 }
 
+/* The size filter is two lists, not chips: its selects stay visible. */
+.discovery-pop .discovery-size .discovery-select-wrap,
+.discovery-sheet .discovery-size .discovery-select-wrap {
+  display: block;
+}
+
+.discovery-size-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.discovery-size-dash {
+  color: var(--dp-muted);
+}
+
+.discovery-size-note {
+  margin: 0;
+  color: var(--dp-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* "m²" must not become "M²" under the label's capitals. */
+.discovery-size .range-readout {
+  text-transform: none;
+}
+
+/* Eight places to tick, several at once: give them room. */
+[data-pop-field="area"] .discovery-pop {
+  width: 440px;
+}
+
 .discovery-panel .discovery-chip,
 .discovery-panel .filter-pill {
   display: inline-flex;

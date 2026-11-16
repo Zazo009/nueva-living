@@ -35,6 +35,7 @@ import { renderUnifiedCard } from './lib/project_card.mjs';
 import { PRICE_FORMAT } from './lib/prices.mjs';
 import { realEstateAgentSchema, organizationId } from './lib/brand.mjs';
 import { buildMcpCatalog } from './lib/mcp_catalog.mjs';
+import { projectSizes } from './lib/unit_size.mjs';
 // The homepage and developments grids are rendered in English and then
 // localized by find/replace entry tables, so the card resolves its strings
 // against English here and card_chrome_translations.mjs swaps them later.
@@ -3492,7 +3493,7 @@ function renderProjectCard(project) {
   const priceValue = (meta.find(([label]) => /^from$/i.test(label)) || [])[1]
     || project.hero?.startingPrice?.replace(/^From\s+/i, '')
     || 'On request';
-  const dataAttrs = `${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', normaliseConstructionStatus(crm.constructionStatus))}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}${cardCoordinateAttrs(project)}`;
+  const dataAttrs = `${attr('data-title', project.name)}${attr('data-price', price)}${attr('data-completion', completion)}${attr('data-release', discovery.releaseDate)}${attr('data-priority', discovery.priority ?? project.card?.order ?? 999)}${attr('data-featured', discovery.featured ? 'true' : 'false')}${attr('data-area', discovery.area)}${discoveryAttr('data-property-types', propertyTypes)}${attr('data-status', normaliseConstructionStatus(crm.constructionStatus))}${attr('data-bedrooms-min', crm.bedroomsMin)}${attr('data-bedrooms-max', crm.bedroomsMax)}${attr('data-sizes', projectSizes(project).join(' ') || null)}${discoveryAttr('data-tags', allTags)}${discoveryAttr('data-lifestyle', lifestyleTags)}${discoveryAttr('data-architecture', architectureTags)}${discoveryAttr('data-location', locationTags)}${discoveryAttr('data-investment', investmentTags)}${discoveryAttr('data-practical', practicalTags)}${cardCoordinateAttrs(project)}`;
 
   return '          ' + renderUnifiedCard({
     project,

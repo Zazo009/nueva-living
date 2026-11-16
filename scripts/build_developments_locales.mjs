@@ -214,7 +214,15 @@ function applyDiscoveryRuntimeStrings(html, locale) {
     ['data-i18n-next-project', strings.nextProject],
     ['data-i18n-close-card', strings.closeCard],
     ['data-i18n-unmapped', strings.unmapped],
-    ['data-i18n-back-to-filters', strings.backToFilters]
+    ['data-i18n-back-to-filters', strings.backToFilters],
+    ['data-i18n-size-label', strings.sizeLabel],
+    ['data-i18n-any-size', strings.anySize],
+    ['data-i18n-no-min', strings.noMin],
+    ['data-i18n-no-max', strings.noMax],
+    ['data-i18n-min-size', strings.minSize],
+    ['data-i18n-max-size', strings.maxSize],
+    ['data-i18n-size-note', strings.sizeNote],
+    ['data-i18n-sqm', strings.sqm]
   ].map(([name, value]) => `${name}="${value}"`).join(' ');
   return html.replace(
     'id="development-discovery" data-discovery>',

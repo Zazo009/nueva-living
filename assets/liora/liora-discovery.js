@@ -139,7 +139,16 @@
     nextProject: root.dataset.i18nNextProject || 'Next project',
     closeCard: root.dataset.i18nCloseCard || 'Close',
     unmapped: root.dataset.i18nUnmapped || 'Not shown on the map: {n}',
-    backToFilters: root.dataset.i18nBackToFilters || 'Back to filters'
+    backToFilters: root.dataset.i18nBackToFilters || 'Back to filters',
+    // Size filter.
+    sizeLabel: root.dataset.i18nSizeLabel || 'Size',
+    anySize: root.dataset.i18nAnySize || 'Any size',
+    noMin: root.dataset.i18nNoMin || 'No minimum',
+    noMax: root.dataset.i18nNoMax || 'No maximum',
+    minSize: root.dataset.i18nMinSize || 'Minimum size',
+    maxSize: root.dataset.i18nMaxSize || 'Maximum size',
+    sizeNote: root.dataset.i18nSizeNote || 'Built area where the developer gives it, otherwise the interior. Homes within 10% of your range are included, as developers measure differently.',
+    sqm: root.dataset.i18nSqm || 'm²'
   };
 
   const countLabel = (count) => (count === 1 ? i18n.countOne : i18n.countMany).replace('{count}', String(count));
@@ -249,7 +258,7 @@
     return point ? insidePolygon(point, drawnArea) : false;
   };
 
-  const selectState = { area: '', propertyType: '', status: '', timing: '' };
+  const selectState = { propertyType: '', status: '', timing: '' };
   const chipGroups = new Map();
 
   const selectByKey = (key) => selectInputs.find((item) => item.dataset.filterSelect === key);
@@ -260,7 +269,46 @@
     return option ? option.textContent.trim() : '';
   };
 
+  // Location takes several values at once: a buyer weighing Estepona against
+  // Marbella wants both on one list. The select keeps a single value (the
+  // first choice, or "All" when there are none or several) because the audit
+  // and older links read it; the set below is what the filter uses.
+  const areaSet = new Set();
+  const areaOptions = () => Array.from(selectByKey('area')?.options || []);
+  const areaName = (value) => areaOptions().find((option) => option.value === value)?.textContent.trim() || value;
+  const setAreas = (values) => {
+    const known = new Set(areaOptions().map((option) => option.value).filter(Boolean));
+    areaSet.clear();
+    values.filter((value) => known.has(value)).forEach((value) => areaSet.add(value));
+    const select = selectByKey('area');
+    if (select) select.value = areaSet.size === 1 ? [...areaSet][0] : '';
+    (chipGroups.get('area') || []).forEach((button) => {
+      const on = button.dataset.value ? areaSet.has(button.dataset.value) : areaSet.size === 0;
+      button.classList.toggle('is-active', on);
+      button.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  };
+  const toggleArea = (value) => {
+    if (!value) return setAreas([]);
+    const next = new Set(areaSet);
+    if (next.has(value)) next.delete(value);
+    else next.add(value);
+    return setAreas([...next]);
+  };
+  // "Estepona", "Estepona, Marbella", "Estepona +2": names the places, so it
+  // needs no translation beyond the names themselves.
+  const areaSummary = () => {
+    const names = areaOptions().filter((option) => areaSet.has(option.value)).map((option) => option.textContent.trim());
+    if (!names.length) return areaOptions()[0]?.textContent.trim() || '';
+    if (names.length <= 2) return names.join(', ');
+    return `${names[0]} +${names.length - 1}`;
+  };
+
   const setSelect = (key, value) => {
+    if (key === 'area') {
+      setAreas(value ? [value] : []);
+      return;
+    }
     const select = selectByKey(key);
     if (!select) return;
     if (value && !Array.from(select.options).some((option) => option.value === value)) return;
@@ -306,7 +354,8 @@
       button.setAttribute('aria-pressed', 'false');
       button.addEventListener('click', () => {
         aiMatchedSlugs = null;
-        setSelect(key, option.value);
+        if (key === 'area') toggleArea(option.value);
+        else setSelect(key, option.value);
         update();
         syncUrl();
       });
@@ -423,7 +472,85 @@
     controller.render();
   };
 
-  // --- Popover triggers: Price, Bedrooms, More filters -----------------
+  // --- Size (living area) -------------------------------------------------
+  // Two lists in round tens. A card carries every size in its price list
+  // (data-sizes); it matches when any home falls inside the range, widened by
+  // SIZE_MARGIN either side for the difference in how developers measure.
+
+  const SIZE_MARGIN = 0.1;
+  const SIZE_STEPS = [];
+  for (let n = 40; n <= 300; n += 10) SIZE_STEPS.push(n);
+  SIZE_STEPS.push(350, 400, 500, 600, 800, 1000);
+  const sizeField = root.querySelector('[data-size-field]');
+  const sizeSelects = {
+    min: root.querySelector('[data-size-select="min"]'),
+    max: root.querySelector('[data-size-select="max"]')
+  };
+  const sizeState = { min: 0, max: 0 };
+  const sqm = (value) => `${value.toLocaleString(`${lang}-u-nu-latn`)} ${i18n.sqm}`;
+  const sizeActive = () => Boolean(sizeState.min || sizeState.max);
+  const sizeText = () => {
+    const { min, max } = sizeState;
+    if (min && max) return `${min.toLocaleString(`${lang}-u-nu-latn`)} – ${sqm(max)}`;
+    if (min) return `${sqm(min)}+`;
+    if (max) return `≤ ${sqm(max)}`;
+    return i18n.anySize;
+  };
+  const renderSize = () => {
+    if (sizeSelects.min) sizeSelects.min.value = String(sizeState.min || '');
+    if (sizeSelects.max) sizeSelects.max.value = String(sizeState.max || '');
+    const readout = sizeField?.querySelector('[data-size-readout]');
+    if (readout) readout.textContent = sizeText();
+  };
+  const setSize = (min, max) => {
+    const known = (value) => (SIZE_STEPS.includes(Number(value)) ? Number(value) : 0);
+    sizeState.min = known(min);
+    sizeState.max = known(max);
+    if (sizeState.min && sizeState.max && sizeState.min > sizeState.max) {
+      [sizeState.min, sizeState.max] = [sizeState.max, sizeState.min];
+    }
+    renderSize();
+  };
+  const cardSizes = (card) => {
+    if (!card._lioraSizes) {
+      card._lioraSizes = String(card.dataset.sizes || '').split(/\s+/).map(Number).filter((n) => n > 0);
+    }
+    return card._lioraSizes;
+  };
+  const sizeMatches = (card) => {
+    if (!sizeActive()) return true;
+    const low = sizeState.min ? sizeState.min * (1 - SIZE_MARGIN) : 0;
+    const high = sizeState.max ? sizeState.max * (1 + SIZE_MARGIN) : Infinity;
+    return cardSizes(card).some((size) => size >= low && size <= high);
+  };
+  if (sizeField) {
+    const label = sizeField.querySelector('[data-size-label]');
+    if (label) label.textContent = i18n.sizeLabel;
+    const note = sizeField.querySelector('[data-size-note]');
+    if (note) note.textContent = i18n.sizeNote;
+    [['min', i18n.noMin, i18n.minSize], ['max', i18n.noMax, i18n.maxSize]].forEach(([end, none, aria]) => {
+      const select = sizeSelects[end];
+      if (!select) return;
+      select.setAttribute('aria-label', aria);
+      select.replaceChildren(new Option(none, ''), ...SIZE_STEPS.map((n) => new Option(sqm(n), String(n))));
+      select.addEventListener('change', () => {
+        aiMatchedSlugs = null;
+        const other = end === 'min' ? 'max' : 'min';
+        const value = Number(select.value) || 0;
+        // Moving one end past the other drags the other along.
+        if (value && sizeState[other] && (end === 'min' ? value > sizeState.max : value < sizeState.min)) {
+          sizeState[other] = value;
+        }
+        sizeState[end] = value;
+        renderSize();
+        update();
+        syncUrl();
+      });
+    });
+    renderSize();
+  }
+
+  // --- Popover triggers: Location, Price, Bedrooms, Size, More filters ----
 
   const popFields = Array.from(root.querySelectorAll('[data-pop-field]'));
   const mobileQuery = window.matchMedia('(max-width: 640px)');
@@ -433,7 +560,11 @@
     const range = rangeBy(field.dataset.popField);
     const label = field.querySelector('[data-pop-label]');
     const value = field.querySelector('[data-pop-value]');
-    const text = range ? range.labelText() : i18n.moreFilters;
+    const name = field.dataset.popField;
+    const text = range ? range.labelText()
+      : name === 'area' ? (field.querySelector('[data-chip-group="area"] label > span')?.textContent.trim() || '')
+      : name === 'size' ? i18n.sizeLabel
+      : i18n.moreFilters;
     if (label) label.textContent = text;
     if (pop) pop.setAttribute('aria-label', text);
     if (field.dataset.popField === 'more') {
@@ -450,6 +581,7 @@
     filters: i18n.filters,
     type: root.querySelector('[data-chip-group="propertyType"] label > span')?.textContent.trim() || '',
     bedrooms: rangeBy('bedrooms')?.labelText() || '',
+    size: i18n.sizeLabel,
     lifestyle: lifestyleLabel ? lifestyleLabel.textContent.replace('✦', '').trim() : ''
   };
   root.querySelectorAll('[data-text]').forEach((node) => {
@@ -522,11 +654,12 @@
       area: root.querySelector('[data-chip-group="area"]'),
       price: rangeBy('price')?.field,
       bedrooms: rangeBy('bedrooms')?.field,
+      size: sizeField,
       propertyType: root.querySelector('[data-chip-group="propertyType"]'),
       more: root.querySelector('.discovery-pop-body[data-more-body]')
     };
     Object.assign(sectionNodes, sections);
-    ['area', 'price', 'bedrooms', 'propertyType', 'more'].forEach((name) => {
+    ['area', 'price', 'bedrooms', 'size', 'propertyType', 'more'].forEach((name) => {
       const node = sections[name];
       if (!node) return;
       const marker = document.createComment(name);
@@ -631,7 +764,10 @@
 
   const activeFilters = () => {
     const list = [];
-    [['area', 'area'], ['propertyType', 'propertyType'], ['status', 'status'], ['timing', 'timing']].forEach(([key]) => {
+    areaOptions().filter((option) => areaSet.has(option.value)).forEach((option) => {
+      list.push({ label: option.textContent.trim(), group: 'area', clear: () => toggleArea(option.value) });
+    });
+    [['propertyType', 'propertyType'], ['status', 'status'], ['timing', 'timing']].forEach(([key]) => {
       if (!selectState[key]) return;
       list.push({
         label: optionLabel(key),
@@ -652,6 +788,9 @@
         }
       });
     });
+    if (sizeActive()) {
+      list.push({ label: sizeText(), group: 'size', clear: () => setSize(0, 0) });
+    }
     [...selected].forEach((value) => {
       list.push({ label: filterLabel(value), group: 'more', clear: () => selected.delete(value) });
     });
@@ -706,8 +845,11 @@
     },
     price: (card) => numeric(card.dataset.price, 0),
     compactPrice: (value) => formatCompact(value),
-    areaLabel: () => (selectState.area ? optionLabel('area') : (selectByKey('area')?.options[0]?.textContent.trim() || '')),
-    openFilters: (opener) => { if (mobileQuery.matches) openSheet(opener, 'area'); else selectByKey('area')?.focus(); },
+    areaLabel: () => areaSummary(),
+    openFilters: (opener) => {
+      if (mobileQuery.matches) openSheet(opener, 'area');
+      else { const item = pops.find((pop) => pop.name === 'area'); if (item) showPop(item); }
+    },
     subscribe(listener) { mapListeners.add(listener); return () => mapListeners.delete(listener); }
   };
   root._discovery = bridge;
@@ -738,7 +880,8 @@
       const tokens = cardTokens(card);
       if (!activeTokens.every((token) => tokens.has(token))) return false;
 
-      if (selectState.area && card.dataset.area !== selectState.area) return false;
+      if (areaSet.size && !areaSet.has(card.dataset.area)) return false;
+      if (!sizeMatches(card)) return false;
       if (selectState.status && card.dataset.status !== selectState.status) return false;
       if (selectState.timing && timingBucket(card.dataset.completion, card.dataset.status) !== selectState.timing) return false;
       if (selectState.propertyType) {
@@ -813,8 +956,19 @@
     });
 
     pops.forEach((item) => {
-      if (item.range && item.value) item.value.textContent = item.range.text(true);
-      const on = item.range ? !item.range.isDefault() : moreCount > 0;
+      let on;
+      if (item.range) {
+        if (item.value) item.value.textContent = item.range.text(true);
+        on = !item.range.isDefault();
+      } else if (item.name === 'area') {
+        if (item.value) item.value.textContent = areaSummary();
+        on = areaSet.size > 0;
+      } else if (item.name === 'size') {
+        if (item.value) item.value.textContent = sizeText();
+        on = sizeActive();
+      } else {
+        on = moreCount > 0;
+      }
       item.trigger.classList.toggle('is-active', on);
     });
   }
@@ -850,6 +1004,8 @@
       aiMatchedSlugs = null;
       selected.clear();
       drawnArea = null;
+      setAreas([]);
+      setSize(0, 0);
       Object.keys(selectState).forEach((key) => setSelect(key, ''));
       rangeControllers.forEach((controller) => {
         controller.minInput.value = String(controller.bounds.min);
@@ -878,7 +1034,9 @@
 
   function syncUrl() {
     const params = new URLSearchParams();
-    if (selectState.area) params.set('area', selectState.area);
+    if (areaSet.size) params.set('area', [...areaSet].join(','));
+    if (sizeState.min) params.set('smin', String(sizeState.min));
+    if (sizeState.max) params.set('smax', String(sizeState.max));
     if (selectState.propertyType) params.set('type', selectState.propertyType);
     if (selectState.status) params.set('status', selectState.status);
     if (selectState.timing) params.set('timing', selectState.timing);
@@ -922,7 +1080,10 @@
     });
     if (!params.toString()) return;
 
-    [['area', 'area'], ['type', 'propertyType'], ['status', 'status'], ['timing', 'timing']].forEach(([param, key]) => {
+    const areas = params.get('area');
+    if (areas) setAreas(areas.split(',').map((value) => value.trim()).filter(Boolean));
+    if (params.get('smin') || params.get('smax')) setSize(params.get('smin'), params.get('smax'));
+    [['type', 'propertyType'], ['status', 'status'], ['timing', 'timing']].forEach(([param, key]) => {
       const value = params.get(param);
       if (value) setSelect(key, value);
     });

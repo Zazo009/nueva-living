@@ -371,7 +371,15 @@ export const DISCOVERY_RUNTIME_STRINGS = {
     nextProject: 'Proyecto siguiente',
     closeCard: 'Cerrar',
     unmapped: 'Sin ubicación en el mapa: {n}',
-    backToFilters: 'Volver a los filtros'
+    backToFilters: 'Volver a los filtros',
+    sizeLabel: "Superficie",
+    anySize: "Cualquier superficie",
+    noMin: "Sin mínimo",
+    noMax: "Sin máximo",
+    minSize: "Superficie mínima",
+    maxSize: "Superficie máxima",
+    sizeNote: "Superficie construida cuando el promotor la indica; si no, la superficie interior. Se incluyen las viviendas a menos de un 10 % de su rango, porque cada promotor mide de forma distinta.",
+    sqm: "m²"
   },
   fr: {
     countOne: '{count} programme sélectionné',
@@ -406,7 +414,15 @@ export const DISCOVERY_RUNTIME_STRINGS = {
     nextProject: 'Projet suivant',
     closeCard: 'Fermer',
     unmapped: 'Non affichés sur la carte : {n}',
-    backToFilters: 'Retour aux filtres'
+    backToFilters: 'Retour aux filtres',
+    sizeLabel: "Surface",
+    anySize: "Toutes surfaces",
+    noMin: "Pas de minimum",
+    noMax: "Pas de maximum",
+    minSize: "Surface minimale",
+    maxSize: "Surface maximale",
+    sizeNote: "Surface construite lorsque le promoteur l’indique, sinon surface intérieure. Les logements à moins de 10 % de votre fourchette sont inclus, car chaque promoteur mesure différemment.",
+    sqm: "m²"
   },
   de: {
     countOne: '{count} ausgewähltes Projekt',
@@ -441,7 +457,15 @@ export const DISCOVERY_RUNTIME_STRINGS = {
     nextProject: 'Nächstes Projekt',
     closeCard: 'Schließen',
     unmapped: 'Nicht auf der Karte: {n}',
-    backToFilters: 'Zurück zu den Filtern'
+    backToFilters: 'Zurück zu den Filtern',
+    sizeLabel: "Wohnfläche",
+    anySize: "Beliebige Fläche",
+    noMin: "Kein Minimum",
+    noMax: "Kein Maximum",
+    minSize: "Mindestfläche",
+    maxSize: "Höchstfläche",
+    sizeNote: "Bebaute Fläche, wo der Bauträger sie angibt, sonst die Innenfläche. Einheiten bis 10 % außerhalb Ihres Bereichs werden mit angezeigt, da Bauträger unterschiedlich messen.",
+    sqm: "m²"
   },
   ru: {
     countOne: '{count} отобранный проект',
@@ -476,7 +500,15 @@ export const DISCOVERY_RUNTIME_STRINGS = {
     nextProject: 'Следующий проект',
     closeCard: 'Закрыть',
     unmapped: 'Не показаны на карте: {n}',
-    backToFilters: 'Назад к фильтрам'
+    backToFilters: 'Назад к фильтрам',
+    sizeLabel: "Площадь",
+    anySize: "Любая площадь",
+    noMin: "Без минимума",
+    noMax: "Без максимума",
+    minSize: "Минимальная площадь",
+    maxSize: "Максимальная площадь",
+    sizeNote: "Общая площадь, если застройщик её указывает, иначе внутренняя. Показываются и объекты в пределах 10 % от вашего диапазона: застройщики считают площадь по-разному.",
+    sqm: "м²"
   },
   ar: {
     countOne: 'مشروع مختار واحد',
@@ -511,7 +543,15 @@ export const DISCOVERY_RUNTIME_STRINGS = {
     nextProject: 'المشروع التالي',
     closeCard: 'إغلاق',
     unmapped: 'غير ظاهرة على الخريطة: {n}',
-    backToFilters: 'العودة إلى الفلاتر'
+    backToFilters: 'العودة إلى الفلاتر',
+    sizeLabel: "المساحة",
+    anySize: "أي مساحة",
+    noMin: "بلا حد أدنى",
+    noMax: "بلا حد أقصى",
+    minSize: "الحد الأدنى للمساحة",
+    maxSize: "الحد الأقصى للمساحة",
+    sizeNote: "المساحة المبنية حين يذكرها المطوّر، وإلا فالمساحة الداخلية. تُعرض أيضاً الوحدات التي تقع ضمن 10% من نطاقك، لأن المطورين يقيسون بطرق مختلفة.",
+    sqm: "م²"
   },
   nl: {
     countOne: '{count} geselecteerd project',
@@ -546,7 +586,15 @@ export const DISCOVERY_RUNTIME_STRINGS = {
     nextProject: 'Volgend project',
     closeCard: 'Sluiten',
     unmapped: 'Niet op de kaart: {n}',
-    backToFilters: 'Terug naar filters'
+    backToFilters: 'Terug naar filters',
+    sizeLabel: "Woonoppervlak",
+    anySize: "Elk oppervlak",
+    noMin: "Geen minimum",
+    noMax: "Geen maximum",
+    minSize: "Minimaal oppervlak",
+    maxSize: "Maximaal oppervlak",
+    sizeNote: "Bebouwde oppervlakte waar de ontwikkelaar die opgeeft, anders de binnenoppervlakte. Woningen tot 10% buiten uw bereik worden meegenomen, omdat ontwikkelaars verschillend meten.",
+    sqm: "m²"
   },
   pl: {
     countOne: '{count} wybrany projekt',
@@ -581,7 +629,15 @@ export const DISCOVERY_RUNTIME_STRINGS = {
     nextProject: 'Następny projekt',
     closeCard: 'Zamknij',
     unmapped: 'Nie na mapie: {n}',
-    backToFilters: 'Wróć do filtrów'
+    backToFilters: 'Wróć do filtrów',
+    sizeLabel: "Powierzchnia",
+    anySize: "Dowolna powierzchnia",
+    noMin: "Bez minimum",
+    noMax: "Bez maksimum",
+    minSize: "Minimalna powierzchnia",
+    maxSize: "Maksymalna powierzchnia",
+    sizeNote: "Powierzchnia zabudowy, jeśli deweloper ją podaje, w przeciwnym razie powierzchnia wewnętrzna. Uwzględniamy też lokale do 10% poza wybranym zakresem, bo deweloperzy mierzą różnie.",
+    sqm: "m²"
   },
   sv: {
     countOne: '{count} valt projekt',
@@ -616,7 +672,15 @@ export const DISCOVERY_RUNTIME_STRINGS = {
     nextProject: 'Nästa projekt',
     closeCard: 'Stäng',
     unmapped: 'Visas inte på kartan: {n}',
-    backToFilters: 'Tillbaka till filtren'
+    backToFilters: 'Tillbaka till filtren',
+    sizeLabel: "Boyta",
+    anySize: "Alla storlekar",
+    noMin: "Inget minimum",
+    noMax: "Inget maximum",
+    minSize: "Minsta yta",
+    maxSize: "Största yta",
+    sizeNote: "Byggd yta där utvecklaren anger den, annars inneyta. Bostäder upp till 10 % utanför ditt spann kommer med, eftersom utvecklare mäter olika.",
+    sqm: "m²"
   },
   no: {
     countOne: '{count} valgt prosjekt',
@@ -651,6 +715,14 @@ export const DISCOVERY_RUNTIME_STRINGS = {
     nextProject: 'Neste prosjekt',
     closeCard: 'Lukk',
     unmapped: 'Vises ikke på kartet: {n}',
-    backToFilters: 'Tilbake til filtrene'
+    backToFilters: 'Tilbake til filtrene',
+    sizeLabel: "Boareal",
+    anySize: "Alle størrelser",
+    noMin: "Ingen minimum",
+    noMax: "Ingen maksimum",
+    minSize: "Minste areal",
+    maxSize: "Største areal",
+    sizeNote: "Bebygd areal der utbyggeren oppgir det, ellers innvendig areal. Boliger opptil 10 % utenfor ditt spenn tas med, fordi utbyggere måler ulikt.",
+    sqm: "m²"
   }
 };
