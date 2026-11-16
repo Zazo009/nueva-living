@@ -16,6 +16,7 @@ import { FOOTER_PAGE_ENTRIES_GROUP_C } from './footer_page_translations_group_c.
 import { FOOTER_PAGE_ENTRIES_GROUP_D } from './footer_page_translations_group_d.mjs';
 import { FOOTER_PAGE_ENTRIES_GROUP_E } from './footer_page_translations_group_e.mjs';
 import { FOOTER_PAGE_ENTRIES_GROUP_F } from './footer_page_translations_group_f.mjs';
+import { FOOTER_PAGE_ENTRIES_GROUP_G } from './footer_page_translations_group_g.mjs';
 import { AREA_FAQ_ENTRIES } from './area_faq_translations.mjs';
 import { AREA_SUBAREA_ENTRIES } from './area_subarea_translations.mjs';
 import { GUIDE_ABROAD_ENTRIES } from './guide_abroad_translations.mjs';
@@ -33,6 +34,7 @@ export const FOOTER_PAGE_ENTRIES = [
   ...FOOTER_PAGE_ENTRIES_GROUP_D,
   ...FOOTER_PAGE_ENTRIES_GROUP_E,
   ...FOOTER_PAGE_ENTRIES_GROUP_F,
+  ...FOOTER_PAGE_ENTRIES_GROUP_G,
   ...AREA_FAQ_ENTRIES,
   ...AREA_SUBAREA_ENTRIES,
   ...GUIDE_ABROAD_ENTRIES,

@@ -110,6 +110,7 @@ export function buildLlms({ siteUrl, dist, projects, areas }) {
     '',
     `- [All developments](${url('developments.html')}): ${projects.length} current projects with filters for location, price, bedrooms, status and lifestyle, and a map view`,
     `- [Areas](${url('areas.html')}): the Costa del Sol areas covered, with local price levels and what each area is like`,
+    `- [In ChatGPT and Claude](${url('ai.html')}): the same developments through a remote MCP server at ${url('mcp')} (streamable HTTP, no login), and how to add it as a connector`,
     ''
   ];
 

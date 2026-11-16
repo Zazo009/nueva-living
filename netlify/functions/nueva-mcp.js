@@ -16,8 +16,10 @@
 //
 // Leads: request_details hands the enquiry to nueva-lead.js, the same forwarder the site's forms
 // use, so it reaches the CRM with the same spam rules and the same field mapping.
+const crypto = require('crypto');
 const catalog = require('./data/mcp-catalog.json');
 const lead = require('./nueva-lead');
+const { WIDGET_HTML } = require('./lib/mcp-widget');
 
 const SERVER_INFO = { name: 'nueva-living', title: 'Nueva Living', version: '1.0.0' };
 const PROTOCOL_VERSIONS = ['2025-06-18', '2025-03-26', '2024-11-05'];
@@ -25,6 +27,33 @@ const LANGUAGES = ['en', 'es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'sv', 'no'];
 const PROPERTY_TYPES = ['apartment', 'penthouse', 'villa', 'townhouse', 'duplex'];
 const STAGES = ['off_plan', 'under_construction', 'completed'];
 const MAX_RESULTS = 6;
+const FEATURES = ['sea_view', 'beach', 'golf', 'private_pool', 'communal_pool', 'indoor_pool', 'garden', 'rooftop',
+  'gated', 'gym', 'spa', 'lift', 'smart_home', 'coworking', 'ev_charging', 'mountain_view'];
+const ADVISOR = { email: 'contact@nuevaliving.com', whatsapp: '+46 70 757 67 09', contact: 'https://nuevaliving.com/contact.html' };
+
+// The view a host draws for the results (MCP Apps: Claude and ChatGPT). Its address carries a hash
+// of its own bytes, so a host that caches views fetches a changed one instead of an old copy.
+const WIDGET_URI = `ui://nueva-living/view-${crypto.createHash('sha256').update(WIDGET_HTML).digest('hex').slice(0, 10)}.html`;
+const WIDGET_DOMAINS = ['https://nuevaliving.com', 'https://fonts.googleapis.com', 'https://fonts.gstatic.com'];
+// The base map is read with range requests from this site's own archive (CORS headers in netlify.toml).
+const WIDGET_CONNECT = ['https://nuevaliving.com'];
+const WIDGET_DESCRIPTION = 'Nueva Living development cards with photos, list prices, delivery and a map, filters that narrow the search, a detail view with the homes on the price list, and a form to ask an advisor.';
+const WIDGET_META = {
+  ui: { prefersBorder: true, csp: { resourceDomains: WIDGET_DOMAINS, connectDomains: WIDGET_CONNECT } },
+  'openai/widgetCSP': { resource_domains: WIDGET_DOMAINS, connect_domains: WIDGET_CONNECT },
+  'openai/widgetPrefersBorder': true,
+  'openai/widgetDescription': WIDGET_DESCRIPTION,
+};
+function toolMeta(invoking, invoked) {
+  return {
+    ui: { resourceUri: WIDGET_URI },
+    'ui/resourceUri': WIDGET_URI,
+    'openai/outputTemplate': WIDGET_URI,
+    'openai/widgetAccessible': true,
+    'openai/toolInvocation/invoking': invoking,
+    'openai/toolInvocation/invoked': invoked,
+  };
+}
 
 const INSTRUCTIONS = [
   'Nueva Living is an independent advisory for new-build homes on the Costa del Sol, Spain (Marbella, Estepona, Benahavís, Casares, Mijas and nearby).',
@@ -33,7 +62,9 @@ const INSTRUCTIONS = [
   'Prices are the developer\'s list prices before Spanish VAT (IVA) and purchase costs unless the price note says otherwise. Say so when you quote one. Availability and prices are reconfirmed by Nueva Living before any reservation; do not describe a home as reserved for the person or as the last one.',
   'Images are mostly computer-generated renders from the developer, not photographs of the finished building. Map positions are approximate.',
   'To put the person in touch with an advisor, use request_details, only after they have asked to be contacted and agreed to share their name and e-mail for that purpose. Otherwise link to the development page, where they can enquire themselves.',
-  'Answer in the person\'s language; pass it as `language` so names, prices and dates come back in it.',
+  'Answer in the person\'s language; pass it as `language` so names, prices and dates come back in it. Put requirements such as sea views, a private pool, golf or walking to the beach in `features`; anything else goes in `wishes`, in any language.',
+  `A person can also reach a Nueva Living advisor directly at ${ADVISOR.email}, on WhatsApp ${ADVISOR.whatsapp}, or through ${ADVISOR.contact}.`,
+  'The results are also shown as cards in the conversation where the assistant supports it; do not repeat every figure from them, summarise and help the person choose.',
 ].join(' ');
 
 // --- small helpers ---------------------------------------------------------------------------
@@ -56,12 +87,15 @@ function areaName(slug, language) {
   return area ? (area.names[language] || area.names.en) : slug;
 }
 
+// Wishes arrive in the person's language, so every language's own wording is searched: "havsutsikt"
+// finds what the Swedish page says, "vue mer" what the French one does.
 function haystack(project) {
-  const en = project.locales.en;
-  return fold([
-    en.name, en.location, en.type, en.summary, en.description, en.locationNote,
-    project.area, areaName(project.area, 'en'), project.tags.join(' '),
-  ].join(' '));
+  const parts = [project.area, project.tags.join(' ')];
+  for (const l of Object.values(project.locales)) {
+    parts.push(l.name, l.location, l.type, l.summary, l.description, l.locationNote, l.why);
+  }
+  for (const a of catalog.areas.filter((x) => x.slug === project.area)) parts.push(...Object.values(a.names));
+  return fold(parts.join(' '));
 }
 
 const HAYSTACKS = new Map(catalog.projects.map((p) => [p.slug, haystack(p)]));
@@ -87,7 +121,7 @@ function overlapsBudget(project, min, max) {
   return true;
 }
 
-function card(project, language) {
+function card(project, language, matching) {
   const l = project.locales[language] || project.locales.en;
   return {
     slug: project.slug,
@@ -105,9 +139,25 @@ function card(project, language) {
     stage: project.status,
     delivery: l.delivery || null,
     summary: l.summary,
+    features: project.features,
+    homesListed: project.homes.length,
+    homesMatching: matching ? matching.count : null,
+    fromMatchingEur: matching ? matching.from : null,
     image: project.image,
+    map: project.coordinates ? { lat: project.coordinates[0], lng: project.coordinates[1], approximate: true } : null,
     url: l.url,
   };
+}
+
+// The homes on a project's price list that fit the budget and bedrooms, when the list prices them.
+// A project whose list prices nothing ("on request") is judged by its range instead.
+function homesMatching(project, args) {
+  const priced = project.homes.filter((h) => h.priceEur != null);
+  if (!priced.length || !(args.budget_min || args.budget_max || args.bedrooms_min)) return null;
+  const fit = priced.filter((h) => (!args.budget_max || h.priceEur <= args.budget_max)
+    && (!args.budget_min || h.priceEur >= args.budget_min)
+    && (!args.bedrooms_min || h.bedrooms == null || h.bedrooms >= args.bedrooms_min));
+  return { count: fit.length, from: fit.length ? Math.min(...fit.map((h) => h.priceEur)) : null };
 }
 
 function suggestions(pool, args) {
@@ -143,12 +193,14 @@ const TOOLS = [
         bedrooms_min: { type: 'integer', minimum: 0, maximum: 10 },
         property_type: { type: 'string', enum: PROPERTY_TYPES },
         stage: { type: 'string', enum: STAGES, description: 'off_plan = sold before or at the start of construction; under_construction; completed = key ready.' },
-        wishes: { type: 'string', maxLength: 300, description: 'Anything else in the person\'s words that ranks the results: "sea views", "golf", "walk to the beach", "gated", "investment", "private pool".' },
+        features: { type: 'array', maxItems: 8, items: { type: 'string', enum: FEATURES }, description: 'Required features; every one listed must be named on the development\'s page. beach = beachfront or walking distance to the beach.' },
+        wishes: { type: 'string', maxLength: 300, description: 'Anything else that ranks the results, in the person\'s own words and language: "quiet", "family", "investment", "walk to restaurants".' },
         language: { type: 'string', enum: LANGUAGES, description: 'Language of the person. Names, prices and dates come back in it. Default en.' },
       },
       additionalProperties: false,
     },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    _meta: toolMeta('Searching Nueva Living developments…', 'Found the best matches'),
   },
   {
     name: 'get_development',
@@ -164,6 +216,7 @@ const TOOLS = [
       additionalProperties: false,
     },
     annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    _meta: toolMeta('Opening the development…', 'Development details ready'),
   },
   {
     name: 'request_details',
@@ -186,18 +239,29 @@ const TOOLS = [
       additionalProperties: false,
     },
     annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: true },
+    _meta: toolMeta('Sending your request to Nueva Living…', 'Request sent to a Nueva Living advisor'),
   },
 ];
 
 function searchDevelopments(args) {
   const language = lang(args.language);
+  const features = (Array.isArray(args.features) ? args.features : []).filter((f) => FEATURES.includes(f));
   let pool = catalog.projects.filter((p) => p.priceMin != null || p.locales.en.from);
   if (args.location) pool = pool.filter((p) => matchesLocation(p, args.location));
   const locationFound = pool.length > 0;
   if (args.property_type) pool = pool.filter((p) => p.propertyTypes.includes(args.property_type));
   if (args.stage) pool = pool.filter((p) => p.status === args.stage);
+  if (features.length) pool = pool.filter((p) => features.every((f) => p.features.includes(f)));
   if (args.bedrooms_min) pool = pool.filter((p) => (p.bedroomsMax ?? p.bedroomsMin ?? 0) >= args.bedrooms_min);
-  if (args.budget_min || args.budget_max) pool = pool.filter((p) => overlapsBudget(p, args.budget_min, args.budget_max));
+
+  // Budget and bedrooms are judged home by home where the price list prices its homes, so a project
+  // whose range overlaps the budget but whose remaining homes do not is left out.
+  const matches = new Map();
+  pool = pool.filter((p) => {
+    const m = homesMatching(p, args);
+    if (m) { matches.set(p.slug, m); return m.count > 0; }
+    return !(args.budget_min || args.budget_max) || overlapsBudget(p, args.budget_min, args.budget_max);
+  });
 
   const wishes = words(args.wishes);
   const scored = pool.map((p) => {
@@ -206,18 +270,27 @@ function searchDevelopments(args) {
     return { p, score };
   }).sort((a, b) => b.score - a.score || (a.p.priceMin || 9e12) - (b.p.priceMin || 9e12));
 
-  const results = scored.slice(0, MAX_RESULTS).map(({ p }) => card(p, language));
+  // The price list does not say which type each home is, so in a project that mixes types a count
+  // of homes in budget would include the wrong ones when a type is asked for. It is left off there.
+  const shown = (p) => (args.property_type && p.propertyTypes.length > 1 ? null : matches.get(p.slug));
+  const results = scored.slice(0, MAX_RESULTS).map(({ p }) => card(p, language, shown(p)));
   const out = {
+    kind: 'search',
+    language,
+    query: { ...args, features, language },
     results,
+    total: scored.length,
     more_matches: scored.length > MAX_RESULTS,
     refine: scored.length > MAX_RESULTS ? suggestions(scored.map((s) => s.p), args) : [],
-    note: 'List prices in EUR before VAT and purchase costs; availability and prices are reconfirmed by Nueva Living before reservation. Images are mostly renders.',
+    note: 'List prices in EUR before VAT and purchase costs; availability and prices are reconfirmed by Nueva Living before reservation. Images are mostly renders; map positions are approximate.',
   };
   if (!results.length) {
     out.message = !locationFound
       ? `Nueva Living does not currently advise on a development in "${args.location}". Areas covered: ${catalog.areas.map((a) => a.names[language] || a.names.en).join(', ')}.`
-      : 'No development fits every criterion. Suggest relaxing one of them (budget, bedrooms, type or stage).';
+      : 'No development fits every criterion. Suggest relaxing one of them (budget, bedrooms, type, stage or a feature).';
   }
+  // What people ask for, without who asked: the only record of demand this channel leaves.
+  console.log('mcp search', JSON.stringify({ q: { ...args, wishes: args.wishes ? String(args.wishes).slice(0, 120) : undefined }, found: scored.length }));
   return out;
 }
 
@@ -226,7 +299,10 @@ function getDevelopment(args) {
   const project = catalog.projects.find((p) => p.slug === String(args.slug || '').trim());
   if (!project) return { error: `No development with slug "${args.slug}". Use search_developments first.` };
   const l = project.locales[language] || project.locales.en;
+  console.log('mcp details', JSON.stringify({ slug: project.slug, language }));
   return {
+    kind: 'development',
+    language,
     ...card(project, language),
     description: l.description,
     why: l.why,
@@ -236,7 +312,6 @@ function getDevelopment(args) {
     homes: l.units,
     location_note: l.locationNote,
     distances: l.distances,
-    map: project.coordinates ? { lat: project.coordinates[0], lng: project.coordinates[1], approximate: true } : null,
     images: l.images,
     images_note: l.mediaNote,
     tags: project.tags,
@@ -298,7 +373,8 @@ async function requestDetails(args, event) {
     console.error('MCP lead not accepted', { status: result.statusCode, body: String(result.body).slice(0, 200) });
     return { sent: false, error: 'The enquiry could not be sent just now. Give the person the development page link to enquire there.' };
   }
-  return { sent: true, message: 'Sent. A Nueva Living advisor will reply by e-mail, normally within one working day.' };
+  console.log('mcp lead', JSON.stringify({ slugs: args.slugs || [], language: lang(args.language) }));
+  return { kind: 'request', sent: true, message: 'Sent. A Nueva Living advisor will reply by e-mail, normally within one working day.' };
 }
 
 // --- JSON-RPC over HTTP ------------------------------------------------------------------------
@@ -355,7 +431,7 @@ exports.handler = async (event) => {
         const asked = params.protocolVersion;
         return rpcResult(id, {
           protocolVersion: PROTOCOL_VERSIONS.includes(asked) ? asked : PROTOCOL_VERSIONS[0],
-          capabilities: { tools: { listChanged: false } },
+          capabilities: { tools: { listChanged: false }, resources: { listChanged: false } },
           serverInfo: SERVER_INFO,
           instructions: INSTRUCTIONS,
         });
@@ -365,7 +441,10 @@ exports.handler = async (event) => {
       case 'tools/list':
         return rpcResult(id, { tools: TOOLS });
       case 'resources/list':
-        return rpcResult(id, { resources: [] });
+        return rpcResult(id, { resources: [{ uri: WIDGET_URI, name: 'Nueva Living view', title: 'Nueva Living view', description: WIDGET_DESCRIPTION, mimeType: 'text/html;profile=mcp-app', _meta: WIDGET_META }] });
+      case 'resources/read':
+        if (!/^ui:\/\/nueva-living\/view(-[0-9a-f]+)?\.html$/.test(params.uri || '')) return rpcError(id, -32002, 'Resource not found');
+        return rpcResult(id, { contents: [{ uri: params.uri, mimeType: 'text/html;profile=mcp-app', text: WIDGET_HTML, _meta: WIDGET_META }] });
       case 'resources/templates/list':
         return rpcResult(id, { resourceTemplates: [] });
       case 'prompts/list':

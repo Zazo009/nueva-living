@@ -38,6 +38,12 @@
   for = "/assets/liora/tiles/*"
   [headers.values]
     Cache-Control = "public, max-age=86400"
+    # The assistant view (netlify/functions/lib/mcp-widget.js) draws the same base map from inside
+    # Claude's and ChatGPT's sandboxed frames, which are another origin. The archive is public
+    # OpenStreetMap data, so any origin may read it.
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Range, If-Match, If-None-Match"
+    Access-Control-Expose-Headers = "ETag, Content-Range, Content-Length, Accept-Ranges"
 
 [[headers]]
   for = "/assets/liora/vendor/*"

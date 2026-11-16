@@ -12,9 +12,64 @@
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { LOCALES, localizeProject, pageUrl } from './i18n.mjs';
+import { PRICE_FORMAT } from './prices.mjs';
+import { localizeMonthDate } from './dates.mjs';
 
 const SITE = 'https://nuevaliving.com';
 const MAX_IMAGES = 8;
+
+// The features a person can require in a search. Each is read from the project's own tags and
+// amenity list, which the page already prints; a project is only given a feature its page names.
+const FEATURES = {
+  sea_view: [/^sea views?$/i, /^panoramic views$/i],
+  private_pool: [/^private (rooftop )?pool$/i],
+  communal_pool: [/^communal (outdoor )?pools?/i, /^outdoor pool$/i],
+  indoor_pool: [/indoor (heated )?pool|heated indoor pool/i],
+  beach: [/^walk to beach$/i, /^beachfront$/i, /^beachside$/i, /^beach living$/i],
+  golf: [/^golf( view| frontline| valley)?$/i],
+  gated: [/^gated community$/i, /^24-hour security$/i, /^privacy & security$/i],
+  gym: [/gym$/i],
+  spa: [/^(indoor )?spa$/i, /^sauna$/i, /^hammam$/i],
+  garden: [/^private garden$/i],
+  rooftop: [/rooftop (solarium|pool)/i, /^solarium$/i],
+  lift: [/^(private )?lift$/i],
+  smart_home: [/^smart home$/i, /^home automation$/i],
+  coworking: [/^coworking( space)?$/i],
+  ev_charging: [/ev charging|electric vehicle charging/i],
+  mountain_view: [/^mountain views$/i],
+};
+
+function featuresOf(project) {
+  const discovery = project.discovery || {};
+  const names = [
+    ...(discovery.practicalTags || []), ...(discovery.lifestyleTags || []),
+    ...(discovery.locationTags || []), ...(discovery.architectureTags || []),
+    ...((project.crm?.amenities || []).filter((a) => typeof a === 'string')),
+  ];
+  return Object.entries(FEATURES)
+    .filter(([, patterns]) => names.some((name) => patterns.some((re) => re.test(String(name).trim()))))
+    .map(([key]) => key);
+}
+
+// Overlays that never translated a price leave it in English grouping ("€450,000") on a Swedish
+// answer. The site's own pages fix that when they render; this does the same with the same table.
+function localPrices(value, locale) {
+  const format = PRICE_FORMAT[locale];
+  if (!format || !value) return value;
+  return value.replace(/(?:EUR\s*|€\s?)(\d{1,3}(?:,\d{3})+)/g, (whole, digits) => format(digits));
+}
+
+function eur(value) {
+  const match = /(?:EUR|€)\s*([\d,.]+)/.exec(String(value || ''));
+  if (!match) return null;
+  const n = Number(match[1].replace(/[.,](?=\d{3}\b)/g, ''));
+  return Number.isFinite(n) && n > 10000 ? n : null;
+}
+
+function bedroomsOf(value) {
+  const match = /(\d+)/.exec(String(value || ''));
+  return match ? Number(match[1]) : null;
+}
 
 function absolute(src) {
   if (!src) return null;
@@ -53,11 +108,11 @@ function localeEntry(project, locale) {
     location: text(p.hero?.location || p.card?.locExtended),
     type: text(p.hero?.type || p.card?.typeTag),
     delivery: text(p.hero?.delivery),
-    from: text(p.hero?.startingPrice),
-    priceRange: text(availability.priceRange),
+    from: localPrices(text(p.hero?.startingPrice), locale),
+    priceRange: localPrices(text(availability.priceRange), locale),
     availability: text(availability.copy),
     priceNote: text(availability.sourceNote),
-    checked: text(availability.checkedDate),
+    checked: localizeMonthDate(text(availability.checkedDate), locale),
     why: text(p.why?.copy),
     locationNote: text(p.location?.copy),
     distances: (p.location?.distances || [])
@@ -67,7 +122,7 @@ function localeEntry(project, locale) {
       ref: text(unit.reference),
       bedrooms: text(unit.bedrooms),
       size: text(unit.size),
-      price: text(unit.price),
+      price: localPrices(text(unit.price), locale),
     })),
     images: (p.media?.items || [])
       .filter((item) => item?.src && !/\.(mp4|pdf)$/i.test(item.src))
@@ -115,6 +170,12 @@ function buildProjects(projects) {
         bedroomsMax: numberOrNull(crm.bedroomsMax),
         completion: discovery.completionSort || null,
         tags: [...new Set(tags)],
+        features: featuresOf(project),
+        // Numbers read from the English price list, one per home, for budget and bedroom search.
+        homes: (project.availability?.units || []).map((unit) => ({
+          priceEur: eur(unit.price),
+          bedrooms: bedroomsOf(unit.bedrooms),
+        })),
         image: absolute(project.images?.card?.src || project.images?.hero?.src),
         // Every pin on the site is the developer's own location or our reading of their map;
         // none is a cadastral point. The connector says so whatever the source.

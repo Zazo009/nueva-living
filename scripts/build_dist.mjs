@@ -110,6 +110,7 @@ const baseHtmlFiles = [
   'new-build-villas-costa-del-sol.html',
   'privacy-policy.html',
   'referrals.html',
+  'ai.html',
   'thank-you.html',
 ];
 
@@ -387,6 +388,14 @@ const basePageMeta = {
     description: 'Introduce a buyer to Nueva Living and share our commission when their Costa del Sol new-build purchase completes. No cap on introductions.',
     path: '/referrals.html',
     type: 'article'
+  },
+  // The assistant connector page (build_footer_pages.mjs). The connector itself is the /mcp
+  // rewrite in functionRedirects below.
+  'ai.html': {
+    title: 'Costa del Sol New Builds in ChatGPT and Claude | Nueva Living',
+    description: 'Add Nueva Living to ChatGPT or Claude and search Costa del Sol new builds in your own words: photos, list prices, delivery dates and a map. Free, no login.',
+    path: '/ai.html',
+    type: 'website'
   },
   'about.html': {
     title: 'About Nueva Living | New-Build Specialists in Marbella',

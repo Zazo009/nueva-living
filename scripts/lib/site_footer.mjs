@@ -52,6 +52,8 @@ export const FOOTER_COMPANY_LINKS = [
 export const FOOTER_PROJECT_LINKS = [
   ['developments.html', 'nav.developments'],
   ['areas.html', 'nav.allAreas'],
+  // The assistant connector page. Under Projects because it is a way of searching them.
+  ['ai.html', 'footer.assistants'],
 ];
 
 /**

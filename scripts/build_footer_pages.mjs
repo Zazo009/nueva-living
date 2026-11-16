@@ -2304,6 +2304,87 @@ const pages = [
     </script>`,
   },
   {
+    // The assistant connector (netlify/functions/nueva-mcp.js, served at /mcp). What it is and how
+    // to add it. Everything said here is what the function does: no directory listing is claimed,
+    // because there is none yet, and the privacy paragraph describes what a search actually sends.
+    file: 'ai.html',
+    title: 'Our Developments in ChatGPT and Claude',
+    description: 'Add Nueva Living to ChatGPT or Claude and search Costa del Sol new builds in your own words: photos, list prices, delivery dates and a map. Free, no login.',
+    heroImage: 'assets/liora/viewing/scene-12.jpg',
+    heroAlt: 'Shaded roof terrace with lounge seating and a view down to the sea',
+    heroWidth: 2048,
+    heroHeight: 1008,
+    heroKicker: 'Nueva Living in your assistant',
+    seoContext: 'Nueva Living in your assistant',
+    heroTitle: 'Search Costa del Sol new builds <em>inside ChatGPT and Claude</em>',
+    heroLead: 'Describe what you want in your own words. The assistant answers with up to six developments from our own project pages, with photos, list prices, delivery dates and a map, then narrows the search with you.',
+    body: `<section class="section"><div class="section-inner"><div class="section-head"><span class="label">How It Works</span><div class="rule"></div><h2 class="section-title">Ask in your own words, <em>get real developments back</em></h2><p class="body-copy">Add Nueva Living to ChatGPT or Claude once. After that, describe the home you want in an ordinary message and the assistant searches the developments on this site for you.</p></div><div class="cards">
+      <article class="card"><h3>Free, No Login</h3><p>Nothing to sign up for and nothing to pay. You add one address and start asking.</p></article>
+      <article class="card"><h3>Ten Languages</h3><p>Ask in English, Spanish, French, German, Russian, Arabic, Dutch, Polish, Swedish or Norwegian. Names, prices and dates come back in your language.</p></article>
+      <article class="card"><h3>The Same Figures as Our Pages</h3><p>Every answer comes from our own project pages. Prices are the developer&rsquo;s list prices before VAT and purchase costs, reconfirmed before any reservation. Images are mostly renders.</p></article>
+    </div></div></section>
+    <section class="section quiet-band"><div class="section-inner"><div class="section-head center"><span class="label">The Address</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">One address <em>for every assistant</em></h2><p class="body-copy" dir="ltr" style="margin:26px auto 0;font-size:clamp(20px,2.6vw,30px);letter-spacing:0.02em;overflow-wrap:anywhere;"><code style="font-family:inherit;user-select:all;">https://nuevaliving.com/mcp</code></p><p class="body-copy" style="margin-left:auto;margin-right:auto;">No login, streamable HTTP. Any assistant that accepts a remote MCP server can use it.</p></div></div></section>
+    <section class="section" id="claude"><div class="section-inner"><div class="section-head"><span class="label">How to Connect: Claude</span><div class="rule"></div><h2 class="section-title">Add it to Claude <em>in four steps</em></h2></div><div class="cards two">
+      <article class="card"><div class="card-number">1</div><h3>Open Connectors</h3><p>Go to <a href="https://claude.ai/customize/connectors" target="_blank" rel="noopener">claude.ai/customize/connectors</a>, or open <strong>Customize</strong> and then <strong>Connectors</strong>.</p></article>
+      <article class="card"><div class="card-number">2</div><h3>Add a Custom Connector</h3><p>Press <strong>+ Add</strong>, then <strong>Add custom connector</strong>.</p></article>
+      <article class="card"><div class="card-number">3</div><h3>Paste the Address</h3><p>Name it Nueva Living, paste the address above, choose no sign-in and press <strong>Add</strong>.</p></article>
+      <article class="card"><div class="card-number">4</div><h3>Switch It On and Ask</h3><p>In a chat, press <strong>+</strong>, open <strong>Connectors</strong>, switch Nueva Living on and ask.</p></article>
+    </div><p class="body-copy">It works on every Claude plan. The free plan allows one custom connector. On Team and Enterprise plans, an owner adds it for the whole organisation.</p></div></section>
+    <section class="section quiet-band" id="chatgpt"><div class="section-inner"><div class="section-head"><span class="label">How to Connect: ChatGPT</span><div class="rule"></div><h2 class="section-title">Add it to ChatGPT <em>in two steps</em></h2></div><div class="cards two">
+      <article class="card"><div class="card-number">1</div><h3>Add the Server</h3><p>Open <a href="https://chatgpt.com/plugins" target="_blank" rel="noopener">chatgpt.com/plugins</a>, press <strong>+</strong>, choose <strong>Add custom MCP server</strong> and paste the address above.</p></article>
+      <article class="card"><div class="card-number">2</div><h3>Ask by Name</h3><p>Start your message with &ldquo;Nueva Living&rdquo;, then say what you are looking for.</p></article>
+    </div></div></section>
+    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Try Asking</span><div class="rule"></div><h2 class="section-title">Three ways <em>to begin</em></h2></div><div class="cards">
+      <article class="card"><p>&ldquo;Nueva Living, a villa in Estepona under &euro;2 million with a private pool and golf nearby.&rdquo;</p></article>
+      <article class="card"><p>&ldquo;Nueva Living, key-ready two-bedroom apartments in Mijas with sea views.&rdquo;</p></article>
+      <article class="card"><p>&ldquo;Nueva Living, what is being built in Nueva Andaluc&iacute;a right now?&rdquo;</p></article>
+    </div></div></section>
+    <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">What It Can Do</span><div class="rule"></div><h2 class="section-title">What it searches, <em>and what it does not</em></h2></div><div class="cards">
+      <article class="card"><h3>New Builds Only</h3><p>The new-build and off-plan developments on nuevaliving.com, in Marbella, Nueva Andaluc&iacute;a, San Pedro de Alc&aacute;ntara, Benahav&iacute;s, Estepona, Casares, Mijas and Fuengirola, Benalm&aacute;dena and Torremolinos. No resale homes and no rentals.</p></article>
+      <article class="card"><h3>Six at a Time</h3><p>Up to six developments per search, with photos, list prices, delivery dates and a map. The assistant then narrows the search with you by area, budget, type, stage or a feature.</p></article>
+      <article class="card"><h3>One Project in Full</h3><p>Ask about one development and it opens the homes on the price list with bedrooms, size and price, the note on what the prices include, the images and an approximate map position.</p></article>
+    </div></div></section>
+    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Your Details</span><div class="rule"></div><h2 class="section-title">Nothing about you <em>until you ask</em></h2><p class="body-copy">A search sends us only the criteria the assistant passes on, such as area, budget and type. It does not include your name or the rest of your conversation, and we do not record who searched.</p><p class="body-copy">If you ask to be contacted, the assistant sends your name and e-mail, and your phone number and message if you give them, to a Nueva Living advisor. It does so only after you agree, and we handle those details under our <a href="privacy-policy.html">privacy policy</a>.</p></div></div></section>
+    <section class="section segment-faq-section"><div class="section-inner">
+    <div class="section-head"><span class="label">Common Questions</span><div class="rule"></div><h2 class="section-title">Before you <em>connect</em></h2></div>
+    <div class="segment-faq-list">
+      <details class="segment-faq-item" open>
+        <summary>Is it free, and do I need an account?</summary>
+        <p>It is free, and you need no account with Nueva Living. Whether you can add a custom connector depends on your assistant and your plan with it.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Which assistants can use it?</summary>
+        <p>Claude and ChatGPT, as described above. Any other assistant that can add a remote MCP server by its address can use the same address.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>What can I ask?</summary>
+        <p>Whatever you would tell an advisor about the home you want: the area, your budget, the number of bedrooms, a villa or an apartment, key-ready or off-plan, sea views, golf or a private pool. You can also ask about one development in detail.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>How many developments does it show?</summary>
+        <p>Up to six per search. When more fit, the assistant suggests how to narrow the search, by area, budget or type, and searches again with you.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Are the prices current?</summary>
+        <p>They are the list prices shown on each project page, with the date each was last checked. They are the developer&rsquo;s prices before VAT and purchase costs, and we reconfirm price and availability before any reservation.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Does it make anything up?</summary>
+        <p>The connector returns only what is on our project pages, and the assistant is instructed not to invent developments, homes, prices or dates. An assistant can still make a mistake, so check anything important on the project page or with us.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>Is my data shared?</summary>
+        <p>Only if you ask to be contacted. Then your name and e-mail, and your phone number and message if you give them, go to a Nueva Living advisor once you agree. Our privacy policy explains how we handle them.</p>
+      </details>
+      <details class="segment-faq-item">
+        <summary>How do I talk to a person?</summary>
+        <p>Ask the assistant to put you in touch, or write to us through our <a href="contact.html">contact page</a>. An advisor normally replies within one working day.</p>
+      </details>
+    </div>
+  </div></section>
+    <section class="cta-band"><div class="cta-inner"><div><span class="label">Prefer to Browse?</span><h2 class="cta-title">Every development is on the site as well.</h2></div><a class="btn" href="developments.html">Browse Every Development</a></div></section>`,
+  },
+  {
     file: 'about.html',
     title: 'About',
     description: 'Meet Sasan Raftari and Sami Altun. Nueva Living works with 40+ developers across Marbella, Estepona and the Costa del Sol on new-build and off-plan homes.',
