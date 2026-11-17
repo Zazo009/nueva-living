@@ -15,7 +15,7 @@
 const { shared } = require('./nueva-mcp');
 const knowledge = require('./data/site-knowledge.json');
 
-const { TOOLS, INSTRUCTIONS, ADVISOR, LANGUAGES, searchDevelopments, getDevelopment, requestDetails } = shared;
+const { TOOLS, INSTRUCTIONS, ADVISOR, LANGUAGES, catalog, searchDevelopments, getDevelopment, requestDetails } = shared;
 
 const MODEL = 'claude-opus-5-5';
 const MAX_ROUNDS = 5;
@@ -213,7 +213,18 @@ exports.handler = async (event) => {
       const calls = data.content.filter((block) => block.type === 'tool_use');
       if (data.stop_reason !== 'tool_use' || !calls.length) {
         const answer = data.content.filter((block) => block.type === 'text').map((block) => block.text).join('\n').trim();
-        const named = [...seen.values()].filter((c) => answer.toLowerCase().includes(String(c.name).toLowerCase()));
+        // A card for every development the answer names: those the tools returned in this request,
+        // and any other the answer names from earlier in the conversation.
+        const lower = answer.toLowerCase();
+        for (const project of catalog.projects) {
+          if (seen.has(project.slug)) continue;
+          const name = (project.locales[language] || project.locales.en).name;
+          if (name && lower.includes(name.toLowerCase())) {
+            const details = getDevelopment({ slug: project.slug, language });
+            if (details.slug) seen.set(details.slug, cardFor(details));
+          }
+        }
+        const named = [...seen.values()].filter((c) => lower.includes(String(c.name).toLowerCase()));
         console.log('chat', JSON.stringify({ language, rounds: round + 1, tools, cards: named.length, usage: data.usage && { in: data.usage.input_tokens, cached: data.usage.cache_read_input_tokens, out: data.usage.output_tokens } }));
         return reply(200, { ok: true, answer, cards: named.slice(0, 6), sent }, origin);
       }
