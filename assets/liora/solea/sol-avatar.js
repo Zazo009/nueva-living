@@ -24436,7 +24436,7 @@ class Mp extends HTMLElement {
     if (!this.initializing) {
       this.initializing = !0;
       try {
-        this.renderer = new Ff({ antialias: !0, alpha: !0, powerPreference: "low-power" }), this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75)), this.renderer.setClearColor(16050905, 0), this.renderer.outputColorSpace = _t, this.renderer.toneMapping = 4, this.renderer.toneMappingExposure = 0.98, this.mount.appendChild(this.renderer.domElement), this.scene = new Ya(), this.camera = new fs(-2.5, 2.5, 2.5, -2.5, 0.1, 40), this.camera.position.set(0, 0.08, 8), this.camera.lookAt(0, 0, 0);
+        this.renderer = new Ff({ antialias: !0, alpha: !0, powerPreference: "low-power" }), this.renderer.setClearColor(16050905, 0), this.renderer.outputColorSpace = _t, this.renderer.toneMapping = 4, this.renderer.toneMappingExposure = 0.98, this.mount.appendChild(this.renderer.domElement), this.scene = new Ya(), this.camera = new fs(-2.5, 2.5, 2.5, -2.5, 0.1, 40), this.camera.position.set(0, 0.08, 8), this.camera.lookAt(0, 0, 0);
         const e = new ir(this.renderer), t = new xp();
         this.environmentTarget = e.fromScene(t, 0.035), this.scene.environment = this.environmentTarget.texture, this.scene.environmentIntensity = 0.82, t.dispose(), e.dispose();
         const n = new Si(16774367, 3.2);
@@ -24469,8 +24469,10 @@ class Mp extends HTMLElement {
   }
   resize() {
     if (!this.renderer || !this.camera) return;
-    const e = Math.max(1, this.clientWidth), t = Math.max(1, this.clientHeight), n = e / t, i = n < 1 ? 4.95 / n : 4.95;
-    this.camera.left = -i * n / 2, this.camera.right = i * n / 2, this.camera.top = i / 2, this.camera.bottom = -i / 2, this.camera.updateProjectionMatrix(), this.renderer.setSize(e, t, !1), this.render();
+    const e = Math.max(1, this.clientWidth), t = Math.max(1, this.clientHeight), n = Math.max(e, t) <= 160;
+    this.renderer.setPixelRatio(Math.min(n ? 4 : 2, (window.devicePixelRatio || 1) * (n ? 2 : 1)));
+    const i = e / t, r = i < 1 ? 4.95 / i : 4.95;
+    this.camera.left = -r * i / 2, this.camera.right = r * i / 2, this.camera.top = r / 2, this.camera.bottom = -r / 2, this.camera.updateProjectionMatrix(), this.renderer.setSize(e, t, !1), this.render();
   }
   // Nueva Living's finish, applied over the model Kimi delivered (finish="kimi" keeps the original):
   // the brand gold (#a8834a) instead of a lighter yellow-beige, satin with a crisp highlight, darker

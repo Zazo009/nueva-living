@@ -129,8 +129,7 @@ class SolAvatar extends HTMLElement {
     this.initializing = true;
     try {
       this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
-      this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
-      this.renderer.setClearColor(0xf4ead9, 0);
+            this.renderer.setClearColor(0xf4ead9, 0);
       this.renderer.outputColorSpace = THREE.SRGBColorSpace;
       this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
       this.renderer.toneMappingExposure = 0.98;
@@ -228,6 +227,11 @@ class SolAvatar extends HTMLElement {
     if (!this.renderer || !this.camera) return;
     const width = Math.max(1, this.clientWidth);
     const height = Math.max(1, this.clientHeight);
+    // Small canvases (the launcher and the panel header, about 56-62 px) are drawn at twice the
+    // screen's density and scaled down, so the thin rays and the engraving stay sharp instead of
+    // stepping; the cost is negligible at that size. Larger ones render at the screen's density.
+    const small = Math.max(width, height) <= 160;
+    this.renderer.setPixelRatio(Math.min(small ? 4 : 2, (window.devicePixelRatio || 1) * (small ? 2 : 1)));
     const aspect = width / height;
     const viewHeight = aspect < 1 ? 4.95 / aspect : 4.95;
     this.camera.left = -viewHeight * aspect / 2;
