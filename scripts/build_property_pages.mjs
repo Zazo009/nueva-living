@@ -566,6 +566,40 @@ function localizedCategory(category, locale) {
   return hasString(key) ? t(key, locale) : category;
 }
 
+// A project with more than one cleared film lists the others under the main one. Each tile swaps
+// its film into the player above (the same lazy player: nothing is fetched until it is played),
+// and says whether the film was shot on site, computer-generated or a lifestyle film with actors,
+// so a render is never taken for the finished building. The main film leads the row so a visitor
+// can go back to it.
+function filmDuration(seconds) {
+  const total = Math.max(0, Math.round(Number(seconds) || 0));
+  return `${Math.floor(total / 60)}:${String(total % 60).padStart(2, '0')}`;
+}
+
+function renderFilmStrip(project, video, locale) {
+  const films = project.media?.films;
+  if (!Array.isArray(films) || !films.length) return '';
+  const all = [{ ...video, kind: video.kind || 'filmed', thumb: video.thumb || video.mobilePoster || video.poster, caption: video.caption, main: true }, ...films];
+  const tiles = all.map((film, index) => {
+    const kind = t(`media.filmKind.${film.kind || 'filmed'}`, locale);
+    return `<li><button type="button" class="project-films-item${index === 0 ? ' is-current' : ''}"${index === 0 ? ' aria-current="true"' : ''} data-project-film
+                data-film-desktop="${esc(film.desktopSrc)}" data-film-mobile="${esc(film.mobileSrc || film.desktopSrc)}"
+                data-poster-desktop="${esc(film.poster || '')}" data-poster-mobile="${esc(film.mobilePoster || film.poster || '')}"
+                data-film-title="${esc(film.title || '')}" data-film-caption="${esc(film.main ? (film.caption || '') : kind)}"
+                aria-label="${esc(t('media.playFilm', locale))}: ${esc(film.title || '')}">
+                <img src="${esc(film.thumb || film.poster || '')}" alt="" width="480" height="270" loading="lazy" decoding="async">
+                ${film.duration ? `<span class="project-films-time">${filmDuration(film.duration)}</span>` : ''}
+                <span class="project-films-text"><small>${esc(kind)}</small><strong>${esc(film.title || '')}</strong></span>
+              </button></li>`;
+  }).join('\n              ');
+  return `<div class="project-films" data-project-films>
+            <div class="project-films-head"><span>${t('media.moreFilms', locale)}</span><small>${esc(t('media.filmCount', locale, { count: all.length }))}</small></div>
+            <ul class="project-films-list">
+              ${tiles}
+            </ul>
+          </div>`;
+}
+
 function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
   const media = project.media;
   if (!media?.items?.length) return { section: '', dialog: '' };
@@ -591,9 +625,10 @@ function renderProjectMedia(project, locale = DEFAULT_LOCALE) {
           </div>
           <figcaption>
             <span>${t('media.film', locale)}</span>
-            <strong>${esc(video.title || '')}</strong>
-            <p>${esc(video.caption || '')}</p>
+            <strong data-project-video-title>${esc(video.title || '')}</strong>
+            <p data-project-video-caption>${esc(video.caption || '')}</p>
           </figcaption>
+          ${renderFilmStrip(project, video, locale)}
         </figure>` : '';
 
   /* A 360 tour is a third-party embed weighing several megabytes, so it loads

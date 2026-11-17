@@ -388,6 +388,38 @@
     });
     mobileVideo.addEventListener?.('change', updatePoster);
     updatePoster();
+
+    // The row of further films under the player: a tile swaps its film, poster and title into
+    // the player and starts it. Nothing is fetched until a film is chosen.
+    const filmTiles = [...projectVideoShell.querySelectorAll('[data-project-film]')];
+    const filmTitle = projectVideoShell.querySelector('[data-project-video-title]');
+    const filmCaption = projectVideoShell.querySelector('[data-project-video-caption]');
+    filmTiles.forEach((tile) => {
+      tile.addEventListener('click', () => {
+        if (tile.classList.contains('is-current') && projectVideo.src) {
+          projectVideo.play().catch(() => {});
+          return;
+        }
+        filmTiles.forEach((other) => {
+          other.classList.toggle('is-current', other === tile);
+          if (other === tile) other.setAttribute('aria-current', 'true');
+          else other.removeAttribute('aria-current');
+        });
+        projectVideo.pause();
+        projectVideo.dataset.videoDesktop = tile.dataset.filmDesktop;
+        projectVideo.dataset.videoMobile = tile.dataset.filmMobile;
+        projectVideo.dataset.posterDesktop = tile.dataset.posterDesktop;
+        projectVideo.dataset.posterMobile = tile.dataset.posterMobile;
+        projectVideo.removeAttribute('src');
+        projectVideo.poster = selectedPoster() || '';
+        projectVideoShell.classList.remove('is-playing', 'has-video-error');
+        if (filmTitle) filmTitle.textContent = tile.dataset.filmTitle || '';
+        if (filmCaption) filmCaption.textContent = tile.dataset.filmCaption || '';
+        const frame = projectVideoShell.querySelector('.project-media-film-frame');
+        if (frame && frame.getBoundingClientRect().top < 0) frame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        playProjectVideo();
+      });
+    });
   }
 
   const mediaDialog = document.getElementById('projectMediaDialog');

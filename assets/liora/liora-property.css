@@ -3364,6 +3364,183 @@ p, li {
   }
 }
 
+/* The row of further films under the main one (build_property_pages.mjs, renderFilmStrip). It
+   scrolls sideways and snaps; the tile that is playing carries a gold rule and a dimmed play
+   mark, and each tile names the kind of film so a render is never read as footage. */
+.project-films {
+  padding: 22px 0 4px;
+}
+
+.project-films-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.project-films-head span {
+  color: var(--nueva-gold);
+  font-family: var(--ui-font) !important;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.project-films-head small {
+  color: rgba(74, 59, 40, 0.6);
+  font-size: 12px;
+}
+
+.project-films-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(190px, 22vw, 250px);
+  gap: 14px;
+  margin: 0;
+  padding: 0 0 12px;
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 131, 74, 0.45) transparent;
+}
+
+.project-films-list li {
+  scroll-snap-align: start;
+  min-width: 0;
+}
+
+.project-films-item {
+  position: relative;
+  display: grid;
+  gap: 9px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.project-films-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: #2f2417;
+  transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.project-films-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  aspect-ratio: 16 / 9;
+  z-index: 1;
+  background: radial-gradient(circle at 50% 50%, rgba(250, 246, 238, 0.92) 0 17px, transparent 18px),
+    linear-gradient(180deg, transparent 55%, rgba(30, 22, 12, 0.45));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.project-films-item::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-top: calc(28.125% - 7px); /* half the 16:9 image: vertical % margins follow the width */
+  margin-left: -4px;
+  border-style: solid;
+  border-width: 7px 0 7px 11px;
+  border-color: transparent transparent transparent #4a3b28;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.project-films-item:hover::before,
+.project-films-item:hover::after,
+.project-films-item:focus-visible::before,
+.project-films-item:focus-visible::after {
+  opacity: 1;
+}
+
+.project-films-item:hover img {
+  transform: scale(1.03);
+}
+
+.project-films-item:focus-visible {
+  outline: 2px solid var(--nueva-gold);
+  outline-offset: 4px;
+}
+
+.project-films-item.is-current img {
+  filter: saturate(0.85) brightness(0.8);
+  box-shadow: inset 0 -3px 0 var(--nueva-gold);
+}
+
+.project-films-item.is-current .project-films-text strong {
+  color: #8a6a3a;
+}
+
+.project-films-time {
+  position: absolute;
+  z-index: 2;
+  top: 8px;
+  right: 8px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: rgba(30, 22, 12, 0.72);
+  color: #faf6ee;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.project-films-text {
+  display: grid;
+  gap: 3px;
+}
+
+.project-films-text small {
+  color: rgba(74, 59, 40, 0.62);
+  font-family: var(--ui-font) !important;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-films-text strong {
+  color: #4a3b28;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.project-films-item.is-current::after {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-films-item img,
+  .project-films-item::before,
+  .project-films-item::after {
+    transition: none;
+  }
+}
+
 .project-media-card:hover .project-media-card-cta span,
 .project-media-card:focus-visible .project-media-card-cta span {
   transform: translateX(3px);
