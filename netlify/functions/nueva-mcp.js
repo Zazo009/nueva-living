@@ -283,7 +283,7 @@ const TOOLS = [
   {
     name: 'get_development',
     title: 'Get development details',
-    description: 'Full details of one development by its slug from a search result: description, location and drive times, delivery, price range and the note on what the prices include, the homes on the price list with bedrooms, size and price, up to eight images, approximate map position and the page link.',
+    description: 'Full details of one development by its slug from a search result: description, location and drive times, delivery, price range and the note on what the prices include, the homes on the price list with bedrooms, size, price and the floor plan link where the page has one, up to eight images, approximate map position, which documents the page offers (floor plans, video, virtual tour, quality specifications) and the page link and its enquiry form.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -396,6 +396,7 @@ function getDevelopment(args) {
     distances: l.distances,
     images: l.images,
     images_note: l.mediaNote,
+    documents: l.documents,
     tags: project.tags,
     enquire: l.url,
   };

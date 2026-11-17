@@ -124,7 +124,19 @@ function localeEntry(project, locale) {
       bedrooms: text(unit.bedrooms),
       size: text(unit.size),
       price: localPrices(text(unit.price), locale),
+      floorplan: unit.floorplan ? absolute(unit.floorplan) : null,
     })),
+    // What the page itself offers beyond the text, so the assistants can say what exists and send
+    // a person to the enquiry form for the rest (brochures and price lists are sent from there).
+    documents: {
+      floorplans: (availability.units || []).filter((unit) => unit.floorplan).length,
+      video: Boolean(p.media?.video?.desktopSrc),
+      // Only whether there is one: a tour can be hosted on a marketer's account, whose address the
+      // page shows only inside its embed, so the catalogue sends people to the page instead.
+      virtual_tour: Boolean(p.media?.tour?.url),
+      quality_specifications: Boolean(p.qualitySpecs),
+      enquiry_form: `${pageUrl(project.output, locale)}#enquire`,
+    },
     images: (p.media?.items || [])
       .filter((item) => item?.src && !/\.(mp4|pdf)$/i.test(item.src))
       .slice(0, MAX_IMAGES)
