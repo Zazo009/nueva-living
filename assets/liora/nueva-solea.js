@@ -125,15 +125,15 @@
       note: 'Odpowiedzi AI na podstawie treści opublikowanych na nuevaliving.com. Ceny cennikowe potwierdza doradca.',
     },
     sv: {
-      wa: "WhatsApp med en rådgivare", waHello: "Hej! Jag har chattat med Soléa på nuevaliving.com.", waAsked: "Jag frågade:", privacy: "Integritet", nudge: "Vill du se planritningarna för {name}?", nudgeOther: "Frågor om {name}? Jag hjälper dig med priser, kostnader och området.", pPlans: "Visa planritningarna för {name}", pCost: "Vad kostar {name} totalt, med skatt och köpkostnader?", pArea: "Vad finns i närheten av {name}?", dismiss: "Stäng",
+      wa: "WhatsApp med en rådgivare", waHello: "Hej! Jag har chattat med Soléa på nuevaliving.com.", waAsked: "Jag frågade:", privacy: "Integritet", nudge: "Vill ni se planritningarna för {name}?", nudgeOther: "Frågor om {name}? Jag hjälper er gärna med priser, kostnader och området.", pPlans: "Visa planritningarna för {name}", pCost: "Vad kostar {name} totalt, med skatt och köpkostnader?", pArea: "Vad finns i närheten av {name}?", dismiss: "Stäng",
       idle: 'Här för att hjälpa', thinking: 'Jag letar…', happy: 'Hej!', talking: 'Jag svarar…',
-      welcome: 'Hola! Jag är Soléa, Nueva Livings guide. Fråga mig om projekt, områden, köpkostnader eller hur ett köp går till.',
+      welcome: 'Hola! Jag är Soléa, Nueva Livings guide. Fråga mig gärna om projekt, områden, köpkostnader eller hur ett köp går till.',
       placeholder: 'Fråga om en bostad, ett område eller kostnader…', send: 'Skicka', open: 'Chatta med Soléa', close: 'Stäng chatten',
-      reset: 'Ny konversation', you: 'Du', view: 'Visa',
-      suggestions: ['4 sovrum i Estepona under 1 miljon €', 'Vilken skatt betalar jag på nyproduktion?', 'Hur fungerar bankgarantin?'],
-      error: `Jag kunde inte svara just nu. Försök igen om en stund, eller skriv till oss på WhatsApp ${WHATSAPP}.`,
-      busy: `Det har kommit många frågor härifrån nyss. Försök igen om en stund, eller skriv till oss på WhatsApp ${WHATSAPP}.`,
-      refusal: 'Det kan jag inte hjälpa till med. Fråga mig gärna om allt som gäller köp av nyproduktion på Costa del Sol.',
+      reset: 'Ny konversation', you: 'Ni', view: 'Visa',
+      suggestions: ['4 sovrum i Estepona under 1 miljon €', 'Vilken skatt betalar man på nyproduktion?', 'Hur fungerar bankgarantin?'],
+      error: `Jag kunde inte svara just nu. Försök gärna igen om en stund, eller skriv till oss på WhatsApp ${WHATSAPP}.`,
+      busy: `Det har kommit många frågor härifrån nyss. Försök gärna igen om en stund, eller skriv till oss på WhatsApp ${WHATSAPP}.`,
+      refusal: 'Det kan jag tyvärr inte hjälpa till med. Fråga mig gärna om allt som gäller köp av nyproduktion på Costa del Sol.',
       note: 'AI-svar utifrån det nuevaliving.com publicerar. Listpriser; en rådgivare bekräftar dem.',
     },
     no: {
@@ -162,7 +162,7 @@
 .solea-launcher:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(47,36,23,.26)}
 .solea-launcher:active{transform:scale(.96)}
 .solea-launcher-face{position:relative;display:block;width:62px;height:62px}.solea-launcher-face img,.solea-launcher-face sol-avatar{position:absolute;inset:0;width:62px;height:62px;display:block}.solea-launcher.is-live .solea-launcher-face>img,.solea-face.is-live>img{opacity:0}
-.solea-launcher::after{content:"";position:absolute;right:3px;bottom:5px;width:13px;height:13px;border:3px solid var(--s-ivory);border-radius:50%;background:var(--s-sea)}
+.solea-launcher::after{content:"";position:absolute;right:3px;bottom:5px;width:13px;height:13px;border:3px solid var(--s-ivory);border-radius:50%;background:var(--s-gold)}
 .solea.is-open .solea-launcher{opacity:0;pointer-events:none;transform:scale(.8)}
 .solea button:focus-visible,.solea input:focus-visible,.solea a:focus-visible{outline:2px solid var(--s-sea);outline-offset:2px}
 .solea-panel{position:fixed;z-index:30200;right:max(20px,env(safe-area-inset-right));bottom:calc(max(20px,env(safe-area-inset-bottom)) + var(--s-lift));width:min(390px,calc(100vw - 32px));height:min(620px,calc(100dvh - 40px - var(--s-lift)));display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--s-line);border-radius:20px;background:var(--s-ivory);box-shadow:0 24px 70px rgba(47,36,23,.24)}

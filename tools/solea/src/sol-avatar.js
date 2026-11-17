@@ -171,6 +171,8 @@ class SolAvatar extends HTMLElement {
       this.talkingMouth.scale.set(0.16, 0.08, 0.035);
       this.talkingMouth.visible = false;
       this.sun.add(this.talkingMouth);
+      if (this.getAttribute('finish') !== 'kimi') this.applyBrandFinish();
+      this.smileBase = this.getAttribute('finish') === 'kimi' ? 1 : 0.84;
       this.cheeks = ['Cheek_left', 'Cheek_right'].map(name => this.model.getObjectByName(name)).filter(Boolean);
       this.waves = ['Wave_1', 'Wave_2', 'Wave_3'].map(name => this.model.getObjectByName(name)).filter(Boolean);
       this.rest = {
@@ -227,6 +229,50 @@ class SolAvatar extends HTMLElement {
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height, false);
     this.render();
+  }
+
+  // Nueva Living's finish, applied over the model Kimi delivered (finish="kimi" keeps the original):
+  // the brand gold (#a8834a) instead of a lighter yellow-beige, brushed rather than glossy, darker
+  // espresso engraving, cheeks reduced to a hint of warmth and a sea of sand and pale gold instead
+  // of blue-grey, so she sits beside the engraved logo rather than apart from it. The model's
+  // materials are recognised by their original colour, which the GLB fixes.
+  applyBrandFinish() {
+    const srgb = hex => new THREE.Color(hex);
+    // The clone shares its materials with the cached model, so each is copied before it changes.
+    const copies = new Map();
+    this.model.traverse(node => {
+      if (!node.isMesh) return;
+      if (copies.has(node.material)) { node.material = copies.get(node.material); return; }
+      const original = node.material;
+      const material = original.clone();
+      copies.set(original, material);
+      node.material = material;
+      const { r, b } = material.color;
+      const near = (value, target) => Math.abs(value - target) < 0.006;
+      if (b > r) {                                // the three waves
+        const sand = [[0.198, '#c4a56c'], [0.238, '#d6bf8f'], [0.159, '#b08f55']];
+        const match = sand.find(([value]) => near(r, value));
+        material.color = srgb(match ? match[1] : '#c4a56c');
+        material.metalness = 0.35;
+        material.roughness = 0.58;
+      } else if (near(r, 0.485)) {                       // rays, edge, rim
+        material.color = srgb('#8a6630');
+        material.metalness = 0.86;
+        material.roughness = 0.52;
+      } else if (near(r, 0.571)) {                // the face
+        material.color = srgb('#a07a40');
+        material.metalness = 0.8;
+        material.roughness = 0.48;
+      } else if (near(r, 0.25)) {                 // engraved lines
+        material.color = srgb('#4a3520');
+        material.metalness = 0.5;
+        material.roughness = 0.6;
+      } else if (near(r, 0.68)) {                 // cheeks
+        material.color = srgb('#c98f6f');
+        material.opacity = 0.22;
+      }
+      material.needsUpdate = true;
+    });
   }
 
   poke() {
@@ -304,11 +350,13 @@ class SolAvatar extends HTMLElement {
     // Mouth: the calm smile, wider when cheerful; a moving mouth while she talks.
     this.smile.visible = state !== 'talking';
     this.talkingMouth.visible = state === 'talking';
-    this.smile.scale.set(m.smile + (cheerful ? 0.05 * Math.sin(t * 3) : 0), 1 + (m.smile - 1) * 0.6, 1);
+    const base = this.smileBase ?? 1;
+    this.smile.scale.set(base * (m.smile + (cheerful ? 0.05 * Math.sin(t * 3) : 0)), base * (1 + (m.smile - 1) * 0.6), 1);
     if (state === 'talking') {
       const voice = 0.5 + 0.32 * Math.sin(t * 12.5) + 0.22 * Math.sin(t * 7.9 + 1.3) - 0.12 * Math.sin(t * 3.1);
       const openness = Math.max(0, Math.min(1, voice));
-      this.talkingMouth.scale.set(0.15 + 0.03 * openness, 0.035 + 0.085 * openness, 0.035);
+      const base = this.smileBase ?? 1;
+      this.talkingMouth.scale.set(base * (0.15 + 0.03 * openness), base * (0.035 + 0.085 * openness), 0.035);
     }
 
     // The sea rolls under her.
