@@ -24,9 +24,12 @@
   const ENDPOINT = '/.netlify/functions/nueva-chat';
   const STORE = 'nueva-solea-v1';
   const WHATSAPP = '+46 70 757 67 09';
+  const WHATSAPP_LINK = 'https://wa.me/46707576709';
+  const NUDGE_KEY = 'nueva-solea-nudged';
 
   const T = {
     en: {
+      wa: "WhatsApp an advisor", waHello: "Hello! I have been chatting with Soléa on nuevaliving.com.", waAsked: "I asked:", privacy: "Privacy", nudge: "Shall I show you the floor plans for {name}?", nudgeOther: "Any questions about {name}? I can help with prices, costs and the area.", pPlans: "Show me the floor plans for {name}", pCost: "What does {name} cost in total, with tax and costs?", pArea: "What is near {name}?", dismiss: "Dismiss",
       idle: 'Here to help', thinking: 'Looking it up…', happy: 'Hello!', talking: 'Answering…',
       welcome: 'Hola! I’m Soléa, Nueva Living’s guide. Ask me about developments, areas, buying costs or how a purchase works.',
       placeholder: 'Ask about a home, an area or costs…', send: 'Send', open: 'Chat with Soléa', close: 'Close chat',
@@ -38,6 +41,7 @@
       note: 'AI answers from what nuevaliving.com publishes. List prices; an advisor confirms them.',
     },
     es: {
+      wa: "WhatsApp con un asesor", waHello: "¡Hola! He estado hablando con Soléa en nuevaliving.com.", waAsked: "Pregunté:", privacy: "Privacidad", nudge: "¿Le enseño los planos de {name}?", nudgeOther: "¿Tiene preguntas sobre {name}? Le ayudo con precios, costes y la zona.", pPlans: "Enséñeme los planos de {name}", pCost: "¿Cuánto cuesta {name} en total, con impuestos y gastos?", pArea: "¿Qué hay cerca de {name}?", dismiss: "Cerrar",
       idle: 'Aquí para ayudarle', thinking: 'Buscando…', happy: '¡Hola!', talking: 'Respondiendo…',
       welcome: '¡Hola! Soy Soléa, la guía de Nueva Living. Pregúnteme por promociones, zonas, costes de compra o cómo funciona una compra.',
       placeholder: 'Pregunte por una vivienda, una zona o los costes…', send: 'Enviar', open: 'Hablar con Soléa', close: 'Cerrar el chat',
@@ -49,6 +53,7 @@
       note: 'Respuestas de IA basadas en lo que publica nuevaliving.com. Precios de lista; un asesor los confirma.',
     },
     fr: {
+      wa: "WhatsApp avec un conseiller", waHello: "Bonjour ! J’ai discuté avec Soléa sur nuevaliving.com.", waAsked: "J’ai demandé :", privacy: "Confidentialité", nudge: "Voulez-vous voir les plans de {name} ?", nudgeOther: "Des questions sur {name} ? Je peux vous aider sur les prix, les frais et le quartier.", pPlans: "Montrez-moi les plans de {name}", pCost: "Combien coûte {name} au total, taxes et frais compris ?", pArea: "Qu’y a-t-il près de {name} ?", dismiss: "Fermer",
       idle: 'À votre écoute', thinking: 'Je cherche…', happy: 'Bonjour !', talking: 'Je réponds…',
       welcome: 'Hola ! Je suis Soléa, le guide de Nueva Living. Posez-moi vos questions sur les programmes, les quartiers, les frais d’achat ou le déroulement d’un achat.',
       placeholder: 'Un logement, un quartier, les frais…', send: 'Envoyer', open: 'Discuter avec Soléa', close: 'Fermer la discussion',
@@ -60,6 +65,7 @@
       note: 'Réponses d’IA fondées sur ce que publie nuevaliving.com. Prix catalogue, confirmés par un conseiller.',
     },
     de: {
+      wa: "WhatsApp an eine Beratung", waHello: "Hallo! Ich habe auf nuevaliving.com mit Soléa gechattet.", waAsked: "Meine Fragen:", privacy: "Datenschutz", nudge: "Soll ich Ihnen die Grundrisse von {name} zeigen?", nudgeOther: "Fragen zu {name}? Ich helfe bei Preisen, Kosten und der Lage.", pPlans: "Zeigen Sie mir die Grundrisse von {name}", pCost: "Was kostet {name} insgesamt, mit Steuern und Nebenkosten?", pArea: "Was gibt es in der Nähe von {name}?", dismiss: "Schließen",
       idle: 'Für Sie da', thinking: 'Ich schaue nach…', happy: 'Hallo!', talking: 'Ich antworte…',
       welcome: 'Hola! Ich bin Soléa, die Begleiterin von Nueva Living. Fragen Sie mich nach Projekten, Lagen, Kaufnebenkosten oder dem Ablauf eines Kaufs.',
       placeholder: 'Fragen Sie nach Wohnung, Lage oder Kosten…', send: 'Senden', open: 'Mit Soléa chatten', close: 'Chat schließen',
@@ -71,6 +77,7 @@
       note: 'KI-Antworten auf Grundlage dessen, was nuevaliving.com veröffentlicht. Listenpreise; eine Beraterin oder ein Berater bestätigt sie.',
     },
     ru: {
+      wa: "WhatsApp консультанту", waHello: "Здравствуйте! Я общался с Солеей на nuevaliving.com.", waAsked: "Мои вопросы:", privacy: "Конфиденциальность", nudge: "Показать вам планировки {name}?", nudgeOther: "Есть вопросы о {name}? Помогу с ценами, расходами и районом.", pPlans: "Покажите планировки {name}", pCost: "Сколько стоит {name} в итоге, с налогами и расходами?", pArea: "Что находится рядом с {name}?", dismiss: "Закрыть",
       idle: 'Готова помочь', thinking: 'Ищу…', happy: 'Здравствуйте!', talking: 'Отвечаю…',
       welcome: 'Hola! Я Солея, гид Nueva Living. Спрашивайте о жилых комплексах, районах, расходах на покупку и о том, как проходит сделка.',
       placeholder: 'Спросите о жилье, районе или расходах…', send: 'Отправить', open: 'Чат с Солеей', close: 'Закрыть чат',
@@ -82,6 +89,7 @@
       note: 'Ответы ИИ на основе того, что опубликовано на nuevaliving.com. Цены по прайс-листу; их подтверждает консультант.',
     },
     ar: {
+      wa: "واتساب مع مستشار", waHello: "مرحبًا! كنت أتحدث مع سوليا على nuevaliving.com.", waAsked: "سألت:", privacy: "الخصوصية", nudge: "هل أعرض عليك مخططات {name}؟", nudgeOther: "هل لديك أسئلة عن {name}؟ يمكنني المساعدة في الأسعار والتكاليف والمنطقة.", pPlans: "اعرض لي مخططات {name}", pCost: "كم تبلغ التكلفة الإجمالية لـ {name} مع الضرائب والتكاليف؟", pArea: "ما الذي يقع بالقرب من {name}؟", dismiss: "إغلاق",
       idle: 'في خدمتك', thinking: 'أبحث…', happy: 'مرحبًا!', talking: 'أجيب…',
       welcome: 'أهلًا! أنا سوليا، دليل نويفا ليفينغ. اسألني عن المشاريع والمناطق وتكاليف الشراء وكيف تتم عملية الشراء.',
       placeholder: 'اسأل عن منزل أو منطقة أو التكاليف…', send: 'إرسال', open: 'تحدّث مع سوليا', close: 'إغلاق المحادثة',
@@ -93,6 +101,7 @@
       note: 'إجابات بالذكاء الاصطناعي مما ينشره موقع nuevaliving.com. الأسعار أسعار القوائم ويؤكدها مستشار.',
     },
     nl: {
+      wa: "WhatsApp met een adviseur", waHello: "Hallo! Ik heb op nuevaliving.com met Soléa gechat.", waAsked: "Mijn vragen:", privacy: "Privacy", nudge: "Zal ik u de plattegronden van {name} laten zien?", nudgeOther: "Vragen over {name}? Ik help met prijzen, kosten en de omgeving.", pPlans: "Laat me de plattegronden van {name} zien", pCost: "Wat kost {name} in totaal, met belasting en kosten?", pArea: "Wat is er in de buurt van {name}?", dismiss: "Sluiten",
       idle: 'Hier om te helpen', thinking: 'Even zoeken…', happy: 'Hallo!', talking: 'Ik antwoord…',
       welcome: 'Hola! Ik ben Soléa, de gids van Nueva Living. Vraag me naar projecten, gebieden, aankoopkosten of hoe een aankoop verloopt.',
       placeholder: 'Vraag naar een woning, een gebied of de kosten…', send: 'Versturen', open: 'Chat met Soléa', close: 'Chat sluiten',
@@ -104,6 +113,7 @@
       note: 'AI-antwoorden op basis van wat nuevaliving.com publiceert. Lijstprijzen; een adviseur bevestigt ze.',
     },
     pl: {
+      wa: "WhatsApp z doradcą", waHello: "Dzień dobry! Rozmawiałem z Soléą na nuevaliving.com.", waAsked: "Moje pytania:", privacy: "Prywatność", nudge: "Pokazać rzuty mieszkań w {name}?", nudgeOther: "Pytania o {name}? Pomogę z cenami, kosztami i okolicą.", pPlans: "Proszę pokazać rzuty mieszkań w {name}", pCost: "Ile łącznie kosztuje {name}, z podatkami i kosztami?", pArea: "Co jest w pobliżu {name}?", dismiss: "Zamknij",
       idle: 'Chętnie pomogę', thinking: 'Szukam…', happy: 'Dzień dobry!', talking: 'Odpowiadam…',
       welcome: 'Hola! Jestem Soléa, przewodniczka Nueva Living. Proszę pytać o inwestycje, okolice, koszty zakupu i o to, jak przebiega zakup.',
       placeholder: 'Proszę zapytać o mieszkanie, okolicę lub koszty…', send: 'Wyślij', open: 'Czat z Soléą', close: 'Zamknij czat',
@@ -115,6 +125,7 @@
       note: 'Odpowiedzi AI na podstawie treści opublikowanych na nuevaliving.com. Ceny cennikowe potwierdza doradca.',
     },
     sv: {
+      wa: "WhatsApp med en rådgivare", waHello: "Hej! Jag har chattat med Soléa på nuevaliving.com.", waAsked: "Jag frågade:", privacy: "Integritet", nudge: "Vill du se planritningarna för {name}?", nudgeOther: "Frågor om {name}? Jag hjälper dig med priser, kostnader och området.", pPlans: "Visa planritningarna för {name}", pCost: "Vad kostar {name} totalt, med skatt och köpkostnader?", pArea: "Vad finns i närheten av {name}?", dismiss: "Stäng",
       idle: 'Här för att hjälpa', thinking: 'Jag letar…', happy: 'Hej!', talking: 'Jag svarar…',
       welcome: 'Hola! Jag är Soléa, Nueva Livings guide. Fråga mig om projekt, områden, köpkostnader eller hur ett köp går till.',
       placeholder: 'Fråga om en bostad, ett område eller kostnader…', send: 'Skicka', open: 'Chatta med Soléa', close: 'Stäng chatten',
@@ -126,6 +137,7 @@
       note: 'AI-svar utifrån det nuevaliving.com publicerar. Listpriser; en rådgivare bekräftar dem.',
     },
     no: {
+      wa: "WhatsApp med en rådgiver", waHello: "Hei! Jeg har chattet med Soléa på nuevaliving.com.", waAsked: "Jeg spurte:", privacy: "Personvern", nudge: "Vil du se plantegningene for {name}?", nudgeOther: "Spørsmål om {name}? Jeg hjelper deg med priser, kostnader og området.", pPlans: "Vis meg plantegningene for {name}", pCost: "Hva koster {name} totalt, med skatt og kjøpskostnader?", pArea: "Hva finnes i nærheten av {name}?", dismiss: "Lukk",
       idle: 'Her for å hjelpe', thinking: 'Jeg leter…', happy: 'Hei!', talking: 'Jeg svarer…',
       welcome: 'Hola! Jeg er Soléa, Nueva Livings guide. Spør meg om prosjekter, områder, kjøpskostnader eller hvordan et kjøp foregår.',
       placeholder: 'Spør om en bolig, et område eller kostnader…', send: 'Send', open: 'Chat med Soléa', close: 'Lukk chatten',
@@ -141,6 +153,7 @@
   const lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
   const t = T[lang] || T.en;
   const rtl = document.documentElement.dir === 'rtl' || lang === 'ar';
+  const PRIVACY_URL = `/${lang === 'en' ? '' : `${lang}/`}privacy-policy.html#the-chat-assistant`;
 
   const CSS = `
 .solea{--s-cream:#f4ead9;--s-ivory:#faf6ee;--s-gold:#a8834a;--s-engraving:#896a3f;--s-ink:#2f2417;--s-espresso:#4a3b28;--s-muted:#6b5a43;--s-sea:#7b97a4;--s-line:rgba(168,131,74,.28);--s-lift:var(--solea-lift,0px);font-family:"Montserrat",Arial,sans-serif;color:var(--s-ink)}
@@ -192,13 +205,24 @@
 .solea-send svg{width:18px;height:18px}
 .solea[dir=rtl] .solea-send svg{transform:scaleX(-1)}
 .solea-sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.solea-nudge{position:fixed;z-index:30055;right:calc(max(20px,env(safe-area-inset-right)) + 80px);bottom:calc(max(20px,env(safe-area-inset-bottom)) + var(--s-lift) + 10px);max-width:min(270px,calc(100vw - 120px));display:flex;align-items:flex-start;gap:6px;padding:11px 10px 11px 14px;border:1px solid var(--s-line);border-radius:14px 14px 4px 14px;background:var(--s-ivory);box-shadow:0 12px 34px rgba(47,36,23,.18);font-size:13.5px;line-height:1.45;color:var(--s-ink);animation:solea-in .32s ease-out}
+.solea-nudge button.n-text{all:unset;cursor:pointer;flex:1}
+.solea-nudge button.n-text:focus-visible{outline:2px solid var(--s-sea);outline-offset:3px}
+.solea-nudge .solea-icon{width:26px;height:26px;flex:0 0 26px}.solea-nudge .solea-icon svg{width:14px;height:14px}
+.solea[dir=rtl] .solea-nudge{right:auto;left:calc(max(20px,env(safe-area-inset-left)) + 80px);border-radius:14px 14px 14px 4px}
+.solea.is-open .solea-nudge{display:none}
+@keyframes solea-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.solea-wa{color:#1f7a4d}
+.solea-msg.is-note a{color:inherit}
+@media (max-width:520px){.solea-nudge{right:calc(max(14px,env(safe-area-inset-right)) + 70px)}}
 @media (max-width:520px){.solea-launcher{right:max(14px,env(safe-area-inset-right));bottom:calc(max(14px,env(safe-area-inset-bottom)) + var(--s-lift));width:60px;height:60px}.solea-launcher-face,.solea-launcher-face img,.solea-launcher-face sol-avatar{width:54px;height:54px}
 .solea-panel{right:8px;left:8px;bottom:calc(8px + env(safe-area-inset-bottom));width:auto;height:calc(100dvh - 16px - env(safe-area-inset-bottom) - env(safe-area-inset-top));border-radius:18px}}
-@media (prefers-reduced-motion:reduce){.solea-launcher,.solea-typing i{transition:none;animation:none}}
+@media (prefers-reduced-motion:reduce){.solea-launcher,.solea-typing i,.solea-nudge{transition:none;animation:none}}
 @media print{.solea{display:none}}`;
 
   const ICON_CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';
   const ICON_RESET = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>';
+  const ICON_WA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6Z"/><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.6 1.5c.1.2 0 .4-.1.6l-.5.6c.6 1.1 1.5 2 2.6 2.6l.6-.5c.2-.1.4-.2.6-.1l1.5.6c.3.1.4.3.4.5v.5c0 .3 0 .6-.5.8-.6.3-1.5.4-2.6-.1a9 9 0 0 1-4.4-4.4c-.5-1.1-.4-2 0-2.5Z"/></svg>';
   const ICON_SEND = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m5 12 14-7-4 14-3-6-7-1Z"/></svg>';
 
   function el(tag, attrs = {}, children = []) {
@@ -357,9 +381,24 @@
     return row;
   }
 
+  // On a development's page Soléa knows which one the visitor is reading, and whether its page has
+  // floor plans, so the suggestions and the nudge are about that development.
+  function pageProject() {
+    const name = document.querySelector('[data-project-name]')?.getAttribute('data-project-name');
+    if (!name || !/property-/.test(location.pathname)) return null;
+    return { name, plans: Boolean(document.querySelector('a[href$="floorplan.pdf"]')) };
+  }
+
+  function suggestionsHere() {
+    const project = pageProject();
+    if (!project) return t.suggestions;
+    const fill = (template) => template.replace('{name}', project.name);
+    return [project.plans ? fill(t.pPlans) : null, fill(t.pCost), fill(t.pArea)].filter(Boolean);
+  }
+
   function renderSuggestions() {
     const chips = el('div', { class: 'solea-chips' });
-    for (const question of t.suggestions) {
+    for (const question of suggestionsHere()) {
       chips.append(el('button', { type: 'button', class: 'solea-chip', text: question }));
     }
     chips.addEventListener('click', (event) => {
@@ -376,8 +415,43 @@
     addBubble('assistant', t.welcome);
     for (const m of messages) addBubble(m.role, m.text, m.cards);
     if (!messages.length) renderSuggestions();
-    log.append(el('p', { class: 'solea-msg is-note', text: t.note }));
+    log.append(el('p', { class: 'solea-msg is-note' }, [`${t.note} `, el('a', { href: PRIVACY_URL, text: t.privacy })]));
     scrollDown();
+  }
+
+  // Takes out what looks like an e-mail address or a phone number before a question is logged.
+  function anonymise(text) {
+    return String(text)
+      .replace(/[^\s@]+@[^\s@]+\.[^\s@]+/g, '[e-mail]')
+      .replace(/\+?\d[\d\s().-]{6,}\d/g, '[phone]')
+      .slice(0, 300);
+  }
+
+  // The anonymous question log (see the privacy policy): the question without contact details,
+  // what was searched and read, and whether the site could answer. It goes to the CRM's own
+  // measurement; the tracker keeps "message" away from Google and Meta.
+  function logQuestion(text, meta, outcome) {
+    const search = (meta?.searches || [])[0] || {};
+    track('chat_question', {
+      message: anonymise(text),
+      language: lang,
+      outcome,
+      gap: Boolean(meta?.gap),
+      found: meta?.found ?? null,
+      pages: (meta?.pages || []).join(' '),
+      tools: (meta?.tools || []).join(' '),
+      search_location: search.location || null,
+      search_budget_min: search.budget_min || null,
+      search_budget_max: search.budget_max || null,
+      search_bedrooms: search.bedrooms_min || null,
+      search_type: search.property_type || null,
+      search_stage: search.stage || null,
+      search_features: (search.features || []).join(' ') || null,
+      search_size_min: search.size_min || null,
+      search_size_max: search.size_max || null,
+      project: pageProject()?.name || null,
+      turn: messages.filter((m) => m.role === 'user').length,
+    });
   }
 
   async function ask(question) {
@@ -385,6 +459,7 @@
     if (!text || busy) return;
     busy = true;
     sendButton.disabled = true;
+    hideNudge(true);
     log.querySelector('.solea-chips')?.remove();
     log.querySelector('.is-note')?.remove();
     messages.push({ role: 'user', text });
@@ -395,10 +470,27 @@
     scrollDown();
     clearTimeout(talkTimer);
     setState('thinking');
-    track('chat_message', { language: lang, turn: messages.filter((m) => m.role === 'user').length });
 
     let answer = '';
     let cards = [];
+    let failure = null;
+    let done = null;
+    let bubble = null;
+    let frame = 0;
+    // The answer is drawn as it arrives, at most once a frame.
+    const draw = () => {
+      frame = 0;
+      if (!bubble) {
+        typing.remove();
+        bubble = el('div', { class: 'solea-msg', dir: 'auto' });
+        log.append(bubble);
+        setState('talking');
+      }
+      bubble.textContent = '';
+      bubble.append(el('span', { class: 'solea-sr', text: 'Soléa: ' }));
+      renderAnswer(answer, bubble);
+      scrollDown();
+    };
     try {
       const response = await fetch(ENDPOINT, {
         method: 'POST',
@@ -409,32 +501,109 @@
           messages: messages.map((m) => ({ role: m.role, text: m.text })),
         }),
       });
-      const data = await response.json().catch(() => ({}));
-      if (response.status === 429) answer = t.busy;
-      else if (!response.ok || !data.ok) answer = t.error;
-      else if (data.fallback === 'refusal') answer = t.refusal;
-      else answer = data.answer || t.error;
-      cards = Array.isArray(data.cards) ? data.cards : [];
-      if (data.sent) track('chat_lead', { language: lang });
+      if (response.status === 429) failure = t.busy;
+      else if (!response.ok || !response.body) failure = t.error;
+      else {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let buffer = '';
+        for (;;) {
+          const { value, done: finished } = await reader.read();
+          if (finished) break;
+          buffer += decoder.decode(value, { stream: true });
+          let cut;
+          while ((cut = buffer.indexOf('\n')) >= 0) {
+            const line = buffer.slice(0, cut).trim();
+            buffer = buffer.slice(cut + 1);
+            if (!line) continue;
+            let item;
+            try { item = JSON.parse(line); } catch { continue; }
+            if (item.type === 'text') {
+              answer += item.text;
+              if (!frame) frame = requestAnimationFrame(draw);
+            } else if (item.type === 'done') done = item;
+            else if (item.type === 'error') failure = t.error;
+          }
+        }
+        if (!done && !failure) failure = t.error;
+      }
     } catch {
-      answer = t.error;
+      failure = t.error;
     }
-    typing.remove();
-    const failed = answer === t.error || answer === t.busy;
-    if (!failed) { messages.push({ role: 'assistant', text: answer, cards }); save(); }
-    else { messages.pop(); save(); asked.remove(); }
-    addBubble('assistant', answer, cards);
-    setState(failed ? 'idle' : 'talking');
-    // Talking lasts about as long as reading the answer's first lines would, then she rests.
-    talkTimer = setTimeout(() => setState('idle'), failed ? 0 : Math.min(7000, 1600 + answer.length * 18));
+    if (frame) { cancelAnimationFrame(frame); frame = 0; }
+    if (done?.fallback === 'refusal') { answer = t.refusal; }
+    else if (done?.fallback === 'rounds' && !answer.trim()) failure = t.error;
+    if (failure && !answer.trim()) {
+      typing.remove();
+      messages.pop(); save(); asked.remove();
+      addBubble('assistant', failure);
+      logQuestion(text, null, failure === t.busy ? 'busy' : 'error');
+      setState('idle');
+      busy = false;
+      sendButton.disabled = false;
+      input.value = text;
+      input.focus({ preventScroll: true });
+      return;
+    }
+    if (!answer.trim()) answer = t.error;
+    cards = Array.isArray(done?.cards) ? done.cards : [];
+    draw();
+    if (cards.length) { log.append(renderCards(cards)); scrollDown(); }
+    messages.push({ role: 'assistant', text: answer, cards });
+    save();
+    logQuestion(text, done?.meta, done?.fallback || 'answered');
+    if (done?.sent) track('chat_lead', { language: lang });
+    clearTimeout(talkTimer);
+    talkTimer = setTimeout(() => setState('idle'), 1800);
     busy = false;
     sendButton.disabled = false;
-    if (failed) input.value = text;
     input.focus({ preventScroll: true });
+  }
+
+  // --- the nudge: on a development's page, a small question beside the launcher -------------
+
+  let nudge = null;
+  function hideNudge(forGood) {
+    nudge?.remove();
+    nudge = null;
+    if (forGood) { try { sessionStorage.setItem(NUDGE_KEY, '1'); } catch { /* ignore */ } }
+  }
+
+  function scheduleNudge() {
+    const project = pageProject();
+    if (!project) return;
+    try { if (sessionStorage.getItem(NUDGE_KEY) || messages.length) return; } catch { return; }
+    setTimeout(() => {
+      if (!panel.hidden || nudge) return;
+      const question = (project.plans ? t.nudge : t.nudgeOther).replace('{name}', project.name);
+      const textButton = el('button', { type: 'button', class: 'n-text', text: question });
+      const dismiss = el('button', { type: 'button', class: 'solea-icon', 'aria-label': t.dismiss, title: t.dismiss, html: ICON_CLOSE });
+      nudge = el('div', { class: 'solea-nudge', role: 'status', dir: 'auto' }, [textButton, dismiss]);
+      root.append(nudge);
+      launcherAvatar?.setAttribute('state', 'happy');
+      setTimeout(() => launcherAvatar?.setAttribute('state', 'idle'), 2500);
+      track('chat_nudge_shown', { language: lang, project: project.name });
+      textButton.addEventListener('click', () => {
+        hideNudge(true);
+        open();
+        track('chat_nudge_click', { language: lang, project: project.name });
+        if (project.plans) ask(t.pPlans.replace('{name}', project.name));
+      });
+      dismiss.addEventListener('click', () => hideNudge(true));
+    }, 20000);
+  }
+
+  // --- WhatsApp: the same conversation, handed to a person ------------------------------------
+
+  function whatsappHref() {
+    const asked = messages.filter((m) => m.role === 'user').slice(-3).map((m) => `- ${m.text.slice(0, 160)}`);
+    const lines = [t.waHello, asked.length ? `${t.waAsked}\n${asked.join('\n')}` : '', location.href.split('#')[0]].filter(Boolean);
+    return `${WHATSAPP_LINK}?text=${encodeURIComponent(lines.join('\n\n'))}`;
   }
 
   function open() {
     if (!panel.hidden) return;
+    hideNudge(true);
     panel.hidden = false;
     root.classList.add('is-open');
     launcher.setAttribute('aria-expanded', 'true');
@@ -493,6 +662,7 @@
       el('header', { class: 'solea-head' }, [
         face,
         el('div', { class: 'solea-id' }, [el('span', { class: 'solea-name', text: 'Soléa' }), status]),
+        el('a', { class: 'solea-icon solea-wa', 'data-wa': '', href: WHATSAPP_LINK, target: '_blank', rel: 'noopener', 'aria-label': t.wa, title: t.wa, html: ICON_WA }),
         el('button', { type: 'button', class: 'solea-icon', 'data-reset': '', 'aria-label': t.reset, title: t.reset, html: ICON_RESET }),
         el('button', { type: 'button', class: 'solea-icon', 'data-close': '', 'aria-label': t.close, title: t.close, html: ICON_CLOSE }),
       ]),
@@ -505,6 +675,12 @@
     launcher.addEventListener('click', open);
     panel.querySelector('[data-close]').addEventListener('click', close);
     panel.querySelector('[data-reset]').addEventListener('click', reset);
+    // The link carries the visitor's last questions and the page, written when it is followed.
+    const wa = panel.querySelector('[data-wa]');
+    const fillWa = () => { wa.href = whatsappHref(); };
+    wa.addEventListener('pointerdown', fillWa);
+    wa.addEventListener('focus', fillWa);
+    wa.addEventListener('click', () => { fillWa(); track('chat_whatsapp', { language: lang, turn: messages.filter((m) => m.role === 'user').length }); });
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const text = input.value;
@@ -518,6 +694,7 @@
     loadAvatarWhenIdle();
 
     renderAll();
+    scheduleNudge();
     liftAboveBars();
     window.addEventListener('resize', liftAboveBars, { passive: true });
     // Anything on the site can open the chat: a link or button with data-solea-open.
