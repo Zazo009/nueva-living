@@ -20,8 +20,7 @@
   const AVATAR_VERSION = script?.dataset.avatarVersion || '1';
   const AVATAR_URL = `/assets/liora/solea/sol-avatar.js?v=${AVATAR_VERSION}`;
   const MODEL_URL = `/assets/liora/solea/sol-nueva-living.glb?v=${AVATAR_VERSION}`;
-  const POSTER_URL = '/assets/liora/solea/sol-idle-poster.webp';
-  const LAUNCHER_URL = '/assets/liora/solea/sol-launcher.webp';
+    const LAUNCHER_URL = '/assets/liora/solea/sol-launcher.webp';
   const ENDPOINT = '/.netlify/functions/nueva-chat';
   const STORE = 'nueva-solea-v1';
   const WHATSAPP = '+46 70 757 67 09';
@@ -149,7 +148,7 @@
 .solea-launcher{position:fixed;z-index:30050;right:max(20px,env(safe-area-inset-right));bottom:calc(max(20px,env(safe-area-inset-bottom)) + var(--s-lift));width:68px;height:68px;padding:0;border:1px solid var(--s-line);border-radius:50%;background:var(--s-ivory);box-shadow:0 12px 34px rgba(47,36,23,.22);cursor:pointer;display:grid;place-items:center;transition:transform .18s ease-out,box-shadow .18s ease-out,opacity .18s}
 .solea-launcher:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(47,36,23,.26)}
 .solea-launcher:active{transform:scale(.96)}
-.solea-launcher img{width:60px;height:60px;display:block;pointer-events:none}
+.solea-launcher-face{position:relative;display:block;width:62px;height:62px}.solea-launcher-face img,.solea-launcher-face sol-avatar{position:absolute;inset:0;width:62px;height:62px;display:block}.solea-launcher.is-live .solea-launcher-face>img,.solea-face.is-live>img{opacity:0}
 .solea-launcher::after{content:"";position:absolute;right:3px;bottom:5px;width:13px;height:13px;border:3px solid var(--s-ivory);border-radius:50%;background:var(--s-sea)}
 .solea.is-open .solea-launcher{opacity:0;pointer-events:none;transform:scale(.8)}
 .solea button:focus-visible,.solea input:focus-visible,.solea a:focus-visible{outline:2px solid var(--s-sea);outline-offset:2px}
@@ -193,7 +192,7 @@
 .solea-send svg{width:18px;height:18px}
 .solea[dir=rtl] .solea-send svg{transform:scaleX(-1)}
 .solea-sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-@media (max-width:520px){.solea-launcher{right:max(14px,env(safe-area-inset-right));bottom:calc(max(14px,env(safe-area-inset-bottom)) + var(--s-lift));width:60px;height:60px}.solea-launcher img{width:52px;height:52px}
+@media (max-width:520px){.solea-launcher{right:max(14px,env(safe-area-inset-right));bottom:calc(max(14px,env(safe-area-inset-bottom)) + var(--s-lift));width:60px;height:60px}.solea-launcher-face,.solea-launcher-face img,.solea-launcher-face sol-avatar{width:54px;height:54px}
 .solea-panel{right:8px;left:8px;bottom:calc(8px + env(safe-area-inset-bottom));width:auto;height:calc(100dvh - 16px - env(safe-area-inset-bottom) - env(safe-area-inset-top));border-radius:18px}}
 @media (prefers-reduced-motion:reduce){.solea-launcher,.solea-typing i{transition:none;animation:none}}
 @media print{.solea{display:none}}`;
@@ -293,18 +292,40 @@
     if (avatar) avatar.setAttribute('state', state);
   }
 
+  // The 3D avatar is two <sol-avatar> elements: one in the launcher, one in the panel's header.
+  // The launcher's waits until the page has loaded and the browser is idle; opening the chat
+  // fetches it at once. Visitors who ask to save data keep the still image in the launcher.
+  let launcherAvatar = null;
+  function makeAvatar(state) {
+    const node = document.createElement('sol-avatar');
+    node.setAttribute('model', MODEL_URL);
+    node.setAttribute('poster', LAUNCHER_URL);
+    node.setAttribute('state', state);
+    node.setAttribute('aria-hidden', 'true');
+    return node;
+  }
+
   function loadAvatar() {
-    if (avatar || loadAvatar.started) return;
-    loadAvatar.started = true;
-    if (!('WebGLRenderingContext' in window)) return;
-    import(AVATAR_URL).then(() => {
-      const node = document.createElement('sol-avatar');
-      node.setAttribute('model', MODEL_URL);
-      node.setAttribute('poster', POSTER_URL);
-      node.setAttribute('state', 'happy');
-      face.append(node);
-      avatar = node;
-    }).catch(() => { /* the poster stays; the chat works without the 3D avatar */ });
+    if (loadAvatar.promise) return loadAvatar.promise;
+    if (!('WebGLRenderingContext' in window)) return (loadAvatar.promise = Promise.reject());
+    loadAvatar.promise = import(AVATAR_URL).then(() => {
+      launcherAvatar = makeAvatar('idle');
+      launcher.querySelector('.solea-launcher-face').append(launcherAvatar);
+      launcherAvatar.addEventListener('ready', () => launcher.classList.add('is-live'), { once: true });
+      avatar = makeAvatar('happy');
+      face.append(avatar);
+      avatar.addEventListener('ready', () => face.classList.add('is-live'), { once: true });
+      if (!panel.hidden) launcherAvatar.pause?.();
+    });
+    loadAvatar.promise.catch(() => { /* the still image stays; the chat works without the 3D avatar */ });
+    return loadAvatar.promise;
+  }
+
+  function loadAvatarWhenIdle() {
+    if (navigator.connection?.saveData) return;
+    const start = () => (window.requestIdleCallback ? requestIdleCallback(() => loadAvatar(), { timeout: 4000 }) : setTimeout(loadAvatar, 1500));
+    if (document.readyState === 'complete') start();
+    else addEventListener('load', start, { once: true });
   }
 
   function scrollDown() { log.scrollTop = log.scrollHeight; }
@@ -418,6 +439,7 @@
     root.classList.add('is-open');
     launcher.setAttribute('aria-expanded', 'true');
     loadAvatar();
+    launcherAvatar?.pause?.();
     setState('happy');
     clearTimeout(talkTimer);
     talkTimer = setTimeout(() => setState('idle'), 2500);
@@ -431,6 +453,7 @@
     panel.hidden = true;
     root.classList.remove('is-open');
     launcher.setAttribute('aria-expanded', 'false');
+    launcherAvatar?.play?.();
     setState('idle');
     launcher.focus({ preventScroll: true });
   }
@@ -458,9 +481,9 @@
     document.head.append(el('style', { 'data-solea': '', text: CSS }));
     root = el('div', { class: 'solea', dir: rtl ? 'rtl' : 'ltr', lang });
     launcher = el('button', { type: 'button', class: 'solea-launcher', 'aria-label': t.open, 'aria-expanded': 'false', 'aria-controls': 'solea-panel' }, [
-      el('img', { src: LAUNCHER_URL, alt: '', width: '60', height: '60', decoding: 'async' }),
+      el('span', { class: 'solea-launcher-face' }, [el('img', { src: LAUNCHER_URL, alt: '', width: '60', height: '60', decoding: 'async' })]),
     ]);
-    face = el('div', { class: 'solea-face', 'aria-hidden': 'true' }, [el('img', { src: POSTER_URL, alt: '' })]);
+    face = el('div', { class: 'solea-face', 'aria-hidden': 'true' }, [el('img', { src: LAUNCHER_URL, alt: '' })]);
     status = el('span', { class: 'solea-status', 'aria-live': 'polite', text: t.idle });
     log = el('div', { class: 'solea-log', role: 'log', 'aria-live': 'polite', 'aria-relevant': 'additions' });
     input = el('input', { class: 'solea-input', type: 'text', name: 'message', autocomplete: 'off', maxlength: '1500', placeholder: t.placeholder, 'aria-label': t.placeholder, enterkeyhint: 'send' });
@@ -492,6 +515,7 @@
     // Warm the 3D avatar's download when the visitor reaches for the launcher.
     launcher.addEventListener('pointerenter', loadAvatar, { once: true });
     launcher.addEventListener('focus', loadAvatar, { once: true });
+    loadAvatarWhenIdle();
 
     renderAll();
     liftAboveBars();

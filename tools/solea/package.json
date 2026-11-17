@@ -1,0 +1,19 @@
+{
+  "name": "three-scene",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:avatar": "vite build --config vite.avatar.config.js && cp dist-component/sol-avatar.js public/assets/sol-avatar.js && rm -rf dist-component",
+    "build:widget": "vite build --config vite.widget.config.js && cp dist-widget/solea-chat.js public/assets/solea-chat.js && rm -rf dist-widget",
+    "build": "npm run build:avatar && npm run build:widget && python scripts/package-avatar.py && vite build && cp -Rc public/assets dist/",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "vite": "^7.2.2"
+  }
+}
