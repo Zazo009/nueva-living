@@ -189,6 +189,14 @@ class SolAvatar extends HTMLElement {
         waves: this.waves.map(wave => wave.position.clone()),
         rays: this.rays.children.map(ray => ray.scale.clone()),
       };
+      // framing="close" (the launcher and the panel header) leaves the sea out and frames the sun
+      // and its rays alone, so at 56-62 px the face fills the circle instead of sharing it.
+      this.close = this.getAttribute('framing') === 'close';
+      if (this.close) {
+        this.waves.forEach(wave => { wave.visible = false; });
+        const box = new THREE.Box3().setFromObject(this.rays).union(new THREE.Box3().setFromObject(this.sun));
+        this.focus = { center: box.getCenter(new THREE.Vector3()), size: Math.max(...box.getSize(new THREE.Vector3()).toArray().slice(0, 2)) };
+      }
       this.motion = { lookX: 0, lookY: 0, tilt: 0, spin: 0, smile: 1, bounce: 0, energy: 1 };
       this.stateSince = 0;
       this.pokedAt = -1e9;
@@ -233,7 +241,13 @@ class SolAvatar extends HTMLElement {
     const small = Math.max(width, height) <= 160;
     this.renderer.setPixelRatio(Math.min(small ? 4 : 2, (window.devicePixelRatio || 1) * (small ? 2 : 1)));
     const aspect = width / height;
-    const viewHeight = aspect < 1 ? 4.95 / aspect : 4.95;
+    // Close framing: the sun's own extent plus a margin for the float, the sway and the hop.
+    const span = this.focus ? this.focus.size * 1.1 : 4.95;
+    const viewHeight = aspect < 1 ? span / aspect : span;
+    if (this.focus) {
+      this.camera.position.set(this.focus.center.x, this.focus.center.y + 0.04, 8);
+      this.camera.lookAt(this.focus.center.x, this.focus.center.y + 0.04, 0);
+    }
     this.camera.left = -viewHeight * aspect / 2;
     this.camera.right = viewHeight * aspect / 2;
     this.camera.top = viewHeight / 2;

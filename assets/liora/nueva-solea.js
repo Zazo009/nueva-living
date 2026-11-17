@@ -325,6 +325,7 @@
     const node = document.createElement('sol-avatar');
     node.setAttribute('model', MODEL_URL);
     node.setAttribute('poster', LAUNCHER_URL);
+    node.setAttribute('framing', 'close');
     node.setAttribute('state', state);
     node.setAttribute('aria-hidden', 'true');
     return node;
