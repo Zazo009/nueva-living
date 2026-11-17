@@ -133,7 +133,7 @@ class SolAvatar extends HTMLElement {
       this.renderer.setClearColor(0xf4ead9, 0);
       this.renderer.outputColorSpace = THREE.SRGBColorSpace;
       this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      this.renderer.toneMappingExposure = 0.94;
+      this.renderer.toneMappingExposure = 0.98;
       this.mount.appendChild(this.renderer.domElement);
 
       this.scene = new THREE.Scene();
@@ -155,9 +155,14 @@ class SolAvatar extends HTMLElement {
       const fill = new THREE.DirectionalLight(0xdde8ef, 1.35);
       fill.position.set(4, 0.5, 4);
       this.scene.add(fill);
-      const rim = new THREE.DirectionalLight(0xffe2ae, 1.1);
+      const rim = new THREE.DirectionalLight(0xffe2ae, 1.6);
       rim.position.set(1, -3, -2);
       this.scene.add(rim);
+      // A thin edge light from behind, upper right: it draws a bright line along the rim and the
+      // ray tips, so she keeps a crisp silhouette at 54 px on cream as well as on photographs.
+      const edge = new THREE.DirectionalLight(0xfff0d0, 3.4);
+      edge.position.set(3.5, 3, -4);
+      this.scene.add(edge);
       this.scene.add(new THREE.AmbientLight(0xf4ead9, 0.5));
 
       const source = await loadModel(this.modelUrl);
@@ -175,7 +180,7 @@ class SolAvatar extends HTMLElement {
       this.talkingMouth.visible = false;
       this.sun.add(this.talkingMouth);
       if (this.getAttribute('finish') !== 'kimi') this.applyBrandFinish();
-      this.smileBase = this.getAttribute('finish') === 'kimi' ? 1 : 0.84;
+      this.smileBase = this.getAttribute('finish') === 'kimi' ? 1 : 0.93;
       this.cheeks = ['Cheek_left', 'Cheek_right'].map(name => this.model.getObjectByName(name)).filter(Boolean);
       this.waves = ['Wave_1', 'Wave_2', 'Wave_3'].map(name => this.model.getObjectByName(name)).filter(Boolean);
       this.rest = {
@@ -235,8 +240,8 @@ class SolAvatar extends HTMLElement {
   }
 
   // Nueva Living's finish, applied over the model Kimi delivered (finish="kimi" keeps the original):
-  // the brand gold (#a8834a) instead of a lighter yellow-beige, brushed rather than glossy, darker
-  // espresso engraving, cheeks reduced to a hint of warmth and a sea of sand and pale gold instead
+  // the brand gold (#a8834a) instead of a lighter yellow-beige, satin with a crisp highlight, darker
+  // espresso engraving, cheeks kept as a soft warmth and a sea of sand and pale gold instead
   // of blue-grey, so she sits beside the engraved logo rather than apart from it. The model's
   // materials are recognised by their original colour, which the GLB fixes.
   applyBrandFinish() {
@@ -259,20 +264,20 @@ class SolAvatar extends HTMLElement {
         material.metalness = 0.35;
         material.roughness = 0.58;
       } else if (near(r, 0.485)) {                       // rays, edge, rim
-        material.color = srgb('#8a6630');
-        material.metalness = 0.86;
-        material.roughness = 0.52;
+        material.color = srgb('#7a5626');
+        material.metalness = 0.92;
+        material.roughness = 0.34;
       } else if (near(r, 0.571)) {                // the face
-        material.color = srgb('#a07a40');
-        material.metalness = 0.8;
-        material.roughness = 0.48;
+        material.color = srgb('#b08a4c');
+        material.metalness = 0.82;
+        material.roughness = 0.42;
       } else if (near(r, 0.25)) {                 // engraved lines
-        material.color = srgb('#4a3520');
+        material.color = srgb('#33241a');
         material.metalness = 0.5;
         material.roughness = 0.6;
       } else if (near(r, 0.68)) {                 // cheeks
         material.color = srgb('#c98f6f');
-        material.opacity = 0.22;
+        material.opacity = 0.4;
       }
       material.needsUpdate = true;
     });
@@ -320,7 +325,8 @@ class SolAvatar extends HTMLElement {
     }
     m.lookX += (lookX - m.lookX) * ease(5);
     m.lookY += (lookY - m.lookY) * ease(5);
-    m.tilt += ((state === 'thinking' ? 0.16 : 0) - m.tilt) * ease(4);
+    // Hovered, she tilts her head a little, curious; in thought, further.
+    m.tilt += ((state === 'thinking' ? 0.16 : this.hovered ? -0.09 : 0) - m.tilt) * ease(4);
     m.smile += ((cheerful ? 1.28 : 1) - m.smile) * ease(8);
 
     // Rays turn all the time, faster in thought, and spin up when poked.
@@ -352,9 +358,16 @@ class SolAvatar extends HTMLElement {
     const second = Math.floor(t / 3.7) % 3 === 2 ? Math.max(0, 1 - Math.abs(cycle - 0.34) / 0.08) : 0;
     const blink = Math.max(Math.max(0, 1 - Math.abs(cycle - 0.08) / 0.08), second);
     const open = state === 'thinking' ? 0.8 : cheerful ? 0.78 : 1;
+    // Now and then, awake and idle, a wink: one eye, every other 9-second cycle, or when poked.
+    const winkAt = t % 9.3;
+    const winkCycle = state === 'idle' && e > 0.6 && Math.floor(t / 9.3) % 2 === 1;
+    const wink = Math.max(
+      winkCycle ? Math.max(0, 1 - Math.abs(winkAt - 5) / 0.18) : 0,
+      poked ? Math.max(0, 1 - Math.abs(pokeAge - 0.9) / 0.2) : 0,
+    );
     this.eyes.forEach((eye, i) => {
       eye.position.set(rest.eyes[i].x + m.lookX * 0.045, rest.eyes[i].y + m.lookY * 0.035, rest.eyes[i].z);
-      eye.scale.y = 0.115 * open * (1 - 0.92 * blink);
+      eye.scale.y = 0.124 * open * (1 - 0.92 * Math.max(blink, i === 1 ? Math.min(1, wink) : 0));
     });
     this.cheeks.forEach((cheek, i) => cheek.scale.copy(rest.cheeks[i]).multiplyScalar(cheerful ? 1.22 : 1));
 
