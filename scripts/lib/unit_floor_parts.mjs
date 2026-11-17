@@ -67,5 +67,8 @@ export const FLOOR_PREFIXES = {
   level: { es: 'Nivel', fr: 'Niveau', de: 'Ebene', ru: 'Уровень', ar: 'مستوى', nl: 'Niveau', pl: 'Poziom', sv: 'Plan', no: 'Plan' },
   staircase: { es: 'Escalera', fr: 'Escalier', de: 'Treppenhaus', ru: 'Лестница', ar: 'درج', nl: 'Trappenhuis', pl: 'Klatka schodowa', sv: 'Trapphus', no: 'Trappeoppgang' },
   townhouse: { es: 'Adosado', fr: 'Maison de ville', de: 'Reihenhaus', ru: 'Таунхаус', ar: 'منزل متلاصق', nl: 'Herenhuis', pl: 'Dom szeregowy', sv: 'Radhus', no: 'Rekkehus' },
-  floor: { es: 'Planta', fr: 'Étage', de: 'Etage', ru: 'Этаж', ar: 'الطابق', nl: 'Verdieping', pl: 'Piętro', sv: 'Våning', no: 'Etasje' }
+  floor: { es: 'Planta', fr: 'Étage', de: 'Etage', ru: 'Этаж', ar: 'الطابق', nl: 'Verdieping', pl: 'Piętro', sv: 'Våning', no: 'Etasje' },
+  // A scheme sold in phases, where the same block number recurs in two of
+  // them: "Phase I, Block 3" and "Phase III, Block 3" are different buildings.
+  phase: { es: 'Fase', fr: 'Phase', de: 'Phase', ru: 'Очередь', ar: 'المرحلة', nl: 'Fase', pl: 'Etap', sv: 'Etapp', no: 'Byggetrinn' }
 };
