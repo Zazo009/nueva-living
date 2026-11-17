@@ -158,12 +158,13 @@
   const CSS = `
 .solea{--s-cream:#f4ead9;--s-ivory:#faf6ee;--s-gold:#a8834a;--s-engraving:#896a3f;--s-ink:#2f2417;--s-espresso:#4a3b28;--s-muted:#6b5a43;--s-sea:#7b97a4;--s-line:rgba(168,131,74,.28);--s-lift:var(--solea-lift,0px);font-family:"Montserrat",Arial,sans-serif;color:var(--s-ink)}
 .solea *{box-sizing:border-box}
-.solea-launcher{position:fixed;z-index:30050;right:max(20px,env(safe-area-inset-right));bottom:calc(max(20px,env(safe-area-inset-bottom)) + var(--s-lift));width:68px;height:68px;padding:0;border:1px solid var(--s-line);border-radius:50%;background:var(--s-ivory);box-shadow:0 12px 34px rgba(47,36,23,.22);cursor:pointer;display:grid;place-items:center;transition:transform .18s ease-out,box-shadow .18s ease-out,opacity .18s}
+.solea-launcher{position:fixed;z-index:30050;right:max(20px,env(safe-area-inset-right));bottom:calc(max(20px,env(safe-area-inset-bottom)) + var(--s-lift));width:68px;height:68px;padding:0;border:1px solid var(--s-line);border-radius:50%;background:var(--s-ivory);box-shadow:0 12px 34px rgba(47,36,23,.22);cursor:pointer;display:grid;place-items:center;transition:transform .28s ease-out,box-shadow .18s ease-out,opacity .28s}
 .solea-launcher:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(47,36,23,.26)}
 .solea-launcher:active{transform:scale(.96)}
 .solea-launcher-face{position:relative;display:block;width:62px;height:62px}.solea-launcher-face img,.solea-launcher-face sol-avatar{position:absolute;inset:0;width:62px;height:62px;display:block}.solea-launcher.is-live .solea-launcher-face>img,.solea-face.is-live>img{opacity:0}
 .solea-launcher::after{content:"";position:absolute;right:3px;bottom:5px;width:13px;height:13px;border:3px solid var(--s-ivory);border-radius:50%;background:var(--s-gold)}
 .solea.is-open .solea-launcher{opacity:0;pointer-events:none;transform:scale(.8)}
+.solea.is-waiting .solea-launcher,.solea.is-tucked .solea-launcher,.solea.is-tucked .solea-nudge{transform:translateY(calc(100% + 40px));opacity:0;pointer-events:none}
 .solea button:focus-visible,.solea input:focus-visible,.solea a:focus-visible{outline:2px solid var(--s-sea);outline-offset:2px}
 .solea-panel{position:fixed;z-index:30200;right:max(20px,env(safe-area-inset-right));bottom:calc(max(20px,env(safe-area-inset-bottom)) + var(--s-lift));width:min(390px,calc(100vw - 32px));height:min(620px,calc(100dvh - 40px - var(--s-lift)));display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--s-line);border-radius:20px;background:var(--s-ivory);box-shadow:0 24px 70px rgba(47,36,23,.24)}
 .solea-panel[hidden]{display:none}
@@ -334,6 +335,9 @@
     if (!('WebGLRenderingContext' in window)) return (loadAvatar.promise = Promise.reject());
     loadAvatar.promise = import(AVATAR_URL).then(() => {
       launcherAvatar = makeAvatar('idle');
+      // In the corner she rests and notices only a pointer that comes near (tools/solea).
+      launcherAvatar.setAttribute('calm', '');
+      launcherAvatar.setAttribute('follow-radius', '260');
       launcher.querySelector('.solea-launcher-face').append(launcherAvatar);
       launcherAvatar.addEventListener('ready', () => launcher.classList.add('is-live'), { once: true });
       avatar = makeAvatar('happy');
@@ -569,12 +573,25 @@
     if (forGood) { try { sessionStorage.setItem(NUDGE_KEY, '1'); } catch { /* ignore */ } }
   }
 
+  // Only for someone reading the page: after 40 seconds, and once they have scrolled a fair way.
   function scheduleNudge() {
     const project = pageProject();
     if (!project) return;
     try { if (sessionStorage.getItem(NUDGE_KEY) || messages.length) return; } catch { return; }
-    setTimeout(() => {
+    let timeUp = false;
+    let read = false;
+    const onScroll = () => {
+      if (scrollY > Math.min(900, document.documentElement.scrollHeight * 0.25)) {
+        read = true;
+        removeEventListener('scroll', onScroll);
+        if (timeUp) show();
+      }
+    };
+    addEventListener('scroll', onScroll, { passive: true });
+    setTimeout(() => { timeUp = true; if (read) show(); }, 40000);
+    function show() {
       if (!panel.hidden || nudge) return;
+      try { if (sessionStorage.getItem(NUDGE_KEY)) return; } catch { return; }
       const question = (project.plans ? t.nudge : t.nudgeOther).replace('{name}', project.name);
       const textButton = el('button', { type: 'button', class: 'n-text', text: question });
       const dismiss = el('button', { type: 'button', class: 'solea-icon', 'aria-label': t.dismiss, title: t.dismiss, html: ICON_CLOSE });
@@ -590,7 +607,41 @@
         if (project.plans) ask(t.pPlans.replace('{name}', project.name));
       });
       dismiss.addEventListener('click', () => hideNudge(true));
-    }, 20000);
+    }
+  }
+
+  // Soléa is not there when the visitor lands: she appears once they start scrolling, so the
+  // first view of a page is the page. A visitor who has already chatted in this tab sees her at
+  // once, and on a page too short to scroll she comes after a few seconds.
+  function appearOnScroll() {
+    if (messages.length) return;
+    root.classList.add('is-waiting');
+    const show = () => {
+      root.classList.remove('is-waiting');
+      removeEventListener('scroll', onScroll);
+      loadAvatar();
+    };
+    const onScroll = () => { if (scrollY > 120) show(); };
+    addEventListener('scroll', onScroll, { passive: true });
+    setTimeout(() => {
+      if (document.documentElement.scrollHeight <= innerHeight + 160) show();
+    }, 4000);
+  }
+
+  // On a phone the launcher steps aside while the visitor scrolls down to read, and comes back
+  // when they scroll up or stop, so it never sits over a form or a price list they are reading.
+  function tuckOnScroll() {
+    let last = scrollY;
+    let timer = 0;
+    addEventListener('scroll', () => {
+      if (innerWidth > 760 || !panel.hidden) { root.classList.remove('is-tucked'); last = scrollY; return; }
+      const y = scrollY;
+      if (y > last + 6 && y > 160) root.classList.add('is-tucked');
+      else if (y < last - 6) root.classList.remove('is-tucked');
+      last = y;
+      clearTimeout(timer);
+      timer = setTimeout(() => root.classList.remove('is-tucked'), 1400);
+    }, { passive: true });
   }
 
   // --- WhatsApp: the same conversation, handed to a person ------------------------------------
@@ -604,6 +655,7 @@
   function open() {
     if (!panel.hidden) return;
     hideNudge(true);
+    root.classList.remove('is-waiting');
     panel.hidden = false;
     root.classList.add('is-open');
     launcher.setAttribute('aria-expanded', 'true');
@@ -694,7 +746,9 @@
     loadAvatarWhenIdle();
 
     renderAll();
+    appearOnScroll();
     scheduleNudge();
+    tuckOnScroll();
     liftAboveBars();
     window.addEventListener('resize', liftAboveBars, { passive: true });
     // Anything on the site can open the chat: a link or button with data-solea-open.

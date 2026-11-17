@@ -57,6 +57,9 @@ class SolAvatar extends HTMLElement {
       const r = this.getBoundingClientRect();
       const cx = r.left + r.width / 2;
       const cy = r.top + r.height / 2;
+      // With follow-radius set (the launcher), she only notices a pointer that comes near her.
+      const radius = Number(this.getAttribute('follow-radius')) || Infinity;
+      if (Math.hypot(event.clientX - cx, event.clientY - cy) > radius) return;
       this.pointer.x = Math.max(-1, Math.min(1, (event.clientX - cx) / (innerWidth * 0.45)));
       this.pointer.y = Math.max(-1, Math.min(1, (cy - event.clientY) / (innerHeight * 0.45)));
       this.pointer.at = performance.now();
@@ -182,7 +185,7 @@ class SolAvatar extends HTMLElement {
         waves: this.waves.map(wave => wave.position.clone()),
         rays: this.rays.children.map(ray => ray.scale.clone()),
       };
-      this.motion = { lookX: 0, lookY: 0, tilt: 0, spin: 0, smile: 1, bounce: 0 };
+      this.motion = { lookX: 0, lookY: 0, tilt: 0, spin: 0, smile: 1, bounce: 0, energy: 1 };
       this.stateSince = 0;
       this.pokedAt = -1e9;
 
@@ -294,6 +297,14 @@ class SolAvatar extends HTMLElement {
     const poked = pokeAge >= 0 && pokeAge < 1.4;
     const cheerful = state === 'happy' || this.hovered || poked;
 
+    // calm (the launcher): after a few seconds she rests, almost still but breathing, and wakes
+    // when a pointer comes near, when she is hovered or poked, or when she has something to do.
+    const calm = this.hasAttribute('calm');
+    const awake = !calm || state !== 'idle' || this.hovered || poked || t < 6
+      || performance.now() - this.pointer.at < 2500;
+    m.energy += ((awake ? 1 : 0.12) - m.energy) * ease(awake ? 4 : 0.8);
+    const e = m.energy;
+
     // Where she looks: the pointer while it moves, otherwise a slow wander; up and aside in thought.
     let lookX;
     let lookY;
@@ -304,8 +315,8 @@ class SolAvatar extends HTMLElement {
       lookX = this.pointer.x;
       lookY = this.pointer.y;
     } else {
-      lookX = 0.45 * Math.sin(t * 0.37) + 0.18 * Math.sin(t * 1.13);
-      lookY = 0.22 * Math.sin(t * 0.53 + 1);
+      lookX = e * (0.45 * Math.sin(t * 0.37) + 0.18 * Math.sin(t * 1.13));
+      lookY = e * 0.22 * Math.sin(t * 0.53 + 1);
     }
     m.lookX += (lookX - m.lookX) * ease(5);
     m.lookY += (lookY - m.lookY) * ease(5);
@@ -314,16 +325,16 @@ class SolAvatar extends HTMLElement {
 
     // Rays turn all the time, faster in thought, and spin up when poked.
     const raySpeed = { idle: 0.22, thinking: 1.1, happy: 0.6, talking: 0.35 }[state] ?? 0.22;
-    m.spin += dt * (raySpeed + (poked ? 9 * Math.exp(-pokeAge * 2.6) : 0));
+    m.spin += dt * (raySpeed * (0.25 + 0.75 * e) + (poked ? 9 * Math.exp(-pokeAge * 2.6) : 0));
     this.rays.rotation.z = m.spin;
     const shimmer = { idle: 0.045, thinking: 0.09, happy: 0.11, talking: 0.06 }[state] ?? 0.05;
     this.rays.children.forEach((ray, i) => {
-      ray.scale.copy(rest.rays[i]).multiplyScalar(1 + shimmer * Math.sin(t * 3.1 - i * 0.7));
+      ray.scale.copy(rest.rays[i]).multiplyScalar(1 + e * shimmer * Math.sin(t * 3.1 - i * 0.7));
     });
     this.rays.scale.setScalar(1 + (state === 'thinking' ? 0.035 * Math.sin(t * 4) : 0));
 
     // The body floats and breathes, sways, bounces when happy and jumps when poked.
-    let lift = 0.065 * Math.sin(t * 1.7);
+    let lift = (0.02 + 0.045 * e) * Math.sin(t * 1.7);
     if (state === 'happy') lift += 0.11 * Math.abs(Math.sin(t * 5.2)) * Math.exp(-Math.max(0, sinceState - 1.6));
     if (poked) lift += 0.3 * Math.max(0, Math.sin(Math.PI * Math.min(1, pokeAge / 0.55)));
     const nod = state === 'talking' ? 0.05 * Math.sin(t * 6.3) : 0;
@@ -332,7 +343,7 @@ class SolAvatar extends HTMLElement {
     this.sun.rotation.set(
       rest.sun.rotation.x - m.lookY * 0.3 + nod,
       rest.sun.rotation.y + m.lookX * 0.42 + twirl,
-      rest.sun.rotation.z + m.tilt + 0.045 * Math.sin(t * 0.8) - m.lookX * 0.05,
+      rest.sun.rotation.z + m.tilt + 0.045 * e * Math.sin(t * 0.8) - m.lookX * 0.05,
     );
     this.sun.scale.copy(rest.sun.scale).multiplyScalar(1 + 0.018 * Math.sin(t * 1.7 + 1.2));
 
@@ -362,8 +373,8 @@ class SolAvatar extends HTMLElement {
     // The sea rolls under her.
     this.waves.forEach((wave, i) => {
       wave.position.set(
-        rest.waves[i].x + 0.07 * Math.sin(t * 1.25 + i * 1.15),
-        rest.waves[i].y + 0.022 * Math.sin(t * 1.7 + i * 0.9),
+        rest.waves[i].x + (0.02 + 0.05 * e) * Math.sin(t * 1.25 + i * 1.15),
+        rest.waves[i].y + 0.022 * e * Math.sin(t * 1.7 + i * 0.9),
         rest.waves[i].z,
       );
     });
@@ -376,7 +387,9 @@ class SolAvatar extends HTMLElement {
   tick = now => {
     if (!this.playing) return;
     this.raf = requestAnimationFrame(this.tick);
-    if (now - this.lastFrame < 1000 / FPS) return;
+    // Resting, she needs far fewer frames: a third of the rate, which also spares the battery.
+    const fps = this.motion && this.motion.energy < 0.3 ? FPS / 3 : FPS;
+    if (now - this.lastFrame < 1000 / fps) return;
     const delta = this.lastFrame ? Math.min((now - this.lastFrame) / 1000, 0.1) : 0;
     this.lastFrame = now;
     this.elapsed += delta;
