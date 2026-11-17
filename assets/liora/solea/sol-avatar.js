@@ -24478,7 +24478,7 @@ class Mp extends HTMLElement {
     if (!this.renderer || !this.camera) return;
     const e = Math.max(1, this.clientWidth), t = Math.max(1, this.clientHeight), n = Math.max(e, t) <= 160;
     this.renderer.setPixelRatio(Math.min(n ? 4 : 2, (window.devicePixelRatio || 1) * (n ? 2 : 1)));
-    const i = e / t, r = this.focus ? this.focus.size * 1.1 : 4.95, a = i < 1 ? r / i : r;
+    const i = e / t, r = this.focus ? this.focus.size * 1.28 : 4.95, a = i < 1 ? r / i : r;
     this.focus && (this.camera.position.set(this.focus.center.x, this.focus.center.y + 0.04, 8), this.camera.lookAt(this.focus.center.x, this.focus.center.y + 0.04, 0)), this.camera.left = -a * i / 2, this.camera.right = a * i / 2, this.camera.top = a / 2, this.camera.bottom = -a / 2, this.camera.updateProjectionMatrix(), this.renderer.setSize(e, t, !1), this.render();
   }
   // Nueva Living's finish, applied over the model Kimi delivered (finish="kimi" keeps the original):

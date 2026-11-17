@@ -242,7 +242,7 @@ class SolAvatar extends HTMLElement {
     this.renderer.setPixelRatio(Math.min(small ? 4 : 2, (window.devicePixelRatio || 1) * (small ? 2 : 1)));
     const aspect = width / height;
     // Close framing: the sun's own extent plus a margin for the float, the sway and the hop.
-    const span = this.focus ? this.focus.size * 1.1 : 4.95;
+    const span = this.focus ? this.focus.size * 1.28 : 4.95;
     const viewHeight = aspect < 1 ? span / aspect : span;
     if (this.focus) {
       this.camera.position.set(this.focus.center.x, this.focus.center.y + 0.04, 8);
