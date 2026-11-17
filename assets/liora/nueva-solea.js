@@ -1,0 +1,512 @@
+/* Soléa, the chat on every page (build_dist.mjs injects this script).
+ *
+ * A round launcher at the bottom right opens a chat panel. Answers come from
+ * /.netlify/functions/nueva-chat, which answers from the site's own catalogue and pages.
+ *
+ * Weight: the launcher is a 10 KB image. The 3D avatar (Three.js and a 480 KB model, about 1.4 MB
+ * together, made in Kimi: assets/liora/solea/) is loaded only when someone opens the chat, so a
+ * visitor who never opens it never downloads it. The avatar has four states: idle, thinking (while
+ * the answer is fetched), talking (while it appears), happy (on opening).
+ *
+ * The conversation lives in sessionStorage, so it follows the visitor from page to page in one tab
+ * and is gone when the tab closes. Nothing is stored on our side except what request_details sends
+ * when the visitor asks to be contacted.
+ */
+(() => {
+  if (window.__nuevaSolea) return;
+  window.__nuevaSolea = true;
+
+  const script = document.currentScript;
+  const AVATAR_VERSION = script?.dataset.avatarVersion || '1';
+  const AVATAR_URL = `/assets/liora/solea/sol-avatar.js?v=${AVATAR_VERSION}`;
+  const MODEL_URL = `/assets/liora/solea/sol-nueva-living.glb?v=${AVATAR_VERSION}`;
+  const POSTER_URL = '/assets/liora/solea/sol-idle-poster.webp';
+  const LAUNCHER_URL = '/assets/liora/solea/sol-launcher.webp';
+  const ENDPOINT = '/.netlify/functions/nueva-chat';
+  const STORE = 'nueva-solea-v1';
+  const WHATSAPP = '+46 70 757 67 09';
+
+  const T = {
+    en: {
+      idle: 'Here to help', thinking: 'Looking it up…', happy: 'Hello!', talking: 'Answering…',
+      welcome: 'Hola! I’m Soléa, Nueva Living’s guide. Ask me about developments, areas, buying costs or how a purchase works.',
+      placeholder: 'Ask about a home, an area or costs…', send: 'Send', open: 'Chat with Soléa', close: 'Close chat',
+      reset: 'New conversation', you: 'You', view: 'View',
+      suggestions: ['4 bedrooms in Estepona under €1m', 'What tax do I pay on a new build?', 'How does the bank guarantee work?'],
+      error: `I couldn’t answer just now. Try again in a moment, or write to us on WhatsApp ${WHATSAPP}.`,
+      busy: `There have been many questions from here just now. Try again in a while, or write to us on WhatsApp ${WHATSAPP}.`,
+      refusal: 'I can’t help with that one. Ask me anything about buying a new-build home on the Costa del Sol.',
+      note: 'AI answers from what nuevaliving.com publishes. List prices; an advisor confirms them.',
+    },
+    es: {
+      idle: 'Aquí para ayudarle', thinking: 'Buscando…', happy: '¡Hola!', talking: 'Respondiendo…',
+      welcome: '¡Hola! Soy Soléa, la guía de Nueva Living. Pregúnteme por promociones, zonas, costes de compra o cómo funciona una compra.',
+      placeholder: 'Pregunte por una vivienda, una zona o los costes…', send: 'Enviar', open: 'Hablar con Soléa', close: 'Cerrar el chat',
+      reset: 'Nueva conversación', you: 'Usted', view: 'Ver',
+      suggestions: ['4 dormitorios en Estepona por menos de 1 M€', '¿Qué impuestos pago en una obra nueva?', '¿Cómo funciona el aval bancario?'],
+      error: `No he podido responder ahora. Inténtelo de nuevo en un momento o escríbanos por WhatsApp al ${WHATSAPP}.`,
+      busy: `Ha habido muchas preguntas desde aquí. Inténtelo más tarde o escríbanos por WhatsApp al ${WHATSAPP}.`,
+      refusal: 'En eso no puedo ayudarle. Pregúnteme lo que quiera sobre comprar obra nueva en la Costa del Sol.',
+      note: 'Respuestas de IA basadas en lo que publica nuevaliving.com. Precios de lista; un asesor los confirma.',
+    },
+    fr: {
+      idle: 'À votre écoute', thinking: 'Je cherche…', happy: 'Bonjour !', talking: 'Je réponds…',
+      welcome: 'Hola ! Je suis Soléa, le guide de Nueva Living. Posez-moi vos questions sur les programmes, les quartiers, les frais d’achat ou le déroulement d’un achat.',
+      placeholder: 'Un logement, un quartier, les frais…', send: 'Envoyer', open: 'Discuter avec Soléa', close: 'Fermer la discussion',
+      reset: 'Nouvelle conversation', you: 'Vous', view: 'Voir',
+      suggestions: ['4 chambres à Estepona pour moins d’1 M€', 'Quelles taxes sur un logement neuf ?', 'Comment fonctionne la garantie bancaire ?'],
+      error: `Je n’ai pas pu répondre pour l’instant. Réessayez dans un moment ou écrivez-nous sur WhatsApp au ${WHATSAPP}.`,
+      busy: `Beaucoup de questions viennent d’ici en ce moment. Réessayez plus tard ou écrivez-nous sur WhatsApp au ${WHATSAPP}.`,
+      refusal: 'Je ne peux pas vous aider sur ce point. Demandez-moi tout ce qui concerne l’achat d’un logement neuf sur la Costa del Sol.',
+      note: 'Réponses d’IA fondées sur ce que publie nuevaliving.com. Prix catalogue, confirmés par un conseiller.',
+    },
+    de: {
+      idle: 'Für Sie da', thinking: 'Ich schaue nach…', happy: 'Hallo!', talking: 'Ich antworte…',
+      welcome: 'Hola! Ich bin Soléa, die Begleiterin von Nueva Living. Fragen Sie mich nach Projekten, Lagen, Kaufnebenkosten oder dem Ablauf eines Kaufs.',
+      placeholder: 'Fragen Sie nach Wohnung, Lage oder Kosten…', send: 'Senden', open: 'Mit Soléa chatten', close: 'Chat schließen',
+      reset: 'Neues Gespräch', you: 'Sie', view: 'Ansehen',
+      suggestions: ['4 Schlafzimmer in Estepona unter 1 Mio. €', 'Welche Steuern fallen beim Neubau an?', 'Wie funktioniert die Bankbürgschaft?'],
+      error: `Ich konnte gerade nicht antworten. Versuchen Sie es gleich noch einmal oder schreiben Sie uns auf WhatsApp: ${WHATSAPP}.`,
+      busy: `Von hier kamen gerade viele Fragen. Versuchen Sie es später noch einmal oder schreiben Sie uns auf WhatsApp: ${WHATSAPP}.`,
+      refusal: 'Dabei kann ich nicht helfen. Fragen Sie mich alles zum Kauf eines Neubaus an der Costa del Sol.',
+      note: 'KI-Antworten auf Grundlage dessen, was nuevaliving.com veröffentlicht. Listenpreise; eine Beraterin oder ein Berater bestätigt sie.',
+    },
+    ru: {
+      idle: 'Готова помочь', thinking: 'Ищу…', happy: 'Здравствуйте!', talking: 'Отвечаю…',
+      welcome: 'Hola! Я Солея, гид Nueva Living. Спрашивайте о жилых комплексах, районах, расходах на покупку и о том, как проходит сделка.',
+      placeholder: 'Спросите о жилье, районе или расходах…', send: 'Отправить', open: 'Чат с Солеей', close: 'Закрыть чат',
+      reset: 'Новый разговор', you: 'Вы', view: 'Смотреть',
+      suggestions: ['4 спальни в Эстепоне до 1 млн €', 'Какие налоги при покупке новостройки?', 'Как работает банковская гарантия?'],
+      error: `Сейчас не получилось ответить. Попробуйте через минуту или напишите нам в WhatsApp: ${WHATSAPP}.`,
+      busy: `Отсюда только что пришло много вопросов. Попробуйте позже или напишите нам в WhatsApp: ${WHATSAPP}.`,
+      refusal: 'С этим я помочь не могу. Спрашивайте обо всём, что связано с покупкой новостройки на Коста-дель-Соль.',
+      note: 'Ответы ИИ на основе того, что опубликовано на nuevaliving.com. Цены по прайс-листу; их подтверждает консультант.',
+    },
+    ar: {
+      idle: 'في خدمتك', thinking: 'أبحث…', happy: 'مرحبًا!', talking: 'أجيب…',
+      welcome: 'أهلًا! أنا سوليا، دليل نويفا ليفينغ. اسألني عن المشاريع والمناطق وتكاليف الشراء وكيف تتم عملية الشراء.',
+      placeholder: 'اسأل عن منزل أو منطقة أو التكاليف…', send: 'إرسال', open: 'تحدّث مع سوليا', close: 'إغلاق المحادثة',
+      reset: 'محادثة جديدة', you: 'أنت', view: 'عرض',
+      suggestions: ['4 غرف نوم في إستيبونا بأقل من مليون يورو', 'ما الضرائب على العقار الجديد؟', 'كيف يعمل الضمان البنكي؟'],
+      error: `تعذّر الرد الآن. حاول مرة أخرى بعد قليل أو راسلنا عبر واتساب ${WHATSAPP}.`,
+      busy: `وصلت أسئلة كثيرة من هنا للتو. حاول لاحقًا أو راسلنا عبر واتساب ${WHATSAPP}.`,
+      refusal: 'لا أستطيع المساعدة في هذا. اسألني عن أي شيء يخص شراء منزل جديد على كوستا ديل سول.',
+      note: 'إجابات بالذكاء الاصطناعي مما ينشره موقع nuevaliving.com. الأسعار أسعار القوائم ويؤكدها مستشار.',
+    },
+    nl: {
+      idle: 'Hier om te helpen', thinking: 'Even zoeken…', happy: 'Hallo!', talking: 'Ik antwoord…',
+      welcome: 'Hola! Ik ben Soléa, de gids van Nueva Living. Vraag me naar projecten, gebieden, aankoopkosten of hoe een aankoop verloopt.',
+      placeholder: 'Vraag naar een woning, een gebied of de kosten…', send: 'Versturen', open: 'Chat met Soléa', close: 'Chat sluiten',
+      reset: 'Nieuw gesprek', you: 'U', view: 'Bekijken',
+      suggestions: ['4 slaapkamers in Estepona onder € 1 mln', 'Welke belasting betaal ik op nieuwbouw?', 'Hoe werkt de bankgarantie?'],
+      error: `Ik kon nu niet antwoorden. Probeer het zo opnieuw of stuur ons een WhatsApp: ${WHATSAPP}.`,
+      busy: `Er kwamen net veel vragen van hier. Probeer het later opnieuw of stuur ons een WhatsApp: ${WHATSAPP}.`,
+      refusal: 'Daar kan ik niet bij helpen. Vraag me alles over het kopen van nieuwbouw aan de Costa del Sol.',
+      note: 'AI-antwoorden op basis van wat nuevaliving.com publiceert. Lijstprijzen; een adviseur bevestigt ze.',
+    },
+    pl: {
+      idle: 'Chętnie pomogę', thinking: 'Szukam…', happy: 'Dzień dobry!', talking: 'Odpowiadam…',
+      welcome: 'Hola! Jestem Soléa, przewodniczka Nueva Living. Proszę pytać o inwestycje, okolice, koszty zakupu i o to, jak przebiega zakup.',
+      placeholder: 'Proszę zapytać o mieszkanie, okolicę lub koszty…', send: 'Wyślij', open: 'Czat z Soléą', close: 'Zamknij czat',
+      reset: 'Nowa rozmowa', you: 'Pan/Pani', view: 'Zobacz',
+      suggestions: ['4 sypialnie w Esteponie do 1 mln €', 'Jakie podatki przy zakupie nowej nieruchomości?', 'Jak działa gwarancja bankowa?'],
+      error: `Nie udało się teraz odpowiedzieć. Proszę spróbować za chwilę albo napisać do nas na WhatsAppie: ${WHATSAPP}.`,
+      busy: `Z tego miejsca przyszło właśnie wiele pytań. Proszę spróbować później albo napisać do nas na WhatsAppie: ${WHATSAPP}.`,
+      refusal: 'W tym nie mogę pomóc. Proszę pytać o wszystko, co dotyczy zakupu nowej nieruchomości na Costa del Sol.',
+      note: 'Odpowiedzi AI na podstawie treści opublikowanych na nuevaliving.com. Ceny cennikowe potwierdza doradca.',
+    },
+    sv: {
+      idle: 'Här för att hjälpa', thinking: 'Jag letar…', happy: 'Hej!', talking: 'Jag svarar…',
+      welcome: 'Hola! Jag är Soléa, Nueva Livings guide. Fråga mig om projekt, områden, köpkostnader eller hur ett köp går till.',
+      placeholder: 'Fråga om en bostad, ett område eller kostnader…', send: 'Skicka', open: 'Chatta med Soléa', close: 'Stäng chatten',
+      reset: 'Ny konversation', you: 'Du', view: 'Visa',
+      suggestions: ['4 sovrum i Estepona under 1 miljon €', 'Vilken skatt betalar jag på nyproduktion?', 'Hur fungerar bankgarantin?'],
+      error: `Jag kunde inte svara just nu. Försök igen om en stund, eller skriv till oss på WhatsApp ${WHATSAPP}.`,
+      busy: `Det har kommit många frågor härifrån nyss. Försök igen om en stund, eller skriv till oss på WhatsApp ${WHATSAPP}.`,
+      refusal: 'Det kan jag inte hjälpa till med. Fråga mig gärna om allt som gäller köp av nyproduktion på Costa del Sol.',
+      note: 'AI-svar utifrån det nuevaliving.com publicerar. Listpriser; en rådgivare bekräftar dem.',
+    },
+    no: {
+      idle: 'Her for å hjelpe', thinking: 'Jeg leter…', happy: 'Hei!', talking: 'Jeg svarer…',
+      welcome: 'Hola! Jeg er Soléa, Nueva Livings guide. Spør meg om prosjekter, områder, kjøpskostnader eller hvordan et kjøp foregår.',
+      placeholder: 'Spør om en bolig, et område eller kostnader…', send: 'Send', open: 'Chat med Soléa', close: 'Lukk chatten',
+      reset: 'Ny samtale', you: 'Du', view: 'Se',
+      suggestions: ['4 soverom i Estepona under 1 million €', 'Hvilken skatt betaler jeg på nybygg?', 'Hvordan fungerer bankgarantien?'],
+      error: `Jeg fikk ikke svart akkurat nå. Prøv igjen om litt, eller skriv til oss på WhatsApp ${WHATSAPP}.`,
+      busy: `Det har kommet mange spørsmål herfra nettopp. Prøv igjen om litt, eller skriv til oss på WhatsApp ${WHATSAPP}.`,
+      refusal: 'Det kan jeg ikke hjelpe med. Spør meg gjerne om alt som gjelder kjøp av nybygg på Costa del Sol.',
+      note: 'KI-svar ut fra det nuevaliving.com publiserer. Listepriser; en rådgiver bekrefter dem.',
+    },
+  };
+
+  const lang = (document.documentElement.lang || 'en').slice(0, 2).toLowerCase();
+  const t = T[lang] || T.en;
+  const rtl = document.documentElement.dir === 'rtl' || lang === 'ar';
+
+  const CSS = `
+.solea{--s-cream:#f4ead9;--s-ivory:#faf6ee;--s-gold:#a8834a;--s-engraving:#896a3f;--s-ink:#2f2417;--s-espresso:#4a3b28;--s-muted:#6b5a43;--s-sea:#7b97a4;--s-line:rgba(168,131,74,.28);--s-lift:var(--solea-lift,0px);font-family:"Montserrat",Arial,sans-serif;color:var(--s-ink)}
+.solea *{box-sizing:border-box}
+.solea-launcher{position:fixed;z-index:30050;right:max(20px,env(safe-area-inset-right));bottom:calc(max(20px,env(safe-area-inset-bottom)) + var(--s-lift));width:68px;height:68px;padding:0;border:1px solid var(--s-line);border-radius:50%;background:var(--s-ivory);box-shadow:0 12px 34px rgba(47,36,23,.22);cursor:pointer;display:grid;place-items:center;transition:transform .18s ease-out,box-shadow .18s ease-out,opacity .18s}
+.solea-launcher:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(47,36,23,.26)}
+.solea-launcher:active{transform:scale(.96)}
+.solea-launcher img{width:60px;height:60px;display:block;pointer-events:none}
+.solea-launcher::after{content:"";position:absolute;right:3px;bottom:5px;width:13px;height:13px;border:3px solid var(--s-ivory);border-radius:50%;background:var(--s-sea)}
+.solea.is-open .solea-launcher{opacity:0;pointer-events:none;transform:scale(.8)}
+.solea button:focus-visible,.solea input:focus-visible,.solea a:focus-visible{outline:2px solid var(--s-sea);outline-offset:2px}
+.solea-panel{position:fixed;z-index:30200;right:max(20px,env(safe-area-inset-right));bottom:calc(max(20px,env(safe-area-inset-bottom)) + var(--s-lift));width:min(390px,calc(100vw - 32px));height:min(620px,calc(100dvh - 40px - var(--s-lift)));display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--s-line);border-radius:20px;background:var(--s-ivory);box-shadow:0 24px 70px rgba(47,36,23,.24)}
+.solea-panel[hidden]{display:none}
+.solea-head{display:flex;align-items:center;gap:12px;padding:12px 10px 12px 14px;border-bottom:1px solid var(--s-line);background:linear-gradient(180deg,var(--s-cream),var(--s-ivory))}
+.solea-face{position:relative;flex:0 0 56px;width:56px;height:56px}
+.solea-face img,.solea-face sol-avatar{position:absolute;inset:0;width:56px;height:56px;display:block}
+.solea-id{flex:1;min-width:0}
+.solea-name{display:block;font-family:"Cinzel",Georgia,serif;font-size:19px;letter-spacing:.04em;line-height:1.2;color:var(--s-espresso)}
+.solea-status{display:block;margin-top:2px;font-size:11.5px;color:var(--s-muted)}
+.solea-icon{display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;border-radius:50%;background:transparent;color:var(--s-espresso);cursor:pointer}
+.solea-icon:hover{background:var(--s-cream)}
+.solea-icon svg{width:19px;height:19px}
+.solea-log{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:16px 14px;display:flex;flex-direction:column;gap:10px}
+.solea-msg{max-width:90%;padding:10px 13px;border-radius:4px 14px 14px 14px;background:var(--s-cream);font-size:14px;line-height:1.55;overflow-wrap:anywhere}
+.solea-msg p{margin:0}.solea-msg p+p,.solea-msg ul+p,.solea-msg p+ul{margin-top:8px}
+.solea-msg ul{margin:0;padding-inline-start:18px;list-style:disc}.solea-msg li{list-style:inherit}.solea-msg li+li{margin-top:3px}
+.solea-msg a{color:var(--s-engraving);text-decoration:underline;text-underline-offset:2px}
+.solea-msg.is-user{align-self:flex-end;border-radius:14px 4px 14px 14px;background:var(--s-espresso);color:var(--s-ivory);white-space:pre-wrap}
+.solea-msg.is-note{background:transparent;padding:0 2px;font-size:11.5px;color:var(--s-muted)}
+.solea-typing{display:inline-flex;gap:4px;padding:14px 16px}
+.solea-typing i{width:6px;height:6px;border-radius:50%;background:var(--s-gold);animation:solea-dot 1.2s infinite ease-in-out}
+.solea-typing i:nth-child(2){animation-delay:.15s}.solea-typing i:nth-child(3){animation-delay:.3s}
+@keyframes solea-dot{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+.solea-cards{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;scroll-snap-type:x mandatory;max-width:100%}
+.solea-card{flex:0 0 200px;scroll-snap-align:start;display:flex;flex-direction:column;border:1px solid var(--s-line);border-radius:12px;background:#fff;color:var(--s-ink);text-decoration:none;overflow:hidden}
+.solea-card img{width:100%;height:108px;object-fit:cover;display:block;background:var(--s-cream)}
+.solea-card span{display:block;padding:0 10px}
+.solea-card .c-name{padding-top:8px;font-size:13px;font-weight:600;line-height:1.3}
+.solea-card .c-meta{font-size:11.5px;color:var(--s-muted);line-height:1.4}
+.solea-card .c-from{padding-bottom:9px;font-size:12px;color:var(--s-engraving);font-weight:600}
+.solea-chips{display:flex;flex-wrap:wrap;gap:6px}
+.solea-chip{padding:7px 11px;border:1px solid var(--s-line);border-radius:999px;background:#fff;color:var(--s-espresso);font:inherit;font-size:12.5px;line-height:1.3;cursor:pointer;text-align:start}
+.solea-chip:hover{border-color:var(--s-gold);background:var(--s-cream)}
+.solea-form{display:flex;gap:8px;padding:10px 12px 12px;border-top:1px solid var(--s-line);background:var(--s-ivory)}
+.solea-input{flex:1;min-width:0;min-height:44px;padding:10px 14px;border:1px solid var(--s-line);border-radius:999px;background:#fff;color:var(--s-ink);font:inherit;font-size:16px}
+.solea-input::placeholder{color:#8d7c63}
+.solea-send{flex:0 0 44px;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:var(--s-espresso);color:var(--s-ivory);cursor:pointer;display:grid;place-items:center}
+.solea-send:hover{background:var(--s-ink)}.solea-send:disabled{opacity:.45;cursor:default}
+.solea-send svg{width:18px;height:18px}
+.solea[dir=rtl] .solea-send svg{transform:scaleX(-1)}
+.solea-sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (max-width:520px){.solea-launcher{right:max(14px,env(safe-area-inset-right));bottom:calc(max(14px,env(safe-area-inset-bottom)) + var(--s-lift));width:60px;height:60px}.solea-launcher img{width:52px;height:52px}
+.solea-panel{right:8px;left:8px;bottom:calc(8px + env(safe-area-inset-bottom));width:auto;height:calc(100dvh - 16px - env(safe-area-inset-bottom) - env(safe-area-inset-top));border-radius:18px}}
+@media (prefers-reduced-motion:reduce){.solea-launcher,.solea-typing i{transition:none;animation:none}}
+@media print{.solea{display:none}}`;
+
+  const ICON_CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';
+  const ICON_RESET = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></svg>';
+  const ICON_SEND = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m5 12 14-7-4 14-3-6-7-1Z"/></svg>';
+
+  function el(tag, attrs = {}, children = []) {
+    const node = document.createElement(tag);
+    for (const [key, value] of Object.entries(attrs)) {
+      if (value == null) continue;
+      if (key === 'class') node.className = value;
+      else if (key === 'text') node.textContent = value;
+      else if (key === 'html') node.innerHTML = value;
+      else node.setAttribute(key, value);
+    }
+    for (const child of [].concat(children)) if (child) node.append(child);
+    return node;
+  }
+
+  function track(event, detail = {}) {
+    try { window.dispatchEvent(new CustomEvent('nueva:track', { detail: { event, ...detail } })); } catch { /* never block the chat */ }
+  }
+
+  // --- answer rendering: a small, safe subset of markdown built as DOM nodes, never as HTML -----
+
+  function safeHref(raw) {
+    try {
+      const url = new URL(raw, location.origin);
+      if (url.protocol === 'mailto:') return url.href;
+      if (url.protocol !== 'https:' && url.protocol !== 'http:') return null;
+      if (/(^|\.)nuevaliving\.com$/.test(url.hostname) || url.hostname === location.hostname || url.hostname === 'wa.me') return url.href;
+    } catch { /* not a link */ }
+    return null;
+  }
+
+  function inline(text, parent) {
+    const pattern = /\[([^\]]+)\]\(([^)\s]+)\)|\*\*([^*]+)\*\*|(https?:\/\/[^\s)]+)/g;
+    let last = 0;
+    let match;
+    while ((match = pattern.exec(text))) {
+      if (match.index > last) parent.append(text.slice(last, match.index));
+      if (match[1]) {
+        const href = safeHref(match[2]);
+        parent.append(href ? link(href, match[1]) : match[1]);
+      } else if (match[3]) {
+        parent.append(el('strong', { text: match[3] }));
+      } else {
+        const href = safeHref(match[4]);
+        parent.append(href ? link(href, match[4].replace(/^https?:\/\/(www\.)?/, '')) : match[4]);
+      }
+      last = pattern.lastIndex;
+    }
+    if (last < text.length) parent.append(text.slice(last));
+  }
+
+  function link(href, label) {
+    const same = new URL(href).hostname === location.hostname || /nuevaliving\.com$/.test(new URL(href).hostname);
+    return el('a', { href, text: label, ...(same ? {} : { target: '_blank', rel: 'noopener' }) });
+  }
+
+  function renderAnswer(text, bubble) {
+    let list = null;
+    for (const raw of String(text).split('\n')) {
+      const line = raw.trim();
+      if (!line) { list = null; continue; }
+      const item = /^[-*•]\s+(.*)$/.exec(line) || /^\d+[.)]\s+(.*)$/.exec(line);
+      if (item) {
+        if (!list) { list = el('ul'); bubble.append(list); }
+        const li = el('li');
+        inline(item[1], li);
+        list.append(li);
+      } else {
+        list = null;
+        const p = el('p');
+        inline(line.replace(/^#+\s*/, ''), p);
+        bubble.append(p);
+      }
+    }
+  }
+
+  // --- state ---------------------------------------------------------------------------------
+
+  let messages = [];
+  try { messages = JSON.parse(sessionStorage.getItem(STORE) || '[]').filter((m) => m && m.role && typeof m.text === 'string'); } catch { messages = []; }
+  function save() {
+    try { sessionStorage.setItem(STORE, JSON.stringify(messages.slice(-30))); } catch { /* private mode */ }
+  }
+
+  let root; let panel; let launcher; let log; let input; let sendButton; let status; let face; let avatar = null;
+  let busy = false;
+  let talkTimer = 0;
+
+  function setState(state) {
+    status.textContent = t[state] || t.idle;
+    if (avatar) avatar.setAttribute('state', state);
+  }
+
+  function loadAvatar() {
+    if (avatar || loadAvatar.started) return;
+    loadAvatar.started = true;
+    if (!('WebGLRenderingContext' in window)) return;
+    import(AVATAR_URL).then(() => {
+      const node = document.createElement('sol-avatar');
+      node.setAttribute('model', MODEL_URL);
+      node.setAttribute('poster', POSTER_URL);
+      node.setAttribute('state', 'happy');
+      face.append(node);
+      avatar = node;
+    }).catch(() => { /* the poster stays; the chat works without the 3D avatar */ });
+  }
+
+  function scrollDown() { log.scrollTop = log.scrollHeight; }
+
+  function addBubble(role, text, cards) {
+    const bubble = el('div', { class: `solea-msg${role === 'user' ? ' is-user' : ''}`, dir: 'auto' });
+    bubble.append(el('span', { class: 'solea-sr', text: `${role === 'user' ? t.you : 'Soléa'}: ` }));
+    if (role === 'user') bubble.append(text);
+    else renderAnswer(text, bubble);
+    log.append(bubble);
+    if (cards && cards.length) log.append(renderCards(cards));
+    scrollDown();
+    return bubble;
+  }
+
+  function renderCards(cards) {
+    const row = el('div', { class: 'solea-cards' });
+    for (const card of cards) {
+      const href = safeHref(card.url);
+      if (!href) continue;
+      const meta = [card.area, card.type, card.bedrooms ? `${card.bedrooms} 🛏` : null].filter(Boolean).join(' · ');
+      row.append(el('a', { class: 'solea-card', href }, [
+        card.image ? el('img', { src: card.image, alt: '', loading: 'lazy', decoding: 'async' }) : null,
+        el('span', { class: 'c-name', text: card.name }),
+        el('span', { class: 'c-meta', text: meta }),
+        el('span', { class: 'c-from', text: card.from || '' }),
+      ]));
+    }
+    return row;
+  }
+
+  function renderSuggestions() {
+    const chips = el('div', { class: 'solea-chips' });
+    for (const question of t.suggestions) {
+      chips.append(el('button', { type: 'button', class: 'solea-chip', text: question }));
+    }
+    chips.addEventListener('click', (event) => {
+      const chip = event.target.closest('.solea-chip');
+      if (!chip) return;
+      chips.remove();
+      ask(chip.textContent);
+    });
+    log.append(chips);
+  }
+
+  function renderAll() {
+    log.textContent = '';
+    addBubble('assistant', t.welcome);
+    for (const m of messages) addBubble(m.role, m.text, m.cards);
+    if (!messages.length) renderSuggestions();
+    log.append(el('p', { class: 'solea-msg is-note', text: t.note }));
+    scrollDown();
+  }
+
+  async function ask(question) {
+    const text = String(question || '').trim().slice(0, 1500);
+    if (!text || busy) return;
+    busy = true;
+    sendButton.disabled = true;
+    log.querySelector('.solea-chips')?.remove();
+    log.querySelector('.is-note')?.remove();
+    messages.push({ role: 'user', text });
+    save();
+    const asked = addBubble('user', text);
+    const typing = el('div', { class: 'solea-msg solea-typing', 'aria-hidden': 'true' }, [el('i'), el('i'), el('i')]);
+    log.append(typing);
+    scrollDown();
+    clearTimeout(talkTimer);
+    setState('thinking');
+    track('chat_message', { language: lang, turn: messages.filter((m) => m.role === 'user').length });
+
+    let answer = '';
+    let cards = [];
+    try {
+      const response = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          language: lang,
+          page: location.pathname,
+          messages: messages.map((m) => ({ role: m.role, text: m.text })),
+        }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (response.status === 429) answer = t.busy;
+      else if (!response.ok || !data.ok) answer = t.error;
+      else if (data.fallback === 'refusal') answer = t.refusal;
+      else answer = data.answer || t.error;
+      cards = Array.isArray(data.cards) ? data.cards : [];
+      if (data.sent) track('chat_lead', { language: lang });
+    } catch {
+      answer = t.error;
+    }
+    typing.remove();
+    const failed = answer === t.error || answer === t.busy;
+    if (!failed) { messages.push({ role: 'assistant', text: answer, cards }); save(); }
+    else { messages.pop(); save(); asked.remove(); }
+    addBubble('assistant', answer, cards);
+    setState(failed ? 'idle' : 'talking');
+    // Talking lasts about as long as reading the answer's first lines would, then she rests.
+    talkTimer = setTimeout(() => setState('idle'), failed ? 0 : Math.min(7000, 1600 + answer.length * 18));
+    busy = false;
+    sendButton.disabled = false;
+    if (failed) input.value = text;
+    input.focus({ preventScroll: true });
+  }
+
+  function open() {
+    if (!panel.hidden) return;
+    panel.hidden = false;
+    root.classList.add('is-open');
+    launcher.setAttribute('aria-expanded', 'true');
+    loadAvatar();
+    setState('happy');
+    clearTimeout(talkTimer);
+    talkTimer = setTimeout(() => setState('idle'), 2500);
+    scrollDown();
+    requestAnimationFrame(() => input.focus({ preventScroll: true }));
+    track('chat_open', { language: lang });
+  }
+
+  function close() {
+    if (panel.hidden) return;
+    panel.hidden = true;
+    root.classList.remove('is-open');
+    launcher.setAttribute('aria-expanded', 'false');
+    setState('idle');
+    launcher.focus({ preventScroll: true });
+  }
+
+  function reset() {
+    messages = [];
+    save();
+    renderAll();
+    setState('happy');
+    input.focus({ preventScroll: true });
+  }
+
+  // The property pages pin a booking bar to the bottom on phones; the launcher sits above it.
+  function liftAboveBars() {
+    const bar = document.querySelector('.sticky-mobile-cta');
+    let lift = 0;
+    if (bar) {
+      const style = getComputedStyle(bar);
+      if (style.position === 'fixed' && style.display !== 'none' && style.visibility !== 'hidden') lift = bar.getBoundingClientRect().height;
+    }
+    root.style.setProperty('--solea-lift', `${Math.round(lift)}px`);
+  }
+
+  function build() {
+    document.head.append(el('style', { 'data-solea': '', text: CSS }));
+    root = el('div', { class: 'solea', dir: rtl ? 'rtl' : 'ltr', lang });
+    launcher = el('button', { type: 'button', class: 'solea-launcher', 'aria-label': t.open, 'aria-expanded': 'false', 'aria-controls': 'solea-panel' }, [
+      el('img', { src: LAUNCHER_URL, alt: '', width: '60', height: '60', decoding: 'async' }),
+    ]);
+    face = el('div', { class: 'solea-face', 'aria-hidden': 'true' }, [el('img', { src: POSTER_URL, alt: '' })]);
+    status = el('span', { class: 'solea-status', 'aria-live': 'polite', text: t.idle });
+    log = el('div', { class: 'solea-log', role: 'log', 'aria-live': 'polite', 'aria-relevant': 'additions' });
+    input = el('input', { class: 'solea-input', type: 'text', name: 'message', autocomplete: 'off', maxlength: '1500', placeholder: t.placeholder, 'aria-label': t.placeholder, enterkeyhint: 'send' });
+    sendButton = el('button', { type: 'submit', class: 'solea-send', 'aria-label': t.send, html: ICON_SEND });
+    const form = el('form', { class: 'solea-form' }, [input, sendButton]);
+    panel = el('section', { id: 'solea-panel', class: 'solea-panel', role: 'dialog', 'aria-label': t.open, hidden: '' }, [
+      el('header', { class: 'solea-head' }, [
+        face,
+        el('div', { class: 'solea-id' }, [el('span', { class: 'solea-name', text: 'Soléa' }), status]),
+        el('button', { type: 'button', class: 'solea-icon', 'data-reset': '', 'aria-label': t.reset, title: t.reset, html: ICON_RESET }),
+        el('button', { type: 'button', class: 'solea-icon', 'data-close': '', 'aria-label': t.close, title: t.close, html: ICON_CLOSE }),
+      ]),
+      log,
+      form,
+    ]);
+    root.append(panel, launcher);
+    document.body.append(root);
+
+    launcher.addEventListener('click', open);
+    panel.querySelector('[data-close]').addEventListener('click', close);
+    panel.querySelector('[data-reset]').addEventListener('click', reset);
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const text = input.value;
+      input.value = '';
+      ask(text);
+    });
+    root.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
+    // Warm the 3D avatar's download when the visitor reaches for the launcher.
+    launcher.addEventListener('pointerenter', loadAvatar, { once: true });
+    launcher.addEventListener('focus', loadAvatar, { once: true });
+
+    renderAll();
+    liftAboveBars();
+    window.addEventListener('resize', liftAboveBars, { passive: true });
+    // Anything on the site can open the chat: a link or button with data-solea-open.
+    document.addEventListener('click', (event) => {
+      const trigger = event.target.closest('[data-solea-open]');
+      if (!trigger) return;
+      event.preventDefault();
+      open();
+      const question = trigger.getAttribute('data-solea-open');
+      if (question) ask(question);
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build, { once: true });
+  else build();
+})();

@@ -413,7 +413,10 @@ function tooMany(key) {
   return hits.length > 5;
 }
 
-async function requestDetails(args, event) {
+// Where an enquiry came from, as the CRM records it. The chat on the site (nueva-chat.js) passes its own.
+const MCP_CHANNEL = { label: 'an AI assistant (MCP connector)', page: '/mcp', consentPlace: 'an AI assistant conversation', utm: 'ai-assistant' };
+
+async function requestDetails(args, event, channel = MCP_CHANNEL) {
   if (args.consent !== true) {
     return { sent: false, error: 'The person has not agreed to be contacted. Ask them first, or give them the development link to enquire themselves.' };
   }
@@ -429,7 +432,7 @@ async function requestDetails(args, event) {
   const message = [
     String(args.message || '').trim(),
     names.length ? `Developments: ${names.join(', ')}` : '',
-    `Sent from an AI assistant (MCP connector), language ${lang(args.language)}.`,
+    `Sent from ${channel.label}, language ${lang(args.language)}.`,
   ].filter(Boolean).join(' ');
 
   const result = await lead.handler({
@@ -446,9 +449,9 @@ async function requestDetails(args, event) {
       preferred_areas: [...new Set(projects.map((p) => p.area))],
       property_types: [...new Set(projects.flatMap((p) => p.propertyTypes))],
       consent: true,
-      consent_text: 'Agreed in an AI assistant conversation to be contacted by Nueva Living and for these details to be stored for that purpose',
-      source_page: '/mcp',
-      utm_source: 'ai-assistant',
+      consent_text: `Agreed in ${channel.consentPlace} to be contacted by Nueva Living and for these details to be stored for that purpose`,
+      source_page: channel.page,
+      utm_source: channel.utm,
     }),
   });
   if (result.statusCode >= 400) {
@@ -485,6 +488,9 @@ function toolResult(data) {
   const isError = Boolean(data.error);
   return { content: [{ type: 'text', text: JSON.stringify(data) }], structuredContent: data, isError };
 }
+
+// The chat on the site runs the same three tools with the same rules (nueva-chat.js).
+exports.shared = { TOOLS, INSTRUCTIONS, ADVISOR, LANGUAGES, catalog, searchDevelopments, getDevelopment, requestDetails };
 
 exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') return reply(204);

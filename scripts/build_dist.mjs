@@ -3,6 +3,7 @@ import { realEstateAgentSchema, organizationSchema, personSchemas, webSiteSchema
 import { projectAreaRule, SEGMENT_ALSO_AREAS } from './lib/project_area.mjs';
 import { VILLA_SEGMENT_AREAS, matchVillaProjects, villaFigures } from './lib/villa_segments.mjs';
 import { loadPublishedProjects, developmentsFacts, fillDevelopmentsFacts } from './lib/developments_facts.mjs';
+import { buildSiteKnowledge } from './lib/site_knowledge.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -65,6 +66,25 @@ const discoveryMapStylesheetVersion = contentVersion(discoveryMapStylesheetPath)
 const trackingScriptVersion = contentVersion(trackingScriptPath);
 const shortlistScriptVersion = contentVersion(shortlistScriptPath);
 const shortlistStylesheetVersion = contentVersion(shortlistStylesheetPath);
+// Soléa, the chat (assets/liora/nueva-solea.js). The script loads the 3D avatar and its model only
+// when the chat is opened, from fixed paths under /assets/ (cached for a year), so it carries their
+// version: a new model or runtime gets a new URL.
+const soleaScriptPath = 'assets/liora/nueva-solea.js';
+const soleaScriptVersion = contentVersion(soleaScriptPath);
+const soleaAvatarVersion = createHash('sha256')
+  .update(fs.readFileSync(path.join(root, 'assets/liora/solea/sol-avatar.js')))
+  .update(fs.readFileSync(path.join(root, 'assets/liora/solea/sol-nueva-living.glb')))
+  .digest('hex')
+  .slice(0, 12);
+
+// What the chat may say about anything other than a project: the published English pages as text
+// (scripts/lib/site_knowledge.mjs). Written here because every page is final by now; the function
+// bundle picks it up from netlify/functions/data, and the audit reads it for real names.
+{
+  const knowledgeFile = path.join(root, 'netlify/functions/data/site-knowledge.json');
+  const knowledge = `${JSON.stringify(buildSiteKnowledge(root), null, 1)}\n`;
+  if (!fs.existsSync(knowledgeFile) || fs.readFileSync(knowledgeFile, 'utf8') !== knowledge) fs.writeFileSync(knowledgeFile, knowledge);
+}
 const compareScriptVersion = contentVersion(compareScriptPath);
 const compareStylesheetVersion = contentVersion(compareStylesheetPath);
 const navInteractionsStylesheetVersion = contentVersion(navInteractionsStylesheetPath);
@@ -714,6 +734,7 @@ const assetFiles = [
   'assets/liora/nueva-nav-interactions.css',
   'assets/liora/nueva-shortlist.css',
   'assets/liora/nueva-shortlist.js',
+  'assets/liora/nueva-solea.js',
   'assets/liora/nueva-signature.css',
   'assets/liora/nueva-signature.js',
   'assets/liora/nueva-majolica.css',
@@ -755,6 +776,8 @@ const assetDirectories = [
   'assets/fonts/google',
   'assets/fonts/arabic',
   'assets/liora/areas',
+  // Soléa's 3D avatar: the runtime, its model and posters, copied byte for byte.
+  'assets/liora/solea',
   'assets/liora/cards',
   'assets/liora/data',
   'assets/liora/hero',
@@ -789,7 +812,9 @@ function copyFile(source, target) {
         if (!firstRead.equals(stableRead)) {
           throw new Error(`Asset changed while being read: ${source}`);
         }
-        if (/\.js$/i.test(source)) {
+        // vm.Script parses a classic script; Soléa's avatar is an ES module (export, import.meta),
+        // which it cannot parse, so that folder is copied after the stable-read check alone.
+        if (/\.js$/i.test(source) && !source.includes(`${path.sep}solea${path.sep}`)) {
           new vm.Script(stableRead.toString('utf8'), { filename: source });
         }
 
@@ -1353,6 +1378,14 @@ function injectShortlist(html) {
   return next;
 }
 
+function injectSolea(html) {
+  if (html.includes(soleaScriptPath)) return html;
+  return html.replace(
+    /\n<\/body>/i,
+    `\n  <script src="${soleaScriptPath}?v=${soleaScriptVersion}" data-avatar-version="${soleaAvatarVersion}" defer></script>\n</body>`
+  );
+}
+
 function injectNavInteractions(html) {
   if (html.includes(navInteractionsStylesheetPath)) return html;
   return html.replace(
@@ -1874,6 +1907,7 @@ function localiseGalleryChrome(html, locale) {
   out = injectConversion(out);
   out = injectNewsletter(out, locale);
   out = injectShortlist(out);
+  out = injectSolea(out);
   out = injectNavInteractions(out);
   out = injectSkipLink(out, locale, publicName);
   out = localiseNavDisclosures(out, locale);
