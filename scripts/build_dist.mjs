@@ -2411,6 +2411,19 @@ const legacyRedirects = [
   '/ru/property-higueron-garden-villas.html /ru/property-higueron-garden-townhouses.html 301',
   '/sv/property-higueron-garden-villas.html /sv/property-higueron-garden-townhouses.html 301',
   '/assets/liora/projects/higueron-garden-villas/* /assets/liora/projects/higueron-garden-townhouses/:splat 301',
+  // Altamar Residences renamed Arrebol Residences (2026-11-18): another development already trades as
+  // Altamar Residences. The page was live for one day; all ten copies and the image folder redirect.
+  '/property-altamar-residences.html /property-arrebol-residences.html 301',
+  '/ar/property-altamar-residences.html /ar/property-arrebol-residences.html 301',
+  '/de/property-altamar-residences.html /de/property-arrebol-residences.html 301',
+  '/es/property-altamar-residences.html /es/property-arrebol-residences.html 301',
+  '/fr/property-altamar-residences.html /fr/property-arrebol-residences.html 301',
+  '/nl/property-altamar-residences.html /nl/property-arrebol-residences.html 301',
+  '/no/property-altamar-residences.html /no/property-arrebol-residences.html 301',
+  '/pl/property-altamar-residences.html /pl/property-arrebol-residences.html 301',
+  '/ru/property-altamar-residences.html /ru/property-arrebol-residences.html 301',
+  '/sv/property-altamar-residences.html /sv/property-arrebol-residences.html 301',
+  '/assets/liora/projects/altamar-residences/* /assets/liora/projects/arrebol-residences/:splat 301',
   // Three placeholder projects from the first build, removed when only real
   // developments were kept. Google still holds them as 404s; a 410 says they
   // are gone on purpose, which it drops from the index faster than a 404.

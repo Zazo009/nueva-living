@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Altamar Residences: the strings the translation memory did not have.
+"""Arrebol Residences: the strings the translation memory did not have.
 
 Keyed by the path of the English string in project.json (looked up here, never retyped, so a
 change to the English copy cannot leave a translation attached to the wrong sentence) and
 written to tr_a.json keyed by the English string, as assemble.py expects. Tokens: {E740000}
 money, {N138.95} decimal number, {U} the area unit.
-    python3 tools/import/k_altamar_residences.py <scratch dir>   (writes <dir>/tr_a.json, then run assemble.py)
+    python3 tools/import/k_arrebol_residences.py <scratch dir>   (writes <dir>/tr_a.json, then run assemble.py)
 
 Wording follows what the siblings already say: Benalmádena as proa-residences and
 benalmadena-village-residences spell it (Бенальмадена, بينالمادينا), the tax word the audit wants
@@ -20,7 +20,7 @@ LOCS = ['es', 'fr', 'de', 'ru', 'ar', 'nl', 'pl', 'no', 'sv']
 GROUP = {'es': '.', 'fr': ' ', 'de': '.', 'ru': ' ', 'ar': ',', 'nl': '.', 'pl': ' ', 'no': ' ', 'sv': ' '}
 UNIT = {l: 'm²' for l in LOCS}; UNIT['ru'] = 'м²'; UNIT['ar'] = 'م²'
 T = {}
-proj = json.load(open('content/liora-projects/altamar-residences/project.json'))
+proj = json.load(open('content/liora-projects/arrebol-residences/project.json'))
 
 
 def money(n, l):
@@ -64,8 +64,8 @@ def same(en):
 TAX = ['IVA', 'TVA', 'MwSt.', 'НДС', 'ضريبة القيمة المضافة', 'btw', 'VAT', 'mva', 'IVA']
 
 # ---- name ---------------------------------------------------------------------------------------
-same('Altamar Residences'); same('Altamar'); same('Altamar <em>Residences</em>')
-same('Altamar Residences - Benalmádena Costa')
+same('Arrebol Residences'); same('Arrebol'); same('Arrebol <em>Residences</em>')
+same('Arrebol Residences - Benalmádena Costa')
 
 # ---- description, SEO, hero, card ---------------------------------------------------------------
 a('.description',
@@ -1220,26 +1220,26 @@ a('.enquiry.copy',
   'Fortell oss hvilken bolig du er interessert i, så sender vi den gjeldende listen og plantegningene.',
   'Berätta vilken bostad ni är intresserade av, så skickar vi den aktuella listan och planritningarna.')
 a('.enquiry.message',
-  'Me gustaría conocer la disponibilidad y los precios actuales de Altamar Residences.',
-  'Je souhaiterais connaître la disponibilité et les prix actuels d’Altamar Residences.',
-  'Ich hätte gern die aktuelle Verfügbarkeit und die Preise für Altamar Residences.',
-  'Хочу узнать актуальное наличие и цены в Altamar Residences.',
-  'أودّ معرفة التوافر والأسعار الحالية لمشروع Altamar Residences.',
-  'Ik wil graag de actuele beschikbaarheid en prijzen van Altamar Residences weten.',
-  'Proszę o informacje o aktualnej dostępności i cenach Altamar Residences.',
-  'Jeg vil gjerne vite gjeldende tilgjengelighet og priser for Altamar Residences.',
-  'Jag vill gärna få veta aktuell tillgänglighet och aktuella priser för Altamar Residences.')
-a('.enquiry.note', 'Contexto del proyecto: Altamar Residences.', 'Contexte du projet : Altamar Residences.',
-  'Projektkontext: Altamar Residences.', 'Контекст проекта: Altamar Residences.', 'سياق المشروع: Altamar Residences.',
-  'Projectcontext: Altamar Residences.', 'Kontekst projektu: Altamar Residences.', 'Prosjektkontekst: Altamar Residences.',
-  'Projektkontext: Altamar Residences.')
+  'Me gustaría conocer la disponibilidad y los precios actuales de Arrebol Residences.',
+  'Je souhaiterais connaître la disponibilité et les prix actuels d’Arrebol Residences.',
+  'Ich hätte gern die aktuelle Verfügbarkeit und die Preise für Arrebol Residences.',
+  'Хочу узнать актуальное наличие и цены в Arrebol Residences.',
+  'أودّ معرفة التوافر والأسعار الحالية لمشروع Arrebol Residences.',
+  'Ik wil graag de actuele beschikbaarheid en prijzen van Arrebol Residences weten.',
+  'Proszę o informacje o aktualnej dostępności i cenach Arrebol Residences.',
+  'Jeg vil gjerne vite gjeldende tilgjengelighet og priser for Arrebol Residences.',
+  'Jag vill gärna få veta aktuell tillgänglighet och aktuella priser för Arrebol Residences.')
+a('.enquiry.note', 'Contexto del proyecto: Arrebol Residences.', 'Contexte du projet : Arrebol Residences.',
+  'Projektkontext: Arrebol Residences.', 'Контекст проекта: Arrebol Residences.', 'سياق المشروع: Arrebol Residences.',
+  'Projectcontext: Arrebol Residences.', 'Kontekst projektu: Arrebol Residences.', 'Prosjektkontekst: Arrebol Residences.',
+  'Projektkontext: Arrebol Residences.')
 CTX = ['Tres viviendas cerca de la playa, Benalmádena', 'Trois logements près de la plage, Benalmádena',
        'Drei Wohnungen nahe dem Strand, Benalmádena', 'Три квартиры у пляжа, Бенальмадена',
        'ثلاثة مساكن قرب الشاطئ، بينالمادينا', 'Drie woningen bij het strand, Benalmádena',
        'Trzy mieszkania blisko plaży, Benalmádena', 'Tre boliger nær stranden, Benalmádena',
        'Tre bostäder nära stranden, Benalmádena']
 a('.seo.h1Context', *CTX)
-a('.seo.h1', *[f'Altamar Residences: {c}' for c in CTX])
+a('.seo.h1', *[f'Arrebol Residences: {c}' for c in CTX])
 
 # ---- write --------------------------------------------------------------------------------------
 json.dump(T, open(f'{SP}/tr_a.json', 'w'), ensure_ascii=False, indent=1)
