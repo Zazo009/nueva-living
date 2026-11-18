@@ -163,14 +163,6 @@
     },
     {
       "@type": "Question",
-      "name": "Hur många projekt visar den?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Upp till sex per sökning. Om fler passar föreslår assistenten hur sökningen kan smalnas av, efter område, budget eller typ, och söker igen tillsammans med er."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Är priserna aktuella?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -183,14 +175,6 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Anslutningen returnerar bara det som står på våra projektsidor, och assistenten har instruktioner om att inte hitta på projekt, bostäder, priser eller datum. En assistent kan ändå göra fel, så kontrollera allt viktigt på projektsidan eller hos oss."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Delas mina uppgifter?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Bara om ni ber om att bli kontaktade. Då går ert namn och er e-postadress, och ert telefonnummer och meddelande om ni anger dem, till en rådgivare på Nueva Living när ni har godkänt det. Vår integritetspolicy förklarar hur vi hanterar dem."
       }
     },
     {
@@ -405,9 +389,10 @@
       <div class="hero-inner">
         <h1 class="display-title">
           <span class="kicker">Nueva Living i er assistent</span>
-          <span class="display-title-line">Sök nya bostäder på Costa del Sol <em>direkt i ChatGPT och Claude</em></span>
+          <span class="display-title-line">Vad skulle ni fråga <em>om Costa del Sol?</em></span>
         </h1>
-        <p class="lead">Beskriv med egna ord vad ni söker. Assistenten svarar med upp till sex projekt från våra egna projektsidor, med bilder, listpriser, inflyttningsdatum och karta, och smalnar sedan av sökningen tillsammans med er.</p>
+        <p class="lead">Lägg till Nueva Living i ChatGPT eller Claude och sök nyproducerade bostäder på Costa del Sol med egna ord. Testa en sökning här först och ta sedan med den till er assistent.</p>
+        <div class="ai-hero-actions"><a class="btn" href="sv/ai.html#try">Testa en sökning</a><a class="btn ghost" href="sv/ai.html#setup">Kom igång</a></div>
 
       </div>
     </section>
@@ -449,53 +434,6 @@
   .ai-wait:not(.is-in) .card-number::before { --ai-ring: 0%; }
   .ai-page #chatgpt .card-number { color: var(--bronze-light); }
 
-  /* Chat demo */
-  .ai-demo { margin: clamp(30px, 4vw, 52px) auto clamp(30px, 4vw, 48px); max-width: 780px; }
-  .ai-chat { background: #fffdf8; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 40px 100px rgba(47,36,23,.16), 0 6px 18px rgba(47,36,23,.06); overflow: hidden; }
-  .ai-chat-bar { display: flex; gap: 7px; padding: 14px 18px; border-bottom: 1px solid var(--line); background: var(--cream); }
-  .ai-chat-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--sand); }
-  .ai-chat-body { padding: clamp(18px, 3vw, 30px); display: grid; gap: 18px; min-height: 430px; align-content: start; }
-  .ai-msg-user { justify-self: end; max-width: 86%; background: var(--deep); color: var(--ivory); padding: 14px 18px; border-radius: 18px 18px 4px 18px; font-size: 14px; line-height: 1.55; min-height: 50px; transition: opacity .5s ease; }
-  html[lang^="ar"] .ai-msg-user { border-radius: 18px 18px 18px 4px; }
-  .ai-caret { display: inline-block; width: 2px; height: 1.1em; background: var(--bronze-light); vertical-align: -0.18em; margin-inline-start: 2px; animation: aiCaret 1s steps(1) infinite; }
-  @keyframes aiCaret { 50% { opacity: 0; } }
-  .ai-chat:not(.is-typing) .ai-caret { display: none; }
-  .ai-msg-bot { display: grid; gap: 14px; }
-  .ai-dots { display: flex; gap: 6px; padding: 12px 16px; background: var(--cream); border-radius: 16px; width: max-content; opacity: 0; transition: opacity .3s; }
-  .ai-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--bronze); animation: aiDot 1.2s ease-in-out infinite; }
-  .ai-dots i:nth-child(2) { animation-delay: .15s; } .ai-dots i:nth-child(3) { animation-delay: .3s; }
-  @keyframes aiDot { 30% { transform: translateY(-5px); opacity: .5; } }
-  .ai-chat.is-thinking .ai-dots { opacity: 1; }
-  .ai-chat.is-results .ai-dots { display: none; }
-  .ai-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-  .ai-tile { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; gap: 7px; padding-bottom: 12px; opacity: 0; transform: translateY(16px) scale(.97); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i) * .16s); }
-  .ai-tile-art { aspect-ratio: 16 / 10; overflow: hidden; }
-  .ai-tile-art svg { width: 100%; height: 100%; display: block; transform: scale(1.12); transition: transform 5s ease-out; }
-  .ai-tile b { height: 7px; border-radius: 4px; background: var(--sand); margin-inline: 12px; width: 70%; }
-  .ai-tile b + b { width: 46%; }
-  .ai-tile .ai-tile-price { width: 34%; background: var(--bronze-light); height: 9px; }
-  .ai-chat.is-results .ai-tile { opacity: 1; transform: none; }
-  .ai-chat.is-results .ai-tile-art svg { transform: scale(1); }
-  .ai-map { border-radius: 12px; overflow: hidden; background: #e7eef0; border: 1px solid var(--line); opacity: 0; transition: opacity .6s ease .5s; }
-  .ai-map svg { display: block; width: 100%; height: auto; }
-  .ai-map-land { fill: #efe6d3; } .ai-map-coast { fill: none; stroke: #c9b48b; stroke-width: 1.5; }
-  .ai-chat.is-results .ai-map { opacity: 1; }
-  .ai-pin path { fill: var(--sand); } .ai-pin circle { fill: #fff; }
-  .ai-pin .ai-pin-drop { transform: translateY(-40px); opacity: 0; transition: transform .55s cubic-bezier(.3,1.6,.5,1), opacity .3s; transition-delay: calc(.8s + var(--i) * .07s); }
-  .ai-chat.is-results .ai-pin-drop { transform: none; opacity: 1; }
-  .ai-chat[data-focus="w"] .ai-pin[data-c="w"] path, .ai-chat[data-focus="m"] .ai-pin[data-c="m"] path, .ai-chat[data-focus="e"] .ai-pin[data-c="e"] path { fill: var(--bronze); }
-  .ai-chat[data-focus="w"] .ai-tile, .ai-chat[data-focus="w"] .ai-tile-art { --sky: #f6dfb5; --sun: #f0b65e; --hill: #b9a37a; --glass: #8fb3bf; --pool: #5fa8bb; --ground: #d8c8a6; --palm: #6f7f4f; }
-  .ai-chat[data-focus="e"] .ai-tile-art { --sky: #cfe2e9; --sun: #fbe3a8; --hill: #a9b38f; --glass: #7fa6b5; --pool: #4f9db5; --ground: #d5ccb2; --palm: #5f7350; }
-  .ai-chat[data-focus="m"] .ai-tile-art { --sky: #e9c9b0; --sun: #e79a62; --hill: #9e8a68; --glass: #8aa1ab; --pool: #5a93a6; --ground: #cdbb98; --palm: #66704a; }
-  .ai-chat.is-fading .ai-msg-user, .ai-chat.is-fading .ai-msg-bot { opacity: 0; transition: opacity .5s ease; }
-  .ai-composer { display: flex; align-items: center; gap: 12px; margin: 0 clamp(18px, 3vw, 30px) clamp(18px, 3vw, 26px); padding: 10px 10px 10px 18px; border: 1px solid var(--line); border-radius: 999px; }
-  .ai-composer span { flex: 1; height: 8px; border-radius: 4px; background: var(--cream); }
-  .ai-composer svg { width: 34px; height: 34px; padding: 8px; border-radius: 50%; background: var(--deep); color: var(--bronze-light); }
-  html[lang^="ar"] .ai-composer svg { transform: scaleX(-1); }
-  .ai-chat.is-sent .ai-composer svg { animation: aiSend .5s ease; }
-  @keyframes aiSend { 50% { transform: scale(.82); } }
-  @media (max-width: 640px) { .ai-results { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ai-results .ai-tile:nth-child(3) { display: none; } .ai-chat-body { min-height: 400px; } }
-
   /* Address flow */
   .ai-flow { margin: clamp(30px, 4vw, 48px) auto 0; max-width: 960px; }
   .ai-flow svg { width: 100%; height: auto; display: block; overflow: visible; }
@@ -530,37 +468,509 @@
   .ai-priv-dest rect { fill: var(--deep); } .ai-priv-dest circle { fill: var(--bronze-light); animation: aiBlink 2.4s ease-in-out infinite; }
   .ai-priv-dest circle:nth-of-type(2) { animation-delay: .8s; } .ai-priv-dest circle:nth-of-type(3) { animation-delay: 1.6s; }
   @keyframes aiBlink { 50% { opacity: .3; } }
-  .ai-chip circle:first-child { fill: var(--bronze-light); }
-  .ai-chip path { fill: none; stroke: var(--deep); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .ai-chip-1 path { fill: var(--deep); stroke: none; } .ai-chip-1 circle + path + circle { fill: var(--bronze-light); }
-  .ai-chip { offset-path: path("M140 160 C 200 160 210 160 244 160 C 290 160 320 150 387 150"); offset-rotate: 0deg; animation: aiChip 6s cubic-bezier(.5,0,.3,1) infinite; opacity: 0; }
-  .ai-chip-2 { animation-delay: 2s; } .ai-chip-3 { animation-delay: 4s; }
+  .ai-pchip circle:first-child { fill: var(--bronze-light); }
+  .ai-pchip path { fill: none; stroke: var(--deep); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .ai-pchip-1 path { fill: var(--deep); stroke: none; } .ai-pchip-1 circle + path + circle { fill: var(--bronze-light); }
+  .ai-pchip { offset-path: path("M140 160 C 200 160 210 160 244 160 C 290 160 320 150 387 150"); offset-rotate: 0deg; animation: aiChip 6s cubic-bezier(.5,0,.3,1) infinite; opacity: 0; }
+  .ai-pchip-2 { animation-delay: 2s; } .ai-pchip-3 { animation-delay: 4s; }
   @keyframes aiChip { 0% { offset-distance: 0%; opacity: 0; } 8% { opacity: 1; } 55% { offset-distance: 100%; opacity: 1; } 62%, 100% { offset-distance: 100%; opacity: 0; } }
+
+  /* The page's own display rules must never beat the hidden attribute. */
+  .ai-page [hidden] { display: none; }
+  .ai-page .ai-tabs[hidden], .ai-page .ai-result-nav[hidden] { display: none; }
+
+  /* Hero actions */
+  .ai-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .ai-hero-actions .btn.ghost { color: var(--ivory); border-color: rgba(255,250,243,.45); background: transparent; }
+
+  /* Search preview */
+  .ai-try-grid { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.18fr); gap: clamp(28px, 4.5vw, 64px); align-items: start; margin-top: clamp(26px, 3.5vw, 44px); }
+  .ai-try-ask, .ai-try-result { min-width: 0; }
+  .ai-try-ask { display: grid; gap: 26px; align-content: start; }
+  .ai-control-label { margin: 0 0 12px; font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--bronze); }
+  .ai-briefs, .ai-refine-set { display: flex; flex-wrap: wrap; gap: 10px; }
+  .ai-brief, .ai-chip { font: 500 13px/1.2 "Montserrat", Arial, sans-serif; letter-spacing: .02em; color: var(--ink); background: rgba(255,253,248,.7); border: 1px solid var(--line); padding: 12px 18px; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .15s ease; }
+  .ai-brief:hover, .ai-chip:hover { border-color: var(--bronze-light); }
+  .ai-brief:active, .ai-chip:active { transform: scale(.97); }
+  .ai-brief[aria-pressed="true"] { background: var(--deep); color: var(--ivory); border-color: var(--deep); }
+  .ai-chip-mark { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--bronze-light); position: relative; flex: none; transition: background-color .25s ease; }
+  .ai-chip[aria-pressed="true"] { background: rgba(201,163,95,.18); border-color: var(--bronze); color: var(--deep); }
+  .ai-chip[aria-pressed="true"] .ai-chip-mark { background: var(--bronze); border-color: var(--bronze); }
+  .ai-chip[aria-pressed="true"] .ai-chip-mark::after { content: ""; position: absolute; left: 4px; top: 1.5px; width: 3.5px; height: 7px; border: solid #fffaf3; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+  .ai-brief:focus-visible, .ai-chip:focus-visible, .ai-nav-btn:focus-visible, .ai-tabs [role="tab"]:focus-visible, .ai-copy-btn:focus-visible, .ai-result a:focus-visible, .ai-panel:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+  .ai-question { background: #fffdf8; border: 1px solid var(--line); border-inline-start: 3px solid var(--bronze-light); padding: 20px 22px; box-shadow: 0 18px 50px rgba(41,36,27,.06); }
+  .ai-question-text { margin: 0; font-family: "Cinzel", Georgia, serif; font-size: clamp(18px, 2vw, 22px); line-height: 1.45; color: var(--deep); min-height: 2.9em; }
+  .ai-question-text.is-swap { animation: aiSettle .45s cubic-bezier(.2,.7,.2,1); }
+  @keyframes aiSettle { from { opacity: .2; transform: translateY(5px); } }
+  .ai-use { display: flex; flex-wrap: wrap; gap: 10px; }
+  .ai-note { margin: 0; font-size: 12px; line-height: 1.6; color: var(--muted); max-width: 46ch; }
+  .ai-stage { position: relative; }
+  .ai-result { background: #fffdf8; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(41,36,27,.12); overflow: hidden; }
+  .ai-result-media { display: block; aspect-ratio: 16 / 10; background: var(--sand); overflow: hidden; }
+  .ai-result-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ai-result-body { padding: clamp(20px, 2.6vw, 30px); min-height: 13.5em; display: grid; align-content: start; gap: 8px; }
+  .ai-result-place { margin: 0; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--bronze); }
+  .ai-result-name { margin: 2px 0 4px; font: 400 clamp(20px, 2.2vw, 26px)/1.25 "Cinzel", Georgia, serif; letter-spacing: .03em; }
+  .ai-result-name a { color: var(--deep); text-decoration: none; }
+  .ai-result-price { margin: 0; font-size: 17px; font-weight: 600; color: var(--deep); }
+  .ai-result-delivery { margin: 0; font-size: 13px; color: var(--muted); }
+  .ai-result-key { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--bronze); margin-inline-end: 6px; }
+  .ai-result-link { justify-self: start; margin-top: 8px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--bronze); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+  .ai-result.is-in .ai-result-media img { animation: aiFade .5s ease; }
+  .ai-result.is-in .ai-result-body > * { animation: aiSettle .5s cubic-bezier(.2,.7,.2,1) backwards; }
+  .ai-result.is-in .ai-result-body > :nth-child(2) { animation-delay: .04s; } .ai-result.is-in .ai-result-body > :nth-child(3) { animation-delay: .08s; } .ai-result.is-in .ai-result-body > :nth-child(n+4) { animation-delay: .12s; }
+  .ai-result.is-out { position: absolute; inset: 0 0 auto; z-index: 1; animation: aiOut .38s ease forwards; pointer-events: none; }
+  @keyframes aiFade { from { opacity: 0; } }
+  @keyframes aiOut { to { opacity: 0; } }
+  .ai-empty { background: #fffdf8; border: 1px dashed var(--line); padding: 34px 28px; display: grid; gap: 16px; justify-items: start; min-height: 18em; align-content: center; }
+  .ai-empty p { margin: 0; font-family: "Cinzel", Georgia, serif; font-size: 20px; color: var(--deep); }
+  .ai-result-nav { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 14px; }
+  .ai-nav-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: #fffdf8; display: grid; place-items: center; cursor: pointer; color: var(--deep); }
+  .ai-nav-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  html[lang^="ar"] .ai-nav-btn svg { transform: scaleX(-1); }
+  .ai-nav-btn:disabled { opacity: .35; cursor: default; }
+  .ai-count { font-size: 13px; letter-spacing: .08em; color: var(--muted); min-width: 4ch; text-align: center; }
+  .ai-qual { margin: 14px 0 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
+  @media (max-width: 860px) {
+    .ai-try-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+    .ai-try-ask { display: contents; }
+    .ai-c-brief { order: 1; } .ai-question { order: 2; } .ai-c-refine { order: 3; } .ai-try-result { order: 4; } .ai-use { order: 5; margin-top: 8px; } .ai-note { order: 6; }
+    .ai-result-body { min-height: 12em; }
+    .ai-briefs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -4px; padding: 2px 4px 4px; }
+    .ai-briefs::-webkit-scrollbar { display: none; }
+    .ai-brief { flex: none; }
+    .ai-use .btn { flex: 1 1 100%; text-align: center; }
+  }
+
+  /* Setup */
+  .ai-copies { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 16px; margin: clamp(30px, 4vw, 46px) 0 clamp(30px, 4vw, 44px); }
+  .ai-copy { min-width: 0; background: rgba(255,250,243,.05); border: 1px solid rgba(201,163,95,.3); padding: 20px 22px; display: grid; gap: 4px; align-content: start; }
+  .ai-copy .ai-control-label { color: var(--bronze-light); margin-bottom: 6px; }
+  .ai-copy-value { margin: 0 0 12px; color: var(--ivory); font: 500 16px/1.5 "Montserrat", Arial, sans-serif; overflow-wrap: anywhere; user-select: all; }
+  code.ai-copy-value { font-size: 18px; letter-spacing: .02em; }
+  .ai-copy-btn { justify-self: start; font: 600 11px/1 "Montserrat", Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--deep); background: var(--bronze-light); border: 0; padding: 14px 18px; min-height: 44px; cursor: pointer; transition: background-color .2s ease; }
+  .ai-copy-btn.is-done { background: #e8d2a4; }
+  .ai-copy-status { min-height: 1.3em; font-size: 12px; color: var(--bronze-light); margin-top: 6px; }
+  .ai-tabs { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid rgba(201,163,95,.35); border-radius: 999px; margin-bottom: clamp(24px, 3vw, 34px); }
+  .ai-tabs [role="tab"] { font: 500 14px/1 "Montserrat", Arial, sans-serif; letter-spacing: .04em; color: var(--ivory); background: transparent; border: 0; padding: 13px 26px; min-height: 44px; border-radius: 999px; cursor: pointer; }
+  .ai-tabs [role="tab"][aria-selected="true"] { background: var(--bronze-light); color: var(--deep); }
+  .ai-panel + .ai-panel { margin-top: clamp(40px, 5vw, 60px); }
+  .ai-panel[role="tabpanel"] + .ai-panel[role="tabpanel"] { margin-top: 0; }
+  .ai-panel.is-in { animation: aiFade .35s ease; }
+  .ai-setup .ai-panel .card-number { color: var(--bronze-light); }
+  .ai-plan { margin-top: 18px; }
+  @media (max-width: 760px) { .ai-copies { grid-template-columns: minmax(0, 1fr); } .ai-tabs { display: flex; } .ai-tabs [role="tab"] { flex: 1; padding-inline: 10px; } }
 
   @media (prefers-reduced-motion: reduce) {
     .ai-page *, .ai-page *::before { animation: none !important; transition: none !important; }
-    .ai-chip { opacity: 1; offset-distance: 0%; } .ai-chip-1 { offset-distance: 100%; } .ai-chip-2 { offset-distance: 55%; }
+    .ai-pchip { opacity: 1; offset-distance: 0%; } .ai-pchip-1 { offset-distance: 100%; } .ai-pchip-2 { offset-distance: 55%; }
   }
-</style><section class="section"><div class="section-inner"><div class="section-head"><span class="label">Hur det fungerar</span><div class="rule"></div><h2 class="section-title">Fråga med egna ord, <em>få verkliga projekt tillbaka</em></h2><p class="body-copy">Lägg till Nueva Living i ChatGPT eller Claude en gång. Beskriv sedan i ett vanligt meddelande vilken bostad ni söker, så söker assistenten bland projekten på den här webbplatsen åt er.</p></div><div class="ai-demo ai-rise" aria-hidden="true">
-      <ul class="ai-prompts" hidden><li>”Nueva Living, en villa i Estepona under 2 miljoner euro med egen pool och golf i närheten.”</li><li>”Nueva Living, inflyttningsklara lägenheter med två sovrum i Mijas med havsutsikt.”</li><li>”Nueva Living, vad byggs just nu i Nueva Andalucía?”</li></ul>
-      <div class="ai-chat" data-ai-chat data-focus="w">
-        <div class="ai-chat-bar"><i></i><i></i><i></i></div>
-        <div class="ai-chat-body">
-          <div class="ai-msg ai-msg-user"><span class="ai-typed"></span><span class="ai-caret"></span></div>
-          <div class="ai-msg ai-msg-bot">
-            <div class="ai-dots"><i></i><i></i><i></i></div>
-            <div class="ai-results"><div class="ai-tile" style="--i:0"><div class="ai-tile-art"><svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="160" height="100" fill="var(--sky)"/><circle cx="124" cy="30" r="13" fill="var(--sun)"/><path d="M0 64 C40 54 80 60 160 52 V100 H0z" fill="var(--hill)"/><rect x="34" y="44" width="62" height="24" fill="#fbf4e6"/><rect x="58" y="34" width="44" height="12" fill="#f3e7d0"/><rect x="40" y="50" width="16" height="12" fill="var(--glass)"/><rect x="62" y="50" width="28" height="12" fill="var(--glass)"/><rect x="18" y="70" width="104" height="12" rx="2" fill="var(--pool)"/><path d="M26 76h18M56 76h22M90 76h16" stroke="#fff" stroke-opacity=".6" stroke-width="1.4"/><rect x="0" y="82" width="160" height="18" fill="var(--ground)"/><path d="M134 82v-26M134 58c-8-2-12 2-14 6M134 58c8-2 12 2 14 6M134 56c-2-6 2-10 6-10" stroke="var(--palm)" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div><b></b><b></b><b class="ai-tile-price"></b></div><div class="ai-tile" style="--i:1"><div class="ai-tile-art"><svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="160" height="100" fill="var(--sky)"/><circle cx="34" cy="26" r="10" fill="var(--sun)"/><rect y="70" width="160" height="30" fill="var(--pool)"/><path d="M0 76h160" stroke="#fff" stroke-opacity=".35"/><path d="M60 72V40h76v32z" fill="#fbf4e6"/><path d="M70 40V28h60v12z" fill="#f3e7d0"/><g fill="var(--glass)"><rect x="66" y="46" width="14" height="8"/><rect x="86" y="46" width="14" height="8"/><rect x="106" y="46" width="14" height="8"/><rect x="66" y="58" width="14" height="8"/><rect x="86" y="58" width="14" height="8"/><rect x="106" y="58" width="14" height="8"/><rect x="78" y="31" width="14" height="6"/><rect x="100" y="31" width="14" height="6"/></g><path d="M60 55h76M60 67h76" stroke="var(--hill)" stroke-width="1.5"/><path d="M0 72 C20 64 40 66 56 72z" fill="var(--hill)"/></svg></div><b></b><b></b><b class="ai-tile-price"></b></div><div class="ai-tile" style="--i:2"><div class="ai-tile-art"><svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="160" height="100" fill="var(--sky)"/><circle cx="130" cy="24" r="9" fill="var(--sun)"/><path d="M0 70 C50 60 100 66 160 58V100H0z" fill="var(--hill)"/><rect y="84" width="160" height="16" fill="var(--ground)"/><g stroke="#fbf4e6" stroke-width="3" fill="none"><path d="M44 84V48h60v36M44 60h60M44 72h60M64 48v36M84 48v36"/></g><g stroke="var(--sun)" stroke-width="2" fill="none"><path d="M118 84V16M100 20h52M118 16l-18 4M140 20v14"/><rect x="136" y="34" width="8" height="6"/></g></svg></div><b></b><b></b><b class="ai-tile-price"></b></div></div>
-            <div class="ai-map"><svg viewBox="0 0 400 110" focusable="false"><path class="ai-map-land" d="M0 0H400V22C370 24 340 28 300 36C260 44 240 40 200 44C160 48 120 58 80 62C50 66 24 70 0 74Z"/><path class="ai-map-coast" d="M0 74C24 70 50 66 80 62C120 58 160 48 200 44C240 40 260 44 300 36C340 28 370 24 400 22"/><g class="ai-pin" data-c="w" style="--i:0" transform="translate(62 66)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="w" style="--i:1" transform="translate(88 58)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="w" style="--i:2" transform="translate(112 63)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="m" style="--i:3" transform="translate(168 52)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="m" style="--i:4" transform="translate(196 46)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="m" style="--i:5" transform="translate(222 50)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="e" style="--i:6" transform="translate(296 38)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="e" style="--i:7" transform="translate(322 30)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="e" style="--i:8" transform="translate(348 34)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g></svg></div>
-          </div>
+</style><section class="section ai-try" id="try"><div class="section-inner">
+    <div class="section-head"><span class="label">Testa en sökning</span><div class="rule"></div><h2 class="section-title">Välj en sökning <em>och snäva in den</em></h2></div>
+    <div class="ai-try-grid">
+      <div class="ai-try-ask">
+        <div class="ai-controls ai-c-brief" data-js-only hidden>
+          <p class="ai-control-label" id="ai-start-label">Börja med</p>
+          <div class="ai-briefs" role="group" aria-labelledby="ai-start-label"><button type="button" class="ai-brief" data-brief="E" aria-pressed="true">En villa i Estepona</button><button type="button" class="ai-brief" data-brief="M" aria-pressed="false">En lägenhet i Mijas</button><button type="button" class="ai-brief" data-brief="N" aria-pressed="false">Nytt i Nueva Andalucía</button></div>
         </div>
-        <div class="ai-composer"><span></span><svg viewBox="0 0 24 24" focusable="false"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ai-question">
+          <p class="ai-control-label">Er fråga</p>
+          <p class="ai-question-text" data-question aria-live="polite">Jag letar efter en villa i Estepona.</p>
+        </div>
+        <div class="ai-controls ai-c-refine" data-js-only hidden>
+          <p class="ai-control-label" id="ai-refine-label">Snäva in</p>
+          <div class="ai-refine" role="group" aria-labelledby="ai-refine-label"><div class="ai-refine-set" data-for="E"><button type="button" class="ai-chip" data-r="1" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Under 2 miljoner €</button><button type="button" class="ai-chip" data-r="2" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Privat pool</button></div><div class="ai-refine-set" data-for="M" hidden><button type="button" class="ai-chip" data-r="1" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Nyckelklar</button><button type="button" class="ai-chip" data-r="2" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Under 500 000 €</button></div><div class="ai-refine-set" data-for="N" hidden><button type="button" class="ai-chip" data-r="1" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Nyckelklar</button><button type="button" class="ai-chip" data-r="2" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Under 1,5 miljoner €</button></div></div>
+        </div>
+        <div class="ai-use">
+          <a class="btn" href="sv/ai.html#setup" data-use="chatgpt">Använd sökningen i ChatGPT</a>
+          <a class="btn ghost" href="sv/ai.html#setup" data-use="claude">Använd sökningen i Claude</a>
+        </div>
+        <p class="ai-note">En guidad förhandsvisning byggd på våra projektsidor, inte en riktig assistent. I ChatGPT eller Claude kommer svaret från samma sidor.</p>
       </div>
-    </div><div class="cards">
-      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect pathLength="1" x="11" y="22" width="26" height="19" rx="3"/><path pathLength="1" d="M17 22v-6a8 8 0 0 1 15-4"/><circle pathLength="1" cx="24" cy="31" r="2.4"/><line pathLength="1" x1="24" y1="33.5" x2="24" y2="36"/></g></svg><h3>Gratis, utan inloggning</h3><p>Inget att registrera sig för och inget att betala. Ni lägger till en adress och börjar fråga.</p></article>
-      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M6 10h22a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H16l-6 5v-5H6a3 3 0 0 1-3-3V13a3 3 0 0 1 3-3z"/><path pathLength="1" d="M34 19h8a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2v5l-6-5h-9a3 3 0 0 1-3-3v-2"/><path pathLength="1" d="M10 16h14M14 16c0 5 4 8 8 8M20 16c0 5-4 8-8 8"/></g></svg><h3>Tio språk</h3><p>Fråga på engelska, spanska, franska, tyska, ryska, arabiska, nederländska, polska, svenska eller norska. Namn, priser och datum kommer tillbaka på ert språk.</p></article>
-      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M8 6h16l6 6v24H8z"/><path pathLength="1" d="M24 6v6h6"/><line pathLength="1" x1="13" y1="19" x2="25" y2="19"/><line pathLength="1" x1="13" y1="24" x2="25" y2="24"/><path pathLength="1" d="M30 18h6l6 6v18H24v-6"/><polyline pathLength="1" points="29 33 32 36 38 29"/></g></svg><h3>Samma siffror som på våra sidor</h3><p>Varje svar kommer från våra egna projektsidor. Priserna är exploatörens listpriser före IVA och köpkostnader och bekräftas på nytt före varje reservation. Bilderna är till största delen visualiseringar.</p></article>
-    </div></div></section>
-    <section class="section quiet-band"><div class="section-inner"><div class="section-head center"><span class="label">Adressen</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">En adress <em>för alla assistenter</em></h2><p class="body-copy" dir="ltr" style="margin:26px auto 0;font-size:clamp(20px,2.6vw,30px);letter-spacing:0.02em;overflow-wrap:anywhere;"><code style="font-family:inherit;user-select:all;">https://nuevaliving.com/mcp</code></p><p class="body-copy" style="margin-left:auto;margin-right:auto;">Ingen inloggning, Streamable HTTP. Alla assistenter som kan ansluta till en fjärr-MCP-server kan använda den.</p></div><div class="ai-flow ai-rise" aria-hidden="true" dir="ltr">
+      <div class="ai-try-result">
+        <div class="ai-stage" data-stage><article class="ai-result" data-card="r0">
+          <a class="ai-result-media" href="sv/property-atalaya-pool-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.jpg" alt="Fristående villa med infinitypool och trädgård i Atalaya, Estepona" width="1920" height="1080" fetchpriority="high" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Atalaya, Estepona &middot; Fristående villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-atalaya-pool-villas.html">Atalaya Pool Villas</a></h3>
+            <p class="ai-result-price">Från 1 530 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K4 2027 / K1 2028</p>
+            <a class="ai-result-link" href="sv/property-atalaya-pool-villas.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r1" hidden>
+          <a class="ai-result-media" href="sv/property-playa-del-angel-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/playa-del-angel-residences/media/villa-from-the-garden-640.webp 640w, assets/liora/projects/playa-del-angel-residences/media/villa-from-the-garden-960.webp 960w, assets/liora/projects/playa-del-angel-residences/media/villa-from-the-garden.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/playa-del-angel-residences/media/villa-from-the-garden.jpg" alt="Exploatörens visualisering: en villa i första strandlinjen från gräsmattan, med poolen längs framsidan" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Playa del Ángel, Estepona &middot; Lägenheter, takvåningar och villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-playa-del-angel-residences.html">Playa del Ángel Residences</a></h3>
+            <p class="ai-result-price">Från 12 750 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Färdigställande K4 2027 - K1 2028</p>
+            <a class="ai-result-link" href="sv/property-playa-del-angel-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r2" hidden>
+          <a class="ai-result-media" href="sv/property-bel-air-villa-collection.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-960.webp 960w, assets/liora/projects/bel-air-villa-collection/media/exterior-frontview.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/bel-air-villa-collection/media/exterior-frontview.jpg" alt="Modern villafasad med poolterrass och anlagd trädgård" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Bel Air, Estepona &middot; Fristående villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-bel-air-villa-collection.html">Bel Air Villakollektion</a></h3>
+            <p class="ai-result-price">Från 2 400 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K4 2026</p>
+            <a class="ai-result-link" href="sv/property-bel-air-villa-collection.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r3" hidden>
+          <a class="ai-result-media" href="sv/property-el-campanario-golf-villa.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool-960.webp 960w, assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool.jpg" alt="Villan sedd från trädgården, med poolen och den utskjutande övervåningen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">El Campanario, Estepona &middot; Fristående villa</p>
+            <h3 class="ai-result-name"><a href="sv/property-el-campanario-golf-villa.html">El Campanario Golf Villa</a></h3>
+            <p class="ai-result-price">Från 2 350 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K4 2026 / K1 2027</p>
+            <a class="ai-result-link" href="sv/property-el-campanario-golf-villa.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r4" hidden>
+          <a class="ai-result-media" href="sv/property-la-resina-valley-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/la-resina-valley-villas/media/the-largest-villa-640.webp 640w, assets/liora/projects/la-resina-valley-villas/media/the-largest-villa-960.webp 960w, assets/liora/projects/la-resina-valley-villas/media/the-largest-villa.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/la-resina-valley-villas/media/the-largest-villa.jpg" alt="Den största villan på sin dubbla tomt, gräsmattan löper ner mot poolen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">La Resina, Estepona &middot; Villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-la-resina-valley-villas.html">La Resina Valley Villas</a></h3>
+            <p class="ai-result-price">Från 3 250 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Villa 1-4: K3 2026 / Villa 5-8: K4 2027</p>
+            <a class="ai-result-link" href="sv/property-la-resina-valley-villas.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r5" hidden>
+          <a class="ai-result-media" href="sv/property-fairway-grove-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/fairway-grove-villas/media/premium-villa-pool-pergola-640.webp 640w, assets/liora/projects/fairway-grove-villas/media/premium-villa-pool-pergola-960.webp 960w, assets/liora/projects/fairway-grove-villas/media/premium-villa-pool-pergola.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/fairway-grove-villas/media/premium-villa-pool-pergola.jpg" alt="Premiumvilla med privat pool och en travertinklädd pergola över terrassen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">El Campanario, Estepona &middot; Fristående villa</p>
+            <h3 class="ai-result-name"><a href="sv/property-fairway-grove-villas.html">Fairway Grove Villas</a></h3>
+            <p class="ai-result-price">Från 1 950 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Fas 1: sommaren 2027 / Fas 2: K4 2027</p>
+            <a class="ai-result-link" href="sv/property-fairway-grove-villas.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r6" hidden>
+          <a class="ai-result-media" href="sv/property-meridian-golf-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/meridian-golf-villas/media/aerial-view-complex-daytime-640.webp 640w, assets/liora/projects/meridian-golf-villas/media/aerial-view-complex-daytime-960.webp 960w, assets/liora/projects/meridian-golf-villas/media/aerial-view-complex-daytime.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/meridian-golf-villas/media/aerial-view-complex-daytime.jpg" alt="Flygbild av villakomplexet intill golfbanan" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">New Golden Mile, Estepona &middot; Villa</p>
+            <h3 class="ai-result-name"><a href="sv/property-meridian-golf-villas.html">Meridian Golf Villas</a></h3>
+            <p class="ai-result-price">Från 1 550 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Beräknat K2 2027</p>
+            <a class="ai-result-link" href="sv/property-meridian-golf-villas.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r7" hidden>
+          <a class="ai-result-media" href="sv/property-valle-romano-hilltop-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden-640.webp 640w, assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden-960.webp 960w, assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden.jpg" alt="Samma villa från trädgården, med övervåningen utkragad över terrassen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Valle Romano, Estepona &middot; Fristående villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-valle-romano-hilltop-villas.html">Valle Romano Hilltop Villas</a></h3>
+            <p class="ai-result-price">Från 1 590 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K4 2027</p>
+            <a class="ai-result-link" href="sv/property-valle-romano-hilltop-villas.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r8" hidden>
+          <a class="ai-result-media" href="sv/property-cedro-golf-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/cedro-golf-villas/media/garden-facade-pergola-640.webp 640w, assets/liora/projects/cedro-golf-villas/media/garden-facade-pergola-960.webp 960w, assets/liora/projects/cedro-golf-villas/media/garden-facade-pergola.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/cedro-golf-villas/media/garden-facade-pergola.jpg" alt="Datorgenererad bild av ett vitt parhus med grå övervåning, en pergola på taket och gräsmatta" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Atalaya Golf, Estepona &middot; Parhus</p>
+            <h3 class="ai-result-name"><a href="sv/property-cedro-golf-villas.html">Cedro Golf Villas</a></h3>
+            <p class="ai-result-price">Från 775 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Ej bekräftat</p>
+            <a class="ai-result-link" href="sv/property-cedro-golf-villas.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r9" hidden>
+          <a class="ai-result-media" href="sv/property-selwo-sea-terraces.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/media/blocks-and-pool-640.webp 640w, assets/liora/projects/selwo-sea-terraces/media/blocks-and-pool-960.webp 960w, assets/liora/projects/selwo-sea-terraces/media/blocks-and-pool.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/selwo-sea-terraces/media/blocks-and-pool.jpg" alt="Datorgenererad bild av två flerbostadshus som trappar ner sig längs sluttningen ovanför den gemensamma poolen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Selwo, Estepona &middot; Lägenheter, takvåningar och villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-selwo-sea-terraces.html">Selwo Sea Terraces</a></h3>
+            <p class="ai-result-price">Från 1 468 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K4 2026 - K3 2028</p>
+            <a class="ai-result-link" href="sv/property-selwo-sea-terraces.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r10" hidden>
+          <a class="ai-result-media" href="sv/property-estepona-pool-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Foto av trädgårdssidan på en vit villa på andra sidan en pool, med en övertäckt terrass med soffor och ett matbord och en övre terrass med en gavel under ett sadeltak" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Estepona &middot; Villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-estepona-pool-villas.html">Estepona Pool Villas</a></h3>
+            <p class="ai-result-price">Från 2 300 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Inflyttningsklart</p>
+            <a class="ai-result-link" href="sv/property-estepona-pool-villas.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r11" hidden>
+          <a class="ai-result-media" href="sv/property-valle-romano-crest-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/valle-romano-crest-villas/media/type-ii-villa-640.webp 640w, assets/liora/projects/valle-romano-crest-villas/media/type-ii-villa-960.webp 960w, assets/liora/projects/valle-romano-crest-villas/media/type-ii-villa.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/valle-romano-crest-villas/media/type-ii-villa.jpg" alt="En villa av typ II, inglasad längs hela vardagsplanet, med poolen framför" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Valle Romano, Estepona &middot; Fristående villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-valle-romano-crest-villas.html">Valle Romano Crest Villas</a></h3>
+            <p class="ai-result-price">Från 1 295 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K4 2028</p>
+            <a class="ai-result-link" href="sv/property-valle-romano-crest-villas.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r12" hidden>
+          <a class="ai-result-media" href="sv/property-valle-romano-hilltop-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden-640.webp 640w, assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden-960.webp 960w, assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden.jpg" alt="Samma villa från trädgården, med övervåningen utkragad över terrassen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Valle Romano, Estepona &middot; Fristående villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-valle-romano-hilltop-villas.html">Valle Romano Hilltop Villas</a></h3>
+            <p class="ai-result-price">Från 1 590 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K4 2027</p>
+            <a class="ai-result-link" href="sv/property-valle-romano-hilltop-villas.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r13" hidden>
+          <a class="ai-result-media" href="sv/property-mijas-golf-park-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-golf-park-residences/media/the-buildings-from-the-garden-640.webp 640w, assets/liora/projects/mijas-golf-park-residences/media/the-buildings-from-the-garden-960.webp 960w, assets/liora/projects/mijas-golf-park-residences/media/the-buildings-from-the-garden.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-golf-park-residences/media/the-buildings-from-the-garden.jpg" alt="Byggnaderna sedda från den gemensamma trädgården" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Golf, Mijas &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-mijas-golf-park-residences.html">Mijas Golf Park Residences</a></h3>
+            <p class="ai-result-price">Från 269 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Färdigställande K1 2029</p>
+            <a class="ai-result-link" href="sv/property-mijas-golf-park-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r14" hidden>
+          <a class="ai-result-media" href="sv/property-miramar-urban-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/media/building-facade-cafe-640.webp 640w, assets/liora/projects/miramar-urban-residences/media/building-facade-cafe-960.webp 960w, assets/liora/projects/miramar-urban-residences/media/building-facade-cafe.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/miramar-urban-residences/media/building-facade-cafe.jpg" alt="Byggnadens fasad med ett kafé i bottenvåningen och terrasserade balkonger ovanför" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas, Mijas &middot; Lägenhet</p>
+            <h3 class="ai-result-name"><a href="sv/property-miramar-urban-residences.html">Miramar Urban Residences</a></h3>
+            <p class="ai-result-price">Från 458 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Beräknat K4 2027</p>
+            <a class="ai-result-link" href="sv/property-miramar-urban-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r15" hidden>
+          <a class="ai-result-media" href="sv/property-cerrado-vista-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/media/building-exterior-hillside-640.webp 640w, assets/liora/projects/cerrado-vista-residences/media/building-exterior-hillside-960.webp 960w, assets/liora/projects/cerrado-vista-residences/media/building-exterior-hillside.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/cerrado-vista-residences/media/building-exterior-hillside.jpg" alt="Modern lägenhetsbyggnad på en sluttningstomt med palmklädd tillfartsväg" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas, Costa del Sol &middot; Lägenhet</p>
+            <h3 class="ai-result-name"><a href="sv/property-cerrado-vista-residences.html">Cerrado Vista Residences</a></h3>
+            <p class="ai-result-price">Från 390 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Beräknat K1 2028</p>
+            <a class="ai-result-link" href="sv/property-cerrado-vista-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r16" hidden>
+          <a class="ai-result-media" href="sv/property-la-noria-golf-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/la-noria-golf-residences/media/aerial-over-the-golf-course-640.webp 640w, assets/liora/projects/la-noria-golf-residences/media/aerial-over-the-golf-course-960.webp 960w, assets/liora/projects/la-noria-golf-residences/media/aerial-over-the-golf-course.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/la-noria-golf-residences/media/aerial-over-the-golf-course.jpg" alt="Området sett från golfbanan, med havet bortom" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">La Cala de Mijas &middot; Lägenheter</p>
+            <h3 class="ai-result-name"><a href="sv/property-la-noria-golf-residences.html">La Noria Golf Residences</a></h3>
+            <p class="ai-result-price">Från 352 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K4 2027</p>
+            <a class="ai-result-link" href="sv/property-la-noria-golf-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r17" hidden>
+          <a class="ai-result-media" href="sv/property-las-lagunas-courtyard-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/las-lagunas-courtyard-residences/media/the-building-by-day-640.webp 640w, assets/liora/projects/las-lagunas-courtyard-residences/media/the-building-by-day-960.webp 960w, assets/liora/projects/las-lagunas-courtyard-residences/media/the-building-by-day.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/las-lagunas-courtyard-residences/media/the-building-by-day.jpg" alt="Det vita huset i gathörnet, balkonger med träspjälor längs fasaden" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas, Mijas &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-las-lagunas-courtyard-residences.html">Las Lagunas Courtyard Residences</a></h3>
+            <p class="ai-result-price">Från 275 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Fas 1: K3 2027 - K4 2028 / Fas 2: 2028</p>
+            <a class="ai-result-link" href="sv/property-las-lagunas-courtyard-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r18" hidden>
+          <a class="ai-result-media" href="sv/property-mijas-pinewood-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-pinewood-residences/media/lagoon-pool-aerial-640.webp 640w, assets/liora/projects/mijas-pinewood-residences/media/lagoon-pool-aerial-960.webp 960w, assets/liora/projects/mijas-pinewood-residences/media/lagoon-pool-aerial.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-pinewood-residences/media/lagoon-pool-aerial.jpg" alt="Visualisering från exploatören av den lagunformade poolen och solterrassen med havet bakom" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas, mellan La Cala och Fuengirola &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-mijas-pinewood-residences.html">Mijas Pinewood Residences</a></h3>
+            <p class="ai-result-price">Från 352 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Färdigställande K3 2029</p>
+            <a class="ai-result-link" href="sv/property-mijas-pinewood-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r19" hidden>
+          <a class="ai-result-media" href="sv/property-mijas-costa-bay-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-costa-bay-residences/media/balconies-pool-sea-640.webp 640w, assets/liora/projects/mijas-costa-bay-residences/media/balconies-pool-sea-960.webp 960w, assets/liora/projects/mijas-costa-bay-residences/media/balconies-pool-sea.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-costa-bay-residences/media/balconies-pool-sea.jpg" alt="Visualisering från exploatören av de planterade balkongerna ovanför poolen, med havet bakom" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Costa &middot; Lägenheter</p>
+            <h3 class="ai-result-name"><a href="sv/property-mijas-costa-bay-residences.html">Mijas Costa Bay Residences</a></h3>
+            <p class="ai-result-price">Från 421 600 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Färdigställande K3 2027</p>
+            <a class="ai-result-link" href="sv/property-mijas-costa-bay-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r20" hidden>
+          <a class="ai-result-media" href="sv/property-lagunas-park-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/lagunas-park-residences/media/street-facade-640.webp 640w, assets/liora/projects/lagunas-park-residences/media/street-facade-960.webp 960w, assets/liora/projects/lagunas-park-residences/media/street-facade.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/lagunas-park-residences/media/street-facade.jpg" alt="Datorgenererad bild av lägenhetshuset längs en gata, med balkonger, glasräcken och parkerade bilar" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas de Mijas &middot; Lägenheter</p>
+            <h3 class="ai-result-name"><a href="sv/property-lagunas-park-residences.html">Lagunas Park Residences</a></h3>
+            <p class="ai-result-price">Från 369 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K1 2027</p>
+            <a class="ai-result-link" href="sv/property-lagunas-park-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r21" hidden>
+          <a class="ai-result-media" href="sv/property-verdemar-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/verdemar-residences/media/pool-at-dusk-640.webp 640w, assets/liora/projects/verdemar-residences/media/pool-at-dusk-960.webp 960w, assets/liora/projects/verdemar-residences/media/pool-at-dusk.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/verdemar-residences/media/pool-at-dusk.jpg" alt="Datorgenererad vy av flerbostadshusen med grön fasad ovanför den gemensamma poolen i skymningen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Cala de Mijas &middot; Lägenheter och bostäder på översta våningen</p>
+            <h3 class="ai-result-name"><a href="sv/property-verdemar-residences.html">Verdemar Residences</a></h3>
+            <p class="ai-result-price">Från 495 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Inflyttningsklart</p>
+            <a class="ai-result-link" href="sv/property-verdemar-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r22" hidden>
+          <a class="ai-result-media" href="sv/property-alborada-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/alborada-residences/media/curved-terraces-dusk-640.webp 640w, assets/liora/projects/alborada-residences/media/curved-terraces-dusk-960.webp 960w, assets/liora/projects/alborada-residences/media/curved-terraces-dusk.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/alborada-residences/media/curved-terraces-dusk.jpg" alt="Datorgenererad vy av en byggnad med böjda, staplade terrasser i varma toner i skymningen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-alborada-residences.html">Alborada Residences</a></h3>
+            <p class="ai-result-price">Från 410 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K3 2028</p>
+            <a class="ai-result-link" href="sv/property-alborada-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r23" hidden>
+          <a class="ai-result-media" href="sv/property-vitta-marina.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/pool-and-building-640.webp 640w, assets/liora/projects/vitta-marina/media/pool-and-building-960.webp 960w, assets/liora/projects/vitta-marina/media/pool-and-building.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Datorgenererad vy av ett vitt flerbostadshus med trappstegsformade terrasser bakom en gemensam pool, solstolar och en palm" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Cala de Mijas &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-vitta-marina.html">Vitta Marina</a></h3>
+            <p class="ai-result-price">Från 483 500 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Färdigställande ej bekräftat</p>
+            <a class="ai-result-link" href="sv/property-vitta-marina.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r24" hidden>
+          <a class="ai-result-media" href="sv/property-mirlo-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mirlo-residences/media/corner-building-day-640.webp 640w, assets/liora/projects/mirlo-residences/media/corner-building-day-960.webp 960w, assets/liora/projects/mirlo-residences/media/corner-building-day.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mirlo-residences/media/corner-building-day.jpg" alt="Datorgenererad vy av en vit hörnbyggnad med planterade balkonger och en träpergola på taket" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas, Mijas &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-mirlo-residences.html">Mirlo Residences</a></h3>
+            <p class="ai-result-price">Från 213 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> juni 2028</p>
+            <a class="ai-result-link" href="sv/property-mirlo-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r25" hidden>
+          <a class="ai-result-media" href="sv/property-cristalino-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-640.webp 640w, assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-960.webp 960w, assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.jpg" alt="Datorgenererad vy av en vit byggnad med rader av terrasser bakom blå glasräcken, intill en gemensam pool med palmer och solsängar" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas, Mijas &middot; Lägenheter</p>
+            <h3 class="ai-result-name"><a href="sv/property-cristalino-residences.html">Cristalino Residences</a></h3>
+            <p class="ai-result-price">Från 470 900 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Ej bekräftat</p>
+            <a class="ai-result-link" href="sv/property-cristalino-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r26" hidden>
+          <a class="ai-result-media" href="sv/property-mijas-palm-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-palm-residences/media/two-white-blocks-with-blue-glass-balconies-640.webp 640w, assets/liora/projects/mijas-palm-residences/media/two-white-blocks-with-blue-glass-balconies-960.webp 960w, assets/liora/projects/mijas-palm-residences/media/two-white-blocks-with-blue-glass-balconies.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-palm-residences/media/two-white-blocks-with-blue-glass-balconies.jpg" alt="Datorgenererad gatuvy av två vita lägenhetshus med böjda balkonger bakom blå glasräcken, sedda över en häck och en gångväg" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas, Mijas &middot; Lägenheter</p>
+            <h3 class="ai-result-name"><a href="sv/property-mijas-palm-residences.html">Mijas Palm Residences</a></h3>
+            <p class="ai-result-price">Från 240 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K4 2028</p>
+            <a class="ai-result-link" href="sv/property-mijas-palm-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r27" hidden>
+          <a class="ai-result-media" href="sv/property-mijas-seaview-suites.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-seaview-suites/media/infinity-pool-and-terraced-building-640.webp 640w, assets/liora/projects/mijas-seaview-suites/media/infinity-pool-and-terraced-building-960.webp 960w, assets/liora/projects/mijas-seaview-suites/media/infinity-pool-and-terraced-building.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-seaview-suites/media/infinity-pool-and-terraced-building.jpg" alt="Datorgenererad bild av en lång pool med infinitykant och solstolar nedanför en böjd vit byggnad med terrasser med träribbor, med kusten och havet till höger" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Costa &middot; Lägenheter</p>
+            <h3 class="ai-result-name"><a href="sv/property-mijas-seaview-suites.html">Mijas Seaview Suites</a></h3>
+            <p class="ai-result-price">Från 1 056 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K1 2028</p>
+            <a class="ai-result-link" href="sv/property-mijas-seaview-suites.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r28" hidden>
+          <a class="ai-result-media" href="sv/property-cala-heights-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-640.webp 640w, assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-960.webp 960w, assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.jpg" alt="Flygfoto över vita, terrasserade flerbostadshus i en sluttning intill en väg, med en golfbana och en sjö till vänster och havet vid horisonten" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">La Cala de Mijas &middot; Lägenheter</p>
+            <h3 class="ai-result-name"><a href="sv/property-cala-heights-residences.html">Cala Heights Residences</a></h3>
+            <p class="ai-result-price">Från 680 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Inflyttningsklar</p>
+            <a class="ai-result-link" href="sv/property-cala-heights-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r29" hidden>
+          <a class="ai-result-media" href="sv/property-arosa.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/arosa/media/aerial-block-pool-and-coast-640.webp 640w, assets/liora/projects/arosa/media/aerial-block-pool-and-coast-960.webp 960w, assets/liora/projects/arosa/media/aerial-block-pool-and-coast.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/arosa/media/aerial-block-pool-and-coast.jpg" alt="Flygbild av det vita terrasshuset med pooler och trädgårdar intill en böjd väg, med kusten och havet bakom, där det datorgenererade huset har placerats in i ett fotografi" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">La Cala de Mijas &middot; Lägenheter</p>
+            <h3 class="ai-result-name"><a href="sv/property-arosa.html">Arosa</a></h3>
+            <p class="ai-result-price">Från 705 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Beräknat K4 2028</p>
+            <a class="ai-result-link" href="sv/property-arosa.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r30" hidden>
+          <a class="ai-result-media" href="sv/property-mijas-horizon-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-horizon-residences/media/pool-and-block-with-palms-640.webp 640w, assets/liora/projects/mijas-horizon-residences/media/pool-and-block-with-palms-960.webp 960w, assets/liora/projects/mijas-horizon-residences/media/pool-and-block-with-palms.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-horizon-residences/media/pool-and-block-with-palms.jpg" alt="Datorgenererad vy över den gemensamma poolen och solstolarna mot ett hus med trappade terrasser och glasräcken, med palmer och ett böljande landskap bakom" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Costa &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-mijas-horizon-residences.html">Mijas Horizon Residences</a></h3>
+            <p class="ai-result-price">Från 365 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Färdigställande K4 2027</p>
+            <a class="ai-result-link" href="sv/property-mijas-horizon-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r31" hidden>
+          <a class="ai-result-media" href="sv/property-mijas-horizon-terraces.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.jpg" alt="Datorgenererad vy över två hus med trappstegsformade terrasser runt den gemensamma poolen, med palmer och solstolar" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Costa &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-mijas-horizon-terraces.html">Mijas Horizon Terraces</a></h3>
+            <p class="ai-result-price">Från 320 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Färdigställande K1 2029</p>
+            <a class="ai-result-link" href="sv/property-mijas-horizon-terraces.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r32" hidden>
+          <a class="ai-result-media" href="sv/property-retama-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-640.webp 640w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-960.webp 960w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg" alt="Datorgenererad bild av två gemensamma pooler med solstolar och parasoller framför ett långt hus med terrasslägenheter, med havet vid horisonten" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Costa &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-retama-residences.html">Retama Residences</a></h3>
+            <p class="ai-result-price">Från 341 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Färdigställande september 2028</p>
+            <a class="ai-result-link" href="sv/property-retama-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r33" hidden>
+          <a class="ai-result-media" href="sv/property-vega-verde-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/hero-640.webp 640w, assets/liora/projects/vega-verde-residences/hero-960.webp 960w, assets/liora/projects/vega-verde-residences/hero.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/vega-verde-residences/hero.jpg" alt="Exploatörens bild av utomhuspoolen och de anlagda trädgårdarna" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía / Golf Valley &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-vega-verde-residences.html">Vega Verde Residences</a></h3>
+            <p class="ai-result-price">Från 785 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K4 2028 (beräknat)</p>
+            <a class="ai-result-link" href="sv/property-vega-verde-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r34" hidden>
+          <a class="ai-result-media" href="sv/property-aloha-forest.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/aloha-forest/hero-640.webp 640w, assets/liora/projects/aloha-forest/hero-960.webp 960w, assets/liora/projects/aloha-forest/hero.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/aloha-forest/hero.jpg" alt="Flygvy över projektet i Marbellas Golf Valley" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Golf Valley — Nueva Andalucía, Marbella &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-aloha-forest.html">Aloha Forest</a></h3>
+            <p class="ai-result-price">Från 1 237 625 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Fas I — 2026</p>
+            <a class="ai-result-link" href="sv/property-aloha-forest.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r35" hidden>
+          <a class="ai-result-media" href="sv/property-ocho-de-oro.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/ocho-de-oro/hero-640.webp 640w, assets/liora/projects/ocho-de-oro/hero-960.webp 960w, assets/liora/projects/ocho-de-oro/hero.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/ocho-de-oro/hero.jpg" alt="Modern villafasad med kaskadande infinitypool" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía, Marbella &middot; Villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-ocho-de-oro.html">Ocho de Oro</a></h3>
+            <p class="ai-result-price">Från 11 500 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> december 2027</p>
+            <a class="ai-result-link" href="sv/property-ocho-de-oro.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r36" hidden>
+          <a class="ai-result-media" href="sv/property-golf-valley-flex-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/golf-valley-flex-residences/hero-640.webp 640w, assets/liora/projects/golf-valley-flex-residences/hero-960.webp 960w, assets/liora/projects/golf-valley-flex-residences/hero.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/golf-valley-flex-residences/hero.jpg" alt="Moderna bostäder med privata pooler i solnedgången" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía, Marbella &middot; Villor och lägenheter</p>
+            <h3 class="ai-result-name"><a href="sv/property-golf-valley-flex-residences.html">Golf Valley Flex Residences</a></h3>
+            <p class="ai-result-price">Från 450 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K2–K3 2028</p>
+            <a class="ai-result-link" href="sv/property-golf-valley-flex-residences.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r37" hidden>
+          <a class="ai-result-media" href="sv/property-la-concha-view-villa.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/la-concha-view-villa/media/villa-garden-and-pool-640.webp 640w, assets/liora/projects/la-concha-view-villa/media/villa-garden-and-pool-960.webp 960w, assets/liora/projects/la-concha-view-villa/media/villa-garden-and-pool.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/la-concha-view-villa/media/villa-garden-and-pool.jpg" alt="Villan från gräsmattan, med poolen längs hela terrassen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía, Marbella &middot; Fristående villa</p>
+            <h3 class="ai-result-name"><a href="sv/property-la-concha-view-villa.html">La Concha View Villa</a></h3>
+            <p class="ai-result-price">Från 5 000 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> K3 2026</p>
+            <a class="ai-result-link" href="sv/property-la-concha-view-villa.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r38" hidden>
+          <a class="ai-result-media" href="sv/property-las-brisas-pavilion-villa.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/las-brisas-pavilion-villa/media/pavilion-and-pool-640.webp 640w, assets/liora/projects/las-brisas-pavilion-villa/media/pavilion-and-pool-960.webp 960w, assets/liora/projects/las-brisas-pavilion-villa/media/pavilion-and-pool.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/las-brisas-pavilion-villa/media/pavilion-and-pool.jpg" alt="Ett paviljongtak över terrassen, med poolen längs husets framsida" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Brisas, Nueva Andalucía &middot; Fristående villa</p>
+            <h3 class="ai-result-name"><a href="sv/property-las-brisas-pavilion-villa.html">Las Brisas Pavilion Villa</a></h3>
+            <p class="ai-result-price">5 500 000 € + IVA</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Beräknat K3 2026</p>
+            <a class="ai-result-link" href="sv/property-las-brisas-pavilion-villa.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r39" hidden>
+          <a class="ai-result-media" href="sv/property-nueva-andalucia-signature-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/nueva-andalucia-signature-villas/media/the-villa-and-the-pool-640.webp 640w, assets/liora/projects/nueva-andalucia-signature-villas/media/the-villa-and-the-pool-960.webp 960w, assets/liora/projects/nueva-andalucia-signature-villas/media/the-villa-and-the-pool.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/nueva-andalucia-signature-villas/media/the-villa-and-the-pool.jpg" alt="En villa sedd över infinitypoolen, takterrassen indragen ovanför glaspartiet" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía, Marbella &middot; Villor</p>
+            <h3 class="ai-result-name"><a href="sv/property-nueva-andalucia-signature-villas.html">Nueva Andalucia Signature Villas</a></h3>
+            <p class="ai-result-price">Från 5 550 000 €</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Beräknat K1 2028</p>
+            <a class="ai-result-link" href="sv/property-nueva-andalucia-signature-villas.html">Se projektet</a>
+          </div>
+        </article><article class="ai-result" data-card="r40" hidden>
+          <a class="ai-result-media" href="sv/property-acacia-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/acacia-residences/media/pool-below-the-blocks-640.webp 640w, assets/liora/projects/acacia-residences/media/pool-below-the-blocks-960.webp 960w, assets/liora/projects/acacia-residences/media/pool-below-the-blocks.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/acacia-residences/media/pool-below-the-blocks.jpg" alt="Fotografi av vita lägenhetshus med tak av välvda tegelpannor som stiger uppför en terrasserad sluttning ovanför den gemensamma poolen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía, Marbella &middot; Lägenheter och takvåningar</p>
+            <h3 class="ai-result-name"><a href="sv/property-acacia-residences.html">Acacia Residences</a></h3>
+            <p class="ai-result-price">Från 470 000 € + 7 % ITP</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Inflyttning</span> Inflyttningsklart</p>
+            <a class="ai-result-link" href="sv/property-acacia-residences.html">Se projektet</a>
+          </div>
+        </article>
+          <div class="ai-empty" data-empty hidden><p>Inget på våra sidor matchar allt det än.</p><button type="button" class="ai-chip" data-broaden>Ta bort det senaste filtret</button></div>
+        </div>
+        <div class="ai-result-nav" data-js-only hidden>
+          <button type="button" class="ai-nav-btn" data-step="-1" aria-label="Föregående träff"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <span class="ai-count" data-count dir="ltr">1 / 1</span>
+          <button type="button" class="ai-nav-btn" data-step="1" aria-label="Nästa träff"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <p class="ai-qual">Listpriser före IVA och köpkostnader, bekräftas före varje reservation. Bilderna är till största delen visualiseringar.</p>
+      </div>
+    </div>
+    <div class="ai-bank" hidden><span data-q="E0" data-cards="r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11">Jag letar efter en villa i Estepona.</span><span data-q="E1" data-cards="r0 r5 r6 r12 r8 r9 r11">Jag letar efter en villa i Estepona för under 2 miljoner euro.</span><span data-q="E2" data-cards="r0 r2 r3 r4 r5 r7 r10 r11">Jag letar efter en villa i Estepona med egen pool.</span><span data-q="E3" data-cards="r0 r5 r12 r11">Jag letar efter en villa i Estepona med egen pool för under 2 miljoner euro.</span><span data-q="M0" data-cards="r13 r14 r15 r16 r17 r18 r19 r20 r21 r22 r23 r24 r25 r26 r27 r28 r29 r30 r31 r32">Jag letar efter en nybyggd lägenhet i Mijas.</span><span data-q="M1" data-cards="r21 r28">Jag letar efter en nybyggd, nyckelklar lägenhet i Mijas.</span><span data-q="M2" data-cards="r13 r14 r15 r16 r17 r18 r19 r20 r21 r22 r23 r24 r25 r26 r30 r31 r32">Jag letar efter en nybyggd lägenhet i Mijas för under 500 000 €.</span><span data-q="M3" data-cards="r21">Jag letar efter en nybyggd, nyckelklar lägenhet i Mijas för under 500 000 €.</span><span data-q="N0" data-cards="r33 r34 r35 r36 r37 r38 r39 r40">Jag letar efter en nybyggd bostad i Nueva Andalucía.</span><span data-q="N1" data-cards="r40">Jag letar efter en nybyggd, nyckelklar bostad i Nueva Andalucía.</span><span data-q="N2" data-cards="r33 r34 r36 r40">Jag letar efter en nybyggd bostad i Nueva Andalucía för under 1,5 miljoner euro.</span><span data-q="N3" data-cards="r40">Jag letar efter en nybyggd, nyckelklar bostad i Nueva Andalucía för under 1,5 miljoner euro.</span></div>
+  </div></section>
+    <section class="section quiet-band ai-setup" id="setup"><div class="section-inner"><div class="section-head center"><span class="label">Adressen</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">En adress <em>för alla assistenter</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Ingen inloggning, Streamable HTTP. Alla assistenter som kan ansluta till en fjärr-MCP-server kan använda den.</p></div><div class="ai-flow ai-rise" aria-hidden="true" dir="ltr">
       <svg class="ai-flow-wide" viewBox="0 0 960 300" focusable="false">
         <g class="ai-flow-lines"><path d="M190 70 C 260 70 270 150 340 150"/><path d="M190 150 L 340 150"/><path d="M190 230 C 260 230 270 150 340 150"/><path d="M620 150 C 660 150 680 150 700 150"/></g>
         <circle class="ai-spark-in" r="4.5"><animateMotion dur="3.6s" begin="0s" repeatCount="indefinite" path="M190 70 C 260 70 270 150 340 150" keyPoints="0;1;1" keyTimes="0;.55;1" calcMode="linear"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.06;.5;.56;1" dur="3.6s" begin="0s" repeatCount="indefinite"/></circle><circle class="ai-spark-in" r="4.5"><animateMotion dur="3.6s" begin="1.2s" repeatCount="indefinite" path="M190 150 L 340 150" keyPoints="0;1;1" keyTimes="0;.55;1" calcMode="linear"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.06;.5;.56;1" dur="3.6s" begin="1.2s" repeatCount="indefinite"/></circle><circle class="ai-spark-in" r="4.5"><animateMotion dur="3.6s" begin="2.4s" repeatCount="indefinite" path="M190 230 C 260 230 270 150 340 150" keyPoints="0;1;1" keyTimes="0;.55;1" calcMode="linear"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.06;.5;.56;1" dur="3.6s" begin="2.4s" repeatCount="indefinite"/></circle>
@@ -581,26 +991,32 @@
         <g class="ai-hub" transform="translate(180 220)"><rect x="-140" y="-30" width="280" height="60" rx="30"/><text x="0" y="7">nuevaliving.com/mcp</text></g>
         <g class="ai-grid"><g class="ai-page-tile" style="--i:0" transform="translate(70 330)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:1" transform="translate(130 330)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:2" transform="translate(190 330)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:3" transform="translate(250 330)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:4" transform="translate(70 390)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:5" transform="translate(130 390)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:6" transform="translate(190 390)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:7" transform="translate(250 390)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:8" transform="translate(70 450)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:9" transform="translate(130 450)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:10" transform="translate(190 450)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:11" transform="translate(250 450)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g></g>
       </svg>
-    </div></div></section>
-    <section class="section" id="claude"><div class="section-inner"><div class="section-head"><span class="label">Så ansluter ni: Claude</span><div class="rule"></div><h2 class="section-title">Lägg till i Claude <em>i fyra steg</em></h2></div><div class="cards two">
+    </div>
+    <div class="ai-copies">
+      <div class="ai-copy"><p class="ai-control-label">Anslutningens adress</p><code class="ai-copy-value" id="ai-address" dir="ltr">https://nuevaliving.com/mcp</code><button type="button" class="ai-copy-btn" data-copy="ai-address" hidden>Kopiera adressen</button><span class="ai-copy-status" role="status"></span></div>
+      <div class="ai-copy"><p class="ai-control-label">Er fråga</p><p class="ai-copy-value" id="ai-question-copy" data-question-out>Jag letar efter en villa i Estepona.</p><button type="button" class="ai-copy-btn" data-copy="ai-question-copy" hidden>Kopiera er fråga</button><span class="ai-copy-status" role="status"></span></div>
+    </div>
+    <div class="ai-tabs" aria-label="Välj er assistent" hidden><button type="button" id="ai-tab-claude" data-tab="claude" aria-controls="claude" aria-selected="true">Claude</button><button type="button" id="ai-tab-chatgpt" data-tab="chatgpt" aria-controls="chatgpt" aria-selected="false">ChatGPT</button></div>
+    <div class="ai-panel" id="claude"><div class="section-head"><span class="label">Så ansluter ni: Claude</span><div class="rule"></div><h2 class="section-title">Lägg till i Claude <em>i fyra steg</em></h2></div><div class="cards two">
       <article class="card ai-rise"><div class="card-number">1</div><h3>Öppna anslutningarna</h3><p>Gå till <a href="https://claude.ai/customize/connectors" target="_blank" rel="noopener">claude.ai/customize/connectors</a>, eller öppna <strong>Customize</strong> och sedan <strong>Connectors</strong>.</p></article>
       <article class="card ai-rise"><div class="card-number">2</div><h3>Lägg till en anpassad anslutning</h3><p>Klicka på <strong>+ Add</strong> och sedan på <strong>Add custom connector</strong>.</p></article>
-      <article class="card ai-rise"><div class="card-number">3</div><h3>Klistra in adressen</h3><p>Döp den till Nueva Living, klistra in adressen ovan, välj ingen inloggning och klicka på <strong>Add</strong>.</p></article>
-      <article class="card ai-rise"><div class="card-number">4</div><h3>Slå på och fråga</h3><p>Klicka på <strong>+</strong> i en chatt, öppna <strong>Connectors</strong>, slå på Nueva Living och ställ er fråga.</p></article>
-    </div><p class="body-copy">Det fungerar med alla Claude-abonnemang. Gratisabonnemanget tillåter en anpassad anslutning. I Team och Enterprise lägger en ägare till den för hela organisationen.</p></div></section>
-    <section class="section quiet-band" id="chatgpt"><div class="section-inner"><div class="section-head"><span class="label">Så ansluter ni: ChatGPT</span><div class="rule"></div><h2 class="section-title">Lägg till i ChatGPT <em>i två steg</em></h2></div><div class="cards two">
-      <article class="card ai-rise"><div class="card-number">1</div><h3>Lägg till servern</h3><p>Öppna <a href="https://chatgpt.com/plugins" target="_blank" rel="noopener">chatgpt.com/plugins</a>, klicka på <strong>+</strong>, välj <strong>Add custom MCP server</strong> och klistra in adressen ovan.</p></article>
-      <article class="card ai-rise"><div class="card-number">2</div><h3>Nämn den vid namn</h3><p>Börja meddelandet med ”Nueva Living” och skriv sedan vad ni söker.</p></article>
-    </div></div></section>
-    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Prova att fråga</span><div class="rule"></div><h2 class="section-title">Tre sätt <em>att börja</em></h2></div><div class="cards">
-      <article class="card ai-rise"><p>”Nueva Living, en villa i Estepona under 2 miljoner euro med egen pool och golf i närheten.”</p></article>
-      <article class="card ai-rise"><p>”Nueva Living, inflyttningsklara lägenheter med två sovrum i Mijas med havsutsikt.”</p></article>
-      <article class="card ai-rise"><p>”Nueva Living, vad byggs just nu i Nueva Andalucía?”</p></article>
-    </div></div></section>
-    <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">Vad den kan</span><div class="rule"></div><h2 class="section-title">Vad den söker i, <em>och vad den inte söker i</em></h2></div><div class="cards">
+      <article class="card ai-rise"><div class="card-number">3</div><h3>Klistra in adressen</h3><p>Döp den till Nueva Living, klistra in adressen, klicka på <strong>Continue</strong>, välj <strong>No sign-in</strong> och klicka på <strong>Add</strong>.</p></article>
+      <article class="card ai-rise"><div class="card-number">4</div><h3>Slå på och fråga</h3><p>Klicka på <strong>+</strong> i en chatt, öppna <strong>Connectors</strong>, slå på Nueva Living och klistra in er fråga.</p></article>
+    </div><p class="body-copy ai-plan">Det fungerar med alla Claude-abonnemang. Gratisabonnemanget tillåter en anpassad anslutning. I Team och Enterprise lägger en ägare till den för hela organisationen.</p></div>
+    <div class="ai-panel" id="chatgpt"><div class="section-head"><span class="label">Så ansluter ni: ChatGPT</span><div class="rule"></div><h2 class="section-title">Lägg till i ChatGPT <em>i tre steg</em></h2></div><div class="cards">
+      <article class="card ai-rise"><div class="card-number">1</div><h3>Lägg till servern</h3><p>Öppna <a href="https://chatgpt.com/plugins" target="_blank" rel="noopener">chatgpt.com/plugins</a> i en webbläsare, klicka på <strong>+</strong>, välj <strong>Add custom MCP server</strong>, döp den till Nueva Living och klistra in adressen.</p></article>
+      <article class="card ai-rise"><div class="card-number">2</div><h3>Godkänn anslutningen</h3><p>Låt den vara utan inloggning, kryssa i <strong>I understand and want to continue</strong> och klicka på <strong>Create as a plugin</strong>.</p></article>
+      <article class="card ai-rise"><div class="card-number">3</div><h3>Fråga med @</h3><p>Starta en ny chatt, skriv <strong>@</strong>, välj Nueva Living och klistra in er fråga.</p></article>
+    </div><p class="body-copy ai-plan">ChatGPT tar emot egna servrar på webben, inte i mobilapparna. OpenAI erbjuder dem i Business, Enterprise och Edu, där en administratör eller ägare kan behöva lägga till den, och i Pro bara för sökning.</p></div>
+    <span hidden data-t="copied">Kopierat</span><span hidden data-t="copyFail">Kopieringen fungerade inte. Texten är markerad: tryck Ctrl+C, eller Cmd+C på en Mac.</span>
+    </div></section>
+    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Vad den kan</span><div class="rule"></div><h2 class="section-title">Vad den söker i, <em>och vad den inte söker i</em></h2></div><div class="cards">
       <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line pathLength="1" x1="14" y1="42" x2="14" y2="8"/><line pathLength="1" x1="6" y1="12" x2="42" y2="12"/><line pathLength="1" x1="14" y1="8" x2="30" y2="12"/><line pathLength="1" x1="36" y1="12" x2="36" y2="20"/><rect pathLength="1" x="32" y="20" width="8" height="5"/><path pathLength="1" d="M22 42V28h20v14"/><line pathLength="1" x1="22" y1="35" x2="42" y2="35"/><line pathLength="1" x1="32" y1="28" x2="32" y2="42"/></g></svg><h3>Endast nyproduktion</h3><p>Nyproduktion och projekt som säljs på ritning på nuevaliving.com, i Marbella, Nueva Andalucía, San Pedro de Alcántara, Benahavís, Estepona, Casares, Mijas och Fuengirola, Benalmádena och Torremolinos. Inga andrahandsbostäder och inga hyresbostäder.</p></article>
       <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect pathLength="1" x="5" y="9" width="10" height="12" rx="1.5"/><rect pathLength="1" x="19" y="9" width="10" height="12" rx="1.5"/><rect pathLength="1" x="33" y="9" width="10" height="12" rx="1.5"/><rect pathLength="1" x="5" y="27" width="10" height="12" rx="1.5"/><rect pathLength="1" x="19" y="27" width="10" height="12" rx="1.5"/><rect pathLength="1" x="33" y="27" width="10" height="12" rx="1.5"/></g></svg><h3>Sex åt gången</h3><p>Upp till sex projekt per sökning, med bilder, listpriser, inflyttningsdatum och karta. Sedan smalnar assistenten av sökningen tillsammans med er efter område, budget, typ, byggskede eller en egenskap.</p></article>
       <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M5 8h26v26H5z"/><path pathLength="1" d="M5 20h10v14M15 8v6M22 20h9"/><circle pathLength="1" cx="32" cy="32" r="8"/><line pathLength="1" x1="38" y1="38" x2="44" y2="44"/></g></svg><h3>Ett projekt i sin helhet</h3><p>Fråga om ett projekt så visas bostäderna på prislistan med sovrum, storlek och pris, noteringen om vad priserna omfattar, bilderna och ett ungefärligt läge på kartan.</p></article>
+      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M8 6h16l6 6v24H8z"/><path pathLength="1" d="M24 6v6h6"/><line pathLength="1" x1="13" y1="19" x2="25" y2="19"/><line pathLength="1" x1="13" y1="24" x2="25" y2="24"/><path pathLength="1" d="M30 18h6l6 6v18H24v-6"/><polyline pathLength="1" points="29 33 32 36 38 29"/></g></svg><h3>Samma siffror som på våra sidor</h3><p>Varje svar kommer från våra egna projektsidor. Priserna är exploatörens listpriser före IVA och köpkostnader och bekräftas på nytt före varje reservation. Bilderna är till största delen visualiseringar.</p></article>
+      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M6 10h22a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H16l-6 5v-5H6a3 3 0 0 1-3-3V13a3 3 0 0 1 3-3z"/><path pathLength="1" d="M34 19h8a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2v5l-6-5h-9a3 3 0 0 1-3-3v-2"/><path pathLength="1" d="M10 16h14M14 16c0 5 4 8 8 8M20 16c0 5-4 8-8 8"/></g></svg><h3>Tio språk</h3><p>Fråga på engelska, spanska, franska, tyska, ryska, arabiska, nederländska, polska, svenska eller norska. Namn, priser och datum kommer tillbaka på ert språk.</p></article>
+      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect pathLength="1" x="11" y="22" width="26" height="19" rx="3"/><path pathLength="1" d="M17 22v-6a8 8 0 0 1 15-4"/><circle pathLength="1" cx="24" cy="31" r="2.4"/><line pathLength="1" x1="24" y1="33.5" x2="24" y2="36"/></g></svg><h3>Gratis, utan inloggning</h3><p>Inget att registrera sig för och inget att betala. Ni lägger till en adress och börjar fråga.</p></article>
     </div></div></section>
     <section class="section"><div class="section-inner ai-privacy-split"><div class="section-head"><span class="label">Era uppgifter</span><div class="rule"></div><h2 class="section-title">Inget om er <em>förrän ni ber om det</em></h2><p class="body-copy">En sökning skickar oss bara de kriterier som assistenten för vidare, till exempel område, budget och typ. Den innehåller inte ert namn eller resten av samtalet, och vi registrerar inte vem som sökte.</p><p class="body-copy">Om ni ber om att bli kontaktade skickar assistenten ert namn och er e-postadress, och ert telefonnummer och meddelande om ni anger dem, till en rådgivare på Nueva Living. Det sker bara efter att ni har godkänt det, och vi hanterar uppgifterna enligt vår <a href="sv/privacy-policy.html">integritetspolicy</a>.</p></div><div class="ai-privacy ai-rise" aria-hidden="true">
       <svg viewBox="0 0 440 320" focusable="false">
@@ -611,9 +1027,9 @@
         </g>
         <g class="ai-priv-gate"><line x1="236" y1="40" x2="236" y2="280"/><line x1="252" y1="40" x2="252" y2="280"/><g transform="translate(244 30)"><rect x="-13" y="-6" width="26" height="20" rx="4"/><path d="M-7-6v-6a7 7 0 0 1 14 0v6" fill="none"/></g></g>
         <g class="ai-priv-dest"><rect x="352" y="104" width="70" height="26" rx="6"/><rect x="352" y="138" width="70" height="26" rx="6"/><rect x="352" y="172" width="70" height="26" rx="6"/><circle cx="368" cy="117" r="3"/><circle cx="368" cy="151" r="3"/><circle cx="368" cy="185" r="3"/></g>
-        <g class="ai-chip ai-chip-1"><circle r="17"/><path d="M0 7C-4 2-6-1-6-4A6 6 0 0 1 6-4C6-1 4 2 0 7Z"/><circle cy="-4" r="2"/></g>
-        <g class="ai-chip ai-chip-2"><circle r="17"/><path d="M5-6a7 7 0 1 0 0 12M-8-2h9M-8 2h9"/></g>
-        <g class="ai-chip ai-chip-3"><circle r="17"/><path d="M-7 1l7-7 7 7M-5-1v8h10v-8"/></g>
+        <g class="ai-pchip ai-pchip-1"><circle r="17"/><path d="M0 7C-4 2-6-1-6-4A6 6 0 0 1 6-4C6-1 4 2 0 7Z"/><circle cy="-4" r="2"/></g>
+        <g class="ai-pchip ai-pchip-2"><circle r="17"/><path d="M5-6a7 7 0 1 0 0 12M-8-2h9M-8 2h9"/></g>
+        <g class="ai-pchip ai-pchip-3"><circle r="17"/><path d="M-7 1l7-7 7 7M-5-1v8h10v-8"/></g>
       </svg>
     </div></div></section>
     <section class="section segment-faq-section"><div class="section-inner">
@@ -632,20 +1048,12 @@
         <p>Allt ni skulle berätta för en rådgivare om bostaden ni söker: område, budget, antal sovrum, villa eller lägenhet, inflyttningsklar eller köp på ritning, havsutsikt, golf eller egen pool. Ni kan också fråga om ett enskilt projekt i detalj.</p>
       </details>
       <details class="segment-faq-item">
-        <summary>Hur många projekt visar den?</summary>
-        <p>Upp till sex per sökning. Om fler passar föreslår assistenten hur sökningen kan smalnas av, efter område, budget eller typ, och söker igen tillsammans med er.</p>
-      </details>
-      <details class="segment-faq-item">
         <summary>Är priserna aktuella?</summary>
         <p>Det är listpriserna som visas på varje projektsida, med datum för när de senast kontrollerades. Det är exploatörens priser före IVA och köpkostnader, och vi bekräftar pris och tillgänglighet på nytt före varje reservation.</p>
       </details>
       <details class="segment-faq-item">
         <summary>Hittar den på något?</summary>
         <p>Anslutningen returnerar bara det som står på våra projektsidor, och assistenten har instruktioner om att inte hitta på projekt, bostäder, priser eller datum. En assistent kan ändå göra fel, så kontrollera allt viktigt på projektsidan eller hos oss.</p>
-      </details>
-      <details class="segment-faq-item">
-        <summary>Delas mina uppgifter?</summary>
-        <p>Bara om ni ber om att bli kontaktade. Då går ert namn och er e-postadress, och ert telefonnummer och meddelande om ni anger dem, till en rådgivare på Nueva Living när ni har godkänt det. Vår integritetspolicy förklarar hur vi hanterar dem.</p>
       </details>
       <details class="segment-faq-item">
         <summary>Hur når jag en person?</summary>
@@ -674,46 +1082,163 @@
       });
     }
 
-    // The chat demo: type a prompt, think, answer, hold, fade, next. Runs only while on screen.
-    const chat = document.querySelector('[data-ai-chat]');
-    if (!chat) return;
-    const prompts = Array.from(document.querySelectorAll('.ai-prompts li')).map((li) => li.textContent.trim());
-    const focus = ['w', 'e', 'm'];
-    const typed = chat.querySelector('.ai-typed');
-    const wait = (ms) => new Promise((done) => setTimeout(done, ms));
-    let visible = false;
-    let running = false;
-    const showDone = (i) => { typed.textContent = prompts[i]; chat.dataset.focus = focus[i]; chat.className = 'ai-chat is-results'; };
-    if (reduce || !prompts.length) { if (prompts.length) showDone(0); return; }
-    async function loop() {
-      if (running) return;
-      running = true;
-      let i = 0;
-      while (visible) {
-        chat.className = 'ai-chat is-typing';
-        chat.dataset.focus = focus[i % focus.length];
-        typed.textContent = '';
-        const text = prompts[i];
-        for (let c = 1; c <= text.length && visible; c += 1) {
-          typed.textContent = text.slice(0, c);
-          await wait(text[c - 1] === ' ' ? 55 : 28 + Math.random() * 30);
-        }
-        await wait(380);
-        chat.className = 'ai-chat is-sent is-thinking';
-        await wait(1300);
-        chat.className = 'ai-chat is-results';
-        await wait(5200);
-        chat.classList.add('is-fading');
-        await wait(650);
-        i = (i + 1) % prompts.length;
+
+    // ---- Search preview ----------------------------------------------------------------------
+    const T = {};
+    document.querySelectorAll('[data-t]').forEach((el) => { T[el.dataset.t] = el.textContent.trim(); });
+    const tryRoot = document.getElementById('try');
+    const setTab = (() => {
+      const list = document.querySelector('.ai-tabs');
+      if (!list) return () => {};
+      const tabs = Array.from(list.querySelectorAll('[data-tab]'));
+      list.hidden = false;
+      const panels = tabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
+      panels.forEach((panel, i) => { panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', tabs[i].id); panel.tabIndex = 0; });
+      tabs.forEach((tab) => tab.setAttribute('role', 'tab'));
+      list.setAttribute('role', 'tablist');
+      function select(name, focus) {
+        tabs.forEach((tab, i) => {
+          const on = tab.dataset.tab === name;
+          tab.setAttribute('aria-selected', on ? 'true' : 'false');
+          tab.tabIndex = on ? 0 : -1;
+          if (panels[i].hidden === on) { panels[i].hidden = !on; if (on && !reduce) { panels[i].classList.remove('is-in'); void panels[i].offsetWidth; panels[i].classList.add('is-in'); } }
+          if (on && focus) tab.focus({ preventScroll: true });
+        });
       }
-      running = false;
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => select(tab.dataset.tab, false));
+        tab.addEventListener('keydown', (event) => {
+          const rtl = getComputedStyle(list).direction === 'rtl';
+          const step = { ArrowRight: rtl ? -1 : 1, ArrowLeft: rtl ? 1 : -1 }[event.key];
+          let next = null;
+          if (step) next = (i + step + tabs.length) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          if (next == null) return;
+          event.preventDefault();
+          select(tabs[next].dataset.tab, true);
+        });
+      });
+      select(location.hash === '#chatgpt' ? 'chatgpt' : 'claude', false);
+      return select;
+    })();
+
+    if (tryRoot) {
+      tryRoot.querySelectorAll('[data-js-only]').forEach((el) => { el.hidden = false; });
+      const bank = {};
+      tryRoot.querySelectorAll('.ai-bank [data-q]').forEach((el) => {
+        bank[el.dataset.q] = { text: el.textContent.trim(), cards: el.dataset.cards.split(' ').filter(Boolean) };
+      });
+      const cards = {};
+      tryRoot.querySelectorAll('[data-card]').forEach((el) => { cards[el.dataset.card] = el; });
+      const question = tryRoot.querySelector('[data-question]');
+      const outs = document.querySelectorAll('[data-question-out]');
+      const empty = tryRoot.querySelector('[data-empty]');
+      const count = tryRoot.querySelector('[data-count]');
+      const prev = tryRoot.querySelector('[data-step="-1"]');
+      const next = tryRoot.querySelector('[data-step="1"]');
+      let brief = 'E';
+      let picked = [];
+      let index = 0;
+      let shown = Object.keys(cards)[0] || null;
+      let leaving = null;
+      let leaveTimer = 0;
+
+      function showCard(id, animate) {
+        if (id === shown) return;
+        clearTimeout(leaveTimer);
+        if (leaving) { leaving.hidden = true; leaving.classList.remove('is-out'); leaving = null; }
+        const old = shown ? cards[shown] : null;
+        if (old) {
+          if (animate && !reduce && id) {
+            old.classList.remove('is-in');
+            old.classList.add('is-out');
+            leaving = old;
+            leaveTimer = setTimeout(() => { old.hidden = true; old.classList.remove('is-out'); leaving = null; }, 380);
+          } else old.hidden = true;
+        }
+        shown = id;
+        if (!id) return;
+        const card = cards[id];
+        card.hidden = false;
+        card.classList.remove('is-in');
+        if (animate && !reduce) { void card.offsetWidth; card.classList.add('is-in'); }
+      }
+
+      function render(animate) {
+        const key = brief + picked.reduce((mask, k) => mask | k, 0);
+        const entry = bank[key];
+        if (!entry) return;
+        if (question.textContent !== entry.text) {
+          question.textContent = entry.text;
+          if (animate && !reduce) { question.classList.remove('is-swap'); void question.offsetWidth; question.classList.add('is-swap'); }
+        }
+        outs.forEach((el) => { el.textContent = entry.text; });
+        const total = entry.cards.length;
+        index = Math.max(0, Math.min(index, total - 1));
+        showCard(total ? entry.cards[index] : null, animate);
+        empty.hidden = total > 0;
+        count.textContent = total ? (index + 1) + ' / ' + total : '0 / 0';
+        prev.disabled = index <= 0;
+        next.disabled = index >= total - 1;
+        tryRoot.querySelectorAll('[data-brief]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.brief === brief ? 'true' : 'false'));
+        tryRoot.querySelectorAll('.ai-refine-set').forEach((set) => {
+          set.hidden = set.dataset.for !== brief;
+          set.querySelectorAll('[data-r]').forEach((chip) => chip.setAttribute('aria-pressed', picked.includes(Number(chip.dataset.r)) ? 'true' : 'false'));
+        });
+      }
+
+      tryRoot.querySelectorAll('[data-brief]').forEach((b) => b.addEventListener('click', () => {
+        if (b.dataset.brief === brief && !picked.length) return;
+        brief = b.dataset.brief; picked = []; index = 0; render(true);
+      }));
+      tryRoot.querySelectorAll('[data-r]').forEach((chip) => chip.addEventListener('click', () => {
+        const k = Number(chip.dataset.r);
+        picked = picked.includes(k) ? picked.filter((x) => x !== k) : picked.concat(k);
+        index = 0; render(true);
+      }));
+      tryRoot.querySelector('[data-broaden]').addEventListener('click', () => { picked = picked.slice(0, -1); index = 0; render(true); });
+      [prev, next].forEach((btn) => btn.addEventListener('click', () => { index += Number(btn.dataset.step); render(true); }));
+      tryRoot.querySelectorAll('[data-use]').forEach((link) => link.addEventListener('click', (event) => {
+        const setup = document.getElementById('setup');
+        if (!setup) return;
+        event.preventDefault();
+        setTab(link.dataset.use, false);
+        setup.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        const tab = document.querySelector('[data-tab="' + link.dataset.use + '"]');
+        if (tab) setTimeout(() => tab.focus({ preventScroll: true }), reduce ? 0 : 450);
+      }));
+      render(false);
     }
-    showDone(0);
-    new IntersectionObserver((entries) => {
-      visible = entries[0].isIntersecting;
-      if (visible) loop();
-    }, { threshold: 0.35 }).observe(chat);
+
+    // ---- Copy buttons ------------------------------------------------------------------------
+    document.querySelectorAll('[data-copy]').forEach((btn) => {
+      btn.hidden = false;
+      const source = document.getElementById(btn.dataset.copy);
+      const status = btn.parentElement.querySelector('.ai-copy-status');
+      let timer = 0;
+      const done = () => {
+        status.textContent = T.copied || '';
+        btn.classList.add('is-done');
+        clearTimeout(timer);
+        timer = setTimeout(() => { status.textContent = ''; btn.classList.remove('is-done'); }, 2600);
+      };
+      const failed = () => {
+        const range = document.createRange();
+        range.selectNodeContents(source);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        status.textContent = T.copyFail || '';
+      };
+      btn.addEventListener('click', () => {
+        const text = source.textContent.trim();
+        try {
+          if (!navigator.clipboard || !navigator.clipboard.writeText) { failed(); return; }
+          navigator.clipboard.writeText(text).then(done, failed);
+        } catch (error) { failed(); }
+      });
+    });
   })();
 </script>
     

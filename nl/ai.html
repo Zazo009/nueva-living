@@ -163,14 +163,6 @@
     },
     {
       "@type": "Question",
-      "name": "Hoeveel projecten toont het?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Maximaal zes per zoekopdracht. Passen er meer, dan stelt de assistent voor hoe u de zoekopdracht kunt verfijnen, op gebied, budget of type, en zoekt hij opnieuw met u."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "Zijn de prijzen actueel?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -183,14 +175,6 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "De connector geeft alleen terug wat op onze projectpagina's staat, en de assistent heeft de instructie geen projecten, woningen, prijzen of data te verzinnen. Een assistent kan zich toch vergissen, dus controleer alles wat belangrijk is op de projectpagina of bij ons."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Worden mijn gegevens gedeeld?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Alleen als u vraagt om contact. Dan gaan uw naam en e-mailadres, en uw telefoonnummer en bericht als u die opgeeft, na uw toestemming naar een adviseur van Nueva Living. Ons privacybeleid legt uit hoe wij daarmee omgaan."
       }
     },
     {
@@ -405,9 +389,10 @@
       <div class="hero-inner">
         <h1 class="display-title">
           <span class="kicker">Nueva Living in uw assistent</span>
-          <span class="display-title-line">Zoek nieuwbouw aan de Costa del Sol <em>in ChatGPT en Claude</em></span>
+          <span class="display-title-line">Wat zou u vragen <em>over de Costa del Sol?</em></span>
         </h1>
-        <p class="lead">Beschrijf in uw eigen woorden wat u zoekt. De assistent antwoordt met maximaal zes projecten van onze eigen projectpagina's, met foto's, lijstprijzen, opleverdata en een kaart, en verfijnt daarna samen met u de zoekopdracht.</p>
+        <p class="lead">Voeg Nueva Living toe aan ChatGPT of Claude en zoek nieuwbouw aan de Costa del Sol in uw eigen woorden. Probeer hier eerst een zoekopdracht en neem die daarna mee naar uw assistent.</p>
+        <div class="ai-hero-actions"><a class="btn" href="nl/ai.html#try">Probeer een zoekopdracht</a><a class="btn ghost" href="nl/ai.html#setup">Instellen</a></div>
 
       </div>
     </section>
@@ -449,53 +434,6 @@
   .ai-wait:not(.is-in) .card-number::before { --ai-ring: 0%; }
   .ai-page #chatgpt .card-number { color: var(--bronze-light); }
 
-  /* Chat demo */
-  .ai-demo { margin: clamp(30px, 4vw, 52px) auto clamp(30px, 4vw, 48px); max-width: 780px; }
-  .ai-chat { background: #fffdf8; border: 1px solid var(--line); border-radius: 22px; box-shadow: 0 40px 100px rgba(47,36,23,.16), 0 6px 18px rgba(47,36,23,.06); overflow: hidden; }
-  .ai-chat-bar { display: flex; gap: 7px; padding: 14px 18px; border-bottom: 1px solid var(--line); background: var(--cream); }
-  .ai-chat-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--sand); }
-  .ai-chat-body { padding: clamp(18px, 3vw, 30px); display: grid; gap: 18px; min-height: 430px; align-content: start; }
-  .ai-msg-user { justify-self: end; max-width: 86%; background: var(--deep); color: var(--ivory); padding: 14px 18px; border-radius: 18px 18px 4px 18px; font-size: 14px; line-height: 1.55; min-height: 50px; transition: opacity .5s ease; }
-  html[lang^="ar"] .ai-msg-user { border-radius: 18px 18px 18px 4px; }
-  .ai-caret { display: inline-block; width: 2px; height: 1.1em; background: var(--bronze-light); vertical-align: -0.18em; margin-inline-start: 2px; animation: aiCaret 1s steps(1) infinite; }
-  @keyframes aiCaret { 50% { opacity: 0; } }
-  .ai-chat:not(.is-typing) .ai-caret { display: none; }
-  .ai-msg-bot { display: grid; gap: 14px; }
-  .ai-dots { display: flex; gap: 6px; padding: 12px 16px; background: var(--cream); border-radius: 16px; width: max-content; opacity: 0; transition: opacity .3s; }
-  .ai-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--bronze); animation: aiDot 1.2s ease-in-out infinite; }
-  .ai-dots i:nth-child(2) { animation-delay: .15s; } .ai-dots i:nth-child(3) { animation-delay: .3s; }
-  @keyframes aiDot { 30% { transform: translateY(-5px); opacity: .5; } }
-  .ai-chat.is-thinking .ai-dots { opacity: 1; }
-  .ai-chat.is-results .ai-dots { display: none; }
-  .ai-results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-  .ai-tile { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; gap: 7px; padding-bottom: 12px; opacity: 0; transform: translateY(16px) scale(.97); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i) * .16s); }
-  .ai-tile-art { aspect-ratio: 16 / 10; overflow: hidden; }
-  .ai-tile-art svg { width: 100%; height: 100%; display: block; transform: scale(1.12); transition: transform 5s ease-out; }
-  .ai-tile b { height: 7px; border-radius: 4px; background: var(--sand); margin-inline: 12px; width: 70%; }
-  .ai-tile b + b { width: 46%; }
-  .ai-tile .ai-tile-price { width: 34%; background: var(--bronze-light); height: 9px; }
-  .ai-chat.is-results .ai-tile { opacity: 1; transform: none; }
-  .ai-chat.is-results .ai-tile-art svg { transform: scale(1); }
-  .ai-map { border-radius: 12px; overflow: hidden; background: #e7eef0; border: 1px solid var(--line); opacity: 0; transition: opacity .6s ease .5s; }
-  .ai-map svg { display: block; width: 100%; height: auto; }
-  .ai-map-land { fill: #efe6d3; } .ai-map-coast { fill: none; stroke: #c9b48b; stroke-width: 1.5; }
-  .ai-chat.is-results .ai-map { opacity: 1; }
-  .ai-pin path { fill: var(--sand); } .ai-pin circle { fill: #fff; }
-  .ai-pin .ai-pin-drop { transform: translateY(-40px); opacity: 0; transition: transform .55s cubic-bezier(.3,1.6,.5,1), opacity .3s; transition-delay: calc(.8s + var(--i) * .07s); }
-  .ai-chat.is-results .ai-pin-drop { transform: none; opacity: 1; }
-  .ai-chat[data-focus="w"] .ai-pin[data-c="w"] path, .ai-chat[data-focus="m"] .ai-pin[data-c="m"] path, .ai-chat[data-focus="e"] .ai-pin[data-c="e"] path { fill: var(--bronze); }
-  .ai-chat[data-focus="w"] .ai-tile, .ai-chat[data-focus="w"] .ai-tile-art { --sky: #f6dfb5; --sun: #f0b65e; --hill: #b9a37a; --glass: #8fb3bf; --pool: #5fa8bb; --ground: #d8c8a6; --palm: #6f7f4f; }
-  .ai-chat[data-focus="e"] .ai-tile-art { --sky: #cfe2e9; --sun: #fbe3a8; --hill: #a9b38f; --glass: #7fa6b5; --pool: #4f9db5; --ground: #d5ccb2; --palm: #5f7350; }
-  .ai-chat[data-focus="m"] .ai-tile-art { --sky: #e9c9b0; --sun: #e79a62; --hill: #9e8a68; --glass: #8aa1ab; --pool: #5a93a6; --ground: #cdbb98; --palm: #66704a; }
-  .ai-chat.is-fading .ai-msg-user, .ai-chat.is-fading .ai-msg-bot { opacity: 0; transition: opacity .5s ease; }
-  .ai-composer { display: flex; align-items: center; gap: 12px; margin: 0 clamp(18px, 3vw, 30px) clamp(18px, 3vw, 26px); padding: 10px 10px 10px 18px; border: 1px solid var(--line); border-radius: 999px; }
-  .ai-composer span { flex: 1; height: 8px; border-radius: 4px; background: var(--cream); }
-  .ai-composer svg { width: 34px; height: 34px; padding: 8px; border-radius: 50%; background: var(--deep); color: var(--bronze-light); }
-  html[lang^="ar"] .ai-composer svg { transform: scaleX(-1); }
-  .ai-chat.is-sent .ai-composer svg { animation: aiSend .5s ease; }
-  @keyframes aiSend { 50% { transform: scale(.82); } }
-  @media (max-width: 640px) { .ai-results { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ai-results .ai-tile:nth-child(3) { display: none; } .ai-chat-body { min-height: 400px; } }
-
   /* Address flow */
   .ai-flow { margin: clamp(30px, 4vw, 48px) auto 0; max-width: 960px; }
   .ai-flow svg { width: 100%; height: auto; display: block; overflow: visible; }
@@ -530,37 +468,509 @@
   .ai-priv-dest rect { fill: var(--deep); } .ai-priv-dest circle { fill: var(--bronze-light); animation: aiBlink 2.4s ease-in-out infinite; }
   .ai-priv-dest circle:nth-of-type(2) { animation-delay: .8s; } .ai-priv-dest circle:nth-of-type(3) { animation-delay: 1.6s; }
   @keyframes aiBlink { 50% { opacity: .3; } }
-  .ai-chip circle:first-child { fill: var(--bronze-light); }
-  .ai-chip path { fill: none; stroke: var(--deep); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .ai-chip-1 path { fill: var(--deep); stroke: none; } .ai-chip-1 circle + path + circle { fill: var(--bronze-light); }
-  .ai-chip { offset-path: path("M140 160 C 200 160 210 160 244 160 C 290 160 320 150 387 150"); offset-rotate: 0deg; animation: aiChip 6s cubic-bezier(.5,0,.3,1) infinite; opacity: 0; }
-  .ai-chip-2 { animation-delay: 2s; } .ai-chip-3 { animation-delay: 4s; }
+  .ai-pchip circle:first-child { fill: var(--bronze-light); }
+  .ai-pchip path { fill: none; stroke: var(--deep); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .ai-pchip-1 path { fill: var(--deep); stroke: none; } .ai-pchip-1 circle + path + circle { fill: var(--bronze-light); }
+  .ai-pchip { offset-path: path("M140 160 C 200 160 210 160 244 160 C 290 160 320 150 387 150"); offset-rotate: 0deg; animation: aiChip 6s cubic-bezier(.5,0,.3,1) infinite; opacity: 0; }
+  .ai-pchip-2 { animation-delay: 2s; } .ai-pchip-3 { animation-delay: 4s; }
   @keyframes aiChip { 0% { offset-distance: 0%; opacity: 0; } 8% { opacity: 1; } 55% { offset-distance: 100%; opacity: 1; } 62%, 100% { offset-distance: 100%; opacity: 0; } }
+
+  /* The page's own display rules must never beat the hidden attribute. */
+  .ai-page [hidden] { display: none; }
+  .ai-page .ai-tabs[hidden], .ai-page .ai-result-nav[hidden] { display: none; }
+
+  /* Hero actions */
+  .ai-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .ai-hero-actions .btn.ghost { color: var(--ivory); border-color: rgba(255,250,243,.45); background: transparent; }
+
+  /* Search preview */
+  .ai-try-grid { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.18fr); gap: clamp(28px, 4.5vw, 64px); align-items: start; margin-top: clamp(26px, 3.5vw, 44px); }
+  .ai-try-ask, .ai-try-result { min-width: 0; }
+  .ai-try-ask { display: grid; gap: 26px; align-content: start; }
+  .ai-control-label { margin: 0 0 12px; font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--bronze); }
+  .ai-briefs, .ai-refine-set { display: flex; flex-wrap: wrap; gap: 10px; }
+  .ai-brief, .ai-chip { font: 500 13px/1.2 "Montserrat", Arial, sans-serif; letter-spacing: .02em; color: var(--ink); background: rgba(255,253,248,.7); border: 1px solid var(--line); padding: 12px 18px; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .15s ease; }
+  .ai-brief:hover, .ai-chip:hover { border-color: var(--bronze-light); }
+  .ai-brief:active, .ai-chip:active { transform: scale(.97); }
+  .ai-brief[aria-pressed="true"] { background: var(--deep); color: var(--ivory); border-color: var(--deep); }
+  .ai-chip-mark { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--bronze-light); position: relative; flex: none; transition: background-color .25s ease; }
+  .ai-chip[aria-pressed="true"] { background: rgba(201,163,95,.18); border-color: var(--bronze); color: var(--deep); }
+  .ai-chip[aria-pressed="true"] .ai-chip-mark { background: var(--bronze); border-color: var(--bronze); }
+  .ai-chip[aria-pressed="true"] .ai-chip-mark::after { content: ""; position: absolute; left: 4px; top: 1.5px; width: 3.5px; height: 7px; border: solid #fffaf3; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+  .ai-brief:focus-visible, .ai-chip:focus-visible, .ai-nav-btn:focus-visible, .ai-tabs [role="tab"]:focus-visible, .ai-copy-btn:focus-visible, .ai-result a:focus-visible, .ai-panel:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+  .ai-question { background: #fffdf8; border: 1px solid var(--line); border-inline-start: 3px solid var(--bronze-light); padding: 20px 22px; box-shadow: 0 18px 50px rgba(41,36,27,.06); }
+  .ai-question-text { margin: 0; font-family: "Cinzel", Georgia, serif; font-size: clamp(18px, 2vw, 22px); line-height: 1.45; color: var(--deep); min-height: 2.9em; }
+  .ai-question-text.is-swap { animation: aiSettle .45s cubic-bezier(.2,.7,.2,1); }
+  @keyframes aiSettle { from { opacity: .2; transform: translateY(5px); } }
+  .ai-use { display: flex; flex-wrap: wrap; gap: 10px; }
+  .ai-note { margin: 0; font-size: 12px; line-height: 1.6; color: var(--muted); max-width: 46ch; }
+  .ai-stage { position: relative; }
+  .ai-result { background: #fffdf8; border: 1px solid var(--line); box-shadow: 0 30px 80px rgba(41,36,27,.12); overflow: hidden; }
+  .ai-result-media { display: block; aspect-ratio: 16 / 10; background: var(--sand); overflow: hidden; }
+  .ai-result-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ai-result-body { padding: clamp(20px, 2.6vw, 30px); min-height: 13.5em; display: grid; align-content: start; gap: 8px; }
+  .ai-result-place { margin: 0; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--bronze); }
+  .ai-result-name { margin: 2px 0 4px; font: 400 clamp(20px, 2.2vw, 26px)/1.25 "Cinzel", Georgia, serif; letter-spacing: .03em; }
+  .ai-result-name a { color: var(--deep); text-decoration: none; }
+  .ai-result-price { margin: 0; font-size: 17px; font-weight: 600; color: var(--deep); }
+  .ai-result-delivery { margin: 0; font-size: 13px; color: var(--muted); }
+  .ai-result-key { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--bronze); margin-inline-end: 6px; }
+  .ai-result-link { justify-self: start; margin-top: 8px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--bronze); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+  .ai-result.is-in .ai-result-media img { animation: aiFade .5s ease; }
+  .ai-result.is-in .ai-result-body > * { animation: aiSettle .5s cubic-bezier(.2,.7,.2,1) backwards; }
+  .ai-result.is-in .ai-result-body > :nth-child(2) { animation-delay: .04s; } .ai-result.is-in .ai-result-body > :nth-child(3) { animation-delay: .08s; } .ai-result.is-in .ai-result-body > :nth-child(n+4) { animation-delay: .12s; }
+  .ai-result.is-out { position: absolute; inset: 0 0 auto; z-index: 1; animation: aiOut .38s ease forwards; pointer-events: none; }
+  @keyframes aiFade { from { opacity: 0; } }
+  @keyframes aiOut { to { opacity: 0; } }
+  .ai-empty { background: #fffdf8; border: 1px dashed var(--line); padding: 34px 28px; display: grid; gap: 16px; justify-items: start; min-height: 18em; align-content: center; }
+  .ai-empty p { margin: 0; font-family: "Cinzel", Georgia, serif; font-size: 20px; color: var(--deep); }
+  .ai-result-nav { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 14px; }
+  .ai-nav-btn { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: #fffdf8; display: grid; place-items: center; cursor: pointer; color: var(--deep); }
+  .ai-nav-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  html[lang^="ar"] .ai-nav-btn svg { transform: scaleX(-1); }
+  .ai-nav-btn:disabled { opacity: .35; cursor: default; }
+  .ai-count { font-size: 13px; letter-spacing: .08em; color: var(--muted); min-width: 4ch; text-align: center; }
+  .ai-qual { margin: 14px 0 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
+  @media (max-width: 860px) {
+    .ai-try-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+    .ai-try-ask { display: contents; }
+    .ai-c-brief { order: 1; } .ai-question { order: 2; } .ai-c-refine { order: 3; } .ai-try-result { order: 4; } .ai-use { order: 5; margin-top: 8px; } .ai-note { order: 6; }
+    .ai-result-body { min-height: 12em; }
+    .ai-briefs { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -4px; padding: 2px 4px 4px; }
+    .ai-briefs::-webkit-scrollbar { display: none; }
+    .ai-brief { flex: none; }
+    .ai-use .btn { flex: 1 1 100%; text-align: center; }
+  }
+
+  /* Setup */
+  .ai-copies { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 16px; margin: clamp(30px, 4vw, 46px) 0 clamp(30px, 4vw, 44px); }
+  .ai-copy { min-width: 0; background: rgba(255,250,243,.05); border: 1px solid rgba(201,163,95,.3); padding: 20px 22px; display: grid; gap: 4px; align-content: start; }
+  .ai-copy .ai-control-label { color: var(--bronze-light); margin-bottom: 6px; }
+  .ai-copy-value { margin: 0 0 12px; color: var(--ivory); font: 500 16px/1.5 "Montserrat", Arial, sans-serif; overflow-wrap: anywhere; user-select: all; }
+  code.ai-copy-value { font-size: 18px; letter-spacing: .02em; }
+  .ai-copy-btn { justify-self: start; font: 600 11px/1 "Montserrat", Arial, sans-serif; letter-spacing: .16em; text-transform: uppercase; color: var(--deep); background: var(--bronze-light); border: 0; padding: 14px 18px; min-height: 44px; cursor: pointer; transition: background-color .2s ease; }
+  .ai-copy-btn.is-done { background: #e8d2a4; }
+  .ai-copy-status { min-height: 1.3em; font-size: 12px; color: var(--bronze-light); margin-top: 6px; }
+  .ai-tabs { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid rgba(201,163,95,.35); border-radius: 999px; margin-bottom: clamp(24px, 3vw, 34px); }
+  .ai-tabs [role="tab"] { font: 500 14px/1 "Montserrat", Arial, sans-serif; letter-spacing: .04em; color: var(--ivory); background: transparent; border: 0; padding: 13px 26px; min-height: 44px; border-radius: 999px; cursor: pointer; }
+  .ai-tabs [role="tab"][aria-selected="true"] { background: var(--bronze-light); color: var(--deep); }
+  .ai-panel + .ai-panel { margin-top: clamp(40px, 5vw, 60px); }
+  .ai-panel[role="tabpanel"] + .ai-panel[role="tabpanel"] { margin-top: 0; }
+  .ai-panel.is-in { animation: aiFade .35s ease; }
+  .ai-setup .ai-panel .card-number { color: var(--bronze-light); }
+  .ai-plan { margin-top: 18px; }
+  @media (max-width: 760px) { .ai-copies { grid-template-columns: minmax(0, 1fr); } .ai-tabs { display: flex; } .ai-tabs [role="tab"] { flex: 1; padding-inline: 10px; } }
 
   @media (prefers-reduced-motion: reduce) {
     .ai-page *, .ai-page *::before { animation: none !important; transition: none !important; }
-    .ai-chip { opacity: 1; offset-distance: 0%; } .ai-chip-1 { offset-distance: 100%; } .ai-chip-2 { offset-distance: 55%; }
+    .ai-pchip { opacity: 1; offset-distance: 0%; } .ai-pchip-1 { offset-distance: 100%; } .ai-pchip-2 { offset-distance: 55%; }
   }
-</style><section class="section"><div class="section-inner"><div class="section-head"><span class="label">Hoe het werkt</span><div class="rule"></div><h2 class="section-title">Vraag het in uw eigen woorden, <em>krijg echte projecten terug</em></h2><p class="body-copy">Voeg Nueva Living één keer toe aan ChatGPT of Claude. Beschrijf daarna in een gewoon bericht welke woning u zoekt, en de assistent doorzoekt de projecten op deze site voor u.</p></div><div class="ai-demo ai-rise" aria-hidden="true">
-      <ul class="ai-prompts" hidden><li>‘Nueva Living, een villa in Estepona onder de 2 miljoen euro met een eigen zwembad en golf in de buurt.’</li><li>‘Nueva Living, instapklare appartementen met twee slaapkamers in Mijas met zeezicht.’</li><li>‘Nueva Living, wat wordt er op dit moment gebouwd in Nueva Andalucía?’</li></ul>
-      <div class="ai-chat" data-ai-chat data-focus="w">
-        <div class="ai-chat-bar"><i></i><i></i><i></i></div>
-        <div class="ai-chat-body">
-          <div class="ai-msg ai-msg-user"><span class="ai-typed"></span><span class="ai-caret"></span></div>
-          <div class="ai-msg ai-msg-bot">
-            <div class="ai-dots"><i></i><i></i><i></i></div>
-            <div class="ai-results"><div class="ai-tile" style="--i:0"><div class="ai-tile-art"><svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="160" height="100" fill="var(--sky)"/><circle cx="124" cy="30" r="13" fill="var(--sun)"/><path d="M0 64 C40 54 80 60 160 52 V100 H0z" fill="var(--hill)"/><rect x="34" y="44" width="62" height="24" fill="#fbf4e6"/><rect x="58" y="34" width="44" height="12" fill="#f3e7d0"/><rect x="40" y="50" width="16" height="12" fill="var(--glass)"/><rect x="62" y="50" width="28" height="12" fill="var(--glass)"/><rect x="18" y="70" width="104" height="12" rx="2" fill="var(--pool)"/><path d="M26 76h18M56 76h22M90 76h16" stroke="#fff" stroke-opacity=".6" stroke-width="1.4"/><rect x="0" y="82" width="160" height="18" fill="var(--ground)"/><path d="M134 82v-26M134 58c-8-2-12 2-14 6M134 58c8-2 12 2 14 6M134 56c-2-6 2-10 6-10" stroke="var(--palm)" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div><b></b><b></b><b class="ai-tile-price"></b></div><div class="ai-tile" style="--i:1"><div class="ai-tile-art"><svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="160" height="100" fill="var(--sky)"/><circle cx="34" cy="26" r="10" fill="var(--sun)"/><rect y="70" width="160" height="30" fill="var(--pool)"/><path d="M0 76h160" stroke="#fff" stroke-opacity=".35"/><path d="M60 72V40h76v32z" fill="#fbf4e6"/><path d="M70 40V28h60v12z" fill="#f3e7d0"/><g fill="var(--glass)"><rect x="66" y="46" width="14" height="8"/><rect x="86" y="46" width="14" height="8"/><rect x="106" y="46" width="14" height="8"/><rect x="66" y="58" width="14" height="8"/><rect x="86" y="58" width="14" height="8"/><rect x="106" y="58" width="14" height="8"/><rect x="78" y="31" width="14" height="6"/><rect x="100" y="31" width="14" height="6"/></g><path d="M60 55h76M60 67h76" stroke="var(--hill)" stroke-width="1.5"/><path d="M0 72 C20 64 40 66 56 72z" fill="var(--hill)"/></svg></div><b></b><b></b><b class="ai-tile-price"></b></div><div class="ai-tile" style="--i:2"><div class="ai-tile-art"><svg viewBox="0 0 160 100" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="160" height="100" fill="var(--sky)"/><circle cx="130" cy="24" r="9" fill="var(--sun)"/><path d="M0 70 C50 60 100 66 160 58V100H0z" fill="var(--hill)"/><rect y="84" width="160" height="16" fill="var(--ground)"/><g stroke="#fbf4e6" stroke-width="3" fill="none"><path d="M44 84V48h60v36M44 60h60M44 72h60M64 48v36M84 48v36"/></g><g stroke="var(--sun)" stroke-width="2" fill="none"><path d="M118 84V16M100 20h52M118 16l-18 4M140 20v14"/><rect x="136" y="34" width="8" height="6"/></g></svg></div><b></b><b></b><b class="ai-tile-price"></b></div></div>
-            <div class="ai-map"><svg viewBox="0 0 400 110" focusable="false"><path class="ai-map-land" d="M0 0H400V22C370 24 340 28 300 36C260 44 240 40 200 44C160 48 120 58 80 62C50 66 24 70 0 74Z"/><path class="ai-map-coast" d="M0 74C24 70 50 66 80 62C120 58 160 48 200 44C240 40 260 44 300 36C340 28 370 24 400 22"/><g class="ai-pin" data-c="w" style="--i:0" transform="translate(62 66)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="w" style="--i:1" transform="translate(88 58)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="w" style="--i:2" transform="translate(112 63)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="m" style="--i:3" transform="translate(168 52)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="m" style="--i:4" transform="translate(196 46)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="m" style="--i:5" transform="translate(222 50)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="e" style="--i:6" transform="translate(296 38)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="e" style="--i:7" transform="translate(322 30)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g><g class="ai-pin" data-c="e" style="--i:8" transform="translate(348 34)"><g class="ai-pin-drop"><path d="M0 0C-6-8-8-11-8-15A8 8 0 0 1 8-15C8-11 6-8 0 0Z"/><circle cy="-15" r="3"/></g></g></svg></div>
-          </div>
+</style><section class="section ai-try" id="try"><div class="section-inner">
+    <div class="section-head"><span class="label">Probeer een zoekopdracht</span><div class="rule"></div><h2 class="section-title">Kies een zoekopdracht <em>en verfijn die</em></h2></div>
+    <div class="ai-try-grid">
+      <div class="ai-try-ask">
+        <div class="ai-controls ai-c-brief" data-js-only hidden>
+          <p class="ai-control-label" id="ai-start-label">Begin met</p>
+          <div class="ai-briefs" role="group" aria-labelledby="ai-start-label"><button type="button" class="ai-brief" data-brief="E" aria-pressed="true">Een villa in Estepona</button><button type="button" class="ai-brief" data-brief="M" aria-pressed="false">Een appartement in Mijas</button><button type="button" class="ai-brief" data-brief="N" aria-pressed="false">Nieuwbouw in Nueva Andalucía</button></div>
         </div>
-        <div class="ai-composer"><span></span><svg viewBox="0 0 24 24" focusable="false"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ai-question">
+          <p class="ai-control-label">Uw vraag</p>
+          <p class="ai-question-text" data-question aria-live="polite">Ik zoek een villa in Estepona.</p>
+        </div>
+        <div class="ai-controls ai-c-refine" data-js-only hidden>
+          <p class="ai-control-label" id="ai-refine-label">Verfijnen</p>
+          <div class="ai-refine" role="group" aria-labelledby="ai-refine-label"><div class="ai-refine-set" data-for="E"><button type="button" class="ai-chip" data-r="1" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Onder € 2 miljoen</button><button type="button" class="ai-chip" data-r="2" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Privézwembad</button></div><div class="ai-refine-set" data-for="M" hidden><button type="button" class="ai-chip" data-r="1" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Sleutelklaar</button><button type="button" class="ai-chip" data-r="2" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Onder € 500.000</button></div><div class="ai-refine-set" data-for="N" hidden><button type="button" class="ai-chip" data-r="1" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Sleutelklaar</button><button type="button" class="ai-chip" data-r="2" aria-pressed="false"><span class="ai-chip-mark" aria-hidden="true"></span>Onder € 1,5 miljoen</button></div></div>
+        </div>
+        <div class="ai-use">
+          <a class="btn" href="nl/ai.html#setup" data-use="chatgpt">Deze zoekopdracht gebruiken in ChatGPT</a>
+          <a class="btn ghost" href="nl/ai.html#setup" data-use="claude">Deze zoekopdracht gebruiken in Claude</a>
+        </div>
+        <p class="ai-note">Een begeleide preview op basis van onze projectpagina's, geen live assistent. In ChatGPT of Claude komt het antwoord van dezelfde pagina's.</p>
       </div>
-    </div><div class="cards">
-      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect pathLength="1" x="11" y="22" width="26" height="19" rx="3"/><path pathLength="1" d="M17 22v-6a8 8 0 0 1 15-4"/><circle pathLength="1" cx="24" cy="31" r="2.4"/><line pathLength="1" x1="24" y1="33.5" x2="24" y2="36"/></g></svg><h3>Gratis, zonder account</h3><p>Niets om u voor in te schrijven en niets te betalen. U voegt één adres toe en kunt meteen vragen stellen.</p></article>
-      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M6 10h22a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H16l-6 5v-5H6a3 3 0 0 1-3-3V13a3 3 0 0 1 3-3z"/><path pathLength="1" d="M34 19h8a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2v5l-6-5h-9a3 3 0 0 1-3-3v-2"/><path pathLength="1" d="M10 16h14M14 16c0 5 4 8 8 8M20 16c0 5-4 8-8 8"/></g></svg><h3>Tien talen</h3><p>Vraag in het Engels, Spaans, Frans, Duits, Russisch, Arabisch, Nederlands, Pools, Zweeds of Noors. Namen, prijzen en data komen terug in uw taal.</p></article>
-      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M8 6h16l6 6v24H8z"/><path pathLength="1" d="M24 6v6h6"/><line pathLength="1" x1="13" y1="19" x2="25" y2="19"/><line pathLength="1" x1="13" y1="24" x2="25" y2="24"/><path pathLength="1" d="M30 18h6l6 6v18H24v-6"/><polyline pathLength="1" points="29 33 32 36 38 29"/></g></svg><h3>Dezelfde cijfers als op onze pagina's</h3><p>Elk antwoord komt van onze eigen projectpagina's. De prijzen zijn lijstprijzen van de ontwikkelaar, exclusief btw en aankoopkosten, en worden vóór elke reservering opnieuw bevestigd. De beelden zijn grotendeels renders.</p></article>
-    </div></div></section>
-    <section class="section quiet-band"><div class="section-inner"><div class="section-head center"><span class="label">Het adres</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Eén adres <em>voor elke assistent</em></h2><p class="body-copy" dir="ltr" style="margin:26px auto 0;font-size:clamp(20px,2.6vw,30px);letter-spacing:0.02em;overflow-wrap:anywhere;"><code style="font-family:inherit;user-select:all;">https://nuevaliving.com/mcp</code></p><p class="body-copy" style="margin-left:auto;margin-right:auto;">Zonder inloggen, via Streamable HTTP. Elke assistent die een externe MCP-server accepteert, kan het gebruiken.</p></div><div class="ai-flow ai-rise" aria-hidden="true" dir="ltr">
+      <div class="ai-try-result">
+        <div class="ai-stage" data-stage><article class="ai-result" data-card="r0">
+          <a class="ai-result-media" href="nl/property-atalaya-pool-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-640.webp 640w, assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day-960.webp 960w, assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/atalaya-pool-villas/media/exterior-pool-day.jpg" alt="Vrijstaande villa met infinity pool en tuin in Atalaya, Estepona" width="1920" height="1080" fetchpriority="high" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Atalaya, Estepona &middot; Vrijstaande Villa's</p>
+            <h3 class="ai-result-name"><a href="nl/property-atalaya-pool-villas.html">Atalaya Pool Villas</a></h3>
+            <p class="ai-result-price">Vanaf € 1.530.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K4 2027 / K1 2028</p>
+            <a class="ai-result-link" href="nl/property-atalaya-pool-villas.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r1" hidden>
+          <a class="ai-result-media" href="nl/property-playa-del-angel-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/playa-del-angel-residences/media/villa-from-the-garden-640.webp 640w, assets/liora/projects/playa-del-angel-residences/media/villa-from-the-garden-960.webp 960w, assets/liora/projects/playa-del-angel-residences/media/villa-from-the-garden.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/playa-del-angel-residences/media/villa-from-the-garden.jpg" alt="Impressie van de ontwikkelaar: een villa aan het strand vanaf het gazon, met het zwembad aan de voorzijde" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Playa del Ángel, Estepona &middot; Appartementen, penthouses en villa's</p>
+            <h3 class="ai-result-name"><a href="nl/property-playa-del-angel-residences.html">Playa del Ángel Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 12.750.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Oplevering K4 2027 - K1 2028</p>
+            <a class="ai-result-link" href="nl/property-playa-del-angel-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r2" hidden>
+          <a class="ai-result-media" href="nl/property-bel-air-villa-collection.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-640.webp 640w, assets/liora/projects/bel-air-villa-collection/media/exterior-frontview-960.webp 960w, assets/liora/projects/bel-air-villa-collection/media/exterior-frontview.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/bel-air-villa-collection/media/exterior-frontview.jpg" alt="Eigentijdse voorgevel van de villa met zwembadterras en aangelegde tuin" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Bel Air, Estepona &middot; Vrijstaande Villa's</p>
+            <h3 class="ai-result-name"><a href="nl/property-bel-air-villa-collection.html">Villa Collectie Bel Air</a></h3>
+            <p class="ai-result-price">Vanaf € 2.400.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K4 2026</p>
+            <a class="ai-result-link" href="nl/property-bel-air-villa-collection.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r3" hidden>
+          <a class="ai-result-media" href="nl/property-el-campanario-golf-villa.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool-640.webp 640w, assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool-960.webp 960w, assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/el-campanario-golf-villa/media/villa-garden-pool.jpg" alt="De villa vanuit de tuin, met het zwembad en de overkragende bovenverdieping" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">El Campanario, Estepona &middot; Vrijstaande villa</p>
+            <h3 class="ai-result-name"><a href="nl/property-el-campanario-golf-villa.html">El Campanario Golf Villa</a></h3>
+            <p class="ai-result-price">Vanaf € 2.350.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K4 2026 / K1 2027</p>
+            <a class="ai-result-link" href="nl/property-el-campanario-golf-villa.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r4" hidden>
+          <a class="ai-result-media" href="nl/property-la-resina-valley-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/la-resina-valley-villas/media/the-largest-villa-640.webp 640w, assets/liora/projects/la-resina-valley-villas/media/the-largest-villa-960.webp 960w, assets/liora/projects/la-resina-valley-villas/media/the-largest-villa.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/la-resina-valley-villas/media/the-largest-villa.jpg" alt="De grootste villa op haar dubbele perceel, het gazon loopt af naar het zwembad" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">La Resina, Estepona &middot; Villa's</p>
+            <h3 class="ai-result-name"><a href="nl/property-la-resina-valley-villas.html">La Resina Valley Villas</a></h3>
+            <p class="ai-result-price">Vanaf € 3.250.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Villa’s 1-4: K3 2026 / Villa’s 5-8: K4 2027</p>
+            <a class="ai-result-link" href="nl/property-la-resina-valley-villas.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r5" hidden>
+          <a class="ai-result-media" href="nl/property-fairway-grove-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/fairway-grove-villas/media/premium-villa-pool-pergola-640.webp 640w, assets/liora/projects/fairway-grove-villas/media/premium-villa-pool-pergola-960.webp 960w, assets/liora/projects/fairway-grove-villas/media/premium-villa-pool-pergola.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/fairway-grove-villas/media/premium-villa-pool-pergola.jpg" alt="Premiumvilla met privézwembad en een met travertin beklede pergola boven het terras" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">El Campanario, Estepona &middot; Vrijstaande villa</p>
+            <h3 class="ai-result-name"><a href="nl/property-fairway-grove-villas.html">Fairway Grove Villas</a></h3>
+            <p class="ai-result-price">Vanaf € 1.950.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Fase 1: zomer 2027 / Fase 2: K4 2027</p>
+            <a class="ai-result-link" href="nl/property-fairway-grove-villas.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r6" hidden>
+          <a class="ai-result-media" href="nl/property-meridian-golf-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/meridian-golf-villas/media/aerial-view-complex-daytime-640.webp 640w, assets/liora/projects/meridian-golf-villas/media/aerial-view-complex-daytime-960.webp 960w, assets/liora/projects/meridian-golf-villas/media/aerial-view-complex-daytime.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/meridian-golf-villas/media/aerial-view-complex-daytime.jpg" alt="Luchtfoto van het villacomplex naast de golfbaan" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">New Golden Mile, Estepona &middot; Villa</p>
+            <h3 class="ai-result-name"><a href="nl/property-meridian-golf-villas.html">Meridian Golf Villas</a></h3>
+            <p class="ai-result-price">Vanaf € 1.550.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Verwacht K2 2027</p>
+            <a class="ai-result-link" href="nl/property-meridian-golf-villas.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r7" hidden>
+          <a class="ai-result-media" href="nl/property-valle-romano-hilltop-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden-640.webp 640w, assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden-960.webp 960w, assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden.jpg" alt="Dezelfde villa vanuit de tuin, met de bovenverdieping over het terras uitkragend" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Valle Romano, Estepona &middot; Vrijstaande Villa's</p>
+            <h3 class="ai-result-name"><a href="nl/property-valle-romano-hilltop-villas.html">Valle Romano Hilltop Villas</a></h3>
+            <p class="ai-result-price">Vanaf € 1.590.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K4 2027</p>
+            <a class="ai-result-link" href="nl/property-valle-romano-hilltop-villas.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r8" hidden>
+          <a class="ai-result-media" href="nl/property-cedro-golf-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/cedro-golf-villas/media/garden-facade-pergola-640.webp 640w, assets/liora/projects/cedro-golf-villas/media/garden-facade-pergola-960.webp 960w, assets/liora/projects/cedro-golf-villas/media/garden-facade-pergola.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/cedro-golf-villas/media/garden-facade-pergola.jpg" alt="Computergegenereerde weergave van een witte halfvrijstaande woning met een grijze bovenverdieping, een pergola op het dak en een gazon" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Atalaya Golf, Estepona &middot; Halfvrijstaande woningen</p>
+            <h3 class="ai-result-name"><a href="nl/property-cedro-golf-villas.html">Cedro Golf Villas</a></h3>
+            <p class="ai-result-price">Vanaf € 775.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Nog te bevestigen</p>
+            <a class="ai-result-link" href="nl/property-cedro-golf-villas.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r9" hidden>
+          <a class="ai-result-media" href="nl/property-selwo-sea-terraces.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/selwo-sea-terraces/media/blocks-and-pool-640.webp 640w, assets/liora/projects/selwo-sea-terraces/media/blocks-and-pool-960.webp 960w, assets/liora/projects/selwo-sea-terraces/media/blocks-and-pool.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/selwo-sea-terraces/media/blocks-and-pool.jpg" alt="Computergegenereerd beeld van twee appartementenblokken die langs de helling afdalen boven het gemeenschappelijke zwembad" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Selwo, Estepona &middot; Appartementen, penthouses en villa’s</p>
+            <h3 class="ai-result-name"><a href="nl/property-selwo-sea-terraces.html">Selwo Sea Terraces</a></h3>
+            <p class="ai-result-price">Vanaf € 1.468.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K4 2026 - K3 2028</p>
+            <a class="ai-result-link" href="nl/property-selwo-sea-terraces.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r10" hidden>
+          <a class="ai-result-media" href="nl/property-estepona-pool-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-640.webp 640w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day-960.webp 960w, assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/estepona-pool-villas/media/villa-terrace-and-pool-by-day.jpg" alt="Foto van de tuinzijde van een witte villa aan de overkant van een zwembad, met een overdekt terras met banken en een eettafel en een boventerras met een puntgevel" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Estepona &middot; Villa's</p>
+            <h3 class="ai-result-name"><a href="nl/property-estepona-pool-villas.html">Estepona Pool Villas</a></h3>
+            <p class="ai-result-price">Vanaf € 2.300.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Klaar om in te trekken</p>
+            <a class="ai-result-link" href="nl/property-estepona-pool-villas.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r11" hidden>
+          <a class="ai-result-media" href="nl/property-valle-romano-crest-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/valle-romano-crest-villas/media/type-ii-villa-640.webp 640w, assets/liora/projects/valle-romano-crest-villas/media/type-ii-villa-960.webp 960w, assets/liora/projects/valle-romano-crest-villas/media/type-ii-villa.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/valle-romano-crest-villas/media/type-ii-villa.jpg" alt="Een villa van type II, over de hele woonverdieping beglaasd, met het zwembad ervoor" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Valle Romano, Estepona &middot; Vrijstaande Villa's</p>
+            <h3 class="ai-result-name"><a href="nl/property-valle-romano-crest-villas.html">Valle Romano Crest Villas</a></h3>
+            <p class="ai-result-price">Vanaf € 1.295.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K4 2028</p>
+            <a class="ai-result-link" href="nl/property-valle-romano-crest-villas.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r12" hidden>
+          <a class="ai-result-media" href="nl/property-valle-romano-hilltop-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden-640.webp 640w, assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden-960.webp 960w, assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/valle-romano-hilltop-villas/media/villa-from-the-garden.jpg" alt="Dezelfde villa vanuit de tuin, met de bovenverdieping over het terras uitkragend" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Valle Romano, Estepona &middot; Vrijstaande Villa's</p>
+            <h3 class="ai-result-name"><a href="nl/property-valle-romano-hilltop-villas.html">Valle Romano Hilltop Villas</a></h3>
+            <p class="ai-result-price">Vanaf € 1.590.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K4 2027</p>
+            <a class="ai-result-link" href="nl/property-valle-romano-hilltop-villas.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r13" hidden>
+          <a class="ai-result-media" href="nl/property-mijas-golf-park-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-golf-park-residences/media/the-buildings-from-the-garden-640.webp 640w, assets/liora/projects/mijas-golf-park-residences/media/the-buildings-from-the-garden-960.webp 960w, assets/liora/projects/mijas-golf-park-residences/media/the-buildings-from-the-garden.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-golf-park-residences/media/the-buildings-from-the-garden.jpg" alt="De gebouwen gezien vanaf de gemeenschappelijke tuin" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Golf, Mijas &middot; Appartementen &amp; penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-mijas-golf-park-residences.html">Mijas Golf Park Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 269.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Oplevering K1 2029</p>
+            <a class="ai-result-link" href="nl/property-mijas-golf-park-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r14" hidden>
+          <a class="ai-result-media" href="nl/property-miramar-urban-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/miramar-urban-residences/media/building-facade-cafe-640.webp 640w, assets/liora/projects/miramar-urban-residences/media/building-facade-cafe-960.webp 960w, assets/liora/projects/miramar-urban-residences/media/building-facade-cafe.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/miramar-urban-residences/media/building-facade-cafe.jpg" alt="Gevel van het gebouw met een café op de begane grond en getrapte balkons erboven" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas, Mijas &middot; Appartement</p>
+            <h3 class="ai-result-name"><a href="nl/property-miramar-urban-residences.html">Miramar Urban Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 458.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Verwacht K4 2027</p>
+            <a class="ai-result-link" href="nl/property-miramar-urban-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r15" hidden>
+          <a class="ai-result-media" href="nl/property-cerrado-vista-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/cerrado-vista-residences/media/building-exterior-hillside-640.webp 640w, assets/liora/projects/cerrado-vista-residences/media/building-exterior-hillside-960.webp 960w, assets/liora/projects/cerrado-vista-residences/media/building-exterior-hillside.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/cerrado-vista-residences/media/building-exterior-hillside.jpg" alt="Hedendaags appartementengebouw op een heuvelperceel met een met palmbomen omzoomde toegangsweg" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas, Costa del Sol &middot; Appartement</p>
+            <h3 class="ai-result-name"><a href="nl/property-cerrado-vista-residences.html">Cerrado Vista Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 390.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Verwacht K1 2028</p>
+            <a class="ai-result-link" href="nl/property-cerrado-vista-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r16" hidden>
+          <a class="ai-result-media" href="nl/property-la-noria-golf-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/la-noria-golf-residences/media/aerial-over-the-golf-course-640.webp 640w, assets/liora/projects/la-noria-golf-residences/media/aerial-over-the-golf-course-960.webp 960w, assets/liora/projects/la-noria-golf-residences/media/aerial-over-the-golf-course.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/la-noria-golf-residences/media/aerial-over-the-golf-course.jpg" alt="Het complex gezien vanaf de golfbaan, met de zee daarachter" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">La Cala de Mijas &middot; Appartementen</p>
+            <h3 class="ai-result-name"><a href="nl/property-la-noria-golf-residences.html">La Noria Golf Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 352.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K4 2027</p>
+            <a class="ai-result-link" href="nl/property-la-noria-golf-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r17" hidden>
+          <a class="ai-result-media" href="nl/property-las-lagunas-courtyard-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/las-lagunas-courtyard-residences/media/the-building-by-day-640.webp 640w, assets/liora/projects/las-lagunas-courtyard-residences/media/the-building-by-day-960.webp 960w, assets/liora/projects/las-lagunas-courtyard-residences/media/the-building-by-day.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/las-lagunas-courtyard-residences/media/the-building-by-day.jpg" alt="Het witte blok op de straathoek, balkons met houten lamellen langs de voorgevel" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas, Mijas &middot; Appartementen &amp; penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-las-lagunas-courtyard-residences.html">Las Lagunas Courtyard Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 275.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Fase 1: K3 2027 - K4 2028 / Fase 2: 2028</p>
+            <a class="ai-result-link" href="nl/property-las-lagunas-courtyard-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r18" hidden>
+          <a class="ai-result-media" href="nl/property-mijas-pinewood-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-pinewood-residences/media/lagoon-pool-aerial-640.webp 640w, assets/liora/projects/mijas-pinewood-residences/media/lagoon-pool-aerial-960.webp 960w, assets/liora/projects/mijas-pinewood-residences/media/lagoon-pool-aerial.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-pinewood-residences/media/lagoon-pool-aerial.jpg" alt="Beeld van de ontwikkelaar van het lagunevormige zwembad en het solarium met de zee erachter" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas, tussen La Cala en Fuengirola &middot; Appartementen &amp; penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-mijas-pinewood-residences.html">Mijas Pinewood Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 352.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Oplevering K3 2029</p>
+            <a class="ai-result-link" href="nl/property-mijas-pinewood-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r19" hidden>
+          <a class="ai-result-media" href="nl/property-mijas-costa-bay-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-costa-bay-residences/media/balconies-pool-sea-640.webp 640w, assets/liora/projects/mijas-costa-bay-residences/media/balconies-pool-sea-960.webp 960w, assets/liora/projects/mijas-costa-bay-residences/media/balconies-pool-sea.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-costa-bay-residences/media/balconies-pool-sea.jpg" alt="Beeld van de ontwikkelaar van de beplante balkons boven het zwembad, met de zee erachter" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Costa &middot; Appartementen</p>
+            <h3 class="ai-result-name"><a href="nl/property-mijas-costa-bay-residences.html">Mijas Costa Bay Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 421.600</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Oplevering K3 2027</p>
+            <a class="ai-result-link" href="nl/property-mijas-costa-bay-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r20" hidden>
+          <a class="ai-result-media" href="nl/property-lagunas-park-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/lagunas-park-residences/media/street-facade-640.webp 640w, assets/liora/projects/lagunas-park-residences/media/street-facade-960.webp 960w, assets/liora/projects/lagunas-park-residences/media/street-facade.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/lagunas-park-residences/media/street-facade.jpg" alt="Computergegenereerd beeld van het appartementengebouw langs een straat, met balkons, glazen balustrades en geparkeerde auto’s" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas de Mijas &middot; Appartementen</p>
+            <h3 class="ai-result-name"><a href="nl/property-lagunas-park-residences.html">Lagunas Park Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 369.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K1 2027</p>
+            <a class="ai-result-link" href="nl/property-lagunas-park-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r21" hidden>
+          <a class="ai-result-media" href="nl/property-verdemar-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/verdemar-residences/media/pool-at-dusk-640.webp 640w, assets/liora/projects/verdemar-residences/media/pool-at-dusk-960.webp 960w, assets/liora/projects/verdemar-residences/media/pool-at-dusk.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/verdemar-residences/media/pool-at-dusk.jpg" alt="Computergegenereerd beeld van de appartementenblokken met groene gevel boven het gemeenschappelijke zwembad bij schemering" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Cala de Mijas &middot; Appartementen en woningen op de bovenste verdieping</p>
+            <h3 class="ai-result-name"><a href="nl/property-verdemar-residences.html">Verdemar Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 495.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Klaar om in te trekken</p>
+            <a class="ai-result-link" href="nl/property-verdemar-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r22" hidden>
+          <a class="ai-result-media" href="nl/property-alborada-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/alborada-residences/media/curved-terraces-dusk-640.webp 640w, assets/liora/projects/alborada-residences/media/curved-terraces-dusk-960.webp 960w, assets/liora/projects/alborada-residences/media/curved-terraces-dusk.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/alborada-residences/media/curved-terraces-dusk.jpg" alt="Computergegenereerd beeld van een blok met gebogen, gestapelde terrassen in warme tinten bij schemering" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas &middot; Appartementen &amp; penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-alborada-residences.html">Alborada Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 410.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K3 2028</p>
+            <a class="ai-result-link" href="nl/property-alborada-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r23" hidden>
+          <a class="ai-result-media" href="nl/property-vitta-marina.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/vitta-marina/media/pool-and-building-640.webp 640w, assets/liora/projects/vitta-marina/media/pool-and-building-960.webp 960w, assets/liora/projects/vitta-marina/media/pool-and-building.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/vitta-marina/media/pool-and-building.jpg" alt="Computergegenereerd beeld van een wit appartementengebouw met getrapte terrassen achter een gemeenschappelijk zwembad, ligbedden en een palmboom" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Cala de Mijas &middot; Appartementen &amp; penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-vitta-marina.html">Vitta Marina</a></h3>
+            <p class="ai-result-price">Vanaf € 483.500 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Oplevering nog te bevestigen</p>
+            <a class="ai-result-link" href="nl/property-vitta-marina.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r24" hidden>
+          <a class="ai-result-media" href="nl/property-mirlo-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mirlo-residences/media/corner-building-day-640.webp 640w, assets/liora/projects/mirlo-residences/media/corner-building-day-960.webp 960w, assets/liora/projects/mirlo-residences/media/corner-building-day.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mirlo-residences/media/corner-building-day.jpg" alt="Computergegenereerd beeld van een wit hoekgebouw met beplante balkons en een houten pergola op het dak" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas, Mijas &middot; Appartementen &amp; penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-mirlo-residences.html">Mirlo Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 213.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> juni 2028</p>
+            <a class="ai-result-link" href="nl/property-mirlo-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r25" hidden>
+          <a class="ai-result-media" href="nl/property-cristalino-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-640.webp 640w, assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces-960.webp 960w, assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/cristalino-residences/media/pool-and-glass-terraces.jpg" alt="Computergegenereerd beeld van een wit gebouw met rijen terrassen achter blauwe glazen balustrades, naast een gemeenschappelijk zwembad met palmen en ligbedden" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas, Mijas &middot; Appartementen</p>
+            <h3 class="ai-result-name"><a href="nl/property-cristalino-residences.html">Cristalino Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 470.900</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Nog te bevestigen</p>
+            <a class="ai-result-link" href="nl/property-cristalino-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r26" hidden>
+          <a class="ai-result-media" href="nl/property-mijas-palm-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-palm-residences/media/two-white-blocks-with-blue-glass-balconies-640.webp 640w, assets/liora/projects/mijas-palm-residences/media/two-white-blocks-with-blue-glass-balconies-960.webp 960w, assets/liora/projects/mijas-palm-residences/media/two-white-blocks-with-blue-glass-balconies.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-palm-residences/media/two-white-blocks-with-blue-glass-balconies.jpg" alt="Computergegenereerd straatbeeld van twee witte appartementenblokken met gebogen balkons achter blauwe glazen balustrades, gezien over een haag en een voetpad" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Lagunas, Mijas &middot; Appartementen</p>
+            <h3 class="ai-result-name"><a href="nl/property-mijas-palm-residences.html">Mijas Palm Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 240.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K4 2028</p>
+            <a class="ai-result-link" href="nl/property-mijas-palm-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r27" hidden>
+          <a class="ai-result-media" href="nl/property-mijas-seaview-suites.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-seaview-suites/media/infinity-pool-and-terraced-building-640.webp 640w, assets/liora/projects/mijas-seaview-suites/media/infinity-pool-and-terraced-building-960.webp 960w, assets/liora/projects/mijas-seaview-suites/media/infinity-pool-and-terraced-building.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-seaview-suites/media/infinity-pool-and-terraced-building.jpg" alt="Computergegenereerd beeld van een lang bad met overlooprand en ligbedden onder een gebogen wit gebouw met terrassen met houten lamellen, met rechts de kust en de zee" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Costa &middot; Appartementen</p>
+            <h3 class="ai-result-name"><a href="nl/property-mijas-seaview-suites.html">Mijas Seaview Suites</a></h3>
+            <p class="ai-result-price">Vanaf € 1.056.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K1 2028</p>
+            <a class="ai-result-link" href="nl/property-mijas-seaview-suites.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r28" hidden>
+          <a class="ai-result-media" href="nl/property-cala-heights-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-640.webp 640w, assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea-960.webp 960w, assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/cala-heights-residences/media/terraced-white-blocks-above-the-sea.jpg" alt="Luchtfoto van witte, getrapte appartementengebouwen op een helling naast een weg, links een golfbaan en een meer, aan de horizon de zee" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">La Cala de Mijas &middot; Appartementen</p>
+            <h3 class="ai-result-name"><a href="nl/property-cala-heights-residences.html">Cala Heights Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 680.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Direct bewoonbaar</p>
+            <a class="ai-result-link" href="nl/property-cala-heights-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r29" hidden>
+          <a class="ai-result-media" href="nl/property-arosa.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/arosa/media/aerial-block-pool-and-coast-640.webp 640w, assets/liora/projects/arosa/media/aerial-block-pool-and-coast-960.webp 960w, assets/liora/projects/arosa/media/aerial-block-pool-and-coast.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/arosa/media/aerial-block-pool-and-coast.jpg" alt="Luchtfoto van het witte terrasgebouw met zijn zwembaden en tuinen naast een bochtige weg, met daarachter de kust en de zee, waarbij het computergegenereerde gebouw in een foto is geplaatst" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">La Cala de Mijas &middot; Appartementen</p>
+            <h3 class="ai-result-name"><a href="nl/property-arosa.html">Arosa</a></h3>
+            <p class="ai-result-price">Vanaf € 705.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Verwacht K4 2028</p>
+            <a class="ai-result-link" href="nl/property-arosa.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r30" hidden>
+          <a class="ai-result-media" href="nl/property-mijas-horizon-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-horizon-residences/media/pool-and-block-with-palms-640.webp 640w, assets/liora/projects/mijas-horizon-residences/media/pool-and-block-with-palms-960.webp 960w, assets/liora/projects/mijas-horizon-residences/media/pool-and-block-with-palms.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-horizon-residences/media/pool-and-block-with-palms.jpg" alt="Computergegenereerd beeld over het gemeenschappelijke zwembad en de ligbedden naar een blok met trapsgewijze terrassen en glazen balustrades, met palmen en een glooiend landschap erachter" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Costa &middot; Appartementen en penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-mijas-horizon-residences.html">Mijas Horizon Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 365.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Oplevering K4 2027</p>
+            <a class="ai-result-link" href="nl/property-mijas-horizon-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r31" hidden>
+          <a class="ai-result-media" href="nl/property-mijas-horizon-terraces.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-640.webp 640w, assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace-960.webp 960w, assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/mijas-horizon-terraces/media/blocks-around-the-pool-terrace.jpg" alt="Computergegenereerd beeld van twee blokken met trapsgewijze terrassen rond het gemeenschappelijke zwembad, met palmbomen en ligstoelen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Costa &middot; Appartementen &amp; penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-mijas-horizon-terraces.html">Mijas Horizon Terraces</a></h3>
+            <p class="ai-result-price">Vanaf € 320.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Oplevering K1 2029</p>
+            <a class="ai-result-link" href="nl/property-mijas-horizon-terraces.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r32" hidden>
+          <a class="ai-result-media" href="nl/property-retama-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-640.webp 640w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view-960.webp 960w, assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/retama-residences/media/pools-and-blocks-with-sea-view.jpg" alt="Computergegenereerd beeld van twee gemeenschappelijke zwembaden met ligbedden en parasols voor een lang blok appartementen met terrassen, met de zee aan de horizon" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Mijas Costa &middot; Appartementen en penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-retama-residences.html">Retama Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 341.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Oplevering september 2028</p>
+            <a class="ai-result-link" href="nl/property-retama-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r33" hidden>
+          <a class="ai-result-media" href="nl/property-vega-verde-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/vega-verde-residences/hero-640.webp 640w, assets/liora/projects/vega-verde-residences/hero-960.webp 960w, assets/liora/projects/vega-verde-residences/hero.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/vega-verde-residences/hero.jpg" alt="Impressie van de ontwikkelaar van het buitenzwembad en de aangelegde tuinen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía / Golf Valley &middot; Appartementen &amp; penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-vega-verde-residences.html">Vega Verde Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 785.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K4 2028 (verwacht)</p>
+            <a class="ai-result-link" href="nl/property-vega-verde-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r34" hidden>
+          <a class="ai-result-media" href="nl/property-aloha-forest.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/aloha-forest/hero-640.webp 640w, assets/liora/projects/aloha-forest/hero-960.webp 960w, assets/liora/projects/aloha-forest/hero.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/aloha-forest/hero.jpg" alt="Luchtfoto van het project in de Golf Valley van Marbella" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Golf Valley — Nueva Andalucía, Marbella &middot; Appartementen &amp; penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-aloha-forest.html">Aloha Forest</a></h3>
+            <p class="ai-result-price">Vanaf € 1.237.625</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Fase I — 2026</p>
+            <a class="ai-result-link" href="nl/property-aloha-forest.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r35" hidden>
+          <a class="ai-result-media" href="nl/property-ocho-de-oro.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/ocho-de-oro/hero-640.webp 640w, assets/liora/projects/ocho-de-oro/hero-960.webp 960w, assets/liora/projects/ocho-de-oro/hero.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/ocho-de-oro/hero.jpg" alt="Eigentijdse villa-exterieur met trapsgewijs infinity zwembad" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía, Marbella &middot; Villa's</p>
+            <h3 class="ai-result-name"><a href="nl/property-ocho-de-oro.html">Ocho de Oro</a></h3>
+            <p class="ai-result-price">Vanaf € 11.500.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> december 2027</p>
+            <a class="ai-result-link" href="nl/property-ocho-de-oro.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r36" hidden>
+          <a class="ai-result-media" href="nl/property-golf-valley-flex-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/golf-valley-flex-residences/hero-640.webp 640w, assets/liora/projects/golf-valley-flex-residences/hero-960.webp 960w, assets/liora/projects/golf-valley-flex-residences/hero.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/golf-valley-flex-residences/hero.jpg" alt="Eigentijdse woningen met privézwembaden bij zonsondergang" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía, Marbella &middot; Villa's &amp; appartementen</p>
+            <h3 class="ai-result-name"><a href="nl/property-golf-valley-flex-residences.html">Golf Valley Flex Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 450.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K2–K3 2028</p>
+            <a class="ai-result-link" href="nl/property-golf-valley-flex-residences.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r37" hidden>
+          <a class="ai-result-media" href="nl/property-la-concha-view-villa.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/la-concha-view-villa/media/villa-garden-and-pool-640.webp 640w, assets/liora/projects/la-concha-view-villa/media/villa-garden-and-pool-960.webp 960w, assets/liora/projects/la-concha-view-villa/media/villa-garden-and-pool.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/la-concha-view-villa/media/villa-garden-and-pool.jpg" alt="De villa vanaf het gazon, met het zwembad over de volle breedte van het terras" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía, Marbella &middot; Vrijstaande villa</p>
+            <h3 class="ai-result-name"><a href="nl/property-la-concha-view-villa.html">La Concha View Villa</a></h3>
+            <p class="ai-result-price">Vanaf € 5.000.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> K3 2026</p>
+            <a class="ai-result-link" href="nl/property-la-concha-view-villa.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r38" hidden>
+          <a class="ai-result-media" href="nl/property-las-brisas-pavilion-villa.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/las-brisas-pavilion-villa/media/pavilion-and-pool-640.webp 640w, assets/liora/projects/las-brisas-pavilion-villa/media/pavilion-and-pool-960.webp 960w, assets/liora/projects/las-brisas-pavilion-villa/media/pavilion-and-pool.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/las-brisas-pavilion-villa/media/pavilion-and-pool.jpg" alt="Een paviljoendak boven het terras, met het zwembad langs de voorzijde van het huis" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Las Brisas, Nueva Andalucía &middot; Vrijstaande villa</p>
+            <h3 class="ai-result-name"><a href="nl/property-las-brisas-pavilion-villa.html">Las Brisas Pavilion Villa</a></h3>
+            <p class="ai-result-price">€ 5.500.000 + btw</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Naar verwachting K3 2026</p>
+            <a class="ai-result-link" href="nl/property-las-brisas-pavilion-villa.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r39" hidden>
+          <a class="ai-result-media" href="nl/property-nueva-andalucia-signature-villas.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/nueva-andalucia-signature-villas/media/the-villa-and-the-pool-640.webp 640w, assets/liora/projects/nueva-andalucia-signature-villas/media/the-villa-and-the-pool-960.webp 960w, assets/liora/projects/nueva-andalucia-signature-villas/media/the-villa-and-the-pool.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/nueva-andalucia-signature-villas/media/the-villa-and-the-pool.jpg" alt="Een villa gezien over het infinity pool, het dakterras teruggelegd boven het glas" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía, Marbella &middot; Villa's</p>
+            <h3 class="ai-result-name"><a href="nl/property-nueva-andalucia-signature-villas.html">Nueva Andalucia Signature Villas</a></h3>
+            <p class="ai-result-price">Vanaf € 5.550.000</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Verwacht K1 2028</p>
+            <a class="ai-result-link" href="nl/property-nueva-andalucia-signature-villas.html">Bekijk het project</a>
+          </div>
+        </article><article class="ai-result" data-card="r40" hidden>
+          <a class="ai-result-media" href="nl/property-acacia-residences.html" tabindex="-1" aria-hidden="true"><picture><source type="image/webp" srcset="assets/liora/projects/acacia-residences/media/pool-below-the-blocks-640.webp 640w, assets/liora/projects/acacia-residences/media/pool-below-the-blocks-960.webp 960w, assets/liora/projects/acacia-residences/media/pool-below-the-blocks.webp 1920w" sizes="(max-width: 860px) calc(100vw - 40px), 640px"><img src="assets/liora/projects/acacia-residences/media/pool-below-the-blocks.jpg" alt="Foto van witte appartementenblokken met daken van gebogen dakpannen, die op een terrasvormige helling boven het gemeenschappelijke zwembad oplopen" width="1920" height="1080" loading="lazy" decoding="async"></picture></a>
+          <div class="ai-result-body">
+            <p class="ai-result-place">Nueva Andalucía, Marbella &middot; Appartementen &amp; penthouses</p>
+            <h3 class="ai-result-name"><a href="nl/property-acacia-residences.html">Acacia Residences</a></h3>
+            <p class="ai-result-price">Vanaf € 470.000 + 7% ITP</p>
+            <p class="ai-result-delivery"><span class="ai-result-key">Oplevering</span> Klaar om in te trekken</p>
+            <a class="ai-result-link" href="nl/property-acacia-residences.html">Bekijk het project</a>
+          </div>
+        </article>
+          <div class="ai-empty" data-empty hidden><p>Op onze pagina's past nog niets bij al deze wensen.</p><button type="button" class="ai-chip" data-broaden>Laatste filter verwijderen</button></div>
+        </div>
+        <div class="ai-result-nav" data-js-only hidden>
+          <button type="button" class="ai-nav-btn" data-step="-1" aria-label="Vorig resultaat"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <span class="ai-count" data-count dir="ltr">1 / 1</span>
+          <button type="button" class="ai-nav-btn" data-step="1" aria-label="Volgend resultaat"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <p class="ai-qual">Lijstprijzen exclusief btw en aankoopkosten, bevestigd vóór elke reservering. De beelden zijn grotendeels impressies.</p>
+      </div>
+    </div>
+    <div class="ai-bank" hidden><span data-q="E0" data-cards="r0 r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11">Ik zoek een villa in Estepona.</span><span data-q="E1" data-cards="r0 r5 r6 r12 r8 r9 r11">Ik zoek een villa in Estepona onder de 2 miljoen euro.</span><span data-q="E2" data-cards="r0 r2 r3 r4 r5 r7 r10 r11">Ik zoek een villa in Estepona met een privézwembad.</span><span data-q="E3" data-cards="r0 r5 r12 r11">Ik zoek een villa in Estepona met een privézwembad, onder de 2 miljoen euro.</span><span data-q="M0" data-cards="r13 r14 r15 r16 r17 r18 r19 r20 r21 r22 r23 r24 r25 r26 r27 r28 r29 r30 r31 r32">Ik zoek een nieuwbouwappartement in Mijas.</span><span data-q="M1" data-cards="r21 r28">Ik zoek een sleutelklaar nieuwbouwappartement in Mijas.</span><span data-q="M2" data-cards="r13 r14 r15 r16 r17 r18 r19 r20 r21 r22 r23 r24 r25 r26 r30 r31 r32">Ik zoek een nieuwbouwappartement in Mijas onder € 500.000.</span><span data-q="M3" data-cards="r21">Ik zoek een sleutelklaar nieuwbouwappartement in Mijas onder € 500.000.</span><span data-q="N0" data-cards="r33 r34 r35 r36 r37 r38 r39 r40">Ik zoek een nieuwbouwwoning in Nueva Andalucía.</span><span data-q="N1" data-cards="r40">Ik zoek een sleutelklare nieuwbouwwoning in Nueva Andalucía.</span><span data-q="N2" data-cards="r33 r34 r36 r40">Ik zoek een nieuwbouwwoning in Nueva Andalucía onder de 1,5 miljoen euro.</span><span data-q="N3" data-cards="r40">Ik zoek een sleutelklare nieuwbouwwoning in Nueva Andalucía onder de 1,5 miljoen euro.</span></div>
+  </div></section>
+    <section class="section quiet-band ai-setup" id="setup"><div class="section-inner"><div class="section-head center"><span class="label">Het adres</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Eén adres <em>voor elke assistent</em></h2><p class="body-copy" style="margin-left:auto;margin-right:auto;">Zonder inloggen, via Streamable HTTP. Elke assistent die een externe MCP-server accepteert, kan het gebruiken.</p></div><div class="ai-flow ai-rise" aria-hidden="true" dir="ltr">
       <svg class="ai-flow-wide" viewBox="0 0 960 300" focusable="false">
         <g class="ai-flow-lines"><path d="M190 70 C 260 70 270 150 340 150"/><path d="M190 150 L 340 150"/><path d="M190 230 C 260 230 270 150 340 150"/><path d="M620 150 C 660 150 680 150 700 150"/></g>
         <circle class="ai-spark-in" r="4.5"><animateMotion dur="3.6s" begin="0s" repeatCount="indefinite" path="M190 70 C 260 70 270 150 340 150" keyPoints="0;1;1" keyTimes="0;.55;1" calcMode="linear"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.06;.5;.56;1" dur="3.6s" begin="0s" repeatCount="indefinite"/></circle><circle class="ai-spark-in" r="4.5"><animateMotion dur="3.6s" begin="1.2s" repeatCount="indefinite" path="M190 150 L 340 150" keyPoints="0;1;1" keyTimes="0;.55;1" calcMode="linear"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.06;.5;.56;1" dur="3.6s" begin="1.2s" repeatCount="indefinite"/></circle><circle class="ai-spark-in" r="4.5"><animateMotion dur="3.6s" begin="2.4s" repeatCount="indefinite" path="M190 230 C 260 230 270 150 340 150" keyPoints="0;1;1" keyTimes="0;.55;1" calcMode="linear"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.06;.5;.56;1" dur="3.6s" begin="2.4s" repeatCount="indefinite"/></circle>
@@ -581,26 +991,32 @@
         <g class="ai-hub" transform="translate(180 220)"><rect x="-140" y="-30" width="280" height="60" rx="30"/><text x="0" y="7">nuevaliving.com/mcp</text></g>
         <g class="ai-grid"><g class="ai-page-tile" style="--i:0" transform="translate(70 330)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:1" transform="translate(130 330)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:2" transform="translate(190 330)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:3" transform="translate(250 330)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:4" transform="translate(70 390)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:5" transform="translate(130 390)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:6" transform="translate(190 390)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:7" transform="translate(250 390)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:8" transform="translate(70 450)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:9" transform="translate(130 450)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:10" transform="translate(190 450)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g><g class="ai-page-tile" style="--i:11" transform="translate(250 450)"><rect width="40" height="40" rx="5"/><path d="M10 26l10-9 10 9M14 23v9h12v-9"/></g></g>
       </svg>
-    </div></div></section>
-    <section class="section" id="claude"><div class="section-inner"><div class="section-head"><span class="label">Zo koppelt u het: Claude</span><div class="rule"></div><h2 class="section-title">Voeg het toe aan Claude <em>in vier stappen</em></h2></div><div class="cards two">
+    </div>
+    <div class="ai-copies">
+      <div class="ai-copy"><p class="ai-control-label">Adres van de connector</p><code class="ai-copy-value" id="ai-address" dir="ltr">https://nuevaliving.com/mcp</code><button type="button" class="ai-copy-btn" data-copy="ai-address" hidden>Adres kopiëren</button><span class="ai-copy-status" role="status"></span></div>
+      <div class="ai-copy"><p class="ai-control-label">Uw vraag</p><p class="ai-copy-value" id="ai-question-copy" data-question-out>Ik zoek een villa in Estepona.</p><button type="button" class="ai-copy-btn" data-copy="ai-question-copy" hidden>Uw vraag kopiëren</button><span class="ai-copy-status" role="status"></span></div>
+    </div>
+    <div class="ai-tabs" aria-label="Kies uw assistent" hidden><button type="button" id="ai-tab-claude" data-tab="claude" aria-controls="claude" aria-selected="true">Claude</button><button type="button" id="ai-tab-chatgpt" data-tab="chatgpt" aria-controls="chatgpt" aria-selected="false">ChatGPT</button></div>
+    <div class="ai-panel" id="claude"><div class="section-head"><span class="label">Zo koppelt u het: Claude</span><div class="rule"></div><h2 class="section-title">Voeg het toe aan Claude <em>in vier stappen</em></h2></div><div class="cards two">
       <article class="card ai-rise"><div class="card-number">1</div><h3>Open de connectors</h3><p>Ga naar <a href="https://claude.ai/customize/connectors" target="_blank" rel="noopener">claude.ai/customize/connectors</a>, of open <strong>Customize</strong> en daarna <strong>Connectors</strong>.</p></article>
       <article class="card ai-rise"><div class="card-number">2</div><h3>Voeg een aangepaste connector toe</h3><p>Klik op <strong>+ Add</strong> en daarna op <strong>Add custom connector</strong>.</p></article>
-      <article class="card ai-rise"><div class="card-number">3</div><h3>Plak het adres</h3><p>Noem het Nueva Living, plak het adres hierboven, kies voor geen aanmelding en klik op <strong>Add</strong>.</p></article>
-      <article class="card ai-rise"><div class="card-number">4</div><h3>Zet het aan en stel uw vraag</h3><p>Klik in een chat op <strong>+</strong>, open <strong>Connectors</strong>, zet Nueva Living aan en stel uw vraag.</p></article>
-    </div><p class="body-copy">Het werkt met elk Claude-abonnement. Het gratis abonnement staat één aangepaste connector toe. Bij Team en Enterprise voegt een eigenaar het toe voor de hele organisatie.</p></div></section>
-    <section class="section quiet-band" id="chatgpt"><div class="section-inner"><div class="section-head"><span class="label">Zo koppelt u het: ChatGPT</span><div class="rule"></div><h2 class="section-title">Voeg het toe aan ChatGPT <em>in twee stappen</em></h2></div><div class="cards two">
-      <article class="card ai-rise"><div class="card-number">1</div><h3>Voeg de server toe</h3><p>Open <a href="https://chatgpt.com/plugins" target="_blank" rel="noopener">chatgpt.com/plugins</a>, klik op <strong>+</strong>, kies <strong>Add custom MCP server</strong> en plak het adres hierboven.</p></article>
-      <article class="card ai-rise"><div class="card-number">2</div><h3>Noem het bij naam</h3><p>Begin uw bericht met ‘Nueva Living’ en zeg daarna wat u zoekt.</p></article>
-    </div></div></section>
-    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Probeer bijvoorbeeld</span><div class="rule"></div><h2 class="section-title">Drie manieren <em>om te beginnen</em></h2></div><div class="cards">
-      <article class="card ai-rise"><p>‘Nueva Living, een villa in Estepona onder de 2 miljoen euro met een eigen zwembad en golf in de buurt.’</p></article>
-      <article class="card ai-rise"><p>‘Nueva Living, instapklare appartementen met twee slaapkamers in Mijas met zeezicht.’</p></article>
-      <article class="card ai-rise"><p>‘Nueva Living, wat wordt er op dit moment gebouwd in Nueva Andalucía?’</p></article>
-    </div></div></section>
-    <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">Wat het kan</span><div class="rule"></div><h2 class="section-title">Wat het doorzoekt, <em>en wat niet</em></h2></div><div class="cards">
+      <article class="card ai-rise"><div class="card-number">3</div><h3>Plak het adres</h3><p>Noem het Nueva Living, plak het adres, klik op <strong>Continue</strong>, kies <strong>No sign-in</strong> en klik op <strong>Add</strong>.</p></article>
+      <article class="card ai-rise"><div class="card-number">4</div><h3>Zet het aan en stel uw vraag</h3><p>Klik in een chat op <strong>+</strong>, open <strong>Connectors</strong>, zet Nueva Living aan en plak uw vraag.</p></article>
+    </div><p class="body-copy ai-plan">Het werkt met elk Claude-abonnement. Het gratis abonnement staat één aangepaste connector toe. Bij Team en Enterprise voegt een eigenaar het toe voor de hele organisatie.</p></div>
+    <div class="ai-panel" id="chatgpt"><div class="section-head"><span class="label">Zo koppelt u het: ChatGPT</span><div class="rule"></div><h2 class="section-title">Voeg het toe aan ChatGPT <em>in drie stappen</em></h2></div><div class="cards">
+      <article class="card ai-rise"><div class="card-number">1</div><h3>Voeg de server toe</h3><p>Open <a href="https://chatgpt.com/plugins" target="_blank" rel="noopener">chatgpt.com/plugins</a> in een webbrowser, klik op <strong>+</strong>, kies <strong>Add custom MCP server</strong>, noem het Nueva Living en plak het adres.</p></article>
+      <article class="card ai-rise"><div class="card-number">2</div><h3>Sta de verbinding toe</h3><p>Laat het zonder aanmelding, vink <strong>I understand and want to continue</strong> aan en klik op <strong>Create as a plugin</strong>.</p></article>
+      <article class="card ai-rise"><div class="card-number">3</div><h3>Vraag het met @</h3><p>Start een nieuwe chat, typ <strong>@</strong>, kies Nueva Living en plak uw vraag.</p></article>
+    </div><p class="body-copy ai-plan">ChatGPT accepteert eigen servers op het web, niet in de telefoonapps. OpenAI biedt ze aan bij Business, Enterprise en Edu, waar een beheerder of eigenaar het mogelijk moet toevoegen, en bij Pro alleen om te zoeken.</p></div>
+    <span hidden data-t="copied">Gekopieerd</span><span hidden data-t="copyFail">Kopiëren lukte niet. De tekst is geselecteerd: druk op Ctrl+C, of Cmd+C op een Mac.</span>
+    </div></section>
+    <section class="section"><div class="section-inner"><div class="section-head"><span class="label">Wat het kan</span><div class="rule"></div><h2 class="section-title">Wat het doorzoekt, <em>en wat niet</em></h2></div><div class="cards">
       <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line pathLength="1" x1="14" y1="42" x2="14" y2="8"/><line pathLength="1" x1="6" y1="12" x2="42" y2="12"/><line pathLength="1" x1="14" y1="8" x2="30" y2="12"/><line pathLength="1" x1="36" y1="12" x2="36" y2="20"/><rect pathLength="1" x="32" y="20" width="8" height="5"/><path pathLength="1" d="M22 42V28h20v14"/><line pathLength="1" x1="22" y1="35" x2="42" y2="35"/><line pathLength="1" x1="32" y1="28" x2="32" y2="42"/></g></svg><h3>Alleen nieuwbouw</h3><p>De nieuwbouwprojecten en projecten op plan op nuevaliving.com, in Marbella, Nueva Andalucía, San Pedro de Alcántara, Benahavís, Estepona, Casares, Mijas en Fuengirola, Benalmádena en Torremolinos. Geen bestaande woningen en geen verhuur.</p></article>
       <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect pathLength="1" x="5" y="9" width="10" height="12" rx="1.5"/><rect pathLength="1" x="19" y="9" width="10" height="12" rx="1.5"/><rect pathLength="1" x="33" y="9" width="10" height="12" rx="1.5"/><rect pathLength="1" x="5" y="27" width="10" height="12" rx="1.5"/><rect pathLength="1" x="19" y="27" width="10" height="12" rx="1.5"/><rect pathLength="1" x="33" y="27" width="10" height="12" rx="1.5"/></g></svg><h3>Zes tegelijk</h3><p>Maximaal zes projecten per zoekopdracht, met foto's, lijstprijzen, opleverdata en een kaart. Daarna verfijnt de assistent samen met u de zoekopdracht op gebied, budget, type, bouwfase of een kenmerk.</p></article>
       <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M5 8h26v26H5z"/><path pathLength="1" d="M5 20h10v14M15 8v6M22 20h9"/><circle pathLength="1" cx="32" cy="32" r="8"/><line pathLength="1" x1="38" y1="38" x2="44" y2="44"/></g></svg><h3>Eén project volledig</h3><p>Vraag naar één project en het toont de woningen op de prijslijst met slaapkamers, oppervlakte en prijs, de toelichting op wat de prijzen omvatten, de beelden en een globale positie op de kaart.</p></article>
+      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M8 6h16l6 6v24H8z"/><path pathLength="1" d="M24 6v6h6"/><line pathLength="1" x1="13" y1="19" x2="25" y2="19"/><line pathLength="1" x1="13" y1="24" x2="25" y2="24"/><path pathLength="1" d="M30 18h6l6 6v18H24v-6"/><polyline pathLength="1" points="29 33 32 36 38 29"/></g></svg><h3>Dezelfde cijfers als op onze pagina's</h3><p>Elk antwoord komt van onze eigen projectpagina's. De prijzen zijn lijstprijzen van de ontwikkelaar, exclusief btw en aankoopkosten, en worden vóór elke reservering opnieuw bevestigd. De beelden zijn grotendeels renders.</p></article>
+      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M6 10h22a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H16l-6 5v-5H6a3 3 0 0 1-3-3V13a3 3 0 0 1 3-3z"/><path pathLength="1" d="M34 19h8a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2v5l-6-5h-9a3 3 0 0 1-3-3v-2"/><path pathLength="1" d="M10 16h14M14 16c0 5 4 8 8 8M20 16c0 5-4 8-8 8"/></g></svg><h3>Tien talen</h3><p>Vraag in het Engels, Spaans, Frans, Duits, Russisch, Arabisch, Nederlands, Pools, Zweeds of Noors. Namen, prijzen en data komen terug in uw taal.</p></article>
+      <article class="card ai-rise"><svg class="ai-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect pathLength="1" x="11" y="22" width="26" height="19" rx="3"/><path pathLength="1" d="M17 22v-6a8 8 0 0 1 15-4"/><circle pathLength="1" cx="24" cy="31" r="2.4"/><line pathLength="1" x1="24" y1="33.5" x2="24" y2="36"/></g></svg><h3>Gratis, zonder account</h3><p>Niets om u voor in te schrijven en niets te betalen. U voegt één adres toe en kunt meteen vragen stellen.</p></article>
     </div></div></section>
     <section class="section"><div class="section-inner ai-privacy-split"><div class="section-head"><span class="label">Uw gegevens</span><div class="rule"></div><h2 class="section-title">Niets over u <em>totdat u erom vraagt</em></h2><p class="body-copy">Een zoekopdracht stuurt ons alleen de criteria die de assistent doorgeeft, zoals gebied, budget en type. Uw naam en de rest van uw gesprek zitten er niet bij, en wij registreren niet wie er heeft gezocht.</p><p class="body-copy">Als u vraagt om contact, stuurt de assistent uw naam en e-mailadres, en uw telefoonnummer en bericht als u die opgeeft, naar een adviseur van Nueva Living. Dat gebeurt alleen nadat u ermee instemt, en wij behandelen die gegevens volgens ons <a href="nl/privacy-policy.html">privacybeleid</a>.</p></div><div class="ai-privacy ai-rise" aria-hidden="true">
       <svg viewBox="0 0 440 320" focusable="false">
@@ -611,9 +1027,9 @@
         </g>
         <g class="ai-priv-gate"><line x1="236" y1="40" x2="236" y2="280"/><line x1="252" y1="40" x2="252" y2="280"/><g transform="translate(244 30)"><rect x="-13" y="-6" width="26" height="20" rx="4"/><path d="M-7-6v-6a7 7 0 0 1 14 0v6" fill="none"/></g></g>
         <g class="ai-priv-dest"><rect x="352" y="104" width="70" height="26" rx="6"/><rect x="352" y="138" width="70" height="26" rx="6"/><rect x="352" y="172" width="70" height="26" rx="6"/><circle cx="368" cy="117" r="3"/><circle cx="368" cy="151" r="3"/><circle cx="368" cy="185" r="3"/></g>
-        <g class="ai-chip ai-chip-1"><circle r="17"/><path d="M0 7C-4 2-6-1-6-4A6 6 0 0 1 6-4C6-1 4 2 0 7Z"/><circle cy="-4" r="2"/></g>
-        <g class="ai-chip ai-chip-2"><circle r="17"/><path d="M5-6a7 7 0 1 0 0 12M-8-2h9M-8 2h9"/></g>
-        <g class="ai-chip ai-chip-3"><circle r="17"/><path d="M-7 1l7-7 7 7M-5-1v8h10v-8"/></g>
+        <g class="ai-pchip ai-pchip-1"><circle r="17"/><path d="M0 7C-4 2-6-1-6-4A6 6 0 0 1 6-4C6-1 4 2 0 7Z"/><circle cy="-4" r="2"/></g>
+        <g class="ai-pchip ai-pchip-2"><circle r="17"/><path d="M5-6a7 7 0 1 0 0 12M-8-2h9M-8 2h9"/></g>
+        <g class="ai-pchip ai-pchip-3"><circle r="17"/><path d="M-7 1l7-7 7 7M-5-1v8h10v-8"/></g>
       </svg>
     </div></div></section>
     <section class="section segment-faq-section"><div class="section-inner">
@@ -632,20 +1048,12 @@
         <p>Alles wat u een adviseur zou vertellen over de woning die u zoekt: het gebied, uw budget, het aantal slaapkamers, een villa of een appartement, instapklaar of op plan, zeezicht, golf of een eigen zwembad. U kunt ook naar één project in detail vragen.</p>
       </details>
       <details class="segment-faq-item">
-        <summary>Hoeveel projecten toont het?</summary>
-        <p>Maximaal zes per zoekopdracht. Passen er meer, dan stelt de assistent voor hoe u de zoekopdracht kunt verfijnen, op gebied, budget of type, en zoekt hij opnieuw met u.</p>
-      </details>
-      <details class="segment-faq-item">
         <summary>Zijn de prijzen actueel?</summary>
         <p>Het zijn de lijstprijzen op elke projectpagina, met de datum waarop ze voor het laatst zijn gecontroleerd. Het zijn prijzen van de ontwikkelaar exclusief btw en aankoopkosten, en wij bevestigen prijs en beschikbaarheid opnieuw vóór elke reservering.</p>
       </details>
       <details class="segment-faq-item">
         <summary>Verzint het iets?</summary>
         <p>De connector geeft alleen terug wat op onze projectpagina's staat, en de assistent heeft de instructie geen projecten, woningen, prijzen of data te verzinnen. Een assistent kan zich toch vergissen, dus controleer alles wat belangrijk is op de projectpagina of bij ons.</p>
-      </details>
-      <details class="segment-faq-item">
-        <summary>Worden mijn gegevens gedeeld?</summary>
-        <p>Alleen als u vraagt om contact. Dan gaan uw naam en e-mailadres, en uw telefoonnummer en bericht als u die opgeeft, na uw toestemming naar een adviseur van Nueva Living. Ons privacybeleid legt uit hoe wij daarmee omgaan.</p>
       </details>
       <details class="segment-faq-item">
         <summary>Hoe spreek ik een mens?</summary>
@@ -674,46 +1082,163 @@
       });
     }
 
-    // The chat demo: type a prompt, think, answer, hold, fade, next. Runs only while on screen.
-    const chat = document.querySelector('[data-ai-chat]');
-    if (!chat) return;
-    const prompts = Array.from(document.querySelectorAll('.ai-prompts li')).map((li) => li.textContent.trim());
-    const focus = ['w', 'e', 'm'];
-    const typed = chat.querySelector('.ai-typed');
-    const wait = (ms) => new Promise((done) => setTimeout(done, ms));
-    let visible = false;
-    let running = false;
-    const showDone = (i) => { typed.textContent = prompts[i]; chat.dataset.focus = focus[i]; chat.className = 'ai-chat is-results'; };
-    if (reduce || !prompts.length) { if (prompts.length) showDone(0); return; }
-    async function loop() {
-      if (running) return;
-      running = true;
-      let i = 0;
-      while (visible) {
-        chat.className = 'ai-chat is-typing';
-        chat.dataset.focus = focus[i % focus.length];
-        typed.textContent = '';
-        const text = prompts[i];
-        for (let c = 1; c <= text.length && visible; c += 1) {
-          typed.textContent = text.slice(0, c);
-          await wait(text[c - 1] === ' ' ? 55 : 28 + Math.random() * 30);
-        }
-        await wait(380);
-        chat.className = 'ai-chat is-sent is-thinking';
-        await wait(1300);
-        chat.className = 'ai-chat is-results';
-        await wait(5200);
-        chat.classList.add('is-fading');
-        await wait(650);
-        i = (i + 1) % prompts.length;
+
+    // ---- Search preview ----------------------------------------------------------------------
+    const T = {};
+    document.querySelectorAll('[data-t]').forEach((el) => { T[el.dataset.t] = el.textContent.trim(); });
+    const tryRoot = document.getElementById('try');
+    const setTab = (() => {
+      const list = document.querySelector('.ai-tabs');
+      if (!list) return () => {};
+      const tabs = Array.from(list.querySelectorAll('[data-tab]'));
+      list.hidden = false;
+      const panels = tabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
+      panels.forEach((panel, i) => { panel.setAttribute('role', 'tabpanel'); panel.setAttribute('aria-labelledby', tabs[i].id); panel.tabIndex = 0; });
+      tabs.forEach((tab) => tab.setAttribute('role', 'tab'));
+      list.setAttribute('role', 'tablist');
+      function select(name, focus) {
+        tabs.forEach((tab, i) => {
+          const on = tab.dataset.tab === name;
+          tab.setAttribute('aria-selected', on ? 'true' : 'false');
+          tab.tabIndex = on ? 0 : -1;
+          if (panels[i].hidden === on) { panels[i].hidden = !on; if (on && !reduce) { panels[i].classList.remove('is-in'); void panels[i].offsetWidth; panels[i].classList.add('is-in'); } }
+          if (on && focus) tab.focus({ preventScroll: true });
+        });
       }
-      running = false;
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => select(tab.dataset.tab, false));
+        tab.addEventListener('keydown', (event) => {
+          const rtl = getComputedStyle(list).direction === 'rtl';
+          const step = { ArrowRight: rtl ? -1 : 1, ArrowLeft: rtl ? 1 : -1 }[event.key];
+          let next = null;
+          if (step) next = (i + step + tabs.length) % tabs.length;
+          if (event.key === 'Home') next = 0;
+          if (event.key === 'End') next = tabs.length - 1;
+          if (next == null) return;
+          event.preventDefault();
+          select(tabs[next].dataset.tab, true);
+        });
+      });
+      select(location.hash === '#chatgpt' ? 'chatgpt' : 'claude', false);
+      return select;
+    })();
+
+    if (tryRoot) {
+      tryRoot.querySelectorAll('[data-js-only]').forEach((el) => { el.hidden = false; });
+      const bank = {};
+      tryRoot.querySelectorAll('.ai-bank [data-q]').forEach((el) => {
+        bank[el.dataset.q] = { text: el.textContent.trim(), cards: el.dataset.cards.split(' ').filter(Boolean) };
+      });
+      const cards = {};
+      tryRoot.querySelectorAll('[data-card]').forEach((el) => { cards[el.dataset.card] = el; });
+      const question = tryRoot.querySelector('[data-question]');
+      const outs = document.querySelectorAll('[data-question-out]');
+      const empty = tryRoot.querySelector('[data-empty]');
+      const count = tryRoot.querySelector('[data-count]');
+      const prev = tryRoot.querySelector('[data-step="-1"]');
+      const next = tryRoot.querySelector('[data-step="1"]');
+      let brief = 'E';
+      let picked = [];
+      let index = 0;
+      let shown = Object.keys(cards)[0] || null;
+      let leaving = null;
+      let leaveTimer = 0;
+
+      function showCard(id, animate) {
+        if (id === shown) return;
+        clearTimeout(leaveTimer);
+        if (leaving) { leaving.hidden = true; leaving.classList.remove('is-out'); leaving = null; }
+        const old = shown ? cards[shown] : null;
+        if (old) {
+          if (animate && !reduce && id) {
+            old.classList.remove('is-in');
+            old.classList.add('is-out');
+            leaving = old;
+            leaveTimer = setTimeout(() => { old.hidden = true; old.classList.remove('is-out'); leaving = null; }, 380);
+          } else old.hidden = true;
+        }
+        shown = id;
+        if (!id) return;
+        const card = cards[id];
+        card.hidden = false;
+        card.classList.remove('is-in');
+        if (animate && !reduce) { void card.offsetWidth; card.classList.add('is-in'); }
+      }
+
+      function render(animate) {
+        const key = brief + picked.reduce((mask, k) => mask | k, 0);
+        const entry = bank[key];
+        if (!entry) return;
+        if (question.textContent !== entry.text) {
+          question.textContent = entry.text;
+          if (animate && !reduce) { question.classList.remove('is-swap'); void question.offsetWidth; question.classList.add('is-swap'); }
+        }
+        outs.forEach((el) => { el.textContent = entry.text; });
+        const total = entry.cards.length;
+        index = Math.max(0, Math.min(index, total - 1));
+        showCard(total ? entry.cards[index] : null, animate);
+        empty.hidden = total > 0;
+        count.textContent = total ? (index + 1) + ' / ' + total : '0 / 0';
+        prev.disabled = index <= 0;
+        next.disabled = index >= total - 1;
+        tryRoot.querySelectorAll('[data-brief]').forEach((b) => b.setAttribute('aria-pressed', b.dataset.brief === brief ? 'true' : 'false'));
+        tryRoot.querySelectorAll('.ai-refine-set').forEach((set) => {
+          set.hidden = set.dataset.for !== brief;
+          set.querySelectorAll('[data-r]').forEach((chip) => chip.setAttribute('aria-pressed', picked.includes(Number(chip.dataset.r)) ? 'true' : 'false'));
+        });
+      }
+
+      tryRoot.querySelectorAll('[data-brief]').forEach((b) => b.addEventListener('click', () => {
+        if (b.dataset.brief === brief && !picked.length) return;
+        brief = b.dataset.brief; picked = []; index = 0; render(true);
+      }));
+      tryRoot.querySelectorAll('[data-r]').forEach((chip) => chip.addEventListener('click', () => {
+        const k = Number(chip.dataset.r);
+        picked = picked.includes(k) ? picked.filter((x) => x !== k) : picked.concat(k);
+        index = 0; render(true);
+      }));
+      tryRoot.querySelector('[data-broaden]').addEventListener('click', () => { picked = picked.slice(0, -1); index = 0; render(true); });
+      [prev, next].forEach((btn) => btn.addEventListener('click', () => { index += Number(btn.dataset.step); render(true); }));
+      tryRoot.querySelectorAll('[data-use]').forEach((link) => link.addEventListener('click', (event) => {
+        const setup = document.getElementById('setup');
+        if (!setup) return;
+        event.preventDefault();
+        setTab(link.dataset.use, false);
+        setup.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+        const tab = document.querySelector('[data-tab="' + link.dataset.use + '"]');
+        if (tab) setTimeout(() => tab.focus({ preventScroll: true }), reduce ? 0 : 450);
+      }));
+      render(false);
     }
-    showDone(0);
-    new IntersectionObserver((entries) => {
-      visible = entries[0].isIntersecting;
-      if (visible) loop();
-    }, { threshold: 0.35 }).observe(chat);
+
+    // ---- Copy buttons ------------------------------------------------------------------------
+    document.querySelectorAll('[data-copy]').forEach((btn) => {
+      btn.hidden = false;
+      const source = document.getElementById(btn.dataset.copy);
+      const status = btn.parentElement.querySelector('.ai-copy-status');
+      let timer = 0;
+      const done = () => {
+        status.textContent = T.copied || '';
+        btn.classList.add('is-done');
+        clearTimeout(timer);
+        timer = setTimeout(() => { status.textContent = ''; btn.classList.remove('is-done'); }, 2600);
+      };
+      const failed = () => {
+        const range = document.createRange();
+        range.selectNodeContents(source);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        status.textContent = T.copyFail || '';
+      };
+      btn.addEventListener('click', () => {
+        const text = source.textContent.trim();
+        try {
+          if (!navigator.clipboard || !navigator.clipboard.writeText) { failed(); return; }
+          navigator.clipboard.writeText(text).then(done, failed);
+        } catch (error) { failed(); }
+      });
+    });
   })();
 </script>
     
