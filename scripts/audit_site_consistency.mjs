@@ -716,7 +716,11 @@ function localLinkTargets(html, fromRelative) {
   const pageDir = path.posix.dirname(fromRelative) === '.' ? '' : `${path.posix.dirname(fromRelative)}/`;
   const dir = base ? path.posix.normalize(`${pageDir}${base}`).replace(/^\.\/?$/, '') : pageDir;
   const out = new Set();
-  for (const [, href] of html.matchAll(/<a[^>]+href="([^"#?]+\.html)(?:[#?][^"]*)?"/g)) {
+  // Homepages are linked by their folder ("./", "sv/", "/"), not index.html,
+  // which answers 301 -- so a link ending in "/" is a link to that folder's
+  // index.html.
+  for (const [, raw] of html.matchAll(/<a[^>]+href="((?:[^"#?:]+\.html|(?:\.|\/?(?:[a-z]{2}))?\/))(?:[#?][^"]*)?"/g)) {
+    const href = raw.endsWith('/') ? `${raw}index.html` : raw;
     const resolved = href.startsWith('/')
       ? href.slice(1)
       : path.posix.normalize(`${dir}${dir && !dir.endsWith('/') ? '/' : ''}${href}`);
@@ -768,6 +772,25 @@ function localLinkTargets(html, fromRelative) {
         + `clicks from the homepage: ${tooDeep.slice(0, 6).join(', ')}`
         + `${tooDeep.length > 6 ? ', …' : ''}`);
     }
+  }
+}
+
+// No page links a homepage as index.html. /index.html and /sv/index.html answer
+// 301 to their folder, and until November 2026 every logo, breadcrumb and
+// language switcher went through that redirect: 4,928 internal links pointing
+// at a URL that is not the canonical. build_dist rewrites them to the folder.
+{
+  let viaRedirect = 0;
+  const examples = [];
+  for (const file of everyHtmlFile(dist)) {
+    const hits = fs.readFileSync(file, 'utf8').match(/\shref="\/?(?:[a-z]{2}\/)?index\.html(?=["#?])/g);
+    if (!hits) continue;
+    viaRedirect += hits.length;
+    if (examples.length < 3) examples.push(path.relative(dist, file));
+  }
+  if (viaRedirect) {
+    fail('internal links', `${viaRedirect} link(s) point at index.html, which redirects to its folder: `
+      + `${examples.join(', ')}`);
   }
 }
 

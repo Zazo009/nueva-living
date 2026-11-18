@@ -1676,6 +1676,21 @@ function inheritLocaleRobots(html, publicName) {
   );
 }
 
+// Every page linked its homepage as index.html -- the logo, the breadcrumb and
+// the ten-language switcher -- and /index.html answers 301 to /. That put 4,928
+// internal links through a redirect: harmless to a visitor, but each one is a
+// hop a crawler has to make and a link Google credits to a URL that is not the
+// canonical. Link the folder instead. Bare "index.html" becomes "./", which on
+// an English page is the root and on a locale page (base "../") is the root as
+// well; "sv/index.html" becomes "sv/". Only href attributes are touched: the
+// scripts that compare location.pathname against index.html are left alone.
+function linkHomesByCanonicalUrl(html) {
+  return html.replace(
+    /(\shref=")(\/?)((?:[a-z]{2}\/)?)index\.html(?=["#?])/g,
+    (_, attr, slash, locale) => `${attr}${slash}${locale || (slash ? '' : './')}`
+  );
+}
+
 function writeHtml(source, target, publicName) {
   const html = fs.readFileSync(source, 'utf8');
   fs.mkdirSync(path.dirname(target), { recursive: true });
@@ -1924,6 +1939,7 @@ function localiseGalleryChrome(html, locale) {
   out = ensureOrganisationSchema(out, locale);
   out = clampMetaDescriptions(out);
   out = stampAssetVersions(out);
+  out = linkHomesByCanonicalUrl(out);
   const productionHtml = externalizeHomepageController(out, publicName);
   fs.writeFileSync(target, optimizeHtml(productionHtml));
 }
