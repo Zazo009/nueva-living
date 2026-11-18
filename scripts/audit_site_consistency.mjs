@@ -5179,7 +5179,7 @@ let areaProjectsChecked = 0;
   const AREA_OF = { marbella: 'marbella', marbellaEast: 'marbella', marbellaCentre: 'marbella',
     goldenMile: 'marbella', sanPedro: 'san-pedro-alcantara', estepona: 'estepona', newGoldenMile: 'estepona',
     casares: 'casares', benahavis: 'benahavis', nuevaAndalucia: 'nueva-andalucia',
-    mijasFuengirola: 'mijas-fuengirola', benalmadena: 'benalmadena' };
+    mijasFuengirola: 'mijas-fuengirola', benalmadena: 'benalmadena', torremolinos: 'torremolinos' };
   const areasFile = path.join(root, 'content/nueva-areas.json');
   const projectsDir = path.join(root, 'content', 'liora-projects');
   if (fs.existsSync(areasFile) && fs.existsSync(projectsDir)) {

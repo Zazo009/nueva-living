@@ -1382,6 +1382,7 @@ const MAP_LANDMARKS = {
   marbellaEast: { x: 950, y: 195, label: 'Marbella East', key: 'map.marbellaEast' },
   mijasFuengirola: { x: 1020, y: 205, label: 'Fuengirola' },
   benalmadena: { x: 1050, y: 185, label: 'Benalmádena' },
+  torremolinos: { x: 1066, y: 176, label: 'Torremolinos' },
   malagaAirport: { x: 1080, y: 165, label: 'Málaga Airport', key: 'map.malagaAirport' }
 };
 

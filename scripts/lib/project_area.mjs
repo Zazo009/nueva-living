@@ -80,6 +80,7 @@ export const AREA_DISPLAY_NAMES = {
   'nueva-andalucia': 'Nueva Andalucía',
   'mijas-fuengirola': 'Mijas & Fuengirola',
   benalmadena: 'Benalmádena',
+  torremolinos: 'Torremolinos',
   casares: 'Casares',
   'san-pedro-alcantara': 'San Pedro de Alcántara'
 };
