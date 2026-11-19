@@ -5147,6 +5147,29 @@ li,
 
 [lang="ar"] .area-price-table thead th { letter-spacing: 0; text-transform: none; }
 
+/* Segment pages: the developments compared row by row, and prices by bedroom
+   count. Same table, but every column is data, so none of them takes the area
+   table's gold first column or its wide prose last column. */
+.segment-compare-table tbody td,
+.segment-bedroom-table tbody td,
+.segment-compare-table tbody td:first-of-type,
+.segment-bedroom-table tbody td:first-of-type,
+.segment-compare-table tbody td:last-child,
+.segment-bedroom-table tbody td:last-child {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--nueva-espresso, #4a3b28);
+  min-width: 0;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.segment-compare-table tbody td:nth-of-type(1) { white-space: normal; min-width: 160px; }
+.segment-compare-table tbody td:nth-of-type(4),
+.segment-bedroom-table tbody td:nth-of-type(1) { font-weight: 600; color: var(--nueva-gold, #7a5f36); }
+.segment-compare-table tbody td:nth-of-type(5) { white-space: normal; min-width: 150px; }
+.segment-size-basis { display: block; font-size: 11px; font-weight: 300; color: rgba(74, 59, 40, 0.62); }
+
 /* ---------- Map entry points (the map itself is liora-discovery-map.css,
    fetched on the first request for it) ---------- */
 

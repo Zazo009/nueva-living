@@ -21,10 +21,12 @@ import {
   renderDrawerActions,
   LANG_SWITCHER_SCRIPT,
   localizeInternalLinks,
+  localizeProject,
   seoTags
 } from './lib/i18n.mjs';
 import { localizeCardPrices } from './lib/prices.mjs';
 import { renderUnifiedCard } from './lib/project_card.mjs';
+import { cardFacts } from './lib/card_facts.mjs';
 import { renderFooter } from './lib/site_footer.mjs';
 import { renderProjectCardGallery } from './lib/card_gallery.mjs';
 import { SEGMENT_PAGE_ENTRIES } from './lib/segment_page_translations.mjs';
@@ -498,6 +500,107 @@ function segmentSchema(segment, matches, locale) {
   ];
 }
 
+// The comparison listing. A type page (apartments in Estepona) used to show the
+// same photo cards, with the same descriptions, as the area guide it sits under,
+// and Search Console reported the four apartment pages and the New Golden Mile
+// page as "crawled, currently not indexed": 64% of the Estepona apartment page's
+// text was also on area-estepona.html, all of it in the cards. Google kept the
+// area guide and dropped the copy. A segment with `listing: 'table'` lists its
+// developments as a comparison table instead, and adds what an area guide does
+// not have: the price for each number of bedrooms, read from the price lists.
+// The photos are one click away on each project page and on the area guide.
+const SQM = { ru: 'м²', ar: 'م²' };
+const sqm = (locale) => SQM[locale] || 'm²';
+const euro = (n) => `€${Math.round(n).toLocaleString('en-US')}`;
+
+function unitKind(unit) {
+  // Mixed schemes file a villa's kind in any of these ("Semi-Detached Villa, Block 22" is a floor).
+  const text = `${unit.type || ''} ${unit.bedrooms || ''} ${unit.floor || ''}`.toLowerCase();
+  if (/villa/.test(text)) return 'villa';
+  if (/townhouse|town house|terraced/.test(text)) return 'townhouse';
+  return 'apartment';
+}
+
+function unitBedrooms(unit) {
+  const text = String(unit.bedrooms || '');
+  if (/studio/i.test(text)) return 0;
+  const match = text.match(/(\d+)/);
+  return match ? Number(match[1]) : null;
+}
+
+function unitPrice(unit) {
+  if (/sold|reserved/i.test(String(unit.status || ''))) return null;
+  const match = String(unit.price || '').trim().match(/^(?:EUR|€)\s*(\d{1,3}(?:,\d{3})+|\d+)/);
+  return match ? Number(match[1].replace(/,/g, '')) : null;
+}
+
+const median = (values) => {
+  const sorted = [...values].sort((a, b) => a - b);
+  const mid = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+};
+
+function bedroomPriceRows(matches, segment) {
+  const kinds = new Set((segment.propertyTypes || []).map((type) => (type === 'penthouse' ? 'apartment' : type)));
+  const groups = new Map();
+  for (const project of matches) {
+    for (const unit of project.availability?.units || []) {
+      if (kinds.size && !kinds.has(unitKind(unit))) continue;
+      const beds = unitBedrooms(unit);
+      const price = unitPrice(unit);
+      if (beds === null || beds < 1 || price === null) continue;
+      const key = Math.min(beds, 4);
+      if (!groups.has(key)) groups.set(key, { prices: [], projects: new Set() });
+      groups.get(key).prices.push(price);
+      groups.get(key).projects.add(project.slug);
+    }
+  }
+  return [...groups.entries()].sort(([a], [b]) => a - b).map(([beds, group]) => ({
+    beds: beds === 4 ? '4+' : String(beds),
+    from: Math.min(...group.prices),
+    median: median(group.prices),
+    homes: group.prices.length,
+    developments: group.projects.size
+  }));
+}
+
+function bedroomPriceSection(matches, segment, locale) {
+  const rows = bedroomPriceRows(matches, segment);
+  if (rows.length < 2) return '';
+  return `<section class="section segment-bedroom-prices"><div class="section-inner">
+    <div class="section-head"><span class="label">${esc(t('segment.bedLabel', locale))}</span><div class="rule"></div><h2 class="section-title">${esc(t('segment.bedTitle', locale))}</h2><p class="body-copy">${esc(t('segment.bedIntro', locale))}</p></div>
+    <div class="area-price-table-wrap"><table class="area-price-table segment-bedroom-table"><thead><tr><th scope="col">${esc(t('card.bedrooms', locale))}</th><th scope="col">${esc(t('segment.colPriceFrom', locale))}</th><th scope="col">${esc(t('segment.colMedian', locale))}</th><th scope="col">${esc(t('segment.colHomes', locale))}</th><th scope="col">${esc(t('segment.colDevelopments', locale))}</th></tr></thead><tbody>
+      ${rows.map((row) => `<tr><th scope="row">${row.beds}</th><td>${euro(row.from)}</td><td>${euro(row.median)}</td><td>${row.homes}</td><td>${row.developments}</td></tr>`).join('\n      ')}
+    </tbody></table></div>
+  </div></section>`;
+}
+
+function comparisonTable(matches, locale) {
+  const tl = (key, vars) => t(key, locale, vars);
+  const rows = matches
+    .map((project) => ({ project, local: localizeProject(project, locale) }))
+    .sort((a, b) => (a.project.crm?.priceMin ?? Infinity) - (b.project.crm?.priceMin ?? Infinity));
+  const body = rows.map(({ project, local }) => {
+    const facts = cardFacts(local, { t: tl });
+    const beds = facts.find((fact) => fact.label === tl('card.bedrooms'));
+    const size = facts.find((fact) => fact.unit);
+    const priceMin = project.crm?.priceMin;
+    const available = Number(project.crm?.availableUnits);
+    const location = local.card?.locExtended || local.hero?.location || local.card?.label || '';
+    return `<tr><th scope="row"><a href="${esc(project.output)}">${esc(local.name || project.name)}</a></th>`
+      + `<td>${esc(location)}</td>`
+      + `<td>${beds ? esc(beds.value) : '&ndash;'}</td>`
+      + `<td>${size ? `${esc(size.value)} ${sqm(locale)}${size.label !== tl('card.size') ? ` <span class="segment-size-basis">${esc(size.label)}</span>` : ''}` : '&ndash;'}</td>`
+      + `<td>${typeof priceMin === 'number' ? euro(priceMin) : '&ndash;'}</td>`
+      + `<td>${esc(local.hero?.delivery || '') || '&ndash;'}</td>`
+      + `<td>${Number.isFinite(available) && available > 0 ? available : '&ndash;'}</td></tr>`;
+  }).join('\n      ');
+  return `<div class="area-price-table-wrap"><table class="area-price-table segment-compare-table"><thead><tr><th scope="col">${esc(tl('segment.colDevelopment'))}</th><th scope="col">${esc(tl('segment.colLocation'))}</th><th scope="col">${esc(tl('card.bedrooms'))}</th><th scope="col">${esc(tl('card.size'))}</th><th scope="col">${esc(tl('segment.colPriceFrom'))}</th><th scope="col">${esc(tl('card.delivery'))}</th><th scope="col">${esc(tl('card.available'))}</th></tr></thead><tbody>
+      ${body}
+    </tbody></table></div>
+    <p class="area-price-source">${esc(tl('segment.compareNote'))}</p>`;
+}
+
 function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
   const meta = localeMeta(locale);
   const rtl = isRtl(locale);
@@ -514,10 +617,10 @@ function renderSegmentPage(segment, locale = DEFAULT_LOCALE) {
 
   const developmentsSection = `<section class="section segment-developments"><div class="section-inner">
     <div class="section-head"><span class="label">Current Match</span><div class="rule"></div><h2 class="section-title">${segment.developmentsHeadlineHtml}</h2><p class="body-copy">Only developments currently matching this search are shown below. Price and availability are reconfirmed before a viewing.</p></div>
-    <div class="project-grid area-project-grid">
+    ${segment.listing === 'table' && matches.length ? comparisonTable(matches, locale) : `<div class="project-grid area-project-grid">
       ${matches.length ? matches.map(segmentProjectCard).join('\n      ') : `<article class="area-project-empty"><span class="label">Private Selection</span><h3>Current opportunities available by request</h3><p>We do not publish a development here until its information is ready to compare. Tell us what you need and we will check current releases directly.</p><a class="project-link" href="contact.html#contact-form&intent=${encodeURIComponent(`${segment.breadcrumbLabel} in ${segment.areaLabel}`)}">Request a Shortlist</a></article>`}
-    </div>
-  </div></section>`;
+    </div>`}
+  </div></section>${segment.listing === 'table' ? `\n  ${bedroomPriceSection(matches, segment, locale)}` : ''}`;
 
   const amenitiesSection = amenities.length ? `<section class="section quiet-band segment-amenities"><div class="section-inner">
     <div class="section-head"><span class="label">What To Expect</span><div class="rule"></div><h2 class="section-title">${segment.amenitiesHeadlineHtml}</h2><p class="body-copy">${esc(segment.amenitiesIntro)}</p></div>
@@ -1087,6 +1190,7 @@ const SEGMENTS = [
   },
   {
     output: 'new-build-homes-new-golden-mile.html',
+    listing: 'table',
     area: 'estepona',
     slugs: [
       'vista-alta-suites',
@@ -1155,6 +1259,7 @@ const SEGMENTS = [
   },
   {
     output: 'new-build-apartments-penthouses-mijas-fuengirola.html',
+    listing: 'table',
     area: 'mijas-fuengirola',
     areaLabel: 'Mijas & Fuengirola',
     areaLabelKey: 'area.mijasFuengirola',
@@ -1210,6 +1315,7 @@ const SEGMENTS = [
   },
   {
     output: 'new-build-apartments-penthouses-marbella.html',
+    listing: 'table',
     area: 'marbella',
     areaLabel: 'Marbella',
     areaLabelKey: 'area.marbella',
@@ -1265,6 +1371,7 @@ const SEGMENTS = [
   },
   {
     output: 'new-build-apartments-penthouses-estepona.html',
+    listing: 'table',
     area: 'estepona',
     areaLabel: 'Estepona',
     areaLabelKey: 'area.estepona',
@@ -1319,6 +1426,7 @@ const SEGMENTS = [
   },
   {
     output: 'new-build-apartments-penthouses-nueva-andalucia.html',
+    listing: 'table',
     area: 'nueva-andalucia',
     areaLabel: 'Nueva Andalucía',
     areaLabelKey: 'area.nuevaAndalucia',
