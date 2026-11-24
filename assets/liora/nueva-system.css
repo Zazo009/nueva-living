@@ -521,8 +521,29 @@ h6,
   .enquiry-form textarea
 ) {
   border-color: var(--nueva-line);
-  background: rgba(250, 246, 238, 0.74);
+  background-color: rgba(250, 246, 238, 0.74);
   color: var(--nueva-espresso);
+}
+
+/* Safari on a Mac drew form selects as grey system pop-up buttons with
+   their own double arrow (appearance: auto). Flat like the inputs beside
+   them, with one bronze chevron; the open list is nueva-select.js. The
+   field rules above and #contact-form's set background-color only, so
+   the chevron survives them. */
+.field select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-inline-end: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239a7b4f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 13px 13px;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+[dir="rtl"] .field select {
+  background-position: left 10px center;
 }
 
 :is(
@@ -3347,4 +3368,134 @@ input[type="range"] {
 .dev-img-wrap > .nueva-favorite-button {
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
+}
+
+/* ---------- Language panel rows ----------
+   The desktop panel sits inside .nav-links, so "#nav .nav-links a" (and
+   html[lang="ru"]'s variant of it) outranks the bare .lang-switcher-option
+   rules: every row took the nav link's 3px bottom padding, its transparent
+   border, the homepage's gold ::after underline on hover, and its letter-
+   spacing and capitals. Arabic is the row that showed it: tracked and
+   upper-cased script falls apart, the system Arabic face set a taller line
+   box than its neighbours, and the hover underline ran beneath it. Scoped
+   to the panel so the specificity wins on every page type, homepage
+   included, without !important. */
+#nav .nav-links .lang-switcher:not([data-lang-switcher-compact]) .lang-switcher-option,
+.site-nav .nav-links .lang-switcher:not([data-lang-switcher-compact]) .lang-switcher-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 18px;
+  line-height: 18px;
+  border-bottom: 0;
+  text-shadow: none;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#nav .nav-links .lang-switcher:not([data-lang-switcher-compact]) .lang-switcher-option::after,
+.site-nav .nav-links .lang-switcher:not([data-lang-switcher-compact]) .lang-switcher-option::after {
+  content: none;
+}
+
+/* Arabic is never tracked or cased; a size up matches the Latin capitals'
+   optical height. Cairo where the page loads it (ar), the system face
+   elsewhere. Applies to every switcher variant, compact included. */
+.lang-switcher .lang-switcher-option[lang="ar"],
+#nav .nav-links .lang-switcher:not([data-lang-switcher-compact]) .lang-switcher-option[lang="ar"],
+.site-nav .nav-links .lang-switcher:not([data-lang-switcher-compact]) .lang-switcher-option[lang="ar"] {
+  font-family: 'Cairo', 'Geeza Pro', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+  font-size: 15px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ---------- Custom select list (nueva-select.js) ----------
+   Safari and Chrome on a Mac draw an open <select> as a system menu: grey,
+   blue highlight, system font, nothing like the rest of the site. On a
+   fine pointer the script opens this list instead and writes the choice
+   back into the real <select>, so forms, filters and the URL read the same
+   element as before. Touch devices keep the native picker. */
+.nv-select-list {
+  position: fixed;
+  z-index: 30050;
+  box-sizing: border-box;
+  max-height: 320px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  background: rgba(31, 24, 16, 0.98);
+  border: 1px solid rgba(247, 244, 238, 0.14);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: rgba(247, 244, 238, 0.86);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 164, 95, 0.5) transparent;
+}
+
+.nv-select-list[hidden] {
+  display: none;
+}
+
+.nv-select-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 0 18px 0 14px;
+  line-height: 1.3;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nv-select-option::before {
+  content: "";
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+}
+
+.nv-select-option[aria-selected="true"] {
+  color: #e6cf9f;
+}
+
+.nv-select-option[aria-selected="true"]::before {
+  background: no-repeat center / 12px 12px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d8bd85' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E");
+}
+
+.nv-select-option.is-active {
+  background: rgba(201, 164, 95, 0.14);
+  color: #f7f4ee;
+}
+
+.nv-select-option[aria-disabled="true"] {
+  color: rgba(247, 244, 238, 0.32);
+  cursor: default;
+}
+
+.nv-select-group {
+  padding: 12px 18px 6px 36px;
+  color: rgba(247, 244, 238, 0.42);
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+[dir="rtl"] .nv-select-option {
+  padding: 0 14px 0 18px;
+}
+
+[dir="rtl"] .nv-select-group {
+  padding: 12px 36px 6px 18px;
 }

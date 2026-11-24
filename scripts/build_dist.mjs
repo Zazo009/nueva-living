@@ -44,6 +44,7 @@ const discoveryMapStylesheetPath = 'assets/liora/liora-discovery-map.css';
 const trackingScriptPath = 'assets/liora/nueva-tracking.js';
 const shortlistScriptPath = 'assets/liora/nueva-shortlist.js';
 const shortlistStylesheetPath = 'assets/liora/nueva-shortlist.css';
+const selectScriptPath = 'assets/liora/nueva-select.js';
 const compareScriptPath = 'assets/liora/liora-compare.js';
 const compareStylesheetPath = 'assets/liora/liora-compare.css';
 const navInteractionsStylesheetPath = 'assets/liora/nueva-nav-interactions.css';
@@ -66,6 +67,7 @@ const discoveryMapStylesheetVersion = contentVersion(discoveryMapStylesheetPath)
 const trackingScriptVersion = contentVersion(trackingScriptPath);
 const shortlistScriptVersion = contentVersion(shortlistScriptPath);
 const shortlistStylesheetVersion = contentVersion(shortlistStylesheetPath);
+const selectScriptVersion = contentVersion(selectScriptPath);
 // Soléa, the chat (assets/liora/nueva-solea.js). The script loads the 3D avatar and its model only
 // when the chat is opened, from fixed paths under /assets/ (cached for a year), so it carries their
 // version: a new model or runtime gets a new URL.
@@ -734,6 +736,7 @@ const assetFiles = [
   'assets/liora/nueva-nav-interactions.css',
   'assets/liora/nueva-shortlist.css',
   'assets/liora/nueva-shortlist.js',
+  'assets/liora/nueva-select.js',
   'assets/liora/nueva-solea.js',
   'assets/liora/nueva-signature.css',
   'assets/liora/nueva-signature.js',
@@ -1378,6 +1381,16 @@ function injectShortlist(html) {
   return next;
 }
 
+function injectSelect(html) {
+  // Only pages that carry a <select>: the list it draws has nothing to do
+  // elsewhere. See nueva-select.js for why the native list is replaced.
+  if (html.includes(selectScriptPath) || !/<select[\s>]/i.test(html)) return html;
+  return html.replace(
+    /\n<\/body>/i,
+    `\n  <script src="${selectScriptPath}?v=${selectScriptVersion}" defer></script>\n</body>`
+  );
+}
+
 function injectSolea(html) {
   if (html.includes(soleaScriptPath)) return html;
   return html.replace(
@@ -1922,6 +1935,7 @@ function localiseGalleryChrome(html, locale) {
   out = injectConversion(out);
   out = injectNewsletter(out, locale);
   out = injectShortlist(out);
+  out = injectSelect(out);
   out = injectSolea(out);
   out = injectNavInteractions(out);
   out = injectSkipLink(out, locale, publicName);
