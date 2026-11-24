@@ -299,7 +299,7 @@ const TOOLS = [
   {
     name: 'request_details',
     title: 'Ask a Nueva Living advisor to get in touch',
-    description: 'Sends the person\'s enquiry to a Nueva Living advisor, who replies by e-mail (or phone, if given) with current availability, prices and plans. Call only when the person has asked to be contacted and has agreed to share their name and e-mail for that purpose; set consent to true only then.',
+    description: 'Sends the person\'s enquiry to a Nueva Living advisor, who replies by e-mail (or phone, if given) with current availability, prices and plans. It is for a person who has asked to be contacted and agreed to share their name and e-mail for that; the enquiry is not sent unless consent is true.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -310,7 +310,7 @@ const TOOLS = [
         slugs: { type: 'array', maxItems: 6, items: { type: 'string' }, description: 'Developments the person is asking about.' },
         message: { type: 'string', maxLength: 1000, description: 'What the person wants to know, in their words.' },
         budget_max: { type: 'integer', minimum: 0 },
-        consent: { type: 'boolean', description: 'True only if the person agreed to be contacted and to have these details stored for that.' },
+        consent: { type: 'boolean', description: 'Whether the person agreed to be contacted and to have these details stored for that.' },
         language: { type: 'string', enum: LANGUAGES },
       },
       required: ['first_name', 'last_name', 'email', 'consent'],
