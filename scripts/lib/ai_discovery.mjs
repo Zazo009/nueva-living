@@ -88,7 +88,7 @@ export function buildLlms({ siteUrl, dist, projects, areas }) {
     byArea.get(key).push(project);
   }
 
-  const summary = 'Nueva Living is a private new-build and off-plan property advisory based in Marbella, Spain. '
+  const summary = 'Nueva Living is a new-build real estate agency and buyer\'s agent based in Marbella, Spain, advising privately on new-build and off-plan property. '
     + 'It works only with new developments on the Costa del Sol, from Torremolinos to Casares, and helps international buyers '
     + 'compare projects, understand prices and payment terms, and shortlist homes. The site is published in English, Spanish, '
     + 'French, German, Russian, Arabic, Dutch, Polish, Norwegian and Swedish.';

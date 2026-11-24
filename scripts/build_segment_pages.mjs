@@ -896,6 +896,14 @@ const PROCESS_GUIDES = [
     alt: 'Aerial dusk view of a new-build Costa del Sol residence and pool terrace'
   },
   {
+    output: 'guide-agency-developer-or-buyers-agent.html',
+    kicker: 'Buying Guide',
+    title: 'Agency, Developer or Buyer\'s Agent',
+    description: 'Who to buy a new-build through: a real estate agency, the developer direct or a buyer\'s agent, who pays the commission and what to check.',
+    image: 'assets/liora/viewing/scene-11.jpg',
+    alt: 'Living room opening onto a covered terrace, pool and sea view in a Costa del Sol new-build'
+  },
+  {
     output: 'guide-how-buying-works.html',
     kicker: 'Buying Guide',
     title: 'How Buying Works',

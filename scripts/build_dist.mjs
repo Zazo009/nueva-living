@@ -102,6 +102,7 @@ const baseHtmlFiles = [
   'advisory.html',
   'guide-how-buying-works.html',
   'guide-off-plan-vs-resale.html',
+  'guide-agency-developer-or-buyers-agent.html',
   'guide-purchase-costs-andalucia.html',
   'guide-bank-guarantee-off-plan-spain.html',
   'guide-off-plan-payment-schedules.html',
@@ -187,7 +188,7 @@ const basePageMeta = {
     // most valuable characters on the brand -- which appears in the title
     // regardless on a brand query, and buys nothing on a category one.
     title: 'Costa del Sol New Developments & Off-Plan Homes | Nueva Living',
-    description: 'Independent advice on new developments and off-plan homes for sale in Marbella, Estepona, Benahavis and Nueva Andalucia: real prices and delivery dates.',
+    description: 'New-build real estate agency and buyer\'s agent for off-plan homes in Marbella, Estepona, Benahavis and Nueva Andalucia, with real prices and delivery dates.',
     path: '/',
     type: 'website',
     schema: [
@@ -195,7 +196,7 @@ const basePageMeta = {
       // put two copies of #organization on the homepage.
       realEstateAgentSchema(siteUrl, {
         areaServed: ['Marbella', 'Estepona', 'Benahavis', 'Costa del Sol'],
-        knowsAbout: ['New developments', 'Off-plan property', 'Luxury real estate advisory']
+        knowsAbout: ['New developments', 'Off-plan property', 'New-build real estate agency', 'Buyer\'s agent services', 'Luxury real estate advisory']
       }),
       webSiteSchema(siteUrl),
       // The nine locale homepages carry a WebPage node from pageSchema(); the
@@ -207,7 +208,7 @@ const basePageMeta = {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
         name: 'Costa del Sol New Developments & Off-Plan Homes | Nueva Living',
-        description: 'Independent advice on new developments and off-plan homes for sale in Marbella, Estepona, Benahavis and Nueva Andalucia: real prices and delivery dates.',
+        description: 'New-build real estate agency and buyer\'s agent for off-plan homes in Marbella, Estepona, Benahavis and Nueva Andalucia, with real prices and delivery dates.',
         url: `${siteUrl}/`,
         inLanguage: 'en',
         isPartOf: { '@type': 'WebSite', name: 'Nueva Living', url: siteUrl },
@@ -403,6 +404,12 @@ const basePageMeta = {
     title: 'Off-Plan vs Resale Property on the Costa del Sol (2026)',
     description: 'Off-plan vs resale on the Costa del Sol in 2026: price, payment structure, bank guarantees, LOE warranty, timelines and which one suits your plan.',
     path: '/guide-off-plan-vs-resale.html',
+    type: 'article'
+  },
+  'guide-agency-developer-or-buyers-agent.html': {
+    title: 'Agency, Developer or Buyer\'s Agent: Who to Buy Through',
+    description: 'Buying a Costa del Sol new-build via a real estate agency, the developer or a buyer\'s agent: who pays the commission, what it costs you, what to check.',
+    path: '/guide-agency-developer-or-buyers-agent.html',
     type: 'article'
   },
   'referrals.html': {

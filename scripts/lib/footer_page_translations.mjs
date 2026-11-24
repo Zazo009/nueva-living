@@ -26,6 +26,7 @@ import { GUIDE_SWEDEN_ENTRIES } from './guide_sweden_translations.mjs';
 import { GUIDE_NORWAY_ENTRIES } from './guide_norway_translations.mjs';
 import { GUIDE_PRICES_ENTRIES } from './guide_prices_translations.mjs';
 import { GUIDE_HABENO_ENTRIES } from './guide_habeno_translations.mjs';
+import { GUIDE_AGENCY_ENTRIES } from './guide_agency_translations.mjs';
 
 export const FOOTER_PAGE_ENTRIES = [
   ...CARD_CHROME_ENTRIES,
@@ -44,5 +45,6 @@ export const FOOTER_PAGE_ENTRIES = [
   ...GUIDE_SWEDEN_ENTRIES,
   ...GUIDE_NORWAY_ENTRIES,
   ...GUIDE_PRICES_ENTRIES,
-  ...GUIDE_HABENO_ENTRIES
+  ...GUIDE_HABENO_ENTRIES,
+  ...GUIDE_AGENCY_ENTRIES
 ];

@@ -103,7 +103,7 @@ const IDENTITY = {
   //
   // Every clause is stated in visible copy on /about, which is the condition
   // for putting it here at all.
-  description: 'Nueva Living is a new-build and off-plan property advisory based in '
+  description: 'Nueva Living is a new-build real estate agency and buyer\'s agent based in '
     + 'Marbella, working with buyers across Marbella, Estepona, Benahavís and the '
     + 'wider Costa del Sol.',
   // The one line that says what kind of firm this is, which the name cannot.

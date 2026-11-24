@@ -814,7 +814,7 @@ const pages = [
     seoContext: 'Off-Plan Buyer Advisory, Costa del Sol',
     heroTitle: 'Know what you are buying <em>before you decide</em>',
     heroLead: 'We help you check the location, developer, finishes, payment plan and future resale appeal before you choose a home.',
-    body: (locale) => `<section class="section"><div class="section-inner split"><div><span class="label">An Independent View</span><div class="rule"></div><h2 class="section-title">Clear advice for <em>the buyer</em></h2><p class="body-copy">A developer brochure shows the project at its best. We help you look beyond it and understand what is genuinely strong, what is fairly standard and what needs a closer check.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Interior detail"></div></div></section>
+    body: (locale) => `<section class="section"><div class="section-inner split"><div><span class="label">An Independent View</span><div class="rule"></div><h2 class="section-title">Clear advice for <em>the buyer</em></h2><p class="body-copy">A developer brochure shows the project at its best. As a new-build real estate agency and buyer's agent, we help you look beyond it and understand what is genuinely strong, what is fairly standard and what needs a closer check.</p></div><div class="image-panel"><img src="assets/liora/viewing/scene-13.jpg" alt="Interior detail"></div></div></section>
     <section class="section quiet-band"><div class="section-inner"><div class="section-head"><span class="label">How We Help</span><div class="rule"></div><h2 class="section-title">The details we help you <em>compare</em></h2></div><div class="cards"><article class="card"><h3>Compare Projects</h3><p>We compare prices, orientation, amenities, completion dates and nearby alternatives side by side.</p></article><article class="card"><h3>Plan the Purchase</h3><p>We talk through how you will use the home, rental plans, financing and what you may want later.</p></article><article class="card"><h3>Reserve with Clarity</h3><p>We organise project documents, viewings, reservation details and an introduction to an independent lawyer.</p></article></div></div></section>
     <section class="section"><div class="section-inner"><div class="section-head center"><span class="label">Our Promise</span><div class="rule"></div><h2 class="section-title">Straight answers, <em>no pressure</em></h2></div><div class="cards two"><article class="card"><h3>A Shorter, Better List</h3><p>We would rather show you three suitable projects than thirty generic options.</p></article><article class="card"><h3>Real Urgency Only</h3><p>We only flag urgency when availability, pricing or a reservation deadline genuinely changes.</p></article></div></div></section>
     ${generalFaqSection()}
@@ -1004,6 +1004,7 @@ const pages = [
       </div>
     </div></section>
     ${generalFaqSection()}
+    <div class="section-inner"><p class="body-copy g-reveal" style="text-align:center;">Still deciding who to buy through? See <a href="guide-agency-developer-or-buyers-agent.html">agency, developer or buyer's agent</a>, and what each route costs you.</p></div>
         <script>
       (() => {
         document.querySelectorAll('[data-guide-checklist]').forEach((panel) => {
@@ -1272,7 +1273,8 @@ const pages = [
         <p>No. An NIE is an identifier, not a residence permit, and owning a home does not by itself make you resident. Tax residency turns on your own circumstances and is a question for a tax adviser rather than for a property page.</p>
       </details>
     </div>
-  </div></section>`,
+  </div></section>
+    <div class="section-inner"><p class="body-copy g-reveal" style="text-align:center;">Still deciding who to buy through? See <a href="guide-agency-developer-or-buyers-agent.html">agency, developer or buyer's agent</a>, and what each route costs you.</p></div>`,
   },
   {
     file: 'guide-buying-from-netherlands.html',
@@ -1348,7 +1350,8 @@ const pages = [
         <p>No. We advise on the property and the purchase. How a Spanish home is treated in your Dutch tax return is a question for a Dutch tax adviser, and the page above lists what to ask.</p>
       </details>
     </div>
-  </div></section>`,
+  </div></section>
+    <div class="section-inner"><p class="body-copy g-reveal" style="text-align:center;">Still deciding who to buy through? See <a href="guide-agency-developer-or-buyers-agent.html">agency, developer or buyer's agent</a>, and what each route costs you.</p></div>`,
   },
   {
     file: 'guide-buying-from-sweden.html',
@@ -1424,7 +1427,8 @@ const pages = [
         <p>No. We advise on the property and the purchase. How a Spanish home is treated in your Swedish tax return is a question for a Swedish tax adviser, and the page above lists what to ask.</p>
       </details>
     </div>
-  </div></section>`,
+  </div></section>
+    <div class="section-inner"><p class="body-copy g-reveal" style="text-align:center;">Still deciding who to buy through? See <a href="guide-agency-developer-or-buyers-agent.html">agency, developer or buyer's agent</a>, and what each route costs you.</p></div>`,
   },
   {
     file: 'guide-buying-from-norway.html',
@@ -1500,7 +1504,8 @@ const pages = [
         <p>No. We advise on the property and the purchase. How a Spanish home is treated in your Norwegian tax return is a question for a Norwegian tax adviser, and the page above lists what to ask.</p>
       </details>
     </div>
-  </div></section>`,
+  </div></section>
+    <div class="section-inner"><p class="body-copy g-reveal" style="text-align:center;">Still deciding who to buy through? See <a href="guide-agency-developer-or-buyers-agent.html">agency, developer or buyer's agent</a>, and what each route costs you.</p></div>`,
   },
   {
     file: PRICES_GUIDE_FILE,
@@ -2144,6 +2149,105 @@ const pages = [
     </script>`,
   },
   {
+    file: 'guide-agency-developer-or-buyers-agent.html',
+    datePublished: '2026-11-24',
+    title: 'Agency, Developer or Buyer\'s Agent: Who to Buy Through',
+    breadcrumbTitle: 'Who to Buy Through',
+    description: 'Buying a Costa del Sol new-build via a real estate agency, the developer or a buyer\'s agent: who pays the commission, what it costs you, what to check.',
+    heroImage: 'assets/liora/viewing/scene-11.jpg',
+    heroAlt: 'Living room opening onto a covered terrace, pool and sea view in a Costa del Sol new-build',
+    heroKicker: 'Buying Guide',
+    seoContext: 'Real Estate Agency, Developer or Buyer\'s Agent · Costa del Sol 2026',
+    heroTitle: 'Agency, developer or buyer\'s agent: <em>who to buy through</em>',
+    heroLead: 'There are three ways to buy a new-build on the Costa del Sol. They differ less in price than most buyers expect, and more in whose side the person answering your questions is on.',
+    bodyClass: 'guide-article-page',
+    body: `<section class="section"><div class="section-inner">
+      <div class="guide-intro g-reveal">
+        <p class="body-copy">Nueva Living is one of the three options: a new-build real estate agency and buyer's agent. Read this knowing that. We have set out the trade-offs the way we would explain them to a friend, including where buying another way makes more sense.</p>
+        <div class="guide-cta-row" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:22px;">
+          <a class="btn" href="#routes">Compare the Three Routes</a>
+          <a class="btn ghost" href="contact.html#contact-form">Speak With an Advisor</a>
+        </div>
+      </div>
+    </div></section>
+    <section class="section" id="routes"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Three Routes</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">The same home, <em>three ways in</em></h2></div>
+      <div class="guide-section g-reveal">
+        <div class="guide-section-head"><h2>A general <em>real estate agency</em></h2></div>
+        <div class="guide-compare-grid">
+          <div class="guide-compare-row"><div class="guide-compare-label">Who you deal with</div><div><p>An agent who sells both resale and new-build homes, from the agency's own listings and from the developments it has an agreement with.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Who pays</div><div><p>On a new-build the developer pays the agency's commission, and on a resale it is usually the seller. Either way it is part of the price rather than a bill sent to you.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Choice</div><div><p>As wide as the agency's agreements. Many agencies on the coast are strongest in resale and show a handful of new developments alongside it.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Best for</div><div><p>Buyers still deciding between resale and new-build, who want one agent to show them both.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Watch for</div><div><p>The agent is paid from the seller's side of the sale. Ask which developments the agency does not work with, and why.</p></div></div>
+        </div>
+      </div>
+      <div class="guide-section g-reveal">
+        <div class="guide-section-head"><h2>Direct from <em>the developer</em></h2></div>
+        <div class="guide-compare-grid">
+          <div class="guide-compare-row"><div class="guide-compare-label">Who you deal with</div><div><p>The developer's own sales office or show flat.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Who pays</div><div><p>No agent is involved, but the price is usually the same. Most developers on the coast publish one price list for everyone and pay agents from their own marketing budget, so coming direct rarely makes the home cheaper.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Choice</div><div><p>That developer's projects only.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Best for</div><div><p>Buyers who have already chosen the development and want the people who know the building best, sometimes with first pick of the units at launch.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Watch for</div><div><p>A sales office sells its own project. Nobody in the room compares it with the development across the road.</p></div></div>
+        </div>
+      </div>
+      <div class="guide-section g-reveal">
+        <div class="guide-section-head"><h2>A new-build specialist <em>or buyer's agent</em></h2></div>
+        <div class="guide-compare-grid">
+          <div class="guide-compare-row"><div class="guide-compare-label">Who you deal with</div><div><p>An agency that works only with new developments and takes the buyer's side of the search: shortlisting, comparing and checking projects across many developers.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Who pays</div><div><p>With us, the developer pays the commission when the purchase completes and the buyer pays nothing. Some buyer's agents charge the buyer a fee instead, or as well, so ask before the search starts.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Choice</div><div><p>Across developers and areas. We publish 130 current developments from Torremolinos to Casares, from &euro;213,000 to &euro;11.5 million.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Best for</div><div><p>Buyers who know they want a new-build and want the projects compared side by side, with prices, payment schedules and delivery dates on the same page.</p></div></div>
+          <div class="guide-compare-row"><div class="guide-compare-label">Watch for</div><div><p>The agent is still paid on completion, and only by the developers it works with. Ask how it is paid and which developers it does not cover.</p></div></div>
+        </div>
+      </div>
+    </div></section>
+    <section class="section quiet-band"><div class="section-inner">
+      <div class="guide-section g-reveal" style="max-width:720px;margin:0 auto;padding-top:0;">
+        <div class="guide-section-head" style="justify-content:center;"><h2>What it <em>costs you</em></h2></div>
+        <p>On a new-build you pay the developer's list price whichever route you take. What changes the total is tax and fees: in Andaluc&iacute;a a new-build carries IVA at 10% and AJD at 1.2%, plus notary, registry and legal fees, and none of that depends on who introduced you. See <a href="guide-purchase-costs-andalucia.html">what a new-build actually costs in Andalucia</a> for the figures.</p>
+        <p>The real difference between the three routes is not the price. It is how many projects you see before you choose, and whether anyone compares them for you.</p>
+      </div>
+    </div></section>
+    <section class="section"><div class="section-inner">
+      <div class="section-head center g-reveal"><span class="label">Whoever You Buy Through</span><div class="rule" style="margin-left:auto;margin-right:auto;"></div><h2 class="section-title">Four things <em>to check</em></h2></div>
+      <div class="cards g-reveal">
+        <article class="card"><h3>The bank guarantee</h3><p>Under Spanish law, money paid before completion must be covered by a bank guarantee or insurance policy in your name. Of the 130 developments we publish, 114 are off-plan or under construction, so this applies to most new-build purchases on the coast. Ask for it with the contract, not after.</p></article>
+        <article class="card"><h3>The building licence</h3><p>Confirm the building licence has been granted. The statutory guarantee over your payments only begins once it has, and a project can be marketed before that point.</p></article>
+        <article class="card"><h3>The price list</h3><p>Ask for the developer's dated price list and what each price includes: parking, storage, furniture, VAT. A price that exists only in a message is not a price.</p></article>
+        <article class="card"><h3>The agent's registration</h3><p>Estate agents operating in Andaluc&iacute;a must be registered with the Junta de Andaluc&iacute;a in RAICAA, the regional register of real estate agents. Ask for the number, and check it.</p></article>
+      </div>
+      <p class="body-copy g-reveal">Whoever you buy through, use your own independent lawyer to check the contract, the licence and the guarantee before you pay more than the reservation. See <a href="guide-bank-guarantee-off-plan-spain.html">how the bank guarantee works</a>.</p>
+    </div></section>
+    <section class="section segment-faq-section"><div class="section-inner">
+      <div class="section-head"><span class="label">Common Questions</span><div class="rule"></div><h2 class="section-title">What buyers <em>ask before choosing</em></h2></div>
+      <div class="segment-faq-list">
+        <details class="segment-faq-item" open>
+          <summary>Is it cheaper to buy a new-build directly from the developer?</summary>
+          <p>Usually not. Most developers on the Costa del Sol publish one price list and pay the agent's commission from their own budget, so coming direct rarely lowers the price. If a developer does offer a lower price for a direct purchase, get it in writing on the dated price list.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Who pays the estate agent's commission in Spain?</summary>
+          <p>On a new-build the developer pays it, and on a resale usually the seller. The buyer pays the agent nothing in either case, unless they have hired a buyer's agent on a fee, which should be agreed in writing before the search starts.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>What does a buyer's agent do in Spain?</summary>
+          <p>A buyer's agent works on the buyer's side of the search: finding, comparing and checking homes rather than selling one particular listing. On the Costa del Sol most are paid by the developer or the seller when the purchase completes, and some charge the buyer a fee.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Can I use more than one agent?</summary>
+          <p>Yes, but a developer pays one commission per sale, normally to whoever introduced you to that development first. Tell each agent which developments you have already seen or been introduced to, so there is no dispute later.</p>
+        </details>
+        <details class="segment-faq-item">
+          <summary>Do I still need a lawyer if I use an agent?</summary>
+          <p>Yes. An agent, a developer and a lawyer do different jobs. Your own independent lawyer checks the contract, the licence and the bank guarantee, and an agent's advice does not replace that.</p>
+        </details>
+      </div>
+    </div></section>
+    <div class="section-inner"><p class="body-copy g-reveal" style="text-align:center;">Once you have chosen, the next step is the purchase itself. See <a href="guide-how-buying-works.html">how buying a new-build works</a>, step by step.</p></div>`,
+  },
+  {
     file: 'referrals.html',
     title: 'Referral & Ambassador Program',
     description: 'Introduce someone to Nueva Living and receive a share of our commission when their Costa del Sol purchase completes.',
@@ -2395,7 +2499,7 @@ const pages = [
     seoContext: 'Nueva Living: New-Build Specialists on the Costa del Sol',
     heroTitle: 'We focus on <em>new developments</em>',
     heroLead: 'Nueva Living was created for buyers who want straightforward help in the Costa del Sol new-build market.',
-    body: `<section class="section"><div class="section-inner split"><div class="image-panel logo-panel"><img src="assets/liora/brand/nueva-living-lockup-sand-transparent.png?v=7" alt="Nueva Living logo" width="700" height="340"></div><div><span class="label">About Nueva Living</span><div class="rule"></div><h2 class="section-title">New builds are <em>what we know</em></h2><p class="body-copy">Because we only work with new and off-plan homes, we know the developers, the projects and the questions buyers should ask.</p><p class="body-copy">Our job is simple: show you what is available, explain what is good and help you leave the wrong options behind.</p></div></div></section>
+    body: `<section class="section"><div class="section-inner split"><div class="image-panel logo-panel"><img src="assets/liora/brand/nueva-living-lockup-sand-transparent.png?v=7" alt="Nueva Living logo" width="700" height="340"></div><div><span class="label">About Nueva Living</span><div class="rule"></div><h2 class="section-title">New builds are <em>what we know</em></h2><p class="body-copy">Nueva Living is a new-build real estate agency and buyer's agent. Because we only work with new and off-plan homes, we know the developers, the projects and the questions buyers should ask.</p><p class="body-copy">Our job is simple: show you what is available, explain what is good and help you leave the wrong options behind.</p></div></div></section>
     <section class="section founder-section" id="founder"><div class="section-inner split founder-layout"><figure class="founder-portrait"><img src="assets/liora/team/sasan-raftari-founder.jpg?v=20260727" srcset="assets/liora/team/sasan-raftari-founder-compact.jpg?v=20260727 646w, assets/liora/team/sasan-raftari-founder.jpg?v=20260727 1064w" sizes="(max-width: 980px) calc(100vw - 40px), 46vw" alt="Sasan Raftari, founder of Nueva Living" width="1064" height="1479" loading="lazy" decoding="async"></figure><div class="founder-copy"><span class="label">Founder</span><div class="rule"></div><h2 class="section-title">Sasan <em>Raftari</em></h2><p class="founder-role">Founder, Nueva Living</p><p class="body-copy">Sasan founded Nueva Living to make the search for a new home on the Costa del Sol clearer and more focused.</p><p class="body-copy">Sasan has spent 17 years in sales, around ten of them in digital as a product manager, ecommerce manager and head of digital. He combines the two to build the Costa del Sol's most user-friendly and advanced portal for new-build property.</p><p class="body-copy">Contact him directly to discuss your search, ask about a project or build a shortlist around what matters to you.</p><div class="founder-contact" aria-label="Contact Sasan Raftari"><a href="mailto:sasan@nuevaliving.com"><span>Email</span><strong>sasan@nuevaliving.com</strong></a><a href="https://wa.me/46707576709" target="_blank" rel="noopener" data-whatsapp-advisor data-context="Sasan Raftari, Founder" data-intent="contact founder"><span>Phone / WhatsApp</span><strong>+46 707 57 67 09</strong></a></div></div></div></section>
     <section class="section founder-section" id="sami-altun"><div class="section-inner split founder-layout founder-layout-reverse"><figure class="founder-portrait"><img src="assets/liora/team/sami-altun-co-founder.jpg?v=20260727" srcset="assets/liora/team/sami-altun-co-founder-compact.jpg?v=20260727 560w, assets/liora/team/sami-altun-co-founder.jpg?v=20260727 1024w" sizes="(max-width: 980px) calc(100vw - 40px), 46vw" alt="Sami Altun, co-founder of Nueva Living" width="1024" height="1535" loading="lazy" decoding="async"></figure><div class="founder-copy"><span class="label">Co-Founder</span><div class="rule"></div><h2 class="section-title">Sami <em>Altun</em></h2><p class="founder-role">Co-Founder, Nueva Living</p><p class="body-copy">Sami brings a background in business development and economics, with a practical focus on evaluating opportunities, structuring decisions and building long-term relationships.</p><p class="body-copy">At Nueva Living, he connects commercial insight with each buyer's priorities, helping keep project selection and the purchasing process clear, considered and grounded.</p><div class="founder-contact" aria-label="Contact Sami Altun"><a href="mailto:sami@nuevaliving.com"><span>Email</span><strong>sami@nuevaliving.com</strong></a><a href="https://wa.me/34645446624" target="_blank" rel="noopener" data-whatsapp-advisor data-whatsapp-number="34645446624" data-context="Sami Altun, Co-Founder" data-intent="contact co-founder"><span>Phone / WhatsApp</span><strong>+34 645 44 66 24</strong></a></div></div></div></section>
     <section class="section quiet-band"><div class="section-inner"><div class="cards"><article class="card"><div class="card-number">40+</div><h3>Developers We Work With</h3><p>Direct conversations and project access across the main Costa del Sol areas.</p></article><article class="card"><div class="card-number">7</div><h3>Areas We Cover</h3><p>From Marbella and Benahavis to Estepona, Nueva Andalucia, Mijas and Fuengirola.</p></article><article class="card"><div class="card-number">100%</div><h3>Focused on New Builds</h3><p>One clear focus keeps our advice useful and up to date.</p></article></div></div></section>
