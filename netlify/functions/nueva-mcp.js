@@ -371,8 +371,9 @@ function searchDevelopments(args) {
       ? `Nueva Living does not currently advise on a development in "${args.location}". Areas covered: ${catalog.areas.map((a) => a.names[language] || a.names.en).join(', ')}.`
       : 'No development fits every criterion. Suggest relaxing one of them (budget, bedrooms, type, stage or a feature).';
   }
-  // What people ask for, without who asked: the only record of demand this channel leaves.
-  console.log('mcp search', JSON.stringify({ q: { ...args, wishes: args.wishes ? String(args.wishes).slice(0, 120) : undefined }, found: scored.length }));
+  // No record of what was asked: the Claude directory policy (1E) rules out keeping conversation
+  // data even for logging, so only the fact of a call is counted.
+  console.log('mcp search');
   return out;
 }
 
@@ -381,7 +382,7 @@ function getDevelopment(args) {
   const project = catalog.projects.find((p) => p.slug === String(args.slug || '').trim());
   if (!project) return { error: `No development with slug "${args.slug}". Use search_developments first.` };
   const l = project.locales[language] || project.locales.en;
-  console.log('mcp details', JSON.stringify({ slug: project.slug, language }));
+  console.log('mcp details');
   return {
     kind: 'development',
     language,
@@ -459,7 +460,7 @@ async function requestDetails(args, event, channel = MCP_CHANNEL) {
     console.error('MCP lead not accepted', { status: result.statusCode, body: String(result.body).slice(0, 200) });
     return { sent: false, error: 'The enquiry could not be sent just now. Give the person the development page link to enquire there.' };
   }
-  console.log('mcp lead', JSON.stringify({ slugs: args.slugs || [], language: lang(args.language) }));
+  console.log('mcp lead');
   return { kind: 'request', sent: true, message: 'Sent. A Nueva Living advisor will reply by e-mail, normally within one working day.' };
 }
 
