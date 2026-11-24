@@ -1,0 +1,91 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "nueva-living",
+  "version": "1.0.0",
+  "description": "Search new-build and off-plan homes on the Costa del Sol, Spain, with the developers' list prices, delivery dates, floor plans and a map, and ask a Nueva Living advisor to get in touch.",
+  "author": { "name": "Nueva Living", "email": "contact@nuevaliving.com", "url": "https://nuevaliving.com" },
+  "homepage": "https://nuevaliving.com/ai.html",
+  "keywords": ["real estate", "new build", "off-plan", "Marbella", "Estepona", "Costa del Sol", "Spain", "property search", "homes for sale"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Nueva Living",
+        "shortDescription": "Costa del Sol new-build homes",
+        "longDescription": "Nueva Living is an independent advisory for new-build homes on the Costa del Sol in Spain, from Torremolinos to Casares: Marbella, Estepona, Benahavís, Nueva Andalucía, Mijas and nearby.\n\nDescribe what you are looking for in your own words, such as area, budget, bedrooms, sea views, a private pool or walking to the beach, and the app returns up to six matching developments as cards with photos, the developer's list price from, construction stage, expected delivery and a map. Open one to see the homes on its price list with bedrooms, size, price and floor plan, what the price includes, drive times and the documents available.\n\nWhen you want current availability or a viewing, you can ask a Nueva Living advisor to contact you. The app sends your name and e-mail, and your phone and message if you give them, only after you agree.\n\nWorks in English, Spanish, French, German, Russian, Arabic, Dutch, Polish, Swedish and Norwegian.\n\nLimitations: prices are the developers' list prices before Spanish VAT and purchase costs, and are reconfirmed by an advisor before any reservation. Images of unbuilt homes are computer-generated illustrations and map positions are approximate. The app covers new developments only, not resale homes or rentals, and does not take reservations or payments.",
+        "developerName": "Nueva Living",
+        "category": "Lifestyle",
+        "capabilities": [
+          "Search Costa del Sol new developments by area, budget, size, bedrooms, type, stage and features",
+          "Show a development's price list, floor plans, delivery date and location",
+          "Send an enquiry to a Nueva Living advisor with the user's consent"
+        ],
+        "websiteURL": "https://nuevaliving.com",
+        "supportURL": "https://nuevaliving.com/contact.html",
+        "privacyPolicyURL": "https://nuevaliving.com/privacy-policy.html",
+        "termsOfServiceURL": "https://nuevaliving.com/legal-notice.html",
+        "defaultPrompt": [
+          "New-build villas in Benahavís under €2.5 million with sea views",
+          "Two-bedroom apartments near the beach in Estepona, under €600,000",
+          "Off-plan penthouses in Marbella delivered by 2028"
+        ],
+        "brandColor": "#33261B",
+        "brandColorDark": "#C9A45F",
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Search by area, type, budget and a feature.",
+              "prompt": "Find new-build villas in Benahavís under €3 million with sea views.",
+              "tools_triggered": "search_developments",
+              "expected_behavior": "Calls search_developments with location Benahavís, property_type villa, budget_max 3000000 and features [sea_view]. Shows up to six development cards with list price from, stage, delivery and a map, and says prices are list prices before VAT."
+            },
+            {
+              "description": "Open the details of one development from a search.",
+              "prompt": "Show me two-bedroom apartments in Estepona under €500,000, then open the first one and list its available homes.",
+              "tools_triggered": "search_developments, get_development",
+              "expected_behavior": "Searches Estepona apartments with bedrooms_min 2 and budget_max 500000, then calls get_development with the first result's slug and lists the homes on its price list with bedrooms, size and price, and the note on what the price includes."
+            },
+            {
+              "description": "Search in another language; results come back in it.",
+              "prompt": "Busco un ático de obra nueva en Marbella con piscina privada, hasta 2 millones de euros.",
+              "tools_triggered": "search_developments",
+              "expected_behavior": "Calls search_developments with location Marbella, property_type penthouse, budget_max 2000000, features [private_pool] and language es, and answers in Spanish with names, prices and dates in Spanish formats."
+            },
+            {
+              "description": "Search by stage and size; the assistant narrows instead of repeating.",
+              "prompt": "Which completed, key-ready apartments of at least 100 m² are there in Mijas?",
+              "tools_triggered": "search_developments",
+              "expected_behavior": "Calls search_developments with location Mijas, property_type apartment, stage completed and size_min 100. If more matches exist, offers the returned narrowing suggestions rather than calling again."
+            },
+            {
+              "description": "Ask to be contacted; the enquiry is sent only after the user agrees.",
+              "prompt": "I like the first development. Please ask an advisor to email me: Review Tester, review.tester@example.com. I agree to be contacted.",
+              "tools_triggered": "request_details",
+              "expected_behavior": "Confirms the name and e-mail with the user, then calls request_details with consent true and the development's slug, and tells the user an advisor will reply by e-mail."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Outside the area covered (not the Costa del Sol). The app should not be used, or should say it only covers Costa del Sol new developments.",
+              "prompt": "Find me a flat to rent in central Madrid."
+            },
+            {
+              "description": "Contact details mentioned without a request to be contacted. request_details must not be called; the assistant should not send the details.",
+              "prompt": "My name is Anna Berg and my email is anna@example.com. What does a new-build apartment in Estepona cost?"
+            },
+            {
+              "description": "A general question with no property search. The app should not be called.",
+              "prompt": "What is the capital of Andalusia?"
+            }
+          ]
+        },
+        "demo_recording_url": "REPLACE_WITH_DEMO_VIDEO_URL",
+        "commerce": false,
+        "commerce_description": "This app does not sell products or process payments. It shows developers' list prices and can pass an enquiry to an advisor with the user's consent."
+      }
+    }
+  }
+}

@@ -316,7 +316,7 @@ const TOOLS = [
       required: ['first_name', 'last_name', 'email', 'consent'],
       additionalProperties: false,
     },
-    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: true },
+    annotations: { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: true },
     _meta: toolMeta('Sending your request to Nueva Living…', 'Request sent to a Nueva Living advisor'),
   },
 ];
