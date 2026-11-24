@@ -277,7 +277,7 @@ const TOOLS = [
       },
       additionalProperties: false,
     },
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    annotations: { title: 'Search Nueva Living developments', readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     _meta: toolMeta('Searching Nueva Living developments…', 'Found the best matches'),
   },
   {
@@ -293,7 +293,7 @@ const TOOLS = [
       required: ['slug'],
       additionalProperties: false,
     },
-    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
+    annotations: { title: 'Get development details', readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     _meta: toolMeta('Opening the development…', 'Development details ready'),
   },
   {
@@ -316,7 +316,7 @@ const TOOLS = [
       required: ['first_name', 'last_name', 'email', 'consent'],
       additionalProperties: false,
     },
-    annotations: { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: true },
+    annotations: { title: 'Ask a Nueva Living advisor to get in touch', readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: true },
     _meta: toolMeta('Sending your request to Nueva Living…', 'Request sent to a Nueva Living advisor'),
   },
 ];
