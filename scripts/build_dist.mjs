@@ -794,6 +794,8 @@ const assetDirectories = [
   'assets/liora/projects',
   'assets/liora/team',
   'assets/liora/viewing',
+  // One 1200x630 link-preview picture per page, made by make_share_images.py.
+  'assets/liora/share',
   // The majolica tile that the Design Hills stylesheet repeats as its ribbon, seams
   // and curtain. The logos in this folder are inlined into the pages at build time,
   // so only the tile is fetched.
@@ -873,6 +875,40 @@ function escapeHtml(value) {
 function absoluteUrl(file) {
   const meta = pageMeta[file];
   return `${siteUrl}${meta?.path || `/${file}`}`;
+}
+
+// The link preview. WhatsApp drops an og:image it finds too heavy -- the
+// project heroes are 450-1000 KB, and the Design Hills and Ocho de Oro links
+// went out with no picture at all -- and thirty-eight pages without a hero of
+// their own all shared one stock terrace. make_share_images.py gives every page
+// its own 1200x630 picture under 200 KB and records it in
+// content/share-images.json; this points og:image and twitter:image at it on
+// the English page and on its nine translations, whichever builder wrote them.
+const shareManifestPath = path.join(root, 'content', 'share-images.json');
+const shareManifest = fs.existsSync(shareManifestPath)
+  ? JSON.parse(fs.readFileSync(shareManifestPath, 'utf8'))
+  : {};
+
+function applyShareImage(html, publicName) {
+  const page = publicName.replace(/^[a-z]{2}\//, '');
+  const entry = shareManifest[page];
+  if (!entry) return html;
+  const url = `${siteUrl}/${entry.file}`;
+  let out = html
+    .replace(/\s*<meta property="og:image:(?:width|height|type|secure_url)" content="[^"]*"\s*\/?>/g, '')
+    .replace(/<meta name="twitter:image" content="[^"]*"/g, `<meta name="twitter:image" content="${url}"`);
+  // A page whose builder wrote no og:image at all (the translated compare
+  // pages) gets one beside its description, so it is not shared as a bare link.
+  if (!/<meta property="og:image" content=/.test(out)) {
+    out = out.replace(/(\n\s*)(<meta name="description" content="[^"]*"\s*\/?>)/i,
+      (m, indent, tag) => `${indent}${tag}${indent}<meta property="og:image" content="">`);
+  }
+  out = out.replace(/(\s*)<meta property="og:image" content="[^"]*"\s*\/?>/, (m, indent) =>
+    `${indent}<meta property="og:image" content="${url}">`
+    + `${indent}<meta property="og:image:width" content="1200">`
+    + `${indent}<meta property="og:image:height" content="630">`
+    + `${indent}<meta property="og:image:type" content="image/jpeg">`);
+  return out;
 }
 
 function seoBlock(file) {
@@ -1937,6 +1973,7 @@ function localiseGalleryChrome(html, locale) {
   // received `locale` was impossible to read, and the skip link shipped in
   // English on every locale because of it.
   let out = injectSeo(html, publicName);
+  out = applyShareImage(out, publicName);
   out = inheritLocaleRobots(out, publicName);
   out = injectTracking(out);
   out = injectConversion(out);

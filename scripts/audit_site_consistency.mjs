@@ -5617,6 +5617,68 @@ let scriptMixChecked = 0;
 }
 
 let shareImageChecked = 0;
+let ownPreviewChecked = 0;
+const shareManifestFile = path.join(root, 'content', 'share-images.json');
+const shareManifest = fs.existsSync(shareManifestFile)
+  ? JSON.parse(fs.readFileSync(shareManifestFile, 'utf8'))
+  : {};
+
+// Every URL is shared with its own picture, small enough to be shown.
+//
+// WhatsApp quietly drops a preview image it finds too heavy: Design Hills and
+// Ocho de Oro went out as bare links while Tyrian, a little lighter, came
+// through. And thirty-eight pages without a picture of their own all shared one
+// stock terrace, so in a chat every guide looked like every other. Each page in
+// dist (bar 404 and thank-you) must point og:image at assets/liora/share/<page>.jpg,
+// the file must exist and be at most 300 KB, no two pages may share the same
+// bytes, and a translation must preview with its English page's picture.
+// A new page fails here until `python3 scripts/make_share_images.py` has run.
+if (fs.existsSync(dist)) {
+  const skip = new Set(['404.html', 'thank-you.html']);
+  const missing = [];
+  const heavy = [];
+  const seen = new Map();
+  const twins = [];
+  const drift = [];
+  const ogOf = (file) => {
+    const m = fs.readFileSync(file, 'utf8').match(/<meta property="og:image" content="([^"]+)"/);
+    return m ? m[1].split('?')[0] : null;
+  };
+  for (const page of fs.readdirSync(dist).filter((f) => f.endsWith('.html') && !skip.has(f))) {
+    ownPreviewChecked += 1;
+    const og = ogOf(path.join(dist, page));
+    const want = `${CANONICAL_HOST}/assets/liora/share/${page.replace(/\.html$/, '.jpg')}`;
+    if (og !== want) { missing.push(`${page} shares ${og ? og.replace(/^https?:\/\/[^/]+\//, '') : 'nothing'}`); continue; }
+    const rel = `assets/liora/share/${page.replace(/\.html$/, '.jpg')}`;
+    const file = path.join(root, rel);
+    if (!fs.existsSync(file)) { missing.push(`${page}: ${rel} does not exist`); continue; }
+    const bytes = fs.readFileSync(file);
+    if (bytes.length > 300_000) heavy.push(`${rel} is ${Math.round(bytes.length / 1024)} KB`);
+    const sha = createHash('sha256').update(bytes).digest('hex');
+    if (seen.has(sha)) twins.push(`${page} and ${seen.get(sha)}`);
+    else seen.set(sha, page);
+    for (const locale of ATTR_LOCALES) {
+      const localeFile = path.join(dist, locale, page);
+      if (!fs.existsSync(localeFile)) continue;
+      ownPreviewChecked += 1;
+      const other = ogOf(localeFile);
+      if (other !== want) drift.push(`${locale}/${page} shares ${other ? other.split('/').pop() : 'nothing'}`);
+    }
+  }
+  if (missing.length) {
+    fail('content/share-images.json', `${missing.length} page(s) have no link-preview picture of their own; `
+      + `run python3 scripts/make_share_images.py and rebuild: ${missing.slice(0, 4).join('; ')}.`);
+  }
+  if (heavy.length) {
+    fail('assets/liora/share', `${heavy.length} link-preview picture(s) over 300 KB, which WhatsApp drops: ${heavy.slice(0, 4).join('; ')}.`);
+  }
+  if (twins.length) {
+    fail('assets/liora/share', `${twins.length} pair(s) of pages preview with the same picture: ${twins.slice(0, 4).join('; ')}.`);
+  }
+  if (drift.length) {
+    fail('assets/liora/share', `${drift.length} translated page(s) preview with a different picture from their English page: ${drift.slice(0, 4).join('; ')}.`);
+  }
+}
 
 // A project page is shared with a picture of that project.
 //
@@ -5647,7 +5709,10 @@ let shareImageChecked = 0;
     const english = ogImage(path.join(dist, page));
     if (!english) continue;
     shareImageChecked += 1;
-    if (!english.includes(`/projects/${slug}/`)) {
+    // The preview itself is a small copy under assets/liora/share; what it was
+    // cut from is recorded in the manifest, and that must be the project's own.
+    const shareSource = shareManifest[page]?.source || english;
+    if (!shareSource.includes(`projects/${slug}/`)) {
       stock.push(`${page} shares ${english.replace(/^https?:\/\/[^/]+\//, '')}`);
     }
     for (const locale of ATTR_LOCALES) {
@@ -6421,5 +6486,5 @@ if (failures.length) {
     + `${titleLeadChecked} titles checked for leading with the query rather than the brand, `
     + `${stickyOffsetChecked} sticky rules checked for a derived header offset, `
     + `${leadSpamChecked} spam-rule sample set checked against real names, `
-    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${fragmentLinkChecked} based pages checked for bare fragment links, ${runtimeStringChecked} runtime strings checked for every locale, ${cardFilterChecked} cards checked against the filter vocabulary, ${filterPillChecked} filter buttons checked for at least one card, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${scriptMixChecked} translated strings checked for one alphabet, ${indexFactsChecked} index facts checked against the project list, ${shareImageChecked} link previews checked for their own project's image, ${metricLabelChecked} overlay metric labels checked for one word per language, ${factAgreementChecked} facts checked for agreeing with themselves inside their own project, ${footerShapeChecked} footers checked against the one shared shape, ${imageReviewChecked} project images checked against the review manifest, ${tagDelimiterChecked} pages checked for a closing tag missing its angle bracket, ${amenityCatalogueChecked} project amenities checked against the catalogue, ${pairShapeChecked} paired fields checked for a string where a pair belongs, ${amenityNoteChecked} amenity descriptions checked for all ten languages, ${addressFormChecked} table translations checked for one form of address per language, ${amenityOverlapChecked} project amenities checked for naming one thing twice, ${inlineScriptChecked} inline scripts checked for parsing, ${profileFactsChecked} organisation nodes checked against the business profile's own facts, ${areaMeasureChecked} built-area labels checked against the usable-area word, ${overlayShapeChecked} overlay arrays checked against their English length, ${diacriticChecked} translated values checked for words missing their accent, ${offPlanTermChecked} off-plan sentences checked against the construction word, ${scriptSkeletonChecked} inline scripts checked for code rewritten by a translation, ${leadFieldChecked} lead fields checked for surviving the forwarder, ${eventNameChecked} mapped conversions checked against their emission site, ${conversionFlagChecked} conversion flags checked for double-counting one action, ${discoveryStatusChecked} project statuses checked for a string-table entry, ${bannedTermChecked} project overlays checked against the settled terminology, ${runtimeLabelChecked} script-written labels checked against the English build, ${walkthroughChecked} walkthrough rooms checked against their plan, gallery and translations, ${mcpEntryChecked} connector entries checked for the real name and developer, ${cardSizeChecked} card size lists checked against their price list, ${chatKnowledgeChecked} chat pages checked for saying nothing their published page does not.`);
+    + `${overlayCaseChecked} overlay words checked for one capitalisation each, ${floorSegmentCaseChecked} floor label segments checked for phrase-position case, ${overlayFloorChecked} overlay floor labels checked against FLOOR_PARTS, ${overlayMediaChecked} overlay media lists checked for their images, ${kickerChecked} heading kickers checked for translation, ${englishLeakChecked} localised pages checked for untranslated body copy, ${layoutReadChecked} scripts checked for top-level layout reads, ${blockingCssChecked} pages checked for render-blocking third-party CSS, ${contrastChecked} text/ground colour pairs checked for contrast, ${deliveryDateChecked} translated facts checked against the English date, ${unitCellChecked} availability tables checked for English price and size cells, ${realNameChecked} project pages checked for the developer's own name, ${quarterLabelChecked} delivery labels checked for one quarter form per language, ${consentLayerChecked} fixed layers checked against the consent banner, ${cardPriceChecked} card price labels checked against their amount, ${priceRangeChecked} price filters checked against the cards they filter, ${fragmentLinkChecked} based pages checked for bare fragment links, ${runtimeStringChecked} runtime strings checked for every locale, ${cardFilterChecked} cards checked against the filter vocabulary, ${filterPillChecked} filter buttons checked for at least one card, ${sizeLabelChecked} unit size labels checked for one word per project, ${localePriceChecked} translated pages checked for English price formatting, ${overlayPriceChecked} overlay prices checked for one spelling per language, ${consentChecked} tagged pages checked for consent defaults ahead of the loader, ${landmarkCoordsChecked} landmark coordinates checked against the Costa del Sol, ${areaProjectsChecked} projects checked against their own area page, ${badgeSpellingChecked} card chrome strings checked for one spelling each, ${areaPlaceNamesChecked} area-guide strings checked for Spanish accents, ${areaHeroChecked} area guides checked for their own licensed hero photograph, ${inlineContrastChecked} inline text colours checked against the homepage grounds, ${hiddenRuleChecked} stylesheets checked for a hidden attribute that hides, ${areaRuleCopyChecked} builders checked for their own copy of the area rules, ${crmAreaChecked} projects checked for one area on the page and in the CRM, ${distanceRowsChecked} translated distance tables checked against their English figures, ${overlayStructuralChecked} structural fields checked for surviving localization, ${unitRatioChecked} card unit ratios checked against their own total, ${dropdownDecorationChecked} nav dropdown decoration cancels checked, ${areaDisplayNameChecked} project areas checked for a display name, ${scriptMixChecked} translated strings checked for one alphabet, ${indexFactsChecked} index facts checked against the project list, ${shareImageChecked} link previews checked for their own project's image, ${ownPreviewChecked} link previews checked for a picture of their own under 300 KB, ${metricLabelChecked} overlay metric labels checked for one word per language, ${factAgreementChecked} facts checked for agreeing with themselves inside their own project, ${footerShapeChecked} footers checked against the one shared shape, ${imageReviewChecked} project images checked against the review manifest, ${tagDelimiterChecked} pages checked for a closing tag missing its angle bracket, ${amenityCatalogueChecked} project amenities checked against the catalogue, ${pairShapeChecked} paired fields checked for a string where a pair belongs, ${amenityNoteChecked} amenity descriptions checked for all ten languages, ${addressFormChecked} table translations checked for one form of address per language, ${amenityOverlapChecked} project amenities checked for naming one thing twice, ${inlineScriptChecked} inline scripts checked for parsing, ${profileFactsChecked} organisation nodes checked against the business profile's own facts, ${areaMeasureChecked} built-area labels checked against the usable-area word, ${overlayShapeChecked} overlay arrays checked against their English length, ${diacriticChecked} translated values checked for words missing their accent, ${offPlanTermChecked} off-plan sentences checked against the construction word, ${scriptSkeletonChecked} inline scripts checked for code rewritten by a translation, ${leadFieldChecked} lead fields checked for surviving the forwarder, ${eventNameChecked} mapped conversions checked against their emission site, ${conversionFlagChecked} conversion flags checked for double-counting one action, ${discoveryStatusChecked} project statuses checked for a string-table entry, ${bannedTermChecked} project overlays checked against the settled terminology, ${runtimeLabelChecked} script-written labels checked against the English build, ${walkthroughChecked} walkthrough rooms checked against their plan, gallery and translations, ${mcpEntryChecked} connector entries checked for the real name and developer, ${cardSizeChecked} card size lists checked against their price list, ${chatKnowledgeChecked} chat pages checked for saying nothing their published page does not.`);
 }
