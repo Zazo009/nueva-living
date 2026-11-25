@@ -203,8 +203,30 @@
     return false;
   }
 
+  // The <select> a press is meant for: the select itself, or the label
+  // wrapped around it. The hero search fields are labels the width of their
+  // cell, so a press on the caption ("Price"), the chevron or the padding
+  // went to the label, which the browser forwards to the select as its own
+  // click -- and that opened the system menu this script exists to replace.
+  function targetSelect(target) {
+    if (!target || !target.closest) return null;
+    var select = target.closest('select');
+    if (select) return select;
+    if (target.closest('a, button, input, textarea, [contenteditable]')) return null;
+    var label = target.closest('label');
+    var control = label && label.control;
+    return control && control.tagName === 'SELECT' ? control : null;
+  }
+
+  // The label's own activation comes on click, after the mousedown above has
+  // already opened the list; stop it, or it reaches the select as well.
+  document.addEventListener('click', function (event) {
+    var select = targetSelect(event.target);
+    if (select && select !== event.target && eligible(select)) event.preventDefault();
+  }, true);
+
   document.addEventListener('mousedown', function (event) {
-    var select = event.target.closest && event.target.closest('select');
+    var select = targetSelect(event.target);
     if (select && eligible(select)) {
       if (event.button !== 0) return;
       event.preventDefault();

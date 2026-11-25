@@ -3401,6 +3401,56 @@ input[type="range"] {
   content: none;
 }
 
+/* Whole pixels, so neighbouring highlights meet.
+   The label had no height of its own (12 + 8 padding around a 9px line came to
+   35.75px), so every row started three quarters of a pixel down, and the
+   mobile panel's 349px inside split into two 174.5px columns. At any zoom but
+   100% the browser rounds each row's background on its own: the active row
+   and the hovered one beside it landed a pixel or two apart, up and down and
+   across, which is what showed. Label and rows now have fixed heights, the
+   grid fixed rows, and the mobile panel an even inside width. */
+.lang-switcher-panel-label,
+#nav .lang-switcher-panel-label {
+  box-sizing: border-box;
+  height: 36px;
+  line-height: 16px;
+}
+
+#nav .nav-links .lang-switcher:not([data-lang-switcher-compact]) .lang-switcher-panel-options,
+.site-nav .nav-links .lang-switcher:not([data-lang-switcher-compact]) .lang-switcher-panel-options {
+  grid-auto-rows: 34px;
+}
+
+#nav .nav-links .lang-switcher:not([data-lang-switcher-compact]) .lang-switcher-option,
+.site-nav .nav-links .lang-switcher:not([data-lang-switcher-compact]) .lang-switcher-option {
+  box-sizing: border-box;
+  height: 34px;
+}
+
+[data-lang-switcher-compact] .lang-switcher-panel-options {
+  grid-auto-rows: 46px;
+}
+
+#nav [data-lang-switcher-compact] .lang-switcher-option,
+.site-nav [data-lang-switcher-compact] .lang-switcher-option,
+[data-lang-switcher-compact] .lang-switcher-option {
+  box-sizing: border-box;
+  height: 46px;
+}
+
+@media (max-width: 1120px) {
+  #nav [data-lang-switcher-compact] .lang-switcher-panel,
+  .site-nav [data-lang-switcher-compact] .lang-switcher-panel,
+  [data-lang-switcher-compact] .lang-switcher-panel {
+    --nv-lang-panel-w: calc(2 * round(down, min(176px, (100vw - 26px) / 2), 1px) + 2px);
+    width: var(--nv-lang-panel-w);
+    /* centred by a whole-pixel left, not translateX(-50%), which put it half
+       a pixel off on every odd-width phone */
+    left: round(down, (100vw - var(--nv-lang-panel-w)) / 2, 1px);
+    transform: none;
+  }
+}
+
 /* Arabic is never tracked or cased; a size up matches the Latin capitals'
    optical height. Cairo where the page loads it (ar), the system face
    elsewhere. Applies to every switcher variant, compact included. */
